@@ -1,0 +1,27 @@
+{
+    "family": "app_mdocs", 
+    "containerDefinitions": [
+        {
+            "name": "web", 
+            "image": "067216503767",
+            "cpu": 512,
+            "memory": 1024, 
+            "links": [
+            ], 
+            "portMappings": [
+                {
+                    "containerPort": 8080, 
+                    "hostPort": 80
+                }
+            ], 
+            "essential": true, 
+            "environment": [
+            ], 
+            "mountPoints": [
+            ], 
+            "volumesFrom": [
+            ],
+            "disableNetworking": false
+        }
+    ]
+}

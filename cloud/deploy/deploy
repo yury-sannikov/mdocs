@@ -1,0 +1,32 @@
+#!/bin/bash
+set -e
+
+mkdir tmp
+mkdir tmp/app
+cp -rf ../../src/app/* ./tmp/app/
+COMMIT_HASH=`git rev-parse HEAD`
+echo "{\"value\":\"${COMMIT_HASH}\"}" > ./tmp/app/revision.json
+cp ../../src/package.json ./tmp/package.json
+cp ../docker/Dockerfile ./tmp/Dockerfile
+
+pushd tmp
+
+echo Get Docker Login commang from AWS
+DOCKER_LOGIN=`aws ecr get-login`
+echo Performing Docker Login to AWS
+eval $DOCKER_LOGIN
+
+docker build -t topsurgeon_api .
+docker tag topsurgeon_api:latest 067216503767.dkr.ecr.us-east-1.amazonaws.com/topsurgeon_api:latest
+docker push 067216503767.dkr.ecr.us-east-1.amazonaws.com/topsurgeon_api:latest
+
+popd
+
+rm -rf ./tmp
+
+# Force AWS EC2 do Blue-Green deployment
+docker run --rm \
+-e "AWS_ACCESS_KEY_ID=AKIAIPKZH7X4NJKN3DVQ" \
+-e "AWS_SECRET_ACCESS_KEY=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" \
+-e "AWS_DEFAULT_REGION=us-east-1" \
+silintl/ecs-deploy:latest -c TopSurgeon -n api -i 067216503767.dkr.ecr.us-east-1.amazonaws.com/topsurgeon_api:latest

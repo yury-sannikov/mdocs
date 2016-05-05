@@ -1,0 +1,291 @@
+extends ../layouts/layout
+//- http://cwbuecheler.com/web/tutorials/2014/restful-web-app-node-express-mongodb/
+
+block head
+  title #{application} &middot; Accounts
+
+block content
+  .container
+    .row
+      //- .col-md-4.col-md-push-8
+        .page-header
+          h2
+            i.fa.fa-user
+            | &nbsp;Account Details
+        //- USER INFO
+        #userInfo.well
+          p
+            img(id='userPicture', src='', width='100px')
+          p
+            strong Name:
+            |  <span id='userInfoName'></span>
+          p.hidden-xs
+            strong Email:
+            | &nbsp;
+            a(href='', id='userInfoEmail')
+          p.hidden-xs
+            strong Location:
+            |  <span id='userInfoLocation'></span>
+          p.hidden-xs
+            strong Gender:
+            |  <span id='userInfoGender'></span>
+          p.hidden-xs
+            strong Website:
+            | &nbsp;
+            a(href='', id='userInfoWebsite')
+          p
+            strong Date Established:
+            |  <span id='userInfoEstablished'></span>
+          p
+            strong Last Logon:
+            |  <span id='userInfoLogon'></span>
+          p.hidden-xs
+            strong Last Update:
+            |  <span id='userInfoUpdate'></span>
+        //- /USER INFO
+      .col-md-12
+        .page-header
+          h2
+            i.fa.fa-thumbs-o-up
+            | &nbsp;Patient Reviews
+        a.linknewrequest.btn.btn-success.pull-center(href="#") New Review Request
+        //- Wrapper
+        #wrapper
+
+          //- USER LIST
+          #userList
+            table.table.table-striped
+              thead
+                th Name
+                th.hidden-xs Email
+                th.hidden-xs Phone
+                th.hidden-xs Review Date
+                th Rating
+                th.hidden-xs Actions
+              tbody
+                tr
+                  td
+                    a.linkshowuser.btn.btn-info.btn-xs(href="#") Chris Walton
+                  td.hidden-xs
+                    strong chris.walton@maill.com
+                  td.hidden-xs
+                    span 703-453-2312
+                  td.hidden-xs
+                    span Mar-22-2016
+                  td
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star-half-o
+                  td.hidden-xs
+                    a.linkdeleteuser.btn.btn-info.btn-xs(href="#") View
+                    | &nbsp;
+                    a.linkdeleteuser.btn.btn-primary.btn-xs(href="#") Resend&nbsp;
+                    | &nbsp;
+                    a.linkdeleteuser.btn.btn-danger.btn-xs(href="#") Delete&nbsp;
+                tr
+                  td
+                    a.linkshowuser.btn.btn-info.btn-xs(href="#") Jane Smith
+                  td.hidden-xs
+                    strong janes@yahuuu.com
+                  td.hidden-xs
+                    span 703-453-2312
+                  td.hidden-xs
+                    span Apr-12-2016
+                  td
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star-o
+                    i.fa.fa-star-o
+                  td.hidden-xs
+                    a.linkdeleteuser.btn.btn-info.btn-xs(href="#") View
+                    | &nbsp;
+                    a.linkdeleteuser.btn.btn-primary.btn-xs(href="#") Resend&nbsp;
+                    | &nbsp;
+                    a.linkdeleteuser.btn.btn-danger.btn-xs(href="#") Delete&nbsp;
+                tr
+                  td
+                    a.linkshowuser.btn.btn-info.btn-xs(href="#") Millind Pullan
+                  td.hidden-xs
+                    strong m.pullan@yehuuu.com
+                  td.hidden-xs
+                    span 703-453-2312
+                  td.hidden-xs
+                    span May-1-2016
+                  td
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star
+                  td.hidden-xs
+                    a.linkdeleteuser.btn.btn-info.btn-xs(href="#") View
+                    | &nbsp;
+                    a.linkdeleteuser.btn.btn-primary.btn-xs(href="#") Resend&nbsp;
+                    | &nbsp;
+                    a.linkdeleteuser.btn.btn-danger.btn-xs(href="#") Delete&nbsp;
+
+          //- /USER LIST
+
+        //- /WRAPPER
+
+
+  #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+      .modal-dialog.modal-sm
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+            h4#myModalLabel.modal-title Delete confirmation
+          .modal-body
+            h4 Are you sure?
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') No
+            button#yes.btn.btn-primary(type='button') Yes!
+
+
+  #requestModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+      .modal-dialog.modal-md
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+            h4#myModalLabel.modal-title New Review Request
+          .modal-body
+            .row
+              .col-sm-12
+                h4 Details
+                form(action='/', method='POST')
+                  input.form-control(type='hidden', name='_csrf', value=_csrf)
+                  .form-group
+                    label.sr-only(for='name') Name
+                    input.form-control(type='text', name='name', id='name', placeholder='Patient name', required)
+                  .form-group
+                    label.sr-only(for='email') Email
+                    input.form-control(type='email', name='email', id='email', placeholder='Patient email', required)
+                    #hint
+                  .form-group
+                    label.sr-only(for='email') Mobile Phone
+                    input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Patient phone # e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
+                  .form-group
+                    label.sr-only(for='location') Physician name
+                    input.form-control(type='text', name='location', id='location', placeholder='Physician name')
+                  .form-group
+                    label.sr-only(for='website') Visit date
+                    input.form-control(type='url', name='website', id='website', placeholder='Visit date (MM/DD/YYYY) e.g. 10/14/2016 ')
+
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Cancel
+            button#yes.btn.btn-primary(type='button') Send Request
+
+  //- script(src='lib/moment/min/moment.min.js')
+  //- script(src='lib/bootstrap/js/modal.js')
+block scripts
+  script.
+    // Userlist data array for filling in info box
+    var userListData = [];
+
+    // DOM Ready =============================================================
+    $(document).ready(function() {
+
+      //- Async Load Bootstrap Modal
+      $.ajax({
+        type: 'GET',
+        url: 'lib/bootstrap/js/modal.js',
+        dataType: 'script',
+        cache: true
+      });
+
+
+
+      // Username link click
+      //- $('#userList table tbody').on('click', 'td a.linkshowuser', showUserInfo);
+
+      // Delete User link click
+      $('#userList table tbody').on('click', 'td a.linkdeleteuser', deleteUser);
+
+      // New request link click
+      $('.linknewrequest').on('click', newRequest);
+
+    });
+
+    // Functions =============================================================
+
+
+    // Show User Info
+    function showUserInfo(event) {
+
+      // Prevent Link from Firing
+      event.preventDefault();
+
+      // Retrieve username from link rel attribute
+      var thisUserName = $(this).attr('rel');
+
+      // Get Index of object based on id value
+      var arrayPosition = userListData.map(function(arrayItem) { return arrayItem._id; }).indexOf(thisUserName);
+
+      // Get our User Object
+      var thisUserObject = userListData[arrayPosition];
+
+      //Populate Info Box  .attr("src", src)
+      $('#userPicture').attr("src", (thisUserObject.profile.picture));
+      $('#userInfoName').text(thisUserObject.profile.name);
+      $('#userInfoEmail').attr('href', 'mailto:' + thisUserObject.email).text(thisUserObject.email);
+      $('#userInfoLocation').text(thisUserObject.profile.location);
+      $('#userInfoGender').text(thisUserObject.profile.gender);
+      if (thisUserObject.profile.website) {
+        $('#userInfoWebsite').attr('href', thisUserObject.profile.website).text('Website Link');
+      }
+      $('#userInfoEstablished').text(moment(thisUserObject.activity.date_established).format('MMMM Do YYYY'));
+      $('#userInfoLogon').text(moment(thisUserObject.activity.last_logon).fromNow());
+      $('#userInfoUpdate').text(moment(thisUserObject.activity.last_update).fromNow());
+    };
+
+    // Delete User
+    function deleteUser(event) {
+
+      // Prevent Link from Firing
+      event.preventDefault();
+
+      // Pop up a confirmation dialog
+      // Convoluted because we have to
+      // pass the user's id through
+      function showmodal(userid) {
+        // show modal
+        $('#myModal').modal({keyboard:true,backdrop:'static'});
+        // if "yes" clicked
+        $('#yes').on('click', function () {
+          // close the modal
+          $('#myModal').modal('hide');
+        });
+      }
+
+      // call modal function with the user's account id
+      showmodal($(this).attr('rel'));
+
+    };
+
+
+    // Delete User
+    function newRequest(event) {
+
+      // Prevent Link from Firing
+      event.preventDefault();
+
+      // Pop up a confirmation dialog
+      // Convoluted because we have to
+      // pass the user's id through
+      function showmodal(userid) {
+        // show modal
+        $('#requestModal').modal({keyboard:true,backdrop:'static'});
+        // if "yes" clicked
+        $('#yes').on('click', function () {
+          // close the modal
+          $('#requestModal').modal('hide');
+        });
+      }
+
+      // call modal function with the user's account id
+      showmodal($(this).attr('rel'));
+
+    };
