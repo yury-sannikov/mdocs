@@ -3,14 +3,14 @@
     "containerDefinitions": [
         {
             "name": "web", 
-            "image": "067216503767",
+            "image": "067216503767.dkr.ecr.us-east-1.amazonaws.com/app-mdocs-co:latest",
             "cpu": 512,
-            "memory": 1024, 
+            "memory": 2048, 
             "links": [
             ], 
             "portMappings": [
                 {
-                    "containerPort": 8080, 
+                    "containerPort": 3030, 
                     "hostPort": 80
                 }
             ], 

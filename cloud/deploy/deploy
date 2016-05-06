@@ -2,10 +2,12 @@
 set -e
 
 mkdir tmp
-mkdir tmp/app
-cp -rf ../../src/app/* ./tmp/app/
+mkdir tmp/public tmp/src tmp/views
+cp -rf ../../src/public/* ./tmp/public/
+cp -rf ../../src/src/* ./tmp/src/
+cp -rf ../../src/views/* ./tmp/views/
 COMMIT_HASH=`git rev-parse HEAD`
-echo "{\"value\":\"${COMMIT_HASH}\"}" > ./tmp/app/revision.json
+echo "{\"value\":\"${COMMIT_HASH}\"}" > ./tmp/src/revision.json
 cp ../../src/package.json ./tmp/package.json
 cp ../docker/Dockerfile ./tmp/Dockerfile
 
@@ -16,17 +18,25 @@ DOCKER_LOGIN=`aws ecr get-login`
 echo Performing Docker Login to AWS
 eval $DOCKER_LOGIN
 
-docker build -t topsurgeon_api .
-docker tag topsurgeon_api:latest 067216503767.dkr.ecr.us-east-1.amazonaws.com/topsurgeon_api:latest
-docker push 067216503767.dkr.ecr.us-east-1.amazonaws.com/topsurgeon_api:latest
+docker build -t app-mdocs-co .
+docker tag app-mdocs-co:latest 067216503767.dkr.ecr.us-east-1.amazonaws.com/app-mdocs-co:latest
+docker push 067216503767.dkr.ecr.us-east-1.amazonaws.com/app-mdocs-co:latest
 
 popd
 
 rm -rf ./tmp
+
+export AWS_ACCESS_KEY_ID=AKIAIPKZH7X4NJKN3DVQ
+export AWS_SECRET_ACCESS_KEY=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
+export AWS_DEFAULT_REGION=us-east-1
+
+TASK_ARN=`aws ecs list-tasks --cluster app-mdocs-co --family app-mdocs-co-www | jq -r '.taskArns[0]'`
+aws ecs stop-task --cluster app-mdocs-co --task ${TASK_ARN}
 
 # Force AWS EC2 do Blue-Green deployment
 docker run --rm \
 -e "AWS_ACCESS_KEY_ID=AKIAIPKZH7X4NJKN3DVQ" \
 -e "AWS_SECRET_ACCESS_KEY=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" \
 -e "AWS_DEFAULT_REGION=us-east-1" \
-silintl/ecs-deploy:latest -c TopSurgeon -n api -i 067216503767.dkr.ecr.us-east-1.amazonaws.com/topsurgeon_api:latest
+silintl/ecs-deploy:latest -c app-mdocs-co -n www -i 067216503767.dkr.ecr.us-east-1.amazonaws.com/app-mdocs-co:latest
+

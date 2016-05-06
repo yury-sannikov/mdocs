@@ -1,20 +1,22 @@
 FROM node:argon
 
-WORKDIR /api
+WORKDIR /www
 
-COPY package.json /api/
+COPY package.json /www/
 
 RUN npm install --production \
   && npm cache clean \
   && rm -rf ~/.node-gyp /tmp/npm* \
   && rm -rf /shared-modules
 
-COPY ./app/ /api/app/
+COPY ["./public/", "/www/public/"]
+COPY ["./src/", "/www/src/"]
+COPY ["./views/", "/www/views/"]
 
 ENV SERVICE_8080_NAME="app-mdocs-co" \
-    PORT="8080" \
+    PORT="3030" \
     NODE_ENV="production"
 
-EXPOSE 8080
+EXPOSE 3030
 
-CMD ["node", "./app/index.js"]
+CMD ["node", "./src/index.js"]
