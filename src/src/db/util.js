@@ -1,7 +1,7 @@
 'use strict';
 
 // 3rd
-const pg = require('co-pg')(require('pg'));
+//const pg = require('co-pg')(require('pg'));
 const assert = require('better-assert');
 // 1st
 const config = require('../config');
@@ -16,16 +16,16 @@ const config = require('../config');
 ////////////////////////////////////////////////////////////
 
 // Configure pg client to parse int8 into Javscript integer
-pg.types.setTypeParser(20, val => val === null ? null : Number.parseInt(val, 10));
+//pg.types.setTypeParser(20, val => val === null ? null : Number.parseInt(val, 10));
 // And parse numerics into floats
-pg.types.setTypeParser(1700, val => val === null ? null : Number.parseFloat(val));
+//pg.types.setTypeParser(1700, val => val === null ? null : Number.parseFloat(val));
 
 ////////////////////////////////////////////////////////////
 
 // Run query with pooled connection
 exports.query = query;
 function* query(sql, params) {
-  const connResult = yield pg.connectPromise(config.DATABASE_URL);
+  const connResult = []; //yield pg.connectPromise(config.DATABASE_URL);
   const client = connResult[0];
   const done = connResult[1];
   try {
@@ -64,20 +64,20 @@ function* queryMany(sql, params) {
 //        return [count1, count2];
 //      });
 //    };
-pg.Client.prototype.queryOnePromise = function(sql, params) {
-  return this.queryPromise(sql, params).then(result => result.rows[0]);
-};
+// pg.Client.prototype.queryOnePromise = function(sql, params) {
+//   return this.queryPromise(sql, params).then(result => result.rows[0]);
+// };
 
-pg.Client.prototype.queryManyPromise = function(sql, params) {
-  return this.queryPromise(sql, params).then(result => result.rows);
-};
+// pg.Client.prototype.queryManyPromise = function(sql, params) {
+//   return this.queryPromise(sql, params).then(result => result.rows);
+// };
 
 ////////////////////////////////////////////////////////////
 
 // `runner` is a generator function that accepts one arguement:
 // a database client.
 function* withClient(runner) {
-  const connResult = yield pg.connectPromise(config.DATABASE_URL);
+  const connResult = []; //yield pg.connectPromise(config.DATABASE_URL);
   const client = connResult[0];
   const done = connResult[1];
 
