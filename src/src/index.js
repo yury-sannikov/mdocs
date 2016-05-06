@@ -2,7 +2,7 @@
 
 // 3rd party
 require('dotenv').config(); // Load env vars from .env, always run this early
-const koa = require('koa');
+const Koa = require('koa');
 const bouncer = require('koa-bouncer');
 const Pug = require('koa-pug');
 const debug = require('debug')('app:index');
@@ -14,7 +14,7 @@ const cancan = require('./cancan');
 
 ////////////////////////////////////////////////////////////
 
-const app = koa();
+const app = new Koa();
 app.poweredBy = false;
 app.proxy = config.TRUST_PROXY;
 
