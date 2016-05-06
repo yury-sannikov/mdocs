@@ -1,4 +1,6 @@
 #!/bin/bash
+rm -rf ./tmp
+
 set -e
 
 mkdir tmp
@@ -23,7 +25,7 @@ echo Performing Docker Login to AWS
 eval $DOCKER_LOGIN
 
 docker build -t app-mdocs-co .
-docker tag app-mdocs-co:latest 067216503767.dkr.ecr.us-east-1.amazonaws.com/app-mdocs-co:latest
+docker tag -f app-mdocs-co:latest 067216503767.dkr.ecr.us-east-1.amazonaws.com/app-mdocs-co:latest
 docker push 067216503767.dkr.ecr.us-east-1.amazonaws.com/app-mdocs-co:latest
 
 popd
