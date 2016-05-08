@@ -1334,7 +1334,7 @@ header.video-bg {
   height: 8px;
   border-radius: 100%;
   position: absolute;
-  top: 25px;
+  top: 45px;
   left: calc(50% - 4px);
   transition: all 300ms linear 0s;
 }
@@ -1343,9 +1343,9 @@ header.video-bg {
   content: '';
   display: block;
   width: 2px;
-  height: 58px;
+  height: 44px;
   position: absolute;
-  top: 33px;
+  top: 47px;
   left: calc(50% - 1px);
   transition: all 300ms linear 0s;
 }
@@ -1368,26 +1368,26 @@ header.video-bg {
 }
 
 .feature-note.right.top {
-  top: 10px;
-  right: 220px;
+  top: 80px;
+  right: 300px;
 }
 
 @media (max-width: 1199px) {
   .feature-note.right.top {
-    right: 130px;
+    right: 190px;
   }
 }
 
 @media (max-width: 991px) {
   .feature-note.right.top {
-    right: 15px;
+    right: 85px;
   }
 }
 
 @media (max-width: 767px) {
   .feature-note.right.top {
-    right: -110px;
-    top: -40px;
+    right: -70px;
+    top: -20px;
   }
 }
 
@@ -1409,13 +1409,13 @@ header.video-bg {
 }
 
 .feature-note.right.bottom {
-  top: 290px;
-  right: 221px;
+  top: 340px;
+  right: 281px;
 }
 
 @media (max-width: 1199px) {
   .feature-note.right.bottom {
-    right: 121px;
+    right: 171px;
   }
 }
 
@@ -1427,8 +1427,8 @@ header.video-bg {
 
 @media (max-width: 767px) {
   .feature-note.right.bottom {
-    right: -62px;
-    top: 175px;
+    right: -80px;
+    top: 195px;
   }
 }
 
@@ -1442,7 +1442,7 @@ header.video-bg {
 
 .feature-note.right.bottom .feature-name {
   float: left;
-  margin-left: 30px;
+  margin-left: -32px;
   padding-top: 70px;
   margin-top: 22px;
   -webkit-transform: scaleY(0);
@@ -1455,7 +1455,7 @@ header.video-bg {
 
 @media (max-width: 991px) {
   .feature-note.right.bottom .feature-name {
-    margin-left: -45px;
+    margin-left: -64px;
   }
 }
 
@@ -1469,7 +1469,7 @@ header.video-bg {
 }
 
 .feature-note.right.bottom .feature-name:before {
-  top: 58px;
+  top: 42px;
 }
 
 @media (max-width: 767px) {
@@ -1506,26 +1506,26 @@ header.video-bg {
 }
 
 .feature-note.left.top {
-  top: 115px;
-  left: 205px;
+  top: 155px;
+  left: 305px;
 }
 
 @media (max-width: 1199px) {
   .feature-note.left.top {
-    left: 105px;
+    left: 195px;
   }
 }
 
 @media (max-width: 991px) {
   .feature-note.left.top {
-    left: 0;
+    left: 90px;
   }
 }
 
 @media (max-width: 767px) {
   .feature-note.left.top {
-    left: -110px;
-    top: 20px;
+    left: -30px;
+    top: -20px;
   }
 }
 
@@ -1554,26 +1554,26 @@ header.video-bg {
 
 .feature-note.left.bottom {
   top: 395px;
-  left: 122px;
+  left: 302px;
   height: auto;
 }
 
 @media (max-width: 1199px) {
   .feature-note.left.bottom {
-    left: 22px;
+    left: 192px;
   }
 }
 
 @media (max-width: 991px) {
   .feature-note.left.bottom {
-    left: 5px;
+    left: 125px;
   }
 }
 
 @media (max-width: 767px) {
   .feature-note.left.bottom {
-    left: -140px;
-    top: 220px;
+    left: 0px;
+    top: 235px;
   }
 }
 
@@ -1583,7 +1583,7 @@ header.video-bg {
 
 @media (max-width: 991px) {
   .feature-note.left.bottom .indicator {
-    width: 100px;
+    width: 150px;
   }
 }
 
@@ -1620,7 +1620,7 @@ header.video-bg {
 .feature-note.left.bottom .feature-name:before {
   position: relative;
   display: inline-block;
-  top: 0;
+  top: -2px;
   left: calc(100% + 5px);
 }
 
@@ -1645,7 +1645,7 @@ header.video-bg {
 }
 
 .feature-note.show-cont .indicator .plus-icon:after {
-  width: 155px;
+  width: 157px;
 }
 
 .feature-note.show-cont .feature-name {
@@ -1661,7 +1661,7 @@ header.video-bg {
 }
 
 .feature-note.show-cont.right.bottom .indicator .plus-icon:after {
-  width: 237px;
+  width: 180px;
 }
 
 @media (max-width: 991px) {
@@ -1684,7 +1684,7 @@ header.video-bg {
 
 @media (max-width: 991px) {
   .feature-note.show-cont.left.bottom .indicator .plus-icon:after {
-    width: 48px;
+    width: 110px;
   }
 }
 
@@ -3476,7 +3476,7 @@ footer.row {
   }
 }
 
-#product-imgs .carousel-indicators {
+#product-imgs .carousel-indicators, #benefits-slides .carousel-indicators {
   bottom: 29px;
   display: table;
   margin-left: 0;
@@ -3487,14 +3487,14 @@ footer.row {
   margin: 0;
 }
 
-#product-imgs .carousel-indicators li {
+#product-imgs .carousel-indicators li, #benefits-slides .carousel-indicators li {
   float: left;
   width: 9px;
   height: 9px;
   margin: 0;
 }
 
-#product-imgs .carousel-indicators li + li {
+#product-imgs .carousel-indicators li + li, #benefits-slides .carousel-indicators li + li {
   margin-left: 8px;
 }
 
