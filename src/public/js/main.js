@@ -149,6 +149,18 @@
 
     }
 
+    /* ---------- CONTACT POPUP ---------- */
+
+    if ($('a[href="#contact-popup"]').length) {
+
+        $('a[href="#contact-popup"]').magnificPopup({
+            type: 'inline',
+            mainClass: 'mfp-fade',
+            midClick: true // mouse middle button click
+        });
+
+    }
+
 
     /* ---------- MAGNIFIC POPUP ---------- */
 
@@ -282,8 +294,47 @@
 
     }
 
+    var formValidateBlock = {
+      submitHandler: function(form) {
+        var form_btn = $(form).find('button[type="submit"]');
+        var form_result_div = '#js-contact-result';
+        $(form_result_div).remove();
+        form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
+        var form_btn_old_msg = form_btn.html();
+        form_btn.html(form_btn.prop('disabled', true).data("loading-text"));
 
+        var success_msg = $('#js-contact-result').data('success-msg');
+        var error_msg = $('#js-contact-result').data('error-msg');
 
+        $.ajax({
+          url:'https://axc0hldmja.execute-api.us-east-1.amazonaws.com/prod/mdocsappointment',
+          type: 'POST',
+          data: JSON.stringify($(form).serializeArray()),
+          contentType: 'application/json',
+          dataType: 'json',
+          success: function(d) {
+                $(".form-group").removeClass("has-success");
+                $("#js-contact-btn").text(success_msg);
+                setTimeout(function() {
+                    $("#js-contact-btn").text('Submit Request');
+                }, 2000);
+                $('#home_appointment_form')[0].reset();
+                $("#js-contact-btn").attr("disabled", false);
+            },
+            error: function(d) {
+                $("#js-contact-btn").text('Cannot access Server');
+                $("#js-contact-btn").attr("disabled", false);
+                setTimeout(function() {
+                    $("#js-contact-btn").text('Submit Request');
+                }, 2000);
+            }
+        });
+      }
+    };
+
+    // Contact Forms
+    $("#home_appointment_form").validate(formValidateBlock);
+    $("#contact_appointment_form").validate(formValidateBlock);
 
 
 })(jQuery);
