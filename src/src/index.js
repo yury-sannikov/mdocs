@@ -31,8 +31,8 @@ const pug = new Pug({
   pretty: false,
   compileDebug: false,
   locals: {
-    moment: require('moment')
-    
+    moment: require('moment'),
+    application: 'MDOCS'
   },
   basedir: './views',
   helperPath: [

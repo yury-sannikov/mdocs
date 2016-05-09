@@ -19,7 +19,7 @@ script.
     //- Async load main project js
     $.ajax({
       type: 'GET',
-      url: '/js/#{application}.min.js',
+      url: '/app/js/#{application}.min.js',
       dataType: 'script',
       cache: true
     }).done(function () {
@@ -28,20 +28,20 @@ script.
       }, false);
     });
     //- Async load socket.io
-    $.ajax({
-      type: 'GET',
-      url: '//cdn.socket.io/socket.io-1.2.1.js',
-      dataType: 'script',
-      cache: true
-    }).done(function () {
-      $(function(){
-        var socket = io(window.location.hostname);
-        socket.on('connect', function () {
-          socket.emit('pageview', window.location.href);
-        });
-        window.onhashchange = function () {
-          socket.emit('pageview', window.location.href);
-        };
-      });
-    });
+    // $.ajax({
+    //   type: 'GET',
+    //   url: '//cdn.socket.io/socket.io-1.2.1.js',
+    //   dataType: 'script',
+    //   cache: true
+    // }).done(function () {
+    //   $(function(){
+    //     var socket = io(window.location.hostname);
+    //     socket.on('connect', function () {
+    //       socket.emit('pageview', window.location.href);
+    //     });
+    //     window.onhashchange = function () {
+    //       socket.emit('pageview', window.location.href);
+    //     };
+    //   });
+    // });
   });

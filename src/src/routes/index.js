@@ -36,8 +36,9 @@ router.use(function*(next) {
 router.get('/', function*() {
   let messages = yield db.getRecentMessages();
   messages = messages.map(pre.presentMessage);
-
-  this.render('app/dashboard', {messages: {}, error: {} }, true);
+  console.log(JSON.stringify(this.session, null, 2));
+  
+  this.render('app/dashboard', {user: this.session.passport.user, messages: {}, error: {} }, true);
 });
 
 /*
