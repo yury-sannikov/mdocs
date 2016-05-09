@@ -3,12 +3,10 @@ var passport = require('koa-passport');
 const Router = require('koa-router');
 const router = new Router();
 
-router.get('/callback', function*() {
-  passport.authenticate('auth0', {
-    successRedirect: '/app',
-    failureRedirect: '/'
-  });
-});
+router.get('/callback', passport.authenticate('auth0', {
+  successRedirect: '/app',
+  failureRedirect: '/'
+}));
 
 module.exports = router;
 

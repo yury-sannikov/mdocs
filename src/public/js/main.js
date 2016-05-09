@@ -335,6 +335,19 @@
     // Contact Forms
     $("#home_appointment_form").validate(formValidateBlock);
     $("#contact_appointment_form").validate(formValidateBlock);
+  
+    // Auth0 Lock form
+    var lock = new Auth0Lock('SdMQqjyMjjWAM2NbxfY8BJXK28JgQ2iB', 'movelmobile.auth0.com');
 
+    window.auth0signin = function() {
+      var l = window.location;
+      lock.show({
+          callbackURL: l.protocol + '//' + l.host + '/callback'
+        , responseType: 'code'
+        , authParams: {
+          scope: 'openid profile'
+        }
+      });
+    }
 
 })(jQuery);
