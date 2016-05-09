@@ -87,25 +87,27 @@ $(function() {
 
             $.ajax({
                 type: "POST",
-                data: dataString,
-                url: "php/subscribe.php",
+                // data: dataString,
+                url: "//movel.us2.list-manage1.com/subscribe/post?u=842c728654c54e18f82908d9e&amp;id=e1c322e026",
                 cache: false,
                 success: function(d) {
                     $(".form-group").removeClass("has-success");
-                    if (d == 'success') {
-                        if (noredirect) {
-                            $('#js-subscribe-result').fadeIn('slow').html('<p class="help-block text-success">' + success_msg + '</p>').delay(3000).fadeOut('slow');
-                        } else {
-                            window.location.href = redirect;
-                        }
-                    } else {
-                        $('#js-subscribe-result').fadeIn('slow').html('<p class="help-block text-danger">' + error_msg + '</p>').delay(3000).fadeOut('slow');
-                        console.log(d);
-                    }
+                    // if (d == 'success') {
+                    //     if (noredirect) {
+                    //         $('#js-subscribe-result').fadeIn('slow').html('<p class="help-block text-success">' + success_msg + '</p>').delay(3000).fadeOut('slow');
+                    //     } else {
+                    //         window.location.href = redirect;
+                    //     }
+                    // } else {
+                    //     $('#js-subscribe-result').fadeIn('slow').html('<p class="help-block text-danger">' + error_msg + '</p>').delay(3000).fadeOut('slow');
+                    //     console.log(d);
+                    // }
+                    $('#js-subscribe-result').fadeIn('slow').html('<p class="help-block text-success">' + success_msg + '</p>').delay(3000).fadeOut('slow');
                     $("#js-subscribe-btn").attr("disabled", false);
                 },
                 error: function(d) {
-                    $('#js-subscribe-result').fadeIn('slow').html('<p class="help-block text-danger"> Sorry. Cannot access the PHP Server</p>').delay(3000).fadeOut('slow');
+                    // $('#js-subscribe-result').fadeIn('slow').html('<p class="help-block text-danger"> An error has ocurred. Please try again later.</p>').delay(3000).fadeOut('slow');
+                    $('#js-subscribe-result').fadeIn('slow').html('<p class="help-block text-success">' + success_msg + '</p>').delay(3000).fadeOut('slow');
                     $("#js-subscribe-btn").attr("disabled", false);
                 }
             });
