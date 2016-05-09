@@ -5,7 +5,7 @@ var strategy = new Auth0Strategy({
   domain:       'movelmobile.auth0.com',
   clientID:     'SdMQqjyMjjWAM2NbxfY8BJXK28JgQ2iB',
   clientSecret: 'Att9Ez3cxbebglWBaL4hLTPWsWJEn8ml0dg4IvGPi8MF5eoewj-D74VsL5r0QM_7',
-  callbackURL:  '/callback'
+  callbackURL:  'https://app.mdocs.co/callback'
 }, function(accessToken, refreshToken, extraParams, profile, done) {
     // accessToken is the token to call Auth0 API (not needed in the most cases)
     // extraParams.id_token has the JSON Web Token
