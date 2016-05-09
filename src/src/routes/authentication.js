@@ -13,6 +13,16 @@ router.get('/logout', function() {
   this.redirect('/');
 });
 
+router.get('/profile', function() {
+  this.render('app/profile', {
+    user: this.currentUser,
+    auth0Token: this.currentUser._raw,
+    messages: {},
+    error: {} 
+  }, true);
+  
+});
+
 module.exports = router;
 
 /*

@@ -12,17 +12,13 @@ const recaptcha = require('recaptcha-validator');
 const config = require('./config');
 const pre = require('./presenters');
 
-// Assoc ctx.currUser if the session_id cookie (a UUID v4)
-// is an active session.
+// set currentUser to user object from passport object from session
 exports.wrapCurrUser = function() {
   return function *(next) {
-    const sessionId = this.cookies.get('session_id');
-    debug('[wrapCurrUser] session_id: ' + sessionId);
-    if (!sessionId) return yield next;
-    const user = null; //yield db.getUserBySessionId(sessionId);
-    if (user) {
-      this.currUser = pre.presentUser(user);
-      this.currSessionId = sessionId;
+    if (!this.session || !this.session.passport) return yield next;
+
+    if (this.session.passport.user) {
+      this.currentUser = this.session.passport.user;
       debug('[wrapCurrUser] User found');
     } else {
       debug('[wrapCurrUser] No user found');

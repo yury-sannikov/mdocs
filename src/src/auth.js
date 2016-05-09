@@ -16,7 +16,7 @@ var strategy = new Auth0Strategy({
   console.log(`Auth0Strategy cb: ${accessToken}`);
   console.log(` extra: ${JSON.stringify(extraParams, null, 2) }`);
   console.log(` profile: ${JSON.stringify(profile, null, 2)}`);
-  return done(null, profile);
+  return done(null, Object.assign({}, profile, {_raw: extraParams.id_token}));
 });
 
 debug(`Create Auth0 strategy with callbackURL: ${config.AUTH_CALLBACK_URL}`);

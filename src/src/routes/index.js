@@ -38,7 +38,7 @@ router.get('/', function*() {
   messages = messages.map(pre.presentMessage);
   console.log(JSON.stringify(this.session, null, 2));
   
-  this.render('app/dashboard', {user: this.session.passport.user, messages: {}, error: {} }, true);
+  this.render('app/dashboard', {user: this.currentUser, messages: {}, error: {} }, true);
 });
 
 /*
