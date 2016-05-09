@@ -35,9 +35,11 @@ if (exports.RECAPTCHA_SYSTEM_ONLINE) {
 
 exports.MESSAGES_PER_PAGE = Number.parseInt(process.env.MESSAGES_PER_PAGE, 10) || 10;
 exports.USERS_PER_PAGE = Number.parseInt(process.env.USERS_PER_PAGE, 10) || 10;
+exports.AUTH_CALLBACK_URL = process.env.AUTH_CALLBACK_URL || '/callback';
 
 ////////////////////////////////////////////////////////////
 
+console.log(`Running in ${exports.NODE_ENV} mode.`);
 // Output config object in development to help with sanity-checking
 if (exports.NODE_ENV === 'development' || exports.NODE_ENV === 'test') {
   console.log(exports);

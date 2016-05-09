@@ -1,0 +1,1 @@
+ssh ec2-user@52.90.67.188 -i ./stp_aws.pem
