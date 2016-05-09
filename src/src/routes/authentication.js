@@ -1,4 +1,18 @@
 'use strict';
+var passport = require('koa-passport');
+const Router = require('koa-router');
+const router = new Router();
+
+router.get('/callback', function*() {
+  passport.authenticate('auth0', {
+    successRedirect: '/app',
+    failureRedirect: '/'
+  });
+});
+
+module.exports = router;
+
+/*
 // 3rd party
 const assert = require('better-assert');
 const Router = require('koa-router');
@@ -163,3 +177,4 @@ router.del('/sessions/:id', function*() {
 ////////////////////////////////////////////////////////////
 
 module.exports = router;
+*/

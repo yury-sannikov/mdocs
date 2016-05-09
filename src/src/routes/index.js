@@ -32,7 +32,7 @@ router.get('/test', function*() {
 ////////////////////////////////////////////////////////////
 
 // Show homepage
-router.get('/', function*() {
+router.get('/app', function*() {
   let messages = yield db.getRecentMessages();
   messages = messages.map(pre.presentMessage);
 

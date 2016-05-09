@@ -89,6 +89,17 @@ app.use(mw.handleBouncerValidationError()); // Must come after bouncer.middlewar
 //app.use(nunjucksRender('views', nunjucksOptions));
 app.use(pug.middleware);
 
+// sessions
+const session = require('koa-session');
+app.keys = ['4d92163b86ad469c8861a4e0d399a524-app-mdocs-co'];
+app.use(session(app));
+
+// authentication
+require('./auth');
+const passport = require('koa-passport');
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Provide a convience function for protecting our routes behind
 // our authorization rules. If authorization check fails, 404 response.
 //
