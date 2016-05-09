@@ -342,11 +342,12 @@
     window.auth0signin = function() {
       var l = window.location;
       lock.show({
-          callbackURL: l.protocol + '//' + l.host + '/callback'
-        , responseType: 'code'
-        , authParams: {
-          scope: 'openid profile'
-        }
+          callbackURL: l.protocol + '//' + l.host + '/callback',
+          responseType: 'code',
+          authParams: {
+            scope: 'openid profile'
+          },
+          icon: 'https://app.mdocs.co/images/pr-logo-square.png'
       });
     }
 
