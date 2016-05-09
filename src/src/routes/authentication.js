@@ -8,6 +8,11 @@ router.get('/callback', passport.authenticate('auth0', {
   failureRedirect: '/'
 }));
 
+router.get('/logout', function() {
+  this.logout();
+  this.redirect('/');
+});
+
 module.exports = router;
 
 /*

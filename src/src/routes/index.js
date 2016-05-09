@@ -6,11 +6,11 @@ const debug = require('debug')('app:routes:index');
 // 1st party
 const db = require('../db');
 const pre = require('../presenters');
-const mw = require('../middleware');
-const config = require('../config');
-const belt = require('../belt');
-const paginate = require('../paginate');
-const cache = require('../cache');
+// const mw = require('../middleware');
+// const config = require('../config');
+// const belt = require('../belt');
+// const paginate = require('../paginate');
+// const cache = require('../cache');
 
 //
 // The index.js routes file is mostly a junk drawer for miscellaneous
@@ -18,27 +18,29 @@ const cache = require('../cache');
 // routes/*.js module.
 //
 
-const router = new Router();
-
-////////////////////////////////////////////////////////////
-
-// Useful route for quickly testing something in development
-// 404s in production
-router.get('/test', function*() {
-  this.assert(config.NODE_ENV === 'development', 404);
-  this.body = this.headers['user-agent'];
+const router = new Router({
+  prefix: '/app'
 });
 
 ////////////////////////////////////////////////////////////
+// Check for authentification for all routes below
+router.use(function*(next) {
+  if (this.isAuthenticated()) {
+    yield next;
+  } else {
+    this.redirect('/');
+  }
+});
 
-// Show homepage
-router.get('/app', function*() {
+// Show Dashboard
+router.get('/', function*() {
   let messages = yield db.getRecentMessages();
   messages = messages.map(pre.presentMessage);
 
-  this.render('home/home', {messages: {}, error: {} }, true);
+  this.render('app/dashboard', {messages: {}, error: {} }, true);
 });
 
+/*
 ////////////////////////////////////////////////////////////
 
 // Update user
@@ -293,7 +295,7 @@ router.put('/users/:uname/role', function*() {
   this.flash = { message: ['success', 'Role updated'] };
   this.redirect(this.vals.redirectTo);
 });
-
+*/
 ////////////////////////////////////////////////////////////
 
 module.exports = router;
