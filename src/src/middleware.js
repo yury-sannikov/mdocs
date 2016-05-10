@@ -42,6 +42,17 @@ exports.wrapJadeLocals = function() {
   };
 };
 
+// Wrap exceptions
+exports.wrapExceptions = function() {
+  return function *(next) {
+    try {
+      yield* next;
+    } catch(err) {
+      this.render('error/500', Object.assign({}, this.jadeLocals, { error: err }), true);
+    }
+  };
+};
+
 
 // Expose req.flash (getter) and res.flash = _ (setter)
 // Flash data persists in user's sessions until the next ~successful response

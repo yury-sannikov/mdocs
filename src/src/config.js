@@ -1,4 +1,7 @@
 'use strict';
+const https = require('https');
+const AWS = require('aws-sdk');
+
 // Ensure require('dotenv').config() is run before this module is required
 
 exports.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -36,7 +39,28 @@ exports.MESSAGES_PER_PAGE = Number.parseInt(process.env.MESSAGES_PER_PAGE, 10) |
 exports.USERS_PER_PAGE = Number.parseInt(process.env.USERS_PER_PAGE, 10) || 10;
 exports.AUTH_CALLBACK_URL = process.env.AUTH_CALLBACK_URL || '/callback';
 
+exports.AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID;
+exports.AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY;
+exports.AWS_REGION = process.env.AWS_REGION;
+
 ////////////////////////////////////////////////////////////
+
+// DynamoDB workaround
+const httpOptions = {
+  agent: new https.Agent({
+    ciphers: 'ALL',
+    secureProtocol: 'TLSv1_method'
+  })
+};
+
+// Set AWS sdk config
+AWS.config.update({
+  httpOptions: httpOptions,
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  region: process.env.AWS_REGION
+});
+
 
 console.log(`Running in ${exports.NODE_ENV} mode.`);
 // Output config object in development to help with sanity-checking

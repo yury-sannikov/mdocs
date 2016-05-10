@@ -64,69 +64,28 @@ block content
                 th Rating
                 th.hidden-xs Actions
               tbody
-                tr
-                  td
-                    a.linkshowuser.btn.btn-info.btn-xs(href="#") Chris Walton
-                  td.hidden-xs
-                    strong chris.walton@maill.com
-                  td.hidden-xs
-                    span 703-453-2312
-                  td.hidden-xs
-                    span Mar-22-2016
-                  td
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star-half-o
-                  td.hidden-xs
-                    a.linkdeleteuser.btn.btn-info.btn-xs(href="#") View
-                    | &nbsp;
-                    a.linkdeleteuser.btn.btn-primary.btn-xs(href="#") Resend&nbsp;
-                    | &nbsp;
-                    a.linkdeleteuser.btn.btn-danger.btn-xs(href="#") Delete&nbsp;
-                tr
-                  td
-                    a.linkshowuser.btn.btn-info.btn-xs(href="#") Jane Smith
-                  td.hidden-xs
-                    strong janes@yahuuu.com
-                  td.hidden-xs
-                    span 703-453-2312
-                  td.hidden-xs
-                    span Apr-12-2016
-                  td
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                  td.hidden-xs
-                    a.linkdeleteuser.btn.btn-info.btn-xs(href="#") View
-                    | &nbsp;
-                    a.linkdeleteuser.btn.btn-primary.btn-xs(href="#") Resend&nbsp;
-                    | &nbsp;
-                    a.linkdeleteuser.btn.btn-danger.btn-xs(href="#") Delete&nbsp;
-                tr
-                  td
-                    a.linkshowuser.btn.btn-info.btn-xs(href="#") Millind Pullan
-                  td.hidden-xs
-                    strong m.pullan@yehuuu.com
-                  td.hidden-xs
-                    span 703-453-2312
-                  td.hidden-xs
-                    span May-1-2016
-                  td
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star
-                  td.hidden-xs
-                    a.linkdeleteuser.btn.btn-info.btn-xs(href="#") View
-                    | &nbsp;
-                    a.linkdeleteuser.btn.btn-primary.btn-xs(href="#") Resend&nbsp;
-                    | &nbsp;
-                    a.linkdeleteuser.btn.btn-danger.btn-xs(href="#") Delete&nbsp;
+                each review, i in reviews
+                  tr
+                    td
+                      a.linkshowuser.btn.btn-info.btn-xs(href="#") #{review.patient.name}
+                    td.hidden-xs
+                      strong #{review.patient.email}
+                    td.hidden-xs
+                      span #{review.patient.phone}
+                    td.hidden-xs
+                      span #{review.survey_date}
+                    td
+                      i.fa.fa-star
+                      i.fa.fa-star
+                      i.fa.fa-star
+                      i.fa.fa-star
+                      i.fa.fa-star-half-o
+                    td.hidden-xs
+                      a.linkdeleteuser.btn.btn-info.btn-xs(href="#") View
+                      | &nbsp;
+                      a.linkdeleteuser.btn.btn-primary.btn-xs(href="#") Resend&nbsp;
+                      | &nbsp;
+                      a.linkdeleteuser.btn.btn-danger.btn-xs(href="#") Delete&nbsp;
 
           //- /USER LIST
 
@@ -192,7 +151,7 @@ block scripts
       //- Async Load Bootstrap Modal
       $.ajax({
         type: 'GET',
-        url: 'lib/bootstrap/js/modal.js',
+        url: 'app/lib/bootstrap/js/modal.js',
         dataType: 'script',
         cache: true
       });

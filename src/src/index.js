@@ -85,6 +85,7 @@ app.use(mw.removeTrailingSlash());
 app.use(mw.wrapCurrUser());
 app.use(mw.wrapJadeLocals());
 app.use(mw.wrapFlash('flash'));
+app.use(mw.wrapExceptions());
 app.use(bouncer.middleware());
 app.use(mw.handleBouncerValidationError()); // Must come after bouncer.middleware()
 //app.use(nunjucksRender('views', nunjucksOptions));
