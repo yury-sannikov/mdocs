@@ -1,0 +1,30 @@
+extends ../layouts/layout.pug
+
+block head
+  title #{application} &middot; Review Detail
+
+block content
+  .container
+    .row
+      .col-sm-6.col-sm-offset-3
+        br
+        br
+        legend
+          h2 Survey of #{survey.patient.name}
+        each question, i in survey.questions
+          .row
+            .col-md-6
+              h3 #{question}
+            .col-md-6
+              span(style='font-size: 40px;color:gold;')
+                +star_mixin(survey.answers[i]).fa-fw
+        hr
+        a.btn.btn-success(href='/app/patient-reviews')
+          i.fa.fa-check
+          | &nbsp;Go Back
+
+    hr
+    p.text-muted <em>#{application}
+      a(href='/terms')  Terms of Use
+      |  and
+      a(href='/privacy')  Privacy Policy.</em>

@@ -50,6 +50,16 @@ router.get('/patient-reviews', function*() {
   this.render('reviews/reviews', Object.assign({}, this.jadeLocals, {reviews: reviews}), true);
 });
 
+router.get('/review/:id', function*() {
+  const data = yield db.surveyById(this.params.id);
+  if (!data || !data[0] || data[0].length == 0) {
+    this.redirect('/app/patient-reviews');
+    return;
+  }
+  this.render('reviews/detail', Object.assign({}, this.jadeLocals, { survey: data[0][0] }), true);
+});
+
+
 /*
 ////////////////////////////////////////////////////////////
 

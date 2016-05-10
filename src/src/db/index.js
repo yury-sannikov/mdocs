@@ -12,3 +12,11 @@ exports.surveysForProvider = function (providerId) {
     .where('provider_id').eq(providerId);
   return Promise.promisify(chain.query, {context: chain});
 };
+
+exports.surveyById = function (id) {
+  const chain = DynamoDB
+    .table('survey_review')
+    .where('id').eq(id)
+    .order_by('id-index');
+  return Promise.promisify(chain.query, {context: chain});
+};
