@@ -75,7 +75,10 @@ const nunjucksOptions = {
 app.use(mw.ensureReferer());
 app.use(require('koa-helmet')());
 app.use(require('koa-compress')());
-app.use(require('koa-static')('public'));
+app.use(require('koa-static')('public', {
+  maxage: 1000 * 60 * 15,
+  gzip: true
+}));
 // Don't show logger in test mode
 if (config.NODE_ENV !== 'test') {
   app.use(require('koa-logger')());
