@@ -34,11 +34,9 @@ router.use(function*(next) {
 
 // Show Dashboard
 router.get('/', function*() {
-  let messages = yield db.getRecentMessages();
-  messages = messages.map(pre.presentMessage);
-  console.log(JSON.stringify(this.session, null, 2));
+  // console.log(JSON.stringify(this.session, null, 2));
   
-  this.render('app/dashboard', {user: this.currentUser, messages: {}, error: {} }, true);
+  this.render('app/dashboard', this.jadeLocals, true);
 });
 
 /*

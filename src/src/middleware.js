@@ -27,6 +27,23 @@ exports.wrapCurrUser = function() {
   };
 };
 
+// Expose jadeLocals to context
+exports.wrapJadeLocals = function() {
+  return function *(next) {
+    const currentUser = this.currentUser || {};
+    
+    this.jadeLocals = {
+      auth0Token: currentUser._raw,
+      user: currentUser,
+      messages: {},
+      error: {}
+    };
+    
+    yield* next;
+  };
+};
+
+
 // Expose req.flash (getter) and res.flash = _ (setter)
 // Flash data persists in user's sessions until the next ~successful response
 exports.wrapFlash = function(cookieName) {

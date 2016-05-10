@@ -94,6 +94,7 @@ block scripts
       var userInfoElement = document.getElementById('user-info');
       userInfoElement.innerHTML += '<img src="#{user.picture}" />';
       userInfoElement.innerHTML += '<span class="name">#{user.nickname}</span>';
+      
       editProfileWidget
           .on('loading', function() {
             console.log('loading')
