@@ -81,16 +81,20 @@ nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
           //-       a(href='/api/twitter')
           //-         i.fa.fa-fw.fa-lock
           //-         | &nbsp;Twitter
-          // li.dropdown(class=url=='/apilocked'?'active':undefined)
-          //   a.dropdown-toggle(href='#', data-toggle='dropdown')
-          //     i.fa.fa-fw.fa-lock
-          //     | &nbsp;My Practice &nbsp;
-          //     b.caret
-          //   ul.dropdown-menu
-          //     li
-          //       a(href='/app/patient-reviews')
-          //         i.fa.fa-fw.fa-lock
-          //         | &nbsp;Patient Reviews
+          li.dropdown(class=url=='/apilocked'?'active':undefined)
+            a.dropdown-toggle(href='#', data-toggle='dropdown')
+              i.fa.fa-fw.fa-lock
+              | &nbsp;My Practice &nbsp;
+              b.caret
+            ul.dropdown-menu
+              li
+                a(href='/app')
+                  i.fa.fa-fw.fa-laptop
+                  | &nbsp;Dashboard
+              li
+                a(href='/app/patient-reviews')
+                  i.fa.fa-fw.fa-lock
+                  | &nbsp;Patient Reviews
 
 
         //- Right side

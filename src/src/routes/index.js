@@ -36,6 +36,10 @@ router.use(function*(next) {
 
 // Show Dashboard
 router.get('/', function*() {
+  this.render('app/dashboard', this.jadeLocals, true);
+});
+
+router.get('/patient-reviews', function*() {
   const data = yield db.surveysForProvider(this.currentUser.id);
   const reviews = data[0];
   this.render('reviews/reviews', Object.assign({}, this.jadeLocals, {reviews: reviews}), true);
