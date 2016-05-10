@@ -32,7 +32,8 @@ const pug = new Pug({
   compileDebug: false,
   locals: {
     moment: require('moment'),
-    application: 'MDOCS'
+    application: 'MDOCS',
+    formatPhone: belt.formatPhone
   },
   basedir: './views',
   helperPath: [

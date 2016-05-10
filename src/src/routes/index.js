@@ -3,6 +3,8 @@
 const assert = require('better-assert');
 const Router = require('koa-router');
 const debug = require('debug')('app:routes:index');
+const _ = require('lodash');
+
 // 1st party
 const db = require('../db');
 
@@ -41,7 +43,10 @@ router.get('/', function*() {
 
 router.get('/patient-reviews', function*() {
   const data = yield db.surveysForProvider(this.currentUser.id);
-  const reviews = data[0];
+  const reviews = data[0].map((item) => {
+    const avg = _.chain(item.answers).values().sum().value() / _.values(item.answers).length;
+    return Object.assign({}, item, {averageRating: avg }); 
+  });
   this.render('reviews/reviews', Object.assign({}, this.jadeLocals, {reviews: reviews}), true);
 });
 

@@ -71,15 +71,11 @@ block content
                     td.hidden-xs
                       strong #{review.patient.email}
                     td.hidden-xs
-                      span #{review.patient.phone}
+                      span #{formatPhone(review.patient.phone)}
                     td.hidden-xs
-                      span #{review.survey_date}
+                      span #{moment.utc(review.survey_date).format('MMM-DD-YYYY')}
                     td
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star-half-o
+                      +star_mixin(review.averageRating)
                     td.hidden-xs
                       a.linkdeleteuser.btn.btn-info.btn-xs(href="#") View
                       | &nbsp;

@@ -154,3 +154,7 @@ exports.autolink = function(s) {
     twitter: false
   });
 };
+
+exports.formatPhone = function(text) {
+  return text.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+};
