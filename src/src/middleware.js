@@ -10,7 +10,6 @@ const recaptcha = require('recaptcha-validator');
 // 1st
 //const db = require('./db');
 const config = require('./config');
-const pre = require('./presenters');
 
 // set currentUser to user object from passport object from session
 exports.wrapCurrUser = function() {

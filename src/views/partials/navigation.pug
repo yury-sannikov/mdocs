@@ -81,41 +81,41 @@ nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
           //-       a(href='/api/twitter')
           //-         i.fa.fa-fw.fa-lock
           //-         | &nbsp;Twitter
-          li.dropdown(class=url=='/apilocked'?'active':undefined)
-            a.dropdown-toggle(href='#', data-toggle='dropdown')
-              i.fa.fa-fw.fa-lock
-              | &nbsp;My Practice &nbsp;
-              b.caret
-            ul.dropdown-menu
-              li
-                a(href='/patient-reviews')
-                  i.fa.fa-fw.fa-lock
-                  | &nbsp;Patient Reviews
+          // li.dropdown(class=url=='/apilocked'?'active':undefined)
+          //   a.dropdown-toggle(href='#', data-toggle='dropdown')
+          //     i.fa.fa-fw.fa-lock
+          //     | &nbsp;My Practice &nbsp;
+          //     b.caret
+          //   ul.dropdown-menu
+          //     li
+          //       a(href='/app/patient-reviews')
+          //         i.fa.fa-fw.fa-lock
+          //         | &nbsp;Patient Reviews
 
 
         //- Right side
         ul.nav.navbar-nav.navbar-right
 
           //- Visible to Admin users only!
-          if user.type == 'admin'
-            li.dropdown(class=url=='/administration'?'active':undefined)
-              a.dropdown-toggle(href='#', data-toggle='dropdown')
-                i.fa.fa-fw.fa-cogs
-                | &nbsp;Admin&nbsp;
-                b.caret
-              ul.dropdown-menu
-                li
-                  a(href='/dashboard')
-                    i.fa.fa-fw.fa-laptop
-                    | &nbsp;Dashboard
-                li
-                  a(href='/accounts')
-                    i.fa.fa-fw.fa-users
-                    | &nbsp;Accounts
-                li
-                  a(href='/colors')
-                    i.fa.fa-fw.fa-cog
-                    | &nbsp;Color Scheme
+          // if user.type == 'admin'
+          //   li.dropdown(class=url=='/administration'?'active':undefined)
+          //     a.dropdown-toggle(href='#', data-toggle='dropdown')
+          //       i.fa.fa-fw.fa-cogs
+          //       | &nbsp;Admin&nbsp;
+          //       b.caret
+          //     ul.dropdown-menu
+          //       li
+          //         a(href='/dashboard')
+          //           i.fa.fa-fw.fa-laptop
+          //           | &nbsp;Dashboard
+          //       li
+          //         a(href='/accounts')
+          //           i.fa.fa-fw.fa-users
+          //           | &nbsp;Accounts
+          //       li
+          //         a(href='/colors')
+          //           i.fa.fa-fw.fa-cog
+          //           | &nbsp;Color Scheme
 
           //- User account
           li.dropdown(class=url=='/account'?'active':undefined)

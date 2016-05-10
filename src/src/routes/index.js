@@ -4,8 +4,8 @@ const assert = require('better-assert');
 const Router = require('koa-router');
 const debug = require('debug')('app:routes:index');
 // 1st party
-const db = require('../db');
-const pre = require('../presenters');
+// const db = require('../db');
+// const pre = require('../presenters');
 // const mw = require('../middleware');
 // const config = require('../config');
 // const belt = require('../belt');
@@ -36,7 +36,7 @@ router.use(function*(next) {
 router.get('/', function*() {
   // console.log(JSON.stringify(this.session, null, 2));
   
-  this.render('app/dashboard', this.jadeLocals, true);
+  this.render('reviews/reviews', this.jadeLocals, true);
 });
 
 /*
