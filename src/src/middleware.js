@@ -10,7 +10,6 @@ const recaptcha = require('recaptcha-validator');
 // 1st
 //const db = require('./db');
 const config = require('./config');
-const pre = require('./presenters');
 
 // set currentUser to user object from passport object from session
 exports.wrapCurrUser = function() {
@@ -26,6 +25,23 @@ exports.wrapCurrUser = function() {
     yield* next;
   };
 };
+
+// Expose jadeLocals to context
+exports.wrapJadeLocals = function() {
+  return function *(next) {
+    const currentUser = this.currentUser || {};
+    
+    this.jadeLocals = {
+      auth0Token: currentUser._raw,
+      user: currentUser,
+      messages: {},
+      error: {}
+    };
+    
+    yield* next;
+  };
+};
+
 
 // Expose req.flash (getter) and res.flash = _ (setter)
 // Flash data persists in user's sessions until the next ~successful response

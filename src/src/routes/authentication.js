@@ -14,13 +14,7 @@ router.get('/logout', function() {
 });
 
 router.get('/profile', function() {
-  this.render('app/profile', {
-    user: this.currentUser,
-    auth0Token: this.currentUser._raw,
-    messages: {},
-    error: {} 
-  }, true);
-  
+  this.render('app/profile', this.jadeLocals, true);
 });
 
 module.exports = router;

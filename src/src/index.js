@@ -83,6 +83,7 @@ app.use(require('koa-body')({ multipart: true }));
 app.use(mw.methodOverride());  // Must come after body parser
 app.use(mw.removeTrailingSlash());
 app.use(mw.wrapCurrUser());
+app.use(mw.wrapJadeLocals());
 app.use(mw.wrapFlash('flash'));
 app.use(bouncer.middleware());
 app.use(mw.handleBouncerValidationError()); // Must come after bouncer.middleware()
@@ -126,7 +127,6 @@ app.use(function*(next) {
 
 app.use(require('./routes').routes());
 app.use(require('./routes/authentication').routes());
-app.use(require('./routes/admin').routes());
 
 ////////////////////////////////////////////////////////////
 
