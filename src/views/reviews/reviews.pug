@@ -76,9 +76,9 @@ block content
                     td.hidden-xs
                       span #{formatPhone(review.patient.phone)}
                     td.hidden-xs
-                      span #{moment.utc(review.visit_date).format('MMM-DD-YYYY')}
+                      span #{moment.unix(review.visit_date).format('MMM-DD-YYYY')}
                     td.hidden-xs
-                      span #{moment.utc(review.survey_date).format('MMM-DD-YYYY')}
+                      span #{moment.unix(review.survey_date).format('MMM-DD-YYYY')}
                     td
                       +star_mixin(review.averageRating)
                     td.hidden-xs
@@ -88,7 +88,7 @@ block content
                       | &nbsp;
                       a.linkdeleteuser.btn.btn-danger.btn-xs(href="#") Delete&nbsp;
                     td
-                      span #{review.status}
+                      +survery_status(review.status)
 
           //- /USER LIST
 

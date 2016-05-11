@@ -21,6 +21,11 @@ const db = require('../db');
 // routes until it's accumulated enough routes to warrant a new
 // routes/*.js module.
 //
+const HARDCODED_QUESTIONS = {
+  '0': 'Overall Satisfaction',
+  '1': 'Staff',
+  '2': 'Dr. Mary Mayer, MD'
+};
 
 const router = new Router({
   prefix: '/app'
@@ -52,7 +57,12 @@ router.get('/patient-reviews', function*() {
 
 router.post('/new-request', function *() {
   console.log(this.request.body);
-  this.body = JSON.stringify(this.request.body);
+  
+  const survey = Object.assign({}, this.request.body);
+  
+  yield db.createNewSurvey()(this.currentUser.id, survey, HARDCODED_QUESTIONS);
+  
+  this.redirect('patient-reviews');
 });
 
 router.get('/review/:id', function*() {

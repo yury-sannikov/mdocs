@@ -7,6 +7,15 @@ mixin star_mixin(rate)
     else 
       i.fa.fa-star-o
   - }
+  
+mixin survery_status(status)
+  case status
+    when 0
+      span New
+    when 1
+      span Accessed
+    when 2
+      span Submitted
 
 doctype html
 html(lang="en")

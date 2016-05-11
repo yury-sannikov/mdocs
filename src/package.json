@@ -39,6 +39,7 @@
     "mailcomposer": "^3.9.0",
     "mailgun-js": "^0.7.10",
     "moment": "^2.13.0",
+    "node-uuid": "^1.4.7",
     "passport-auth0": "^0.5.1",
     "pug": "^2.0.0-alpha6",
     "recaptcha-validator": "1.0.1",
