@@ -36,24 +36,24 @@ var banner = [
 
 var paths = {
   clean: [
-    'public/js/**/*.js',
-    'public/js/**/*.map',
-    'public/js/**/*.min.js',
-    'public/css/**/*.css',
-    'public/css/**/*.min.css',
-    '!public/js/main.js',            // ! not
+    'public/app/js/**/*.js',
+    'public/app/js/**/*.map',
+    'public/app/js/**/*.min.js',
+    'public/app/css/**/*.css',
+    'public/app/css/**/*.min.css',
+    '!public/app/js/main.js',            // ! not
   ],
   js: [
     // ============= Bootstrap  ================
     // Enable/disable as needed but only turn on
     // .js that is needed on *every* page. No bloat!
     // =========================================
-    'public/lib/bootstrap/js/transition.js',
-    'public/lib/bootstrap/js/alert.js',
+    'public/app/lib/bootstrap/js/transition.js',
+    'public/app/lib/bootstrap/js/alert.js',
     // 'public/lib/bootstrap/js/button.js',
     // 'public/lib/bootstrap/js/carousel.js',
-    'public/lib/bootstrap/js/collapse.js',
-    'public/lib/bootstrap/js/dropdown.js',
+    'public/app/lib/bootstrap/js/collapse.js',
+    'public/app/lib/bootstrap/js/dropdown.js',
     // 'public/lib/bootstrap/js/modal.js',
     // 'public/lib/bootstrap/js/tooltip.js',
     // 'public/lib/bootstrap/js/popover.js',
@@ -61,8 +61,8 @@ var paths = {
     // 'public/lib/bootstrap/js/tab.js',
     // 'public/lib/bootstrap/js/affix.js'
     // =========================================
-    'public/lib/fastclick/lib/fastclick.js',
-    'public/js/main.js'
+    'public/app/lib/fastclick/lib/fastclick.js',
+    'public/app/js/main.js'
   ],
   lint: [
     'config/**/*.js',
@@ -107,10 +107,10 @@ gulp.task('styles', function () {
     .pipe($.csslint.reporter())             // Report issues
     .pipe($.rename({ suffix: '.min' }))     // Add .min suffix
     .pipe($.csso())                         // Minify CSS
-    .pipe($.header(banner, { pkg : pkg }))  // Add banner
+    // .pipe($.header(banner, { pkg : pkg }))  // Add banner
     .pipe($.size({ title: 'CSS:' }))        // What size are we at?
-    .pipe(gulp.dest('./public/css'))        // Save minified CSS
-//    .pipe($.livereload());                  // Initiate a reload
+    .pipe(gulp.dest('./public/app/css'))    // Save minified CSS
+    .pipe($.livereload());                // Initiate a reload
 });
 
 /**
@@ -120,13 +120,13 @@ gulp.task('styles', function () {
 gulp.task('scripts', function () {
   return gulp.src(paths.js)                 // Read .js files
     .pipe($.concat(pkg.name + '.js'))       // Concatenate .js files
-    .pipe(gulp.dest('./public/js'))         // Save main.js here
+    .pipe(gulp.dest('./public/app/js'))     // Save main.js here
     .pipe($.rename({ suffix: '.min' }))     // Add .min suffix
     .pipe($.uglify({ outSourceMap: true })) // Minify the .js
-    .pipe($.header(banner, { pkg : pkg }))  // Add banner
+    // .pipe($.header(banner, { pkg : pkg }))  // Add banner
     .pipe($.size({ title: 'JS:' }))         // What size are we at?
-    .pipe(gulp.dest('./public/js'))         // Save minified .js
-    .pipe($.livereload());                  // Initiate a reload
+    .pipe(gulp.dest('./public/app/js'))     // Save minified .js
+    // .pipe($.livereload());                  // Initiate a reload
 });
 
 /**
@@ -135,7 +135,7 @@ gulp.task('scripts', function () {
 
 gulp.task('images', function () {
   return gulp.src('images/**/*')            // Read images
-    .pipe($.changed('./public/img'))        // Only process new/changed
+    .pipe($.changed('./public/app/img'))    // Only process new/changed
     .pipe($.imagemin({                      // Compress images
       progressive: true,
       optimizationLevel: 3,
@@ -143,7 +143,7 @@ gulp.task('images', function () {
       svgoPlugins: [{ removeViewBox: false }],
       use: [pngquant()]
     }))
-    .pipe(gulp.dest('./public/img'));       // Write processed images
+    .pipe(gulp.dest('./public/app/img'));   // Write processed images
 });
 
 /**
@@ -191,7 +191,7 @@ gulp.task('nodemon', ['build'], function (cb) {
   $.livereload.listen();
   var called = false;
   $.nodemon({
-    script: 'app.js',
+    script: 'src/index.js',
     verbose: false,
     env: { 'NODE_ENV': 'development', 'DEBUG': 'skeleton' },
     // nodeArgs: ['--debug']
@@ -210,12 +210,12 @@ gulp.task('nodemon', ['build'], function (cb) {
         called = true;
         cb();
       }
-    }, 3000);  // wait for start
+    }, 3030);  // wait for start
   })
   .on('restart', function () {
     setTimeout(function () {
       $.livereload.changed('/');
-    }, 3000);  // wait for restart
+    }, 3030);  // wait for restart
   });
 });
 
@@ -225,7 +225,7 @@ gulp.task('nodemon', ['build'], function (cb) {
 
 gulp.task('open', ['nodemon'], function () {
   gulp.src('')
-  .pipe($.open({ uri: 'http://localhost:3000' }));
+  .pipe($.open({ uri: 'http://localhost:3030' }));
 });
 
 /**
