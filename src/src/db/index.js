@@ -27,8 +27,9 @@ exports.createNewSurvey = function() {
     const chain = DynamoDB
       .table('survey_review');
     const insertAsync = Promise.promisify(chain.insert, {context: chain});
-    return yield insertAsync({
-      id: uuid.v4(),
+    const id = uuid.v4();
+    yield insertAsync({
+      id: id,
       provider_id: providerId,
       status: 0,
       survey_date: moment().utc().unix(),
@@ -41,5 +42,18 @@ exports.createNewSurvey = function() {
       },
       physician: survey.physician
     });
+    return id;
   };
+};
+
+exports.assignSurveyCode = function* (id, surveyCode) {
+  const chain = DynamoDB
+    .table('survey_review')
+    .where('id').eq(id)
+    .order_by('id-index').return(DynamoDB.ALL_OLD);
+  const updateAsync = Promise.promisify(chain.update, {context: chain});
+  
+  yield updateAsync({
+    survey_code: surveyCode ? surveyCode : DynamoDB.del()
+  });
 };

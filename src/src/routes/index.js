@@ -7,6 +7,7 @@ const _ = require('lodash');
 
 // 1st party
 const db = require('../db');
+const communicator = require('../comm');
 
 // const db = require('../db');
 // const pre = require('../presenters');
@@ -60,7 +61,9 @@ router.post('/new-request', function *() {
   
   const survey = Object.assign({}, this.request.body);
   
-  yield db.createNewSurvey()(this.currentUser.id, survey, HARDCODED_QUESTIONS);
+  const id = yield db.createNewSurvey()(this.currentUser.id, survey, HARDCODED_QUESTIONS);
+  
+  yield communicator.conductSurvey(id);
   
   this.redirect('patient-reviews');
 });
