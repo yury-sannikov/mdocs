@@ -12,6 +12,7 @@ RUN npm install --production \
 COPY ["./public/", "/www/public/"]
 COPY ["./src/", "/www/src/"]
 COPY ["./views/", "/www/views/"]
+COPY ["./resources/", "/www/resources/"]
 COPY ["./.env", "/www/.env"]
 
 ENV SERVICE_8080_NAME="app-mdocs-co" \
