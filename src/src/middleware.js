@@ -206,6 +206,8 @@ exports.ensureReferer = function() {
 
     const refererHostname = nodeUrl.parse(this.headers['referer'] || '').hostname;
 
+    console.log(`config.HOSTNAME: ${config.HOSTNAME}, refererHostname: ${refererHostname}`);
+    
     this.assert(config.HOSTNAME === refererHostname, 'Invalid referer', 403);
 
     yield* next;
