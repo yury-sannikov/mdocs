@@ -446,7 +446,7 @@
                             </div>
                             <!-- // end .pricing__content -->
                             <div class="pricing__cta">
-                                <a href="#" onclick="window.auth0signin(); return false;" class="btn btn-sm btn-outline">Try For Free</a> 
+                              <a id="btnSmallPractice" href="#" class="btn btn-sm btn-outline">Try For Free</a> 
                             </div>
                             <!-- <a href="#"><h6>$499/yr prepaid plan</h6></a> -->
                             <!-- // end .pricing__cta -->
@@ -480,7 +480,7 @@
                             </div>
                             <!-- // end .pricing__content -->
                             <div class="pricing__cta"> 
-                                <a href="#" onclick="window.auth0signin(); return false;" class="btn btn-sm btn-warning">Try For Free</a> 
+                                <a id="btnMediumPractice" href="#" class="btn btn-sm btn-warning">Try For Free</a> 
                             </div>
                             <!-- <a href="#" style="color:#fff"><h6>$999/yr prepaid plan</h6></a> -->
                             <!-- // end .pricing__cta -->
@@ -874,6 +874,9 @@
     <!-- Bootstrap JS -->
     <script src="js/lib/bootstrap.min.js"></script>
 
+    <!-- Stripe -->
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+
     <!-- Plugins -->
     <script src="vendors/owl-carousel/owl.carousel.js"></script>
     <script src="vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
@@ -894,6 +897,48 @@
 
     <!-- Main JS -->
     <script src="js/main.js"></script>
+
+    <!-- Custom Stripe -->
+
+
+    <script>
+      var handler = StripeCheckout.configure({
+        key: 'pk_test_vXyGseIAiuaGymmzEJNbjEfh',
+        image: 'https://app.mdocs.co/images/pr-logo-square.png',
+        locale: 'auto',
+        token: function(token) {
+          // You can access the token ID with `token.id`.
+          // Get the token ID to your server-side code for use.
+        }
+      });
+
+      $('#btnSmallPractice').on('click', function(e) {
+        // Open Checkout with further options:
+        handler.open({
+          name: 'Patient Reviews by MDOCS',
+          description: 'Small Practice',
+          zipCode: true,
+          amount: 4900
+        });
+        e.preventDefault();
+      });
+
+      $('#btnMediumPractice').on('click', function(e) {
+        // Open Checkout with further options:
+        handler.open({
+          name: 'Patient Reviews by MDOCS',
+          description: 'Medium Practice',
+          zipCode: true,
+          amount: 3900
+        });
+        e.preventDefault();
+      });
+
+      // Close Checkout on page navigation:
+      $(window).on('popstate', function() {
+        handler.close();
+      });
+    </script>
 </body>
 
 </html>
