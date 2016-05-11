@@ -198,15 +198,17 @@ exports.ensureReferer = function() {
     }
     
     // Skip if no HOSTNAME is set
-    if (!config.HOSTNAME) {
-      debug('Skipping referer check since HOSTNAME not provided');
+    if (!config.APP_HOSTNAME) {
+      debug('Skipping referer check since APP_HOSTNAME not provided');
       yield* next;
       return;
     }
 
     const refererHostname = nodeUrl.parse(this.headers['referer'] || '').hostname;
 
-    this.assert(config.HOSTNAME === refererHostname, 'Invalid referer', 403);
+    console.log(`config.APP_HOSTNAME: ${config.APP_HOSTNAME}, refererHostname: ${refererHostname}`);
+    
+    this.assert(config.APP_HOSTNAME === refererHostname, 'Invalid referer', 403);
 
     yield* next;
   };

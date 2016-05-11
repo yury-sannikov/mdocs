@@ -16,9 +16,9 @@ exports.TRUST_PROXY = process.env.TRUST_PROXY === 'true';
 // Set the HOSTNAME in production for basic CSRF prevention
 //
 // Ex: example.com, subdomain.example.com
-exports.HOSTNAME = process.env.HOSTNAME;
-if (!exports.HOSTNAME) {
-  console.warn('Warn: CSRF checks are disabled since there is no HOSTNAME environment variable provided');
+exports.APP_HOSTNAME = process.env.APP_HOSTNAME;
+if (!exports.APP_HOSTNAME) {
+  console.warn('Warn: CSRF checks are disabled since there is no APP_HOSTNAME environment variable provided');
 }
 
 exports.RECAPTCHA_SITEKEY = process.env.RECAPTCHA_SITEKEY;
