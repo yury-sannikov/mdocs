@@ -50,6 +50,11 @@ router.get('/patient-reviews', function*() {
   this.render('reviews/reviews', Object.assign({}, this.jadeLocals, {reviews: reviews}), true);
 });
 
+router.post('/new-request', function *() {
+  console.log(this.request.body);
+  this.body = JSON.stringify(this.request.body);
+});
+
 router.get('/review/:id', function*() {
   const data = yield db.surveyById(this.params.id);
   if (!data || !data[0] || data[0].length == 0) {

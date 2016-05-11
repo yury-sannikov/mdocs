@@ -6,6 +6,7 @@ const Koa = require('koa');
 const bouncer = require('koa-bouncer');
 const Pug = require('koa-pug');
 const debug = require('debug')('app:index');
+const csrf = require('koa-csrf')
 // 1st party
 const config = require('./config');
 const mw = require('./middleware');
@@ -72,7 +73,6 @@ const nunjucksOptions = {
 // Middleware
 ////////////////////////////////////////////////////////////
 
-app.use(mw.ensureReferer());
 app.use(require('koa-helmet')());
 app.use(require('koa-compress')());
 app.use(require('koa-static')('public', {
@@ -87,7 +87,6 @@ app.use(require('koa-body')({ multipart: true }));
 app.use(mw.methodOverride());  // Must come after body parser
 app.use(mw.removeTrailingSlash());
 app.use(mw.wrapCurrUser());
-app.use(mw.wrapJadeLocals());
 app.use(mw.wrapFlash('flash'));
 app.use(mw.wrapExceptions());
 app.use(bouncer.middleware());
@@ -99,6 +98,16 @@ app.use(pug.middleware);
 const session = require('koa-session');
 app.keys = ['4d92163b86ad469c8861a4e0d399a524-app-mdocs-co'];
 app.use(session(app));
+
+// csrf
+app.use(csrf());
+
+// Need session & body
+app.use(mw.ensureReferer());
+
+// Jade locals with csrf
+app.use(mw.wrapJadeLocals());
+
 
 // authentication
 require('./auth');

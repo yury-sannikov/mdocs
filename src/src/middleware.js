@@ -32,6 +32,8 @@ exports.wrapJadeLocals = function() {
     const currentUser = this.currentUser || {};
     
     this.jadeLocals = {
+      csrf: this.csrf,
+      _csrf: this.csrf,
       auth0Token: currentUser._raw,
       user: currentUser,
       messages: {},
@@ -195,6 +197,18 @@ exports.ensureReferer = function() {
       return;
     }
 
+    try {
+      this.assertCSRF(this.request.body);
+    }
+    catch (err) {
+      console.log(err);
+      this.status = 403;
+      this.body = {
+        message: 'This CSRF token is invalid!'
+      };
+      return;
+    }    
+    
     // Skip if no HOSTNAME is set
     if (!config.HOSTNAME) {
       debug('Skipping referer check since HOSTNAME not provided');
