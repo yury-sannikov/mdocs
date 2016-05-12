@@ -75,6 +75,7 @@ var paths = {
     'gulpfile.js'
   ],
   less: [
+    'less/bootstrap.less',
     'less/main.less',
     'less/page-api.less',
     'less/page-colors.less',
