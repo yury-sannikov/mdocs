@@ -61,7 +61,8 @@ router.post('/new-request', function *() {
   
   const survey = Object.assign({}, this.request.body);
   
-  const id = yield db.createNewSurvey()(this.currentUser.id, survey, HARDCODED_QUESTIONS);
+  const id = yield db.createNewSurvey()(this.currentUser.id, survey, 
+    Object.assign({}, HARDCODED_QUESTIONS, { '2': survey.physician}));
   
   const result = yield communicator.conductSurvey(id);
   if (result == 0) {

@@ -50,7 +50,7 @@ exports.conductSurvey = function* (id) {
   // Send SMS
   if (record.patient && !_.isEmpty(record.patient.phone)) {
     const smsResult = yield sms.sendSMS(record.patient.phone, 
-      `Greetings from Dr. ${record.physician}'s office. Please fill this short survey to evaluate your visit - ${url}`);
+      `Greetings from ${record.physician}'s office. Please fill this short survey to evaluate your visit - ${url}`);
     debug(`Survey ${id} SMS result ${JSON.stringify(smsResult, null ,2)}`);
   }
   else {
