@@ -20,6 +20,8 @@ const SURVEY_STATUS_NEW = 0;
 const SURVEY_STATUS_ACCESSED = 1;
 const SURVEY_STATUS_SUBMITTED = 2;
 
+const MINIMUM_OKAY_SURVEY_VALUE = 3; // 5 stars is eq to 4.
+
 function makeErrorMessage(msg) {
   return {
     error: [
@@ -73,6 +75,40 @@ router.get('/:idkey', function*() {
   yield db.updateSurveyStatus(survey.id, SURVEY_STATUS_ACCESSED);
   
   this.render('reviews/landing', Object.assign({}, this.jadeLocals, { survey: survey }), true);
+});
+
+router.post('/submit', function*() {
+  
+  // Get survey by id
+  const data = yield db.surveyById(this.request.body.id || '0');
+  if (!data || !data[0] || data[0].length == 0) {
+    this.render('reviews/landing', Object.assign({}, this.jadeLocals, {
+      messages: makeErrorMessage('Thank you for participating in a survey but your survey has been deleted by administrator.') 
+    }), true);
+    return;
+  }
+  const survey = data[0][0];
+  
+  if (survey.status >= SURVEY_STATUS_SUBMITTED) {
+    this.render('reviews/landing', Object.assign({}, this.jadeLocals, {
+      messages: makeErrorMessage('Survey has been already submitted.') 
+    }), true);
+    return;    
+  }
+  
+  const ansvers = JSON.parse(this.request.body.survey);
+
+  const asObject = _.reduce(ansvers, (r, v, k) => { r[k] = v.value + 1; return r;}, {});
+
+  yield db.updateSurveyStatus(survey.id, SURVEY_STATUS_SUBMITTED, asObject);
+
+  const minValue = _.minBy(ansvers, o => o.value);
+
+  if (minValue.value < MINIMUM_OKAY_SURVEY_VALUE) {
+    this.render('reviews/negative', Object.assign({}, this.jadeLocals, { survey: survey }), true);
+  } else {
+    this.render('reviews/positive', Object.assign({}, this.jadeLocals, { survey: survey }), true);
+  }
 });
 
 module.exports = router;

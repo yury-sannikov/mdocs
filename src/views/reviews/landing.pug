@@ -9,22 +9,24 @@ block content
       .col-sm-6.col-sm-offset-3
         br
         br
-        form#surveyForm(method='POST' action='submit')
-          input(type='hidden', name='_csrf', value=_csrf)
-          input#surveyFormData(type='hidden', name='survey')
-          legend
-            h2 Submit a Review
-          each question, id in survey.questions
-            .row
-              .col-md-6
-                h3 #{question}
-              .col-md-6
-                span.star-rate(style='font-size: 40px;color:gold;', data-rate-id=id)
-                  +star_mixin(0)
-          hr
-          a.btn.btn-success#submit-review(href='#')
-            i.fa.fa-check
-            | &nbsp;Submit Review
+        -if (!_.isEmpty(survey))
+          form#surveyForm(method='POST' action='submit')
+            input(type='hidden', name='_csrf', value=_csrf)
+            input(type='hidden', name='id', value=survey.id)
+            input#surveyFormData(type='hidden', name='survey')
+            legend
+              h2 Submit a Review
+            each question, id in survey.questions
+              .row
+                .col-md-6
+                  h3 #{question}
+                .col-md-6
+                  span.star-rate(style='font-size: 40px;color:gold;', data-rate-id=id)
+                    +star_mixin(0)
+            hr
+            a.btn.btn-success#submit-review(href='#')
+              i.fa.fa-check
+              | &nbsp;Submit Review
 
         hr
         p.text-muted <em>#{application}
@@ -54,7 +56,7 @@ block scripts
         cache: true
       });      
       
-      const surveyCount=#{_.size(survey.questions)};
+      const surveyCount=#{_.size((survey || {}).questions)};
       
       $('#submit-review').on('click', function() {
         const items = getRatedItems();
