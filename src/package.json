@@ -10,7 +10,8 @@
   "scripts": {
     "start": "DEBUG=app:* node ./src/index.js",
     "start-dev": "nodemon --ext js,html ./src/index.js",
-    "test": "NODE_ENV=test mocha --reporter spec"
+    "test": "NODE_ENV=test mocha --reporter spec",
+    "lubricate": "npm cache clean && npm install && bower cache clean && bower install && gulp clean && gulp build"
   },
   "engines": {
     "node": "4.x"
