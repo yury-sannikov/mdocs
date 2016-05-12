@@ -1,4 +1,4 @@
-extends ../layouts/layout
+extends ../layouts/layout.pug
 
 block head
   title #{application} &middot; Submit a Review
@@ -13,33 +13,13 @@ block content
           input(type='hidden', name='_csrf', value=_csrf)
           legend
             h2 Submit a Review
-          .row
-            .col-md-6
-              h3 Overall Satisfaction
-            .col-md-6
-              i.fa.fa-fw.fa-star(style='font-size: 40px;color:gold')
-              i.fa.fa-fw.fa-star(style='font-size: 40px;color:gold')
-              i.fa.fa-fw.fa-star(style='font-size: 40px;color:gold')
-              i.fa.fa-fw.fa-star(style='font-size: 40px;color:gold')
-              i.fa.fa-fw.fa-star(style='font-size: 40px;color:gold')
-          .row
-            .col-md-6
-                h3 Dr. Mary Mayer, MD
-            .col-md-6
-              i.fa.fa-fw.fa-star(style='font-size: 40px;color:gold')
-              i.fa.fa-fw.fa-star(style='font-size: 40px;color:gold')
-              i.fa.fa-fw.fa-star(style='font-size: 40px;color:gold')
-              i.fa.fa-fw.fa-star(style='font-size: 40px;color:gold')
-              i.fa.fa-fw.fa-star(style='font-size: 40px;color:gold')
-          .row
-            .col-md-6
-              h3 Staff
-            .col-md-6
-              i.fa.fa-fw.fa-star(style='font-size: 40px;color:gold')
-              i.fa.fa-fw.fa-star(style='font-size: 40px;color:gold')
-              i.fa.fa-fw.fa-star(style='font-size: 40px;color:gold')
-              i.fa.fa-fw.fa-star(style='font-size: 40px;color:gold')
-              i.fa.fa-fw.fa-star(style='font-size: 40px;color:gold')
+          each question, i in survey.questions
+            .row
+              .col-md-6
+                h3 #{question}
+              .col-md-6
+                span(style='font-size: 40px;color:gold;')
+                  +star_mixin(0, i)
           hr
           a.btn.btn-success(href='signup')
             i.fa.fa-check

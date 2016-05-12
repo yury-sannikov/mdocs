@@ -7,11 +7,11 @@ const email = require('./email.js');
 const moment = require('moment');
 
 exports.generateSurveyUrl = function(id, code) {
-  return `https://app.mdocs.co/app/survey/${id}:${code}`;
+  return `https://app.mdocs.co/survey/${id}:${code}`;
 };
 
 exports.generateUnsubscriveUrl = function(id, code) {
-  return `https://app.mdocs.co/app/stop-survey/${id}:${code}`;
+  return `https://app.mdocs.co/stop-survey/${id}:${code}`;
 };
 
 exports.conductSurvey = function* (id) {

@@ -10,7 +10,7 @@ nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
         //- i.fa.fa-lg.fa-bars
       a.navbar-brand(href='/app') #{application}
     .collapse.navbar-collapse
-      if user
+      if (user && !_.isEmpty(user))
         ul.nav.navbar-nav
 
           //- li.dropdown(class=url=='/apiopen'?'active':undefined)

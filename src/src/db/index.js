@@ -67,3 +67,16 @@ exports.deleteSurvey = function* (id) {
   
   return yield deleteAsync();
 };
+
+exports.updateSurveyStatus = function* (id, status) {
+  const chain = DynamoDB
+    .table('survey_review')
+    .where('id').eq(id);
+    
+  const updateAsync = Promise.promisify(chain.update, {context: chain});
+  
+  return yield updateAsync({
+    status: status
+  });
+};
+
