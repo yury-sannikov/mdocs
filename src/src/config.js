@@ -43,6 +43,10 @@ exports.AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID;
 exports.AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY;
 exports.AWS_REGION = process.env.AWS_REGION;
 
+exports.TWILIO_ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID;
+exports.TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN;
+exports.TWILIO_SMS_NUMBER = process.env.TWILIO_SMS_NUMBER;
+
 ////////////////////////////////////////////////////////////
 
 // DynamoDB workaround
