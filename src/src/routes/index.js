@@ -87,6 +87,17 @@ router.post('/delete-survey', function*() {
   this.redirect('patient-reviews');
 });
 
+// Show Terms of Use
+router.get('/terms', function*() {
+  this.render('terms/terms', this.jadeLocals, true);
+});
+
+// Show Privacy Policy
+router.get('/privacy', function*() {
+  this.render('privacy/privacy', this.jadeLocals, true);
+});
+
+
 /*
 ////////////////////////////////////////////////////////////
 
