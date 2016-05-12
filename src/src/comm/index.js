@@ -18,25 +18,27 @@ exports.conductSurvey = function* (id) {
   if (!surveyData || surveyData.length == 0) {
     console.log(`Can't conduct survey id #{id}. Record not found`);       
   }
-  
   // Generate unique one-shot code for survey
   const surveyCode = uuid.v4();
 
   // Write code to the database
-  yield db.assignSurveyCode(id, surveyCode);
+  const rec = yield db.assignSurveyCode(id, surveyCode);
+
+  // // Generate survey URL
+  // const url = exports.generateSurveyUrl(id, surveyCode);
+  // console.log('4');
+
+  // // Send email
+  // const record = surveyData[0];
   
-  // Generate survey URL
-  const url = exports.generateSurveyUrl(id, surveyCode);
+  // email.sendReviewRequest(record.patient.email, {
+  //   physician: record.physician,
+  //   appointmentDate: moment.unix(record.record).format('MMM-DD-YYYY'),
+  //   surveyUrl: url,
+  //   unsubscribeUrl: 'https://app.mdocs.co#todo'
+  // });
+  // console.log('5');
   
-  // Send email
-  const record = surveyData[0];
-  
-  email.sendReviewRequest(record.patient.email, {
-    physician: record.physician,
-    appointmentDate: moment.unix(record.record).format('MMM-DD-YYYY'),
-    surveyUrl: url,
-    unsubscribeUrl: 'https://app.mdocs.co#todo'
-  });  
   // Send SMS
   // TODO
 

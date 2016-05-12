@@ -89,7 +89,8 @@ block content
                       a.linkdeleteuser.btn.btn-danger.btn-xs(href="#") Delete&nbsp;
                     td
                       +survery_status(review.status)
-
+          - if (reviews.length == 0)
+            span No reviews found in a database.
           //- /USER LIST
 
         //- /WRAPPER
