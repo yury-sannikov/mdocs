@@ -1,5 +1,5 @@
 {
-  "name": "Skeleton",
+  "name": "MDOCS",
   "dependencies": {
     "animate.css": "~3.3.0",
     "bootstrap": "~3.3.5",
@@ -8,9 +8,9 @@
     "fastclick": "~1.0.6",
     "font-awesome": "~4.3.0",
     "jquery.complexify.js": "*",
+    "jquery-validation": "~1.15.0",
     "mailcheck": "~1.0.4",
     "moment": "~2.10.3",
-    "odometer": "~0.4.7",
     "devicons": "~1.8.0",
     "react": "~0.12.2",
     "zxcvbn": "~4.0.1"
