@@ -1,13 +1,12 @@
-mixin star_mixin(rate, id)
-  span(data-rate-id=id)
-    - for (var i = 0; i < 5; ++i) {
-      if (i < rate) && ((i + 1) <= rate)
-        i.fa.fa-fw.fa-star(data-index=i)
-      else if (i < rate) && ((i + 0.1) <= rate)
-        i.fa.fa-fw.fa-star-half-o(data-index=i)
-      else 
-        i.fa.fa-fw.fa-star-o(data-index=i)
-    - }
+mixin star_mixin(rate)
+  - for (var i = 0; i < 5; ++i) {
+    if (i < rate) && ((i + 1) <= rate)
+      i.fa.fa-fw.fa-star(data-index=i)
+    else if (i < rate) && ((i + 0.1) <= rate)
+      i.fa.fa-fw.fa-star-half-o(data-index=i)
+    else 
+      i.fa.fa-fw.fa-star-o(data-index=i)
+  - }
   
 mixin survery_status(status)
   case status
