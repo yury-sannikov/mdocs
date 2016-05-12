@@ -81,6 +81,12 @@ router.get('/review/:id', function*() {
   this.render('reviews/detail', Object.assign({}, this.jadeLocals, { survey: data[0][0] }), true);
 });
 
+router.post('/delete-survey', function*() {
+  yield db.deleteSurvey(this.request.body.id);
+  this.flash = 'Survey has been successfully deleted';
+  this.redirect('patient-reviews');
+});
+
 
 /*
 ////////////////////////////////////////////////////////////

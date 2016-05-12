@@ -57,3 +57,13 @@ exports.assignSurveyCode = function* (id, surveyCode) {
     survey_code: surveyCode ? surveyCode : DynamoDB.del()
   });
 };
+
+exports.deleteSurvey = function* (id) {
+  const chain = DynamoDB
+    .table('survey_review')
+    .where('id').eq(id);
+    
+  const deleteAsync = Promise.promisify(chain.delete, {context: chain});
+  
+  return yield deleteAsync();
+};

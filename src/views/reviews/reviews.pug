@@ -84,9 +84,9 @@ block content
                     td.hidden-xs
                       a.btn.btn-info.btn-xs(href='/app/review/'+review.id) View
                       | &nbsp;
-                      a.linkdeleteuser.btn.btn-primary.btn-xs(href="#") Resend&nbsp;
+                      a.linkresend.btn.btn-primary.btn-xs(href="#", rel=review.id) Resend&nbsp;
                       | &nbsp;
-                      a.linkdeleteuser.btn.btn-danger.btn-xs(href="#") Delete&nbsp;
+                      a.linkdeletesurvey.btn.btn-danger.btn-xs(href="#", data-surveyId=review.id) Delete&nbsp;
                     td
                       +survery_status(review.status)
           - if (reviews.length == 0)
@@ -96,17 +96,20 @@ block content
         //- /WRAPPER
 
 
-  #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+  #deleteModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='deleteModalLabel', aria-hidden='true')
       .modal-dialog.modal-sm
         .modal-content
           .modal-header
             button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-            h4#myModalLabel.modal-title Delete confirmation
+            h4#deleteModalLabel.modal-title Delete confirmation
           .modal-body
             h4 Are you sure?
+            form#deleteform(action='delete-survey', method='POST')
+              input.form-control(type='hidden', name='_csrf', value=_csrf)
+              input#deleteformid.form-control(type='hidden', name='id')            
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') No
-            button#yes.btn.btn-primary(type='button') Yes!
+            button#deleteModalConfirm.btn.btn-primary(type='button') Yes!
 
 
   #requestModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
@@ -167,7 +170,7 @@ block scripts
       //- $('#userList table tbody').on('click', 'td a.linkshowuser', showUserInfo);
 
       // Delete User link click
-      $('#userList table tbody').on('click', 'td a.linkdeleteuser', deleteUser);
+      $('#userList table tbody').on('click', 'td a.linkdeletesurvey', deleteSurvey);
 
       // New request link click
       $('.linknewrequest').on('click', newRequest);
@@ -206,8 +209,8 @@ block scripts
       $('#userInfoUpdate').text(moment(thisUserObject.activity.last_update).fromNow());
     };
 
-    // Delete User
-    function deleteUser(event) {
+    // Delete Survey
+    function deleteSurvey(event) {
 
       // Prevent Link from Firing
       event.preventDefault();
@@ -215,18 +218,20 @@ block scripts
       // Pop up a confirmation dialog
       // Convoluted because we have to
       // pass the user's id through
-      function showmodal(userid) {
+      function showmodal(id) {
         // show modal
-        $('#myModal').modal({keyboard:true,backdrop:'static'});
+        $('#deleteModal').modal({keyboard:true,backdrop:'static'});
         // if "yes" clicked
-        $('#yes').on('click', function () {
+        $('#deleteModalConfirm').one('click', function () {
           // close the modal
-          $('#myModal').modal('hide');
+          $('#deleteformid').val(id);
+          $('#deleteform').submit();
+          $('#deleteModal').modal('hide');
         });
       }
 
       // call modal function with the user's account id
-      showmodal($(this).attr('rel'));
+      showmodal($(this).attr('data-surveyId'));
 
     };
 
@@ -285,7 +290,7 @@ block scripts
           }
         });
         // if "yes" clicked
-        $('#sendrequestbutton').on('click', function () {
+        $('#sendrequestbutton').one('click', function () {
             $('#requestform').submit();
         });
       }
