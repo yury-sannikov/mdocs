@@ -17,7 +17,7 @@ exports.sendReviewRequest = function* (to, data) {
   var message = {
     from: 'MDOCS Survey <survey@app.mdocs.co>',
     to: to,
-    subject: `Request a Review`,
+    subject: `Quick Patient Survey`,
     html: html,
     inline: [logoPng, starsPng]
   };

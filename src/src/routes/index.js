@@ -83,7 +83,7 @@ router.get('/review/:id', function*() {
 
 router.post('/delete-survey', function*() {
   yield db.deleteSurvey(this.request.body.id);
-  this.flash = 'Survey has been successfully deleted';
+  this.flash = 'Review deleted successfully.';
   this.redirect('patient-reviews');
 });
 
