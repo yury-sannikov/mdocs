@@ -34,7 +34,8 @@ const pug = new Pug({
   locals: {
     moment: require('moment'),
     application: 'MDOCS',
-    formatPhone: belt.formatPhone
+    formatPhone: belt.formatPhone,
+    _: require('lodash')
   },
   basedir: './views',
   helperPath: [

@@ -63,8 +63,12 @@ router.post('/new-request', function *() {
   
   const id = yield db.createNewSurvey()(this.currentUser.id, survey, HARDCODED_QUESTIONS);
   
-  yield communicator.conductSurvey(id);
-  
+  const result = yield communicator.conductSurvey(id);
+  if (result == 0) {
+    this.flash = 'Survey has been successfully delivered';
+  } else {
+    this.flash = 'An error occurred while delivering survey. Try resend.';
+  }
   this.redirect('patient-reviews');
 });
 

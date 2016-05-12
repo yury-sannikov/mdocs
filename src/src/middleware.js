@@ -37,7 +37,8 @@ exports.wrapJadeLocals = function() {
       auth0Token: currentUser._raw,
       user: currentUser,
       messages: {},
-      error: {}
+      error: {},
+      flash: this.flash
     };
     
     yield* next;

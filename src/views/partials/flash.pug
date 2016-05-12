@@ -35,3 +35,11 @@
           strong
             i.fa.fa-lg.fa-check-circle
           | &nbsp;&nbsp;#{success.msg}
+  if (!_.isEmpty(flash))
+    .alert.alert-info.alert-dismissable
+      button.close(type='button', data-dismiss='alert', aria-hidden='true')
+        i.fa.fa-times-circle-o
+      p.flashmsg
+        strong
+          i.fa.fa-lg.fa-info-circle
+        | &nbsp;&nbsp;#{flash}
