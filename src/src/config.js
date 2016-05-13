@@ -47,6 +47,10 @@ exports.TWILIO_ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID;
 exports.TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN;
 exports.TWILIO_SMS_NUMBER = process.env.TWILIO_SMS_NUMBER;
 
+exports.BITLY_CLIENT_ID = process.env.BITLY_CLIENT_ID;
+exports.BITLY_CLIENT_SECRET = process.env.BITLY_CLIENT_SECRET;
+exports.BITLY_TOKEN = process.env.BITLY_TOKEN;
+
 ////////////////////////////////////////////////////////////
 
 // DynamoDB workaround

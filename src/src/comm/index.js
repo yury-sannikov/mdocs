@@ -7,6 +7,17 @@ const email = require('./email.js');
 const moment = require('moment');
 const sms = require('./sms.js');
 const _ = require('lodash');
+const BitlyAPI = require('node-bitlyapi');
+const Promise = require('bluebird');
+const config = require('../config');
+
+const Bitly = Promise.promisifyAll(new BitlyAPI({
+  client_id: config.BITLY_CLIENT_ID,
+  client_secret: config.BITLY_CLIENT_SECRET
+}));
+
+Bitly.setAccessToken(config.BITLY_TOKEN);
+
 
 exports.generateSurveyUrl = function(id, code) {
   return `https://app.mdocs.co/survey/${id}:${code}`;
@@ -46,11 +57,26 @@ exports.conductSurvey = function* (id) {
   });
   
   debug(`Survey ${id} email result ${JSON.stringify(emailResult, null, 2)}`);
+  
+  var shortenedLink = url;
+  try {
+    const response = JSON.parse(yield Bitly.shortenLinkAsync(url));
+    
+    if (response && response.status_code == 200) {
+      shortenedLink = response.data.url;
+      debug(`Shortened url: ${shortenedLink}`);    
+    } else {
+      throw response;  
+    }
+  }
+  catch (err) {
+    debug(`Unable to shorten link through bitly api. Error: ${err}`);
+  }
 
   // Send SMS
   if (record.patient && !_.isEmpty(record.patient.phone)) {
     const smsResult = yield sms.sendSMS(record.patient.phone, 
-      `Greetings from ${record.physician}'s office. Please fill this short survey to evaluate your visit - ${url}`);
+      `Greetings from ${record.physician}'s office. Please fill this short survey to evaluate your visit - ${shortenedLink}`);
     debug(`Survey ${id} SMS result ${JSON.stringify(smsResult, null ,2)}`);
   }
   else {
