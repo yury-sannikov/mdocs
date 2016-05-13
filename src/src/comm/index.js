@@ -59,19 +59,19 @@ exports.conductSurvey = function* (id) {
   debug(`Survey ${id} email result ${JSON.stringify(emailResult, null, 2)}`);
   
   var shortenedLink = url;
-  try {
-    const response = JSON.parse(yield Bitly.shortenLinkAsync(url));
+  // try {
+  //   const response = JSON.parse(yield Bitly.shortenLinkAsync(url));
     
-    if (response && response.status_code == 200) {
-      shortenedLink = response.data.url;
-      debug(`Shortened url: ${shortenedLink}`);    
-    } else {
-      throw response;  
-    }
-  }
-  catch (err) {
-    debug(`Unable to shorten link through bitly api. Error: ${err}`);
-  }
+  //   if (response && response.status_code == 200) {
+  //     shortenedLink = response.data.url;
+  //     debug(`Shortened url: ${shortenedLink}`);    
+  //   } else {
+  //     throw response;  
+  //   }
+  // }
+  // catch (err) {
+  //   console.log(`Unable to shorten link through bitly api. Error: ${err}`);
+  // }
 
   // Send SMS
   if (record.patient && !_.isEmpty(record.patient.phone)) {
