@@ -37,6 +37,9 @@ if (exports.RECAPTCHA_SYSTEM_ONLINE) {
 
 exports.MESSAGES_PER_PAGE = Number.parseInt(process.env.MESSAGES_PER_PAGE, 10) || 10;
 exports.USERS_PER_PAGE = Number.parseInt(process.env.USERS_PER_PAGE, 10) || 10;
+
+exports.AUTH_CLIENT_ID = process.env.AUTH_CLIENT_ID;
+exports.AUTH_CLIENT_NAMESPACE = process.env.AUTH_CLIENT_NAMESPACE;
 exports.AUTH_CALLBACK_URL = process.env.AUTH_CALLBACK_URL || '/callback';
 
 exports.AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID;

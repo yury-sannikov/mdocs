@@ -6,7 +6,7 @@ const Koa = require('koa');
 const bouncer = require('koa-bouncer');
 const Pug = require('koa-pug');
 const debug = require('debug')('app:index');
-const csrf = require('koa-csrf')
+const csrf = require('koa-csrf');
 // 1st party
 const config = require('./config');
 const mw = require('./middleware');

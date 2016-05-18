@@ -38,7 +38,7 @@ router.use(function*(next) {
   if (this.isAuthenticated()) {
     yield next;
   } else {
-    this.redirect('/');
+    this.redirect(`/login?r=${encodeURIComponent(this.request.url)}`);
   }
 });
 

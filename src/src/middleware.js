@@ -38,7 +38,8 @@ exports.wrapJadeLocals = function() {
       user: currentUser,
       messages: {},
       error: {},
-      flash: this.flash
+      flash: this.flash,
+      config: config
     };
     
     yield* next;
