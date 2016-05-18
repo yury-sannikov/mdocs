@@ -47,7 +47,7 @@ block content
       .col-md-12
         .page-header
           h2
-            i.fa.fa-home
+            i.fa.fa-user
             | &nbsp;Locations
         a.linknewrequest.btn.btn-success.pull-center(href="#") New Location
         //- Wrapper
@@ -57,40 +57,30 @@ block content
           #userList
             table.table.table-striped
               thead
-                th Name
-                th.hidden-xs Email
-                th.hidden-xs Phone
-                th.hidden-xs Request Date
-                th.hidden-xs Review Date
-                th Rating
-                th.hidden-xs Actions
-                th Status
+                th Location name
+                th Address
+                th Email
+                th Phone
+                th Actions
               tbody
                 each review, i in reviews
                   tr
                     td
-                      // a.linkshowuser.btn.btn-info.btn-xs(href="#") #{review.patient.name}
                       span #{review.patient.name}
-                    td.hidden-xs
-                      strong #{review.patient.email}
-                    td.hidden-xs
-                      span #{formatPhone(review.patient.phone)}
-                    td.hidden-xs
-                      span #{moment.unix(review.visit_date).format('MMM-DD-YYYY')}
-                    td.hidden-xs
-                      span #{moment.unix(review.survey_date).format('MMM-DD-YYYY')}
                     td
-                      +star_mixin(review.averageRating)
-                    td.hidden-xs
+                      span #{review.patient.name}
+                    td
+                      strong #{review.patient.email}
+                    td
+                      span #{formatPhone(review.patient.phone)}
+                    td
                       a.btn.btn-info.btn-xs(href='/app/review/'+review.id) View
                       | &nbsp;
-                      a.linkresend.btn.btn-primary.btn-xs(href="#", rel=review.id) Resend&nbsp;
+                      a.linkresend.btn.btn-primary.btn-xs(href="#", rel=review.id) Edit&nbsp;
                       | &nbsp;
                       a.linkdeletesurvey.btn.btn-danger.btn-xs(href="#", data-surveyId=review.id) Delete&nbsp;
-                    td
-                      +survery_status(review.status)
           - if (reviews.length == 0)
-            span No reviews found in a database.
+            span No providers found in a database.
           //- /USER LIST
 
         //- /WRAPPER
@@ -117,7 +107,7 @@ block content
         .modal-content
           .modal-header
             button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-            h4#myModalLabel.modal-title New Review Request
+            h4#myModalLabel.modal-title New Location
           .modal-body
             .row
               .col-sm-12
@@ -127,7 +117,11 @@ block content
                   .form-group
                     label.sr-only(for='name') Name
                     .input-group
-                      input.form-control(type='text', name='name', id='name', placeholder='Patient name')
+                      input.form-control(type='text', name='name', id='name', placeholder='Location name')
+                  .form-group
+                    label.sr-only(for='name') Address
+                    .input-group
+                      input.form-control(type='text', name='address', id='address', placeholder='Location address')
                   .form-group
                     label.sr-only(for='email') Email
                     input.form-control(type='email', name='email', id='email', placeholder='Patient email')

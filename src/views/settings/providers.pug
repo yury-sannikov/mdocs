@@ -57,40 +57,27 @@ block content
           #userList
             table.table.table-striped
               thead
-                th Name
-                th.hidden-xs Email
-                th.hidden-xs Phone
-                th.hidden-xs Request Date
-                th.hidden-xs Review Date
-                th Rating
-                th.hidden-xs Actions
-                th Status
+                th Full name
+                th Email
+                th Phone
+                th Actions
               tbody
                 each review, i in reviews
                   tr
                     td
-                      // a.linkshowuser.btn.btn-info.btn-xs(href="#") #{review.patient.name}
                       span #{review.patient.name}
-                    td.hidden-xs
-                      strong #{review.patient.email}
-                    td.hidden-xs
-                      span #{formatPhone(review.patient.phone)}
-                    td.hidden-xs
-                      span #{moment.unix(review.visit_date).format('MMM-DD-YYYY')}
-                    td.hidden-xs
-                      span #{moment.unix(review.survey_date).format('MMM-DD-YYYY')}
                     td
-                      +star_mixin(review.averageRating)
-                    td.hidden-xs
+                      strong #{review.patient.email}
+                    td
+                      span #{formatPhone(review.patient.phone)}
+                    td
                       a.btn.btn-info.btn-xs(href='/app/review/'+review.id) View
                       | &nbsp;
-                      a.linkresend.btn.btn-primary.btn-xs(href="#", rel=review.id) Resend&nbsp;
+                      a.linkresend.btn.btn-primary.btn-xs(href="#", rel=review.id) Edit&nbsp;
                       | &nbsp;
                       a.linkdeletesurvey.btn.btn-danger.btn-xs(href="#", data-surveyId=review.id) Delete&nbsp;
-                    td
-                      +survery_status(review.status)
           - if (reviews.length == 0)
-            span No reviews found in a database.
+            span No providers found in a database.
           //- /USER LIST
 
         //- /WRAPPER
