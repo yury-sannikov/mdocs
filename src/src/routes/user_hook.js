@@ -16,7 +16,11 @@ router.post('/auth0', function*() {
 
 module.exports = router;
 
-function* insertOrUpdateUser(user) {
-  console.log(JSON.stringify(user, null, 2));
-  //createOrUpdateUser
+function* insertOrUpdateUser(ctx) {
+  yield db.insertOrUpdateUser(ctx.user.user_id,
+    Object.assign({}, {
+      id: ctx.user.user_id,
+      auth0_user: ctx.user,
+      last_request: ctx.context.request
+    }));
 }

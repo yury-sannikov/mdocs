@@ -81,7 +81,7 @@ exports.updateSurveyStatus = function* (id, status, answers) {
   });
 };
 
-exports.createOrUpdateUser = function* (id, user) {
+exports.insertOrUpdateUser = function* (id, user) {
   const chain = DynamoDB
     .table('survey_users')
     .where('id').eq(id);
