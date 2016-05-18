@@ -222,6 +222,6 @@ exports.csrfMiddleware = function() {
     if (this.request.url.indexOf(CSRF_SKIP_PREFIX) == 0) {
       return yield next;
     }
-    return yield csrf.middleware(next);
+    return yield csrf.middleware.call(this, next);
   };
 };
