@@ -17,7 +17,7 @@ block scripts
     var lock = new Auth0Lock('#{config.AUTH_CLIENT_ID}', '#{config.AUTH_CLIENT_NAMESPACE}');
     lock.show({
     container: 'root'
-    , callbackURL: loc.protocol + '//' + loc.host +  '#{config.AUTH_CALLBACK_URL}'
+    , callbackURL: '#{config.AUTH_CALLBACK_URL}'
     , responseType: 'code'
     , authParams: {
     },
