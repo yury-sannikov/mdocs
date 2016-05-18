@@ -1,0 +1,301 @@
+extends ../layouts/layout.pug
+
+//- http://cwbuecheler.com/web/tutorials/2014/restful-web-app-node-express-mongodb/
+
+block head
+  title #{application} &middot; Accounts
+
+block content
+  .container
+    .row
+      //- .col-md-4.col-md-push-8
+        .page-header
+          h2
+            i.fa.fa-user
+            | &nbsp;Account Details
+        //- USER INFO
+        #userInfo.well
+          p
+            img(id='userPicture', src='', width='100px')
+          p
+            strong Name:
+            |  <span id='userInfoName'></span>
+          p.hidden-xs
+            strong Email:
+            | &nbsp;
+            a(href='', id='userInfoEmail')
+          p.hidden-xs
+            strong Location:
+            |  <span id='userInfoLocation'></span>
+          p.hidden-xs
+            strong Gender:
+            |  <span id='userInfoGender'></span>
+          p.hidden-xs
+            strong Website:
+            | &nbsp;
+            a(href='', id='userInfoWebsite')
+          p
+            strong Date Established:
+            |  <span id='userInfoEstablished'></span>
+          p
+            strong Last Logon:
+            |  <span id='userInfoLogon'></span>
+          p.hidden-xs
+            strong Last Update:
+            |  <span id='userInfoUpdate'></span>
+        //- /USER INFO
+      .col-md-12
+        .page-header
+          h2
+            i.fa.fa-user
+            | &nbsp;Providers
+        a.linknewrequest.btn.btn-success.pull-center(href="#") New Provider
+        //- Wrapper
+        #wrapper
+
+          //- USER LIST
+          #userList
+            table.table.table-striped
+              thead
+                th Name
+                th.hidden-xs Email
+                th.hidden-xs Phone
+                th.hidden-xs Request Date
+                th.hidden-xs Review Date
+                th Rating
+                th.hidden-xs Actions
+                th Status
+              tbody
+                each review, i in reviews
+                  tr
+                    td
+                      // a.linkshowuser.btn.btn-info.btn-xs(href="#") #{review.patient.name}
+                      span #{review.patient.name}
+                    td.hidden-xs
+                      strong #{review.patient.email}
+                    td.hidden-xs
+                      span #{formatPhone(review.patient.phone)}
+                    td.hidden-xs
+                      span #{moment.unix(review.visit_date).format('MMM-DD-YYYY')}
+                    td.hidden-xs
+                      span #{moment.unix(review.survey_date).format('MMM-DD-YYYY')}
+                    td
+                      +star_mixin(review.averageRating)
+                    td.hidden-xs
+                      a.btn.btn-info.btn-xs(href='/app/review/'+review.id) View
+                      | &nbsp;
+                      a.linkresend.btn.btn-primary.btn-xs(href="#", rel=review.id) Resend&nbsp;
+                      | &nbsp;
+                      a.linkdeletesurvey.btn.btn-danger.btn-xs(href="#", data-surveyId=review.id) Delete&nbsp;
+                    td
+                      +survery_status(review.status)
+          - if (reviews.length == 0)
+            span No reviews found in a database.
+          //- /USER LIST
+
+        //- /WRAPPER
+
+
+  #deleteModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='deleteModalLabel', aria-hidden='true')
+      .modal-dialog.modal-sm
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+            h4#deleteModalLabel.modal-title Delete confirmation
+          .modal-body
+            h4 Are you sure?
+            form#deleteform(action='delete-survey', method='POST')
+              input.form-control(type='hidden', name='_csrf', value=_csrf)
+              input#deleteformid.form-control(type='hidden', name='id')            
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') No
+            button#deleteModalConfirm.btn.btn-primary(type='button') Yes!
+
+
+  #requestModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+      .modal-dialog.modal-md
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+            h4#myModalLabel.modal-title New Review Request
+          .modal-body
+            .row
+              .col-sm-12
+                h4 Details
+                form#requestform(action='new-request', method='POST')
+                  input.form-control(type='hidden', name='_csrf', value=_csrf)
+                  .form-group
+                    label.sr-only(for='name') Name
+                    .input-group
+                      input.form-control(type='text', name='name', id='name', placeholder='Patient name')
+                  .form-group
+                    label.sr-only(for='email') Email
+                    input.form-control(type='email', name='email', id='email', placeholder='Patient email')
+                    #hint
+                  .form-group
+                    label.sr-only(for='phoneMobile') Mobile Phone
+                    input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Patient phone # e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
+                  .form-group
+                    label.sr-only(for='physician') Physician name
+                    input.form-control(type='text', name='physician', id='physician', placeholder='Physician name')
+                  .form-group
+                    label.sr-only(for='visitDate') Visit date
+                    input.form-control(type='date', name='visitDate', id='visitDate', placeholder='Visit date (MM/DD/YYYY) e.g. 10/14/2016 ')
+
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Cancel
+            button#sendrequestbutton.btn.btn-primary(type='button') Send Request
+
+  //- script(src='lib/moment/min/moment.min.js')
+  //- script(src='lib/bootstrap/js/modal.js')
+block scripts
+  script.
+    // Userlist data array for filling in info box
+    var userListData = [];
+
+    // DOM Ready =============================================================
+    $(document).ready(function() {
+
+      //- Async Load Bootstrap Modal
+      $.ajax({
+        type: 'GET',
+        url: '/app/lib/bootstrap/js/modal.js',
+        dataType: 'script',
+        cache: true
+      });
+
+
+
+      // Username link click
+      //- $('#userList table tbody').on('click', 'td a.linkshowuser', showUserInfo);
+
+      // Delete User link click
+      $('#userList table tbody').on('click', 'td a.linkdeletesurvey', deleteSurvey);
+
+      // New request link click
+      $('.linknewrequest').on('click', newRequest);
+
+    });
+
+    // Functions =============================================================
+
+
+    // Show User Info
+    function showUserInfo(event) {
+
+      // Prevent Link from Firing
+      event.preventDefault();
+
+      // Retrieve username from link rel attribute
+      var thisUserName = $(this).attr('rel');
+
+      // Get Index of object based on id value
+      var arrayPosition = userListData.map(function(arrayItem) { return arrayItem._id; }).indexOf(thisUserName);
+
+      // Get our User Object
+      var thisUserObject = userListData[arrayPosition];
+
+      //Populate Info Box  .attr("src", src)
+      $('#userPicture').attr("src", (thisUserObject.profile.picture));
+      $('#userInfoName').text(thisUserObject.profile.name);
+      $('#userInfoEmail').attr('href', 'mailto:' + thisUserObject.email).text(thisUserObject.email);
+      $('#userInfoLocation').text(thisUserObject.profile.location);
+      $('#userInfoGender').text(thisUserObject.profile.gender);
+      if (thisUserObject.profile.website) {
+        $('#userInfoWebsite').attr('href', thisUserObject.profile.website).text('Website Link');
+      }
+      $('#userInfoEstablished').text(moment(thisUserObject.activity.date_established).format('MMMM Do YYYY'));
+      $('#userInfoLogon').text(moment(thisUserObject.activity.last_logon).fromNow());
+      $('#userInfoUpdate').text(moment(thisUserObject.activity.last_update).fromNow());
+    };
+
+    // Delete Survey
+    function deleteSurvey(event) {
+
+      // Prevent Link from Firing
+      event.preventDefault();
+
+      // Pop up a confirmation dialog
+      // Convoluted because we have to
+      // pass the user's id through
+      function showmodal(id) {
+        // show modal
+        $('#deleteModal').modal({keyboard:true,backdrop:'static'});
+        // if "yes" clicked
+        $('#deleteModalConfirm').one('click', function () {
+          // close the modal
+          $('#deleteformid').val(id);
+          $('#deleteform').submit();
+          $('#deleteModal').modal('hide');
+        });
+      }
+
+      // call modal function with the user's account id
+      showmodal($(this).attr('data-surveyId'));
+
+    };
+
+
+    // Delete User
+    function newRequest(event) {
+
+      // Prevent Link from Firing
+      event.preventDefault();
+
+      // Pop up a confirmation dialog
+      // Convoluted because we have to
+      // pass the user's id through
+      function showmodal(userid) {
+        // show modal
+        $('#requestModal').modal({keyboard:true,backdrop:'static'});
+        $("#requestform").validate({
+          rules: {
+            name: "required",
+            email: {
+              required: true,
+              email: true
+            },
+            phoneMobile: {
+              required: true
+            },
+            physician: {
+              required: true
+            },
+            visitDate: {
+              required: true
+            }
+          },
+          messages: {
+            name: "Please specify patient name",
+            email: {
+              required: "We need patient email address to contact",
+              email: "Patient email address must be in the format of name@domain.com"
+            },
+            phoneMobile: {
+              required: "We need patient phone to contact"
+            },
+            physician: {
+              required: "We need physician name"
+            },
+            visitDate: {
+              required: "We need visit date"
+            }
+          },          
+          submitHandler: function(form) {
+            form.submit();
+          },
+          invalidHandler: function(event, validator) {
+            console.log(event);
+            console.log(validator);
+          }
+        });
+        // if "yes" clicked
+        $('#sendrequestbutton').one('click', function () {
+            $('#requestform').submit();
+        });
+      }
+
+      // call modal function with the user's account id
+      showmodal($(this).attr('rel'));
+
+    };

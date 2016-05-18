@@ -98,6 +98,26 @@ router.get('/privacy', function*() {
   this.render('privacy/privacy', this.jadeLocals, true);
 });
 
+// Show providers
+router.get('/providers', function*() {
+  const data = yield db.surveysForProvider(this.currentUser.id);
+  const reviews = data[0].map((item) => {
+    const avg = _.chain(item.answers).values().sum().value() / _.values(item.answers).length;
+    return Object.assign({}, item, {averageRating: avg }); 
+  });
+  this.render('settings/providers', Object.assign({}, this.jadeLocals, {reviews: reviews}), true);
+});
+
+// Show office locations
+router.get('/locations', function*() {
+  const data = yield db.surveysForProvider(this.currentUser.id);
+  const reviews = data[0].map((item) => {
+    const avg = _.chain(item.answers).values().sum().value() / _.values(item.answers).length;
+    return Object.assign({}, item, {averageRating: avg }); 
+  });
+  this.render('settings/locations', Object.assign({}, this.jadeLocals, {reviews: reviews}), true);
+});
+
 
 /*
 ////////////////////////////////////////////////////////////
