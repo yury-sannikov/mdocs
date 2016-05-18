@@ -84,7 +84,7 @@ app.use(require('koa-static')('public', {
 if (config.NODE_ENV !== 'test') {
   app.use(require('koa-logger')());
 }
-app.use(require('koa-body')({ multipart: true }));
+app.use(require('koa-body')({ multipart: true, jsonLimit: '5mb' }));
 app.use(mw.methodOverride());  // Must come after body parser
 app.use(mw.removeTrailingSlash());
 app.use(mw.wrapCurrUser());
