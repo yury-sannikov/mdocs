@@ -7,9 +7,12 @@ const debug = require('debug')('app:middleware');
 const bouncer = require('koa-bouncer');
 const _ = require('lodash');
 const recaptcha = require('recaptcha-validator');
+const csrf = require('koa-csrf');
 // 1st
 //const db = require('./db');
 const config = require('./config');
+
+const CSRF_SKIP_PREFIX='/user-hook';
 
 // set currentUser to user object from passport object from session
 exports.wrapCurrUser = function() {
@@ -211,5 +214,14 @@ exports.ensureReferer = function() {
     this.assert(config.APP_HOSTNAME === refererHostname, 'Invalid referer', 403);
 
     yield* next;
+  };
+};
+
+exports.csrfMiddleware = function() {
+  return function*(next) {
+    if (this.request.url.indexOf(CSRF_SKIP_PREFIX) == 0) {
+      return yield next;
+    }
+    return yield csrf.middleware(next);
   };
 };

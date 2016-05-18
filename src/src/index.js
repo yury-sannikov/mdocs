@@ -101,7 +101,9 @@ app.keys = ['4d92163b86ad469c8861a4e0d399a524-app-mdocs-co'];
 app.use(session(app));
 
 // csrf
-app.use(csrf());
+app.use(csrf({
+  middleware: mw.csrfMiddleware()
+}));
 
 // Need session & body
 app.use(mw.ensureReferer());

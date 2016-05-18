@@ -9,9 +9,8 @@ const router = new Router({
 });
 
 router.post('/auth0', function*() {
-  debug(JSON.stringify(this.request.body, null, 2));
-  
   yield insertOrUpdateUser(this.request.body);
+  this.body = { ok: 1};
 });
 
 
