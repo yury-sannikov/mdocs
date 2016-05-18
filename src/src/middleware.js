@@ -208,7 +208,11 @@ exports.ensureReferer = function() {
       yield* next;
       return;
     }
-
+    if (this.request.url.indexOf(CSRF_SKIP_PREFIX) == 0) {
+      yield* next;
+      return;
+    }
+    
     const refererHostname = nodeUrl.parse(this.headers['referer'] || '').hostname;
 
     this.assert(config.APP_HOSTNAME === refererHostname, 'Invalid referer', 403);
