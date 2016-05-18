@@ -111,7 +111,7 @@ block content
           .modal-body
             .row
               .col-sm-12
-                h4 Details
+                h4 Location Details
                 form#requestform(action='new-request', method='POST')
                   input.form-control(type='hidden', name='_csrf', value=_csrf)
                   .form-group
@@ -121,24 +121,43 @@ block content
                   .form-group
                     label.sr-only(for='name') Address
                     .input-group
-                      input.form-control(type='text', name='address', id='address', placeholder='Location address')
+                      input.form-control(type='text', name='name', id='name', placeholder='Location address')
                   .form-group
                     label.sr-only(for='email') Email
-                    input.form-control(type='email', name='email', id='email', placeholder='Patient email')
+                    input.form-control(type='email', name='email', id='email', placeholder='Email')
                     #hint
                   .form-group
-                    label.sr-only(for='phoneMobile') Mobile Phone
-                    input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Patient phone # e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
+                    label.sr-only(for='phoneMobile') Phone
+                    input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Phone number e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
+                  h4 Review Site IDs
                   .form-group
-                    label.sr-only(for='physician') Physician name
-                    input.form-control(type='text', name='physician', id='physician', placeholder='Physician name')
+                    label.sr-only(for='yelp') Yelp
+                    .input-group
+                      input.form-control(type='text', name='yelp', id='yelp', placeholder='Yelp ID')
                   .form-group
-                    label.sr-only(for='visitDate') Visit date
-                    input.form-control(type='date', name='visitDate', id='visitDate', placeholder='Visit date (MM/DD/YYYY) e.g. 10/14/2016 ')
-
+                    label.sr-only(for='yelp') Google
+                    .input-group
+                      input.form-control(type='text', name='yelp', id='yelp', placeholder='Google ID')
+                  .form-group
+                    label.sr-only(for='yelp') HealthGrades.com
+                    .input-group
+                      input.form-control(type='text', name='yelp', id='yelp', placeholder='HealthGrades.com ID')
+                  .form-group
+                    label.sr-only(for='yelp') Vitals.com
+                    .input-group
+                      input.form-control(type='text', name='yelp', id='yelp', placeholder='Vitals.com ID')
+                  .form-group
+                    label.sr-only(for='yelp') MDReviews.com
+                    .input-group
+                      input.form-control(type='text', name='yelp', id='yelp', placeholder='MDReviews.com ID')
+                  .form-group
+                    label.sr-only(for='yelp') Yellow Pages
+                    .input-group
+                      input.form-control(type='text', name='yelp', id='yelp', placeholder='Yellow Pages ID')
+                  
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') Cancel
-            button#sendrequestbutton.btn.btn-primary(type='button') Send Request
+            button#sendrequestbutton.btn.btn-primary(type='button') Save
 
   //- script(src='lib/moment/min/moment.min.js')
   //- script(src='lib/bootstrap/js/modal.js')

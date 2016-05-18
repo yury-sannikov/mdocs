@@ -136,12 +136,49 @@ block content
                     label.sr-only(for='phoneMobile') Mobile Phone
                     input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Patient phone # e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
                   .form-group
-                    label.sr-only(for='physician') Physician name
-                    input.form-control(type='text', name='physician', id='physician', placeholder='Physician name')
-                  .form-group
                     label.sr-only(for='visitDate') Visit date
                     input.form-control(type='date', name='visitDate', id='visitDate', placeholder='Visit date (MM/DD/YYYY) e.g. 10/14/2016 ')
-
+                  .form-group
+                    strong Review type
+                    div.radio
+                      label(style="margin-left: -20px;") Provider
+                        input(type="radio" name="optradio" checked="checked" style="margin-left: 10px;")
+                      label(style="margin-left: 20px;") Office
+                        input(type="radio" name="optradio" style="margin-left: 10px;")
+                  .form-group
+                    div.dropdown
+                      button.btn.btn-default.dropdown-toggle(type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true") Select Provider
+                        span.caret
+                      ul.dropdown-menu(aria-labelledby="dropdownMenu1")
+                        li
+                          a(href="#") Charles Okorie
+                        li
+                          a(href="#") Levent Gurses
+                        li
+                          a(href="#") Vladimir Corja
+                        li
+                          a(href="#") Yuriy Sannikov
+                  strong Review site    
+                  .form-group
+                    div.dropdown
+                      button.btn.btn-default.dropdown-toggle(type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true") Select Review Site
+                        span.caret
+                      ul.dropdown-menu(aria-labelledby="dropdownMenu1")
+                        li
+                          a(href="#") Yelp
+                        li
+                          a(href="#") Google
+                        li
+                          a(href="#") HealthGrades.com
+                        li
+                          a(href="#") Vitals.com
+                        li
+                          a(href="#") MDReviews.com
+                        li
+                          a(href="#") Yellow Pages
+                  //- .form-group
+                  //-   label.sr-only(for='physician') Physician name
+                  //-   input.form-control(type='text', name='physician', id='physician', placeholder='Physician name')
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') Cancel
             button#sendrequestbutton.btn.btn-primary(type='button') Send Request
