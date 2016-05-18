@@ -146,10 +146,10 @@ block content
                       label(style="margin-left: 20px;") Office
                         input(type="radio" name="optradio" style="margin-left: 10px;")
                   .form-group
-                    div.dropdown
-                      button.btn.btn-default.dropdown-toggle(type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true") Select Provider
+                    div.dropdown(id="providerType")
+                      button.btn.btn-default.dropdown-toggle(type="button" id="providerDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true") Select Provider
                         span.caret
-                      ul.dropdown-menu(aria-labelledby="dropdownMenu1")
+                      ul.dropdown-menu(aria-labelledby="providerDropdown")
                         li
                           a(href="#") Charles Okorie
                         li
@@ -158,12 +158,23 @@ block content
                           a(href="#") Vladimir Corja
                         li
                           a(href="#") Yuriy Sannikov
+                  .form-group
+                    div.dropdown(id="locationType")
+                      button.btn.btn-default.dropdown-toggle(type="button" id="locationDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true") Select Location
+                        span.caret
+                      ul.dropdown-menu(aria-labelledby="providerDropdown")
+                        li
+                          a(href="#") Cascades Family Practice
+                        li
+                          a(href="#") Movel
+                        li
+                          a(href="#") New Patient Practice
                   strong Review site    
                   .form-group
                     div.dropdown
-                      button.btn.btn-default.dropdown-toggle(type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true") Select Review Site
+                      button.btn.btn-default.dropdown-toggle(type="button" id="sitesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true") Yelp
                         span.caret
-                      ul.dropdown-menu(aria-labelledby="dropdownMenu1")
+                      ul.dropdown-menu(aria-labelledby="sitesDropdown")
                         li
                           a(href="#") Yelp
                         li
@@ -202,15 +213,18 @@ block scripts
       });
 
 
-
+      $('#locationType').hide();
       // Username link click
       //- $('#userList table tbody').on('click', 'td a.linkshowuser', showUserInfo);
 
-      // Delete User link click
-      $('#userList table tbody').on('click', 'td a.linkdeletesurvey', deleteSurvey);
+      // Review type change
+      $('input[type=radio]').on('change', changeReviewType);
 
       // New request link click
       $('.linknewrequest').on('click', newRequest);
+
+      // Delete User link click
+      $('#userList table tbody').on('click', 'td a.linkdeletesurvey', deleteSurvey);
 
     });
 
@@ -245,6 +259,16 @@ block scripts
       $('#userInfoLogon').text(moment(thisUserObject.activity.last_logon).fromNow());
       $('#userInfoUpdate').text(moment(thisUserObject.activity.last_update).fromNow());
     };
+
+    // Change Review Type
+    function changeReviewType(event) {
+
+      // Prevent Link from Firing
+      event.preventDefault();
+    
+      $('#providerType').toggle();
+      $('#locationType').toggle();
+    }
 
     // Delete Survey
     function deleteSurvey(event) {
@@ -325,6 +349,11 @@ block scripts
             console.log(event);
             console.log(validator);
           }
+        });
+        // to change dropdown selection
+        $(".dropdown-menu li a").click(function(){
+          $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+          $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
         });
         // if "yes" clicked
         $('#sendrequestbutton').one('click', function () {
