@@ -111,4 +111,14 @@ router.post('/submit', function*() {
   }
 });
 
+router.post('/details', function*() {
+  
+  if (!_.isEmpty(this.request.body.details)) {
+    yield db.updateSurveyDetails(this.request.body.id, this.request.body.details);
+  }
+  
+  this.redirect('/');
+});
+
+
 module.exports = router;

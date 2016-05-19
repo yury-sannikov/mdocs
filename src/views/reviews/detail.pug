@@ -25,6 +25,12 @@ block content
               .col-md-6
                 span(style='font-size: 40px;color:gold;')
                   +star_mixin(survey.answers[i]).fa-fw
+          hr
+    .row
+      .col-sm-8.col-sm-offset-2
+        h4 Patient Feedback
+      .col-sm-8.col-sm-offset-2
+        textarea.form-control(rows='6', name='details') #{survey.details}
         hr
         a.btn.btn-success(href='/app/patient-reviews')
           i.fa.fa-check
