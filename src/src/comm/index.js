@@ -11,6 +11,9 @@ const BitlyAPI = require('node-bitlyapi');
 const Promise = require('bluebird');
 const config = require('../config');
 
+const Slack = Promise.promisifyAll(require('slack-notify')(config.SLACK_WEBHOOK_URL));
+ 
+
 const Bitly = Promise.promisifyAll(new BitlyAPI({
   client_id: config.BITLY_CLIENT_ID,
   client_secret: config.BITLY_CLIENT_SECRET
@@ -18,6 +21,10 @@ const Bitly = Promise.promisifyAll(new BitlyAPI({
 
 Bitly.setAccessToken(config.BITLY_TOKEN);
 
+
+exports.generateSurveyDetailsUrl = function(id) {
+  return `https://app.mdocs.co/app/review/${id}`;
+};
 
 exports.generateSurveyUrl = function(id, code) {
   return `https://app.mdocs.co/survey/${id}:${code}`;
@@ -84,4 +91,35 @@ exports.conductSurvey = function* (id) {
   }
 
   return 0;
+};
+
+exports.notifyWithNegativeReview = function* (survey) {
+  var surveyDetailsUrl = exports.generateSurveyDetailsUrl(survey.id);
+  
+  const officeAdministrator = {
+    email: 'levent@movel.co',
+    phone: '+17035087934'
+  };
+  
+  const emailResult = yield email.sendNegativeReviewNotification(officeAdministrator.email, {
+    physician: survey.physician,
+    appointmentDate: moment.unix(survey.visit_date).format('MMM-DD-YYYY'),
+    surveyUrl: surveyDetailsUrl,
+    unsubscribeUrl: ''
+  });
+
+  yield Slack.alertAsync({
+    text: `Patient posted a negative review: ${surveyDetailsUrl}`,
+    channel: '#mdocs',
+    username: 'MDOCS Apps Portal',
+    icon_emoji: ':-1:'    
+  });
+  
+  debug(`Negative review ${survey.id} email notification result ${JSON.stringify(emailResult, null, 2)}`);  
+
+  const smsResult = yield sms.sendSMS(officeAdministrator.phone, 
+    `Negative review received: $surveyDetailsUrl{}`);
+    
+  debug(`Negative review ${survey.id} SMS result ${JSON.stringify(smsResult, null ,2)}`);
+
 };

@@ -7,7 +7,7 @@ const _ = require('lodash');
 
 // 1st party
 const db = require('../db');
-// const communicator = require('../comm');
+const communicator = require('../comm');
 
 
 // const HARDCODED_QUESTIONS = {
@@ -105,6 +105,7 @@ router.post('/submit', function*() {
   const minValue = _.minBy(ansvers, o => o.value);
 
   if (minValue.value < MINIMUM_OKAY_SURVEY_VALUE) {
+    yield communicator.notifyWithNegativeReview(survey);
     this.render('reviews/negative', Object.assign({}, this.jadeLocals, { survey: survey }), true);
   } else {
     this.render('reviews/positive', Object.assign({}, this.jadeLocals, { survey: survey }), true);

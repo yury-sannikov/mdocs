@@ -54,6 +54,8 @@ exports.BITLY_CLIENT_ID = process.env.BITLY_CLIENT_ID;
 exports.BITLY_CLIENT_SECRET = process.env.BITLY_CLIENT_SECRET;
 exports.BITLY_TOKEN = process.env.BITLY_TOKEN;
 
+exports.SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL;
+
 ////////////////////////////////////////////////////////////
 
 // DynamoDB workaround
