@@ -57,7 +57,7 @@ exports.conductSurvey = function* (id) {
   const record = surveyData[0];
   
   const emailResult = yield email.sendReviewRequest(record.patient.email, {
-    physician: record.physician,
+    physician: record.title,
     appointmentDate: moment.unix(record.visit_date).format('MMM-DD-YYYY'),
     surveyUrl: url,
     unsubscribeUrl: urlUnsubscribe
@@ -102,23 +102,23 @@ exports.notifyWithNegativeReview = function* (survey) {
   };
   
   const emailResult = yield email.sendNegativeReviewNotification(officeAdministrator.email, {
-    physician: survey.physician,
+    physician: survey.title,
     appointmentDate: moment.unix(survey.visit_date).format('MMM-DD-YYYY'),
     surveyUrl: surveyDetailsUrl,
     unsubscribeUrl: ''
   });
 
   yield Slack.alertAsync({
-    text: `Patient posted a negative review: ${surveyDetailsUrl}`,
+    text: `A negative review was just posted. Please view the survey here: ${surveyDetailsUrl}`,
     channel: '#mdocs',
     username: 'MDOCS Apps Portal',
-    icon_emoji: ':-1:'    
+    icon_emoji: ':-1:'
   });
   
   debug(`Negative review ${survey.id} email notification result ${JSON.stringify(emailResult, null, 2)}`);  
 
   const smsResult = yield sms.sendSMS(officeAdministrator.phone, 
-    `Negative review received: $surveyDetailsUrl{}`);
+    `A negative review was just posted. Please view the survey here: ${surveyDetailsUrl}`);
     
   debug(`Negative review ${survey.id} SMS result ${JSON.stringify(smsResult, null ,2)}`);
 

@@ -32,6 +32,13 @@ const router = new Router({
   prefix: '/app'
 });
 
+function hasDynamoData(data) {
+  if (_.isEmpty(data) || !_.isArray(data)) {
+    return false;
+  }
+  return _.isArray(data[0]) && data[0].length > 0;
+}
+
 ////////////////////////////////////////////////////////////
 // Check for authentification for all routes below
 router.use(function*(next) {
@@ -70,8 +77,22 @@ router.post('/new-request', function *() {
     reviewSite: 'yelp'
   });
   
-  const id = yield db.createNewSurvey()(this.currentUser.id, survey, 
-    Object.assign({}, HARDCODED_QUESTIONS, { '2': survey.physician}));
+  const providerOrLocation = yield db.getReviewObject(survey.reviewFor.id, survey.reviewFor.reviewType);
+  
+  if (!hasDynamoData(providerOrLocation)) {
+    debug(`Can't find review object: ${JSON.stringify(survey.reviewFor)}`);
+    this.flash = 'Unable to find specified review object';
+    this.redirect('patient-reviews');
+    return;
+  }
+  
+  const title = providerOrLocation[0][0].name;
+  
+  const questions = Object.assign({}, HARDCODED_QUESTIONS, { '2': title });
+
+  console.log(JSON.stringify(questions, null, 2));
+  
+  const id = yield db.createNewSurvey()(this.currentUser.id, survey, questions, title);
   
   const result = yield communicator.conductSurvey(id);
   if (result == 0) {

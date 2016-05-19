@@ -35,8 +35,18 @@ exports.surveyById = function (id) {
   return Promise.promisify(chain.query, {context: chain});
 };
 
+exports.getReviewObject = function (id, type) {
+  const isProvider = type === 'provider';
+  
+  const chain = DynamoDB
+    .table(isProvider ? 'providers' : 'locations')
+    .where('id').eq(id);
+  return Promise.promisify(chain.query, {context: chain});
+};
+
+
 exports.createNewSurvey = function() {
-  return function* (providerId, survey, questions) {
+  return function* (providerId, survey, questions, title) {
     const chain = DynamoDB
       .table('survey_review');
     const insertAsync = Promise.promisify(chain.insert, {context: chain});
@@ -53,7 +63,7 @@ exports.createNewSurvey = function() {
         'name': survey.name,
         'phone': survey.phoneMobile
       },
-      physician: survey.physician,
+      title: title,
       reviewFor: survey.reviewFor,
       reviewSite: survey.reviewSite
     });
