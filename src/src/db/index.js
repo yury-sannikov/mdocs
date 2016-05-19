@@ -11,7 +11,7 @@ exports.surveysForProvider = function (providerId) {
   const chain = DynamoDB
     .table('survey_review')
     .where('provider_id').eq(providerId)
-    .order_by('provider_id-visit_date-index');
+    .order_by('provider_id-survey_date-index').descending();
   return Promise.promisify(chain.query, {context: chain});
 };
 
