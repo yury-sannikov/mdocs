@@ -30,7 +30,7 @@ block content
       .col-sm-8.col-sm-offset-2
         h4 Patient Feedback
       .col-sm-8.col-sm-offset-2
-        textarea.form-control(rows='6', name='details') #{survey.details}
+        textarea.form-control(readonly='true', rows='6', name='details') #{survey.details}
         hr
         a.btn.btn-success(href='/app/patient-reviews')
           i.fa.fa-check
