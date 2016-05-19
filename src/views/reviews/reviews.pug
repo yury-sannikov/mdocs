@@ -142,14 +142,14 @@ block content
                     strong Review type
                     div.radio
                       label(style="margin-left: -20px;") Provider
-                        input(type="radio" name="optradio" checked="checked" style="margin-left: 10px;")
+                        input(type="radio", name="optradio", checked="checked", style="margin-left: 10px;")
                       label(style="margin-left: 20px;") Office
-                        input(type="radio" name="optradio" style="margin-left: 10px;")
+                        input(type="radio", name="optradio", style="margin-left: 10px;")
                   .form-group
                     div.dropdown(id="providerType")
-                      button.btn.btn-default.dropdown-toggle(type="button" id="providerDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true") Select Provider
+                      button.btn.btn-default.dropdown-toggle(type="button", name="providerDropdown", id="providerDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Select Provider
                         span.caret
-                      ul.dropdown-menu(id="providersList" aria-labelledby="providerDropdown")
+                      ul.dropdown-menu(id="providersList", aria-labelledby="providerDropdown")
                         - if (providers.length == 0)
                           span &nbsp;&nbsp;No providers found in the database.&nbsp;&nbsp;
                         - else
@@ -158,7 +158,7 @@ block content
                               a(href="#") #{provider.name}
                   .form-group
                     div.dropdown(id="locationType")
-                      button.btn.btn-default.dropdown-toggle(type="button" id="locationDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true") Select Location
+                      button.btn.btn-default.dropdown-toggle(type="button", name = "providerDropdown", id="locationDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Select Location
                         span.caret
                       ul.dropdown-menu(aria-labelledby="locationDropdown")
                         - if (locations.length == 0)
@@ -169,22 +169,22 @@ block content
                               a(href="#") #{location.name}
                   strong Review site    
                   .form-group
-                    div.dropdown
-                      button.btn.btn-default.dropdown-toggle(type="button" id="sitesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true") Yelp
+                    div.dropdown(id="dropdownType")
+                      button.btn.btn-default.dropdown-toggle(type="button", name="sitesDropdown", id="sitesDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Yelp
                         span.caret
                       ul.dropdown-menu(aria-labelledby="sitesDropdown")
-                        li
-                          a(id="yelpOption") Yelp
-                        li
-                          a(id="googleOption") Google
-                        li
-                          a(id="healthgradesOption") HealthGrades.com
-                        li
-                          a(id="vitalsOption") Vitals.com
-                        li
-                          a(id="mdreviewsOption") MDReviews.com
-                        li
-                          a(id="yellowpagesOption") Yellow Pages
+                        li(id="yelpOption")
+                          a(href="#") Yelp
+                        li(id="googleOption")
+                          a(href="#") Google
+                        li(id="healthgradesOption")
+                          a(href="#") HealthGrades.com
+                        li(id="vitalsOption")
+                          a(href="#") Vitals.com
+                        li(id="mdreviewsOption")
+                          a(href="#") MDReviews.com
+                        li(id="yellowpagesOption") 
+                          a(href="#") Yellow Pages
                   //- .form-group
                   //-   label.sr-only(for='physician') Physician name
                   //-   input.form-control(type='text', name='physician', id='physician', placeholder='Physician name')
@@ -198,6 +198,9 @@ block scripts
   script.
     // Userlist data array for filling in info box
     var userListData = [];
+    const providers = !{JSON.stringify(providers)};
+    const locations = !{JSON.stringify(locations)};
+    const HARDCODED_SITE_NAMES = ["Yelp", "Google", "HealthGrades.com", "Vitals.com", "MDReviews.com", "Yellow Pages"]; 
 
     // DOM Ready =============================================================
     $(document).ready(function() {
@@ -219,6 +222,9 @@ block scripts
 
       // Review type change
       $('input[type=radio]').on('change', changeReviewType);
+      // Dropdown selection change
+      $('#providerType').on('click', 'li a', changeAvailableReviewSites);
+      $('#locationType').on('click', 'li a', changeAvailableReviewSites);
 
       // New request link click
       $('.linknewrequest').on('click', newRequest);
@@ -268,6 +274,72 @@ block scripts
     
       $('#providerType').toggle();
       $('#locationType').toggle();
+    }
+
+    // Change Available Review Sites
+    function changeAvailableReviewSites(event) {
+
+      // Prevent Link from Firing
+      event.preventDefault();
+
+      // Update available options
+      var selectedOption = {};
+      if($('#providerType').is(':visible')) {
+        if($("#providerDropdown").text() == "Select Provider") { return; }
+        selectedOption = providers.filter((p) => p.name === $(this).text())[0];
+      }
+      else {
+        if($("#locationDropdown").text() == "Select Location") { return; }
+        selectedOption = locations.filter((l) => l.name === $(this).text())[0];
+      }
+      console.log(selectedOption);
+
+      // Set available options
+      var firstShown = false;
+      if(selectedOption.review_sites.yelp == null) { $('#yelpOption').hide(); }
+      else { 
+        $('#yelpOption').show(); 
+        $('#sitesDropdown').text(HARDCODED_SITE_NAMES[0]);
+        firstShown = true;
+      }
+      if(selectedOption.review_sites.google == null) { $('#googleOption').hide(); }
+      else { 
+        $('#googleOption').show(); 
+        if(!firstShown) {
+          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[1]);
+          firstShown = true;
+        }
+      }
+      if(selectedOption.review_sites.healthgrades == null) { $('#healthgradesOption').hide(); }
+      else { 
+        $('#healthgradesOption').show(); 
+        if(!firstShown) {
+          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[2]);
+          firstShown = true;
+        }
+
+      }
+      if(selectedOption.review_sites.vitals == null) { $('#vitalsOption').hide(); }
+      else { 
+        $('#vitalsOption').show();  
+        if(!firstShown) {
+          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[3]);
+          firstShown = true;
+        }
+      }
+      if(selectedOption.review_sites.mdreviews == null) { $('#mdreviewsOption').hide(); }
+      else { 
+        $('#mdreviewsOption').show();  
+        if(!firstShown) {
+          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[4]);
+          firstShown = true;
+        }
+      }
+      if(selectedOption.review_sites.yellowpages == null) { $('#yellowpagesOption').hide(); }
+      else { 
+        $('#yellowpagesOption').show();  
+        if(!firstShown) { $('#sitesDropdown').text(HARDCODED_SITE_NAMES[5]); }
+      }
     }
 
     // Delete Survey
