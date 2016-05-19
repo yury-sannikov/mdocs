@@ -61,7 +61,14 @@ router.get('/patient-reviews', function*() {
 router.post('/new-request', function *() {
   console.log(this.request.body);
   
-  const survey = Object.assign({}, this.request.body);
+  const survey = Object.assign({}, this.request.body, {
+    //TODO: For Vlad
+    reviewFor: {
+      id: '22168662-edc8-406a-8a7e-872b266981c7',
+      reviewType: 'provider'
+    },
+    reviewSite: 'yelp'
+  });
   
   const id = yield db.createNewSurvey()(this.currentUser.id, survey, 
     Object.assign({}, HARDCODED_QUESTIONS, { '2': survey.physician}));

@@ -53,7 +53,9 @@ exports.createNewSurvey = function() {
         'name': survey.name,
         'phone': survey.phoneMobile
       },
-      physician: survey.physician
+      physician: survey.physician,
+      reviewFor: survey.reviewFor,
+      reviewSite: survey.reviewSite
     });
     return id;
   };
