@@ -100,22 +100,65 @@ router.get('/privacy', function*() {
 
 // Show providers
 router.get('/providers', function*() {
-  const data = yield db.surveysForProvider(this.currentUser.id);
-  const reviews = data[0].map((item) => {
-    const avg = _.chain(item.answers).values().sum().value() / _.values(item.answers).length;
-    return Object.assign({}, item, {averageRating: avg }); 
-  });
-  this.render('settings/providers', Object.assign({}, this.jadeLocals, {reviews: reviews}), true);
+  const data = yield db.providersForAdmin(this.currentUser.id);
+  this.render('settings/providers', Object.assign({}, this.jadeLocals, {providers: data[0]}), true);
+});
+
+router.get('/provider/:id', function*() {
+  const data = yield db.providerById(this.params.id);
+  if (!data || !data[0] || data[0].length == 0) {
+    this.redirect('/app/providers');
+    return;
+  }
+  this.render('settings/providerDetail', Object.assign({}, this.jadeLocals, { provider: data[0][0] }), true);
+});
+
+router.post('/new-provider', function *() {
+  console.log(this.request.body);
+  
+  const provider = Object.assign({}, this.request.body);
+  
+  const id = yield db.createProvider()(this.currentUser.id, provider);
+
+  this.redirect('providers');
+});
+
+router.post('/delete-provider', function*() {
+  yield db.deleteProvider(this.request.body.id);
+  this.flash = 'Provider deleted successfully.';
+  this.redirect('providers');
 });
 
 // Show office locations
 router.get('/locations', function*() {
-  const data = yield db.surveysForProvider(this.currentUser.id);
-  const reviews = data[0].map((item) => {
-    const avg = _.chain(item.answers).values().sum().value() / _.values(item.answers).length;
-    return Object.assign({}, item, {averageRating: avg }); 
-  });
-  this.render('settings/locations', Object.assign({}, this.jadeLocals, {reviews: reviews}), true);
+  const data = yield db.locationsForAdmin(this.currentUser.id);
+  this.render('settings/locations', Object.assign({}, this.jadeLocals, {locations: data[0]}), true);
+});
+
+router.get('/location/:id', function*() {
+  const data = yield db.locationById(this.params.id);
+  console.log(this.params.id)
+  if (!data || !data[0] || data[0].length == 0) {
+    this.redirect('/app/locations');
+    return;
+  }
+  this.render('settings/locationDetail', Object.assign({}, this.jadeLocals, { location: data[0][0] }), true);
+});
+
+router.post('/new-location', function *() {
+  console.log(this.request.body);
+  
+  const location = Object.assign({}, this.request.body);
+
+  const id = yield db.createLocation()(this.currentUser.id, location);
+
+  this.redirect('locations');
+});
+
+router.post('/delete-location', function*() {
+  yield db.deleteLocation(this.request.body.id);
+  this.flash = 'Location deleted successfully.';
+  this.redirect('locations');
 });
 
 

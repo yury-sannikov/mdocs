@@ -49,7 +49,7 @@ block content
           h2
             i.fa.fa-user
             | &nbsp;Locations
-        a.linknewrequest.btn.btn-success.pull-center(href="#") New Location
+        a.linknewlocation.btn.btn-success.pull-center(href="#") New Location
         //- Wrapper
         #wrapper
 
@@ -63,24 +63,24 @@ block content
                 th Phone
                 th Actions
               tbody
-                each review, i in reviews
+                each location, i in locations
                   tr
                     td
-                      span #{review.patient.name}
+                      span #{location.name}
                     td
-                      span #{review.patient.name}
+                      span #{location.address}
                     td
-                      strong #{review.patient.email}
+                      strong #{location.email}
                     td
-                      span #{formatPhone(review.patient.phone)}
+                      span #{formatPhone(location.phone)}
                     td
-                      a.btn.btn-info.btn-xs(href='/app/review/'+review.id) View
+                      a.btn.btn-info.btn-xs(href='/app/location/'+location.id) View
                       | &nbsp;
-                      a.linkresend.btn.btn-primary.btn-xs(href="#", rel=review.id) Edit&nbsp;
+                      a.linkresend.btn.btn-primary.btn-xs(href="#", rel=location.id) Edit&nbsp;
                       | &nbsp;
-                      a.linkdeletesurvey.btn.btn-danger.btn-xs(href="#", data-surveyId=review.id) Delete&nbsp;
-          - if (reviews.length == 0)
-            span No providers found in a database.
+                      a.linkdeletelocation.btn.btn-danger.btn-xs(href="#", data-locationId=location.id) Delete&nbsp;
+          - if (locations.length == 0)
+            span No locations found in a database.
           //- /USER LIST
 
         //- /WRAPPER
@@ -94,7 +94,7 @@ block content
             h4#deleteModalLabel.modal-title Delete confirmation
           .modal-body
             h4 Are you sure?
-            form#deleteform(action='delete-survey', method='POST')
+            form#deleteform(action='delete-location', method='POST')
               input.form-control(type='hidden', name='_csrf', value=_csrf)
               input#deleteformid.form-control(type='hidden', name='id')            
           .modal-footer
@@ -112,16 +112,16 @@ block content
             .row
               .col-sm-12
                 h4 Location Details
-                form#requestform(action='new-request', method='POST')
+                form#requestform(action='new-location', method='POST')
                   input.form-control(type='hidden', name='_csrf', value=_csrf)
                   .form-group
                     label.sr-only(for='name') Name
                     .input-group
                       input.form-control(type='text', name='name', id='name', placeholder='Location name')
                   .form-group
-                    label.sr-only(for='name') Address
+                    label.sr-only(for='address') Address
                     .input-group
-                      input.form-control(type='text', name='name', id='name', placeholder='Location address')
+                      input.form-control(type='text', name='address', id='address', placeholder='Location address')
                   .form-group
                     label.sr-only(for='email') Email
                     input.form-control(type='email', name='email', id='email', placeholder='Email')
@@ -135,25 +135,25 @@ block content
                     .input-group
                       input.form-control(type='text', name='yelp', id='yelp', placeholder='Yelp ID')
                   .form-group
-                    label.sr-only(for='yelp') Google
+                    label.sr-only(for='google') Google
                     .input-group
-                      input.form-control(type='text', name='yelp', id='yelp', placeholder='Google ID')
+                      input.form-control(type='text', name='google', id='google', placeholder='Google ID')
                   .form-group
-                    label.sr-only(for='yelp') HealthGrades.com
+                    label.sr-only(for='healthgrades') HealthGrades.com
                     .input-group
-                      input.form-control(type='text', name='yelp', id='yelp', placeholder='HealthGrades.com ID')
+                      input.form-control(type='text', name='healthgrades', id='healthgrades', placeholder='HealthGrades.com ID')
                   .form-group
-                    label.sr-only(for='yelp') Vitals.com
+                    label.sr-only(for='vitals') Vitals.com
                     .input-group
-                      input.form-control(type='text', name='yelp', id='yelp', placeholder='Vitals.com ID')
+                      input.form-control(type='text', name='vitals', id='vitals', placeholder='Vitals.com ID')
                   .form-group
-                    label.sr-only(for='yelp') MDReviews.com
+                    label.sr-only(for='mdreviews') MDReviews.com
                     .input-group
-                      input.form-control(type='text', name='yelp', id='yelp', placeholder='MDReviews.com ID')
+                      input.form-control(type='text', name='mdreviews', id='mdreviews', placeholder='MDReviews.com ID')
                   .form-group
-                    label.sr-only(for='yelp') Yellow Pages
+                    label.sr-only(for='yellowpages') Yellow Pages
                     .input-group
-                      input.form-control(type='text', name='yelp', id='yelp', placeholder='Yellow Pages ID')
+                      input.form-control(type='text', name='yellowpages', id='yellowpages', placeholder='Yellow Pages ID')
                   
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') Cancel
@@ -178,15 +178,14 @@ block scripts
       });
 
 
-
       // Username link click
       //- $('#userList table tbody').on('click', 'td a.linkshowuser', showUserInfo);
 
       // Delete User link click
-      $('#userList table tbody').on('click', 'td a.linkdeletesurvey', deleteSurvey);
+      $('#userList table tbody').on('click', 'td a.linkdeletelocation', deleteLocation);
 
       // New request link click
-      $('.linknewrequest').on('click', newRequest);
+      $('.linknewlocation').on('click', newLocation);
 
     });
 
@@ -223,7 +222,7 @@ block scripts
     };
 
     // Delete Survey
-    function deleteSurvey(event) {
+    function deleteLocation(event) {
 
       // Prevent Link from Firing
       event.preventDefault();
@@ -244,13 +243,13 @@ block scripts
       }
 
       // call modal function with the user's account id
-      showmodal($(this).attr('data-surveyId'));
+      showmodal($(this).attr('data-locationId'));
 
     };
 
 
     // Delete User
-    function newRequest(event) {
+    function newLocation(event) {
 
       // Prevent Link from Firing
       event.preventDefault();
@@ -264,34 +263,28 @@ block scripts
         $("#requestform").validate({
           rules: {
             name: "required",
+            address: {
+              required: true
+            },
             email: {
               required: true,
               email: true
             },
             phoneMobile: {
               required: true
-            },
-            physician: {
-              required: true
-            },
-            visitDate: {
-              required: true
             }
           },
           messages: {
-            name: "Please specify patient name",
+            name: "Please specify the name of the location",
+            address: {
+              required: "We need the location's address"
+            },
             email: {
-              required: "We need patient email address to contact",
-              email: "Patient email address must be in the format of name@domain.com"
+              required: "We need an email address to contact",
+              email: "The email address must be in the format of name@domain.com"
             },
             phoneMobile: {
-              required: "We need patient phone to contact"
-            },
-            physician: {
-              required: "We need physician name"
-            },
-            visitDate: {
-              required: "We need visit date"
+              required: "We need a phone to contact"
             }
           },          
           submitHandler: function(form) {

@@ -25,8 +25,8 @@ block content
             | &nbsp;
             a(href='', id='userInfoEmail')
           p.hidden-xs
-            strong Location:
-            |  <span id='userInfoLocation'></span>
+            strong Provider:
+            |  <span id='userInfoProvider'></span>
           p.hidden-xs
             strong Gender:
             |  <span id='userInfoGender'></span>
@@ -49,7 +49,7 @@ block content
           h2
             i.fa.fa-user
             | &nbsp;Providers
-        a.linknewrequest.btn.btn-success.pull-center(href="#") New Provider
+        a.linknewprovider.btn.btn-success.pull-center(href="#") New Provider
         //- Wrapper
         #wrapper
 
@@ -62,21 +62,21 @@ block content
                 th Phone
                 th Actions
               tbody
-                each review, i in reviews
+                each provider, i in providers
                   tr
                     td
-                      span #{review.patient.name}
+                      span #{provider.name}
                     td
-                      strong #{review.patient.email}
+                      strong #{provider.email}
                     td
-                      span #{formatPhone(review.patient.phone)}
+                      span #{formatPhone(provider.phone)}
                     td
-                      a.btn.btn-info.btn-xs(href='/app/review/'+review.id) View
+                      a.btn.btn-info.btn-xs(href='/app/provider/'+provider.id) View
                       | &nbsp;
-                      a.linkresend.btn.btn-primary.btn-xs(href="#", rel=review.id) Edit&nbsp;
+                      a.linkresend.btn.btn-primary.btn-xs(href="#", rel=provider.id) Edit&nbsp;
                       | &nbsp;
-                      a.linkdeletesurvey.btn.btn-danger.btn-xs(href="#", data-surveyId=review.id) Delete&nbsp;
-          - if (reviews.length == 0)
+                      a.linkdeleteprovider.btn.btn-danger.btn-xs(href="#", data-providerId=provider.id) Delete&nbsp;
+          - if (providers.length == 0)
             span No providers found in a database.
           //- /USER LIST
 
@@ -91,7 +91,7 @@ block content
             h4#deleteModalLabel.modal-title Delete confirmation
           .modal-body
             h4 Are you sure?
-            form#deleteform(action='delete-survey', method='POST')
+            form#deleteform(action='delete-provider', method='POST')
               input.form-control(type='hidden', name='_csrf', value=_csrf)
               input#deleteformid.form-control(type='hidden', name='id')            
           .modal-footer
@@ -109,7 +109,7 @@ block content
             .row
               .col-sm-12
                 h4 Provider Details
-                form#requestform(action='new-request', method='POST')
+                form#requestform(action='new-provider', method='POST')
                   input.form-control(type='hidden', name='_csrf', value=_csrf)
                   .form-group
                     label.sr-only(for='name') Name
@@ -128,25 +128,25 @@ block content
                     .input-group
                       input.form-control(type='text', name='yelp', id='yelp', placeholder='Yelp ID')
                   .form-group
-                    label.sr-only(for='yelp') Google
+                    label.sr-only(for='google') Google
                     .input-group
-                      input.form-control(type='text', name='yelp', id='yelp', placeholder='Google ID')
+                      input.form-control(type='text', name='google', id='google', placeholder='Google ID')
                   .form-group
-                    label.sr-only(for='yelp') HealthGrades.com
+                    label.sr-only(for='healthgrades') HealthGrades.com
                     .input-group
-                      input.form-control(type='text', name='yelp', id='yelp', placeholder='HealthGrades.com ID')
+                      input.form-control(type='text', name='healthgrades', id='healthgrades', placeholder='HealthGrades.com ID')
                   .form-group
-                    label.sr-only(for='yelp') Vitals.com
+                    label.sr-only(for='vitals') Vitals.com
                     .input-group
-                      input.form-control(type='text', name='yelp', id='yelp', placeholder='Vitals.com ID')
+                      input.form-control(type='text', name='vitals', id='vitals', placeholder='Vitals.com ID')
                   .form-group
-                    label.sr-only(for='yelp') MDReviews.com
+                    label.sr-only(for='mdreviews') MDReviews.com
                     .input-group
-                      input.form-control(type='text', name='yelp', id='yelp', placeholder='MDReviews.com ID')
+                      input.form-control(type='text', name='mdreviews', id='mdreviews', placeholder='MDReviews.com ID')
                   .form-group
-                    label.sr-only(for='yelp') Yellow Pages
+                    label.sr-only(for='yellowpages') Yellow Pages
                     .input-group
-                      input.form-control(type='text', name='yelp', id='yelp', placeholder='Yellow Pages ID')
+                      input.form-control(type='text', name='yellowpages', id='yellowpages', placeholder='Yellow Pages ID')
                   
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') Cancel
@@ -171,15 +171,14 @@ block scripts
       });
 
 
-
       // Username link click
       //- $('#userList table tbody').on('click', 'td a.linkshowuser', showUserInfo);
 
       // Delete User link click
-      $('#userList table tbody').on('click', 'td a.linkdeletesurvey', deleteSurvey);
+      $('#userList table tbody').on('click', 'td a.linkdeleteprovider', deleteProvider);
 
       // New request link click
-      $('.linknewrequest').on('click', newRequest);
+      $('.linknewprovider').on('click', newProvider);
 
     });
 
@@ -205,7 +204,7 @@ block scripts
       $('#userPicture').attr("src", (thisUserObject.profile.picture));
       $('#userInfoName').text(thisUserObject.profile.name);
       $('#userInfoEmail').attr('href', 'mailto:' + thisUserObject.email).text(thisUserObject.email);
-      $('#userInfoLocation').text(thisUserObject.profile.location);
+      $('#userInfoProvider').text(thisUserObject.profile.provider);
       $('#userInfoGender').text(thisUserObject.profile.gender);
       if (thisUserObject.profile.website) {
         $('#userInfoWebsite').attr('href', thisUserObject.profile.website).text('Website Link');
@@ -216,7 +215,7 @@ block scripts
     };
 
     // Delete Survey
-    function deleteSurvey(event) {
+    function deleteProvider(event) {
 
       // Prevent Link from Firing
       event.preventDefault();
@@ -237,13 +236,13 @@ block scripts
       }
 
       // call modal function with the user's account id
-      showmodal($(this).attr('data-surveyId'));
+      showmodal($(this).attr('data-providerId'));
 
     };
 
 
     // Delete User
-    function newRequest(event) {
+    function newProvider(event) {
 
       // Prevent Link from Firing
       event.preventDefault();
@@ -263,28 +262,16 @@ block scripts
             },
             phoneMobile: {
               required: true
-            },
-            physician: {
-              required: true
-            },
-            visitDate: {
-              required: true
             }
           },
           messages: {
-            name: "Please specify patient name",
+            name: "Please specify the name of the provider",
             email: {
-              required: "We need patient email address to contact",
-              email: "Patient email address must be in the format of name@domain.com"
+              required: "We need an email address to contact",
+              email: "The email address must be in the format of name@domain.com"
             },
             phoneMobile: {
-              required: "We need patient phone to contact"
-            },
-            physician: {
-              required: "We need physician name"
-            },
-            visitDate: {
-              required: "We need visit date"
+              required: "We need a phone to contact"
             }
           },          
           submitHandler: function(form) {
