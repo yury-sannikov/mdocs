@@ -147,8 +147,16 @@ router.post('/new-provider', function *() {
   console.log(this.request.body);
   
   const provider = Object.assign({}, this.request.body);
-  
   const id = yield db.createProvider()(this.currentUser.id, provider);
+
+  this.redirect('providers');
+});
+
+router.post('/update-provider', function *() {
+  console.log(this.request.body);
+  
+  const provider = Object.assign({}, this.request.body);
+  const id = yield db.updateProvider()(this.currentUser.id, provider);
 
   this.redirect('providers');
 });
@@ -179,8 +187,16 @@ router.post('/new-location', function *() {
   console.log(this.request.body);
   
   const location = Object.assign({}, this.request.body);
-
   const id = yield db.createLocation()(this.currentUser.id, location);
+
+  this.redirect('locations');
+});
+
+router.post('/update-location', function *() {
+  console.log(this.request.body);
+  
+  const location = Object.assign({}, this.request.body);
+  const id = yield db.updateLocation()(this.currentUser.id, location);
 
   this.redirect('locations');
 });
