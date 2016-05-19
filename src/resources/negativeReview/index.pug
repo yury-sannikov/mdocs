@@ -142,7 +142,7 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                                 // Title
                                 tr
                                   td(style='font-family: Helvetica, arial, sans-serif; font-size: 14px; font-weight:bold; color: #333333; text-align:left;line-height: 24px;')
-                                    | Please participate in our patient survey.
+                                    | Dear #{physician} Office Administrator, a negative review has been posted to MDOCS.
                                 // End of Title
                                 // spacing
                                 tr
@@ -151,7 +151,7 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                                 // content
                                 tr
                                   td(style='font-family: Helvetica, arial, sans-serif; font-size: 13px; color: #333333; text-align:left;line-height: 24px;')
-                                    | #{physician}'s office would like to hear about your recent  appointment experience from #{appointmentDate}. Please click the following link for a short customer survey.
+                                    | A private review for #{physician} with appointment date of #{appointmentDate} has been posted to MDOCS. You can take action now by following the link below.
                                 // End of content
                                 // Spacing
                                 tr
@@ -160,7 +160,7 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                                 // button
                                 tr
                                   td(style='font-family: Helvetica, arial, sans-serif; font-size: 14px; font-weight:bold; color: #333333; text-align:center;line-height: 24px;')
-                                    a(href=surveyUrl, style='color:#FF196F;text-decoration:none;font-weight:bold;') Patient Survey and Review
+                                    a(href=surveyUrl, style='color:#FF196F;text-decoration:none;font-weight:bold;') Click to View Survey
                                 // /button
                                 // Spacing
                                 tr
@@ -198,10 +198,6 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                                         // title
                                         // end of content
                                         // button
-                                        tr
-                                          td(style='font-family: Helvetica, arial, sans-serif; font-size: 14px; font-weight:bold; color: #333333; text-align:center;line-height: 24px;')
-                                            a(href=surveyUrl, style='color:#FF196F;text-decoration:none;font-weight:bold;') Submit Review
-                                        // /button
                                 // end of text content table
                                 // Spacing
                                 tr
@@ -226,7 +222,7 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                         // Spacing
                         tr
                           td(align='center', valign='middle', style='font-family: Helvetica, arial, sans-serif; font-size: 13px;color: #ffffff')
-                            | You have recevied this email because you are a patient of #{physician}'s and our office is conducting a patient survey. If you no longer wish to recive emails please  
+                            | You are receiving these emails because you enrolled as administrator to MDOCS Patient Reviews, an online reputation management system for medical professionals. If you no longer wish to recive emails please  
                             a(href=unsubscribeUrl, style='text-decoration: none; color: #FF196F') unsubscribe 
                         // Spacing
                         tr
