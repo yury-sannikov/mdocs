@@ -3,7 +3,7 @@ extends ../layouts/layout.pug
 //- http://cwbuecheler.com/web/tutorials/2014/restful-web-app-node-express-mongodb/
 
 block head
-  title #{application} &middot; Accounts
+  title #{application} &middot; Patient Reviews
 
 block content
   .container
@@ -149,26 +149,24 @@ block content
                     div.dropdown(id="providerType")
                       button.btn.btn-default.dropdown-toggle(type="button" id="providerDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true") Select Provider
                         span.caret
-                      ul.dropdown-menu(aria-labelledby="providerDropdown")
-                        li
-                          a(href="#") Charles Okorie
-                        li
-                          a(href="#") Levent Gurses
-                        li
-                          a(href="#") Vladimir Corja
-                        li
-                          a(href="#") Yuriy Sannikov
+                      ul.dropdown-menu(id="providersList" aria-labelledby="providerDropdown")
+                        - if (providers.length == 0)
+                          span &nbsp;&nbsp;No providers found in the database.&nbsp;&nbsp;
+                        - else
+                          each provider, i in providers
+                            li
+                              a(href="#") #{provider.name}
                   .form-group
                     div.dropdown(id="locationType")
                       button.btn.btn-default.dropdown-toggle(type="button" id="locationDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true") Select Location
                         span.caret
-                      ul.dropdown-menu(aria-labelledby="providerDropdown")
-                        li
-                          a(href="#") Cascades Family Practice
-                        li
-                          a(href="#") Movel
-                        li
-                          a(href="#") New Patient Practice
+                      ul.dropdown-menu(aria-labelledby="locationDropdown")
+                        - if (locations.length == 0)
+                          span &nbsp;&nbsp;No locations found in the database.&nbsp;&nbsp;
+                        - else
+                          each location, i in locations
+                            li
+                              a(href="#") #{location.name}
                   strong Review site    
                   .form-group
                     div.dropdown
@@ -176,17 +174,17 @@ block content
                         span.caret
                       ul.dropdown-menu(aria-labelledby="sitesDropdown")
                         li
-                          a(href="#") Yelp
+                          a(id="yelpOption") Yelp
                         li
-                          a(href="#") Google
+                          a(id="googleOption") Google
                         li
-                          a(href="#") HealthGrades.com
+                          a(id="healthgradesOption") HealthGrades.com
                         li
-                          a(href="#") Vitals.com
+                          a(id="vitalsOption") Vitals.com
                         li
-                          a(href="#") MDReviews.com
+                          a(id="mdreviewsOption") MDReviews.com
                         li
-                          a(href="#") Yellow Pages
+                          a(id="yellowpagesOption") Yellow Pages
                   //- .form-group
                   //-   label.sr-only(for='physician') Physician name
                   //-   input.form-control(type='text', name='physician', id='physician', placeholder='Physician name')

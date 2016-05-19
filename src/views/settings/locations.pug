@@ -3,7 +3,7 @@ extends ../layouts/layout.pug
 //- http://cwbuecheler.com/web/tutorials/2014/restful-web-app-node-express-mongodb/
 
 block head
-  title #{application} &middot; Accounts
+  title #{application} &middot; Locations
 
 block content
   .container
@@ -102,7 +102,7 @@ block content
             button#deleteModalConfirm.btn.btn-primary(type='button') Yes!
 
 
-  #requestModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+  #locationModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
       .modal-dialog.modal-md
         .modal-content
           .modal-header
@@ -112,7 +112,7 @@ block content
             .row
               .col-sm-12
                 h4 Location Details
-                form#requestform(action='new-location', method='POST')
+                form#locationform(action='new-location', method='POST')
                   input.form-control(type='hidden', name='_csrf', value=_csrf)
                   .form-group
                     label.sr-only(for='name') Name
@@ -157,7 +157,7 @@ block content
                   
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') Cancel
-            button#sendrequestbutton.btn.btn-primary(type='button') Save
+            button#sendlocationbutton.btn.btn-primary(type='button') Save
 
   //- script(src='lib/moment/min/moment.min.js')
   //- script(src='lib/bootstrap/js/modal.js')
@@ -181,10 +181,10 @@ block scripts
       // Username link click
       //- $('#userList table tbody').on('click', 'td a.linkshowuser', showUserInfo);
 
-      // Delete User link click
+      // Delete location link click
       $('#userList table tbody').on('click', 'td a.linkdeletelocation', deleteLocation);
 
-      // New request link click
+      // New location link click
       $('.linknewlocation').on('click', newLocation);
 
     });
@@ -221,7 +221,7 @@ block scripts
       $('#userInfoUpdate').text(moment(thisUserObject.activity.last_update).fromNow());
     };
 
-    // Delete Survey
+    // Delete Location
     function deleteLocation(event) {
 
       // Prevent Link from Firing
@@ -248,7 +248,7 @@ block scripts
     };
 
 
-    // Delete User
+    // New Location
     function newLocation(event) {
 
       // Prevent Link from Firing
@@ -259,8 +259,9 @@ block scripts
       // pass the user's id through
       function showmodal(userid) {
         // show modal
-        $('#requestModal').modal({keyboard:true,backdrop:'static'});
-        $("#requestform").validate({
+        $('#myModalLabel').text('New Location')
+        $('#locationModal').modal({keyboard:true,backdrop:'static'});
+        $("#locationform").validate({
           rules: {
             name: "required",
             address: {
@@ -296,8 +297,8 @@ block scripts
           }
         });
         // if "yes" clicked
-        $('#sendrequestbutton').one('click', function () {
-            $('#requestform').submit();
+        $('#sendlocationbutton').one('click', function () {
+            $('#locationform').submit();
         });
       }
 

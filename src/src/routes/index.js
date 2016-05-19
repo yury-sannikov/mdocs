@@ -53,7 +53,9 @@ router.get('/patient-reviews', function*() {
     const avg = _.chain(item.answers).values().sum().value() / _.values(item.answers).length;
     return Object.assign({}, item, {averageRating: avg }); 
   });
-  this.render('reviews/reviews', Object.assign({}, this.jadeLocals, {reviews: reviews}), true);
+  const providers = yield db.providersForAdmin(this.currentUser.id);
+  const locations = yield db.locationsForAdmin(this.currentUser.id);
+  this.render('reviews/reviews', Object.assign({}, this.jadeLocals, {reviews: reviews, providers: providers[0], locations: locations[0]}), true);
 });
 
 router.post('/new-request', function *() {

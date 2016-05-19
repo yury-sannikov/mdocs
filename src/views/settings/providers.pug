@@ -3,7 +3,7 @@ extends ../layouts/layout.pug
 //- http://cwbuecheler.com/web/tutorials/2014/restful-web-app-node-express-mongodb/
 
 block head
-  title #{application} &middot; Accounts
+  title #{application} &middot; Providers
 
 block content
   .container
@@ -73,7 +73,7 @@ block content
                     td
                       a.btn.btn-info.btn-xs(href='/app/provider/'+provider.id) View
                       | &nbsp;
-                      a.linkresend.btn.btn-primary.btn-xs(href="#", rel=provider.id) Edit&nbsp;
+                      a.linkedit.btn.btn-primary.btn-xs(href="#", rel=provider.id) Edit&nbsp;
                       | &nbsp;
                       a.linkdeleteprovider.btn.btn-danger.btn-xs(href="#", data-providerId=provider.id) Delete&nbsp;
           - if (providers.length == 0)
@@ -99,7 +99,7 @@ block content
             button#deleteModalConfirm.btn.btn-primary(type='button') Yes!
 
 
-  #requestModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+  #providerModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
       .modal-dialog.modal-md
         .modal-content
           .modal-header
@@ -109,7 +109,7 @@ block content
             .row
               .col-sm-12
                 h4 Provider Details
-                form#requestform(action='new-provider', method='POST')
+                form#providerform(action='new-provider', method='POST')
                   input.form-control(type='hidden', name='_csrf', value=_csrf)
                   .form-group
                     label.sr-only(for='name') Name
@@ -150,7 +150,7 @@ block content
                   
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') Cancel
-            button#sendrequestbutton.btn.btn-primary(type='button') Save
+            button#sendproviderbutton.btn.btn-primary(type='button') Save
 
   //- script(src='lib/moment/min/moment.min.js')
   //- script(src='lib/bootstrap/js/modal.js')
@@ -174,10 +174,10 @@ block scripts
       // Username link click
       //- $('#userList table tbody').on('click', 'td a.linkshowuser', showUserInfo);
 
-      // Delete User link click
+      // Delete provider link click
       $('#userList table tbody').on('click', 'td a.linkdeleteprovider', deleteProvider);
 
-      // New request link click
+      // New provider link click
       $('.linknewprovider').on('click', newProvider);
 
     });
@@ -214,7 +214,7 @@ block scripts
       $('#userInfoUpdate').text(moment(thisUserObject.activity.last_update).fromNow());
     };
 
-    // Delete Survey
+    // Delete Provider
     function deleteProvider(event) {
 
       // Prevent Link from Firing
@@ -241,7 +241,7 @@ block scripts
     };
 
 
-    // Delete User
+    // New Provider
     function newProvider(event) {
 
       // Prevent Link from Firing
@@ -252,8 +252,9 @@ block scripts
       // pass the user's id through
       function showmodal(userid) {
         // show modal
-        $('#requestModal').modal({keyboard:true,backdrop:'static'});
-        $("#requestform").validate({
+        $('#myModalLabel').text('New Provider')
+        $('#providerModal').modal({keyboard:true,backdrop:'static'});
+        $("#providerform").validate({
           rules: {
             name: "required",
             email: {
@@ -283,8 +284,8 @@ block scripts
           }
         });
         // if "yes" clicked
-        $('#sendrequestbutton').one('click', function () {
-            $('#requestform').submit();
+        $('#sendproviderbutton').one('click', function () {
+            $('#providerform').submit();
         });
       }
 
