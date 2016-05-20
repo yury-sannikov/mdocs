@@ -153,6 +153,6 @@ exports.sendExceptionToSlack = function* (err) {
     text: `MDOCS crashed with 500:\n${JSON.stringify(err, null, 2)}`,
     channel: '#mdocs',
     username: 'MDOCS Apps Portal',
-    icon_emoji: ':interrorbang:'
+    icon_emoji: ':interrobang:'
   });
 };
