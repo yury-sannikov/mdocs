@@ -27,7 +27,8 @@ const surveyUrls = {
   'yellowpages': 'http://www.yellowpages.com/{{id}}',
   'vitals': 'http://www.vitals.com/{{id}}/profile',
   'google': 'https://plus.google.com/{{id}}',
-  'healthgrades': 'http://www.healthgrades.com/physician/{{id}}'
+  'healthgrades': 'http://www.healthgrades.com/physician/{{id}}',
+  'ratemds': 'https://www.ratemds.com/doctor-ratings/{{id}}'
 };
 
 function makeErrorMessage(msg) {
@@ -116,9 +117,29 @@ router.post('/submit', function*() {
     yield communicator.notifyWithNegativeReview(survey);
     this.render('reviews/negative', Object.assign({}, this.jadeLocals, { survey: survey }), true);
   } else {
-    this.render('reviews/positive', Object.assign({}, this.jadeLocals, { survey: survey }), true);
+    const providerOrLocation = yield db.getReviewObject(survey.reviewFor.id, survey.reviewFor.reviewType);
+    
+    const siteId = providerOrLocation[0][0].review_sites[survey.reviewSite];
+    
+    if (!siteId) {
+      throw Error(`Review Site '${survey.reviewSite}' wasn't registered.`);
+    }
+    
+    const surveyUrl = surveyUrls[survey.reviewSite];
+
+    if (!surveyUrl) {
+      throw Error(`Unknow survey URL for review site '${survey.reviewSite}'`);
+    }
+    
+    const reviewLink = surveyUrl.replace('{{id}}', siteId);
+    
+    this.render('reviews/positive', Object.assign({}, this.jadeLocals, {
+      survey: survey,
+      reviewLink: reviewLink
+    }), true);
   }
 });
+
 
 router.post('/details', function*() {
   

@@ -92,8 +92,6 @@ router.post('/new-request', function *() {
   
   const questions = Object.assign({}, HARDCODED_QUESTIONS, { '2': title });
 
-  console.log(JSON.stringify(questions, null, 2));
-  
   const id = yield db.createNewSurvey()(this.currentUser.id, survey, questions, title);
   
   const result = yield communicator.conductSurvey(id);
