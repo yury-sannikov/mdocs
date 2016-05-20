@@ -147,3 +147,12 @@ exports.notifyWithNegativeReview = function* (survey) {
   debug(`Negative review ${survey.id} SMS result ${JSON.stringify(smsResult, null ,2)}`);
 
 };
+
+exports.sendExceptionToSlack = function* (err) {
+  yield Slack.bugAsync({
+    text: `MDOCS crashed with 500:\n${JSON.stringify(err, null, 2)}`,
+    channel: '#mdocs',
+    username: 'MDOCS Apps Portal',
+    icon_emoji: ':interrorbang:'
+  });
+};
