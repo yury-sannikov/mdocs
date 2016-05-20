@@ -71,8 +71,10 @@ router.post('/new-request', function *() {
   const survey = Object.assign({}, this.request.body, {
     //TODO: For Vlad
     reviewFor: {
-      id: '22168662-edc8-406a-8a7e-872b266981c7',
-      reviewType: 'provider'
+      id: '64006957-4d5a-41cc-b4b9-5a242cad0263',
+      reviewType: 'location'
+      // id: '22168662-edc8-406a-8a7e-872b266981c7',
+      // reviewType: 'provider'
     },
     reviewSite: 'yelp'
   });
@@ -95,10 +97,17 @@ router.post('/new-request', function *() {
   const id = yield db.createNewSurvey()(this.currentUser.id, survey, questions, title);
   
   const result = yield communicator.conductSurvey(id);
-  if (result == 0) {
+  if (result.sms === true && result.email === true) {
     this.flash = 'Survey has been successfully delivered';
   } else {
-    this.flash = 'An error occurred while delivering survey. Try resend.';
+    let flash = 'An error occurred while delivering survey. ';
+    if (result.sms !== true) {
+      flash = flash + 'Error while sending SMS. ';
+    }
+    if (result.email !== true) {
+      flash = flash + 'Error while sending email. ';
+    }
+    this.flash = flash;
   }
   this.redirect('patient-reviews');
 });

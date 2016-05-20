@@ -14,15 +14,9 @@ exports.sendSMS = function* (to, text) {
   
   debug(`Send SMS to ${num}, message: ${text}`);
   
-  try {
-    return yield client.sendMessageAsync({
-      to: num,
-      from: config.TWILIO_SMS_NUMBER,
-      body: text
-    });
-  }
-  catch(e) {
-    debug(`SMS send error: ${e}`);
-    return e;    
-  }
+  return yield client.sendMessageAsync({
+    to: num,
+    from: config.TWILIO_SMS_NUMBER,
+    body: text
+  });
 };

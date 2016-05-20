@@ -35,13 +35,19 @@ exports.generateUnsubscriveUrl = function(id, code) {
 };
 
 exports.conductSurvey = function* (id) {
+  // true - ok, false - skipped, string/Error - error
+  let result = {
+    sms: false,
+    email: false
+  };
+  
   // Search for survey
   const survey = yield db.surveyById(id);
   const surveyData = survey[0];
   
   if (!surveyData || surveyData.length == 0) {
     console.log(`Can't conduct survey id #{id}. Record not found`);
-    return -1;    
+    return result;
   }
   // Generate unique one-shot code for survey
   const surveyCode = uuid.v4();
@@ -56,14 +62,25 @@ exports.conductSurvey = function* (id) {
   // Send email
   const record = surveyData[0];
   
-  const emailResult = yield email.sendReviewRequest(record.patient.email, {
-    physician: record.title,
+  const emailLocals = {
+    title: record.title,
     appointmentDate: moment.unix(record.visit_date).format('MMM-DD-YYYY'),
     surveyUrl: url,
     unsubscribeUrl: urlUnsubscribe
-  });
+  };
   
-  debug(`Survey ${id} email result ${JSON.stringify(emailResult, null, 2)}`);
+  const isProviderReview = record.reviewFor.reviewType == 'provider';
+  
+  try {
+    const emailResult = yield email[isProviderReview ? 'sendReviewRequest' : 'sendLocationReviewRequest'](record.patient.email, emailLocals);
+    
+    debug(`Survey ${id} email result ${JSON.stringify(emailResult, null, 2)}`);
+
+    result.email = true;  
+  }
+  catch(e) {
+    result.email = e;
+  }
   
   var shortenedLink = url;
   // try {
@@ -82,15 +99,22 @@ exports.conductSurvey = function* (id) {
 
   // Send SMS
   if (record.patient && !_.isEmpty(record.patient.phone)) {
-    const smsResult = yield sms.sendSMS(record.patient.phone, 
-      `Greetings from ${record.physician}'s office. Please fill this short survey to evaluate your visit - ${shortenedLink}`);
-    debug(`Survey ${id} SMS result ${JSON.stringify(smsResult, null ,2)}`);
+    
+    try {
+      const smsResult = yield sms.sendSMS(record.patient.phone, 
+        `Greetings from ${record.title}'s office. Please fill this short survey to evaluate your visit - ${shortenedLink}`);
+      debug(`Survey ${id} SMS result ${JSON.stringify(smsResult, null ,2)}`);
+      result.sms = true;
+    }
+    catch(e) {
+      result.sms = e;
+    }
   }
   else {
     debug(`SMS notification skipped due no phone number provided`);
   }
 
-  return 0;
+  return result;
 };
 
 exports.notifyWithNegativeReview = function* (survey) {

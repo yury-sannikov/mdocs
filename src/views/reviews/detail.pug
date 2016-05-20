@@ -10,14 +10,19 @@ block content
         br
         br
         legend
-          h2 Survey of #{survey.patient.name}
+          h2 #{survey.title}
+          br
           p
-            | Survey status:&nbsp;
+            | Survey of #{survey.patient.name},&nbsp;status:&nbsp;
             strong
               +survery_status(survey.status)
-        - if (!survey.answers)
+    - if (!survey.answers)
+      .row
+        .col-sm-6.col-sm-offset-3
           h3 Patient didn't take a part in a survey yet.
-        - else
+    - else
+      .row
+        .col-sm-6.col-sm-offset-3
           each question, i in survey.questions
             .row
               .col-md-6
@@ -25,13 +30,16 @@ block content
               .col-md-6
                 span(style='font-size: 40px;color:gold;')
                   +star_mixin(survey.answers[i]).fa-fw
+      .row
+        .col-sm-8.col-sm-offset-3
           hr
+          h4 Patient Feedback
+        .col-sm-8.col-sm-offset-3
+          textarea.form-control(readonly='true', rows='6', name='details') #{survey.details}
     .row
       .col-sm-8.col-sm-offset-3
-        h4 Patient Feedback
-      .col-sm-8.col-sm-offset-3
-        textarea.form-control(readonly='true', rows='6', name='details') #{survey.details}
-        hr
+        br
+        br
         a.btn.btn-success(href='/app/patient-reviews')
           i.fa.fa-check
           | &nbsp;Go Back
