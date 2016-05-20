@@ -149,8 +149,14 @@ exports.notifyWithNegativeReview = function* (survey) {
 };
 
 exports.sendExceptionToSlack = function* (err) {
+  let message;
+  if (_.isError(err)) {
+    message = `${err.toString()}\n${err.stack}`;
+  } else {
+    message = JSON.stringify(err, null, 2);
+  }
   yield Slack.bugAsync({
-    text: `MDOCS crashed with 500:\n${JSON.stringify(err, null, 2)}`,
+    text: `MDOCS crashed with 500:\n${message}`,
     channel: '#mdocs',
     username: 'MDOCS Apps Portal',
     icon_emoji: ':interrobang:'
