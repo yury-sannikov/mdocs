@@ -124,6 +124,8 @@ block content
                 h4 Details
                 form#requestform(action='new-request', method='POST')
                   input.form-control(type='hidden', name='_csrf', value=_csrf)
+                  input.form-control(type='hidden', name='locationOrProvider')
+                  input.form-control(type='hidden', name='reviewSite')
                   .form-group
                     label.sr-only(for='name') Name
                     .input-group
@@ -142,9 +144,9 @@ block content
                     strong Review type
                     div.radio
                       label(style="margin-left: -20px;") Provider
-                        input(type="radio", name="optradio", checked="checked", style="margin-left: 10px;")
+                        input(type="radio", name="isProvider", checked="checked", value='yes', style="margin-left: 10px;")
                       label(style="margin-left: 20px;") Office
-                        input(type="radio", name="optradio", style="margin-left: 10px;")
+                        input(type="radio", name="isProvider", value='no', style="margin-left: 10px;")
                   .form-group
                     div.dropdown(id="providerType")
                       button.btn.btn-default.dropdown-toggle(type="button", name="providerDropdown", id="providerDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Select Provider
@@ -155,7 +157,7 @@ block content
                         - else
                           each provider, i in providers
                             li
-                              a(href="#") #{provider.name}
+                              a(href="#", data-id=provider.id) #{provider.name}
                   .form-group
                     div.dropdown(id="locationType")
                       button.btn.btn-default.dropdown-toggle(type="button", name = "providerDropdown", id="locationDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Select Location
@@ -166,7 +168,7 @@ block content
                         - else
                           each location, i in locations
                             li
-                              a(href="#") #{location.name}
+                              a(href="#", data-id=location.id) #{location.name}
                   strong Review site    
                   .form-group
                     div.dropdown(id="dropdownType")
@@ -174,17 +176,17 @@ block content
                         span.caret
                       ul.dropdown-menu(aria-labelledby="sitesDropdown")
                         li(id="yelpOption")
-                          a(href="#") Yelp
+                          a(href="#", data-id='yelp', data-form-value='reviewSite') Yelp
                         li(id="googleOption")
-                          a(href="#") Google
+                          a(href="#", data-id='google', data-form-value='reviewSite') Google
                         li(id="healthgradesOption")
-                          a(href="#") HealthGrades.com
+                          a(href="#", data-id='healthgrades', data-form-value='reviewSite') HealthGrades.com
                         li(id="vitalsOption")
-                          a(href="#") Vitals.com
+                          a(href="#", data-id='vitals', data-form-value='reviewSite') Vitals.com
                         li(id="mdreviewsOption")
-                          a(href="#") RateMDs.com
+                          a(href="#", data-id='ratemds', data-form-value='reviewSite') RateMDs.com
                         li(id="yellowpagesOption") 
-                          a(href="#") Yellow Pages
+                          a(href="#", data-id='yellowpages', data-form-value='reviewSite') Yellow Pages
                   //- .form-group
                   //-   label.sr-only(for='physician') Physician name
                   //-   input.form-control(type='text', name='physician', id='physician', placeholder='Physician name')
@@ -231,11 +233,16 @@ block scripts
 
       // Delete User link click
       $('#userList table tbody').on('click', 'td a.linkdeletesurvey', deleteSurvey);
-
+      
+      $('[data-form-value]').on('click', updateFormValue);
     });
 
     // Functions =============================================================
 
+
+    function updateFormValue(event) {
+      $('input[name="' + $(this).attr('data-form-value') + '"]').val($(this).attr('data-id'));
+    }
 
     // Show User Info
     function showUserInfo(event) {
@@ -293,6 +300,7 @@ block scripts
         selectedOption = locations.filter((l) => l.name === $(this).text())[0];
       }
       console.log(selectedOption);
+      $('input[name="locationOrProvider"]').val(selectedOption.id);
 
       // Set available options
       var firstShown = false;

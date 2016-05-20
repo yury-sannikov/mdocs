@@ -66,17 +66,21 @@ router.get('/patient-reviews', function*() {
 });
 
 router.post('/new-request', function *() {
-  console.log(this.request.body);
+  const locationOrProvider = this.request.body.locationOrProvider;
+  const reviewSite = this.request.body.reviewSite;
+  const isProvider = this.request.body.isProvider === 'yes';
+  
+  if (!locationOrProvider || !reviewSite || !this.request.body.isProvider) {
+    // Client JS should avoid this path
+    throw Error('Form is not filled properly.');
+  }
   
   const survey = Object.assign({}, this.request.body, {
-    //TODO: For Vlad
     reviewFor: {
-      id: '64006957-4d5a-41cc-b4b9-5a242cad0263',
-      reviewType: 'location'
-      // id: '22168662-edc8-406a-8a7e-872b266981c7',
-      // reviewType: 'provider'
+      id: locationOrProvider,
+      reviewType: isProvider ? 'provider' : 'location'
     },
-    reviewSite: 'yelp'
+    reviewSite: reviewSite
   });
   
   const providerOrLocation = yield db.getReviewObject(survey.reviewFor.id, survey.reviewFor.reviewType);
