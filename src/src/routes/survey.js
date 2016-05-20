@@ -24,8 +24,7 @@ const MINIMUM_OKAY_SURVEY_VALUE = 3; // 5 stars is eq to 4.
 
 const surveyUrls = {
   'yelp': 'https://www.yelp.com/biz/{{id}}',
-  // 'yellowpages': 'http://www.yellowpages.com/{{id}}',
-  'yellowpages': 'http://www.yellowpages.com/contribute/businesses/{{id}}/review?star_rate=5'
+  'yellowpages': 'http://www.yellowpages.com/contribute/businesses/{{id}}/review?star_rate=5',
   'vitals': 'http://www.vitals.com/review/{{id}}',
   'google': 'https://plus.google.com/{{id}}',
   'healthgrades': 'http://www.healthgrades.com/physician/{{id}}',
