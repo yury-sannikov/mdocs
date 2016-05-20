@@ -235,6 +235,11 @@ block scripts
       $('#userList table tbody').on('click', 'td a.linkdeletesurvey', deleteSurvey);
       
       $('[data-form-value]').on('click', updateFormValue);
+
+      // Default to current date
+      var local = new Date();
+      local.setMinutes(local.getMinutes() - local.getTimezoneOffset());
+      $('#visitDate').val(local.toJSON().slice(0,10));
     });
 
     // Functions =============================================================

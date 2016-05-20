@@ -151,7 +151,7 @@ exports.notifyWithNegativeReview = function* (survey) {
 exports.sendExceptionToSlack = function* (err) {
   let message;
   if (_.isError(err)) {
-    message = `${err.toString()}\n${err.stack}`;
+    message = err.stack;
   } else {
     message = JSON.stringify(err, null, 2);
   }
