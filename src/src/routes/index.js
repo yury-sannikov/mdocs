@@ -124,7 +124,7 @@ router.post('/new-request', function*() {
   
   const questions = Object.assign({}, HARDCODED_QUESTIONS, { '2': title });
 
-  const id = yield db.createNewSurvey(this.currentUser.id, survey, questions, title);
+  const id = yield db.createNewSurvey()(this.currentUser.id, survey, questions, title);
   
   yield conductSurvey.call(this, id);
   
@@ -175,7 +175,7 @@ router.post('/new-provider', function*() {
   console.log(this.request.body);
   
   const provider = Object.assign({}, this.request.body);
-  const id = yield db.createProvider(this.currentUser.id, provider);
+  const id = yield db.createProvider()(this.currentUser.id, provider);
 
   this.redirect('providers');
 });
@@ -215,7 +215,7 @@ router.post('/new-location', function*() {
   console.log(this.request.body);
   
   const location = Object.assign({}, this.request.body);
-  const id = yield db.createLocation(this.currentUser.id, location);
+  const id = yield db.createLocation()(this.currentUser.id, location);
 
   this.redirect('locations');
 });
