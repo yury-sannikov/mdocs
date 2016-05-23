@@ -148,13 +148,14 @@ exports.notifyWithNegativeReview = function* (survey) {
 
 };
 
-exports.sendExceptionToSlack = function* (err) {
+exports.sendExceptionToSlack = function* (err, ctx) {
   let message;
   if (_.isError(err)) {
     message = err.stack;
   } else {
     message = JSON.stringify(err, null, 2);
   }
+  message = `${message}\nContext:\n${JSON.stringify(ctx, null, 2)}`;
   yield Slack.bugAsync({
     text: `MDOCS crashed with 500:\n${message}`,
     channel: '#mdocs',

@@ -57,7 +57,7 @@ exports.wrapExceptions = function() {
       yield* next;
     } catch(err) {
       if (config.NODE_ENV === 'production') {
-        yield comm.sendExceptionToSlack(err);
+        yield comm.sendExceptionToSlack(err, this);
       }
       this.render('error/500', Object.assign({}, this.jadeLocals, { error: err }), true);
     }
