@@ -76,7 +76,7 @@ block content
                     td
                       a.btn.btn-info.btn-xs(href='/app/location/'+location.id) View
                       | &nbsp;
-                      a.linkresend.btn.btn-primary.btn-xs(href="#", rel=location.id) Edit&nbsp;
+                      a.linkedit.btn.btn-primary.btn-xs(href="#", data-locationId=location.id) Edit&nbsp;
                       | &nbsp;
                       a.linkdeletelocation.btn.btn-danger.btn-xs(href="#", data-locationId=location.id) Delete&nbsp;
           - if (locations.length == 0)
@@ -159,12 +159,72 @@ block content
             button.btn.btn-default(type='button', data-dismiss='modal') Cancel
             button#sendlocationbutton.btn.btn-primary(type='button') Save
 
+
+  #editLocationModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='editModalLabel', aria-hidden='true')
+      .modal-dialog.modal-md
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+            h4#editLabel.modal-title Edit Location
+          .modal-body
+            .row
+              .col-sm-12
+                h4 Location Details
+                form#editlocationform(action='update-location', method='POST') 
+                  input.form-control(type='hidden', name='editID', id='editID')    
+                  input.form-control(type='hidden', name='_csrf', value=_csrf)
+                  .form-group
+                    label.sr-only(for='name') Name
+                    .input-group
+                      input.form-control(type='text', name='name', id='editName', placeholder='Location name')
+                  .form-group
+                    label.sr-only(for='address') Address
+                    .input-group
+                      input.form-control(type='text', name='address', id='editAddress', placeholder='Location address')
+                  .form-group
+                    label.sr-only(for='email') Email
+                    input.form-control(type='email', name='email', id='editEmail', placeholder='Email')
+                    #hint
+                  .form-group
+                    label.sr-only(for='phoneMobile') Phone
+                    input.form-control(type='tel', name='phoneMobile', id='editPhoneMobile', placeholder='Phone number e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
+                  h4 Review Site IDs
+                  .form-group
+                    label.sr-only(for='yelp') Yelp
+                    .input-group
+                      input.form-control(type='text', name='yelp', id='editYelp', placeholder='Yelp ID')
+                  .form-group
+                    label.sr-only(for='google') Google
+                    .input-group
+                      input.form-control(type='text', name='google', id='editGoogle', placeholder='Google ID')
+                  .form-group
+                    label.sr-only(for='healthgrades') HealthGrades.com
+                    .input-group
+                      input.form-control(type='text', name='healthgrades', id='editHealthgrades', placeholder='HealthGrades.com ID')
+                  .form-group
+                    label.sr-only(for='vitals') Vitals.com
+                    .input-group
+                      input.form-control(type='text', name='vitals', id='editVitals', placeholder='Vitals.com ID')
+                  .form-group
+                    label.sr-only(for='mdreviews') RateMDs.com
+                    .input-group
+                      input.form-control(type='text', name='mdreviews', id='editMDreviews', placeholder='RateMDs.com ID')
+                  .form-group
+                    label.sr-only(for='yellowpages') Yellow Pages
+                    .input-group
+                      input.form-control(type='text', name='yellowpages', id='editYellowpages', placeholder='Yellow Pages ID')
+                  
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Cancel
+            button#sendeditlocationbutton.btn.btn-primary(type='button') Save
+
   //- script(src='lib/moment/min/moment.min.js')
   //- script(src='lib/bootstrap/js/modal.js')
 block scripts
   script.
     // Userlist data array for filling in info box
     var userListData = [];
+    const locations = !{JSON.stringify(locations)};
 
     // DOM Ready =============================================================
     $(document).ready(function() {
@@ -186,6 +246,9 @@ block scripts
 
       // New location link click
       $('.linknewlocation').on('click', newLocation);
+
+      // Edit location link click
+      $('.linkedit').on('click', editLocation);
 
     });
 
@@ -257,9 +320,8 @@ block scripts
       // Pop up a confirmation dialog
       // Convoluted because we have to
       // pass the user's id through
-      function showmodal(userid) {
+      function showmodal(id) {
         // show modal
-        $('#myModalLabel').text('New Location')
         $('#locationModal').modal({keyboard:true,backdrop:'static'});
         $("#locationform").validate({
           rules: {
@@ -303,6 +365,80 @@ block scripts
       }
 
       // call modal function with the user's account id
-      showmodal($(this).attr('rel'));
+      showmodal($(this).attr('data-locationId'));
+
+    };
+
+
+    // Edit Location
+    function editLocation(event) {
+
+      // Prevent Link from Firing
+      event.preventDefault();
+
+      // Pop up a confirmation dialog
+      // Convoluted because we have to
+      // pass the user's id through
+      function showmodal(id) {
+        // Populate attributes
+        const user = locations.filter((loc) => loc.id == id)[0];
+
+        $('#editID').val(user.id);
+        $('#editName').val(user.name);
+        $('#editAddress').val(user.address);
+        $('#editEmail').val(user.email);
+        $('#editPhoneMobile').val(user.phone);
+        $('#editYelp').val(user.review_sites.yelp);
+        $('#editGoogle').val(user.review_sites.google);
+        $('#editHealthgrades').val(user.review_sites.healthgrades);
+        $('#editVitals').val(user.review_sites.vitals);
+        $('#editMDreviews').val(user.review_sites.mdreviews);
+        $('#editYellowpages').val(user.review_sites.yellowpages);
+
+        // show modal
+        $('#editLocationModal').modal({keyboard:true,backdrop:'static'});
+        $("#editlocationform").validate({
+          rules: {
+            name: "required",
+            address: {
+              required: true
+            },
+            email: {
+              required: true,
+              email: true
+            },
+            phoneMobile: {
+              required: true
+            }
+          },
+          messages: {
+            name: "Please specify the name of the location",
+            address: {
+              required: "We need the location's address"
+            },
+            email: {
+              required: "We need an email address to contact",
+              email: "The email address must be in the format of name@domain.com"
+            },
+            phoneMobile: {
+              required: "We need a phone to contact"
+            }
+          },          
+          submitHandler: function(form) {
+            form.submit();
+          },
+          invalidHandler: function(event, validator) {
+            console.log(event);
+            console.log(validator);
+          }
+        });
+        // if "yes" clicked
+        $('#sendeditlocationbutton').one('click', function () {
+            $('#editlocationform').submit();
+        });
+      }
+
+      // call modal function with the user's account id
+      showmodal($(this).attr('data-locationId'));
 
     };

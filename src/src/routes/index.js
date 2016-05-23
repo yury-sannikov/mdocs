@@ -82,7 +82,7 @@ function* conductSurvey(id) {
   }
 }
 
-router.post('/resend-survey', function *() {
+router.post('/resend-survey', function*() {
   const data = yield db.surveyById(this.request.body.id);
   if (!hasDynamoData(data)) {
     this.redirect('patient-reviews');
@@ -93,7 +93,7 @@ router.post('/resend-survey', function *() {
   this.redirect('patient-reviews');
 });
 
-router.post('/new-request', function *() {
+router.post('/new-request', function*() {
   const locationOrProvider = this.request.body.locationOrProvider;
   const reviewSite = this.request.body.reviewSite;
   const isProvider = this.request.body.isProvider === 'yes';
@@ -124,7 +124,7 @@ router.post('/new-request', function *() {
   
   const questions = Object.assign({}, HARDCODED_QUESTIONS, { '2': title });
 
-  const id = yield db.createNewSurvey()(this.currentUser.id, survey, questions, title);
+  const id = yield db.createNewSurvey(this.currentUser.id, survey, questions, title);
   
   yield conductSurvey.call(this, id);
   
@@ -171,20 +171,20 @@ router.get('/provider/:id', function*() {
   this.render('settings/providerDetail', Object.assign({}, this.jadeLocals, { provider: data[0][0] }), true);
 });
 
-router.post('/new-provider', function *() {
+router.post('/new-provider', function*() {
   console.log(this.request.body);
   
   const provider = Object.assign({}, this.request.body);
-  const id = yield db.createProvider()(this.currentUser.id, provider);
+  const id = yield db.createProvider(this.currentUser.id, provider);
 
   this.redirect('providers');
 });
 
-router.post('/update-provider', function *() {
+router.post('/update-provider', function*() {
   console.log(this.request.body);
   
   const provider = Object.assign({}, this.request.body);
-  const id = yield db.updateProvider()(this.currentUser.id, provider);
+  const id = yield db.updateProvider(this.request.body.editID, provider);
 
   this.redirect('providers');
 });
@@ -211,20 +211,20 @@ router.get('/location/:id', function*() {
   this.render('settings/locationDetail', Object.assign({}, this.jadeLocals, { location: data[0][0] }), true);
 });
 
-router.post('/new-location', function *() {
+router.post('/new-location', function*() {
   console.log(this.request.body);
   
   const location = Object.assign({}, this.request.body);
-  const id = yield db.createLocation()(this.currentUser.id, location);
+  const id = yield db.createLocation(this.currentUser.id, location);
 
   this.redirect('locations');
 });
 
-router.post('/update-location', function *() {
+router.post('/update-location', function*() {
   console.log(this.request.body);
   
   const location = Object.assign({}, this.request.body);
-  const id = yield db.updateLocation()(this.currentUser.id, location);
+  const id = yield db.updateLocation(this.request.body.editID, location);
 
   this.redirect('locations');
 });
