@@ -159,9 +159,9 @@ block content
                     strong Review type
                     div.radio
                       label(style="margin-left: -20px;") Provider
-                        input(type="radio", name="isProvider", checked="checked", value='yes', style="margin-left: 10px;")
+                        input(type="radio", name="isProvider", id="providerRadio", checked="checked", value='yes', style="margin-left: 10px;")
                       label(style="margin-left: 20px;") Office
-                        input(type="radio", name="isProvider", value='no', style="margin-left: 10px;")
+                        input(type="radio", name="isProvider", id="locationRadio", value='no', style="margin-left: 10px;")
                   .form-group
                     div.dropdown(id="providerType")
                       button.btn.btn-default.dropdown-toggle(type="button", name="providerDropdown", id="providerDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Select Provider
@@ -198,7 +198,7 @@ block content
                           a(href="#", data-id='healthgrades', data-form-value='reviewSite') HealthGrades.com
                         li(id="vitalsOption")
                           a(href="#", data-id='vitals', data-form-value='reviewSite') Vitals.com
-                        li(id="mdreviewsOption")
+                        li(id="ratemdsOption")
                           a(href="#", data-id='ratemds', data-form-value='reviewSite') RateMDs.com
                         li(id="yellowpagesOption") 
                           a(href="#", data-id='yellowpages', data-form-value='reviewSite') Yellow Pages
@@ -300,9 +300,15 @@ block scripts
 
       // Prevent Link from Firing
       event.preventDefault();
-    
-      $('#providerType').toggle();
-      $('#locationType').toggle();
+      
+      if($('#providerRadio').is(':checked')) {
+        $('#providerType').show();
+        $('#locationType').hide();
+      }
+      else {
+        $('#providerType').hide();
+        $('#locationType').show();
+      }
     }
 
     // Change Available Review Sites
@@ -321,7 +327,6 @@ block scripts
         if($("#locationDropdown").text() == "Select Location") { return; }
         selectedOption = locations.filter((l) => l.name === $(this).text())[0];
       }
-      console.log(selectedOption);
       $('input[name="locationOrProvider"]').val(selectedOption.id);
 
       // Set available options
@@ -330,6 +335,7 @@ block scripts
       else { 
         $('#yelpOption').show(); 
         $('#sitesDropdown').text(HARDCODED_SITE_NAMES[0]);
+        $('input[name="reviewSite"]').val('yelp');
         firstShown = true;
       }
       if(selectedOption.review_sites.google == null) { $('#googleOption').hide(); }
@@ -337,6 +343,7 @@ block scripts
         $('#googleOption').show(); 
         if(!firstShown) {
           $('#sitesDropdown').text(HARDCODED_SITE_NAMES[1]);
+          $('input[name="reviewSite"]').val('google');
           firstShown = true;
         }
       }
@@ -345,6 +352,7 @@ block scripts
         $('#healthgradesOption').show(); 
         if(!firstShown) {
           $('#sitesDropdown').text(HARDCODED_SITE_NAMES[2]);
+          $('input[name="reviewSite"]').val('healthgrades');
           firstShown = true;
         }
 
@@ -354,21 +362,26 @@ block scripts
         $('#vitalsOption').show();  
         if(!firstShown) {
           $('#sitesDropdown').text(HARDCODED_SITE_NAMES[3]);
+          $('input[name="reviewSite"]').val('vitals');
           firstShown = true;
         }
       }
-      if(selectedOption.review_sites.mdreviews == null) { $('#mdreviewsOption').hide(); }
+      if(selectedOption.review_sites.ratemds == null) { $('#ratemdsOption').hide(); }
       else { 
-        $('#mdreviewsOption').show();  
+        $('#ratemdsOption').show();  
         if(!firstShown) {
           $('#sitesDropdown').text(HARDCODED_SITE_NAMES[4]);
+          $('input[name="reviewSite"]').val('ratemds');
           firstShown = true;
         }
       }
       if(selectedOption.review_sites.yellowpages == null) { $('#yellowpagesOption').hide(); }
       else { 
         $('#yellowpagesOption').show();  
-        if(!firstShown) { $('#sitesDropdown').text(HARDCODED_SITE_NAMES[5]); }
+        if(!firstShown) { 
+          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[5]);
+          $('input[name="reviewSite"]').val('yellowpages');
+        }
       }
     }
 

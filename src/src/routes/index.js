@@ -123,7 +123,7 @@ router.post('/new-request', function*() {
   const title = providerOrLocation[0][0].name;
   
   const questions = Object.assign({}, HARDCODED_QUESTIONS, { '2': title });
-
+  console.log(this.currentUser.id, survey, questions, title);
   const id = yield db.createNewSurvey()(this.currentUser.id, survey, questions, title);
   
   yield conductSurvey.call(this, id);

@@ -13,7 +13,7 @@ const formatReviewSites = function(sites) {
   if(sites.google !== '') { formatted = Object.assign({}, formatted, { 'google': sites.google }); }
   if(sites.healthgrades !== '') { formatted = Object.assign({}, formatted, { 'healthgrades':sites.healthgrades }); }
   if(sites.vitals !== '') { formatted = Object.assign({}, formatted, { 'vitals':sites.vitals }); }
-  if(sites.mdreviews !== '') { formatted = Object.assign({}, formatted, { 'mdreviews':sites.mdreviews }); }
+  if(sites.ratemds !== '') { formatted = Object.assign({}, formatted, { 'ratemds':sites.ratemds }); }
   if(sites.yellowpages !== '') { formatted = Object.assign({}, formatted, { 'yellowpages':sites.yellowpages }); }
   
   return formatted;

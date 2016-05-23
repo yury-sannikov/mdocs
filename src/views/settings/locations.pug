@@ -147,9 +147,9 @@ block content
                     .input-group
                       input.form-control(type='text', name='vitals', id='vitals', placeholder='Vitals.com ID')
                   .form-group
-                    label.sr-only(for='mdreviews') RateMDs.com
+                    label.sr-only(for='ratemds') RateMDs.com
                     .input-group
-                      input.form-control(type='text', name='mdreviews', id='mdreviews', placeholder='RateMDs.com ID')
+                      input.form-control(type='text', name='ratemds', id='ratemds', placeholder='RateMDs.com ID')
                   .form-group
                     label.sr-only(for='yellowpages') Yellow Pages
                     .input-group
@@ -206,9 +206,9 @@ block content
                     .input-group
                       input.form-control(type='text', name='vitals', id='editVitals', placeholder='Vitals.com ID')
                   .form-group
-                    label.sr-only(for='mdreviews') RateMDs.com
+                    label.sr-only(for='ratemds') RateMDs.com
                     .input-group
-                      input.form-control(type='text', name='mdreviews', id='editMDreviews', placeholder='RateMDs.com ID')
+                      input.form-control(type='text', name='ratemds', id='editRatemds', placeholder='RateMDs.com ID')
                   .form-group
                     label.sr-only(for='yellowpages') Yellow Pages
                     .input-group
@@ -392,7 +392,7 @@ block scripts
         $('#editGoogle').val(user.review_sites.google);
         $('#editHealthgrades').val(user.review_sites.healthgrades);
         $('#editVitals').val(user.review_sites.vitals);
-        $('#editMDreviews').val(user.review_sites.mdreviews);
+        $('#editRatemds').val(user.review_sites.ratemds);
         $('#editYellowpages').val(user.review_sites.yellowpages);
 
         // show modal
