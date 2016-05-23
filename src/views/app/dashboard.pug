@@ -105,6 +105,18 @@ block styles
         border-top-color: #F4C63D; }
       .chartist-tooltip.tooltip-show {
         opacity: 1; }
+      .legend-circle {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        margin-right: .5em;
+      }
+      .legend-circle + span {
+        margin-right: 1.5em;
+        top: -3px;
+        position: relative;      
+      }
       
 block scripts
   script(src='/app/lib/chartist/dist/chartist.min.js')
@@ -257,7 +269,20 @@ block content
         .padding
         span.center-block.img-responsive.animated.bounceInLeft
           .ct-chart.ct-major-tenth(id='ratingsDetail')
-    //- .row
-    //-   .col-md-12
-    //-     span.center-block.img-responsive.animated.bounceInTop
-    //-       script(id="infogram_0_03db671c-518e-4a2a-92e8-b3d1a24b9f53" title="Ratings distribution" src="//e.infogr.am/js/embed.js?C9k" type="text/javascript")
+        span.center-block.text-center
+          .legend-circle(style='background-color: #d70206;')
+          span Yelp
+          .legend-circle(style='background-color: #f05b4f;')
+          span Google
+          .legend-circle(style='background-color: #f4c63d;')
+          span HealthGrades
+          .legend-circle(style='background-color: #d17905;')
+          span Vitals
+          .legend-circle(style='background-color: #453d3f;')
+          span MDReviews
+        br
+        br
+    .row
+      //- .col-md-12
+      //-   span.center-block.img-responsive.animated.bounceInTop
+      //-     script(id="infogram_0_03db671c-518e-4a2a-92e8-b3d1a24b9f53" title="Ratings distribution" src="//e.infogr.am/js/embed.js?C9k" type="text/javascript")
