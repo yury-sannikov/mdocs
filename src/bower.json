@@ -14,7 +14,10 @@
     "moment": "~2.10.3",
     "devicons": "~1.8.0",
     "react": "~0.12.2",
-    "zxcvbn": "~4.0.1"
+    "zxcvbn": "~4.0.1",
+    "chartist": "^0.9.7",
+    "chartist-plugin-pointlabels": "^0.0.4",
+    "chartist-plugin-tooltip": "^0.0.12"
   },
   "resolutions": {
     "devicons": "~1.8.0",
