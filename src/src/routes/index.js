@@ -65,6 +65,34 @@ router.get('/patient-reviews', function*() {
   this.render('reviews/reviews', Object.assign({}, this.jadeLocals, {reviews: reviews, providers: providers[0], locations: locations[0]}), true);
 });
 
+function* conductSurvey(id) {
+  
+  const result = yield communicator.conductSurvey(id);
+  if (result.sms === true && result.email === true) {
+    this.flash = 'Survey has been successfully delivered';
+  } else {
+    let flash = 'An error occurred while delivering survey. ';
+    if (result.sms !== true) {
+      flash = flash + 'Error while sending SMS. ';
+    }
+    if (result.email !== true) {
+      flash = flash + 'Error while sending email. ';
+    }
+    this.flash = flash;
+  }
+}
+
+router.post('/resend-survey', function *() {
+  const data = yield db.surveyById(this.request.body.id);
+  if (!hasDynamoData(data)) {
+    this.redirect('patient-reviews');
+    return;
+  }
+  yield conductSurvey.call(this, this.request.body.id);
+  
+  this.redirect('patient-reviews');
+});
+
 router.post('/new-request', function *() {
   const locationOrProvider = this.request.body.locationOrProvider;
   const reviewSite = this.request.body.reviewSite;
@@ -98,19 +126,8 @@ router.post('/new-request', function *() {
 
   const id = yield db.createNewSurvey()(this.currentUser.id, survey, questions, title);
   
-  const result = yield communicator.conductSurvey(id);
-  if (result.sms === true && result.email === true) {
-    this.flash = 'Survey has been successfully delivered';
-  } else {
-    let flash = 'An error occurred while delivering survey. ';
-    if (result.sms !== true) {
-      flash = flash + 'Error while sending SMS. ';
-    }
-    if (result.email !== true) {
-      flash = flash + 'Error while sending email. ';
-    }
-    this.flash = flash;
-  }
+  yield conductSurvey.call(this, id);
+  
   this.redirect('patient-reviews');
 });
 

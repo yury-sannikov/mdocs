@@ -84,9 +84,9 @@ block content
                     td.hidden-xs
                       a.btn.btn-info.btn-xs(href='/app/review/'+review.id) View
                       | &nbsp;
-                      a.linkresend.btn.btn-primary.btn-xs(href="#", rel=review.id) Resend&nbsp;
+                      a.linkresend.btn.btn-primary.btn-xs(href="#", data-surveyid=review.id) Resend&nbsp;
                       | &nbsp;
-                      a.linkdeletesurvey.btn.btn-danger.btn-xs(href="#", data-surveyId=review.id) Delete&nbsp;
+                      a.linkdeletesurvey.btn.btn-danger.btn-xs(href="#", data-surveyid=review.id) Delete&nbsp;
                     td
                       +survery_status(review.status)
           - if (reviews.length == 0)
@@ -96,6 +96,21 @@ block content
         //- /WRAPPER
 
 
+  #resendModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='resendModalLabel', aria-hidden='true')
+    .modal-dialog.modal-sm
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h4#resendModalLabel.modal-title Resend confirmation
+        .modal-body
+          h4 Are you sure?
+          form#resendform(action='resend-survey', method='POST')
+            input.form-control(type='hidden', name='_csrf', value=_csrf)
+            input#resendformid.form-control(type='hidden', name='id')            
+        .modal-footer
+          button.btn.btn-default(type='button', data-dismiss='modal') No
+          button#resendModalConfirm.btn.btn-primary(type='button') Yes!
+          
   #deleteModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='deleteModalLabel', aria-hidden='true')
       .modal-dialog.modal-sm
         .modal-content
@@ -233,6 +248,8 @@ block scripts
 
       // Delete User link click
       $('#userList table tbody').on('click', 'td a.linkdeletesurvey', deleteSurvey);
+      // Resend User link click
+      $('#userList table tbody').on('click', 'td a.linkresend', resendSurvey);
       
       $('[data-form-value]').on('click', updateFormValue);
 
@@ -355,6 +372,24 @@ block scripts
       }
     }
 
+    // Resend Survey
+    function resendSurvey(event) {
+
+      // Prevent Link from Firing
+      event.preventDefault();
+
+      function showmodal(id) {
+        $('#resendModal').modal({keyboard:true,backdrop:'static'});
+        $('#resendModalConfirm').one('click', function () {
+          $('#resendformid').val(id);
+          $('#resendform').submit();
+          $('#resendModal').modal('hide');
+        });
+      }
+
+      showmodal($(this).attr('data-surveyid'));
+    };
+
     // Delete Survey
     function deleteSurvey(event) {
 
@@ -377,7 +412,7 @@ block scripts
       }
 
       // call modal function with the user's account id
-      showmodal($(this).attr('data-surveyId'));
+      showmodal($(this).attr('data-surveyid'));
 
     };
 
