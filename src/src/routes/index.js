@@ -49,6 +49,10 @@ router.use(function*(next) {
   }
 });
 
+// Add Subscribe routes into the app
+router.use(require('./subscribe').routes());
+
+
 // Show Dashboard
 router.get('/', function*() {
   this.render('app/dashboard', this.jadeLocals, true);
