@@ -164,7 +164,7 @@ block content
                         input(type="radio", name="isProvider", id="locationRadio", value='no', style="margin-left: 10px;")
                   .form-group
                     div.dropdown(id="providerType")
-                      button.btn.btn-default.dropdown-toggle(type="button", name="providerDropdown", id="providerDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Select Provider
+                      button.btn.btn-default.dropdown-toggle(type="button", name="providerDropdown", id="providerDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") No Providers Found
                         span.caret
                       ul.dropdown-menu(id="providersList", aria-labelledby="providerDropdown")
                         - if (providers.length == 0)
@@ -175,7 +175,7 @@ block content
                               a(href="#", data-id=provider.id) #{provider.name}
                   .form-group
                     div.dropdown(id="locationType")
-                      button.btn.btn-default.dropdown-toggle(type="button", name = "providerDropdown", id="locationDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Select Location
+                      button.btn.btn-default.dropdown-toggle(type="button", name = "locationDropdown", id="locationDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") No Locations Found
                         span.caret
                       ul.dropdown-menu(aria-labelledby="locationDropdown")
                         - if (locations.length == 0)
@@ -304,10 +304,20 @@ block scripts
       if($('#providerRadio').is(':checked')) {
         $('#providerType').show();
         $('#locationType').hide();
+
+        if($("#providerDropdown").text() == "No Providers Found" && providers.length > 0) {
+          $("#providerDropdown").html(`${providers[0].name} <span class="caret"></span>`);
+          $('input[name="locationOrProvider"]').val(providers[0].id);
+        }
       }
       else {
         $('#providerType').hide();
         $('#locationType').show();
+
+        if($("#locationDropdown").text() == "No Locations Found" && locations.length > 0) {
+          $("#locationDropdown").html(`${locations[0].name} <span class="caret"></span>`);
+          $('input[name="locationOrProvider"]').val(locations[0].id);
+        }
       }
     }
 
@@ -440,6 +450,12 @@ block scripts
       // Convoluted because we have to
       // pass the user's id through
       function showmodal(userid) {
+        // default to first provider
+        if($("#providerDropdown").text() == "No Providers Found" && providers.length > 0) {
+          $("#providerDropdown").html(`${providers[0].name} <span class="caret"></span>`);
+          $('input[name="locationOrProvider"]').val(providers[0].id);
+        }
+
         // show modal
         $('#requestModal').modal({keyboard:true,backdrop:'static'});
         $("#requestform").validate({
