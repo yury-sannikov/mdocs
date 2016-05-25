@@ -89,7 +89,7 @@ block content
                       a.linkdeletesurvey.btn.btn-danger.btn-xs(href="#", data-surveyid=review.id) Delete&nbsp;
                     td
                       +survery_status(review.status)
-          - if (reviews.length == 0)
+          - if (reviews.length === 0)
             span No reviews found in a database.
           //- /USER LIST
 
@@ -167,7 +167,7 @@ block content
                       button.btn.btn-default.dropdown-toggle(type="button", name="providerDropdown", id="providerDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") No Providers Found
                         span.caret
                       ul.dropdown-menu(id="providersList", aria-labelledby="providerDropdown")
-                        - if (providers.length == 0)
+                        - if (providers.length === 0)
                           span &nbsp;&nbsp;No providers found in the database.&nbsp;&nbsp;
                         - else
                           each provider, i in providers
@@ -178,7 +178,7 @@ block content
                       button.btn.btn-default.dropdown-toggle(type="button", name = "locationDropdown", id="locationDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") No Locations Found
                         span.caret
                       ul.dropdown-menu(aria-labelledby="locationDropdown")
-                        - if (locations.length == 0)
+                        - if (locations.length === 0)
                           span &nbsp;&nbsp;No locations found in the database.&nbsp;&nbsp;
                         - else
                           each location, i in locations
@@ -215,85 +215,72 @@ block scripts
   script.
     // Userlist data array for filling in info box
     var userListData = [];
+    // List of providers and locations passed
     const providers = !{JSON.stringify(providers)};
     const locations = !{JSON.stringify(locations)};
+    // Hardecoded review site names
     const HARDCODED_SITE_NAMES = ["Yelp", "Google", "HealthGrades.com", "Vitals.com", "RateMDs.com", "Yellow Pages"]; 
 
     // DOM Ready =============================================================
-    $(document).ready(function() {
+    (function(init) {
+      init(window.jQuery, window, document);
+    }(function($, window, document) {
 
-      //- Async Load Bootstrap Modal
-      $.ajax({
-        type: 'GET',
-        url: '/app/lib/bootstrap/js/modal.js',
-        dataType: 'script',
-        cache: true
+      $(function() {
+
+        //- Async Load Bootstrap Modal
+        $.ajax({
+          type: 'GET',
+          url: '/app/lib/bootstrap/js/modal.js',
+          dataType: 'script',
+          cache: true
+        });
+
+        // USERS INFORMATION
+
+        // Delete and Resend User link clicks
+        var userList = $('#userList');
+        userList.on('click.first', '.linkresend', resendSurvey);
+        userList.on('click.second', '.linkdeletesurvey', deleteSurvey);
+
+
+        // REVIEW REQUEST MODAL
+
+        // New request link click
+        $('.linknewrequest').on('click', newRequest);
+
+        // Diplay change in dropdown selection
+        $(".dropdown-menu").on('click', 'li a', updateDropdownValue);
+
+        // Display change in review type
+        $('input[type=radio]').on('change', changeReviewType);
+
+        // When a new option is selected, adjust the available review sites
+        $('#providerType').on('click', 'li a', changeAvailableReviewSites);
+        $('#locationType').on('click', 'li a', changeAvailableReviewSites);
+        
+        // Saving updated review site value
+        $('[data-form-value]').on('click', updateFormValue);
+
+        // Default visit date to current date
+        var local = new Date();
+        local.setMinutes(local.getMinutes() - local.getTimezoneOffset());
+        $('#visitDate').val(local.toJSON().slice(0,10));
       });
-
-
-      // Username link click
-      //- $('#userList table tbody').on('click', 'td a.linkshowuser', showUserInfo);
-
-      // Hide location option
-      $('#locationType').hide();
-
-      // Review type change
-      $('input[type=radio]').on('change', changeReviewType);
-      // Dropdown selection change
-      $('#providerType').on('click', 'li a', changeAvailableReviewSites);
-      $('#locationType').on('click', 'li a', changeAvailableReviewSites);
-
-      // New request link click
-      $('.linknewrequest').on('click', newRequest);
-
-      // Delete User link click
-      $('#userList table tbody').on('click', 'td a.linkdeletesurvey', deleteSurvey);
-      // Resend User link click
-      $('#userList table tbody').on('click', 'td a.linkresend', resendSurvey);
-      
-      $('[data-form-value]').on('click', updateFormValue);
-
-      // Default to current date
-      var local = new Date();
-      local.setMinutes(local.getMinutes() - local.getTimezoneOffset());
-      $('#visitDate').val(local.toJSON().slice(0,10));
-    });
+    }));
 
     // Functions =============================================================
 
+    // Diplay change in dropdown selection
+    function updateDropdownValue(event) {
+      $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+      $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+    }
 
+    // Saving updated review site value
     function updateFormValue(event) {
       $('input[name="' + $(this).attr('data-form-value') + '"]').val($(this).attr('data-id'));
     }
-
-    // Show User Info
-    function showUserInfo(event) {
-
-      // Prevent Link from Firing
-      event.preventDefault();
-
-      // Retrieve username from link rel attribute
-      var thisUserName = $(this).attr('rel');
-
-      // Get Index of object based on id value
-      var arrayPosition = userListData.map(function(arrayItem) { return arrayItem._id; }).indexOf(thisUserName);
-
-      // Get our User Object
-      var thisUserObject = userListData[arrayPosition];
-
-      //Populate Info Box  .attr("src", src)
-      $('#userPicture').attr("src", (thisUserObject.profile.picture));
-      $('#userInfoName').text(thisUserObject.profile.name);
-      $('#userInfoEmail').attr('href', 'mailto:' + thisUserObject.email).text(thisUserObject.email);
-      $('#userInfoLocation').text(thisUserObject.profile.location);
-      $('#userInfoGender').text(thisUserObject.profile.gender);
-      if (thisUserObject.profile.website) {
-        $('#userInfoWebsite').attr('href', thisUserObject.profile.website).text('Website Link');
-      }
-      $('#userInfoEstablished').text(moment(thisUserObject.activity.date_established).format('MMMM Do YYYY'));
-      $('#userInfoLogon').text(moment(thisUserObject.activity.last_logon).fromNow());
-      $('#userInfoUpdate').text(moment(thisUserObject.activity.last_update).fromNow());
-    };
 
     // Change Review Type
     function changeReviewType(event) {
@@ -301,21 +288,27 @@ block scripts
       // Prevent Link from Firing
       event.preventDefault();
       
+      // Display providers dropdown
       if($('#providerRadio').is(':checked')) {
         $('#providerType').show();
         $('#locationType').hide();
 
-        if($("#providerDropdown").text() == "No Providers Found" && providers.length > 0) {
-          $("#providerDropdown").html(`${providers[0].name} <span class="caret"></span>`);
+        var providerDropdown = $("#providerDropdown");
+
+        if(providerDropdown.text() === "No Providers Found" && providers.length > 0) {
+          providerDropdown.html(`${providers[0].name} <span class="caret"></span>`);
           $('input[name="locationOrProvider"]').val(providers[0].id);
         }
       }
+      // Display locations dropdown
       else {
         $('#providerType').hide();
         $('#locationType').show();
 
-        if($("#locationDropdown").text() == "No Locations Found" && locations.length > 0) {
-          $("#locationDropdown").html(`${locations[0].name} <span class="caret"></span>`);
+        var locationDropdown = $("#locationDropdown");
+
+        if(locationDropdown.text() === "No Locations Found" && locations.length > 0) {
+          locationDropdown.html(`${locations[0].name} <span class="caret"></span>`);
           $('input[name="locationOrProvider"]').val(locations[0].id);
         }
       }
@@ -327,70 +320,87 @@ block scripts
       // Prevent Link from Firing
       event.preventDefault();
 
-      // Update available options
+      // Get the provider/location that was chosen
       var selectedOption = {};
-      if($('#providerType').is(':visible')) {
-        if($("#providerDropdown").text() == "Select Provider") { return; }
-        selectedOption = providers.filter((p) => p.name === $(this).text())[0];
+      if($('#locationType').is(':visible')) {
+        if($("#locationDropdown").text() === "Select Location") { return; }
+        selectedOption = locations.filter((l) => l.name === $(this).text())[0];
       }
       else {
-        if($("#locationDropdown").text() == "Select Location") { return; }
-        selectedOption = locations.filter((l) => l.name === $(this).text())[0];
+        if($("#providerDropdown").text() === "Select Provider") { return; }
+        selectedOption = providers.filter((p) => p.name === $(this).text())[0];
       }
       $('input[name="locationOrProvider"]').val(selectedOption.id);
 
+
       // Set available options
       var firstShown = false;
-      if(selectedOption.review_sites.yelp == null) { $('#yelpOption').hide(); }
+      var sitesDropdown = $('#sitesDropdown');
+      var reviewSite = $('#reviewSite');
+
+      if(selectedOption.review_sites.yelp == null) {         // Yelp
+        $('#yelpOption').hide(); 
+      }
       else { 
         $('#yelpOption').show(); 
-        $('#sitesDropdown').text(HARDCODED_SITE_NAMES[0]);
-        $('input[name="reviewSite"]').val('yelp');
+        sitesDropdown.text(HARDCODED_SITE_NAMES[0]);
+        reviewSite.val('yelp');
         firstShown = true;
       }
-      if(selectedOption.review_sites.google == null) { $('#googleOption').hide(); }
+
+      if(selectedOption.review_sites.google == null) {      // Google
+        $('#googleOption').hide(); 
+      }
       else { 
         $('#googleOption').show(); 
         if(!firstShown) {
-          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[1]);
-          $('input[name="reviewSite"]').val('google');
+          sitesDropdown.text(HARDCODED_SITE_NAMES[1]);
+          reviewSite.val('google');
           firstShown = true;
         }
       }
-      if(selectedOption.review_sites.healthgrades == null) { $('#healthgradesOption').hide(); }
+      if(selectedOption.review_sites.healthgrades == null) { // HealthGrades
+        $('#healthgradesOption').hide(); 
+      }
       else { 
         $('#healthgradesOption').show(); 
         if(!firstShown) {
-          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[2]);
-          $('input[name="reviewSite"]').val('healthgrades');
+          sitesDropdown.text(HARDCODED_SITE_NAMES[2]);
+          reviewSite.val('healthgrades');
           firstShown = true;
         }
 
       }
-      if(selectedOption.review_sites.vitals == null) { $('#vitalsOption').hide(); }
+      if(selectedOption.review_sites.vitals == null) {       // Vitals
+        $('#vitalsOption').hide(); 
+      }
       else { 
         $('#vitalsOption').show();  
         if(!firstShown) {
-          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[3]);
-          $('input[name="reviewSite"]').val('vitals');
+          sitesDropdown.text(HARDCODED_SITE_NAMES[3]);
+          reviewSite.val('vitals');
           firstShown = true;
         }
       }
-      if(selectedOption.review_sites.ratemds == null) { $('#ratemdsOption').hide(); }
+      if(selectedOption.review_sites.ratemds == null) {       // RateMDs
+        $('#ratemdsOption').hide(); 
+      }
       else { 
         $('#ratemdsOption').show();  
         if(!firstShown) {
-          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[4]);
-          $('input[name="reviewSite"]').val('ratemds');
+          sitesDropdown.text(HARDCODED_SITE_NAMES[4]);
+          reviewSite.val('ratemds');
           firstShown = true;
         }
       }
-      if(selectedOption.review_sites.yellowpages == null) { $('#yellowpagesOption').hide(); }
+      if(selectedOption.review_sites.yellowpages == null) {    // Yellow Pages
+        $('#yellowpagesOption').hide(); 
+      }
       else { 
         $('#yellowpagesOption').show();  
         if(!firstShown) { 
-          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[5]);
-          $('input[name="reviewSite"]').val('yellowpages');
+          sitesDropdown.text(HARDCODED_SITE_NAMES[5]);
+          reviewSite.val('yellowpages');
         }
       }
     }
@@ -439,8 +449,7 @@ block scripts
 
     };
 
-
-    // Delete User
+    // Create new survey request
     function newRequest(event) {
 
       // Prevent Link from Firing
@@ -450,11 +459,17 @@ block scripts
       // Convoluted because we have to
       // pass the user's id through
       function showmodal(userid) {
-        // default to first provider
-        if($("#providerDropdown").text() == "No Providers Found" && providers.length > 0) {
-          $("#providerDropdown").html(`${providers[0].name} <span class="caret"></span>`);
+        // Set default to first provider
+        var providerDropdown = $('#providerDropdown');
+        if(providerDropdown.text() === "No Providers Found" && providers.length > 0) {
+          providerDropdown.html(`${providers[0].name} <span class="caret"></span>`);
+          providerDropdown.val(providers[0].name);
           $('input[name="locationOrProvider"]').val(providers[0].id);
         }
+        $('#providerType li:first a').trigger('click');
+
+        // Hide location option
+        $('#locationType').hide();
 
         // show modal
         $('#requestModal').modal({keyboard:true,backdrop:'static'});
@@ -499,11 +514,7 @@ block scripts
             console.log(validator);
           }
         });
-        // to change dropdown selection
-        $(".dropdown-menu li a").click(function(){
-          $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
-          $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
-        });
+
         // if "yes" clicked
         $('#sendrequestbutton').one('click', function () {
             $('#requestform').submit();
