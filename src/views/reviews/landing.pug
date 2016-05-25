@@ -9,7 +9,7 @@ block content
       .col-sm-6.col-sm-offset-3
         br
         br
-        -if (!_.isEmpty(survey))
+        - if (!_.isEmpty(survey))
           form#surveyForm(method='POST' action='submit')
             input(type='hidden', name='_csrf', value=_csrf)
             input(type='hidden', name='id', value=survey.id)

@@ -56,10 +56,13 @@ exports.wrapExceptions = function() {
     try {
       yield* next;
     } catch(err) {
-      if (config.NODE_ENV === 'production') {
+      const production = config.NODE_ENV === 'production';
+      if (production) {
         yield comm.sendExceptionToSlack(err, this);
       }
-      this.render('error/500', Object.assign({}, this.jadeLocals, { error: err }), true);
+      this.render('error/500', Object.assign({}, this.jadeLocals, { 
+        error: production ? {message : 'Internal Error'} : err
+      }), true);
     }
   };
 };
@@ -225,11 +228,17 @@ exports.ensureReferer = function() {
   };
 };
 
+// THIS IS A HACK!
 exports.csrfMiddleware = function() {
   return function*(next) {
     if (this.request.url.indexOf(CSRF_SKIP_PREFIX) == 0) {
       return yield next;
     }
-    return yield csrf.middleware.call(this, next);
+    try {
+      return yield csrf.middleware.call(this, next);
+    }
+    catch(e) {
+      this.body = 'csrf error';
+    }
   };
 };
