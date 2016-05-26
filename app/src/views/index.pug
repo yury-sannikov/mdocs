@@ -1,0 +1,762 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0')
+    // ========== Page Ttile ==========
+    title
+      | Patient Reviews by MDOCS - Improve Your Online Reputation, Receive 5-Star Reviews on Yelp, Google, HealthGrades.com, Vitals.com, RateMDs.com
+    // Google Font
+    link(href='https://fonts.googleapis.com/css?family=Raleway', rel='stylesheet', type='text/css')
+    // CSS Plugin Files
+    link(href='css/lib/bootstrap.min.css', rel='stylesheet')
+    link(href='css/plugins/font-awesome.min.css', rel='stylesheet')
+    link(href='css/plugins/lineicons.css', rel='stylesheet')
+    link(href='vendors/magnific-popup/magnific-popup.css', rel='stylesheet')
+    link(href='vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css', rel='stylesheet')
+    link(href='vendors/bootstrap-select/css/bootstrap-select.min.css', rel='stylesheet')
+    link(href='vendors/owl-carousel/assets/owl.carousel.css', rel='stylesheet')
+    link(href='css/plugins/animate.css', rel='stylesheet')
+    // Preloader
+    link(href='css/plugins/preloader.css', rel='stylesheet')
+    // ========== Main Styles==========
+    link(href='css/style.css', rel='stylesheet')
+    // ========== Custom Styles==========
+    link(href='css/custom.css', rel='stylesheet')
+    // Theme CSS (For Available Color Options, See Documentation )
+    link(href='css/themes/mdocs.css', rel='stylesheet')
+    // ========== HTML5 shim and Respond.js (Required) ==========
+    //if lt IE 9
+      script(src='js/lib/html5shiv.min.js')
+      script(src='js/lib/respond.min.js')
+  body.home(data-scroll-animation='true', data-spy='scroll', data-target='#main-navbar')
+    // ==========Preloader==========
+    #loading
+      #loading-center
+        #loading-center-absolute
+          #object_four.object
+          #object_three.object
+          #object_two.object
+          #object_one.object
+    // ==========Header==========
+    header#header.row
+      nav.navbar.navbar-default.navbar-fixed-top
+        .container
+          // ========== Brand and toggle get grouped for better mobile display ==========
+          .navbar-header
+            a.navbar-brand(href='#header')
+              img(src='images/logo.png', alt='')
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#main-navbar', aria-expanded='false')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+          // ========== Collect the nav links, forms, and other content for toggling ==========
+          #main-navbar.collapse.navbar-collapse
+            a.btn.btn-warning.pull-right.hidden-sm.hidden-xs(href='#contact-popup') Request a Demo
+            ul.nav.navbar-nav.navbar-right
+              li
+                a(href='#product') Product
+              li.dropdown
+                a.dropdown-toggle(href='#benefits', data-toggle='dropdown')
+                  | Benefits 
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#benefits', data-slide-to='0', onclick="javascript:$('#benefits-slides').carousel(0);") Physcians
+                  li
+                    a(href='#benefits', onclick="javascript:$('#benefits-slides').carousel(1);", data-slide-to='1') Executives
+                  li
+                    a(href='#benefits', onclick="javascript:$('#benefits-slides').carousel(2);", data-slide-to='2') Patients
+              // <li><a href="#features">Features</a></li>
+              li
+                a(href='#pricing') Pricing
+              //
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                <li><a href="index.html">Pre-order (Email)</a></li>
+                <li><a href="index_email.html">Email Signup (Mailchimp)</a></li>
+                <li><a href="index_buy_paypal.html">Buy Now (PayPal)</a></li>
+                <li><a href="index_kickstarter.html">Kickstarter Campaign</a></li>
+                <li><a href="index_indegogo.html">Indegogo Campaign</a></li>
+                <li><a href="index_boxed.html">Boxed Version</a></li>
+                <li><a href="index_rtl.html">RTL Version</a></li>
+                <li><a href="index_video.html">Video Background</a></li>
+                <li class="divider"></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="blog-single.html">Blog Single</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="shortcodes.html">Shortcodes</a></li>
+                </ul>
+                </li>
+              li
+                a(href='#contact') contact
+              li
+                a(href='#', onclick='window.auth0signin(); return false;') Sign-Up
+          // ========== /.navbar-collapse ==========
+        // ========== /.container-fluid ==========
+      .top-banner.row.m0.text-center.fadeInOnLoad
+        .container
+          h2 Happy patients, top reviews
+          .row.text-center
+            img.wow.zoomIn(style='width:60%;padding-bottom:10px;', src='images/five-stars.png', alt='Get top reviews')
+          p
+            | Fact: Happy patients leave 5-star reviews. Improve your Online Reputation with 
+            span.black Patient Reviews by MDOCS
+            | .
+          a.btn.btn-primary.btn-lg.video(href='https://vimeo.com/166297386')
+            | Play 
+            img(src='images/play-btn-icon.png', alt='')
+            |  Video
+          br
+          a.btn.btn-warning.btn-lg.visible-sm-inline-block.visible-xs-inline-block(href='#contact-popup') Request a Demo
+          .row.apple-watch
+            img.watch_img.wow.zoomIn(src='images/apple-watch.png', alt='')
+    // ==========The Product==========
+    section#product.row.the-product
+      .container
+        .row.section-header.wow.fadeInUp
+          h2 The Product
+          p
+            | Finally, a system that allows physicians to take control of their online reputation! Now any physician can start receiving hundreds of positive reviews by using 
+            span.black Patient Reviews by MDOCS
+            | . Our intelligent system encourages patients to leave positive reviews and puts you in charge of your online reputation.
+        .row.apple-watch-note-feature.text-center
+          img.wow.zoomIn(src='images/apple-watch-2.png', alt='The Product')
+          // ==========Feature Noted top right==========
+          .feature-note.right.top.wow.fadeInRight
+            .indicator
+              .plus-icon
+                span.plus +
+            .feature-name
+              | Quick Patient
+              br
+              | Feedback
+          // ==========Feature Noted top left==========
+          .feature-note.left.top.wow.fadeInLeft
+            .indicator
+              .plus-icon
+                span.plus +
+            .feature-name.text-center
+              | Mobile-First
+              br
+              | Design
+          // ==========Feature Noted bottom right==========
+          .feature-note.right.bottom.wow.fadeInUp
+            .indicator
+              .plus-icon
+                span.plus +
+            .feature-name
+              | Simple
+              br
+              | User Interface
+          // ==========Feature Noted bottom left==========
+          .feature-note.left.bottom.wow.fadeInLeft
+            .indicator
+              .plus-icon
+                span.plus +
+            .feature-name
+              | SMS Text
+              br
+              | Messages
+    // ==========How its Works==========
+    section.row.how-it-works
+      .container
+        .row.section-header.v2.wow.fadeInUp
+          h2 How It Works
+          p
+            | Receiving positive reviews with 
+            span.black Patient Reviews by MDOCS
+            |  is easy. Ask your patients for a review. Provide an easy and convenient survey system. Enjoy hundreds of 5-star reviews.
+        .row.work-processes
+          // ==========Work Process==========
+          .col-sm-4.work-process.wow.fadeIn
+            .row.m0.process-icon
+              img(src='images/desktop.png', alt='')
+            h3 Ask
+            p
+              | Ask your patients to provide feedback. Research shows 80% of users will respond to survey requests if asked within an hour.
+          // ==========Work Process==========
+          .col-sm-4.work-process.wow.fadeIn(data-wow-delay='0.5s')
+            .row.m0.process-icon
+              img(src='images/toggles.png', alt='')
+            h3 Enable
+            p
+              | Convenient email and text messaging with easy surveys allows patients to quickly fill the survey form and provide valuable feedback.
+          // ==========Work Process==========
+          .col-sm-4.work-process.wow.fadeIn(data-wow-delay='1s')
+            .row.m0.process-icon
+              img(src='images/trophy.png', alt='')
+            h3 Enjoy
+            p
+              | Use the privacy of our platform to review and encorage positive reviews on public sites such as Yelp, Google and HealthGrades.
+    // ==========Features==========
+    section#features.row.the-benefits
+      .container
+        .row.section-header.wow.fadeInUp
+          h2 Features
+          p
+            span.black Patient Reviews by MDOCS
+            |  is a cloud-based, secure, HIPAA-compliant patient review and online reputation management system designed to improve patient retention and generate new revenue for physican groups.
+        .row.benefit-notes
+          // ==========Single Benefit==========
+          .col-sm-6.col-md-4.benefit.wow.fadeInUp
+            .media
+              .media-left
+                span
+                  i.li_cloud
+              .media-body
+                h4 Cloud-based
+                p
+                  | Our product is running in a secure cloud environment, which reduces the cost of acquisiton and operation for our customers.
+          // ==========Single Benefit==========
+          .col-sm-6.col-md-4.benefit.wow.fadeInUp(data-wow-delay='0.3s')
+            .media
+              .media-left
+                span
+                  i.li_like
+              .media-body
+                h4 Multi-Site Support
+                p
+                  | The intelligent review system supports managing and monitoring reviews on Yelp, Google Plus, Health Grades and Vitals.
+          // ==========Single Benefit==========
+          .col-sm-6.col-md-4.benefit.wow.fadeInUp(data-wow-delay='0.6s')
+            .media
+              .media-left
+                span
+                  i.li_lock
+              .media-body
+                h4 Security first
+                p
+                  | Our system uses industry-standard 256-bit encryption and secure HIPAA storage for all user reviews and comments.
+          // ==========Single Benefit==========
+          .col-sm-6.col-md-4.benefit.wow.fadeInUp(data-wow-delay='0.9s')
+            .media
+              .media-left
+                span
+                  i.li_phone
+              .media-body
+                h4 Mobile-friendly
+                p
+                  | 70% of your patients will find you and provide feedback on a mobile device. That's why our surveys are mobile-friendly.
+          // ==========Single Benefit==========
+          .col-sm-6.col-md-4.benefit.wow.fadeInUp(data-wow-delay='1.2s')
+            .media
+              .media-left
+                span
+                  i.li_eye
+              .media-body
+                h4 Reputation monitoring
+                p
+                  | Using the latest APIs and web scraping our system monitors changes in your online reviews and alerts you accordingly.
+          // ==========Single Benefit==========
+          .col-sm-6.col-md-4.benefit.wow.fadeInUp(data-wow-delay='1.5s')
+            .media
+              .media-left
+                span
+                  i.li_diamond
+              .media-body
+                h4 Modern tech stack
+                p
+                  | Our system was built from the ground-up using the latest advancements in usability and data security.
+    // ==========The Benefits==========
+    section#benefits.row.the-watch
+      #benefits-slides.carousel.slide(data-ride='carousel', data-interval='10000')
+        // Indicators
+        ol.carousel-indicators
+          li.active(data-target='#benefits-slides', data-slide-to='0')
+          li(data-target='#benefits-slides', data-slide-to='1')
+          li(data-target='#benefits-slides', data-slide-to='2')
+        .carousel-inner(role='listbox')
+          .item.active
+            .container
+              .row
+                .row.section-header.wow.fadeIn
+                  h2 Benefits to Physicians
+                .col-md-4.col-md-offset-1.text-center.the-watch-img.wow.zoomIn
+                  img.img-responsive(src='images/benefits-physcian.png', alt='')
+                .col-md-7.the-watch-features
+                  ul.nav
+                    li.wow.fadeIn(data-wow-delay='0.2s') Dramatically improve your online reputation
+                    li.wow.fadeIn(data-wow-delay='0.4s') A one star rating increase leads to 9% increase in revenue
+                    li.wow.fadeIn(data-wow-delay='0.6s') 77% of patients use online reviews before selecting a doctor
+                    li.wow.fadeIn(data-wow-delay='0.8s') Real-time monitoring of your online reputation
+                    li.wow.fadeIn(data-wow-delay='1s') Get alerts when reviews about you are posted online
+                    li.wow.fadeIn(data-wow-delay='1.2s') Improve the experience of your patients
+                    li.wow.fadeIn(data-wow-delay='1.4s') Insightful analytics and reports
+          .item
+            .container
+              .row
+                .row.section-header
+                  h2 Benefits to Executives
+                  // <p>Please fill-in the form below and one of our sales representatives will get in touch to setup your demo.</p>
+                .col-md-4.col-md-offset-1.text-center.the-watch-img
+                  img.img-responsive(src='images/benefits-exec.png', alt='')
+                .col-md-7.the-watch-features
+                  ul.nav
+                    li Improve your practice's online reputation
+                    li A one star rating increase leads to 9% increase in revenue
+                    li 77% of patients use online reviews before selecting a doctor
+                    li Drastically reduce negative public reviews
+                    li Monitor online reputation across multiple sites
+                    li Get alerted when public reviews are posted
+                    li Weekly and monthly reputation trend charts and reports
+          .item
+            .container
+              .row
+                .row.section-header
+                  h2 Benefits to Patients
+                .col-md-4.col-md-offset-1.text-center.the-watch-img
+                  img.img-responsive(src='images/benefits-patients.png', alt='')
+                .col-md-7.the-watch-features
+                  ul.nav
+                    li Better patient engagement
+                    li Opportunity to provide valuable feedback
+                    li Feeling of being listened
+                    li Help others in similar situations
+                    li Establish trusted relationships with doctors
+                    li Show appreciation to your healthcare providers
+                    li Get insightful analytics and reports
+          // Carousel nav
+          //
+            <a class="carousel-control left" href="#benefits-slides" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="carousel-control right" href="#benefits-slides" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+    // ========== Pricing ==========
+    section#pricing.row.how-it-works
+      .container
+        .row.section-header.wow.fadeInUp
+          h2 Pricing
+          p
+            | Simple pricing. One low monthly-bill. Select the plan that best fits the size of your practice. All features are available and updated for all plans.
+        .plan-pricing
+          .row
+            .col-sm-8.col-sm-offset-2.col-md-4.col-md-offset-0
+              .pricing.wow.zoomIn
+                .pricing__header
+                  h4.pricing__title Patient Reviews
+                  h4.pricing__price
+                    | $49/mo per
+                    br
+                    | provider or location
+                // // end .pricing__header
+                .pricing__content
+                  ul
+                    li No start-up costs
+                    li Unlimited providers or locations
+                    li Cloud-based online platform
+                    li HIPAA-compliant data center
+                    li Mobile-friendly design
+                    li Email and SMS text messages
+                    li Yelp reviews
+                    li Google+ reviews
+                    li HealthGrades reviews
+                    li Vitals reviews
+                    li Facebook reviews
+                    li Online reputation score
+                    li Reputation monitoring
+                    li Reputation change alerts
+                    li Website ratings widget
+                  // // end  list unstyled
+                // // end .pricing__content
+                .pricing__cta
+                  a#btnSmallPractice.btn.btn-sm.btn-outline(href='#') Try For Free
+                // <a href="#"><h6>$499/yr prepaid plan</h6></a>
+                // // end .pricing__cta
+              // // end .pricing
+            // // end .col-sm-8 col-sm-offset-2 col-md-4
+            .col-sm-8.col-sm-offset-2.col-md-4.col-md-offset-0
+              .pricing.wow.zoomIn.pricing--featured
+                .pricing__header
+                  h4.pricing__title Patient Reviews with Data Analysis
+                  h4.pricing__price
+                    | $69/mo per
+                    br
+                    | provider or location
+                // // end .pricing__header
+                .pricing__content
+                  ul
+                    li Everything in Patient Reviews, plus:
+                    li No start-up costs
+                    li Unlimited providers or locations
+                    li Advanced data analytics
+                    li Machine-learning
+                    li Data mining
+                    li Natural language processing
+                    li Data classification
+                    li Simple data analysis
+                    li Data analysis customization
+                    li Detailed patient review analysis
+                    li Multi-practice data classification
+                    li Advanced reporting
+                    li Embeddable tables and charts
+                    li EMR integrations
+                  // // end  list unstyled
+                // // end .pricing__content
+                .pricing__cta
+                  a#btnMediumPractice.btn.btn-sm.btn-warning(href='#') Try For Free
+                // <a href="#" style="color:#fff"><h6>$999/yr prepaid plan</h6></a>
+                // // end .pricing__cta
+              // // end .pricing
+            // // end .col-sm-8 col-sm-offset-2 col-md-4
+            .col-sm-8.col-sm-offset-2.col-md-4.col-md-offset-0
+              .pricing.wow.zoomIn
+                .pricing__header
+                  h4.pricing__title Enterprise
+                  h4.pricing__price
+                    a(href='#contact-popup')
+                      | Contact us
+                      br
+                      |  for details
+                // // end .pricing__header
+                .pricing__content
+                  ul
+                    li No start-up costs
+                    li Unlimited providers or locations
+                    li Cloud-based online platform
+                    li HIPAA-compliant data center
+                    li Mobile-friendly design
+                    li Email and SMS text messages
+                    li Yelp reviews
+                    li Google+ reviews
+                    li HealthGrades reviews
+                    li Vitals reviews
+                    li Facebook reviews
+                    li Online reputation score
+                    li Reputation monitoring
+                    li Reputation change alerts
+                    li Website ratings widget
+                  // // end  list unstyled
+                // // end .pricing__content
+                .pricing__cta
+                  a.btn.btn-sm.btn-outline(href='#contact-popup') Request a Demo
+                // <a href="#"><h6>$1999/yr prepaid plan</h6></a>
+                // // end .pricing__cta
+              // // end .pricing
+            // // end .col-sm-8 col-sm-offset-2 col-md-4
+          // // end .row
+    // ==========FAQS==========
+    section.row.faqs
+      .container
+        .row.section-header.wow.fadeInUp
+          h2 faq
+          p
+            | You've got questions, we have answers. Below are some of the most-commonly asked questions about our product. If you can't find what you're looking for, feel free to drop us a note at 
+            a(href='mailto:info@movel.co') info@movel.co
+        .row
+          // ==========Faq==========
+          .col-sm-6.faq.wow.fadeInUp
+            h4 What is MDOCS?
+            p
+              | MDOCS is a patient engagement platform helping psysicians deliver better patient care.
+          // ==========Faq==========
+          .col-sm-6.faq.wow.fadeInUp
+            h4 How is Patient Reviews different from other similar systems?
+            p
+              | Patient Reviews by MDOCS is the most user-friendly and easy to use patient survey system on the market. It's built using modern tools and it offers some of the most affordable options available.
+          // ==========Faq==========
+          .col-sm-6.faq.wow.fadeInUp(data-wow-delay='0.3s')
+            h4 Is there a committment?
+            p Absolutely not. You can start and cancel your plan as your needs change.
+          // ==========Faq==========
+          .col-sm-6.faq.wow.fadeInUp(data-wow-delay='0.3s')
+            h4 How much work will it require from my staff?
+            p
+              | Depending on your patient volume, our users spend on average 1-2 minutes per patient on requesting and managing patient reviews.
+    // ==========Mobile App==========
+    section.row.mobile-app
+      .container
+        .row
+          .col-sm-6.col-sm-push-6.wow.fadeIn
+            h2 Mobile App Coming Soon
+            p
+              | A mobile app for managing patient surveys is coming up next. Our teams are hard at work and are building some very desired features such as reputation alerts and push notifications.
+            .row.m0.downloads-btns
+              img(src='images/app-store.png', alt='')
+              img(src='images/google-play.png', alt='')
+          .col-sm-6.col-sm-pull-6.wow.fadeInUp
+            img.mobile-img(src='images/app-screen.png', alt='')
+    // ==========Newsletter==========
+    section.row.newsletter
+      .container
+        .row.section-header.wow.fadeInUp
+          h2 newsletter
+          p Subscribe to our newsletter to get notified on new product and deals!
+        form#subscribeform.row.newsletter-form(action='php/subscribe.php', method='post')
+          .input-group
+            input#mce-EMAIL.form-control(type='email', name='EMAIL', placeholder='Enter Your Email Address', required='')
+            span.input-group-addon
+              button#js-subscribe-btn(type='submit')
+                img(src='images/right-angle-white.png', alt='')
+          #js-subscribe-result.text-center(data-success-msg='Almost finished. Please check your email and verify.', data-error-msg='Oops. Something went wrong.')
+            p
+              img(src='images/protect.png', alt='')
+              | No Spam. We Promise. Unsubscribe anytime.
+    // ==========Contact==========
+    section#contact.row.contact
+      // ================== GOOGLE MAP (Change data-lat & data-lon values) ======================
+      // TIP : To change the map style, Visit /js/plugins/google-map.js
+      #mapBox.row.m0(data-lat='39.030303', data-lon='-77.3988698', data-zoom='15')
+      // Flippable Contact Box
+      .flip-box-container.row.m0
+        .flip-box.row.m0.wow.fadeIn
+          // Contact Address (front Side)
+          .row.contact-box.flip-box-part
+            h2 get in touch
+            ul.nav
+              li
+                i.fa.fa-map-marker
+                | 21165 Whitfield Pl. Ste#206
+                br
+                | Sterling, VA 20165 USA
+              li
+                i.fa.fa-phone
+                | +1 (571) 371-1734
+              li
+                i.fa.fa-envelope
+                | info@movel.co
+            button.flip-contact-box.btn.btn-block contact us
+          // Contact Form (back Side)
+          .row.contact-form.flip-box-part
+            a.js-close-flip(href='javascript:void(0);') ×
+            // Contact Form Starts here
+            form#home_appointment_form(action='https://axc0hldmja.execute-api.us-east-1.amazonaws.com/prod/mdocsappointment', method='POST')
+              .row
+                .form-group.col-sm-6
+                  input.form-control(type='text', name='name', placeholder='Name', required='')
+                .form-group.col-sm-6
+                  input.form-control(type='email', name='email', placeholder='Email Address', required='')
+              .form-group
+                input.form-control(type='text', name='form_appontment_date', placeholder='Subject', required='')
+              .form-group
+                textarea.form-control(name='message', placeholder='Message', required='')
+              button#js-contact-btn.btn.btn-block(type='submit') Send Message
+              #js-contact-result(data-success-msg='Form submitted successfully.', data-error-msg='Oops. Something went wrong.')
+            // // End Contact form
+          // // End back Side
+      // // End Contact Box
+    // ==========Footer==========
+    footer.row
+      .container
+        .row.m0.social-links
+          ul.nav
+            li.wow.fadeInUp
+              a(href='#')
+                i.fa.fa-facebook
+            li.wow.fadeInUp(data-wow-delay='0.1s')
+              a(href='#')
+                i.fa.fa-twitter
+            li.wow.fadeInUp(data-wow-delay='0.2s')
+              a(href='#')
+                i.fa.fa-linkedin
+            li.wow.fadeInUp(data-wow-delay='0.3s')
+              a(href='#')
+                i.fa.fa-youtube
+            li.wow.fadeInUp(data-wow-delay='0.4s')
+              a(href='#')
+                i.fa.fa-google-plus
+            li.wow.fadeInUp(data-wow-delay='0.5s')
+              a(href='#')
+                i.fa.fa-pinterest
+        .row.m0.menu-rights
+          ul.nav.footer-menu
+            li
+              a(href='#') About
+            li
+              a(href='/app/terms') Terms of Use
+            li
+              a(href='/app/privacy') Privacy Policy
+            li
+              a(href='#') Mobile App
+            li
+              a(href='#') Press Kit
+          p
+            | Copyright © 2016 Movel, Inc.
+            br.small-divide
+            |  All rights reserved.
+    //
+      ============================================================
+      PRODUCT POPUP
+      ============================================================
+    #product-choose.row.product-box.mfp-hide
+      button.mfp-close.custom_close(title='Close (Esc)', type='button') ×
+      .product-img-gallery
+        #product-imgs.carousel.slide(data-ride='carousel')
+          // Indicators
+          ol.carousel-indicators
+            li.active(data-target='#product-imgs', data-slide-to='0')
+            li(data-target='#product-imgs', data-slide-to='1')
+            li(data-target='#product-imgs', data-slide-to='2')
+          .carousel-inner(role='listbox')
+            .item.active
+              img(src='images/the-watch-1.png', alt='watch-1')
+            .item
+              img(src='images/the-watch-2.png', alt='watch-2')
+            .item
+              img(src='images/the-watch-3.png', alt='watch-3')
+      .product-desc
+        form#preorderform.choose-form.row.m0(action='php/pre-order.php', method='get', data-redirect='none')
+          #js-product-info.product-info
+            h4.name Smart Watch
+            h2.edition Sports Edition
+            h5.model MODEL AS1500
+            h2.price
+              del $349
+              | $299 
+              span.label.label-default early bird offer
+            .row.m0.description
+              p
+                | 8mm Silver Aluminum Case with Blue Sport Band. Its perfect fit for tracking fitness. 100% waterproof. Buy this limted edition sports edition.
+            #js-choose-color.choose-options.row.m0
+              .option
+                h4.form-label Choose a color
+                .row.m0.colors
+                  input#color-1(type='radio', name='color', value='Blue', checked='')
+                  label(for='color-1')
+                  input#color-2(type='radio', name='color', value='Violet')
+                  label(for='color-2')
+                  input#color-3(type='radio', name='color', value='Magenta')
+                  label(for='color-3')
+                  input#color-4(type='radio', name='color', value='Yellow')
+                  label(for='color-4')
+                  input#color-5(type='radio', name='color', value='Green')
+                  label(for='color-5')
+              .option
+                h4.form-label Qty
+                input.quanity(type='text', value='1', name='Quantity')
+              .option
+                h4.form-label Size
+                select.selectpicker
+                  option(value='m', selected='') M
+                  option(value='l') L
+                  option(value='xl') XL
+            .submit-area.row.m0
+              a#next-personal.btn.btn-rounded.btn-block(href='javscript:void(0);') pre-order now
+          // // End Product Info
+          #js-personal-info.personal-info
+            .form-group.text-center
+              a#prev-product-info.btn(href='javscript:void(0);') Go Back
+            .row
+              .form-group.col-sm-6
+                input.form-control(type='text', name='First_Name', placeholder='First Name', required='')
+              .form-group.col-sm-6
+                input.form-control(type='text', name='Last_Name', placeholder='Last Name', required='')
+            .form-group
+              input.form-control(type='email', name='Email', placeholder='Email Address', required='')
+            .form-group
+              input.form-control(type='text', name='Address_Line_1', placeholder='Address Line 1', required='')
+            .form-group
+              input.form-control(type='text', name='Address_Line_2', placeholder='Address Line 2', required='')
+            .row
+              .form-group.col-sm-6
+                input.form-control(type='text', name='State', placeholder='State', required='')
+              .form-group.col-sm-6
+                input.form-control(type='text', name='Zip_Code', placeholder='Zip Code', required='')
+            .form-group
+              select.form-control(name='Country', required='')
+                option(selected='', value='') Choose a country
+                option(value='United States') United States
+                option(value='United Kingdom') United Kingdom
+                option(value='Australia') Australia
+                option(value='India') India
+            .submit-area-2.row.m0
+              button.btn.btn-rounded.js-preorder-btn.btn-block(type='submit')
+                span Finish Purchase
+          // // end #js-personal-info.personal-info
+    // Contact Form
+    //
+      ============================================================
+      CONTACT POPUP
+      ============================================================
+    #contact-popup.row.product-box.mfp-hide
+      // <button class="mfp-close custom_close" title="Close (Esc)" type="button">&#215;</button>
+      div(style='padding: 80px')
+        .row.section-header
+          h2 Request a Demo
+          p
+            | Please fill-in the form below and one of our sales representatives will get in touch to setup your demo.
+        // Contact Form (back Side)
+        .row.contact-form
+          // <a href="javascript:void(0);" class="js-close-flip">&times;</a>
+          // Contact Form Starts here
+          form#contact_appointment_form(action='https://axc0hldmja.execute-api.us-east-1.amazonaws.com/prod/mdocsappointment', method='POST')
+            .row
+              .form-group.col-sm-6
+                input.form-control(type='text', name='form_name', placeholder='Full name', required='')
+              .form-group.col-sm-6
+                input.form-control(type='email', name='form_email', placeholder='Email address', required='')
+            .form-group
+              input.form-control(type='text', name='form_appontment_date', placeholder='Desired date', required='')
+            .form-group
+              textarea.form-control(name='form_message', placeholder='Message', required='')
+            button#js-contact-btn.btn.btn-block(type='submit') Submit Request
+            #js-contact-result(data-success-msg='Form submitted successfully.', data-error-msg='Oops. Something went wrong.')
+          // // End Contact form
+        // // End back Side
+    // // End Product Popup Section
+    // ========== Javascript Files ==========
+    // jQuery Latest
+    script(src='js/lib/jquery-2.2.0.min.js')
+    // Bootstrap JS
+    script(src='js/lib/bootstrap.min.js')
+    // Stripe
+    script(src='https://checkout.stripe.com/checkout.js')
+    // Plugins
+    script(src='vendors/owl-carousel/owl.carousel.js')
+    script(src='vendors/magnific-popup/jquery.magnific-popup.min.js')
+    script(src='vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')
+    script(src='vendors/bootstrap-select/js/bootstrap-select.min.js')
+    script(src='https://maps.googleapis.com/maps/api/js')
+    script(src='js/plugins/gmaps.min.js')
+    script(src='js/plugins/google-map.js')
+    script(src='js/plugins/wow.min.js')
+    script(src='js/plugins/validate.js')
+    // Includes
+    script(src='js/includes/pre-order.js')
+    script(src='js/includes/subscribe.js')
+    script(src='js/includes/contact.js')
+    // Auth0
+    script(src='https://cdn.auth0.com/js/lock-9.1.min.js')
+    // Main JS
+    script(src='js/main.js')
+    // Custom Stripe
+    script.
+      var handler = StripeCheckout.configure({
+      key: 'pk_test_vXyGseIAiuaGymmzEJNbjEfh',
+      image: 'https://app.mdocs.co/images/pr-logo-square.png',
+      locale: 'auto',
+      token: function(token) {
+      // You can access the token ID with `token.id`.
+      // Get the token ID to your server-side code for use.
+      }
+      });
+      $('#btnSmallPractice').on('click', function(e) {
+      // Open Checkout with further options:
+      handler.open({
+      name: 'Patient Reviews by MDOCS',
+      description: 'Small Practice',
+      zipCode: true,
+      amount: 4900
+      });
+      e.preventDefault();
+      });
+      $('#btnMediumPractice').on('click', function(e) {
+      // Open Checkout with further options:
+      handler.open({
+      name: 'Patient Reviews by MDOCS',
+      description: 'Medium Practice',
+      zipCode: true,
+      amount: 3900
+      });
+      e.preventDefault();
+      });
+      // Close Checkout on page navigation:
+      $(window).on('popstate', function() {
+      handler.close();
+      });
