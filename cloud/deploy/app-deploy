@@ -8,7 +8,7 @@ mkdir tmp/public tmp/src tmp/views
 cp -rf ../../app/src/public/* ./tmp/public/
 cp -rf ../../app/src/src/* ./tmp/src/
 cp -rf ../../app/src/views/* ./tmp/views/
-cp -rf ../../app/resources ./tmp/resources
+cp -rf ../../app/src/resources ./tmp/resources
 cp -rf ../../app/src/.env_prod ./tmp/.env
 COMMIT_HASH=`git rev-parse HEAD`
 echo "{\"value\":\"${COMMIT_HASH}\"}" > ./tmp/src/revision.json
