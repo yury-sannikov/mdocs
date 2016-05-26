@@ -6,9 +6,10 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0')
     // ========== Page Ttile ==========
     title
-      | Patient Reviews by MDOCS - Improve Your Online Reputation, Receive 5-Star Reviews on Yelp, Google, HealthGrades.com, Vitals.com, RateMDs.com
+      | Patient Reviews by MDOCS - Online Reputation Management for Physcians, Dentists, Medical Doctors, Get 5-Star Reviews on Yelp, Google, HealthGrades.com, Vitals.com, RateMDs.com
     // Google Font
     link(href='https://fonts.googleapis.com/css?family=Raleway', rel='stylesheet', type='text/css')
+
     // CSS Plugin Files
     link(href='css/lib/bootstrap.min.css', rel='stylesheet')
     link(href='css/plugins/font-awesome.min.css', rel='stylesheet')
@@ -742,34 +743,28 @@ html(lang='en')
                       | Current plan: 
                       strong Patient Reviews with Data Analysis
                       |                           (
-                      a(href='#') Change plan
+                      a(href='/#pricing') Change plan
                       | )
                 .row
-                  .col-sm-4
-                    .form-group
-                      input#color-1(type='radio', name='color', checked='true')
-                      label(for='color-1')
+                  .col-sm-12
+                    div.btn-group(data-toggle="buttons")
+                      label.btn.btn-default.active(style="border-radius:0px")
                         h4 Monthly - $49/mo
-                      div(style='color:#82898f')
                         p $49/month
-                  .col-sm-4
-                    .form-group
-                      input#color-2(type='radio', name='color')
-                      label(for='color-2')
+                        input(type="radio" name="options" id="option1" autocomplete="off" checked)
+                      label.btn.btn-default(style="border-radius:0px")
                         h4 12 Months - $490
-                      div(style='color:#82898f')
                         p $40/month (2 months free)
-                  .col-sm-4
-                    .form-group
-                      input#color-3(type='radio', name='color')
-                      label(for='color-3')
+                        input(type="radio" name="options" id="option2" autocomplete="off")
+                      label.btn.btn-default(style="border-radius:0px")
                         h4 24 Months - $882
-                      div(style='color:#82898f')
                         p $36/month (6 months free)
-                
+                        input(type="radio" name="options" id="option3" autocomplete="off")
+                br
+                br
                 .row
                   .col-lg-6
-                    h4 Promotion code?
+                    h4 Coupon or promo code?
                     .input-group
                       input.form-control(type="text" placeholder="Your coupon or promo code")
                       span.input-group-btn
