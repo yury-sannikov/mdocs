@@ -1,0 +1,3 @@
+cd views
+find . -name "*.jade" -exec bash -c 'mv "$1" "$(sed "s/\.jade$/.pug/" <<< "$1")"' - '{}' \;
+cd ..

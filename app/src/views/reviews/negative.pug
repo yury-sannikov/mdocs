@@ -1,0 +1,31 @@
+extends ../layouts/layout
+
+block head
+  title #{application} &middot; Submit a Review
+
+block content
+  .container
+    .row
+      .col-sm-6.col-sm-offset-3
+        br
+        br
+        form(method='POST', action='/survey/details')
+          input(type='hidden', name='_csrf', value=_csrf)
+          input(type='hidden', name='id', value=survey.id)
+          legend
+            h2 Review Details
+            p.small Thank you for your review. We would like to get more details on why we failed to meet your expectations and what we can do to fix it. Please use the box below to provide more detail about your visit and your overall experience.
+          .row
+            .col-md-12
+              textarea.form-control(rows='6', name='details')
+
+          hr
+          button.btn.btn-primary(type='submit')
+            i.fa.fa-check
+            | &nbsp;Finish Review
+
+        hr
+        p.text-muted <em>#{application}
+          a(href='/app/terms')  Terms of Use
+          |  and
+          a(href='/app/privacy')  Privacy Policy.</em>

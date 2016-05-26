@@ -1,0 +1,288 @@
+extends ../layouts/layout.pug
+
+block head
+  title #{application} &middot; Welcome!
+
+block styles
+  link(rel='stylesheet', href='/app/lib/animate.css/animate.css')
+  link(rel='stylesheet', href='/app/lib/chartist/dist/chartist.min.css')
+  style.
+    .ct-series-a .ct-bar {
+      stroke: #00A3C8;
+      stroke-width: 20px;
+    }  
+    .ct-series-b .ct-bar {
+      stroke: #FF196F;
+      stroke-width: 20px;
+    }
+    .ct-label {
+      font-family: 'PT Sans';
+      font-weight: 400;
+      font-size: 13px;
+      color: #000000;
+      stroke: #000000;
+    }
+    .legend ul {
+        list-style: none;
+        padding-left: 5px;
+        padding-top: 20px;
+        margin:0;
+    }
+
+    .legend li {
+      margin-bottom: 15px;
+    }
+
+    .legend li:before {
+        content: '. ';
+        width: 20px;
+        height: 20px;
+        font-size: 1em;
+        display: inline-block;
+    }
+    .legend li.legend_thisyear:before{
+      color: #FF196F;
+      background-color: #FF196F;
+    }
+    .legend li.legend_lastyear:before{
+      color: #00A3C8;
+      background-color: #00A3C8;
+    }
+    /* Donut */
+    .ct-series-e .ct-slice-donut {
+      stroke: #ab3347;
+    }  
+    .ct-series-d .ct-slice-donut {
+      stroke: #932C3D;
+    }
+    .ct-series-c .ct-slice-donut {
+      stroke: #7C2533;
+    }
+    .ct-series-b .ct-slice-donut {
+      stroke: #641E2A;
+    }
+    .ct-series-a .ct-slice-donut {
+      stroke: #4D1720;
+    }
+    /* Headers */
+    hr.headline {
+      border-top: 3px solid #042446;
+      margin: 0 5px;
+    }
+    .headline {
+      //- font-family: 'League Gothic,Oswald';
+      text-align: center;
+      font-size: 32px;
+      line-height: 47px;
+      //- color: #002147;
+    }
+    .chartist-tooltip {
+      position: absolute;
+      display: inline-block;
+      opacity: 1;
+      min-width: 5em;
+      padding: .5em;
+      background: #F4C63D;
+      color: #453D3F;
+      font-family: Oxygen,Helvetica,Arial,sans-serif;
+      font-weight: 700;
+      text-align: center;
+      pointer-events: none;
+      z-index: 999;
+      -webkit-transition: opacity .2s linear;
+      -moz-transition: opacity .2s linear;
+      -o-transition: opacity .2s linear;
+      transition: opacity .2s linear; }
+      .chartist-tooltip:before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        margin-left: -15px;
+        border: 15px solid transparent;
+        border-top-color: #F4C63D; }
+      .chartist-tooltip.tooltip-show {
+        opacity: 1; }
+      .legend-circle {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        margin-right: .5em;
+      }
+      .legend-circle + span {
+        margin-right: 1.5em;
+        top: -3px;
+        position: relative;      
+      }
+      
+block scripts
+  script(src='/app/lib/chartist/dist/chartist.min.js')
+  script(src='/app/lib/chartist-plugin-pointlabels/dist/chartist-plugin-pointlabels.min.js')
+  script(src='/app/lib/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.js')
+  script.
+    $(document).ready(function() {
+      new Chartist.Bar('#reputationIndex', {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        series: [
+          [2.1, 2.2, 2.1, 2.4, 3.0, 2.8, 3.1, 2.8, 2.7, 2.5, 2.4, 2.3],
+          [2.3, 2.4, 2.5, 2.4, 2.7, 2.9, 3.2, 3.6, 3.9, 4.5, 4.7, 4.8]
+        ]
+      }, {
+        seriesBarDistance: 10,
+        axisX: {
+          offset: 20
+        },
+        axisY: {
+          offset: 25,
+          labelInterpolationFnc: function(value) {
+            return value;
+          },
+          scaleMinSpace: 20
+        }
+      })
+      //- .on('draw', function(data) {
+        
+      //-   if(data.type === 'bar') {
+      //-     data.element.attr({
+      //-       style: 'stroke-width: 20px'
+      //-     });
+      //-   }
+        
+      //-   if(data.type === 'label' && data.axis === 'x') {
+      //-     data.element.attr({
+      //-       style: 'stroke-width: 20px'
+      //-     });
+      //-   }
+
+      //-   if(data.type === 'label' && data.axis === 'y') {
+      //-   }
+        
+      //- });
+      var distributionData = {
+        labels: ['1 Star', '2 Stars', '3 Stars', '4 Stars', '5 Stars'],
+        series: [4, 6, 20, 30, 40]
+      };
+      new Chartist.Pie('#ratingsDistribution', distributionData, {
+        donut: true,
+        labelDirection: 'explode',
+        labelOffset: 40,
+        chartPadding: 40,
+        startAngle: 90
+      });
+      
+      new Chartist.Line('#ratingsDetail', {
+        labels: [2012, 2013, 2014, 2015, 2016],
+        series: [
+          [3.7, 3.8, 3.8, 3.9, 4.0],
+          [3.2, 3.4, 3.6, 4.2, 4.5],
+          [2.6, 2.7, 2.8, 2.9, 2.9],
+          [2.4, 2.5, 2.6, 3.0, 3.1],
+          [2.3, 2.4, 2.5, 2.8, 3.1]
+        ]
+      }, {
+        chartPadding: 40,
+        high: 4.6,
+        low: 2.2,
+        fullWidth: true,
+        // As this is axis specific we need to tell Chartist to use whole numbers only on the concerned axis
+        axisY: {
+          onlyInteger: false,
+          offset: 20
+        },
+        plugins: [
+          Chartist.plugins.tooltip({
+            class: 'chartist-tooltip',
+            appendToBody: true
+          })
+        ]
+      })
+      //- .on('draw', function(data) {
+      //-   // If the draw event was triggered from drawing a point on the line chart
+      //-   if(data.type === 'point') {
+      //-     // We are creating a new path SVG element that draws a triangle around the point coordinates
+
+      //-     var circle = new Chartist.Svg('circle', {
+      //-       cx: [data.x],
+      //-       cy: [data.y],
+      //-       r: [5], 
+      //-       'ct:value': data.value.y,
+      //-       'ct:meta': data.meta,
+      //-       class: 'my-cool-point',
+      //-     }, 'ct-area');
+
+      //-     // With data.element we get the Chartist SVG wrapper and we can replace the original point drawn by Chartist with our newly created triangle
+      //-     data.element.replace(circle);
+      //-   }
+      //- });
+    });     
+      
+block content
+  .container
+    center
+      h1 Reputation Dashboard
+    hr
+    br
+    br
+    .row
+      .col-md-6
+        .headline.text-center REPUTATION INDEX
+        hr.headline
+        .legend
+          ul
+            li.legend_thisyear
+              span &nbsp;&nbsp;Year 2016
+            li.legend_lastyear
+              span &nbsp;&nbsp;Year 2015
+        .padding
+        span.center-block.img-responsive.animated.bounceInRight
+          .ct-chart.ct-perfect-fourth(id='reputationIndex')
+      .col-md-6
+        .headline.text-center RATINGS DISTRIBUTION
+        hr.headline
+        .legend(style='display:block; height: 70px;')
+        span.center-block.img-responsive.animated.bounceInLeft
+          .ct-chart.ct-perfect-fourth(id='ratingsDistribution')
+      //-   style
+      //-     .ig-items
+      //-       padding 0
+      //-   span.center-block.img-responsive.animated.bounceInLeft
+      //-     //-script(id="infogram_0_acf4030e-42df-4ae4-817b-afb41955ecaf" title="Reputation index" src="//e.infogr.am/js/embed.js?3Gz" type="text/javascript")
+      //- .col-md-6
+      //-   span.center-block.img-responsive.animated.bounceInLeft
+      //-     script(id="infogram_0_2d27a096-6b7a-4f9e-91bd-944a07e283c0" title="Ratings distribution" src="//e.infogr.am/js/embed.js?AH8" type="text/javascript")
+    .row
+      .col-md-12
+        br
+    .row
+      .col-md-12
+        br
+    .row
+      .col-md-12
+        br
+    .row
+      .col-md-12
+        .headline.text-center RATINGS DETAIL CHART
+        hr.headline
+        .padding
+        span.center-block.img-responsive.animated.bounceInLeft
+          .ct-chart.ct-major-tenth(id='ratingsDetail')
+        span.center-block.text-center
+          .legend-circle(style='background-color: #d70206;')
+          span Yelp
+          .legend-circle(style='background-color: #f05b4f;')
+          span Google
+          .legend-circle(style='background-color: #f4c63d;')
+          span HealthGrades
+          .legend-circle(style='background-color: #d17905;')
+          span Vitals
+          .legend-circle(style='background-color: #453d3f;')
+          span MDReviews
+        br
+        br
+    .row
+      //- .col-md-12
+      //-   span.center-block.img-responsive.animated.bounceInTop
+      //-     script(id="infogram_0_03db671c-518e-4a2a-92e8-b3d1a24b9f53" title="Ratings distribution" src="//e.infogr.am/js/embed.js?C9k" type="text/javascript")

@@ -1,0 +1,140 @@
+extends ../layouts/layout.pug
+
+block head
+  title #{application} &middot; Submit a Review
+
+block content
+  .container
+    .row
+      .col-sm-6.col-sm-offset-3
+        br
+        br
+        - if (!_.isEmpty(survey))
+          form#surveyForm(method='POST' action='submit')
+            input(type='hidden', name='_csrf', value=_csrf)
+            input(type='hidden', name='id', value=survey.id)
+            input#surveyFormData(type='hidden', name='survey')
+            legend
+              h2 Submit a Review
+            each question, id in survey.questions
+              .row
+                .col-md-6
+                  h3 #{question}
+                .col-md-6
+                  span.star-rate(style='font-size: 40px;color:gold;', data-rate-id=id)
+                    +star_mixin(0)
+            hr
+            a.btn.btn-success#submit-review(href='#')
+              i.fa.fa-check
+              | &nbsp;Submit Review
+
+        hr
+        p.text-muted <em>#{application}
+          a(href='/app/terms')  Terms of Use
+          |  and
+          a(href='/app/privacy')  Privacy Policy.</em>
+          
+    #errorModal.modal(tabindex='-1', role='dialog', aria-labelledby='deleteModalLabel', aria-hidden='true')
+      .modal-dialog.modal-sm
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+            h4#deleteModalLabel.modal-title Please Rate All Items
+          .modal-body
+            h4 You need to rate all items before submitting this survey
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Okay
+
+block scripts
+  script.
+    $(document).ready(function() {
+      
+      $.ajax({
+        type: 'GET',
+        url: '/app/lib/bootstrap/js/modal.js',
+        dataType: 'script',
+        cache: true
+      });      
+      
+      const surveyCount=#{_.size((survey || {}).questions)};
+      
+      $('#submit-review').on('click', function() {
+        const items = getRatedItems();
+        if (items.length < surveyCount) {
+          $('#errorModal').modal({keyboard:true});
+          return false;
+        }
+        $('#surveyFormData').val(JSON.stringify(items));
+        $('#surveyForm').submit();
+      });
+      
+      function getRatedItems() {
+        var result = [];
+        $( "span.star-rate" ).each(function( index ) {
+          const selectedStars = $(this).attr('data-rate-selected');
+          if (selectedStars) {
+            result.push({
+              key: parseInt($(this).attr('data-rate-id')),
+              value: parseInt(selectedStars)
+            })
+          }
+        });
+        return result;       
+      }
+      
+      function setStarVisitor(el) {
+        $(el).addClass('fa-star');
+        $(el).removeClass('fa-star-o');      
+      }
+      
+      function clearStarVisitor(el) {
+        $(el).removeClass('fa-star');
+        $(el).addClass('fa-star-o');      
+      }
+      
+      function enumerateStars(el, visitor, idx) {
+        $( "*[data-index]", $(el).closest('span.star-rate')).each(function( index ) {
+          var thisIdx = parseInt($(this).attr('data-index'));
+          if (thisIdx <= idx) {
+            visitor(this);
+          }
+        });
+      }
+      
+      function starMouseEnter() {
+        const idx = parseInt($(this).attr('data-index'));
+        enumerateStars(this, clearStarVisitor, 5);
+        enumerateStars(this, setStarVisitor, idx);
+      }
+      
+      function starMouseLeave() {
+        const idx = parseInt($(this).attr('data-index'));
+        enumerateStars(this, clearStarVisitor, idx);
+
+        const selectedStars = parseInt($(this).closest('span.star-rate').attr('data-rate-selected') || -1);
+        if (selectedStars >= 0) {
+          enumerateStars(this, setStarVisitor, selectedStars);
+        }
+      }
+      
+      function mouseClick() {
+        const idx = parseInt($(this).attr('data-index'));
+        $(this).closest('span.star-rate').attr('data-rate-selected', idx);
+        enumerateStars(this, clearStarVisitor, 5);
+        enumerateStars(this, setStarVisitor, idx);
+      }
+      
+      function attachRateWatcher(el) {
+        $( "*[data-index]", el ).each(function( index ) {
+          $(this).on( "mouseenter", starMouseEnter );
+          $(this).on( "mouseleave", starMouseLeave );
+          $(this).on( "click", mouseClick );
+        });
+      }
+      
+      $( "span.star-rate" ).each(function( index ) {
+        attachRateWatcher(this);
+        const selectedStars = parseInt($(this).attr('data-rate-selected') || -1);
+        enumerateStars(this, setStarVisitor, selectedStars);
+      });
+    });

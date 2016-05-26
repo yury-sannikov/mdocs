@@ -1,0 +1,25 @@
+extends ../layouts/layout.pug
+
+block head
+  title Login
+
+block styles
+  link(rel='stylesheet', href='/app/lib/animate.css/animate.css')
+
+block content
+  #root(style='width: 280px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 0px; text-align: center;')
+    i.fa.fa-lg.fa-spinner
+
+block scripts
+  script(src='https://cdn.auth0.com/js/lock-9.1.min.js')
+  script.
+    var loc = window.location;
+    var lock = new Auth0Lock('#{config.AUTH_CLIENT_ID}', '#{config.AUTH_CLIENT_NAMESPACE}');
+    lock.show({
+    container: 'root'
+    , callbackURL: '#{config.AUTH_CALLBACK_URL}'
+    , responseType: 'code'
+    , authParams: {
+    },
+    icon: 'https://app.mdocs.co/images/pr-logo-square.png'
+    });
