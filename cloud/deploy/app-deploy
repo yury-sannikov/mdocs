@@ -13,7 +13,7 @@ cp -rf ../../app/src/.env_prod ./tmp/.env
 COMMIT_HASH=`git rev-parse HEAD`
 echo "{\"value\":\"${COMMIT_HASH}\"}" > ./tmp/src/revision.json
 cp ../../app/src/package.json ./tmp/package.json
-cp ../docker/Dockerfile ./tmp/Dockerfile
+cp ../../app/docker/Dockerfile ./tmp/Dockerfile
 
 pushd tmp
 
