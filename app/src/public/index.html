@@ -449,7 +449,7 @@
                             </div>
                             <!-- // end .pricing__content -->
                             <div class="pricing__cta">
-                              <a id="btnSmallPractice" href="#" class="btn btn-sm btn-outline">Try For Free</a> 
+                              <a id="btnSmallPractice" class="btn btn-sm btn-outline">Sign Up</a> 
                             </div>
                             <!-- <a href="#"><h6>$499/yr prepaid plan</h6></a> -->
                             <!-- // end .pricing__cta -->
@@ -486,7 +486,7 @@
                             </div>
                             <!-- // end .pricing__content -->
                             <div class="pricing__cta"> 
-                                <a id="btnMediumPractice" href="#" class="btn btn-sm btn-warning">Try For Free</a> 
+                                <a id="btnMediumPractice" href="#" class="btn btn-sm btn-warning">Sign Up</a> 
                             </div>
                             <!-- <a href="#" style="color:#fff"><h6>$999/yr prepaid plan</h6></a> -->
                             <!-- // end .pricing__cta -->
@@ -523,7 +523,7 @@
                             </div>
                             <!-- // end .pricing__content -->
                             <div class="pricing__cta"> 
-                                <a href="#contact-popup" class="btn btn-sm btn-outline">Request a Demo</a>
+                                <a href="#signup-popup" class="btn btn-sm btn-outline">Request a Demo</a>
                             </div>
                             <!-- <a href="#"><h6>$1999/yr prepaid plan</h6></a> -->
                             <!-- // end .pricing__cta -->
@@ -829,12 +829,7 @@
     </div>
 
 
-    <!-- Contact Form -->
-
-    <!-- ============================================================
-                            CONTACT POPUP
-         ============================================================ -->
-
+    <!-- Contact Popup -->
     <div class="row product-box mfp-hide" id="contact-popup">
         <!-- <button class="mfp-close custom_close" title="Close (Esc)" type="button">&#215;</button> -->
         <div style="padding: 80px">
@@ -866,11 +861,179 @@
                     <div id="js-contact-result" data-success-msg="Form submitted successfully." data-error-msg="Oops. Something went wrong."></div>
                 </form>
                 <!-- // End Contact form -->
-
             </div>
-            <!-- // End back Side -->
         </div>
+    </div>
 
+    <!-- Signup Popup -->
+    <div class="row product-box mfp-hide" id="signup-popup">
+        <!-- <button class="mfp-close custom_close" title="Close (Esc)" type="button">&#215;</button> -->
+        <div style="padding: 80px">
+
+          <div class="nav-center m-b-40">
+                <!-- Nav tabs -->
+                <ul class="nav nav-pills" role="tablist" id="schedule-tabs">
+                    <li role="presentation" class="active"><a href="#tab-1" aria-controls="tab-1" role="tab" data-toggle="tab">Account</a></li>
+                    <li role="presentation"><a href="#tab-2" aria-controls="tab-2" role="tab" data-toggle="tab">Plan</a></li>
+                    <li role="presentation"><a href="#tab-3" aria-controls="tab-3" role="tab" data-toggle="tab">Payment</a></li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="tab-1">
+                  <div class="row section-header">
+                    <h2>Account information</h2>
+                  </div>
+                  <!-- Contact Form (back Side) -->
+                  <div class="row contact-form">
+                    <!-- <a href="javascript:void(0);" class="js-close-flip">&times;</a> -->
+                    <!-- Contact Form Starts here -->
+                    <form action="https://axc0hldmja.execute-api.us-east-1.amazonaws.com/prod/mdocsappointment" id="contact_appointment_form" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="form_name" class="form-control" placeholder="Full name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="form_email" class="form-control" placeholder="Email (will be your username)" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="form_appontment_date" class="form-control" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="form_appontment_date" class="form-control" placeholder="Confirm password" required>
+                        </div>
+
+                        <div style="text-align: center">
+                          <button type="submit" id="js-contact-btn" class="btn btn-default btn-small">Cancel</button>
+                          <button type="submit" id="js-contact-btn" class="btn btn-warning btn-small">Next</button>
+                          <div id="js-contact-result" data-success-msg="Form submitted successfully." data-error-msg="Oops. Something went wrong."></div>
+                        </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- end .tabpanel -->
+                <div role="tabpanel" class="tab-pane" id="tab-2">
+                  <div class="row section-header">
+                    <h2>Select a plan</h2>
+                  </div>
+                  <!-- Contact Form (back Side) -->
+                  <div class="row contact-form">
+                    <!-- <a href="javascript:void(0);" class="js-close-flip">&times;</a> -->
+                    <!-- Contact Form Starts here -->
+                    <form action="https://axc0hldmja.execute-api.us-east-1.amazonaws.com/prod/mdocsappointment" id="contact_appointment_form" method="POST">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <h4>Current plan: <strong>Patient Reviews with Data Analysis</strong>
+                          (<a href="#">Change plan</a>)</h4>
+                        </div>
+                      </div>       
+
+                      <div class="form-group">
+                        <input type="radio" name="color" id="color-1" checked="true">
+                        <label for="color-1"><h4>Monthly subscription $49</h4></label>
+                        <div style="color:#82898f">
+                          <p>$49/month</p>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <input type="radio" name="color" id="color-2">
+                        <label for="color-2"><h4>12 Months subscription $490</h4></label>
+                        <div style="color:#82898f">
+                          <p>$40/month (2 months free)</p>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <input type="radio" name="color" id="color-3">
+                        <label for="color-3"><h4>24 Months subscription $882</h4></label>
+                        <div style="color:#82898f">
+                          <p>$36/month (6 months free)</p>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <input type="checkbox" name="color" id="color-3">
+                            <label for="color-3"><h4>Do you have a promotion code?</h4></label>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-sm-10">
+                            <input type="text" name="form_name" class="form-control" placeholder="Your coupon here">
+                          </div>
+                          <div class="col-sm-2">
+                            <button type="submit" id="js-contact-btn" class="btn btn-success btn-small">APPLY</button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div style="text-align: center">
+                        <button type="submit" id="js-contact-btn" class="btn btn-default btn-small">Previous</button>
+                        <button type="submit" id="js-contact-btn" class="btn btn-warning btn-small">Next</button>
+                        <div id="js-contact-result" data-success-msg="Form submitted successfully." data-error-msg="Oops. Something went wrong."></div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <!-- end .tabpanel -->
+                <div role="tabpanel" class="tab-pane" id="tab-3">
+
+                  <div role="tabpanel" class="tab-pane active" id="tab-1">
+                  <div class="row section-header">
+                    <h2>Payment information</h2>
+                  </div>
+                  <!-- Contact Form (back Side) -->
+                  <div class="row contact-form">
+                    <!-- <a href="javascript:void(0);" class="js-close-flip">&times;</a> -->
+                    <!-- Contact Form Starts here -->
+                    <form action="https://axc0hldmja.execute-api.us-east-1.amazonaws.com/prod/mdocsappointment" id="contact_appointment_form" method="POST">
+
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="color" id="color-1" checked="true">
+                          <label for="color-1"><h4>Credit Card</h4></label>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="color" id="color-2">
+                          <label for="color-2"><h4>Paypal</h4></label>
+                        </div>
+                      </div>
+                    </div>
+
+                        <div class="form-group">
+                            <input type="text" name="form_name" class="form-control" placeholder="Card number" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="form_email" class="form-control" placeholder="Expiration date (MM/YY)" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="form_email" class="form-control" placeholder="CVV" required>
+                        </div>
+
+                        <div style="text-align: center">
+                          <button type="submit" id="js-contact-btn" class="btn btn-default btn-small">Back</button>
+                          <button type="submit" id="js-contact-btn" class="btn btn-warning btn-small">Proceed to Checkout</button>
+                          <div id="js-contact-result" data-success-msg="Form submitted successfully." data-error-msg="Oops. Something went wrong."></div>
+                        </div>
+                    </form>
+                  </div>
+
+                  
+
+                </div>
+                <!-- end .tabpanel -->
+            </div>
+            <!-- end .tab-content -->
+
+            
+            
+        </div>
     </div>
 
     <!-- // End Product Popup Section -->
