@@ -63,6 +63,7 @@ exports.wrapExceptions = function() {
       this.render('error/500', Object.assign({}, this.jadeLocals, { 
         error: production ? {message : 'Internal Error'} : err
       }), true);
+      this.status = 500;
     }
   };
 };
@@ -234,11 +235,20 @@ exports.csrfMiddleware = function() {
     if (this.request.url.indexOf(CSRF_SKIP_PREFIX) == 0) {
       return yield next;
     }
+
+    if (this.method === 'GET'
+      || this.method === 'HEAD'
+      || this.method === 'OPTIONS') {
+      return yield* next;
+    }
+
     try {
-      return yield csrf.middleware.call(this, next);
+      this.assertCSRF(this.request.body);
     }
     catch(e) {
       this.body = 'csrf error';
     }
+
+    yield* next;
   };
 };

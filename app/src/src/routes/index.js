@@ -7,6 +7,7 @@ router.use(require('./app').routes());
 router.use(require('./authentication').routes());
 router.use(require('./survey').routes());
 router.use(require('./user_hook').routes());
+router.use(require('./signup').routes());
 
 router.get('/', function*() {
   this.render('index', this.jadeLocals, true);
