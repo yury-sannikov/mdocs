@@ -161,6 +161,18 @@
 
     }
 
+    /* ---------- SIGNUP POPUP ---------- */
+
+    if ($('a[href="#signup-popup"]').length) {
+
+        $('a[href="#signup-popup"]').magnificPopup({
+            type: 'inline',
+            mainClass: 'mfp-fade',
+            midClick: true // mouse middle button click
+        });
+
+    }
+
 
     /* ---------- MAGNIFIC POPUP ---------- */
 
