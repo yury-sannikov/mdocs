@@ -143,10 +143,6 @@ app.use(function*(next) {
 ////////////////////////////////////////////////////////////
 
 app.use(require('./routes').routes());
-app.use(require('./routes/app').routes());
-app.use(require('./routes/authentication').routes());
-app.use(require('./routes/survey').routes());
-app.use(require('./routes/user_hook').routes());
 
 ////////////////////////////////////////////////////////////
 
