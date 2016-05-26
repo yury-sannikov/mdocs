@@ -95,7 +95,7 @@ html(lang='en')
               li
                 a(href='#contact') contact
               li
-                a(href='#', onclick='window.auth0signin(); return false;') Sign-Up
+                a(href='/login', return='') Login
           // ========== /.navbar-collapse ==========
         // ========== /.container-fluid ==========
       .top-banner.row.m0.text-center.fadeInOnLoad
@@ -366,7 +366,7 @@ html(lang='en')
                   // // end  list unstyled
                 // // end .pricing__content
                 .pricing__cta
-                  a#btnSmallPractice.btn.btn-sm.btn-outline(href='#') Try For Free
+                  a#btnSmallPractice.btn.btn-sm.btn-outline Sign Up
                 // <a href="#"><h6>$499/yr prepaid plan</h6></a>
                 // // end .pricing__cta
               // // end .pricing
@@ -400,7 +400,7 @@ html(lang='en')
                   // // end  list unstyled
                 // // end .pricing__content
                 .pricing__cta
-                  a#btnMediumPractice.btn.btn-sm.btn-warning(href='#') Try For Free
+                  a#btnMediumPractice.btn.btn-sm.btn-warning(href='#') Sign Up
                 // <a href="#" style="color:#fff"><h6>$999/yr prepaid plan</h6></a>
                 // // end .pricing__cta
               // // end .pricing
@@ -435,7 +435,7 @@ html(lang='en')
                   // // end  list unstyled
                 // // end .pricing__content
                 .pricing__cta
-                  a.btn.btn-sm.btn-outline(href='#contact-popup') Request a Demo
+                  a.btn.btn-sm.btn-outline(href='#signup-popup') Request a Demo
                 // <a href="#"><h6>$1999/yr prepaid plan</h6></a>
                 // // end .pricing__cta
               // // end .pricing
@@ -669,11 +669,7 @@ html(lang='en')
               button.btn.btn-rounded.js-preorder-btn.btn-block(type='submit')
                 span Finish Purchase
           // // end #js-personal-info.personal-info
-    // Contact Form
-    //
-      ============================================================
-      CONTACT POPUP
-      ============================================================
+    // Contact Popup
     #contact-popup.row.product-box.mfp-hide
       // <button class="mfp-close custom_close" title="Close (Esc)" type="button">&#215;</button>
       div(style='padding: 80px')
@@ -698,65 +694,181 @@ html(lang='en')
             button#js-contact-btn.btn.btn-block(type='submit') Submit Request
             #js-contact-result(data-success-msg='Form submitted successfully.', data-error-msg='Oops. Something went wrong.')
           // // End Contact form
-        // // End back Side
-    // // End Product Popup Section
-    // ========== Javascript Files ==========
-    // jQuery Latest
-    script(src='js/lib/jquery-2.2.0.min.js')
-    // Bootstrap JS
-    script(src='js/lib/bootstrap.min.js')
-    // Stripe
-    script(src='https://checkout.stripe.com/checkout.js')
-    // Plugins
-    script(src='vendors/owl-carousel/owl.carousel.js')
-    script(src='vendors/magnific-popup/jquery.magnific-popup.min.js')
-    script(src='vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')
-    script(src='vendors/bootstrap-select/js/bootstrap-select.min.js')
-    script(src='https://maps.googleapis.com/maps/api/js')
-    script(src='js/plugins/gmaps.min.js')
-    script(src='js/plugins/google-map.js')
-    script(src='js/plugins/wow.min.js')
-    script(src='js/plugins/validate.js')
-    // Includes
-    script(src='js/includes/pre-order.js')
-    script(src='js/includes/subscribe.js')
-    script(src='js/includes/contact.js')
-    // Auth0
-    script(src='https://cdn.auth0.com/js/lock-9.1.min.js')
-    // Main JS
-    script(src='js/main.js')
-    // Custom Stripe
-    script.
-      var handler = StripeCheckout.configure({
-      key: 'pk_test_vXyGseIAiuaGymmzEJNbjEfh',
-      image: 'https://app.mdocs.co/images/pr-logo-square.png',
-      locale: 'auto',
-      token: function(token) {
-      // You can access the token ID with `token.id`.
-      // Get the token ID to your server-side code for use.
-      }
-      });
-      $('#btnSmallPractice').on('click', function(e) {
-      // Open Checkout with further options:
-      handler.open({
-      name: 'Patient Reviews by MDOCS',
-      description: 'Small Practice',
-      zipCode: true,
-      amount: 4900
-      });
-      e.preventDefault();
-      });
-      $('#btnMediumPractice').on('click', function(e) {
-      // Open Checkout with further options:
-      handler.open({
-      name: 'Patient Reviews by MDOCS',
-      description: 'Medium Practice',
-      zipCode: true,
-      amount: 3900
-      });
-      e.preventDefault();
-      });
-      // Close Checkout on page navigation:
-      $(window).on('popstate', function() {
-      handler.close();
-      });
+    // Signup Popup
+    #signup-popup.row.product-box.mfp-hide
+      // <button class="mfp-close custom_close" title="Close (Esc)" type="button">&#215;</button>
+      div(style='padding: 80px')
+        .nav-center.m-b-40
+          // Nav tabs
+          ul#schedule-tabs.nav.nav-pills(role='tablist')
+            li.active(role='presentation')
+              a(href='#tab-1', aria-controls='tab-1', role='tab', data-toggle='tab') Account
+            li(role='presentation')
+              a(href='#tab-2', aria-controls='tab-2', role='tab', data-toggle='tab') Plan
+            li(role='presentation')
+              a(href='#tab-3', aria-controls='tab-3', role='tab', data-toggle='tab') Payment
+        .tab-content
+          #tab-1.tab-pane.active(role='tabpanel')
+            .row.section-header
+              h2 Account information
+            // Contact Form (back Side)
+            .row.contact-form
+              // <a href="javascript:void(0);" class="js-close-flip">&times;</a>
+              // Contact Form Starts here
+              form#contact_appointment_form(action='https://axc0hldmja.execute-api.us-east-1.amazonaws.com/prod/mdocsappointment', method='POST')
+                .form-group
+                  input.form-control(type='text', name='form_name', placeholder='Full name', required='')
+                .form-group
+                  input.form-control(type='email', name='form_email', placeholder='Email (will be your username)', required='')
+                .form-group
+                  input.form-control(type='password', name='form_appontment_date', placeholder='Password', required='')
+                .form-group
+                  input.form-control(type='password', name='form_appontment_date', placeholder='Confirm password', required='')
+                div(style='text-align: center')
+                  button#js-contact-btn.btn.btn-default.btn-small(type='submit') Cancel
+                  button#js-contact-btn.btn.btn-warning.btn-small(type='submit') Next
+                  #js-contact-result(data-success-msg='Form submitted successfully.', data-error-msg='Oops. Something went wrong.')
+          // end .tabpanel
+          #tab-2.tab-pane(role='tabpanel')
+            .row.section-header
+              h2 Select a plan
+            // Contact Form (back Side)
+            .row.contact-form
+              // <a href="javascript:void(0);" class="js-close-flip">&times;</a>
+              // Contact Form Starts here
+              form#contact_appointment_form(action='https://axc0hldmja.execute-api.us-east-1.amazonaws.com/prod/mdocsappointment', method='POST')
+                .row
+                  .col-sm-12
+                    h4
+                      | Current plan: 
+                      strong Patient Reviews with Data Analysis
+                      |                           (
+                      a(href='#') Change plan
+                      | )
+                .form-group
+                  input#color-1(type='radio', name='color', checked='true')
+                  label(for='color-1')
+                    h4 Monthly subscription $49
+                  div(style='color:#82898f')
+                    p $49/month
+                .form-group
+                  input#color-2(type='radio', name='color')
+                  label(for='color-2')
+                    h4 12 Months subscription $490
+                  div(style='color:#82898f')
+                    p $40/month (2 months free)
+                .form-group
+                  input#color-3(type='radio', name='color')
+                  label(for='color-3')
+                    h4 24 Months subscription $882
+                  div(style='color:#82898f')
+                    p $36/month (6 months free)
+                .form-group
+                  .row
+                    .col-sm-12
+                      input#color-3(type='checkbox', name='color')
+                      label(for='color-3')
+                        h4 Do you have a promotion code?
+                  .row
+                    .col-sm-10
+                      input.form-control(type='text', name='form_name', placeholder='Your coupon here')
+                    .col-sm-2
+                      button#js-contact-btn.btn.btn-success.btn-small(type='submit') APPLY
+                div(style='text-align: center')
+                  button#js-contact-btn.btn.btn-default.btn-small(type='submit') Previous
+                  button#js-contact-btn.btn.btn-warning.btn-small(type='submit') Next
+                  #js-contact-result(data-success-msg='Form submitted successfully.', data-error-msg='Oops. Something went wrong.')
+          // end .tabpanel
+          #tab-3.tab-pane(role='tabpanel')
+            #tab-1.tab-pane.active(role='tabpanel')
+              .row.section-header
+                h2 Payment information
+              // Contact Form (back Side)
+              .row.contact-form
+                // <a href="javascript:void(0);" class="js-close-flip">&times;</a>
+                // Contact Form Starts here
+                form#contact_appointment_form(action='https://axc0hldmja.execute-api.us-east-1.amazonaws.com/prod/mdocsappointment', method='POST')
+                  .row
+                    .col-sm-6
+                      .form-group
+                        input#color-1(type='radio', name='color', checked='true')
+                        label(for='color-1')
+                          h4 Credit Card
+                    .col-sm-6
+                      .form-group
+                        input#color-2(type='radio', name='color')
+                        label(for='color-2')
+                          h4 Paypal
+                  .form-group
+                    input.form-control(type='text', name='form_name', placeholder='Card number', required='')
+                  .form-group
+                    input.form-control(type='text', name='form_email', placeholder='Expiration date (MM/YY)', required='')
+                  .form-group
+                    input.form-control(type='text', name='form_email', placeholder='CVV', required='')
+                  div(style='text-align: center')
+                    button#js-contact-btn.btn.btn-default.btn-small(type='submit') Back
+                    button#js-contact-btn.btn.btn-warning.btn-small(type='submit') Proceed to Checkout
+                    #js-contact-result(data-success-msg='Form submitted successfully.', data-error-msg='Oops. Something went wrong.')
+            // end .tabpanel
+          // end .tab-content
+      // // End Product Popup Section
+      // ========== Javascript Files ==========
+      // jQuery Latest
+      script(src='js/lib/jquery-2.2.0.min.js')
+      // Bootstrap JS
+      script(src='js/lib/bootstrap.min.js')
+      // Stripe
+      script(src='https://checkout.stripe.com/checkout.js')
+      // Plugins
+      script(src='vendors/owl-carousel/owl.carousel.js')
+      script(src='vendors/magnific-popup/jquery.magnific-popup.min.js')
+      script(src='vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')
+      script(src='vendors/bootstrap-select/js/bootstrap-select.min.js')
+      script(src='https://maps.googleapis.com/maps/api/js')
+      script(src='js/plugins/gmaps.min.js')
+      script(src='js/plugins/google-map.js')
+      script(src='js/plugins/wow.min.js')
+      script(src='js/plugins/validate.js')
+      // Includes
+      script(src='js/includes/pre-order.js')
+      script(src='js/includes/subscribe.js')
+      script(src='js/includes/contact.js')
+      // Auth0
+      script(src='https://cdn.auth0.com/js/lock-9.1.min.js')
+      // Main JS
+      script(src='js/main.js')
+      // Custom Stripe
+      script.
+        var handler = StripeCheckout.configure({
+        key: 'pk_test_vXyGseIAiuaGymmzEJNbjEfh',
+        image: 'https://app.mdocs.co/images/pr-logo-square.png',
+        locale: 'auto',
+        token: function(token) {
+        // You can access the token ID with `token.id`.
+        // Get the token ID to your server-side code for use.
+        }
+        });
+        $('#btnSmallPractice').on('click', function(e) {
+        // Open Checkout with further options:
+        handler.open({
+        name: 'Patient Reviews by MDOCS',
+        description: 'Small Practice',
+        zipCode: true,
+        amount: 4900
+        });
+        e.preventDefault();
+        });
+        $('#btnMediumPractice').on('click', function(e) {
+        // Open Checkout with further options:
+        handler.open({
+        name: 'Patient Reviews by MDOCS',
+        description: 'Medium Practice',
+        zipCode: true,
+        amount: 3900
+        });
+        e.preventDefault();
+        });
+        // Close Checkout on page navigation:
+        $(window).on('popstate', function() {
+        handler.close();
+        });
