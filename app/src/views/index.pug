@@ -725,7 +725,7 @@ html(lang='en')
                 .form-group
                   input.form-control(type='password', name='form_appontment_date', placeholder='Confirm password', required='')
                 div(style='text-align: center')
-                  button#js-contact-btn.btn.btn-default.btn-small(type='submit') Cancel
+                  button#js-contact-btn.btn.btn-cancel(type='submit') Cancel
                   button#js-contact-btn.btn.btn-warning.btn-small(type='submit') Next
                   #js-contact-result(data-success-msg='Form submitted successfully.', data-error-msg='Oops. Something went wrong.')
           // end .tabpanel
@@ -745,37 +745,40 @@ html(lang='en')
                       |                           (
                       a(href='#') Change plan
                       | )
-                .form-group
-                  input#color-1(type='radio', name='color', checked='true')
-                  label(for='color-1')
-                    h4 Monthly subscription $49
-                  div(style='color:#82898f')
-                    p $49/month
-                .form-group
-                  input#color-2(type='radio', name='color')
-                  label(for='color-2')
-                    h4 12 Months subscription $490
-                  div(style='color:#82898f')
-                    p $40/month (2 months free)
-                .form-group
-                  input#color-3(type='radio', name='color')
-                  label(for='color-3')
-                    h4 24 Months subscription $882
-                  div(style='color:#82898f')
-                    p $36/month (6 months free)
-                .form-group
-                  .row
-                    .col-sm-12
-                      input#color-3(type='checkbox', name='color')
+                .row
+                  .col-sm-4
+                    .form-group
+                      input#color-1(type='radio', name='color', checked='true')
+                      label(for='color-1')
+                        h4 Monthly - $49/mo
+                      div(style='color:#82898f')
+                        p $49/month
+                  .col-sm-4
+                    .form-group
+                      input#color-2(type='radio', name='color')
+                      label(for='color-2')
+                        h4 12 Months - $490
+                      div(style='color:#82898f')
+                        p $40/month (2 months free)
+                  .col-sm-4
+                    .form-group
+                      input#color-3(type='radio', name='color')
                       label(for='color-3')
-                        h4 Do you have a promotion code?
-                  .row
-                    .col-sm-10
-                      input.form-control(type='text', name='form_name', placeholder='Your coupon here')
-                    .col-sm-2
-                      button#js-contact-btn.btn.btn-success.btn-small(type='submit') APPLY
+                        h4 24 Months - $882
+                      div(style='color:#82898f')
+                        p $36/month (6 months free)
+                
+                .row
+                  .col-lg-6
+                    h4 Promotion code?
+                    .input-group
+                      input.form-control(type="text" placeholder="Your coupon or promo code")
+                      span.input-group-btn
+                        button.btn.btn-success.form-control(type="button") APPLY
+                hr
+    
                 div(style='text-align: center')
-                  button#js-contact-btn.btn.btn-default.btn-small(type='submit') Previous
+                  button#js-contact-btn.btn.btn-cancel(type='submit') Previous
                   button#js-contact-btn.btn.btn-warning.btn-small(type='submit') Next
                   #js-contact-result(data-success-msg='Form submitted successfully.', data-error-msg='Oops. Something went wrong.')
           // end .tabpanel
@@ -788,17 +791,8 @@ html(lang='en')
                 // <a href="javascript:void(0);" class="js-close-flip">&times;</a>
                 // Contact Form Starts here
                 form#contact_appointment_form(action='https://axc0hldmja.execute-api.us-east-1.amazonaws.com/prod/mdocsappointment', method='POST')
-                  .row
-                    .col-sm-6
-                      .form-group
-                        input#color-1(type='radio', name='color', checked='true')
-                        label(for='color-1')
-                          h4 Credit Card
-                    .col-sm-6
-                      .form-group
-                        input#color-2(type='radio', name='color')
-                        label(for='color-2')
-                          h4 Paypal
+                  h4 Selected plan: Patient Reviews with Data Analysis - $69/mo
+
                   .form-group
                     input.form-control(type='text', name='form_name', placeholder='Card number', required='')
                   .form-group
@@ -806,8 +800,8 @@ html(lang='en')
                   .form-group
                     input.form-control(type='text', name='form_email', placeholder='CVV', required='')
                   div(style='text-align: center')
-                    button#js-contact-btn.btn.btn-default.btn-small(type='submit') Back
-                    button#js-contact-btn.btn.btn-warning.btn-small(type='submit') Proceed to Checkout
+                    button#js-contact-btn.btn.btn-cancel(type='submit') Previous
+                    button#js-contact-btn.btn.btn-warning.btn-small(type='submit') Finish Sign Up
                     #js-contact-result(data-success-msg='Form submitted successfully.', data-error-msg='Oops. Something went wrong.')
             // end .tabpanel
           // end .tab-content

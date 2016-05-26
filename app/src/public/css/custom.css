@@ -5,3 +5,14 @@
 body #a0-lock .a0-primary {
 	background-color: #FF196F !important;
 }
+
+.btn-cancel {
+  text-transform: uppercase;
+  background: #b4bcc3;
+  font: 500 16px/40px "Raleway", sans-serif;
+  padding: 0 35px;
+  border-radius: 30px;
+  color: #fff;
+  border: none;
+  margin: 0 20px;
+}
