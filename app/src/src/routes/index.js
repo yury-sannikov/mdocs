@@ -160,6 +160,13 @@ router.get('/privacy', function*() {
   this.render('privacy/privacy', this.jadeLocals, true);
 });
 
+// Show Pricing & Sign up
+router.get('/pricing-signup', function*() {
+  // this.render('privacy/privacy', this.jadeLocals, true);
+  console.log("Routed");
+  res.sendFile(path.join(__dirname+'/pricing-signup.html'));
+});
+
 // Show providers
 router.get('/providers', function*() {
   const data = yield db.providersForAdmin(this.currentUser.id);
