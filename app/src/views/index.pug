@@ -714,20 +714,19 @@ html(lang='en')
             // Contact Form (back Side)
             .row.contact-form
               // <a href="javascript:void(0);" class="js-close-flip">&times;</a>
-              // Contact Form Starts here
-              form#contact_appointment_form(action='https://axc0hldmja.execute-api.us-east-1.amazonaws.com/prod/mdocsappointment', method='POST')
+              form.wizard-step-1
+                input(type='hidden', name='_csrf', value=_csrf)
                 .form-group
-                  input.form-control(type='text', name='form_name', placeholder='Full name', required='')
+                  input.form-control(type='text', name='name', placeholder='Full name', required='')
                 .form-group
-                  input.form-control(type='email', name='form_email', placeholder='Email (will be your username)', required='')
+                  input.form-control(type='email', name='email', placeholder='Email (will be your username)', required='')
                 .form-group
-                  input.form-control(type='password', name='form_appontment_date', placeholder='Password', required='')
+                  input.form-control(type='password', name='pwd', placeholder='Password', required='')
                 .form-group
-                  input.form-control(type='password', name='form_appontment_date', placeholder='Confirm password', required='')
+                  input.form-control(type='password', name='pwdconfirm', placeholder='Confirm password', required='')
                 div(style='text-align: center')
-                  button#js-contact-btn.btn.btn-default.btn-small(type='submit') Cancel
-                  button#js-contact-btn.btn.btn-warning.btn-small(type='submit') Next
-                  #js-contact-result(data-success-msg='Form submitted successfully.', data-error-msg='Oops. Something went wrong.')
+                  button.btn.btn-default.btn-small(type='button') Cancel
+                  button.btn.btn-warning.btn-small.wizard-next(type='submit') Next
           // end .tabpanel
           #tab-2.tab-pane(role='tabpanel')
             .row.section-header
@@ -773,10 +772,10 @@ html(lang='en')
                     .col-sm-10
                       input.form-control(type='text', name='form_name', placeholder='Your coupon here')
                     .col-sm-2
-                      button#js-contact-btn.btn.btn-success.btn-small(type='submit') APPLY
+                      button.btn.btn-success.btn-small(type='submit') APPLY
                 div(style='text-align: center')
-                  button#js-contact-btn.btn.btn-default.btn-small(type='submit') Previous
-                  button#js-contact-btn.btn.btn-warning.btn-small(type='submit') Next
+                  button.btn.btn-default.btn-small(type='submit') Previous
+                  button.btn.btn-warning.btn-small.wizard-next(type='submit') Next
                   #js-contact-result(data-success-msg='Form submitted successfully.', data-error-msg='Oops. Something went wrong.')
           // end .tabpanel
           #tab-3.tab-pane(role='tabpanel')
