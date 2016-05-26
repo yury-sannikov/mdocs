@@ -5,14 +5,14 @@ set -e
 
 mkdir tmp
 mkdir tmp/public tmp/src tmp/views
-cp -rf ../../src/public/* ./tmp/public/
-cp -rf ../../src/src/* ./tmp/src/
-cp -rf ../../src/views/* ./tmp/views/
-cp -rf ../../src/resources ./tmp/resources
-cp -rf ../../src/.env_prod ./tmp/.env
+cp -rf ../../app/src/public/* ./tmp/public/
+cp -rf ../../app/src/src/* ./tmp/src/
+cp -rf ../../app/src/views/* ./tmp/views/
+cp -rf ../../app/resources ./tmp/resources
+cp -rf ../../app/src/.env_prod ./tmp/.env
 COMMIT_HASH=`git rev-parse HEAD`
 echo "{\"value\":\"${COMMIT_HASH}\"}" > ./tmp/src/revision.json
-cp ../../src/package.json ./tmp/package.json
+cp ../../app/src/package.json ./tmp/package.json
 cp ../docker/Dockerfile ./tmp/Dockerfile
 
 pushd tmp
