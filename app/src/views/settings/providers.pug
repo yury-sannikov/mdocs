@@ -303,9 +303,17 @@ block scripts
               required: "We need a phone to contact"
             },
             defaultReviewSite: {
-              required: "Choose a default site"
+              required: "We need a default site"
             }
-          },          
+          },
+          errorPlacement: function(error, element) {
+            if(element.attr("type") === 'radio') {
+              error.insertAfter(element.parent().parent())
+            }
+            else {
+              error.insertAfter(element);
+            }
+          },
           submitHandler: function(form) {
             form.submit();
           },
@@ -397,9 +405,17 @@ block scripts
               required: "We need a phone to contact"
             },
             defaultReviewSite: {
-              required: "Choose a default site"
+              required: "We need a default site"
             }
-          },          
+          },
+          errorPlacement: function(error, element) {
+            if(element.attr("type") === 'radio') {
+              error.insertAfter(element.parent().parent())
+            }
+            else {
+              error.insertAfter(element);
+            }
+          },
           submitHandler: function(form) {
             form.submit();
           },
