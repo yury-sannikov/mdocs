@@ -390,7 +390,12 @@
       console.log(err);  
     })
     .success(function(data) {
-      console.log(data);  
+      console.log(data);
+      if (!data.success) {
+        return;
+      }
+      //TODO: Fix names
+      $('#schedule-tabs a[href="#tab-2"]').tab('show');
     });
   });
 })(jQuery);

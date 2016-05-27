@@ -17,6 +17,7 @@
     "node": "4.x"
   },
   "dependencies": {
+    "auth0": "^2.1.0",
     "autolinker": "0.26.0",
     "aws-dynamodb": "^0.1.53",
     "aws-sdk": "^2.3.9",

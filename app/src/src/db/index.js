@@ -5,6 +5,7 @@ const Promise = require('bluebird');
 const DynamoDB = Promise.promisifyAll(require('aws-dynamodb')($db));
 const uuid = require('node-uuid');
 const moment = require('moment');
+const _ = require('lodash');
 
 const formatReviewSites = function(sites) {
   var formatted = {};
@@ -17,6 +18,13 @@ const formatReviewSites = function(sites) {
   if(sites.yellowpages !== '') { formatted = Object.assign({}, formatted, { 'yellowpages':sites.yellowpages }); }
   
   return formatted;
+};
+
+function hasDynamoData(data) {
+  if (_.isEmpty(data) || !_.isArray(data)) {
+    return false;
+  }
+  return _.isArray(data) && data.length > 0;
 }
 
 // SURVEYS - PATIENT REVIEWS
@@ -130,6 +138,18 @@ exports.insertOrUpdateUser = function* (id, user) {
   return yield upsertAsync(user);
 };
 
+exports.findUserByEmail = function* (email) {
+  const chain = DynamoDB
+    .table('survey_users')
+    .where('email').eq(email)
+    .order_by('email-index');
+    
+  const queryAsync = Promise.promisify(chain.query, {context: chain});
+  
+  const user = yield queryAsync();
+
+  return hasDynamoData(user) ? user[0] : null;
+};
 
 // PROVIDERS
 exports.providersForAdmin = function(adminId) {

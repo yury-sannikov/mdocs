@@ -718,18 +718,18 @@ html(lang='en')
               form.wizard-step-1
                 input(type='hidden', name='_csrf', value=_csrf)
                 .form-group
-                  input.form-control(type='text', name='name', placeholder='Full name', required='')
+                  input.form-control(type='text', name='name', placeholder='Full name')
                 .form-group
-                  input.form-control(type='email', name='email', placeholder='Email (will be your username)', required='')
+                  input.form-control(type='email', name='email', placeholder='Email (will be your username)')
                 .form-group
-                  input.form-control(type='password', name='pwd', placeholder='Password', required='')
+                  input.form-control(type='password', name='pwd', placeholder='Password')
                 .form-group
                   input.form-control(type='password', name='pwdconfirm', placeholder='Confirm password', required='')
                 div(style='text-align: center')
                   button.btn.btn-default.btn-cancel(type='button') Cancel
                   button.btn.btn-warning.btn-small.wizard-next(type='submit') Next
           // end .tabpanel
-          #tab-2.tab-pane(role='tabpanel')
+          #tab-2.tab-pane.signup-step-2(role='tabpanel')
             .row.section-header
               h2 Select a plan
             // Contact Form (back Side)

@@ -56,6 +56,7 @@ exports.BITLY_TOKEN = process.env.BITLY_TOKEN;
 
 exports.SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL;
 
+exports.AUTH_API_JWT = process.env.AUTH_API_JWT;
 ////////////////////////////////////////////////////////////
 
 // DynamoDB workaround
