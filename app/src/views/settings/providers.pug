@@ -8,49 +8,16 @@ block head
 block content
   .container
     .row
-      //- .col-md-4.col-md-push-8
-        .page-header
-          h2
-            i.fa.fa-user
-            | &nbsp;Account Details
-        //- USER INFO
-        #userInfo.well
-          p
-            img(id='userPicture', src='', width='100px')
-          p
-            strong Name:
-            |  <span id='userInfoName'></span>
-          p.hidden-xs
-            strong Email:
-            | &nbsp;
-            a(href='', id='userInfoEmail')
-          p.hidden-xs
-            strong Provider:
-            |  <span id='userInfoProvider'></span>
-          p.hidden-xs
-            strong Gender:
-            |  <span id='userInfoGender'></span>
-          p.hidden-xs
-            strong Website:
-            | &nbsp;
-            a(href='', id='userInfoWebsite')
-          p
-            strong Date Established:
-            |  <span id='userInfoEstablished'></span>
-          p
-            strong Last Logon:
-            |  <span id='userInfoLogon'></span>
-          p.hidden-xs
-            strong Last Update:
-            |  <span id='userInfoUpdate'></span>
-        //- /USER INFO
+      //- PROVIDERS INFO
       .col-md-12
         .page-header
           h2
             i.fa.fa-user
             | &nbsp;Providers
         a.linknewprovider.btn.btn-success.pull-center(href="#") New Provider
-        //- Wrapper
+        //- /PROVIDERS INFO
+
+        //- WRAPPER
         #wrapper
 
           //- USER LIST
@@ -76,7 +43,7 @@ block content
                       a.linkedit.btn.btn-primary.btn-xs(href="#", data-providerId=provider.id) Edit&nbsp;
                       | &nbsp;
                       a.linkdeleteprovider.btn.btn-danger.btn-xs(href="#", data-providerId=provider.id) Delete&nbsp;
-          - if (providers.length == 0)
+          - if (providers.length === 0)
             span No providers found in a database.
           //- /USER LIST
 
@@ -238,6 +205,7 @@ block scripts
   script.
     // Userlist data array for filling in info box
     var userListData = [];
+    // List of providers passed in
     const providers = !{JSON.stringify(providers)};
 
     // DOM Ready =============================================================
@@ -256,9 +224,6 @@ block scripts
         });
 
 
-        // Username link click
-        //- $('#userList table tbody').on('click', 'td a.linkshowuser', showUserInfo);
-
         // Delete provider link click
         $('#userList').on('click', '.linkdeleteprovider', deleteProvider);
 
@@ -273,35 +238,6 @@ block scripts
 
     // Functions =============================================================
 
-
-    // Show User Info
-    function showUserInfo(event) {
-
-      // Prevent Link from Firing
-      event.preventDefault();
-
-      // Retrieve username from link rel attribute
-      var thisUserName = $(this).attr('rel');
-
-      // Get Index of object based on id value
-      var arrayPosition = userListData.map(function(arrayItem) { return arrayItem._id; }).indexOf(thisUserName);
-
-      // Get our User Object
-      var thisUserObject = userListData[arrayPosition];
-
-      //Populate Info Box  .attr("src", src)
-      $('#userPicture').attr("src", (thisUserObject.profile.picture));
-      $('#userInfoName').text(thisUserObject.profile.name);
-      $('#userInfoEmail').attr('href', 'mailto:' + thisUserObject.email).text(thisUserObject.email);
-      $('#userInfoProvider').text(thisUserObject.profile.provider);
-      $('#userInfoGender').text(thisUserObject.profile.gender);
-      if (thisUserObject.profile.website) {
-        $('#userInfoWebsite').attr('href', thisUserObject.profile.website).text('Website Link');
-      }
-      $('#userInfoEstablished').text(moment(thisUserObject.activity.date_established).format('MMMM Do YYYY'));
-      $('#userInfoLogon').text(moment(thisUserObject.activity.last_logon).fromNow());
-      $('#userInfoUpdate').text(moment(thisUserObject.activity.last_update).fromNow());
-    };
 
     // Delete Provider
     function deleteProvider(event) {
@@ -401,7 +337,7 @@ block scripts
       // pass the user's id through
       function showmodal(id) {
         // Populate attributes
-        const user = providers.filter((pr) => pr.id == id)[0];
+        const user = providers.filter((pr) => pr.id === id)[0];
         
         $('#editID').val(user.id);
         $('#editName').val(user.name);

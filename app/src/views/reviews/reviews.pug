@@ -8,49 +8,16 @@ block head
 block content
   .container
     .row
-      //- .col-md-4.col-md-push-8
-        .page-header
-          h2
-            i.fa.fa-user
-            | &nbsp;Account Details
-        //- USER INFO
-        #userInfo.well
-          p
-            img(id='userPicture', src='', width='100px')
-          p
-            strong Name:
-            |  <span id='userInfoName'></span>
-          p.hidden-xs
-            strong Email:
-            | &nbsp;
-            a(href='', id='userInfoEmail')
-          p.hidden-xs
-            strong Location:
-            |  <span id='userInfoLocation'></span>
-          p.hidden-xs
-            strong Gender:
-            |  <span id='userInfoGender'></span>
-          p.hidden-xs
-            strong Website:
-            | &nbsp;
-            a(href='', id='userInfoWebsite')
-          p
-            strong Date Established:
-            |  <span id='userInfoEstablished'></span>
-          p
-            strong Last Logon:
-            |  <span id='userInfoLogon'></span>
-          p.hidden-xs
-            strong Last Update:
-            |  <span id='userInfoUpdate'></span>
-        //- /USER INFO
+      //- REVIEWS INFO
       .col-md-12
         .page-header
           h2
             i.fa.fa-thumbs-o-up
             | &nbsp;Patient Reviews
         a.linknewrequest.btn.btn-success.pull-center(href="#") New Review Request
-        //- Wrapper
+        //- /REVIEWS INFO
+
+        //- WRAPPER
         #wrapper
 
           //- USER LIST
@@ -69,7 +36,6 @@ block content
                 each review, i in reviews
                   tr
                     td
-                      // a.linkshowuser.btn.btn-info.btn-xs(href="#") #{review.patient.name}
                       span #{review.patient.name}
                     td.hidden-xs
                       strong #{review.patient.email}
@@ -202,9 +168,7 @@ block content
                           a(href="#", data-id='ratemds', data-form-value='reviewSite') RateMDs.com
                         li(id="yellowpagesOption") 
                           a(href="#", data-id='yellowpages', data-form-value='reviewSite') Yellow Pages
-                  //- .form-group
-                  //-   label.sr-only(for='physician') Physician name
-                  //-   input.form-control(type='text', name='physician', id='physician', placeholder='Physician name')
+
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') Cancel
             button#sendrequestbutton.btn.btn-primary(type='button') Send Request
