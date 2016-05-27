@@ -300,6 +300,9 @@ block scripts
           $('input[name="locationOrProvider"]').val(providers[0].id);
           $('#providerType li:first a').trigger('click');
         }
+        else {
+          $('#providerType li:first-child a').trigger('click');
+        }
       }
       // Display locations dropdown
       else {
@@ -312,6 +315,9 @@ block scripts
           locationDropdown.html(`${locations[0].name} <span class="caret"></span>`);
           $('input[name="locationOrProvider"]').val(locations[0].id);
           $('#locationType li:first a').trigger('click');
+        }
+        else {
+          $('#locationType li:first-child a').trigger('click');
         }
       }
     }
