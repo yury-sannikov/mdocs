@@ -125,28 +125,41 @@ block content
                   h4 Review Site IDs
                   .form-group
                     label.sr-only(for='yelp') Yelp
+                    label.sr-only(for='defaultReviewSite')
                     .input-group
-                      input.form-control(type='text', name='yelp', id='yelp', placeholder='Yelp ID')
+                      input.form-control-static(style="width: 70%", type='text', name='yelp', id='yelp', placeholder='Yelp ID')
+                      h5(style="float: right; font-weight: bold;") Set Default
+                        input(type="radio", name="defaultReviewSite", id="yelpDefaultRadio", value='yelp', style="margin-left: 10px;")
                   .form-group
                     label.sr-only(for='google') Google
                     .input-group
-                      input.form-control(type='text', name='google', id='google', placeholder='Google ID')
+                      input.form-control-static(style="width: 70%", type='text', name='google', id='google', placeholder='Google ID')
+                      h5(style="float: right; font-weight: bold;") Set Default
+                        input(type="radio", name="defaultReviewSite", id="googleDefaultRadio", value='google', style="margin-left: 10px;")
                   .form-group
                     label.sr-only(for='healthgrades') HealthGrades.com
                     .input-group
-                      input.form-control(type='text', name='healthgrades', id='healthgrades', placeholder='HealthGrades.com ID')
+                      input.form-control-static(style="width: 70%", type='text', name='healthgrades', id='healthgrades', placeholder='HealthGrades.com ID')
+                      h5(style="float: right; font-weight: bold;") Set Default
+                        input(type="radio", name="defaultReviewSite", id="healthgradesDefaultRadio", value='healthgrades', style="margin-left: 10px;")
                   .form-group
                     label.sr-only(for='vitals') Vitals.com
                     .input-group
-                      input.form-control(type='text', name='vitals', id='vitals', placeholder='Vitals.com ID')
+                      input.form-control-static(style="width: 70%", type='text', name='vitals', id='vitals', placeholder='Vitals.com ID')
+                      h5(style="float: right; font-weight: bold;") Set Default
+                        input(type="radio", name="defaultReviewSite", id="vitalsDefaultRadio", value='vitals', style="margin-left: 10px;")
                   .form-group
                     label.sr-only(for='ratemds') RateMDs.com
                     .input-group
-                      input.form-control(type='text', name='ratemds', id='ratemds', placeholder='RateMDs.com ID')
+                      input.form-control-static(style="width: 70%", type='text', name='ratemds', id='ratemds', placeholder='RateMDs.com ID')
+                      h5(style="float: right; font-weight: bold;") Set Default
+                        input(type="radio", name="defaultReviewSite", id="ratemdsDefaultRadio", value='ratemds', style="margin-left: 10px;")
                   .form-group
                     label.sr-only(for='yellowpages') Yellow Pages
                     .input-group
-                      input.form-control(type='text', name='yellowpages', id='yellowpages', placeholder='Yellow Pages ID')
+                      input.form-control-static(style="width: 70%", type='text', name='yellowpages', id='yellowpages', placeholder='Yellow Pages ID')
+                      h5(style="float: right; font-weight: bold;") Set Default
+                        input(type="radio", name="defaultReviewSite", id="yellowpagesDefaultRadio", value='yellowpages', style="margin-left: 10px;")
                   
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') Cancel
@@ -181,27 +194,39 @@ block content
                   .form-group
                     label.sr-only(for='yelp') Yelp
                     .input-group
-                      input.form-control(type='text', name='yelp', id='editYelp', placeholder='Yelp ID')
+                      input.form-control-static(style="width: 70%", type='text', name='yelp', id='editYelp', placeholder='Yelp ID')
+                      h5(style="float: right; font-weight: bold;") Set Default
+                        input(type="radio", name="defaultReviewSite", id="editYelpDefaultRadio", value='yelp', style="margin-left: 10px;")
                   .form-group
                     label.sr-only(for='google') Google
                     .input-group
-                      input.form-control(type='text', name='google', id='editGoogle', placeholder='Google ID')
+                      input.form-control-static(style="width: 70%", type='text', name='google', id='editGoogle', placeholder='Google ID')
+                      h5(style="float: right; font-weight: bold;") Set Default
+                        input(type="radio", name="defaultReviewSite", id="editGoogleDefaultRadio", value='google', style="margin-left: 10px;")
                   .form-group
                     label.sr-only(for='healthgrades') HealthGrades.com
                     .input-group
-                      input.form-control(type='text', name='healthgrades', id='editHealthgrades', placeholder='HealthGrades.com ID')
+                      input.form-control-static(style="width: 70%", type='text', name='healthgrades', id='editHealthgrades', placeholder='HealthGrades.com ID')
+                      h5(style="float: right; font-weight: bold;") Set Default
+                        input(type="radio", name="defaultReviewSite", id="editHealthgradesDefaultRadio", value='healthgrades', style="margin-left: 10px;")
                   .form-group
                     label.sr-only(for='vitals') Vitals.com
                     .input-group
-                      input.form-control(type='text', name='vitals', id='editVitals', placeholder='Vitals.com ID')
+                      input.form-control-static(style="width: 70%", type='text', name='vitals', id='editVitals', placeholder='Vitals.com ID')
+                      h5(style="float: right; font-weight: bold;") Set Default
+                        input(type="radio", name="defaultReviewSite", id="editVitalsDefaultRadio", value='vitals', style="margin-left: 10px;")
                   .form-group
                     label.sr-only(for='ratemds') RateMDs.com
                     .input-group
-                      input.form-control(type='text', name='ratemds', id='editRatemds', placeholder='RateMDs.com ID')
+                      input.form-control-static(style="width: 70%", type='text', name='ratemds', id='editRatemds', placeholder='RateMDs.com ID')
+                      h5(style="float: right; font-weight: bold;") Set Default
+                        input(type="radio", name="defaultReviewSite", id="editRatemdsDefaultRadio", value='ratemds', style="margin-left: 10px;")
                   .form-group
                     label.sr-only(for='yellowpages') Yellow Pages
                     .input-group
-                      input.form-control(type='text', name='yellowpages', id='editYellowpages', placeholder='Yellow Pages ID')
+                      input.form-control-static(style="width: 70%", type='text', name='yellowpages', id='editYellowpages', placeholder='Yellow Pages ID')
+                      h5(style="float: right; font-weight: bold;") Set Default
+                        input(type="radio", name="defaultReviewSite", id="editYellowpagesDefaultRadio", value='yellowpages', style="margin-left: 10px;")
                   
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') Cancel
@@ -216,30 +241,35 @@ block scripts
     const providers = !{JSON.stringify(providers)};
 
     // DOM Ready =============================================================
-    $(document).ready(function() {
+    (function(init) {
+      init(window.jQuery, window, document);
+    }(function($, window, document) {
 
-      //- Async Load Bootstrap Modal
-      $.ajax({
-        type: 'GET',
-        url: '/app/lib/bootstrap/js/modal.js',
-        dataType: 'script',
-        cache: true
+      $(function() {
+
+        //- Async Load Bootstrap Modal
+        $.ajax({
+          type: 'GET',
+          url: '/app/lib/bootstrap/js/modal.js',
+          dataType: 'script',
+          cache: true
+        });
+
+
+        // Username link click
+        //- $('#userList table tbody').on('click', 'td a.linkshowuser', showUserInfo);
+
+        // Delete provider link click
+        $('#userList').on('click', '.linkdeleteprovider', deleteProvider);
+
+        // New provider link click
+        $('.linknewprovider').on('click', newProvider);
+
+        // Edit provider link click
+        $('.linkedit').on('click', editProvider);
+
       });
-
-
-      // Username link click
-      //- $('#userList table tbody').on('click', 'td a.linkshowuser', showUserInfo);
-
-      // Delete provider link click
-      $('#userList table tbody').on('click', 'td a.linkdeleteprovider', deleteProvider);
-
-      // New provider link click
-      $('.linknewprovider').on('click', newProvider);
-
-      // Edit provider link click
-      $('.linkedit').on('click', editProvider);
-
-    });
+    }));
 
     // Functions =============================================================
 
@@ -322,6 +352,9 @@ block scripts
             },
             phoneMobile: {
               required: true
+            },
+            defaultReviewSite: {
+              required: true
             }
           },
           messages: {
@@ -332,6 +365,9 @@ block scripts
             },
             phoneMobile: {
               required: "We need a phone to contact"
+            },
+            defaultReviewSite: {
+              required: "Choose a default site"
             }
           },          
           submitHandler: function(form) {
@@ -378,6 +414,27 @@ block scripts
         $('#editRatemds').val(user.review_sites.ratemds);
         $('#editYellowpages').val(user.review_sites.yellowpages);
 
+        switch(user.default_review_site) {
+          case 'yelp':
+            $('#editYelpDefaultRadio').attr('checked', 'checked');
+            break;
+          case 'google':
+            $('#editGoogleDefaultRadio').attr('checked', 'checked');
+            break;
+          case 'healthgrades':
+            $('#editHealthgradesDefaultRadio').attr('checked', 'checked');
+            break;
+          case 'vitals':
+            $('#editVitalsDefaultRadio').attr('checked', 'checked');
+            break;
+          case 'ratemds':
+            $('#editRatemdsDefaultRadio').attr('checked', 'checked');
+            break;
+          default:
+            $('#editYellowpagesDefaultRadio').attr('checked', 'checked');
+            break;
+        }
+
         // show modal
         $('#editProviderModal').modal({keyboard:true,backdrop:'static'});
         $("#editproviderform").validate({
@@ -389,6 +446,9 @@ block scripts
             },
             phoneMobile: {
               required: true
+            },
+            defaultReviewSite: {
+              required: true
             }
           },
           messages: {
@@ -399,6 +459,9 @@ block scripts
             },
             phoneMobile: {
               required: "We need a phone to contact"
+            },
+            defaultReviewSite: {
+              required: "Choose a default site"
             }
           },          
           submitHandler: function(form) {

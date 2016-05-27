@@ -180,7 +180,8 @@ exports.createProvider = function() {
       name: data.name,
       email: data.email,
       phone: data.phoneMobile,
-      review_sites: formatReviewSites(data)
+      review_sites: formatReviewSites(data),
+      default_review_site: data.defaultReviewSite
     });
     return id;
   };
@@ -197,7 +198,8 @@ exports.updateProvider = function* (id, data) {
       name: data.name,
       email: data.email,
       phone: data.phoneMobile,
-      review_sites: formatReviewSites(data)
+      review_sites: formatReviewSites(data),
+      default_review_site: data.defaultReviewSite
     });
 };
 
@@ -241,7 +243,8 @@ exports.createLocation = function() {
       address: data.address,
       email: data.email,
       phone: data.phoneMobile,
-      review_sites: formatReviewSites(data)
+      review_sites: formatReviewSites(data),
+      default_review_site: data.defaultReviewSite
     });
     return id;
   };
@@ -259,7 +262,8 @@ exports.updateLocation = function* (id, data) {
       address: data.address,
       email: data.email,
       phone: data.phoneMobile,
-      review_sites: formatReviewSites(data)
+      review_sites: formatReviewSites(data),
+      default_review_site: data.defaultReviewSite
     });
 };
 
