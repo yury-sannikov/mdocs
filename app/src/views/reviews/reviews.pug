@@ -322,6 +322,7 @@ block scripts
       // Show default value
       const defaultSite = selectedOption.default_review_site;
       $('#reviewSite').val(defaultSite);
+      $('input[name="reviewSite"]').val(defaultSite);
 
       switch(defaultSite) {
         case 'yelp':
