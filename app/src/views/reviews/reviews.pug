@@ -336,74 +336,42 @@ block scripts
 
 
       // Set available options
-      var firstShown = false;
-      var sitesDropdown = $('#sitesDropdown');
-      var reviewSite = $('#reviewSite');
+      selectedOption.review_sites.yelp == null ? $('#yelpOption').hide() : $('#yelpOption').show();
 
-      if(selectedOption.review_sites.yelp == null) {         // Yelp
-        $('#yelpOption').hide(); 
-      }
-      else { 
-        $('#yelpOption').show(); 
-        sitesDropdown.text(HARDCODED_SITE_NAMES[0]);
-        reviewSite.val('yelp');
-        firstShown = true;
-      }
-
-      if(selectedOption.review_sites.google == null) {      // Google
-        $('#googleOption').hide(); 
-      }
-      else { 
+      selectedOption.review_sites.google == null ? $('#googleOption').hide() : 
         $('#googleOption').show(); 
-        if(!firstShown) {
-          sitesDropdown.text(HARDCODED_SITE_NAMES[1]);
-          reviewSite.val('google');
-          firstShown = true;
-        }
-      }
-      if(selectedOption.review_sites.healthgrades == null) { // HealthGrades
-        $('#healthgradesOption').hide(); 
-      }
-      else { 
-        $('#healthgradesOption').show(); 
-        if(!firstShown) {
-          sitesDropdown.text(HARDCODED_SITE_NAMES[2]);
-          reviewSite.val('healthgrades');
-          firstShown = true;
-        }
 
-      }
-      if(selectedOption.review_sites.vitals == null) {       // Vitals
-        $('#vitalsOption').hide(); 
-      }
-      else { 
-        $('#vitalsOption').show();  
-        if(!firstShown) {
-          sitesDropdown.text(HARDCODED_SITE_NAMES[3]);
-          reviewSite.val('vitals');
-          firstShown = true;
-        }
-      }
-      if(selectedOption.review_sites.ratemds == null) {       // RateMDs
-        $('#ratemdsOption').hide(); 
-      }
-      else { 
-        $('#ratemdsOption').show();  
-        if(!firstShown) {
-          sitesDropdown.text(HARDCODED_SITE_NAMES[4]);
-          reviewSite.val('ratemds');
-          firstShown = true;
-        }
-      }
-      if(selectedOption.review_sites.yellowpages == null) {    // Yellow Pages
-        $('#yellowpagesOption').hide(); 
-      }
-      else { 
-        $('#yellowpagesOption').show();  
-        if(!firstShown) { 
-          sitesDropdown.text(HARDCODED_SITE_NAMES[5]);
-          reviewSite.val('yellowpages');
-        }
+      selectedOption.review_sites.healthgrades == null ? $('#healthgradesOption').hide() : $('#healthgradesOption').show(); 
+      
+      selectedOption.review_sites.vitals == null ? $('#vitalsOption').hide() : $('#vitalsOption').show();  
+
+      selectedOption.review_sites.ratemds == null ? $('#ratemdsOption').hide() : $('#ratemdsOption').show();  
+
+      selectedOption.review_sites.yellowpages == null ? $('#yellowpagesOption').hide() : $('#yellowpagesOption').show();
+
+      // Show default value
+      const defaultSite = selectedOption.default_review_site;
+      $('#reviewSite').val(defaultSite);
+
+      switch(defaultSite) {
+        case 'yelp':
+          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[0]);
+          break;
+        case 'google':
+          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[1]);
+          break;
+        case 'healthgrades':
+          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[2]);
+          break;
+        case 'vitals':
+          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[3]);
+          break;
+        case 'ratemds':
+          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[4]);
+          break;
+        default:
+          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[5]);
+          break;
       }
     }
 
