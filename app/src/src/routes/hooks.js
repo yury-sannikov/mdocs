@@ -5,7 +5,7 @@ const Router = require('koa-router');
 const debug = require('debug')('app:routes:user_hook');
 
 const router = new Router({
-  prefix: '/user-hook'
+  prefix: '/hooks'
 });
 
 router.post('/auth0', function*() {
@@ -20,6 +20,7 @@ function* insertOrUpdateUser(ctx) {
   yield db.insertOrUpdateUser(ctx.user.user_id,
     Object.assign({}, {
       id: ctx.user.user_id,
+      email: ctx.user.email,
       auth0_user: ctx.user,
       last_request: ctx.context.request
     }));
