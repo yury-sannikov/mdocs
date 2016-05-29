@@ -152,13 +152,19 @@ router.post('/delete-survey', function*() {
 
 // Show Terms of Use
 router.get('/terms', function*() {
-  this.render('terms/terms', this.jadeLocals, true);
+  this.render('legal/terms', this.jadeLocals, true);
 });
 
 // Show Privacy Policy
 router.get('/privacy', function*() {
-  this.render('privacy/privacy', this.jadeLocals, true);
+  this.render('legal/privacy', this.jadeLocals, true);
 });
+
+// Show Agreement
+router.get('/agreement', function*() {
+  this.render('legal/agreement', this.jadeLocals, true);
+});
+
 
 // Show Pricing & Sign up
 router.get('/pricing-signup', function*() {
