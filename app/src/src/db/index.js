@@ -133,9 +133,11 @@ exports.insertOrUpdateUser = function* (id, user) {
     .table('survey_users')
     .where('id').eq(id);
 
+  const thisUser = yield exports.findUserById(id);
+
   const upsertAsync = Promise.promisify(chain.insert_or_replace, {context: chain});
 
-  return yield upsertAsync(user);
+  return yield upsertAsync(Object.assign({}, thisUser, user));
 };
 
 exports.findUserByEmail = function* (email) {

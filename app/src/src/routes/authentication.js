@@ -1,7 +1,11 @@
 'use strict';
 var passport = require('koa-passport');
+import { findUserById } from '../db';
 const Router = require('koa-router');
 const router = new Router();
+
+
+const SUBSCRIBE_URL = '/subscribe/pricing';
 
 // router.get('/callback', passport.authenticate('auth0', {
 //   successRedirect: '/app',
@@ -39,7 +43,14 @@ function* loginCallbackHandler() {
       ctx.redirect('/');
     } else {
       yield ctx.login(user);
-      ctx.response.redirect(redirectTo);
+      console.log(user);
+      const dbUser = yield findUserById(user.id);
+      console.log(dbUser);
+      if (dbUser.stripeCustomer) {
+        ctx.response.redirect(redirectTo);
+      } else {
+        ctx.response.redirect(SUBSCRIBE_URL);
+      }
     }
   });
 }
