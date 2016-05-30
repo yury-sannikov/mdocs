@@ -209,23 +209,28 @@ exports.ensureReferer = function() {
       yield* next;
       return;
     }
-    
+
     // Skip if no HOSTNAME is set
     if (!config.APP_HOSTNAME) {
       debug('Skipping referer check since APP_HOSTNAME not provided');
       yield* next;
       return;
     }
-    if (this.request.url.indexOf(CSRF_SKIP_PREFIX) == 0) {
+
+    if (this.request.url.indexOf(CSRF_SKIP_PREFIX) === 0) {
       yield* next;
       return;
     }
-    
-    const refererHostname = nodeUrl.parse(this.headers['referer'] || '').hostname;
 
-    this.assert(config.APP_HOSTNAME === refererHostname, 'Invalid referer', 403);
+    const refererHostname = nodeUrl.parse(this.headers.referer || '').hostname;
 
-    yield* next;
+    if (config.APP_HOSTNAME === refererHostname) {
+      yield* next;
+      return;
+    }
+
+    this.body = 'Invalid referer';
+    this.status = 403;
   };
 };
 
@@ -247,6 +252,7 @@ exports.csrfMiddleware = function() {
     }
     catch(e) {
       this.body = 'csrf error';
+      return;
     }
 
     yield* next;
