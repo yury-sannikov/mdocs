@@ -14,6 +14,10 @@ export function* createSubscription(userId, token, plan, email) {
 
   const user = yield findUserById(userId);
 
+  if (user.stripeCustomer) {
+    throw Error('User already has subscription');
+  }
+
   const params = {
     source: token,
     plan,
