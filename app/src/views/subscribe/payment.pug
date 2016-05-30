@@ -2,9 +2,41 @@ extends ../layouts/layout.pug
 
 block head
   title Subscribe
+  script(type='text/javascript', src='https://js.stripe.com/v2/')
 
 block styles
   link(rel='stylesheet', href='/app/lib/animate.css/animate.css')
+
+block scripts
+  script.  
+    (function(init) {
+      init(window.jQuery, window, document);
+    }(function($, window, document) {
+      
+      function stripeResponseHandler(status, response) {
+        var $form = $('.subscribeform');
+        if (response.error) {
+          $form.find('.cc-error').removeClass('hidden').text(response.error.message);
+          $form.find('.checkoutbutton').prop('disabled', false);
+        } else {
+          var token = response.id;
+          $form.append($('<input type="hidden" name="stripeToken">').val(token));
+          $form.get(0).submit();
+        }
+      };
+            
+      $(function() {
+        Stripe.setPublishableKey('#{config.STRIPE_PUB_KEY}');
+        var $form = $('.subscribeform');
+        $form.submit(function(event) {
+          $form.find('.checkoutbutton').prop('disabled', true);
+          $form.find('.cc-error').addClass('hidden').text('');
+          Stripe.card.createToken($form, stripeResponseHandler);
+          return false;
+        });        
+      });
+    }));
+
 
 block content
   style.
@@ -35,8 +67,9 @@ block content
     br
     .row
       .col-sm-4.col-sm-offset-4.rowaccent
-        form(action='checkout', method='POST')
+        form.subscribeform(action='checkout', method='POST')
           input.form-control(type='hidden', name='_csrf', value=_csrf)
+          input.form-control(type='hidden', name='plan', value=plan)
           .wrapper
             h3 Selected Plan
             br
@@ -46,29 +79,30 @@ block content
             .form-group
               .radio
                 label
-                  input(type='radio', name='payOccurence', checked=1)
+                  input(type='radio', name='payOccurence', value='monthly', checked=1)
                   | Monthly subscription $#{planInfo.price[0]}
               .radio
                 label
-                  input(type='radio', name='payOccurence')
+                  input(type='radio', name='payOccurence', value='yearly')
                   | 12 Months subscription $#{planInfo.price[1]}
               .radio
                 label
-                  input(type='radio', name='payOccurence')
+                  input(type='radio', name='payOccurence', value='biyearly')
                   | 24 Months subscription $#{planInfo.price[2]}
           .wrapper
             h3 Account Information
             br
             .form-group
-              input.form-control(type='text', placeholder='First Name')
+              input.form-control(type='text', placeholder='First Name', name='name')
             .form-group
-              input.form-control(type='email', placeholder='Email (will be your user name)')
+              input.form-control(type='email', placeholder='Email (will be your user name)', name='email')
             .form-group
-              input.form-control(type='password', placeholder='Password')
+              input.form-control(type='password', placeholder='Password', name='pass')
             .form-group
-              input.form-control(type='password', placeholder='Confirm Password')
+              input.form-control(type='password', placeholder='Confirm Password', name='passcheck')
           .wrapper
             h3 Payment Information
+            .alert.alert-danger.hidden.cc-error(role='alert') &nbsp;
             br
             .form-group
               .row
@@ -88,9 +122,10 @@ block content
                   input.form-control(type='text', size='4', data-stripe='cvc', placeholder='CVC')
                 .col-sm-6
                   input.form-control(type='text', size='6', data-stripe='address_zip', placeholder='Billing ZIP')
+          a(href='https://stripe.com/docs/testing#cards') Test Cards
           .row.rowaccent(style='padding: 20px;')
             .col-sm-8.col-sm-offset-2
               .form-group
-                button.btn.btn-primary.form-control(type='submit') Proceed To Checkout
+                button.btn.btn-primary.form-control.checkoutbutton(type='submit') Proceed To Checkout
     br
     br

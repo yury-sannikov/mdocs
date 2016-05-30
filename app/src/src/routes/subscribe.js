@@ -50,6 +50,7 @@ router.get('payment', '/payment/:plan', function*() {
   this.render('subscribe/payment', Object.assign({}, this.jadeLocals, {
     bareHeader : true,
     changePlanUrl: router.url('pricing'),
+    plan: this.params.plan,
     planInfo: thisPlan
   }), true);
 });
