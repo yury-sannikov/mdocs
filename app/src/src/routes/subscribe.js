@@ -1,30 +1,57 @@
-'use strict';
-// 3rd party
-const assert = require('better-assert');
-const Router = require('koa-router');
-const debug = require('debug')('app:routes:index');
-const _ = require('lodash');
 
-// 1st party
-// const db = require('../db');
-// const communicator = require('../comm');
+import Router from 'koa-router';
+import _ from 'lodash';
+
+const debug = require('debug')('app:routes:index');
+
+
+const PLAN_INFO = {
+  'pr-basic': {
+    name: 'Patient Reviews',
+    price: [49, 490, 880]
+  },
+  'pr-analysis': {
+    name: 'Patient Reviews with Data Analysis',
+    price: [69, 690, 1240]
+  },
+  'pr-enterprise': {
+    name: 'Enterprise',
+    price: [0, 0, 0]
+  }
+};
 
 const router = new Router({
   prefix: '/subscribe'
 });
 
-////////////////////////////////////////////////////////////
-// Check for authentification for all routes below
-router.use(function*(next) {
-  if (this.isAuthenticated()) {
-    yield next;
-  } else {
-    this.redirect(`/login?r=${encodeURIComponent(this.request.url)}`);
-  }
+router.get('/', function*() {
+  this.redirect(router.url('pricing'));
 });
 
-router.get('/', function*() {
-  this.render('subscribe/plans', this.jadeLocals, true);
+router.get('pricing', '/pricing', function*() {
+  this.render('subscribe/pricing', Object.assign({}, this.jadeLocals, {
+    bareHeader : true,
+    plans: [
+      router.url('payment', {plan: 'pr-basic'}),
+      router.url('payment', {plan: 'pr-analysis'}),
+      router.url('payment', {plan: 'pr-enterprise'})
+    ]
+  }), true);
+});
+
+router.get('payment', '/payment/:plan', function*() {
+  const thisPlan = PLAN_INFO[this.params.plan];
+
+  if (!thisPlan) {
+    this.redirect(router.url('pricing'));
+    return;
+  }
+
+  this.render('subscribe/payment', Object.assign({}, this.jadeLocals, {
+    bareHeader : true,
+    changePlanUrl: router.url('pricing'),
+    planInfo: thisPlan
+  }), true);
 });
 
 module.exports = router;

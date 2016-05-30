@@ -1,4 +1,4 @@
-'use strict';
+/*'use strict';
 const Router = require('koa-router');
 const _ = require('lodash');
 const bouncer = require('koa-bouncer');
@@ -112,3 +112,4 @@ function* loginUser(email, pwd) {
   };
   
 }
+*/

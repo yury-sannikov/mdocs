@@ -111,26 +111,8 @@ block content
                   li Reputation monitoring
                   li Reputation change alerts
                   li Website ratings widget
-                // // end  list unstyled
-              // // end .pricing__content
               .pricing__cta
-                form(action='basic', method='POST')
-                  script.stripe-button(
-                    src='https://checkout.stripe.com/checkout.js',
-                    data-key='pk_test_vXyGseIAiuaGymmzEJNbjEfh',
-                    data-amount='4900',
-                    data-name='mdocs.co',
-                    data-zip-code='true',
-                    data-billing-address='true',
-                    data-label='Subscribe for $49/mo',
-                    data-description='Patient Reviews',
-                    data-image='/images/pr-logo-square.png',
-                    data-locale='auto')
-                    
-              // <a href="#"><h6>$499/yr prepaid plan</h6></a>
-              // // end .pricing__cta
-            // // end .pricing
-          // // end .col-sm-8 col-sm-offset-2 col-md-4
+                a.btn.btn-primary.btn-lg(href=plans[0]) SIGN UP
           .col-sm-8.col-sm-offset-2.col-md-4.col-md-offset-0
             .pricing.wow.zoomIn.pricing--featured
               .pricing__header
@@ -139,7 +121,6 @@ block content
                   | $69/mo per
                   br
                   | provider or location
-              // // end .pricing__header
               .pricing__content
                 ul
                   li Everything in Patient Reviews, plus:
@@ -157,25 +138,8 @@ block content
                   li Advanced reporting
                   li Embeddable tables and charts
                   li EMR integrations
-                // // end  list unstyled
-              // // end .pricing__content
               .pricing__cta
-                form(action='medium', method='POST')
-                  script.stripe-button(
-                    src='https://checkout.stripe.com/checkout.js',
-                    data-key='pk_test_vXyGseIAiuaGymmzEJNbjEfh',
-                    data-amount='6900',
-                    data-name='mdocs.co',
-                    data-zip-code='true',
-                    data-billing-address='true',
-                    data-label='Subscribe for $69/mo',
-                    data-description='Patient Reviews',
-                    data-image='/images/pr-logo-square.png',
-                    data-locale='auto')
-              // <a href="#" style="color:#fff"><h6>$999/yr prepaid plan</h6></a>
-              // // end .pricing__cta
-            // // end .pricing
-          // // end .col-sm-8 col-sm-offset-2 col-md-4
+                a.btn.btn-default.btn-lg(href=plans[1]) SIGN UP
           .col-sm-8.col-sm-offset-2.col-md-4.col-md-offset-0
             .pricing.wow.zoomIn
               .pricing__header
@@ -203,17 +167,7 @@ block content
                   li Reputation monitoring
                   li Reputation change alerts
                   li Website ratings widget
-                // // end  list unstyled
-              // // end .pricing__content
               .pricing__cta
-                a.btn.btn-sm.btn-outline(href='#contact-popup') Request a Demo
-              // <a href="#"><h6>$1999/yr prepaid plan</h6></a>
-              // // end .pricing__cta
-            // // end .pricing
-          // // end .col-sm-8 col-sm-offset-2 col-md-4
-        // // end .row
+                a.btn.btn-primary.btn-lg(href=plans[2]) SIGN UP
     
-block scripts
-  script.
-    console.log(1)
-    var domain = 'movelmobile.auth0.com';
+

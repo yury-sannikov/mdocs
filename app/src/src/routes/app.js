@@ -49,9 +49,6 @@ router.use(function*(next) {
   }
 });
 
-// Add Subscribe routes into the app
-router.use(require('./subscribe').routes());
-
 
 // Show Dashboard
 router.get('/', function*() {
