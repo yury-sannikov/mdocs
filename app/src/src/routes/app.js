@@ -51,7 +51,7 @@ router.use(function*(next) {
 
 
 // Show Dashboard
-router.get('/', function*() {
+router.get('dashboard', '/', function*() {
   this.render('app/dashboard', this.jadeLocals, true);
 });
 
@@ -59,7 +59,7 @@ router.get('/patient-reviews', function*() {
   const data = yield db.surveysForProvider(this.currentUser.id);
   const reviews = data[0].map((item) => {
     const avg = _.chain(item.answers).values().sum().value() / _.values(item.answers).length;
-    return Object.assign({}, item, {averageRating: avg }); 
+    return Object.assign({}, item, {averageRating: avg });
   });
   const providers = yield db.providersForAdmin(this.currentUser.id);
   const locations = yield db.locationsForAdmin(this.currentUser.id);
@@ -67,7 +67,7 @@ router.get('/patient-reviews', function*() {
 });
 
 function* conductSurvey(id) {
-  
+
   const result = yield communicator.conductSurvey(id);
   if (result.sms === true && result.email === true) {
     this.flash = 'Survey has been successfully delivered';
@@ -90,7 +90,7 @@ router.post('/resend-survey', function*() {
     return;
   }
   yield conductSurvey.call(this, this.request.body.id);
-  
+
   this.redirect('patient-reviews');
 });
 
@@ -98,12 +98,12 @@ router.post('/new-request', function*() {
   const locationOrProvider = this.request.body.locationOrProvider;
   const reviewSite = this.request.body.reviewSite;
   const isProvider = this.request.body.isProvider === 'yes';
-  
+
   if (!locationOrProvider || !reviewSite || !this.request.body.isProvider) {
     // Client JS should avoid this path
     throw Error('Form is not filled properly.');
   }
-  
+
   const survey = Object.assign({}, this.request.body, {
     reviewFor: {
       id: locationOrProvider,
@@ -111,24 +111,24 @@ router.post('/new-request', function*() {
     },
     reviewSite: reviewSite
   });
-  
+
   const providerOrLocation = yield db.getReviewObject(survey.reviewFor.id, survey.reviewFor.reviewType);
-  
+
   if (!hasDynamoData(providerOrLocation)) {
     debug(`Can't find review object: ${JSON.stringify(survey.reviewFor)}`);
     this.flash = 'Unable to find specified review object';
     this.redirect('patient-reviews');
     return;
   }
-  
+
   const title = providerOrLocation[0][0].name;
-  
+
   const questions = Object.assign({}, HARDCODED_QUESTIONS, { '2': title });
   console.log(this.currentUser.id, survey, questions, title);
   const id = yield db.createNewSurvey()(this.currentUser.id, survey, questions, title);
-  
+
   yield conductSurvey.call(this, id);
-  
+
   this.redirect('patient-reviews');
 });
 
@@ -187,7 +187,7 @@ router.get('/provider/:id', function*() {
 
 router.post('/new-provider', function*() {
   console.log(this.request.body);
-  
+
   const provider = Object.assign({}, this.request.body);
   const id = yield db.createProvider()(this.currentUser.id, provider);
 
@@ -196,7 +196,7 @@ router.post('/new-provider', function*() {
 
 router.post('/update-provider', function*() {
   console.log(this.request.body);
-  
+
   const provider = Object.assign({}, this.request.body);
   const id = yield db.updateProvider(this.request.body.editID, provider);
 
@@ -227,7 +227,7 @@ router.get('/location/:id', function*() {
 
 router.post('/new-location', function*() {
   console.log(this.request.body);
-  
+
   const location = Object.assign({}, this.request.body);
   const id = yield db.createLocation()(this.currentUser.id, location);
 
@@ -236,7 +236,7 @@ router.post('/new-location', function*() {
 
 router.post('/update-location', function*() {
   console.log(this.request.body);
-  
+
   const location = Object.assign({}, this.request.body);
   const id = yield db.updateLocation(this.request.body.editID, location);
 

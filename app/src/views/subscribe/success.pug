@@ -1,0 +1,32 @@
+extends ../layouts/layout.pug
+
+block head
+  title Subscribe
+
+block styles
+  link(rel='stylesheet', href='/app/lib/animate.css/animate.css')
+
+
+block scripts
+  script.
+    (function(init) {
+      init(window.jQuery, window, document);
+    }(function($, window, document) {
+      $(function() {
+        window.setTimeout(function() {
+          window.location.pathname = '#{redirectUrl}';
+        }, 3000);
+      });
+    }));
+
+block content
+  style.
+    .wrapper {
+    }
+  .container
+    .row
+      .col-sm-6.col-sm-offset-3
+        h1.text-center
+          strong Sign up has been successfull
+        h4.text-center You will be redirected to&nbsp;
+          a(href=redirectUrl) Dashboard

@@ -1,9 +1,11 @@
 
 import Router from 'koa-router';
 import _ from 'lodash';
+import bouncer from 'koa-bouncer';
+import {createSubscription} from '../comm/stripe';
 
 const debug = require('debug')('app:routes:index');
-
+const DASHBOARD_URL = '/app';
 
 const PLAN_INFO = {
   'pr-basic': {
@@ -40,7 +42,32 @@ router.get('pricing', '/pricing', function*() {
 });
 
 router.get('payment', '/payment/:plan', function*() {
-  const thisPlan = PLAN_INFO[this.params.plan];
+  renderPayment.call(this, this.params.plan);
+});
+
+router.post('checkout', '/checkout', function*() {
+  try {
+    this.validateBody('stripeToken')
+      .required('Invalid Stripe Token')
+      .isString()
+      .trim()
+      .isLength(20, 60, 'Invalid Stripe Token');
+
+    if (_.isEmpty(this.request.body.hasUser)) {
+      yield checkoutNewUser.call(this);
+    } else {
+      yield checkoutExistingUser.call(this);
+    }
+  } catch(err) {
+    renderPayment.call(this, this.request.body.plan, err.message);
+    return;
+  }
+});
+
+module.exports = router;
+
+function renderPayment(plan, errorMessage) {
+  const thisPlan = _.has(PLAN_INFO, plan) && PLAN_INFO[plan];
 
   if (!thisPlan) {
     this.redirect(router.url('pricing'));
@@ -50,9 +77,39 @@ router.get('payment', '/payment/:plan', function*() {
   this.render('subscribe/payment', Object.assign({}, this.jadeLocals, {
     bareHeader : true,
     changePlanUrl: router.url('pricing'),
-    plan: this.params.plan,
-    planInfo: thisPlan
+    checkoutUrl: router.url('checkout'),
+    plan: plan,
+    planInfo: thisPlan,
+    messages : errorMessage ? { error: [{msg: errorMessage}] } : {}
   }), true);
-});
+}
 
-module.exports = router;
+
+function* checkoutNewUser() {
+  this.body = 'Not impl yet';
+
+}
+
+function* checkoutExistingUser() {
+  // Check if user really logged in. If not just redirect to payment
+  if (this.currentUser.id !== this.request.body.hasUser) {
+    this.redirect(router.url('payment', {plan: this.request.body.plan}));
+    return;
+  }
+
+  yield subscribeUser(this.request.body.stripeToken, this.currentUser.id, `${this.request.body.plan}-${this.request.body.payOccurence}`);
+
+  this.render('subscribe/success', Object.assign({}, this.jadeLocals, {
+    bareHeader : true,
+    plan: this.request.body.plan,
+    planInfo: PLAN_INFO[this.request.body.plan],
+    redirectUrl: DASHBOARD_URL
+  }, true));
+
+}
+
+function* subscribeUser(stripeToken, userId, plan) {
+
+  yield createSubscription(userId, stripeToken, plan);
+
+}
