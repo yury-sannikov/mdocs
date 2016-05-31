@@ -115,81 +115,88 @@ block content
       padding-right: 20px;
       padding-bottom: 10px;
     }
-  br
-  br
-  .container
-    .row
-      .col-sm-6.col-sm-offset-3
-        h1.text-center
-          strong Sign up for Patient Reviews
-        h4.text-center 30-Day Money Back Guarantee.&nbsp;
-          a(href=changePlanUrl) Change Your Plan
-          | &nbsp;Anytime.
+  if hasSubscription
+    .alert.alert-warning(role='alert')
+      | You are already logged in and have active subscription. Please&nbsp;
+      a(href='/logout') Log Out
+      | &nbsp;and try again or go to&nbsp;
+      a(href='/app') Application Dashboard
+  else
     br
-    .row
-      .col-sm-4.col-sm-offset-4.rowaccent
-        form.subscribeform(action=checkoutUrl, method='POST')
-          input.form-control(type='hidden', name='_csrf', value=_csrf)
-          input.form-control(type='hidden', name='plan', value=plan)
-          .wrapper
-            h3 Selected Plan
-            br
-            span
-              strong #{planInfo.name}&nbsp;
-              a(href=changePlanUrl) (Change&nbsp;Plan)
-            .form-group
-              .radio
-                label
-                  input(type='radio', name='payOccurence', value='monthly', checked=1)
-                  | Monthly subscription $#{planInfo.price[0]}
-              .radio
-                label
-                  input(type='radio', name='payOccurence', value='yearly')
-                  | 12 Months subscription $#{planInfo.price[1]}
-              .radio
-                label
-                  input(type='radio', name='payOccurence', value='biyearly')
-                  | 24 Months subscription $#{planInfo.price[2]}
-          if (!user || _.isEmpty(user))
+    br
+    .container
+      .row
+        .col-sm-6.col-sm-offset-3
+          h1.text-center
+            strong Sign up for Patient Reviews
+          h4.text-center 30-Day Money Back Guarantee.&nbsp;
+            a(href=changePlanUrl) Change Your Plan
+            | &nbsp;Anytime.
+      br
+      .row
+        .col-sm-4.col-sm-offset-4.rowaccent
+          form.subscribeform(action=checkoutUrl, method='POST')
+            input.form-control(type='hidden', name='_csrf', value=_csrf)
+            input.form-control(type='hidden', name='plan', value=plan)
             .wrapper
-              h3 Account Information
+              h3 Selected Plan
+              br
+              span
+                strong #{planInfo.name}&nbsp;
+                a(href=changePlanUrl) (Change&nbsp;Plan)
+              .form-group
+                .radio
+                  label
+                    input(type='radio', name='payOccurence', value='monthly', checked=1)
+                    | Monthly subscription $#{planInfo.price[0]}
+                .radio
+                  label
+                    input(type='radio', name='payOccurence', value='yearly')
+                    | 12 Months subscription $#{planInfo.price[1]}
+                .radio
+                  label
+                    input(type='radio', name='payOccurence', value='biyearly')
+                    | 24 Months subscription $#{planInfo.price[2]}
+            if (!user || _.isEmpty(user))
+              .wrapper
+                h3 Account Information
+                br
+                .form-group
+                  input.form-control(type='text', placeholder='First Name', name='name')
+                .form-group
+                  input.form-control(type='email', placeholder='Email (will be your user name)', name='email')
+                .form-group
+                  input.form-control(type='password', placeholder='Password', name='pass')
+                .form-group
+                  input.form-control(type='password', placeholder='Confirm Password', name='passcheck')
+            else
+              input.form-control(type='hidden', name='hasUser', value=user.id)
+            .wrapper
+              h3 Payment Information
+              .alert.alert-danger.hidden.cc-error(role='alert') &nbsp;
               br
               .form-group
-                input.form-control(type='text', placeholder='First Name', name='name')
+                .row
+                  .col-sm-12
+                    input.form-control(type='text', size='20', data-stripe='number', placeholder='Card Number')
               .form-group
-                input.form-control(type='email', placeholder='Email (will be your user name)', name='email')
+                .row
+                  .col-sm-6
+                    span Expiration (MM/YY)
+                  .col-sm-3
+                    input.form-control(type='text', size='2', data-stripe='exp_month', placeholder='mm')
+                  .col-sm-3
+                    input.form-control(type='text', size='2', data-stripe='exp_year', placeholder='yy')
               .form-group
-                input.form-control(type='password', placeholder='Password', name='pass')
-              .form-group
-                input.form-control(type='password', placeholder='Confirm Password', name='passcheck')
-          else
-            input.form-control(type='hidden', name='hasUser', value=user.id)
-          .wrapper
-            h3 Payment Information
-            .alert.alert-danger.hidden.cc-error(role='alert') &nbsp;
-            br
-            .form-group
-              .row
-                .col-sm-12
-                  input.form-control(type='text', size='20', data-stripe='number', placeholder='Card Number')
-            .form-group
-              .row
-                .col-sm-6
-                  span Expiration (MM/YY)
-                .col-sm-3
-                  input.form-control(type='text', size='2', data-stripe='exp_month', placeholder='mm')
-                .col-sm-3
-                  input.form-control(type='text', size='2', data-stripe='exp_year', placeholder='yy')
-            .form-group
-              .row
-                .col-sm-6
-                  input.form-control(type='text', size='4', data-stripe='cvc', placeholder='CVC')
-                .col-sm-6
-                  input.form-control(type='text', size='6', data-stripe='address_zip', placeholder='Billing ZIP')
-          a(href='https://stripe.com/docs/testing#cards') Test Cards
-          .row.rowaccent(style='padding: 20px;')
-            .col-sm-8.col-sm-offset-2
-              .form-group
-                button.btn.btn-primary.form-control.checkoutbutton(type='submit') Proceed To Checkout
-    br
-    br
+                .row
+                  .col-sm-6
+                    input.form-control(type='text', size='4', data-stripe='cvc', placeholder='CVC')
+                  .col-sm-6
+                    input.form-control(type='text', size='6', data-stripe='address_zip', placeholder='Billing ZIP')
+            a(href='https://stripe.com/docs/testing#cards') Test Cards
+            .row.rowaccent(style='padding: 20px;')
+              .col-sm-8.col-sm-offset-2
+                .form-group
+                  button.btn.btn-primary.form-control.checkoutbutton(type='submit') Proceed To Checkout
+      br
+      br

@@ -3,7 +3,7 @@ import Router from 'koa-router';
 import _ from 'lodash';
 import bouncer from 'koa-bouncer';
 import {createSubscription} from '../comm/stripe';
-import { findUserByEmail } from '../db';
+import { findUserByEmail, findUserById } from '../db';
 
 const debug = require('debug')('app:routes:index');
 const DASHBOARD_URL = '/app';
@@ -43,7 +43,7 @@ router.get('pricing', '/pricing', function*() {
 });
 
 router.get('payment', '/payment/:plan', function*() {
-  renderPayment.call(this, this.params.plan);
+  yield renderPayment.call(this, this.params.plan);
 });
 
 router.post('checkout', '/checkout', function*() {
@@ -60,7 +60,7 @@ router.post('checkout', '/checkout', function*() {
       yield checkoutExistingUser.call(this);
     }
   } catch(err) {
-    renderPayment.call(this, this.request.body.plan, err.message);
+    yield renderPayment.call(this, this.request.body.plan, err.message);
     return;
   }
 });
@@ -80,21 +80,28 @@ router.get('/payment/emailCheck', function*() {
 
 module.exports = router;
 
-function renderPayment(plan, errorMessage) {
+function* renderPayment(plan, errorMessage) {
   const thisPlan = _.has(PLAN_INFO, plan) && PLAN_INFO[plan];
 
   if (!thisPlan) {
     this.redirect(router.url('pricing'));
     return;
   }
+  let hasSubscription = false;
+
+  if (this.currentUser) {
+    const user = yield findUserById(this.currentUser.id);
+    hasSubscription = !_.isEmpty(user) && !_.isEmpty(user.stripeCustomer);
+  }
 
   this.render('subscribe/payment', Object.assign({}, this.jadeLocals, {
     bareHeader : true,
     changePlanUrl: router.url('pricing'),
     checkoutUrl: router.url('checkout'),
-    plan: plan,
+    plan,
     planInfo: thisPlan,
-    messages : errorMessage ? { error: [{msg: errorMessage}] } : {}
+    messages : errorMessage ? { error: [{msg: errorMessage}] } : {},
+    hasSubscription
   }), true);
 }
 
