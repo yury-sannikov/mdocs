@@ -291,10 +291,61 @@ block scripts
             },
             defaultReviewSite: {
               required: true
+            },
+            yelp: {
+              required: function(element) {
+                if($('#yelpDefaultRadio').is(':checked')) {
+                  return $('#yelp').text() === '';
+                }
+                return false;
+              }
+            },
+            google: {
+              required: function(element) {
+                if($('#googleDefaultRadio').is(':checked')) {
+                  return $('#google').text() === '';
+                }
+                return false;
+              }
+            },
+            healthgrades: {
+              required: function(element) {
+                if($('#healthGradesDefaultRadio').is(':checked')) {
+                  return $('#healthgrades').text() === '';
+                }
+                return false;
+              }
+            },
+            vitals: {
+              required: function(element) {
+                if($('#vitalsDefaultRadio').is(':checked')) {
+                  return $('#vitals').text() === '';
+                }
+                return false;
+              }
+            },
+            ratemds: {
+              required: function(element) {
+                if($('#ratemdsDefaultRadio').is(':checked')) {
+                  return $('#ratemds').text() === '';
+                }
+                return false;
+              }
+            },
+            yellowpages: {
+              required: function(element) {
+                if($('#yellowpagesDefaultRadio').is(':checked')) {
+                  return $('#yellowpages').text() === '';
+                }
+                return false;
+              }
             }
           },
           messages: {
-            name: "Please specify the name of the provider",
+            name: "Please specify the name of the location",
+            address: {
+              required: "We need the location's address"
+            },
             email: {
               required: "We need an email address to contact",
               email: "The email address must be in the format of name@domain.com"
@@ -304,6 +355,24 @@ block scripts
             },
             defaultReviewSite: {
               required: "We need a default site"
+            },
+            yelp: {
+              required: "Please provide the ID for the selected site."
+            },
+            google: {
+              required: "Please provide the ID for the selected site."
+            },
+            healthgrades: {
+              required: "Please provide the ID for the selected site."
+            },
+            vitals: {
+              required: "Please provide the ID for the selected site."
+            },
+            ratemds: {
+              required: "Please provide the ID for the selected site."
+            },
+            yellowpages: {
+              required: "Please provide the ID for the selected site."
             }
           },
           errorPlacement: function(error, element) {
@@ -395,10 +464,61 @@ block scripts
             },
             defaultReviewSite: {
               required: true
+            },
+            yelp: {
+              required: function(element) {
+                if($('#editYelpDefaultRadio').is(':checked')) {
+                  return $('#editYelp').text() === '';
+                }
+                return false;
+              }
+            },
+            google: {
+              required: function(element) {
+                if($('#editGoogleDefaultRadio').is(':checked')) {
+                  return $('#editGoogle').text() === '';
+                }
+                return false;
+              }
+            },
+            healthgrades: {
+              required: function(element) {
+                if($('#editHealthGradesDefaultRadio').is(':checked')) {
+                  return $('#editHealthgrades').text() === '';
+                }
+                return false;
+              }
+            },
+            vitals: {
+              required: function(element) {
+                if($('#editVitalsDefaultRadio').is(':checked')) {
+                  return $('#editVitals').text() === '';
+                }
+                return false;
+              }
+            },
+            ratemds: {
+              required: function(element) {
+                if($('#editRatemdsDefaultRadio').is(':checked')) {
+                  return $('#editRatemds').text() === '';
+                }
+                return false;
+              }
+            },
+            yellowpages: {
+              required: function(element) {
+                if($('#editYellowpagesDefaultRadio').is(':checked')) {
+                  return $('#editYellowpages').text() === '';
+                }
+                return false;
+              }
             }
           },
           messages: {
-            name: "Please specify the name of the provider",
+            name: "Please specify the name of the location",
+            address: {
+              required: "We need the location's address"
+            },
             email: {
               required: "We need an email address to contact",
               email: "The email address must be in the format of name@domain.com"
@@ -408,6 +528,24 @@ block scripts
             },
             defaultReviewSite: {
               required: "We need a default site"
+            },
+            yelp: {
+              required: "Please provide the ID for the selected site."
+            },
+            google: {
+              required: "Please provide the ID for the selected site."
+            },
+            healthgrades: {
+              required: "Please provide the ID for the selected site."
+            },
+            vitals: {
+              required: "Please provide the ID for the selected site."
+            },
+            ratemds: {
+              required: "Please provide the ID for the selected site."
+            },
+            yellowpages: {
+              required: "Please provide the ID for the selected site."
             }
           },
           errorPlacement: function(error, element) {
