@@ -56,8 +56,8 @@ var paths = {
     'public/app/lib/bootstrap/js/collapse.js',
     'public/app/lib/bootstrap/js/dropdown.js',
     // 'public/lib/bootstrap/js/modal.js',
-    // 'public/lib/bootstrap/js/tooltip.js',
-    // 'public/lib/bootstrap/js/popover.js',
+    'public/app/lib/bootstrap/js/tooltip.js',
+    'public/app/lib/bootstrap/js/popover.js',
     // 'public/lib/bootstrap/js/scrollspy.js',
     // 'public/lib/bootstrap/js/tab.js',
     // 'public/lib/bootstrap/js/affix.js'
