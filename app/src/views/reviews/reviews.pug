@@ -401,6 +401,7 @@ block scripts
       // pass the user's id through
       function showmodal(userid) {
         // Set default to first provider
+        $('#providerRadio').click();
         var providerDropdown = $('#providerDropdown');
         if(providerDropdown.text() === "No Providers Found" && providers.length > 0) {
           providerDropdown.html(`${providers[0].name} <span class="caret"></span>`);
