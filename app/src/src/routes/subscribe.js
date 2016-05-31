@@ -3,9 +3,11 @@ import Router from 'koa-router';
 import _ from 'lodash';
 import bouncer from 'koa-bouncer';
 import {createSubscription} from '../comm/stripe';
-import { findUserByEmail, findUserById } from '../db';
+import { findUserByEmail, findUserById, insertOrUpdateUser } from '../db';
+import { createUser, loginUser } from '../auth0';
+import jwt from 'jsonwebtoken';
+const debug = require('debug')('app:routes:subscribe');
 
-const debug = require('debug')('app:routes:index');
 const DASHBOARD_URL = '/app';
 
 const PLAN_INFO = {
@@ -60,6 +62,7 @@ router.post('checkout', '/checkout', function*() {
       yield checkoutExistingUser.call(this);
     }
   } catch(err) {
+    console.log(err.stack);
     yield renderPayment.call(this, this.request.body.plan, err.message);
     return;
   }
@@ -107,18 +110,52 @@ function* renderPayment(plan, errorMessage) {
 
 
 function* checkoutNewUser() {
-  this.body = 'Not impl yet';
 
-}
-
-function* checkoutExistingUser() {
-  // Check if user really logged in. If not just redirect to payment
-  if (this.currentUser.id !== this.request.body.hasUser) {
-    this.redirect(router.url('payment', {plan: this.request.body.plan}));
-    return;
+  if (this.currentUser) {
+    throw Error('You should log out first to sign up a new user');
   }
 
-  yield subscribeUser(this.request.body.stripeToken, this.currentUser.id, `${this.request.body.plan}-${this.request.body.payOccurence}`);
+  this.validateBody('name')
+    .required('Full name is required')
+    .isString()
+    .trim()
+    .isLength(5, 60, 'Full Name should be between 5 and 60 symbols');
+
+  this.validateBody('email')
+    .required('Email required')
+    .isEmail('Invalid email')
+    .trim();
+
+  this.validateBody('pass')
+    .required('Password required')
+    .isString()
+    .isLength(6, 100, 'Password must be 6-100 chars');
+
+  this.validateBody('passcheck')
+    .required('Password confirmation required')
+    .isString()
+    .eq(this.vals.pass, 'Passwords must match');
+
+  this.validateBody('email')
+    .checkNot(yield findUserByEmail(this.vals.email), 'Username taken');
+
+  yield createUser(this.request.body.email, this.request.body.pass, this.request.body.name);
+
+  const loginResult = yield loginUser(this.request.body.email, this.request.body.pass);
+
+  const decoded = jwt.decode(loginResult.id_token);
+
+  debug(`Successfully created new user ${this.request.body.email} with id ${decoded.sub}`);
+
+  yield insertOrUpdateUser(decoded.sub,
+      Object.assign({}, {
+        id: decoded.sub,
+        email: this.request.body.email
+      }));
+
+  const planId = `${this.request.body.plan}-${this.request.body.payOccurence}`;
+
+  yield createSubscription(decoded.sub, this.request.body.stripeToken, planId);
 
   this.render('subscribe/success', Object.assign({}, this.jadeLocals, {
     bareHeader : true,
@@ -129,8 +166,21 @@ function* checkoutExistingUser() {
 
 }
 
-function* subscribeUser(stripeToken, userId, plan) {
+function* checkoutExistingUser() {
+  // Check if user really logged in. If not just redirect to payment
+  if (this.currentUser.id !== this.request.body.hasUser) {
+    this.redirect(router.url('payment', {plan: this.request.body.plan}));
+    return;
+  }
 
-  yield createSubscription(userId, stripeToken, plan);
+  const planId = `${this.request.body.plan}-${this.request.body.payOccurence}`;
+  yield createSubscription(this.currentUser.id, this.request.body.stripeToken, planId);
+
+  this.render('subscribe/success', Object.assign({}, this.jadeLocals, {
+    bareHeader : true,
+    plan: this.request.body.plan,
+    planInfo: PLAN_INFO[this.request.body.plan],
+    redirectUrl: DASHBOARD_URL
+  }, true));
 
 }

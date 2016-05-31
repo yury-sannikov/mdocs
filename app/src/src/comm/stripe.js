@@ -14,6 +14,10 @@ export function* createSubscription(userId, token, plan, email) {
 
   const user = yield findUserById(userId);
 
+  if (!user) {
+    throw Error(`Unable to create subscription for user id ${userId}. User not found`);
+  }
+
   if (user.stripeCustomer) {
     throw Error('User already has subscription');
   }
