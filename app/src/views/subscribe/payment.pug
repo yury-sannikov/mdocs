@@ -8,23 +8,82 @@ block styles
   link(rel='stylesheet', href='/app/lib/animate.css/animate.css')
 
 block scripts
-  script.  
+  script.
     (function(init) {
       init(window.jQuery, window, document);
     }(function($, window, document) {
-      
+
+      var errorCount = 0;
+      function updateFormErrorWithDelta(delta) {
+        errorCount = delta === 0 ? 0 : errorCount + delta;
+        if (errorCount <= 0) {
+          errorCount = 0;
+        }
+        $('.subscribeform').find('.checkoutbutton').prop('disabled', errorCount > 0);
+      }
+
       function stripeResponseHandler(status, response) {
         var $form = $('.subscribeform');
         if (response.error) {
           $form.find('.cc-error').removeClass('hidden').text(response.error.message);
-          $form.find('.checkoutbutton').prop('disabled', false);
+          $form.find('.checkoutbutton').prop('disabled', errorCount !== 0);
         } else {
           var token = response.id;
           $form.append($('<input type="hidden" name="stripeToken">').val(token));
           $form.get(0).submit();
         }
       };
-            
+
+      function checkUserEmail$(data) {
+        return $.ajaxAsObservable({
+          url: 'emailCheck',
+          data: data,
+          dataType: 'json'
+        })
+        .catch(function(err) {
+          return Rx.Observable.return({success : false});
+        });
+      }
+
+      function checkUserEmail(el) {
+        var popoverVisible = false
+        $(el).popover({
+                    placement:'right',
+                    trigger:'manual',
+                    container: 'body',
+                    html:true,
+                    content:'<p>User already exists.<br/>Please <a href="/login">Login</a> instead</p>'
+                });
+
+        var sub = $(el).keyupAsObservable()
+          .merge($(el).focusoutAsObservable())
+          .map( function (ev) {
+            return {
+              f: (ev.type === 'focusout'),
+              e: $(ev.target).val()
+            };
+          })
+          .filter( function (data) { return !data.e || data.e.length > 2; })
+          .sample(500)
+          .distinctUntilChanged()
+          .flatMapLatest(checkUserEmail$)
+          .map( function(data) { return data.data; } )
+          .filter( function (data) { return data.success; })
+          .subscribe(
+            function (data) {
+              if (data.userExists && !popoverVisible) {
+                $(el).popover('show');
+                popoverVisible = true;
+                updateFormErrorWithDelta(1);
+              } else if (!data.userExists && popoverVisible) {
+                $(el).popover('hide');
+                popoverVisible = false;
+                updateFormErrorWithDelta(-1);
+              }
+            }
+        );
+      }
+
       $(function() {
         Stripe.setPublishableKey('#{config.STRIPE_PUB_KEY}');
         var $form = $('.subscribeform');
@@ -33,7 +92,9 @@ block scripts
           $form.find('.cc-error').addClass('hidden').text('');
           Stripe.card.createToken($form, stripeResponseHandler);
           return false;
-        });        
+        });
+
+        checkUserEmail($('input[name="email"]'));
       });
     }));
 

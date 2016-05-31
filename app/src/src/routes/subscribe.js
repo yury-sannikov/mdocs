@@ -3,6 +3,7 @@ import Router from 'koa-router';
 import _ from 'lodash';
 import bouncer from 'koa-bouncer';
 import {createSubscription} from '../comm/stripe';
+import { findUserByEmail } from '../db';
 
 const debug = require('debug')('app:routes:index');
 const DASHBOARD_URL = '/app';
@@ -62,6 +63,19 @@ router.post('checkout', '/checkout', function*() {
     renderPayment.call(this, this.request.body.plan, err.message);
     return;
   }
+});
+
+router.get('/payment/emailCheck', function*() {
+  let exists = false;
+
+  if (_.isString(this.query.e) && !_.isEmpty(this.query.e)) {
+    exists = !!(yield findUserByEmail(this.query.e));
+  }
+
+  this.body = {
+    success: true,
+    userExists: exists
+  };
 });
 
 module.exports = router;
