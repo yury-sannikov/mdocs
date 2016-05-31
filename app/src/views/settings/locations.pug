@@ -362,7 +362,9 @@ block scripts
       // pass the user's id through
       function showmodal(id) {
         // Populate attributes
-        const user = locations.filter((loc) => loc.id === id)[0];
+        const user = locations.filter(function(loc) { 
+          return loc.id === id;
+        })[0];
 
         $('#editID').val(user.id);
         $('#editName').val(user.name);

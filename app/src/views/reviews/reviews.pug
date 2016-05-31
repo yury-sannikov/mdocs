@@ -292,15 +292,22 @@ block scripts
       // Prevent Link from Firing
       event.preventDefault();
 
+      // Selected provider/location name
+      const name = $(this).text();
+
       // Get the provider/location that was chosen
       var selectedOption = {};
       if($('#locationType').is(':visible')) {
         if($("#locationDropdown").text() === "Select Location") { return; }
-        selectedOption = locations.filter((l) => l.name === $(this).text())[0];
+        selectedOption = locations.filter(function(l) {
+          return l.name === name;
+        })[0];
       }
       else {
         if($("#providerDropdown").text() === "Select Provider") { return; }
-        selectedOption = providers.filter((p) => p.name === $(this).text())[0];
+        selectedOption = providers.filter(function(p) {
+          return p.name == name;
+        })[0];
       }
       $('input[name="locationOrProvider"]').val(selectedOption.id);
 

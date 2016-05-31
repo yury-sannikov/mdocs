@@ -345,7 +345,9 @@ block scripts
       // pass the user's id through
       function showmodal(id) {
         // Populate attributes
-        const user = providers.filter((pr) => pr.id === id)[0];
+        const user = providers.filter(function(pr) { 
+          return pr.id === id;
+        })[0];
         
         $('#editID').val(user.id);
         $('#editName').val(user.name);
