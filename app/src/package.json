@@ -8,7 +8,7 @@
     "url": "https://github.com/danneu/koa-skeleton"
   },
   "scripts": {
-    "start": "export DEBUG=app:* && nodemon --ext js ./src/index.js",
+    "start": "export DEBUG=app:* && nodemon --debug --ext js ./src/index.js",
     "test": "NODE_ENV=test mocha --reporter spec",
     "lubricate": "npm cache clean && npm install && bower cache clean && bower install && gulp clean && gulp build"
   },

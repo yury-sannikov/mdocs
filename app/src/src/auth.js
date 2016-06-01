@@ -3,6 +3,8 @@ var Auth0Strategy = require('passport-auth0');
 const config = require('./config');
 const debug = require('debug')('app:auth');
 
+var Auth0Profile = require('passport-auth0/lib/Profile');
+
 
 var strategy = new Auth0Strategy({
   domain:       'movelmobile.auth0.com',
@@ -10,29 +12,44 @@ var strategy = new Auth0Strategy({
   clientSecret: 'Att9Ez3cxbebglWBaL4hLTPWsWJEn8ml0dg4IvGPi8MF5eoewj-D74VsL5r0QM_7',
   callbackURL:  config.AUTH_CALLBACK_URL
 }, function(accessToken, refreshToken, extraParams, profile, done) {
-    // accessToken is the token to call Auth0 API (not needed in the most cases)
-    // extraParams.id_token has the JSON Web Token
-    // profile has all the information from the user
-  console.log(`Auth0Strategy cb: ${accessToken}`);
-  console.log(` extra: ${JSON.stringify(extraParams, null, 2) }`);
-  console.log(` profile: ${JSON.stringify(profile, null, 2)}`);
-  return done(null, Object.assign({}, profile, {_raw: extraParams.id_token}));
+  // accessToken is the token to call Auth0 API (not needed in the most cases)
+  // extraParams.id_token has the JSON Web Token
+  // profile has all the information from the user
+  // console.log(`Auth0Strategy cb: ${accessToken}`);
+  // console.log(` extra: ${JSON.stringify(extraParams, null, 2) }`);
+  // console.log(` profile: ${JSON.stringify(profile, null, 2)}`);
+  return done(null, Object.assign({}, profile, {jwtToken: extraParams.id_token}));
 });
 
 debug(`Create Auth0 strategy with callbackURL: ${config.AUTH_CALLBACK_URL}`);
 
 passport.use(strategy);
 
+function massageUser(user) {
+  let sessionUser = Object.assign({}, user);
+  delete sessionUser._json;
+  delete sessionUser._raw;
+  return sessionUser;
+}
 // This is not a best practice, but we want to keep things simple for now
 passport.serializeUser(function(user, done) {
-  done(null, user);
+  done(null, massageUser(user));
 });
 
 passport.deserializeUser(function(user, done) {
   done(null, user);
 });
 
-module.exports = strategy;
+
+// Use Auth0 Profile class to create seamless profile as passport-auth0 does.
+export function serializeUserFromProfile(profile, jwtToken) {
+  return Object.assign({},
+    massageUser(new Auth0Profile(profile)),
+    {
+      displayName: profile.email,
+      jwtToken
+    });
+}
 
 /*
 var user = { id: 1, username: 'test' };

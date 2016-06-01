@@ -6,6 +6,8 @@ import {createSubscription} from '../comm/stripe';
 import { findUserByEmail, findUserById, insertOrUpdateUser } from '../db';
 import { createUser, loginUser } from '../auth0';
 import jwt from 'jsonwebtoken';
+import { serializeUserFromProfile } from '../auth';
+
 const debug = require('debug')('app:routes:subscribe');
 
 const DASHBOARD_URL = '/app';
@@ -129,7 +131,7 @@ function* checkoutNewUser() {
   this.validateBody('pass')
     .required('Password required')
     .isString()
-    .isLength(6, 100, 'Password must be 6-100 chars');
+    .isLength(1, 100, 'Password must be 1-100 chars');
 
   this.validateBody('passcheck')
     .required('Password confirmation required')
@@ -139,13 +141,19 @@ function* checkoutNewUser() {
   this.validateBody('email')
     .checkNot(yield findUserByEmail(this.vals.email), 'Username taken');
 
-  yield createUser(this.request.body.email, this.request.body.pass, this.request.body.name);
+  const userProfile = yield createUser(this.request.body.email, this.request.body.pass, this.request.body.name);
 
   const loginResult = yield loginUser(this.request.body.email, this.request.body.pass);
 
   const decoded = jwt.decode(loginResult.id_token);
 
   debug(`Successfully created new user ${this.request.body.email} with id ${decoded.sub}`);
+
+  const sessionProfile = serializeUserFromProfile(userProfile, loginResult.id_token);
+
+  debug(`Create user session with user profile: ${JSON.stringify(sessionProfile)}`);
+
+  yield this.login(sessionProfile);
 
   yield insertOrUpdateUser(decoded.sub,
       Object.assign({}, {

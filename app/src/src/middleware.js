@@ -34,18 +34,18 @@ exports.wrapCurrUser = function() {
 exports.wrapJadeLocals = function() {
   return function *(next) {
     const currentUser = this.currentUser || {};
-    
+
     this.jadeLocals = {
       csrf: this.csrf,
       _csrf: this.csrf,
-      auth0Token: currentUser._raw,
+      auth0Token: currentUser.jwtToken,
       user: currentUser,
       messages: {},
       error: {},
       flash: this.flash,
       config: config
     };
-    
+
     yield* next;
   };
 };
@@ -60,7 +60,7 @@ exports.wrapExceptions = function() {
       if (production) {
         yield comm.sendExceptionToSlack(err, this);
       }
-      this.render('error/500', Object.assign({}, this.jadeLocals, { 
+      this.render('error/500', Object.assign({}, this.jadeLocals, {
         error: production ? {message : 'Internal Error'} : err
       }), true);
       this.status = 500;

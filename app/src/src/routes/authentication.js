@@ -37,15 +37,15 @@ function* loginCallbackHandler() {
   ctx.session.redirectOnLogin = null;
   console.log(`Redirect to ${redirectTo}`);
   yield passport.authenticate('auth0', function*(err, user, info) {
-    console.log(`passport.authenticate info: ${JSON.stringify(info, null, 2)}`);
     if (err) throw err;
+
     if (user === false) {
       ctx.redirect('/');
     } else {
       yield ctx.login(user);
-      console.log(user);
+
       const dbUser = yield findUserById(user.id);
-      console.log(dbUser);
+
       if (dbUser.stripeCustomer) {
         ctx.response.redirect(redirectTo);
       } else {
