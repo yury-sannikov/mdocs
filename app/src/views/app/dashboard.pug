@@ -4,13 +4,12 @@ block head
   title #{application} &middot; Welcome!
 
 block styles
-  link(rel='stylesheet', href='/app/lib/animate.css/animate.css')
   link(rel='stylesheet', href='/app/lib/chartist/dist/chartist.min.css')
   style.
     .ct-series-a .ct-bar {
       stroke: #00A3C8;
       stroke-width: 20px;
-    }  
+    }
     .ct-series-b .ct-bar {
       stroke: #FF196F;
       stroke-width: 20px;
@@ -63,11 +62,11 @@ block styles
     }
     .ct-series-e .ct-slice-donut {
       stroke: #B2A309;
-    }  
-    
-    
-    
-    
+    }
+
+
+
+
     /* Headers */
     hr.headline {
       border-top: 3px solid #042446;
@@ -119,9 +118,9 @@ block styles
       .legend-circle + span {
         margin-right: 1.5em;
         top: -3px;
-        position: relative;      
+        position: relative;
       }
-      
+
 block scripts
   script(src='/app/lib/chartist/dist/chartist.min.js')
   script(src='/app/lib/chartist-plugin-pointlabels/dist/chartist-plugin-pointlabels.min.js')
@@ -148,13 +147,13 @@ block scripts
         }
       })
       //- .on('draw', function(data) {
-        
+
       //-   if(data.type === 'bar') {
       //-     data.element.attr({
       //-       style: 'stroke-width: 20px'
       //-     });
       //-   }
-        
+
       //-   if(data.type === 'label' && data.axis === 'x') {
       //-     data.element.attr({
       //-       style: 'stroke-width: 20px'
@@ -163,7 +162,7 @@ block scripts
 
       //-   if(data.type === 'label' && data.axis === 'y') {
       //-   }
-        
+
       //- });
       var distributionData = {
         labels: ['1 Star', '2 Stars', '3 Stars', '4 Stars', '5 Stars'],
@@ -176,7 +175,7 @@ block scripts
         chartPadding: 40,
         startAngle: 90
       });
-      
+
       new Chartist.Line('#ratingsDetail', {
         labels: [2012, 2013, 2014, 2015, 2016],
         series: [
@@ -211,7 +210,7 @@ block scripts
       //-     var circle = new Chartist.Svg('circle', {
       //-       cx: [data.x],
       //-       cy: [data.y],
-      //-       r: [5], 
+      //-       r: [5],
       //-       'ct:value': data.value.y,
       //-       'ct:meta': data.meta,
       //-       class: 'my-cool-point',
@@ -221,8 +220,8 @@ block scripts
       //-     data.element.replace(circle);
       //-   }
       //- });
-    });     
-      
+    });
+
 block content
   .container
     center

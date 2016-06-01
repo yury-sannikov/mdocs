@@ -34,7 +34,7 @@ exports.wrapCurrUser = function() {
 exports.wrapJadeLocals = function() {
   return function *(next) {
     const currentUser = this.currentUser || {};
-
+    const { hasSubscription } = this.session || {};
     this.jadeLocals = {
       csrf: this.csrf,
       _csrf: this.csrf,
@@ -43,7 +43,8 @@ exports.wrapJadeLocals = function() {
       messages: {},
       error: {},
       flash: this.flash,
-      config: config
+      config: config,
+      hasSubscription
     };
 
     yield* next;

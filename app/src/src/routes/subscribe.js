@@ -63,6 +63,8 @@ router.post('checkout', '/checkout', function*() {
     } else {
       yield checkoutExistingUser.call(this);
     }
+
+    this.session.hasSubscription = true;
   } catch(err) {
     console.log(err.stack);
     yield renderPayment.call(this, this.request.body.plan, err.message);

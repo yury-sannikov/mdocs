@@ -46,11 +46,8 @@ function* loginCallbackHandler() {
 
       const dbUser = yield findUserById(user.id);
 
-      if (dbUser.stripeCustomer) {
-        ctx.response.redirect(redirectTo);
-      } else {
-        ctx.response.redirect(SUBSCRIBE_URL);
-      }
+      ctx.session.hasSubscription = !!dbUser.stripeCustomer;
+      ctx.response.redirect(redirectTo);
     }
   });
 }

@@ -19,7 +19,14 @@ script(src='/app/lib/rxjs/dist/rx.lite.min.js')
 script(src='/app/lib/rxjs-jquery/rx.jquery.js')
 script.
   $(document).ready(function() {
-
+    $('.alert button.close').click(function (e) {
+        var animationName = 'zoomOut';
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        var cont = $(this).parent();
+        cont.addClass('animated ' + animationName).one(animationEnd, function() {
+            cont.alert('close');
+        });
+    });
     $.validator.setDefaults({
       highlight: function(element) {
           $(element).closest('.form-group').addClass('has-error');

@@ -49,6 +49,13 @@ router.use(function*(next) {
   }
 });
 
+function* hasSubscriptionMiddleware(next) {
+  if (this.session.hasSubscription) {
+    yield next;
+  } else {
+    this.redirect('/subscribe');
+  }
+}
 
 // Show Dashboard
 router.get('dashboard', '/', function*() {
@@ -83,7 +90,7 @@ function* conductSurvey(id) {
   }
 }
 
-router.post('/resend-survey', function*() {
+router.post('/resend-survey', hasSubscriptionMiddleware, function*() {
   const data = yield db.surveyById(this.request.body.id);
   if (!hasDynamoData(data)) {
     this.redirect('patient-reviews');
@@ -94,7 +101,7 @@ router.post('/resend-survey', function*() {
   this.redirect('patient-reviews');
 });
 
-router.post('/new-request', function*() {
+router.post('/new-request', hasSubscriptionMiddleware, function*() {
   const locationOrProvider = this.request.body.locationOrProvider;
   const reviewSite = this.request.body.reviewSite;
   const isProvider = this.request.body.isProvider === 'yes';
@@ -141,7 +148,7 @@ router.get('/review/:id', function*() {
   this.render('reviews/detail', Object.assign({}, this.jadeLocals, { survey: data[0][0] }), true);
 });
 
-router.post('/delete-survey', function*() {
+router.post('/delete-survey', hasSubscriptionMiddleware, function*() {
   yield db.deleteSurvey(this.request.body.id);
   this.flash = 'Review deleted successfully.';
   this.redirect('patient-reviews');
@@ -162,14 +169,6 @@ router.get('/agreement', function*() {
   this.render('legal/agreement', this.jadeLocals, true);
 });
 
-
-// Show Pricing & Sign up
-router.get('/pricing-signup', function*() {
-  // this.render('privacy/privacy', this.jadeLocals, true);
-  console.log("Routed");
-  res.sendFile(path.join(__dirname+'/pricing-signup.html'));
-});
-
 // Show providers
 router.get('/providers', function*() {
   const data = yield db.providersForAdmin(this.currentUser.id);
@@ -185,7 +184,7 @@ router.get('/provider/:id', function*() {
   this.render('settings/providerDetail', Object.assign({}, this.jadeLocals, { provider: data[0][0] }), true);
 });
 
-router.post('/new-provider', function*() {
+router.post('/new-provider', hasSubscriptionMiddleware, function*() {
   console.log(this.request.body);
 
   const provider = Object.assign({}, this.request.body);
@@ -194,7 +193,7 @@ router.post('/new-provider', function*() {
   this.redirect('providers');
 });
 
-router.post('/update-provider', function*() {
+router.post('/update-provider', hasSubscriptionMiddleware, function*() {
   console.log(this.request.body);
 
   const provider = Object.assign({}, this.request.body);
@@ -203,7 +202,7 @@ router.post('/update-provider', function*() {
   this.redirect('providers');
 });
 
-router.post('/delete-provider', function*() {
+router.post('/delete-provider', hasSubscriptionMiddleware, function*() {
   yield db.deleteProvider(this.request.body.id);
   this.flash = 'Provider deleted successfully.';
   this.redirect('providers');
@@ -225,7 +224,7 @@ router.get('/location/:id', function*() {
   this.render('settings/locationDetail', Object.assign({}, this.jadeLocals, { location: data[0][0] }), true);
 });
 
-router.post('/new-location', function*() {
+router.post('/new-location', hasSubscriptionMiddleware, function*() {
   console.log(this.request.body);
 
   const location = Object.assign({}, this.request.body);
@@ -234,7 +233,7 @@ router.post('/new-location', function*() {
   this.redirect('locations');
 });
 
-router.post('/update-location', function*() {
+router.post('/update-location', hasSubscriptionMiddleware, function*() {
   console.log(this.request.body);
 
   const location = Object.assign({}, this.request.body);
@@ -243,7 +242,7 @@ router.post('/update-location', function*() {
   this.redirect('locations');
 });
 
-router.post('/delete-location', function*() {
+router.post('/delete-location', hasSubscriptionMiddleware, function*() {
   yield db.deleteLocation(this.request.body.id);
   this.flash = 'Location deleted successfully.';
   this.redirect('locations');
