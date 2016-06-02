@@ -1,0 +1,5 @@
+DOCKER_LOGIN=`aws ecr get-login`
+eval $DOCKER_LOGIN
+docker build -t openresty-alpine .
+docker tag openresty-alpine:latest 067216503767.dkr.ecr.us-east-1.amazonaws.com/openresty-alpine:latest
+docker push 067216503767.dkr.ecr.us-east-1.amazonaws.com/openresty-alpine:latest
