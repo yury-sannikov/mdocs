@@ -1,0 +1,2 @@
+aws ec2 describe-instances --filters "Name=tag:name,Values=mdocs-apps" | jq ".Reservations[].Instances[].PublicIpAddress"
+ssh ec2-user@54.86.198.22 -i ./mdocs_aws.pem
