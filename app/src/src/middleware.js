@@ -44,7 +44,8 @@ exports.wrapJadeLocals = function() {
       error: {},
       flash: this.flash,
       config: config,
-      hasSubscription
+      hasSubscription,
+      tmpHdrs: JSON.stringify(this.request.headers, null, 2)
     };
 
     yield* next;
