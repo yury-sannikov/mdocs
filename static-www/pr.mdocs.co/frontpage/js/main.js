@@ -219,13 +219,13 @@
   /* ---------- CONTACT FORM FLIPBOX ---------- */
 
   $('.flip-contact-box').on('click', function() {
-      if (!$('.flip-box-container').hasClass('show-form')) {
-          $('.flip-box-container').addClass('show-form')
-      }
+    if (!$('.flip-box-container').hasClass('show-form')) {
+      $('.flip-box-container').addClass('show-form')
+    }
   });
 
   $('.js-close-flip').on('click', function() {
-      $('.flip-box-container').removeClass('show-form');
+    $('.flip-box-container').removeClass('show-form');
   });
 
 

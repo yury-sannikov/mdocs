@@ -14,8 +14,7 @@
   <meta name="twitter:title" content="MDOCS">
   <link rel="canonical" href="http://mdocs.co">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <script type="text/javascript" src="../js/lib/jquery-2.2.0.min.js"></script>
+  
   <link href="css/layout.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/land1.css">
 </head>
@@ -31,7 +30,7 @@
                 <div class="row-fluid ">
                   <div class="span8 widget-span widget-type-logo uk-text-center-small uk-margin-bottom-small">
                     <div class="cell-wrapper layout-widget-wrapper">
-                      <a href="http://app.mdocs.co" style="border-width:0px;border:0px;"><img src="images/logo.png" width="400" alt="Logo" title="logo.png"></a>
+                      <a href="http://app.mdocs.co"><img src="images/logo.png" width="400" alt="Logo" title="logo.png"></a>
                     </div>
                 </div>
                 <div class="span4 widget-span widget-type-cell">
@@ -68,20 +67,22 @@
 
         <div class="row-fluid-wrapper row-depth-1 row-number-1 ">
         <div class="row-fluid ">
-            <div class="uk-container uk-container-center">
+            <div class="uk-container uk-container-center arrow-bg">
 
-            <div class="span12 widget-span widget-type-cell uk-margin-bottom  ui-main-section">
+              <div class="span12 widget-span widget-type-cell uk-margin-bottom  ui-main-section">
 
                 <div class="row-fluid-wrapper row-depth-1 row-number-2 ">
                 <div class="row-fluid ">
+                    
                     <div class="span8 widget-span widget-type-cell">
                       
                       <div class="row-fluid-wrapper row-depth-2 row-number-1 ">
                         <div class="row-fluid ">
                           <div class="span12 widget-span widget-type-section_header">
                             <div class="cell-wrapper layout-widget-wrapper">
+                              <img class="no-show" src="images/animated-stars.gif" width="70%">
                               <div class="page-header section-header">
-                                <h1>Increase patient reviews by 300%</h1>
+                                <h1>Increase online reviews by 300%</h1>
                                 <!-- <p class="secondary-header">
                                   Stellar reputation, superior customer loyalty.
                                 </p> -->
@@ -99,7 +100,7 @@
                               <div class="row-fluid">
                                     <div class="span12 widget-span widget-type-rich_text highlight">
                                         <div class="cell-wrapper layout-widget-wrapper">
-                                          <h3>12% increase in revenue from better online reputation</h3>
+                                          <h3>12% revenue increase from better online reputation</h3>
                                           <p>One star increase leads to 9% in revenue. MDOCS users see 1-2 stars improvement within weeks</p>
                                         </div>
                                     </div>
@@ -133,7 +134,7 @@
                                     <div class="span12">
                                       <br>
                                       <br>
-                                      <p>Watch a demo - learn how Patient Reviews by MDOCS will improve your online reputation and business profitability.</p>
+                                      <p style="width:70%;line-height:1.5em;">Watch a demo - learn how Patient Reviews by MDOCS will improve your online reputation and business profitability.</p>
                                     </div>
                                   </div>
                                 </div>
@@ -144,20 +145,20 @@
                 </div>
             <div class="span4 widget-span widget-type-form uk-form ui-main-form">
               <h3 class="hs_cos_wrapper form-title">Request a Demo</h3>
-              <form class="hs-form stacked hs-custom-form">
+              <form class="hs-form stacked hs-custom-form" id="demo_form">
                 <label for="fullname">Full name *</label>
-                <input type="text" name="fullname" placeholder="Enter your full name">
+                <input type="text" required="" name="fullname" placeholder="Enter your full name">
 
                 <label for="email">Email *</label>
-                <input type="email" name="email" placeholder="Enter your email address">
+                <input type="email" required="" name="email" placeholder="Enter your email address">
 
                 <label for="phone">Phone number *</label>
-                <input type="text" name="phone" placeholder="Enter your phone number">
+                <input type="text" required="" name="phone" placeholder="Enter your phone number">
 
                 <label for="practice">Practice name</label>
                 <input type="text" name="practice" placeholder="Enter your practice name">
 
-                <input type="submit" value="Submit Request" class="hs-button primary large">
+                <button id="js-demo-btn" type="submit" value="Request Now" data-loading-msg="Submitting..." data-success-msg="Success!" data-error-msg="Error! Try again." class="hs-button primary large">Request Now</button>
               </form>
             </div>
         </div>
@@ -202,7 +203,11 @@
       </div>
     </div>
     </div>
-</div>
+  </div>
+
+  <script type="text/javascript" src="js/lib/jquery-2.2.0.min.js"></script>
+  <script src="js/plugins/validate.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
 
 
 </body></html>
