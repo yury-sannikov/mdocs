@@ -34,6 +34,8 @@ popd
 rm -rf ./tmp
 
 
+# Update to latest
+docker pull silintl/ecs-deploy
 # Force AWS EC2 do Blue-Green deployment
 docker run --rm \
 -e "AWS_ACCESS_KEY_ID=AKIAIPKZH7X4NJKN3DVQ" \
