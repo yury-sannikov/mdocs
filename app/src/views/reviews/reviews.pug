@@ -260,7 +260,7 @@ block scripts
         var providerDropdown = $("#providerDropdown");
 
         if(providerDropdown.text() === "No Providers Found" && providers.length > 0) {
-          providerDropdown.html('${providers[0].name} <span class="caret"></span>');
+          providerDropdown.html(providers[0].name + ' <span class="caret"></span>');
           $('input[name="locationOrProvider"]').val(providers[0].id);
           $('#providerType li:first a').trigger('click');
         }
@@ -276,7 +276,7 @@ block scripts
         var locationDropdown = $("#locationDropdown");
 
         if(locationDropdown.text() === "No Locations Found" && locations.length > 0) {
-          locationDropdown.html('${locations[0].name} <span class="caret"></span>');
+          locationDropdown.html(locations[0].name + ' <span class="caret"></span>');
           $('input[name="locationOrProvider"]').val(locations[0].id);
           $('#locationType li:first a').trigger('click');
         }
@@ -411,7 +411,7 @@ block scripts
         $('#providerRadio').click();
         var providerDropdown = $('#providerDropdown');
         if(providerDropdown.text() === "No Providers Found" && providers.length > 0) {
-          providerDropdown.html('${providers[0].name} <span class="caret"></span>');
+          providerDropdown.html(providers[0].name + ' <span class="caret"></span>');
           providerDropdown.val(providers[0].name);
           $('input[name="locationOrProvider"]').val(providers[0].id);
         }
