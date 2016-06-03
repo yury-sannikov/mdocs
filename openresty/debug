@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
-
-exec docker run --rm -it \
+docker stop mdocs-apps-nginx
+docker rm -f mdocs-apps-nginx
+docker run --rm -it \
   --name mdocs-apps-nginx \
   -v "$(pwd)/nginx/conf":/opt/openresty/nginx/conf \
   -v "$(pwd)/nginx/html":/opt/openresty/nginx/html \
   -v "$(pwd)/nginx/lualib":/opt/openresty/nginx/lualib \
+  --link mdocs-apps:mdocs-apps \
   -p 8080:8080 \
   067216503767.dkr.ecr.us-east-1.amazonaws.com/openresty-alpine:latest "$@"

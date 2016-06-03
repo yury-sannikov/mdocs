@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+docker stop mdocs-apps
+docker rm -f mdocs-apps
+exec docker run --rm \
+  --name mdocs-apps \
+  -p 3030:3030 \
+  app-mdocs-co:latest
