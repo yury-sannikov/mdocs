@@ -10,8 +10,8 @@ router.use(require('./hooks').routes());
 //router.use(require('./signup').routes());
 router.use(require('./subscribe').routes());
 
-router.get('/', function*() {
-  this.render('index', this.jadeLocals, true);
+router.get('/health_check', function*() {
+  this.body = { healthy: 1};
 });
 
 module.exports = router;
