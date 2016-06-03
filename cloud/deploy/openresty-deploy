@@ -24,6 +24,7 @@ echo Performing Docker Login to AWS
 eval $DOCKER_LOGIN
 
 docker rmi app-mdocs-co-nginx:latest || true
+docker rmi 067216503767.dkr.ecr.us-east-1.amazonaws.com/app-mdocs-co-nginx:latest || true
 docker build -t app-mdocs-co-nginx .
 docker tag app-mdocs-co-nginx:latest 067216503767.dkr.ecr.us-east-1.amazonaws.com/app-mdocs-co-nginx:latest
 docker push 067216503767.dkr.ecr.us-east-1.amazonaws.com/app-mdocs-co-nginx:latest
