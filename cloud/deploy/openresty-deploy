@@ -1,0 +1,42 @@
+#!/bin/bash
+rm -rf ./tmp
+
+set -e
+
+mkdir tmp
+mkdir tmp/nginx
+cp -rf ../../openresty/nginx/* ./tmp/nginx/
+cp ../../openresty/Dockerfile ./tmp/Dockerfile
+
+rm -rf ./tmp/nginx/html
+mkdir tmp/nginx/html
+cp -rf ../../static-www/* ./tmp/nginx/html/
+
+pushd tmp
+
+export AWS_ACCESS_KEY_ID=AKIAIPKZH7X4NJKN3DVQ
+export AWS_SECRET_ACCESS_KEY=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
+export AWS_DEFAULT_REGION=us-east-1
+
+echo Get Docker Login commang from AWS
+DOCKER_LOGIN=`aws ecr get-login`
+echo Performing Docker Login to AWS
+eval $DOCKER_LOGIN
+
+docker rmi app-mdocs-co-nginx:latest || true
+docker build -t app-mdocs-co-nginx .
+docker tag app-mdocs-co-nginx:latest 067216503767.dkr.ecr.us-east-1.amazonaws.com/app-mdocs-co-nginx:latest
+docker push 067216503767.dkr.ecr.us-east-1.amazonaws.com/app-mdocs-co-nginx:latest
+
+popd
+
+rm -rf ./tmp
+
+
+# Force AWS EC2 do Blue-Green deployment
+docker run --rm \
+-e "AWS_ACCESS_KEY_ID=AKIAIPKZH7X4NJKN3DVQ" \
+-e "AWS_SECRET_ACCESS_KEY=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" \
+-e "AWS_DEFAULT_REGION=us-east-1" \
+silintl/ecs-deploy:latest -c app-mdocs-co -n www -i 067216503767.dkr.ecr.us-east-1.amazonaws.com/app-mdocs-co-nginx:latest
+
