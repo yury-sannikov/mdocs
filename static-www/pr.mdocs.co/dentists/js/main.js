@@ -10,7 +10,7 @@
       $.ajax({
         url: slack_url,
         type: 'POST',
-        data: JSON.stringify({"text": "NEW DEMO VISITOR.\nDETAILS: " + JSON.stringify(data, null, 2), "username": "moneybot", "icon_url": "http://icons.iconarchive.com/icons/icons-land/multiple-smiley/256/Emoticon-Money-icon.png"}),
+        data: JSON.stringify({"text": "NEW DEMO VISITOR.\nDETAILS: " + JSON.stringify(data, null, 2)}),
         success: function(d) {
             // console.log('Succcess');
           },
