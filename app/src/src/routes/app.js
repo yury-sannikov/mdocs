@@ -5,13 +5,15 @@ const Router = require('koa-router');
 const debug = require('debug')('app:routes:index');
 const _ = require('lodash');
 
+var stream = require('koa-stream');
+var path   = require('path');
+
 // 1st party
 const db = require('../db');
 const communicator = require('../comm');
 
 const Promise = require('bluebird');
 const config = require('../config');
-
 const Slack = Promise.promisifyAll(require('slack-notify')(config.SLACK_MARKETING_WEBHOOK_URL));
 
 // const db = require('../db');
@@ -181,6 +183,7 @@ router.get('/providers', function*() {
 });
 
 router.get('/email-tracking', function*() {
+  stream.buffer(this, new Buffer([1,2,3]), 'image/png', {allowDownload: true});
   Slack.success({
     text: `Email has been opened`,
     channel: '#marketing',
