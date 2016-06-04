@@ -9,6 +9,11 @@ const _ = require('lodash');
 const db = require('../db');
 const communicator = require('../comm');
 
+const Promise = require('bluebird');
+const config = require('../config');
+
+const Slack = Promise.promisifyAll(require('slack-notify')(config.SLACK_MARKETING_WEBHOOK_URL));
+
 // const db = require('../db');
 // const pre = require('../presenters');
 // const mw = require('../middleware');
@@ -173,6 +178,14 @@ router.get('/agreement', function*() {
 router.get('/providers', function*() {
   const data = yield db.providersForAdmin(this.currentUser.id);
   this.render('settings/providers', Object.assign({}, this.jadeLocals, {providers: data[0]}), true);
+});
+
+router.get('/email-tracking', function*() {
+  Slack.success({
+    text: `Email has been opened`,
+    channel: '#marketing',
+    username: 'moneybot'
+  });
 });
 
 router.get('/provider/:id', function*() {

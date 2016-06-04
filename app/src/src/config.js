@@ -55,6 +55,7 @@ exports.BITLY_CLIENT_SECRET = process.env.BITLY_CLIENT_SECRET;
 exports.BITLY_TOKEN = process.env.BITLY_TOKEN;
 
 exports.SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL;
+exports.SLACK_MARKETING_WEBHOOK_URL = process.env.SLACK_MARKETING_WEBHOOK_URL;
 
 exports.AUTH_API_JWT = process.env.AUTH_API_JWT;
 
