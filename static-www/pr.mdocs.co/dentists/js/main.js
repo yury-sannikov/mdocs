@@ -4,8 +4,6 @@
   var slack_url = 'https://hooks.slack.com/services/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';
 
   $(document).ready(function() {
-    console.log("Document ready.");
-
     $.getJSON('//gd.geobytes.com/GetCityDetails?callback=?', function(data) {
       // console.log(JSON.stringify(data, null, 2));
       /* Slack */
