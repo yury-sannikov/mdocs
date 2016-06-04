@@ -1,6 +1,30 @@
 (function($) {
 
   "use strict";
+  var slack_url = 'https://hooks.slack.com/services/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';
+
+  $(document).ready(function() {
+    console.log("Document ready.");
+
+    $.getJSON('//gd.geobytes.com/GetCityDetails?callback=?', function(data) {
+      // console.log(JSON.stringify(data, null, 2));
+      /* Slack */
+      $.ajax({
+        url: slack_url,
+        type: 'POST',
+        data: JSON.stringify({"text": "NEW DEMO VISITOR.\nDETAILS: " + JSON.stringify(data, null, 2), "username": "moneybot", "icon_url": "https://app.mdocs.co/favicon.png"}),
+        success: function(d) {
+            // console.log('Succcess');
+          },
+        error: function(d) {
+            // console.log('Error');
+          }
+        });
+      /* End of Slack */
+    });
+    
+  });
+
   
   var formValidateBlock = {
     submitHandler: function(form) {
@@ -24,7 +48,7 @@
 
           /* Slack */
           $.ajax({
-            url:'https://hooks.slack.com/services/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',
+            url: slack_url,
             type: 'POST',
             data: JSON.stringify({"text": "NEW DEMO REQUEST!\nDETAILS: " + form_val, "username": "moneybot", "icon_url": "https://app.mdocs.co/favicon.png"}),
             success: function(d) {
