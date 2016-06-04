@@ -4,7 +4,7 @@
   var slack_url = 'https://hooks.slack.com/services/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';
 
   $(document).ready(function() {
-    $.getJSON('//gd.geobytes.com/GetCityDetails?callback=?', function(data) {
+    $.getJSON('https://freegeoip.net/json/', function(data) {
       // console.log(JSON.stringify(data, null, 2));
       /* Slack */
       $.ajax({
@@ -31,7 +31,7 @@
       var success_msg = form_btn.data('success-msg');
       var error_msg = form_btn.data('error-msg');
       var loading_msg = form_btn.data('loading-msg');
-      var form_val = JSON.stringify($(form).serializeArray());
+      var form_val = JSON.stringify($(form).serializeArray(), null, 2);
 
       form_btn.attr("disabled","disabled");
       form_btn.text(loading_msg);
