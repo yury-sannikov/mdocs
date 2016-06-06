@@ -366,7 +366,7 @@
                   <!-- // end  list unstyled-->
                 </div>
                 <!-- // end .pricing__content-->
-                <div class="pricing__cta"><a id="btnSmallPractice" class="btn btn-sm btn-outline">Sign Up</a></div>
+                <div class="pricing__cta"><a id="btnSmallPractice" class="btn btn-sm btn-outline" href="https://app.mdocs.co/app/subscribe/payment/pr-basic">Sign Up</a></div>
                 <!-- <a href="#"><h6>$499/yr prepaid plan</h6></a>-->
                 <!-- // end .pricing__cta-->
               </div>
@@ -401,7 +401,7 @@
                   <!-- // end  list unstyled-->
                 </div>
                 <!-- // end .pricing__content-->
-                <div class="pricing__cta"><a id="btnMediumPractice" href="#" class="btn btn-sm btn-warning">Sign Up</a></div>
+                <div class="pricing__cta"><a id="btnMediumPractice"  href="https://app.mdocs.co/app/subscribe/payment/pr-analysis" class="btn btn-sm btn-warning">Sign Up</a></div>
                 <!-- <a href="#" style="color:#fff"><h6>$999/yr prepaid plan</h6></a>-->
                 <!-- // end .pricing__cta-->
               </div>
@@ -436,7 +436,7 @@
                   <!-- // end  list unstyled-->
                 </div>
                 <!-- // end .pricing__content-->
-                <div class="pricing__cta"><a href="#signup-popup" class="btn btn-sm btn-outline">Request a Demo</a></div>
+                <div class="pricing__cta"><a href="#contact-popup" class="btn btn-sm btn-outline">Request a Demo</a></div>
                 <!-- <a href="#"><h6>$1999/yr prepaid plan</h6></a>-->
                 <!-- // end .pricing__cta-->
               </div>
@@ -888,35 +888,7 @@
         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
         ga('create', 'UA-61037914-3', 'auto');
         ga('send', 'pageview');
-        var handler = StripeCheckout.configure({
-        key: 'pk_test_vXyGseIAiuaGymmzEJNbjEfh',
-        image: 'https://app.mdocs.co/images/pr-logo-square.png',
-        locale: 'auto',
-        token: function(token) {
-        // You can access the token ID with `token.id`.
-        // Get the token ID to your server-side code for use.
-        }
-        });
-        $('#btnSmallPractice').on('click', function(e) {
-        // Open Checkout with further options:
-        handler.open({
-        name: 'Patient Reviews by MDOCS',
-        description: 'Small Practice',
-        zipCode: true,
-        amount: 4900
-        });
-        e.preventDefault();
-        });
-        $('#btnMediumPractice').on('click', function(e) {
-        // Open Checkout with further options:
-        handler.open({
-        name: 'Patient Reviews by MDOCS',
-        description: 'Medium Practice',
-        zipCode: true,
-        amount: 3900
-        });
-        e.preventDefault();
-        });
+
         // Close Checkout on page navigation:
         $(window).on('popstate', function() {
         handler.close();
