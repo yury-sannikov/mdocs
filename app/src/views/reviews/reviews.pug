@@ -48,7 +48,7 @@ block content
                     td
                       +star_mixin(review.averageRating)
                     td.hidden-xs
-                      a.btn.btn-info.btn-xs(href='/app/review/'+review.id) View
+                      a.btn.btn-info.btn-xs(href='review/'+review.id) View
                       | &nbsp;
                       a.linkresend.btn.btn-primary.btn-xs(href="#", data-surveyid=review.id) Resend&nbsp;
                       | &nbsp;
@@ -72,11 +72,11 @@ block content
           h4 Are you sure?
           form#resendform(action='resend-survey', method='POST')
             input.form-control(type='hidden', name='_csrf', value=_csrf)
-            input#resendformid.form-control(type='hidden', name='id')            
+            input#resendformid.form-control(type='hidden', name='id')
         .modal-footer
           button.btn.btn-default(type='button', data-dismiss='modal') No
           button#resendModalConfirm.btn.btn-primary(type='button') Yes!
-          
+
   #deleteModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='deleteModalLabel', aria-hidden='true')
       .modal-dialog.modal-sm
         .modal-content
@@ -87,7 +87,7 @@ block content
             h4 Are you sure?
             form#deleteform(action='delete-survey', method='POST')
               input.form-control(type='hidden', name='_csrf', value=_csrf)
-              input#deleteformid.form-control(type='hidden', name='id')            
+              input#deleteformid.form-control(type='hidden', name='id')
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') No
             button#deleteModalConfirm.btn.btn-primary(type='button') Yes!
@@ -150,7 +150,7 @@ block content
                           each location, i in locations
                             li
                               a(href="#", data-id=location.id) #{location.name}
-                  strong Review site    
+                  strong Review site
                   .form-group
                     div.dropdown(id="dropdownType")
                       button.btn.btn-default.dropdown-toggle(type="button", name="sitesDropdown", id="sitesDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Yelp
@@ -166,7 +166,7 @@ block content
                           a(href="#", data-id='vitals', data-form-value='reviewSite') Vitals.com
                         li(id="ratemdsOption")
                           a(href="#", data-id='ratemds', data-form-value='reviewSite') RateMDs.com
-                        li(id="yellowpagesOption") 
+                        li(id="yellowpagesOption")
                           a(href="#", data-id='yellowpages', data-form-value='reviewSite') Yellow Pages
 
           .modal-footer
@@ -183,7 +183,7 @@ block scripts
     const providers = !{JSON.stringify(providers)};
     const locations = !{JSON.stringify(locations)};
     // Hardecoded review site names
-    const HARDCODED_SITE_NAMES = ["Yelp", "Google", "HealthGrades.com", "Vitals.com", "RateMDs.com", "Yellow Pages"]; 
+    const HARDCODED_SITE_NAMES = ["Yelp", "Google", "HealthGrades.com", "Vitals.com", "RateMDs.com", "Yellow Pages"];
 
     // DOM Ready =============================================================
     (function(init) {
@@ -222,7 +222,7 @@ block scripts
         // When a new option is selected, adjust the available review sites
         $('#providerType').on('click', 'li a', changeAvailableReviewSites);
         $('#locationType').on('click', 'li a', changeAvailableReviewSites);
-        
+
         // Saving updated review site value
         $('[data-form-value]').on('click', updateFormValue);
 
@@ -251,7 +251,7 @@ block scripts
 
       // Prevent Link from Firing
       event.preventDefault();
-      
+
       // Display providers dropdown
       if($('#providerRadio').is(':checked')) {
         $('#providerType').show();
@@ -315,14 +315,14 @@ block scripts
       // Set available options
       selectedOption.review_sites.yelp == null ? $('#yelpOption').hide() : $('#yelpOption').show();
 
-      selectedOption.review_sites.google == null ? $('#googleOption').hide() : 
-        $('#googleOption').show(); 
+      selectedOption.review_sites.google == null ? $('#googleOption').hide() :
+        $('#googleOption').show();
 
-      selectedOption.review_sites.healthgrades == null ? $('#healthgradesOption').hide() : $('#healthgradesOption').show(); 
-      
-      selectedOption.review_sites.vitals == null ? $('#vitalsOption').hide() : $('#vitalsOption').show();  
+      selectedOption.review_sites.healthgrades == null ? $('#healthgradesOption').hide() : $('#healthgradesOption').show();
 
-      selectedOption.review_sites.ratemds == null ? $('#ratemdsOption').hide() : $('#ratemdsOption').show();  
+      selectedOption.review_sites.vitals == null ? $('#vitalsOption').hide() : $('#vitalsOption').show();
+
+      selectedOption.review_sites.ratemds == null ? $('#ratemdsOption').hide() : $('#ratemdsOption').show();
 
       selectedOption.review_sites.yellowpages == null ? $('#yellowpagesOption').hide() : $('#yellowpagesOption').show();
 
@@ -454,7 +454,7 @@ block scripts
             visitDate: {
               required: "We need visit date"
             }
-          },          
+          },
           submitHandler: function(form) {
             form.submit();
           },

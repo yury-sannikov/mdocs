@@ -24,15 +24,15 @@ Bitly.setAccessToken(config.BITLY_TOKEN);
 
 
 exports.generateSurveyDetailsUrl = function(id) {
-  return `https://app.mdocs.co/app/review/${id}`;
+  return `https://app.mdocs.co/app/pr/phi/review/${id}`;
 };
 
 exports.generateSurveyUrl = function(id, code) {
-  return `https://app.mdocs.co/survey/${id}:${code}`;
+  return `https://app.mdocs.co/app/pr/survey/${id}:${code}`;
 };
 
 exports.generateUnsubscriveUrl = function(id, code) {
-  return `https://app.mdocs.co/stop-survey/${id}:${code}`;
+  return `https://app.mdocs.co/app/pr/survey/stop/${id}:${code}`;
 };
 
 exports.conductSurvey = function* (id) {

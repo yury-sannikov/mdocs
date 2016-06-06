@@ -27,7 +27,11 @@ const router = new Router({
 
 router.use(checkAuthenticated);
 
-router.get('/patient-reviews', function*() {
+router.get('/', function*() {
+  this.redirect(router.url('patient-reviews'));
+});
+
+router.get('patient-reviews', '/patient-reviews', function*() {
   const data = yield db.surveysForProvider(this.currentUser.id);
   const reviews = data[0].map((item) => {
     const avg = _.chain(item.answers).values().sum().value() / _.values(item.answers).length;
@@ -58,12 +62,12 @@ function* conductSurvey(id) {
 router.post('/resend-survey', hasSubscription, function*() {
   const data = yield db.surveyById(this.request.body.id);
   if (!hasDynamoData(data)) {
-    this.redirect('patient-reviews');
+    this.redirect(router.url('patient-reviews'));
     return;
   }
   yield conductSurvey.call(this, this.request.body.id);
 
-  this.redirect('patient-reviews');
+  this.redirect(router.url('patient-reviews'));
 });
 
 router.post('/new-request', hasSubscription, function*() {
@@ -89,7 +93,7 @@ router.post('/new-request', hasSubscription, function*() {
   if (!hasDynamoData(providerOrLocation)) {
     debug(`Can't find review object: ${JSON.stringify(survey.reviewFor)}`);
     this.flash = 'Unable to find specified review object';
-    this.redirect('patient-reviews');
+    this.redirect(router.url('patient-reviews'));
     return;
   }
 
@@ -101,13 +105,13 @@ router.post('/new-request', hasSubscription, function*() {
 
   yield conductSurvey.call(this, id);
 
-  this.redirect('patient-reviews');
+  this.redirect(router.url('patient-reviews'));
 });
 
 router.get('/review/:id', function*() {
   const data = yield db.surveyById(this.params.id);
   if (!data || !data[0] || data[0].length == 0) {
-    this.redirect('/app/patient-reviews');
+    this.redirect(router.url('patient-reviews'));
     return;
   }
   this.render('reviews/detail', Object.assign({}, this.jadeLocals, { survey: data[0][0] }), true);
@@ -116,7 +120,7 @@ router.get('/review/:id', function*() {
 router.post('/delete-survey', hasSubscription, function*() {
   yield db.deleteSurvey(this.request.body.id);
   this.flash = 'Review deleted successfully.';
-  this.redirect('patient-reviews');
+  this.redirect(router.url('patient-reviews'));
 });
 
 

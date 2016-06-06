@@ -93,7 +93,7 @@ nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
                     i.fa.fa-fw.fa-dashboard
                     | &nbsp;Dashboard
                 li
-                  a(href='/app/patient-reviews')
+                  a(href='/app/pr/phi/patient-reviews')
                     i.fa.fa-fw.fa-thumbs-o-up
                     | &nbsp;Patient Reviews
             li.dropdown(class=url=='/apilocked'?'active':undefined)
@@ -103,11 +103,11 @@ nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
                 b.caret
               ul.dropdown-menu
                 li
-                  a(href='/app/providers')
+                  a(href='/app/pr/providers')
                     i.fa.fa-fw.fa-user
                     | &nbsp;Providers
                 li
-                  a(href='/app/locations')
+                  a(href='/app/pr/locations')
                     i.fa.fa-fw.fa-home
                     | &nbsp;Locations
 
@@ -137,7 +137,7 @@ nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
             //           | &nbsp;Color Scheme
 
             //- User account
-            li.dropdown(class=url=='/account'?'active':undefined)
+            li.dropdown(class=url=='/app/profile'?'active':undefined)
               a.dropdown-toggle(href='#', data-toggle='dropdown')
                 if user.picture
                   img.profile-image(src = user.picture)
@@ -145,7 +145,7 @@ nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
                 b.caret
               ul.dropdown-menu
                 li
-                  a(href='/profile')
+                  a(href='/app/profile')
                     i.fa.fa-fw.fa-user
                     | &nbsp;My Profile
                 // li
@@ -154,14 +154,14 @@ nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
                 //     | &nbsp;Contact Us
                 li.divider
                 li
-                  a(href='/logout')
+                  a(href='/app/logout')
                     i.fa.fa-fw.fa-sign-out
                     | &nbsp;Logout
 
         else
           //- No user/not logged in
           ul.nav.navbar-nav.navbar-right
-            li(class=url=='/login'?'active':undefined)
-              a(href='/subscribe/pricing')
+            li(class=url=='/app/subscribe/pricing'?'active':undefined)
+              a(href='/app/subscribe/pricing')
                 i.fa.fa-user
                 | &nbsp;Sign up
