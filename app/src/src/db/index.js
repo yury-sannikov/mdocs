@@ -81,7 +81,7 @@ exports.createNewSurvey = function() {
     }
 
     yield insertAsync(newSurvey);
-    
+
     return id;
   };
 };
