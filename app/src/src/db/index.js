@@ -59,22 +59,42 @@ exports.createNewSurvey = function() {
       .table('survey_review');
     const insertAsync = Promise.promisify(chain.insert, {context: chain});
     const id = uuid.v4();
-    yield insertAsync({
-      id: id,
-      provider_id: providerId,
-      status: 0,
-      survey_date: moment().utc().unix(),
-      visit_date: moment(survey.visitDate).utc().unix(),
-      questions: questions,
-      patient: {
-        'email': survey.email,
-        'name': survey.name,
-        'phone': survey.phoneMobile
-      },
-      title: title,
-      reviewFor: survey.reviewFor,
-      reviewSite: survey.reviewSite
-    });
+
+    if(_.isEmpty(survey.phoneMobile)) {
+      yield insertAsync({
+        id: id,
+        provider_id: providerId,
+        status: 0,
+        survey_date: moment().utc().unix(),
+        visit_date: moment(survey.visitDate).utc().unix(),
+        questions: questions,
+        patient: {
+          'email': survey.email,
+          'name': survey.name
+        },
+        title: title,
+        reviewFor: survey.reviewFor,
+        reviewSite: survey.reviewSite
+      });
+    }
+    else {
+      yield insertAsync({
+        id: id,
+        provider_id: providerId,
+        status: 0,
+        survey_date: moment().utc().unix(),
+        visit_date: moment(survey.visitDate).utc().unix(),
+        questions: questions,
+        patient: {
+          'email': survey.email,
+          'name': survey.name,
+          'phone': survey.phoneMobile
+        },
+        title: title,
+        reviewFor: survey.reviewFor,
+        reviewSite: survey.reviewSite
+      });
+    }
     return id;
   };
 };
