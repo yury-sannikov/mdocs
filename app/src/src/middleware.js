@@ -13,7 +13,7 @@ const csrf = require('koa-csrf');
 const config = require('./config');
 const comm = require('./comm');
 
-const CSRF_SKIP_PREFIX='/hooks';
+const CSRF_SKIP_PREFIX='/app/hooks';
 
 // set currentUser to user object from passport object from session
 exports.wrapCurrUser = function() {
