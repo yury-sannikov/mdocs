@@ -135,6 +135,10 @@ exports.insertOrUpdateUser = function* (id, user) {
 
   const thisUser = yield exports.findUserById(id);
 
+  if (!thisUser) {
+    return;
+  }
+
   const upsertAsync = Promise.promisify(chain.insert_or_replace, {context: chain});
 
   return yield upsertAsync(Object.assign({}, thisUser, user));

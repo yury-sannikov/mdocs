@@ -158,3 +158,21 @@ exports.autolink = function(s) {
 exports.formatPhone = function(text) {
   return text.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
 };
+
+// Route middleware to check if user logged in. Redirect
+// to application login page if not
+export function* checkAuthenticated(next) {
+  if (this.isAuthenticated()) {
+    yield next;
+  } else {
+    this.redirect(`/app/login?r=${encodeURIComponent(this.request.url)}`);
+  }
+}
+
+export function* hasSubscription(next) {
+  if (this.session.hasSubscription) {
+    yield next;
+  } else {
+    this.redirect('/app/subscribe');
+  }
+}
