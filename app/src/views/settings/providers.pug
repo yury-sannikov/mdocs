@@ -38,7 +38,7 @@ block content
                     td
                       span #{formatPhone(provider.phone)}
                     td
-                      a.btn.btn-info.btn-xs(href='/app/provider/'+provider.id) View
+                      a.btn.btn-info.btn-xs(href='provider/'+provider.id) View
                       | &nbsp;
                       a.linkedit.btn.btn-primary.btn-xs(href="#", data-providerId=provider.id) Edit&nbsp;
                       | &nbsp;
@@ -60,7 +60,7 @@ block content
             h4 Are you sure?
             form#deleteform(action='delete-provider', method='POST')
               input.form-control(type='hidden', name='_csrf', value=_csrf)
-              input#deleteformid.form-control(type='hidden', name='id')            
+              input#deleteformid.form-control(type='hidden', name='id')
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') No
             button#deleteModalConfirm.btn.btn-primary(type='button') Yes!
@@ -127,7 +127,7 @@ block content
                       input.form-control-static(style="width: 70%", type='text', name='yellowpages', id='yellowpages', placeholder='Yellow Pages ID')
                       h5(style="float: right; font-weight: bold;") Set Default
                         input(type="radio", name="defaultReviewSite", id="yellowpagesDefaultRadio", value='yellowpages', style="margin-left: 10px;")
-                  
+
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') Cancel
             button#sendproviderbutton.btn.btn-primary(type='button') Save
@@ -143,8 +143,8 @@ block content
             .row
               .col-sm-12
                 h4 Provider Details
-                form#editproviderform(action='update-provider', method='POST') 
-                  input.form-control(type='hidden', name='editID', id='editID')    
+                form#editproviderform(action='update-provider', method='POST')
+                  input.form-control(type='hidden', name='editID', id='editID')
                   input.form-control(type='hidden', name='_csrf', value=_csrf)
                   .form-group
                     label.sr-only(for='name') Name
@@ -194,7 +194,7 @@ block content
                       input.form-control-static(style="width: 70%", type='text', name='yellowpages', id='editYellowpages', placeholder='Yellow Pages ID')
                       h5(style="float: right; font-weight: bold;") Set Default
                         input(type="radio", name="defaultReviewSite", id="editYellowpagesDefaultRadio", value='yellowpages', style="margin-left: 10px;")
-                  
+
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') Cancel
             button#sendeditproviderbutton.btn.btn-primary(type='button') Save
@@ -414,10 +414,10 @@ block scripts
       // pass the user's id through
       function showmodal(id) {
         // Populate attributes
-        const user = providers.filter(function(pr) { 
+        const user = providers.filter(function(pr) {
           return pr.id === id;
         })[0];
-        
+
         $('#editID').val(user.id);
         $('#editName').val(user.name);
         $('#editEmail').val(user.email);

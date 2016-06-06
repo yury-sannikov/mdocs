@@ -41,7 +41,7 @@ block content
                     td
                       span #{formatPhone(location.phone)}
                     td
-                      a.btn.btn-info.btn-xs(href='/app/location/'+location.id) View
+                      a.btn.btn-info.btn-xs(href='location/'+location.id) View
                       | &nbsp;
                       a.linkedit.btn.btn-primary.btn-xs(href="#", data-locationId=location.id) Edit&nbsp;
                       | &nbsp;
@@ -63,7 +63,7 @@ block content
             h4 Are you sure?
             form#deleteform(action='delete-location', method='POST')
               input.form-control(type='hidden', name='_csrf', value=_csrf)
-              input#deleteformid.form-control(type='hidden', name='id')            
+              input#deleteformid.form-control(type='hidden', name='id')
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') No
             button#deleteModalConfirm.btn.btn-primary(type='button') Yes!
@@ -134,7 +134,7 @@ block content
                       input.form-control-static(style="width: 70%", type='text', name='yellowpages', id='yellowpages', placeholder='Yellow Pages ID')
                       h5(style="float: right; font-weight: bold;") Set Default
                         input(type="radio", name="defaultReviewSite", id="yellowpagesDefaultRadio", value='yellowpages', style="margin-left: 10px;")
-                  
+
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') Cancel
             button#sendlocationbutton.btn.btn-primary(type='button') Save
@@ -150,8 +150,8 @@ block content
             .row
               .col-sm-12
                 h4 Location Details
-                form#editlocationform(action='update-location', method='POST') 
-                  input.form-control(type='hidden', name='editID', id='editID')    
+                form#editlocationform(action='update-location', method='POST')
+                  input.form-control(type='hidden', name='editID', id='editID')
                   input.form-control(type='hidden', name='_csrf', value=_csrf)
                   .form-group
                     label.sr-only(for='name') Name
@@ -205,7 +205,7 @@ block content
                       input.form-control-static(style="width: 70%", type='text', name='yellowpages', id='editYellowpages', placeholder='Yellow Pages ID')
                       h5(style="float: right; font-weight: bold;") Set Default
                         input(type="radio", name="defaultReviewSite", id="editYellowpagesDefaultRadio", value='yellowpages', style="margin-left: 10px;")
-                  
+
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') Cancel
             button#sendeditlocationbutton.btn.btn-primary(type='button') Save
@@ -428,7 +428,7 @@ block scripts
       // pass the user's id through
       function showmodal(id) {
         // Populate attributes
-        const user = locations.filter(function(loc) { 
+        const user = locations.filter(function(loc) {
           return loc.id === id;
         })[0];
 
