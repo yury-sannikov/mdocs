@@ -5,13 +5,18 @@ const Router = require('koa-router');
 const debug = require('debug')('app:routes:user_hook');
 import passport from 'koa-passport';
 import { findUserById } from '../db';
-
+import { sendStripeCallbackToSlack } from '../comm';
 const router = new Router({
   prefix: '/hooks'
 });
 
 router.post('/auth0', function*() {
   yield insertOrUpdateUser(this.request.body);
+  this.body = { ok: 1};
+});
+
+router.post('/stripe', function*() {
+  yield sendStripeCallbackToSlack(this.request.body);
   this.body = { ok: 1};
 });
 

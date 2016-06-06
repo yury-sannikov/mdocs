@@ -172,3 +172,11 @@ export function* sendEmailTrackingToSlack() {
     username: 'moneybot'
   });
 }
+
+export function* sendStripeCallbackToSlack(data) {
+  yield Slack.successAsync({
+    text: `Stripe event of type ${data.type} has been received:\n${JSON.stringify(data, null, 2)}`,
+    channel: '#mdocs',
+    username: 'MDOCS Apps Portal'
+  });
+}
