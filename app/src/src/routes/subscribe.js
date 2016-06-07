@@ -2,7 +2,7 @@
 import Router from 'koa-router';
 import _ from 'lodash';
 import bouncer from 'koa-bouncer';
-import {createSubscription} from '../comm/stripe';
+import {createSubscription} from '../stripe';
 import { findUserByEmail, findUserById, insertOrUpdateUser } from '../db';
 import { createUser, loginUser } from '../auth0';
 import jwt from 'jsonwebtoken';
