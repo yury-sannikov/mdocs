@@ -2,9 +2,9 @@ var passport = require('koa-passport');
 var Auth0Strategy = require('passport-auth0');
 const config = require('./config');
 const debug = require('debug')('app:auth');
-
+var co = require('co');
 var Auth0Profile = require('passport-auth0/lib/Profile');
-
+import { getSubscriptionInfo } from './stripe';
 
 var strategy = new Auth0Strategy({
   domain:       'movelmobile.auth0.com',
@@ -31,15 +31,21 @@ function massageUser(user) {
   delete sessionUser._raw;
   return sessionUser;
 }
-// This is not a best practice, but we want to keep things simple for now
+
 passport.serializeUser(function(user, done) {
-  done(null, massageUser(user));
+  co(function* () {
+    const subInfo = yield getSubscriptionInfo(user.id);
+    return massageUser(Object.assign({}, user, { subInfo } ));
+  }).then(function (data) {
+    done(null, data);
+  }, function (err) {
+    done(err);
+  });
 });
 
 passport.deserializeUser(function(user, done) {
   done(null, user);
 });
-
 
 // Use Auth0 Profile class to create seamless profile as passport-auth0 does.
 export function serializeUserFromProfile(profile, jwtToken) {

@@ -6,6 +6,15 @@
           i.fa.fa-times-circle-o
         | You don't have active subscription. Please&nbsp;
         a(href='/app/subscribe') subscribe.
+  if showCreateLocationProviderAlert
+    .alert.alert-danger.alert-dismissable
+      button.close(type='button', aria-hidden='true')
+        i.fa.fa-times-circle-o
+      | Please create your first&nbsp;
+      a(href='/app/pr/locations') Location&nbsp;
+      | or&nbsp;
+      a(href='/app/pr/providers') Provider
+      | .
   if messages.error
     .alert.alert-danger.alert-dismissable
       button.close(type='button', data-dismiss='alert', aria-hidden='true')

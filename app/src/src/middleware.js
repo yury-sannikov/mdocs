@@ -13,7 +13,7 @@ const csrf = require('koa-csrf');
 const config = require('./config');
 const comm = require('./comm');
 
-const CSRF_SKIP_PREFIX='/app/hooks';
+const CSRF_SKIP_PREFIX = '/app/hooks';
 
 // set currentUser to user object from passport object from session
 exports.wrapCurrUser = function() {
@@ -30,11 +30,24 @@ exports.wrapCurrUser = function() {
   };
 };
 
+
+function needShowCreateLocationProviderAlert(subInfo) {
+  const { locations = 0, providers = 0, subscriptions = [] } = subInfo;
+  if (subscriptions.length === 0) {
+    return false;
+  }
+  const mainSubscription = subscriptions[0] || {};
+  const totalEntities = locations + providers;
+  return totalEntities < _.get(mainSubscription, 'qty', 0);
+}
+
 // Expose jadeLocals to context
 exports.wrapJadeLocals = function() {
   return function *(next) {
     const currentUser = this.currentUser || {};
     const { hasSubscription } = this.session || {};
+    const { subInfo = {} } = currentUser;
+    const showCreateLocationProviderAlert = needShowCreateLocationProviderAlert(subInfo);
     this.jadeLocals = {
       csrf: this.csrf,
       _csrf: this.csrf,
@@ -44,7 +57,8 @@ exports.wrapJadeLocals = function() {
       error: {},
       flash: this.flash,
       config: config,
-      hasSubscription
+      hasSubscription,
+      showCreateLocationProviderAlert
     };
 
     yield* next;

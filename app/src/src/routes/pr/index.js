@@ -6,6 +6,7 @@ const _ = require('lodash');
 const db = require('../../db');
 const communicator = require('../../comm');
 import { checkAuthenticated, hasSubscription } from '../../belt';
+import { updateSubscription } from '../../stripe';
 
 
 const HARDCODED_QUESTIONS = {
@@ -54,7 +55,7 @@ router.post('/new-provider', hasSubscription, function*() {
 
   const provider = Object.assign({}, this.request.body);
   const id = yield db.createProvider()(this.currentUser.id, provider);
-
+  yield updateSubscription(this.currentUser.id, this.session);
   this.redirect(router.url('providers'));
 });
 
@@ -70,6 +71,7 @@ router.post('/update-provider', hasSubscription, function*() {
 router.post('/delete-provider', hasSubscription, function*() {
   yield db.deleteProvider(this.request.body.id);
   this.flash = 'Provider deleted successfully.';
+  yield updateSubscription(this.currentUser.id, this.session);
   this.redirect(router.url('providers'));
 });
 
@@ -94,6 +96,7 @@ router.post('/new-location', hasSubscription, function*() {
 
   const location = Object.assign({}, this.request.body);
   const id = yield db.createLocation()(this.currentUser.id, location);
+  yield updateSubscription(this.currentUser.id, this.session);
 
   this.redirect(router.url('locations'));
 });
@@ -110,6 +113,7 @@ router.post('/update-location', hasSubscription, function*() {
 router.post('/delete-location', hasSubscription, function*() {
   yield db.deleteLocation(this.request.body.id);
   this.flash = 'Location deleted successfully.';
+  yield updateSubscription(this.currentUser.id, this.session);
   this.redirect(router.url('locations'));
 });
 
