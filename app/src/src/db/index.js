@@ -7,15 +7,50 @@ const uuid = require('node-uuid');
 const moment = require('moment');
 const _ = require('lodash');
 
+// Review sites validation and formatting
+const checkReviewSite = function(sites) {
+  // Firstly check if provided for the selected option
+  switch(sites.defaultReviewSite) {
+    case 'yelp':
+      if(!_.isEmpty(sites.yelp)) { return 'yelp'; } 
+      break;
+    case 'google':
+      if(!_.isEmpty(sites.google)) { return 'google'; } 
+      break;
+    case 'healthgrades':
+      if(!_.isEmpty(sites.healthgrades)) { return 'healthgrades'; } 
+      break;
+    case 'vitals':
+      if(!_.isEmpty(sites.vitals)) { return 'vitals'; } 
+      break;
+    case 'ratemds':
+      if(!_.isEmpty(sites.ratemds)) { return 'ratemds'; } 
+      break;
+    case 'yellowpages':
+      if(!_.isEmpty(sites.yellowpages)) { return 'yellowpages'; } 
+      break;
+    default:
+      break;
+  }
+
+  // Otherwise choose the first option
+  if(!_.isEmpty(sites.yelp)) { return 'yelp'; } 
+  if(!_.isEmpty(sites.google)) { return 'google'; } 
+  if(!_.isEmpty(sites.healthgrades)) { return 'healthgrades'; } 
+  if(!_.isEmpty(sites.vitals)) { return 'vitals'; } 
+  if(!_.isEmpty(sites.ratemds)) { return 'ratemds'; } 
+  if(!_.isEmpty(sites.yellowpages)) { return 'yellowpages'; } 
+}
+
 const formatReviewSites = function(sites) {
   var formatted = {};
 
-  if(sites.yelp !== '') { formatted = Object.assign({}, formatted, { 'yelp': sites.yelp }); }
-  if(sites.google !== '') { formatted = Object.assign({}, formatted, { 'google': sites.google }); }
-  if(sites.healthgrades !== '') { formatted = Object.assign({}, formatted, { 'healthgrades':sites.healthgrades }); }
-  if(sites.vitals !== '') { formatted = Object.assign({}, formatted, { 'vitals':sites.vitals }); }
-  if(sites.ratemds !== '') { formatted = Object.assign({}, formatted, { 'ratemds':sites.ratemds }); }
-  if(sites.yellowpages !== '') { formatted = Object.assign({}, formatted, { 'yellowpages':sites.yellowpages }); }
+  if(!_.isEmpty(sites.yelp)) { formatted = Object.assign({}, formatted, { 'yelp': sites.yelp }); }
+  if(!_.isEmpty(sites.google)) { formatted = Object.assign({}, formatted, { 'google': sites.google }); }
+  if(!_.isEmpty(sites.healthgrades)) { formatted = Object.assign({}, formatted, { 'healthgrades': sites.healthgrades }); }
+  if(!_.isEmpty(sites.vitals)) { formatted = Object.assign({}, formatted, { 'vitals': sites.vitals }); }
+  if(!_.isEmpty(sites.ratemds)) { formatted = Object.assign({}, formatted, { 'ratemds': sites.ratemds }); }
+  if(!_.isEmpty(sites.yellowpages)) { formatted = Object.assign({}, formatted, { 'yellowpages': sites.yellowpages }); }
 
   return formatted;
 };
@@ -220,7 +255,7 @@ exports.createProvider = function() {
       email: data.email,
       phone: data.phoneMobile,
       review_sites: formatReviewSites(data),
-      default_review_site: data.defaultReviewSite
+      default_review_site: checkReviewSite(data)
     });
     return id;
   };
@@ -238,7 +273,7 @@ exports.updateProvider = function* (id, data) {
       email: data.email,
       phone: data.phoneMobile,
       review_sites: formatReviewSites(data),
-      default_review_site: data.defaultReviewSite
+      default_review_site: checkReviewSite(data)
     });
 };
 
@@ -283,7 +318,7 @@ exports.createLocation = function() {
       email: data.email,
       phone: data.phoneMobile,
       review_sites: formatReviewSites(data),
-      default_review_site: data.defaultReviewSite
+      default_review_site: checkReviewSite(data)
     });
     return id;
   };
@@ -302,7 +337,7 @@ exports.updateLocation = function* (id, data) {
       email: data.email,
       phone: data.phoneMobile,
       review_sites: formatReviewSites(data),
-      default_review_site: data.defaultReviewSite
+      default_review_site: checkReviewSite(data)
     });
 };
 
