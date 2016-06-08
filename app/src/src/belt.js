@@ -160,6 +160,15 @@ exports.formatPhone = function(text) {
   return text.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
 };
 
+exports.formatCents = function(cents) {
+  if (!cents) {
+    return '';
+  }
+  const sign = Math.sign(cents);
+  return `${sign < 0 ? '-' : ''}$${(Math.abs(cents) / 100).toFixed(2)}`;
+};
+
+
 // Route middleware to check if user logged in. Redirect
 // to application login page if not
 export function* checkAuthenticated(next) {

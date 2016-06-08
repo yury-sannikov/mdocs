@@ -36,6 +36,7 @@ const pug = new Pug({
     moment: require('moment'),
     application: 'MDOCS',
     formatPhone: belt.formatPhone,
+    formatCents: belt.formatCents,
     _: require('lodash')
   },
   basedir: './views',

@@ -15,6 +15,7 @@ stripeApi.setApiVersion('2016-03-07');
 
 const customersAsync = Promise.promisifyAll(stripeApi.customers, { context: stripeApi.customers });
 const subscriptionsAsync = Promise.promisifyAll(stripeApi.subscriptions, { context: stripeApi.subscriptions });
+const invoicesAsync = Promise.promisifyAll(stripeApi.invoices, { context: stripeApi.invoices });
 
 export function* createSubscription(userId, token, plan, email) {
 
@@ -111,4 +112,11 @@ export function* updateSubscription(userId, session) {
   if (_.get(session, 'passport.user')) {
     session.passport.user.subInfo = yield getSubscriptionInfo(userId);
   }
+}
+
+export function* getFutureInvoice(userId) {
+  const user = yield findUserById(userId);
+  const stripeId = _.get(user, 'stripeCustomer.id');
+  console.log(stripeId);
+  return yield invoicesAsync.retrieveUpcomingAsync(stripeId);
 }

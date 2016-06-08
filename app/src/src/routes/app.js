@@ -4,7 +4,7 @@ const Router = require('koa-router');
 import { checkAuthenticated } from '../belt';
 import { sendEmailTrackingToSlack } from '../comm';
 import stream from 'koa-stream';
-var path   = require('path');
+import { getFutureInvoice } from '../stripe';
 
 /*
 app:
@@ -48,8 +48,12 @@ router.get('/logout', function() {
   this.redirect('/app');
 });
 
-router.get('/profile', checkAuthenticated, function() {
-  this.render('app/profile', this.jadeLocals, true);
+router.get('/profile', checkAuthenticated, function* () {
+  const futureInvoice = yield getFutureInvoice(this.currentUser.id);
+  console.log(JSON.stringify(futureInvoice, null, 2));
+  this.render('app/profile', Object.assign({}, this.jadeLocals, {
+    futureInvoice
+  }), true);
 });
 
 // Show Dashboard
@@ -75,9 +79,9 @@ router.get('/agreement', function*() {
 router.get('/email-tracking', function*() {
   yield sendEmailTrackingToSlack(this.request.query);
   var buf = new Buffer([
-    0x47, 0x49, 0x46, 0x38, 0x39, 0x61, 0x01, 0x00, 0x01, 0x00, 
-    0x80, 0x00, 0x00, 0xff, 0xff, 0xff, 0x00, 0x00, 0x00, 0x2c, 
-    0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x02, 
+    0x47, 0x49, 0x46, 0x38, 0x39, 0x61, 0x01, 0x00, 0x01, 0x00,
+    0x80, 0x00, 0x00, 0xff, 0xff, 0xff, 0x00, 0x00, 0x00, 0x2c,
+    0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x02,
     0x02, 0x44, 0x01, 0x00, 0x3b]);
   stream.buffer(this, buf, 'image/png', {allowDownload: true});
 });
