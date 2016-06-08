@@ -126,7 +126,7 @@ block content
     br
     .container
       .row
-        .col-sm-6.col-sm-offset-3
+        .col-sm-7.col-sm-offset-3
           h1.text-center
             strong Sign up for Patient Reviews
           h4.text-center 30-Day Money Back Guarantee.&nbsp;
@@ -134,12 +134,12 @@ block content
             | &nbsp;Anytime.
       br
       .row
-        .col-sm-4.col-sm-offset-4.rowaccent
+        .col-sm-7.col-sm-offset-3.rowaccent
           form.subscribeform(action=checkoutUrl, method='POST')
             input.form-control(type='hidden', name='_csrf', value=_csrf)
             input.form-control(type='hidden', name='plan', value=plan)
             .wrapper
-              h3 Selected Plan
+              h3.text-center Selected Plan
               br
               span
                 strong #{planInfo.name}&nbsp;
@@ -162,7 +162,7 @@ block content
                 h3 Account Information
                 br
                 .form-group
-                  input.form-control(type='text', placeholder='First Name', name='name')
+                  input.form-control(type='text', placeholder='Full Name', name='name')
                 .form-group
                   input.form-control(type='email', placeholder='Email (will be your user name)', name='email')
                 .form-group
