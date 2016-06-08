@@ -45,7 +45,7 @@ router.get('/login', function() {
 
 router.get('/logout', function() {
   this.logout();
-  this.redirect('/');
+  this.redirect('/app');
 });
 
 router.get('/profile', checkAuthenticated, function() {

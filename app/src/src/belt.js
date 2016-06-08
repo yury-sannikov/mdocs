@@ -166,8 +166,12 @@ export function* checkAuthenticated(next) {
   if (this.isAuthenticated()) {
     yield next;
   } else {
-    this.redirect(`/app/login?r=${encodeURIComponent(this.request.url)}`);
+    redirectToLogin(this);
   }
+}
+
+export function redirectToLogin(ctx) {
+  ctx.redirect(`/app/login?r=${encodeURIComponent(ctx.request.url)}`);
 }
 
 export function* hasSubscription(next) {

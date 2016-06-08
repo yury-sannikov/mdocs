@@ -12,8 +12,26 @@ const csrf = require('koa-csrf');
 //const db = require('./db');
 const config = require('./config');
 const comm = require('./comm');
+import jwt from 'jsonwebtoken';
+import { redirectToLogin } from './belt';
 
 const CSRF_SKIP_PREFIX = '/app/hooks';
+
+exports.checkJWTExpiration = function() {
+  return function*(next){
+    const { passport : {user: { jwtToken } = {} } = {} } = this.session || {};
+    if (!jwtToken) return yield next;
+    const jwtObject = jwt.decode(jwtToken);
+    const expireAt = new Date(jwtObject.exp * 1000);
+    const now = new Date();
+    if (expireAt > now) {
+      return yield next;
+    }
+    debug('JWT session expired. Logging out');
+    this.logout();
+    redirectToLogin(this);
+  };
+};
 
 // set currentUser to user object from passport object from session
 exports.wrapCurrUser = function() {
