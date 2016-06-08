@@ -167,7 +167,7 @@ exports.sendExceptionToSlack = function* (err, ctx) {
 
 export function* sendEmailTrackingToSlack(data) {
   yield Slack.successAsync({
-    text: `Email opened: ${data.email}`,
+    text: `Email open notification:\nFirst name: ${data.firstname}\n Last name: ${data.lastname}\n Email address: ${data.email}`,
     channel: '#marketing',
     username: 'moneybot'
   });
