@@ -119,29 +119,9 @@ function* checkoutNewUser() {
     throw Error('You should log out first to sign up a new user');
   }
 
-  this.validateBody('name')
-    .required('Full name is required')
-    .isString()
-    .trim()
-    .isLength(5, 60, 'Full Name should be between 5 and 60 symbols');
+  this.request.body.name.trim();
 
-  this.validateBody('email')
-    .required('Email required')
-    .isEmail('Invalid email')
-    .trim();
-
-  this.validateBody('pass')
-    .required('Password required')
-    .isString()
-    .isLength(1, 100, 'Password must be 1-100 chars');
-
-  this.validateBody('passcheck')
-    .required('Password confirmation required')
-    .isString()
-    .eq(this.vals.pass, 'Passwords must match');
-
-  this.validateBody('email')
-    .checkNot(yield findUserByEmail(this.vals.email), 'Username taken');
+  console.log(this.request.body);
 
   const userProfile = yield createUser(this.request.body.email, this.request.body.pass, this.request.body.name);
 

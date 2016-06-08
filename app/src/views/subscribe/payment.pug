@@ -84,9 +84,116 @@ block scripts
         );
       }
 
+      function checkPasswordStrength($strengthLabel, password) {
+        password = password.trim();
+        $strengthLabel.removeClass();
+
+        if(password.length === 0) {
+          $strengthLabel.addClass('passnone');
+          return 'None';
+        }
+
+        var strength = 0;
+        //if length is 8 characters or more, increase strength value 
+        if (password.length > 7) { strength++; } 
+        //if password contains both lower and uppercase characters, increase strength value 
+        if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) { strength++; }
+        //if it has numbers and characters, increase strength value 
+        if (password.match(/([a-zA-Z])/) && password.match(/([0-9])/)) { strength++; }
+        //if it has a special character, increase strength value 
+        if (password.match(/([!,%,&,@,#,$,^,*,?,_,~])/)) { strength++; }
+
+        switch(strength) {
+          case 0:
+            $strengthLabel.addClass('passweak');
+            $('#passwordStrength').val('weak'); 
+            return 'Weak';
+          case 1:
+          case 2:
+            $strengthLabel.addClass('passgood');
+            $('#passwordStrength').val('good'); 
+            return 'Good';
+          case 3:
+            $strengthLabel.addClass('passstrong');
+            $('#passwordStrength').val('strong'); 
+            return 'Strong';
+          default:
+            $strengthLabel.addClass('passverystrong');
+            $('#passwordStrength').val('very_strong'); 
+            return 'Very Strong';
+        }
+      }
+
+      $.validator.addMethod("lettersonly", function(value, element) {
+        return this.optional(element) || /^[a-z ]+$/i.test(value);
+      }, "Letters and spaces only, please!");
+
       $(function() {
-        Stripe.setPublishableKey('#{config.STRIPE_PUB_KEY}');
+        // Password Strength
+        var $strengthLabel = $('#passStrength');
+        $('#pass').keyup(function(){
+          $('#passStrength').html(checkPasswordStrength($strengthLabel, $('#pass').val()));
+        });
+
+        // Form validation and submittion
         var $form = $('.subscribeform');
+        
+        $form.validate({
+          rules: {
+            name: {
+              required: true,
+              lettersonly: true,
+              minlength: 5,
+              maxlength: 60
+            },
+            email: {
+              required: {
+                depends: function() {
+                  $(this).val($.trim($(this).val()));
+                  return true;
+                }
+              },
+              email: true
+            },
+            pass: {
+              required: {
+                depends: function() {
+                  $(this).val($.trim($(this).val()));
+                  return true;
+                }
+              },
+              minlength: 5,
+              maxlength: 100
+            },
+            passcheck: {
+              required: {
+                depends: function() {
+                  $(this).val($.trim($(this).val()));
+                  return true;
+                }
+              },
+              equalTo: "#pass"
+            }
+          },
+          messages: {
+            name: {
+              required: "Please provide your full name."
+            },
+            email: {
+              required: "Please provide an email address."
+            },
+            pass: {
+              required: "Please provide a password."
+            },
+            passcheck: {
+              required: "Please confirm your password.",
+              equalTo: "The passwords don't match."
+            }
+          }
+        });
+
+        Stripe.setPublishableKey('#{config.STRIPE_PUB_KEY}');
+
         $form.submit(function(event) {
           $form.find('.checkoutbutton').prop('disabled', true);
           $form.find('.cc-error').addClass('hidden').text('');
@@ -115,6 +222,21 @@ block content
       padding-right: 20px;
       padding-bottom: 10px;
     }
+    .passnone{ 
+      color: #FF0000; 
+    }
+    .passweak{ 
+      color: #E66C2C; 
+    }
+    .passgood{ 
+      color: #2D98F3; 
+    }
+    .passstrong{ 
+      color: #009900; 
+    }
+    .passverystrong{ 
+      color: #00E500; 
+    }
   if hasSubscription
     .alert.alert-warning(role='alert')
       | You are already logged in and have active subscription. Please&nbsp;
@@ -138,6 +260,7 @@ block content
           form.subscribeform(action=checkoutUrl, method='POST')
             input.form-control(type='hidden', name='_csrf', value=_csrf)
             input.form-control(type='hidden', name='plan', value=plan)
+            input.form-control(type='hidden', name='passwordStrength', id='passwordStrength', value='none')
             .wrapper
               h3.text-center Selected Plan
               br
@@ -164,11 +287,17 @@ block content
                 .form-group
                   input.form-control(type='text', placeholder='Full Name', name='name')
                 .form-group
-                  input.form-control(type='email', placeholder='Email (will be your user name)', name='email')
+                  input.form-control(type='email', placeholder='Email\t\t\t\t(Will be your user name)', name='email')
                 .form-group
-                  input.form-control(type='password', placeholder='Password', name='pass')
+                  input.form-control(type='password', placeholder='Password\t\t\t(No spaces)', name='pass', id='pass')
                 .form-group
-                  input.form-control(type='password', placeholder='Confirm Password', name='passcheck')
+                  input.form-control(type='password', placeholder='Confirm Password\t(No spaces)', name='passcheck')
+                .form-group
+                  span 
+                    strong Password Strength:
+                    span
+                      strong
+                        em.passnone(id='passStrength' style='margin-left: 40px;') None
             else
               input.form-control(type='hidden', name='hasUser', value=user.id)
             .wrapper
