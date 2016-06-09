@@ -359,7 +359,7 @@
         authParams: {
           scope: 'openid profile'
         },
-        icon: 'https://app.mdocs.co/images/pr-logo-square.png'
+        icon: 'https://app.mdocs.co/pr-logo-square.png'
     });
   }
   
