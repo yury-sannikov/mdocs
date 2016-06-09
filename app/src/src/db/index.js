@@ -12,34 +12,34 @@ const checkReviewSite = function(sites) {
   // Firstly check if provided for the selected option
   switch(sites.defaultReviewSite) {
     case 'yelp':
-      if(!_.isEmpty(sites.yelp)) { return 'yelp'; } 
+      if(!_.isEmpty(sites.yelp)) { return 'yelp'; }
       break;
     case 'google':
-      if(!_.isEmpty(sites.google)) { return 'google'; } 
+      if(!_.isEmpty(sites.google)) { return 'google'; }
       break;
     case 'healthgrades':
-      if(!_.isEmpty(sites.healthgrades)) { return 'healthgrades'; } 
+      if(!_.isEmpty(sites.healthgrades)) { return 'healthgrades'; }
       break;
     case 'vitals':
-      if(!_.isEmpty(sites.vitals)) { return 'vitals'; } 
+      if(!_.isEmpty(sites.vitals)) { return 'vitals'; }
       break;
     case 'ratemds':
-      if(!_.isEmpty(sites.ratemds)) { return 'ratemds'; } 
+      if(!_.isEmpty(sites.ratemds)) { return 'ratemds'; }
       break;
     case 'yellowpages':
-      if(!_.isEmpty(sites.yellowpages)) { return 'yellowpages'; } 
+      if(!_.isEmpty(sites.yellowpages)) { return 'yellowpages'; }
       break;
     default:
       break;
   }
 
   // Otherwise choose the first option
-  if(!_.isEmpty(sites.yelp)) { return 'yelp'; } 
-  if(!_.isEmpty(sites.google)) { return 'google'; } 
-  if(!_.isEmpty(sites.healthgrades)) { return 'healthgrades'; } 
-  if(!_.isEmpty(sites.vitals)) { return 'vitals'; } 
-  if(!_.isEmpty(sites.ratemds)) { return 'ratemds'; } 
-  if(!_.isEmpty(sites.yellowpages)) { return 'yellowpages'; } 
+  if(!_.isEmpty(sites.yelp)) { return 'yelp'; }
+  if(!_.isEmpty(sites.google)) { return 'google'; }
+  if(!_.isEmpty(sites.healthgrades)) { return 'healthgrades'; }
+  if(!_.isEmpty(sites.vitals)) { return 'vitals'; }
+  if(!_.isEmpty(sites.ratemds)) { return 'ratemds'; }
+  if(!_.isEmpty(sites.yellowpages)) { return 'yellowpages'; }
 }
 
 const formatReviewSites = function(sites) {
@@ -184,6 +184,19 @@ exports.insertOrUpdateUser = function* (id, user) {
   const upsertAsync = Promise.promisify(chain.insert_or_replace, {context: chain});
 
   return yield upsertAsync(Object.assign({}, thisUser, user));
+};
+
+exports.deleteUserSubscriptionsInfo = function* (id) {
+  const chain = DynamoDB
+    .table('survey_users')
+    .where('id').eq(id);
+
+  const updateAsync = Promise.promisify(chain.update, {context: chain});
+
+  return yield updateAsync({
+    stripeCustomer: DynamoDB.del(),
+    stripeToken: DynamoDB.del()
+  });
 };
 
 exports.findUserByEmail = function* (email) {

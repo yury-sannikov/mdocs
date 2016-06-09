@@ -7,7 +7,8 @@ import {
   updateUserStripeCustomerToken,
   findUserById,
   locationsForAdmin,
-  providersForAdmin } from '../db';
+  providersForAdmin,
+  deleteUserSubscriptionsInfo } from '../db';
 const debug = require('debug')('app:stripe');
 
 const stripeApi = stripe(config.STRIPE_SEC_KEY);
@@ -76,8 +77,9 @@ export function* getSubscriptionInfo(userId) {
     subscriptions: []
   });
 
+  const { customer: { subscriptions: { data = [] } = {} } = {} } = subscription || {};
   if (subscription.customer) {
-    result.subscriptions = subscription.customer.subscriptions.data.map( (s) => {
+    result.subscriptions = data.map( (s) => {
       return {
         planId: s.plan.id,
         qty: s.quantity
@@ -117,6 +119,17 @@ export function* updateSubscription(userId, session) {
 export function* getFutureInvoice(userId) {
   const user = yield findUserById(userId);
   const stripeId = _.get(user, 'stripeCustomer.id');
-  console.log(stripeId);
   return yield invoicesAsync.retrieveUpcomingAsync(stripeId);
+}
+
+export function* cancelSubscriptions(userId) {
+  const user = yield findUserById(userId);
+  const subscriptions = _.get(user, 'stripeCustomer.subscriptions.data');
+
+  const subResponses = subscriptions.map((s) => {
+    return subscriptionsAsync.delAsync(s.id);
+  });
+  yield subResponses;
+
+  return yield deleteUserSubscriptionsInfo(userId);
 }

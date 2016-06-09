@@ -55,39 +55,14 @@ block content
   .container
     .row
       .col-sm-6.col-sm-offset-3
-        center
-          h1 User Profile
+        h3 User Profile
         hr
         #editProfileContainer
         .hidden#saved The changes were saved.
-    .row
-      .col-sm-6.col-sm-offset-3
-        center
-          h1 Upcoming Invoice Details
-    .row
-      .col-sm-10.col-sm-offset-1
-        table.table.table-hover
-          tr
-            th Description
-            th Amount
-          tr.info
-            td Amount Due Date - #{moment(futureInvoice.date * 1000).format('MMMM Do YYYY')}
-            td #{formatCents(futureInvoice.amount_due)}
-          each line, i in futureInvoice.lines.data
-            tr
-              - if (line.description)
-                td
-                  span #{line.description}
-                td
-                  strong #{formatCents(line.amount)}
-              - else
-                td
-                  span #{line.plan.name}
-                td
-                  span
-                    strong #{formatCents(line.plan.amount)}
-                    | &nbsp;x #{line.quantity}
-          //- span #{JSON.stringify(line, null, 2)}
+    br
+    br
+    br
+
 block scripts
   script(src="//cdn.auth0.com/js/lock-7.js")
   script(src="/app/js/auth0-editprofile-widget.min.js")

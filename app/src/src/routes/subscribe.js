@@ -182,7 +182,7 @@ function* checkoutNewUser() {
 
 function* checkoutExistingUser() {
   // Check if user really logged in. If not just redirect to payment
-  if (this.currentUser.id !== this.request.body.hasUser) {
+  if (!this.currentUser || this.currentUser.id !== this.request.body.hasUser) {
     this.redirect(router.url('payment', {plan: this.request.body.plan}));
     return;
   }

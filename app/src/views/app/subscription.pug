@@ -1,0 +1,105 @@
+extends ../layouts/layout.pug
+
+block head
+  title My Subscriptions
+
+block styles
+  link(rel='stylesheet', href='/app/lib/animate.css/animate.css')
+
+block content
+  style.
+    .danger-well {
+      border: 2px solid #ff0000;
+    }
+  .container
+    .row
+      .col-sm-10.col-sm-offset-1
+        h3 Upcoming Invoice Details
+    .row
+      .col-sm-10.col-sm-offset-1
+        table.table.table-hover
+          tr
+            th Date
+            th Amount
+            th Description
+          tr.info
+            td #{moment(futureInvoice.date * 1000).format('MMMM Do YYYY')}
+            td
+              strong #{formatCents(futureInvoice.amount_due)}
+            td Amount Due
+          each line, i in futureInvoice.lines.data
+            tr
+              - if (line.description)
+                td
+                  span #{moment(line.period.start * 1000).format('MMMM Do YYYY')}
+                td
+                  span #{formatCents(line.amount)}
+                td
+                  span #{line.description}
+              - else
+                td
+                  span #{moment(line.period.start * 1000).format('MMMM Do YYYY')}
+                td
+                  span
+                    span #{formatCents(line.plan.amount)}
+                    | &nbsp;x #{line.quantity}
+                td
+                  span #{line.plan.name}
+              //- td
+              //-   span #{JSON.stringify(line, null, 2)}
+    .row
+      .col-sm-10.col-sm-offset-1
+        h3 Danger zone
+      .col-sm-10.col-sm-offset-1
+        .well.danger-well
+          p You will not be able to send Patient Reviews without active subscription.
+          button.btn.btn-danger.unsubscribe(type='button') Unsubscribe
+
+  .modal.fade.unsubscribe-modal(tabindex='-1', role='dialog', aria-hidden='true')
+    .modal-dialog.modal-sm
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h4.modal-title Unsubscribe confirmation
+        .modal-body
+          h4 Are you sure?
+          br
+          form(action='delete-subscription', method='POST')
+            .form-group
+              label Type YES to unsubscribe
+              input.form-control(type='text')
+            input.form-control(type='hidden', name='_csrf', value=_csrf)
+        .modal-footer
+          button.btn.btn-default(type='button', data-dismiss='modal') Cancel
+          button.btn.btn-primary(type='button') Unsubscribe
+block scripts
+  script.
+    (function(init) {
+      init(window.jQuery, window, document);
+    }(function($, window, document) {
+      $.ajax({
+        type: 'GET',
+        url: '/app/lib/bootstrap/js/modal.js',
+        dataType: 'script',
+        cache: true
+      });
+
+      function unsubscribe() {
+        var modal = $('.unsubscribe-modal');
+        modal.modal({keyboard:true,backdrop:'static'});
+        // if "yes" clicked
+        modal.one('click', '.btn-primary', function () {
+          var confirmInput = $('input[type="text"]', modal);
+          if (confirmInput.val() === 'YES') {
+            $('form', modal).submit();
+          }
+          confirmInput.val('');
+          modal.modal('hide');
+        });
+      }
+
+      $(function() {
+        $('.unsubscribe').on('click', unsubscribe);
+      });
+    }));
+

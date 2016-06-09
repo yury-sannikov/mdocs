@@ -4,7 +4,7 @@ const Router = require('koa-router');
 import { checkAuthenticated } from '../belt';
 import { sendEmailTrackingToSlack } from '../comm';
 import stream from 'koa-stream';
-import { getFutureInvoice } from '../stripe';
+import { getFutureInvoice, cancelSubscriptions } from '../stripe';
 
 /*
 app:
@@ -49,11 +49,22 @@ router.get('/logout', function() {
 });
 
 router.get('/profile', checkAuthenticated, function* () {
+  this.render('app/profile', this.jadeLocals, true);
+});
+
+router.get('/subscription', checkAuthenticated, function* () {
   const futureInvoice = yield getFutureInvoice(this.currentUser.id);
   console.log(JSON.stringify(futureInvoice, null, 2));
-  this.render('app/profile', Object.assign({}, this.jadeLocals, {
+  this.render('app/subscription', Object.assign({}, this.jadeLocals, {
     futureInvoice
   }), true);
+});
+
+router.post('/delete-subscription', checkAuthenticated, function* () {
+  yield cancelSubscriptions(this.currentUser.id);
+  this.session.hasSubscription = false;
+  this.flash = 'Your subscribtion has been canceled';
+  this.redirect('/app');
 });
 
 // Show Dashboard
