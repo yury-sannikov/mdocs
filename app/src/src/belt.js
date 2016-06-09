@@ -184,9 +184,11 @@ export function redirectToLogin(ctx) {
 }
 
 export function* hasSubscription(next) {
-  if (this.session.hasSubscription) {
-    yield next;
-  } else {
-    this.redirect('/app/subscribe');
+  if (this.currentUser) {
+    const { subInfo : { subscriptions = [] } = {} } = this.currentUser;
+    if (subscriptions.length > 0) {
+      return yield next;
+    }
   }
+  this.redirect('/app/subscribe');
 }

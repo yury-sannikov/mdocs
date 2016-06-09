@@ -2,7 +2,7 @@
 import Router from 'koa-router';
 import _ from 'lodash';
 import bouncer from 'koa-bouncer';
-import {createSubscription} from '../stripe';
+import {createSubscription, updateSessionSubscriptionInfo} from '../stripe';
 import { findUserByEmail, findUserById, insertOrUpdateUser } from '../db';
 import { createUser, loginUser } from '../auth0';
 import jwt from 'jsonwebtoken';
@@ -64,7 +64,8 @@ router.post('checkout', '/checkout', function*() {
       yield checkoutExistingUser.call(this);
     }
 
-    this.session.hasSubscription = true;
+    yield updateSessionSubscriptionInfo(this, this.currentUser.id);
+
   } catch(err) {
     console.log(err.stack);
     yield renderPayment.call(this, this.request.body.plan, err.message);

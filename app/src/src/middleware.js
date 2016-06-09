@@ -63,9 +63,11 @@ function needShowCreateLocationProviderAlert(subInfo) {
 exports.wrapJadeLocals = function() {
   return function *(next) {
     const currentUser = this.currentUser || {};
-    const { hasSubscription } = this.session || {};
     const { subInfo = {} } = currentUser;
     const showCreateLocationProviderAlert = needShowCreateLocationProviderAlert(subInfo);
+    const { subscriptions = [] } = subInfo;
+    const hasSubscription = subscriptions.length > 0;
+
     this.jadeLocals = {
       csrf: this.csrf,
       _csrf: this.csrf,

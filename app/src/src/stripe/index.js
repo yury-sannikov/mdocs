@@ -30,10 +30,21 @@ export function* createSubscription(userId, token, plan, email) {
     throw Error('User already has subscription');
   }
 
+  // Get existing locations & providers
+  const info = yield getSubscription(userId);
+  let quantity = info.locations + info.providers;
+
+  if (quantity === 0) {
+    quantity = 1;
+  }
+
+  debug(`User ${userId} initial subscription quantity = ${quantity}`);
+
   const params = {
     source: token,
     plan,
-    email: user.email
+    email: user.email,
+    quantity
   };
 
   const customer = yield customersAsync.createAsync(params);
@@ -87,6 +98,12 @@ export function* getSubscriptionInfo(userId) {
     });
   }
   return result;
+}
+
+export function* updateSessionSubscriptionInfo(ctx, userId) {
+  if (_.get(ctx.session, 'passport.user')) {
+    ctx.session.passport.user.subInfo = yield getSubscriptionInfo(userId);
+  }
 }
 
 export function* updateSubscription(userId, session) {

@@ -38,7 +38,6 @@ function* loginCallbackHandler() {
 
       const dbUser = yield findUserById(user.id);
 
-      ctx.session.hasSubscription = !!dbUser.stripeCustomer;
       ctx.response.redirect(redirectTo);
     }
   });
