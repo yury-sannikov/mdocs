@@ -6,6 +6,8 @@ const debug = require('debug')('app:routes:user_hook');
 import passport from 'koa-passport';
 import { findUserById } from '../db';
 import { sendStripeCallbackToSlack } from '../comm';
+import { needShowCreateLocationProviderAlert } from '../belt';
+
 const router = new Router({
   prefix: '/hooks'
 });
@@ -36,9 +38,9 @@ function* loginCallbackHandler() {
     } else {
       yield ctx.login(user);
 
-      const dbUser = yield findUserById(user.id);
+      const showWelcome = needShowCreateLocationProviderAlert(ctx.session.passport.user.subInfo);
 
-      ctx.response.redirect(redirectTo);
+      ctx.response.redirect(redirectTo + ( showWelcome ? '?welcome=y' : '') );
     }
   });
 }

@@ -13,7 +13,7 @@ const csrf = require('koa-csrf');
 const config = require('./config');
 const comm = require('./comm');
 import jwt from 'jsonwebtoken';
-import { redirectToLogin } from './belt';
+import { redirectToLogin, needShowCreateLocationProviderAlert } from './belt';
 
 const CSRF_SKIP_PREFIX = '/app/hooks';
 
@@ -48,16 +48,6 @@ exports.wrapCurrUser = function() {
   };
 };
 
-
-function needShowCreateLocationProviderAlert(subInfo) {
-  const { locations = 0, providers = 0, subscriptions = [] } = subInfo;
-  if (subscriptions.length === 0) {
-    return false;
-  }
-  const mainSubscription = subscriptions[0] || {};
-  const totalEntities = locations + providers;
-  return totalEntities < _.get(mainSubscription, 'qty', 0);
-}
 
 // Expose jadeLocals to context
 exports.wrapJadeLocals = function() {

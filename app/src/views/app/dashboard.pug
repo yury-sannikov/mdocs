@@ -127,6 +127,28 @@ block scripts
   script(src='/app/lib/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.js')
   script.
     $(document).ready(function() {
+      $.ajax({
+        type: 'GET',
+        url: '/app/lib/bootstrap/js/modal.js',
+        dataType: 'script',
+        cache: true
+      });
+
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+      }
+
+      setTimeout(function checkShowLocationsProvidersAlert() {
+        if (getParameterByName('welcome') === 'y') {
+          $('.subscribe-locationprovider-modal').modal({keyboard:true,backdrop:'static'});
+        }
+      }, 1000);
       new Chartist.Bar('#reputationIndex', {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         series: [
@@ -289,3 +311,20 @@ block content
       //- .col-md-12
       //-   span.center-block.img-responsive.animated.bounceInTop
       //-     script(id="infogram_0_03db671c-518e-4a2a-92e8-b3d1a24b9f53" title="Ratings distribution" src="//e.infogr.am/js/embed.js?C9k" type="text/javascript")
+
+  .modal.fade.subscribe-locationprovider-modal(tabindex='-1', role='dialog', aria-hidden='true')
+    .modal-dialog.modal-sm
+      .modal-content(style='width: 430px;')
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h3.modal-title New Subscription Reminder
+        .modal-body
+          h4
+            | In order to submit Patient Review request you need to set up Locations and Providers.
+            | Please go to&nbsp;
+            a(href='/app/pr/locations') Location&nbsp;
+            | or&nbsp;
+            a(href='/app/pr/providers') Provider
+            | &nbsp;page to create new ones.
+        .modal-footer
+          button.btn.btn-default(type='button', data-dismiss='modal') Dismiss
