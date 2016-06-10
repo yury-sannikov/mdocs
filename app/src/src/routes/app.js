@@ -45,7 +45,7 @@ router.get('/login', function() {
 
 router.get('/logout', function() {
   this.logout();
-  this.redirect('/app');
+  this.redirect('https://pr.mdocs.co');
 });
 
 router.get('/profile', checkAuthenticated, function* () {
