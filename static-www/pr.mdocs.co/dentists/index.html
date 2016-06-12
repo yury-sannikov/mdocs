@@ -21,7 +21,10 @@
 <body>
   <script type="text/javascript">
     var splitTestURLs = ['/a', '/b'];
-    window.location = splitTestURLs[Math.floor(Math.random() * splitTestURLs.length)];
+    // window.location = splitTestURLs[Math.floor(Math.random() * splitTestURLs.length)];
+
+    // Temp workaround for NGINX deployment issue
+    window.location = 'https://pr.mdocs.co';
   </script>
 </body>
 </html>
