@@ -5,12 +5,11 @@
 
   $(document).ready(function() {
     $.getJSON('https://freegeoip.net/json/', function(data) {
-      // console.log(JSON.stringify(data, null, 2));
       /* Slack */
       $.ajax({
         url: slack_url,
         type: 'POST',
-        data: JSON.stringify({"text": "NEW DEMO VISITOR.\nDETAILS: " + JSON.stringify(data, null, 2)}),
+        data: JSON.stringify({"text": "LANDING PAGE VISITOR.\nURL: " + $(location).attr('href') + "\nVISITOR DETAILS: " + JSON.stringify(data, null, 2)}),
         success: function(d) {
             // console.log('Succcess');
           },
@@ -23,7 +22,6 @@
     
   });
 
-  
   var formValidateBlock = {
     submitHandler: function(form) {
       var form_btn = $(form).find('button[type="submit"]');

@@ -1,0 +1,11 @@
+.land-header-container h1 {
+    color: #00A3C8;
+}
+
+input {
+  margin-bottom: 20px;
+}
+
+.error {
+  color: #f33;
+}
