@@ -33,6 +33,8 @@ popd
 
 rm -rf ./tmp
 
+TASK_ARN=`aws ecs list-tasks --cluster app-mdocs-co --family app-mdocs-co-www | jq -r '.taskArns[0]'`
+aws ecs stop-task --cluster app-mdocs-co --task ${TASK_ARN}
 
 # Update to latest
 docker pull silintl/ecs-deploy
