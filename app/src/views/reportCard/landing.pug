@@ -1,0 +1,55 @@
+doctype html
+html
+  head
+    title Report Card
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7', crossorigin='anonymous')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css')
+    link(href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', type='text/css', href='/report/css/main.css')
+  body
+    .container
+      .row
+        .col-md-7.col-md-offset-3
+          img.logo(src='/report/images/logo.png')
+          h1 PATIENT REVIEWS REPORT CARD
+          p.reportDate
+            i
+              | Report generated on
+              span#reportDate
+              | .
+            table.table.table-bordered.valigned
+              tbody
+                tr
+                  td(colspan='2')
+                    strong#providerName
+                    br
+                    span#providerAddress
+                  td(style='text-align: center; vertical-align: middle;')
+                    span#avgStars
+                  td(style='text-align: center; vertical-align: middle;')
+                    span#avgGrade
+            br
+            br
+          h2 DETAILED REVIEW CARD
+          table.table.table-bordered
+            thead
+              tr.active
+                th(style='text-align: center; vertical-align: middle; width: 120px') YOUR PROFILE
+                th(style='text-align: center; vertical-align: middle;') CONTACT INFO
+                th(style='text-align: center; vertical-align: middle;') RATING
+                th(style='text-align: center; vertical-align: middle;') GRADE
+            tbody#dataTable
+      .row
+        .col-md-7.col-md-offset-3
+          br
+          br
+          footer
+            | Copyright © 2016
+            a(href='https://pr.mdocs.co') Patient Reviews by MDOCS
+            | . All rights reserved.
+          br
+          br
+  script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', integrity='sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS', crossorigin='anonymous')
+  script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js')
+  script(type='text/javascript', src='/report/js/main.js')

@@ -1,4 +1,4 @@
-var name = "data/brian_kong.json";
+var name = "/report/data/brian_kong.json";
 
 $.getJSON( name, function( data ) {
   var items = [];
@@ -97,6 +97,6 @@ $.getJSON( name, function( data ) {
     rowStr += "</tr>";
     $('#dataTable').append(rowStr);
   });
- 
-  
+
+
 });
