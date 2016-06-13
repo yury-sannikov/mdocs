@@ -274,12 +274,12 @@ block content
                     | Monthly subscription $#{planInfo.price[0]}
                 .radio
                   label
-                    input(type='radio', name='payOccurence', value='yearly')
-                    | 12 Months subscription $#{planInfo.price[1]}
+                    input(type='radio', name='payOccurence', value='6m')
+                    | 6 Months subscription $#{planInfo.price[1]}
                 .radio
                   label
-                    input(type='radio', name='payOccurence', value='biyearly')
-                    | 24 Months subscription $#{planInfo.price[2]}
+                    input(type='radio', name='payOccurence', value='yearly')
+                    | 12 Months subscription $#{planInfo.price[2]}
             if (!user || _.isEmpty(user))
               .wrapper
                 h3 Account Information

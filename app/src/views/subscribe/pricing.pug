@@ -5,6 +5,26 @@ block head
 
 block styles
   link(rel='stylesheet', href='/app/lib/animate.css/animate.css')
+  link(rel='stylesheet', href='/app/vendors/magnific-popup/magnific-popup.css')
+
+block scripts
+  script(src='/app/vendors/magnific-popup/jquery.magnific-popup.min.js')
+  script.
+    (function(init) {
+      init(window.jQuery, window, document);
+    }(function($, window, document) {
+      $(function() {
+        if ($('a[href="#contact-popup"]').length) {
+
+            $('a[href="#contact-popup"]').magnificPopup({
+                type: 'inline',
+                mainClass: 'mfp-fade',
+                midClick: true // mouse middle button click
+            });
+
+        }
+      });
+    }));
 
 block content
   style.
@@ -68,7 +88,512 @@ block content
     .pricing--featured .pricing__content li {
       color: #fff;
     }
-  
+    .product-box {
+      background: #fff;
+    }
+
+    .product-box .mfp-close {
+      color: #8a9095;
+    }
+
+    .product-img-gallery {
+      background: #f8f8f8;
+    }
+
+    #product-imgs .carousel-indicators li {
+      background: #dadada;
+    }
+
+    #product-imgs .carousel-indicators li.active {
+      background: #00A3C8;
+    }
+
+    .product-desc .name {
+      color: #848e96;
+    }
+
+    .product-desc .edition {
+      color: #374048;
+    }
+
+    .product-desc .model {
+      color: #a8afb5;
+    }
+
+    .product-desc .price {
+      color: #00A3C8;
+    }
+
+    .product-desc .price del {
+      color: #808890;
+    }
+
+    .product-desc .price .label {
+      background: #ff840f;
+    }
+
+    .product-desc .description {
+      border-color: #eee;
+    }
+
+    .product-desc .description p {
+      color: #979a9d;
+    }
+
+    .product-desc .choose-form .choose-options {
+      border-color: #eee;
+    }
+
+    .product-desc .choose-form .option .form-label {
+      color: #6c6e71;
+    }
+
+    .product-desc .choose-form .option input[name="color"] + label[for="color-1"],
+    .product-desc .choose-form .option input[name="os0"] + label[for="color-1"] {
+      background: #2eafff;
+    }
+
+    .product-desc .choose-form .option input[name="color"] + label[for="color-1"]:before,
+    .product-desc .choose-form .option input[name="os0"] + label[for="color-1"]:before {
+      border-color: #2eafff;
+    }
+
+    .product-desc .choose-form .option input[name="color"] + label[for="color-2"],
+    .product-desc .choose-form .option input[name="os0"] + label[for="color-2"] {
+      background: #5c2eff;
+    }
+
+    .product-desc .choose-form .option input[name="color"] + label[for="color-2"]:before,
+    .product-desc .choose-form .option input[name="os0"] + label[for="color-2"]:before {
+      border-color: #5c2eff;
+    }
+
+    .product-desc .choose-form .option input[name="color"] + label[for="color-3"],
+    .product-desc .choose-form .option input[name="os0"] + label[for="color-3"] {
+      background: #ff2e99;
+    }
+
+    .product-desc .choose-form .option input[name="color"] + label[for="color-3"]:before,
+    .product-desc .choose-form .option input[name="os0"] + label[for="color-3"]:before {
+      border-color: #ff2e99;
+    }
+
+    .product-desc .choose-form .option input[name="color"] + label[for="color-4"],
+    .product-desc .choose-form .option input[name="os0"] + label[for="color-4"] {
+      background: #ffe62e;
+    }
+
+    .product-desc .choose-form .option input[name="color"] + label[for="color-4"]:before,
+    .product-desc .choose-form .option input[name="os0"] + label[for="color-4"]:before {
+      border-color: #ffe62e;
+    }
+
+    .product-desc .choose-form .option input[name="color"] + label[for="color-5"],
+    .product-desc .choose-form .option input[name="os0"] + label[for="color-5"] {
+      background: #2effa1;
+    }
+
+    .product-desc .choose-form .option input[name="color"] + label[for="color-5"]:before,
+    .product-desc .choose-form .option input[name="os0"] + label[for="color-5"]:before {
+      border-color: #2effa1;
+    }
+
+    .product-desc .choose-form .submit-area .btn:hover, .product-desc .choose-form .submit-area .btn:focus {
+      color: #fff;
+    }
+
+    .product-desc .choose-form .bootstrap-touchspin input {
+      border-color: #e0e8ee;
+      background: none;
+    }
+
+    .product-desc .choose-form .bootstrap-touchspin button {
+      border-color: #e0e8ee;
+    }
+
+    .product-desc .choose-form .bootstrap-touchspin button:before {
+      color: #96a1a9;
+    }
+
+    .product-desc .choose-form .bootstrap-select .dropdown-toggle {
+      border-color: #e0e8ee;
+      color: #374048;
+    }
+
+    .product-desc .choose-form .bootstrap-select .dropdown-toggle .bs-caret {
+      color: #96a1a9;
+      border-left-color: #e0e8ee;
+    }
+
+    .product-box {
+      max-width: 545px;
+      margin: 0 auto;
+      box-shadow: 0 0 62px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    @media (max-width: 991px) {
+      .product-box {
+        max-width: 750px;
+      }
+    }
+
+    .product-box .mfp-close {
+      position: absolute;
+      font: 300 30px/1 "Raleway", sans-serif;
+      text-transform: uppercase;
+      opacity: 0.4;
+      transition: all 300ms linear 0s;
+    }
+
+    .product-box .mfp-close:hover {
+      opacity: 1;
+    }
+
+    .product-img-gallery {
+      float: left;
+      width: 457px;
+    }
+
+    @media (max-width: 991px) {
+      .product-img-gallery {
+        width: 350px;
+        height: 766px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .product-img-gallery {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    #product-imgs {
+      padding: 65px 0 68px;
+      height: 100%;
+    }
+
+    @media (max-width: 767px) {
+      #product-imgs {
+        padding: 50px 0 60px;
+        top: 0;
+      }
+    }
+
+    #product-imgs .item {
+      text-align: center;
+    }
+
+    #product-imgs .item img {
+      display: inline-block;
+      width: auto;
+      max-width: 95%;
+    }
+
+    @media (max-width: 767px) {
+      #product-imgs .item img {
+        max-height: 250px;
+      }
+    }
+
+    #product-imgs .carousel-indicators, #benefits-slides .carousel-indicators {
+      bottom: 29px;
+      display: table;
+      margin-left: 0;
+      width: auto;
+      -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+              transform: translateX(-50%);
+      margin: 0;
+    }
+
+    #product-imgs .carousel-indicators li, #benefits-slides .carousel-indicators li {
+      float: left;
+      width: 9px;
+      height: 9px;
+      margin: 0;
+    }
+
+    #product-imgs .carousel-indicators li + li, #benefits-slides .carousel-indicators li + li {
+      margin-left: 8px;
+    }
+
+    .product-desc {
+      float: left;
+      width: calc(100% - 457px);
+      padding: 48px 37px 40px 35px;
+      overflow-x: hidden;
+      overflow-y: visible;
+    }
+
+    @media (max-width: 991px) {
+      .product-desc {
+        width: calc(100% - 350px);
+        padding: 40px 35px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .product-desc {
+        width: 100%;
+      }
+    }
+
+    .product-desc .name {
+      text-transform: uppercase;
+      font: 400 20px/1 "Raleway", sans-serif;
+      margin: 0 0 8px;
+    }
+
+    .product-desc .edition {
+      text-transform: uppercase;
+      font: 700 33px/1 "Raleway", sans-serif;
+      margin: 0 0 10px;
+    }
+
+    .product-desc .model {
+      text-transform: uppercase;
+      font: 300 16px/1 "Raleway", sans-serif;
+      margin: 0 0 20px;
+    }
+
+    .product-desc .price {
+      font: 600 33px/34px "Raleway", sans-serif;
+      margin: 0 0 25px;
+      text-transform: uppercase;
+    }
+
+    .product-desc .price del {
+      font-size: 26px;
+      font-weight: 300;
+      margin-right: 14px;
+    }
+
+    .product-desc .price .label {
+      padding: 3px 15px 0;
+      font: 600 11px/15px "Raleway", sans-serif;
+      position: relative;
+      vertical-align: middle;
+      top: -2px;
+      display: inline-block;
+    }
+
+    .product-desc .description {
+      padding: 32px 0;
+      border-top: 1px solid;
+      border-bottom: 1px solid;
+    }
+
+    .product-desc .description p {
+      font: 300 16px/28px "Raleway", sans-serif;
+      margin-bottom: 0;
+    }
+
+    .product-desc .choose-form .choose-options {
+      padding: 34px 0 36px;
+      border-bottom: 1px solid;
+    }
+
+    .product-desc .choose-form .option {
+      float: left;
+    }
+
+    @media (max-width: 991px) {
+      .product-desc .choose-form .option:first-child {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .product-desc .choose-form .option {
+        margin-right: 20px;
+      }
+      .product-desc .choose-form .option:first-child {
+        margin-bottom: 15px;
+      }
+    }
+
+    .product-desc .choose-form .option + .option {
+      margin-left: 20px;
+    }
+
+    @media (max-width: 991px) {
+      .product-desc .choose-form .option + .option {
+        margin-left: 0;
+        margin-right: 20px;
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .product-desc .choose-form .option + .option {
+        margin-top: 0;
+      }
+    }
+
+    .product-desc .choose-form .option .form-label {
+      text-transform: uppercase;
+      margin: 0 0 12px;
+      font: 500 16px/1 "Raleway", sans-serif;
+    }
+
+    .product-desc .choose-form .option .colors {
+      padding-top: 9px;
+    }
+
+    .product-desc .choose-form .option input[name="color"],
+    .product-desc .choose-form .option input[name="os0"] {
+      display: none;
+    }
+
+    .product-desc .choose-form .option input[name="color"] + label,
+    .product-desc .choose-form .option input[name="os0"] + label {
+      width: 27px;
+      height: 27px;
+      border-radius: 100%;
+      position: relative;
+      margin-right: 6px;
+      margin-bottom: 0;
+    }
+
+    .product-desc .choose-form .option input[name="color"] + label:before,
+    .product-desc .choose-form .option input[name="os0"] + label:before {
+      content: '';
+      width: 39px;
+      height: 39px;
+      display: block;
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      border: 0 solid;
+      border-radius: 100%;
+    }
+
+    .product-desc .choose-form .option input[name="color"] + label[for="color-1"],
+    .product-desc .choose-form .option input[name="os0"] + label[for="color-1"] {
+      margin-left: 4px;
+    }
+
+    .product-desc .choose-form .option input[name="color"]:checked + label:before,
+    .product-desc .choose-form .option input[name="os0"]:checked + label:before {
+      border-width: 3px;
+    }
+
+    .product-desc .choose-form .submit-area {
+      padding-top: 27px;
+    }
+
+    @media (max-width: 479px) {
+      .product-desc .choose-form .submit-area input {
+        font-size: 20px;
+        line-height: 60px;
+      }
+    }
+
+    .product-desc .bootstrap-touchspin {
+      width: 86px;
+    }
+
+    .product-desc .bootstrap-touchspin input {
+      width: 48px;
+      box-shadow: none;
+      height: 42px;
+      padding: 0;
+      text-align: center;
+      border-right: 0;
+    }
+
+    .product-desc .bootstrap-touchspin .input-group-btn-vertical button {
+      border-radius: 0;
+      width: 38px;
+      text-align: center;
+      padding: 0;
+      margin-left: 0;
+    }
+
+    .product-desc .bootstrap-touchspin .input-group-btn-vertical button:hover, .product-desc .bootstrap-touchspin .input-group-btn-vertical button:focus {
+      background: none;
+    }
+
+    .product-desc .bootstrap-touchspin .input-group-btn-vertical button i {
+      display: none;
+    }
+
+    .product-desc .bootstrap-touchspin .input-group-btn-vertical button:before {
+      width: 100%;
+      top: 0;
+      left: 0;
+      height: 100%;
+      display: block;
+      font: 500 16px/20px "Raleway", sans-serif;
+    }
+
+    .product-desc .bootstrap-touchspin .input-group-btn-vertical button:first-child:before {
+      content: '+';
+    }
+
+    .product-desc .bootstrap-touchspin .input-group-btn-vertical button:last-child:before {
+      content: '-';
+    }
+
+    .product-desc .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+      width: 82px;
+    }
+
+    .product-desc .bootstrap-select .dropdown-toggle {
+      border-radius: 0;
+      height: 42px;
+      padding: 4px 35px 0 0;
+      position: relative;
+    }
+
+    .product-desc .bootstrap-select .dropdown-toggle .filter-option {
+      text-align: center;
+      font: 600 16px/1 "Raleway", sans-serif;
+      text-transform: uppercase;
+    }
+
+    .product-desc .bootstrap-select .dropdown-toggle .bs-caret {
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: absolute;
+      height: 40px;
+      top: 0;
+      line-height: 40px;
+      right: 0;
+      width: 35px;
+      border-left: 1px solid;
+    }
+
+    .product-desc .bootstrap-select .dropdown-toggle .bs-caret:before {
+      content: "\f107";
+    }
+
+    .product-desc .bootstrap-select .dropdown-toggle .bs-caret .caret {
+      display: none;
+    }
+
+    .product-desc .bootstrap-select .dropdown-toggle:hover, .product-desc .bootstrap-select .dropdown-toggle:focus {
+      background: none;
+    }
+
+    /* .product-box .personal-info {
+        display: none;
+    }
+    */
+    .choose-form {
+      position: relative;
+    }
+
+    .submit-area-2 {
+      padding-top: 17px;
+    }
+
   // ========== Pricing ==========
   section#pricing.row.how-it-works
     .container
@@ -82,7 +607,7 @@ block content
           br
           br
           br
-          
+
       .plan-pricing
         .row
           .col-sm-8.col-sm-offset-2.col-md-4.col-md-offset-0
@@ -168,6 +693,30 @@ block content
                   li Reputation change alerts
                   li Website ratings widget
               .pricing__cta
-                a.btn.btn-primary.btn-lg(href=plans[2]) SIGN UP
-    
+                a.btn.btn-primary.btn-lg(href="#contact-popup") CONTACT US
 
+
+  #contact-popup.row.product-box.mfp-hide
+    // <button class="mfp-close custom_close" title="Close (Esc)" type="button">&#215;</button>
+    div(style='padding: 80px')
+      .row.section-header
+        h2 Request a Demo
+        p
+          | Please fill-in the form below and one of our sales representatives will get in touch to setup your demo.
+      // Contact Form (back Side)
+      .row.contact-form
+        // <a href="javascript:void(0);" class="js-close-flip">&times;</a>
+        // Contact Form Starts here
+        form#contact_appointment_form(action='https://axc0hldmja.execute-api.us-east-1.amazonaws.com/prod/mdocsappointment', method='POST')
+          .row
+            .form-group.col-sm-6
+              input.form-control(type='text', name='form_name', placeholder='Full name', required='')
+            .form-group.col-sm-6
+              input.form-control(type='email', name='form_email', placeholder='Email address', required='')
+          .form-group
+            input.form-control(type='text', name='form_appontment_date', placeholder='Desired date', required='')
+          .form-group
+            textarea.form-control(name='form_message', placeholder='Message', required='')
+          button#js-contact-btn.btn.btn-block(type='submit') Submit Request
+          #js-contact-result(data-success-msg='Form submitted successfully.', data-error-msg='Oops. Something went wrong.')
+        // // End Contact form

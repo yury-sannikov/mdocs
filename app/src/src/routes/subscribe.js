@@ -15,11 +15,11 @@ const DASHBOARD_URL = '/app';
 const PLAN_INFO = {
   'pr-basic': {
     name: 'Patient Reviews',
-    price: [49, 490, 880]
+    price: [49, 245, 490]
   },
   'pr-analysis': {
     name: 'Patient Reviews with Data Analysis',
-    price: [69, 690, 1240]
+    price: [69, 345, 690]
   },
   'pr-enterprise': {
     name: 'Enterprise',
