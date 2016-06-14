@@ -1,0 +1,120 @@
+{
+  "requiresAttributes": [
+    {
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    }
+  ],
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:067216503767:task-definition/elk-cluster:5",
+  "status": "ACTIVE",
+  "revision": 5,
+  "containerDefinitions": [
+    {
+      "volumesFrom": [],
+      "memory": 1664,
+      "extraHosts": null,
+      "dnsServers": null,
+      "disableNetworking": null,
+      "dnsSearchDomains": null,
+      "portMappings": [
+        {
+          "hostPort": 5601,
+          "containerPort": 5601,
+          "protocol": "tcp"
+        },
+        {
+          "hostPort": 9200,
+          "containerPort": 9200,
+          "protocol": "tcp"
+        },
+        {
+          "hostPort": 9300,
+          "containerPort": 9300,
+          "protocol": "tcp"
+        },
+        {
+          "hostPort": 12201,
+          "containerPort": 12201,
+          "protocol": "udp"
+        }
+      ],
+      "hostname": null,
+      "essential": true,
+      "entryPoint": null,
+      "mountPoints": [
+        {
+          "containerPath": "/var/lib/elasticsearch",
+          "sourceVolume": "elk-logs",
+          "readOnly": null
+        }
+      ],
+      "name": "elk-docker",
+      "ulimits": null,
+      "dockerSecurityOptions": null,
+      "environment": [],
+      "links": null,
+      "workingDirectory": null,
+      "readonlyRootFilesystem": null,
+      "image": "067216503767.dkr.ecr.us-east-1.amazonaws.com/elk-docker:latest",
+      "command": null,
+      "user": null,
+      "dockerLabels": null,
+      "logConfiguration": null,
+      "cpu": 768,
+      "privileged": null
+    },
+    {
+      "volumesFrom": [],
+      "memory": 16,
+      "extraHosts": null,
+      "dnsServers": null,
+      "disableNetworking": null,
+      "dnsSearchDomains": null,
+      "portMappings": [],
+      "hostname": null,
+      "essential": true,
+      "entryPoint": null,
+      "mountPoints": [],
+      "name": "route53-register",
+      "ulimits": null,
+      "dockerSecurityOptions": null,
+      "environment": [
+        {
+          "name": "HOSTNAME_PUBLIC",
+          "value": "elk.mdocs.co"
+        },
+        {
+          "name": "AWS_SECRET_KEY",
+          "value": "4tHNp7SBQ+fztE4+cvO4TZ060wiEz5+NV2wNp466"
+        },
+        {
+          "name": "HOSTNAME_LOCAL",
+          "value": "elk-local.mdocs.co"
+        },
+        {
+          "name": "AWS_ACCESS_KEY",
+          "value": "AKIAIOGCCFGGZ4ZWWM3A"
+        }
+      ],
+      "links": null,
+      "workingDirectory": null,
+      "readonlyRootFilesystem": null,
+      "image": "misakai/route53-presence",
+      "command": null,
+      "user": null,
+      "dockerLabels": null,
+      "logConfiguration": null,
+      "cpu": 1,
+      "privileged": null
+    }
+  ],
+  "volumes": [
+    {
+      "host": {
+        "sourcePath": "/elkdata"
+      },
+      "name": "elk-logs"
+    }
+  ],
+  "family": "elk-cluster"
+}
