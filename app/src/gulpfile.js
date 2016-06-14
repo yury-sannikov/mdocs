@@ -228,7 +228,7 @@
 
   gulp.task('open', ['nodemon'], function () {
     gulp.src('')
-      .pipe($.open({ uri: 'http://localhost:3030' }));
+      .pipe($.open({ uri: 'http://localhost:3030/app' }));
   });
 
   /**
