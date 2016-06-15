@@ -64,7 +64,7 @@ router.post('checkout', '/checkout', function*() {
       yield checkoutExistingUser.call(this);
     }
 
-    yield updateSessionSubscriptionInfo(this, this.currentUser.id);
+    yield updateSessionSubscriptionInfo(this, this.session.passport.user.id);
 
   } catch(err) {
     debug(err.stack);
