@@ -91,6 +91,16 @@ RUN sed -i -e 's#^KIBANA_HOME=$#KIBANA_HOME='$KIBANA_HOME'#' /etc/init.d/kibana 
 
 
 ###############################################################################
+#                               GEOIP
+###############################################################################
+ENV GEOIP_HOME /opt/geolitecity
+ENV GEOIP_PACKAGE GeoLiteCity.dat.gz
+RUN mkdir ${GEOIP_HOME} \
+ && curl -O "http://geolite.maxmind.com/download/geoip/database/${GEOIP_PACKAGE}" \
+ && gunzip -c ${GEOIP_PACKAGE} > "${GEOIP_HOME}/GeoLiteCity.dat" \
+ && chown -R logstash:logstash ${GEOIP_HOME}
+
+###############################################################################
 #                               PLUGINS
 ###############################################################################
 WORKDIR ${LOGSTASH_HOME}
