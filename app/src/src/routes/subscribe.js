@@ -10,7 +10,7 @@ import { serializeUserFromProfile } from '../auth';
 
 const debug = require('debug')('app:routes:subscribe');
 
-const DASHBOARD_URL = '/app';
+const DASHBOARD_URL = '/app?welcome=y';
 
 const PLAN_INFO = {
   'pr-basic': {
