@@ -175,10 +175,10 @@ exports.insertOrUpdateUser = function* (id, user) {
     .table('survey_users')
     .where('id').eq(id);
 
-  const thisUser = yield exports.findUserById(id);
+  let thisUser = yield exports.findUserById(id);
 
   if (!thisUser) {
-    return;
+    thisUser = { id };
   }
 
   const upsertAsync = Promise.promisify(chain.insert_or_replace, {context: chain});
