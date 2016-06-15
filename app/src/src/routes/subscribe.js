@@ -67,7 +67,7 @@ router.post('checkout', '/checkout', function*() {
     yield updateSessionSubscriptionInfo(this, this.currentUser.id);
 
   } catch(err) {
-    console.log(err.stack);
+    debug(err.stack);
     yield renderPayment.call(this, this.request.body.plan, err.message);
     return;
   }
@@ -145,8 +145,6 @@ function* checkoutNewUser() {
     .checkNot(yield findUserByEmail(this.vals.email), 'Username taken');
 
   this.request.body.name.trim();
-
-  console.log(this.request.body);
 
   const userProfile = yield createUser(this.request.body.email, this.request.body.pass, this.request.body.name);
 

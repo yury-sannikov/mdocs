@@ -195,13 +195,13 @@ exports.handleBouncerValidationError = function() {
 
 exports.ensureRecaptcha = function*(next) {
   if (_.includes(['development', 'test'], config.NODE_ENV) && !this.request.body['g-recaptcha-response']) {
-    console.log('Development mode, so skipping recaptcha check');
+    debug('Development mode, so skipping recaptcha check');
     yield* next;
     return;
   }
 
   if (!config.RECAPTCHA_SYSTEM_ONLINE) {
-    console.warn('Warn: Recaptcha environment variables not set, so skipping recaptcha check');
+    debug('Warn: Recaptcha environment variables not set, so skipping recaptcha check');
     yield* next;
     return;
   }

@@ -155,7 +155,7 @@ app.use(require('./routes').routes());
 // our tests), then don't start the server and instead just export the app.
 if (require.main === module) {
   app.listen(config.PORT, function() {
-    console.log('Listening on port', config.PORT);
+    debug('Listening on port', config.PORT);
   });
 } else {
   module.exports = app;

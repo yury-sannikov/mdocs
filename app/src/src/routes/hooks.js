@@ -29,7 +29,6 @@ function* loginCallbackHandler() {
   const redirectOnLogin = this.session.redirectOnLogin;
   const redirectTo = redirectOnLogin ? decodeURIComponent(redirectOnLogin) : '/app';
   ctx.session.redirectOnLogin = null;
-  console.log(`Redirect to ${redirectTo}`);
   yield passport.authenticate('auth0', function*(err, user, info) {
     if (err) throw err;
 

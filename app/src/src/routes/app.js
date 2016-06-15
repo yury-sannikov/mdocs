@@ -55,7 +55,6 @@ router.get('/profile', checkAuthenticated, function* () {
 
 router.get('/subscription', checkAuthenticated, hasSubscription, function* () {
   const futureInvoice = yield getFutureInvoice(this.currentUser.id);
-  console.log(JSON.stringify(futureInvoice, null, 2));
   this.render('app/subscription', Object.assign({}, this.jadeLocals, {
     futureInvoice
   }), true);

@@ -1,6 +1,7 @@
 'use strict';
 const https = require('https');
 const AWS = require('aws-sdk');
+const debug = require('debug')('app:config');
 
 // Ensure require('dotenv').config() is run before this module is required
 
@@ -30,9 +31,9 @@ if (!exports.RECAPTCHA_SITESECRET)
 
 exports.RECAPTCHA_SYSTEM_ONLINE = !!(exports.RECAPTCHA_SITEKEY && exports.RECAPTCHA_SITESECRET);
 if (exports.RECAPTCHA_SYSTEM_ONLINE) {
-  console.log('Recaptcha system online');
+  debug('Recaptcha system online');
 } else {
-  console.warn('Warn: Recaptcha system offline');
+  debug('Warn: Recaptcha system offline');
 }
 
 exports.MESSAGES_PER_PAGE = Number.parseInt(process.env.MESSAGES_PER_PAGE, 10) || 10;
@@ -80,8 +81,8 @@ AWS.config.update({
 });
 
 
-console.log(`Running in ${exports.NODE_ENV} mode.`);
+debug(`Running in ${exports.NODE_ENV} mode.`);
 // Output config object in development to help with sanity-checking
 if (exports.NODE_ENV === 'development' || exports.NODE_ENV === 'test') {
-  console.log(exports);
+  debug(exports);
 }

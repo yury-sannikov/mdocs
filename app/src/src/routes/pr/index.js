@@ -51,8 +51,6 @@ router.get('/provider/:id', function*() {
 });
 
 router.post('/new-provider', hasSubscription, function*() {
-  console.log(this.request.body);
-
   const provider = Object.assign({}, this.request.body);
   const id = yield db.createProvider()(this.currentUser.id, provider);
   yield updateSubscription(this.currentUser.id, this.session);
@@ -60,8 +58,6 @@ router.post('/new-provider', hasSubscription, function*() {
 });
 
 router.post('/update-provider', hasSubscription, function*() {
-  console.log(this.request.body);
-
   const provider = Object.assign({}, this.request.body);
   const id = yield db.updateProvider(this.request.body.editID, provider);
 
@@ -83,7 +79,6 @@ router.get('locations', '/locations', function*() {
 
 router.get('/location/:id', function*() {
   const data = yield db.locationById(this.params.id);
-  console.log(this.params.id)
   if (!data || !data[0] || data[0].length == 0) {
     this.redirect(router.url('locations'));
     return;
@@ -92,8 +87,6 @@ router.get('/location/:id', function*() {
 });
 
 router.post('/new-location', hasSubscription, function*() {
-  console.log(this.request.body);
-
   const location = Object.assign({}, this.request.body);
   const id = yield db.createLocation()(this.currentUser.id, location);
   yield updateSubscription(this.currentUser.id, this.session);
@@ -102,7 +95,6 @@ router.post('/new-location', hasSubscription, function*() {
 });
 
 router.post('/update-location', hasSubscription, function*() {
-  console.log(this.request.body);
 
   const location = Object.assign({}, this.request.body);
   const id = yield db.updateLocation(this.request.body.editID, location);

@@ -1,7 +1,7 @@
 'use strict';
 const assert = require('better-assert');
 const Router = require('koa-router');
-const debug = require('debug')('app:routes:index');
+const debug = require('debug')('app:routes:patient-review');
 const _ = require('lodash');
 const db = require('../../db');
 const communicator = require('../../comm');
@@ -100,7 +100,7 @@ router.post('/new-request', hasSubscription, function*() {
   const title = providerOrLocation[0][0].name;
 
   const questions = Object.assign({}, HARDCODED_QUESTIONS, { '2': title });
-  console.log(this.currentUser.id, survey, questions, title);
+  debug(this.currentUser.id, survey, questions, title);
   const id = yield db.createNewSurvey()(this.currentUser.id, survey, questions, title);
 
   yield conductSurvey.call(this, id);

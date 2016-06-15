@@ -47,7 +47,7 @@ exports.conductSurvey = function* (id) {
   const surveyData = survey[0];
 
   if (!surveyData || surveyData.length == 0) {
-    console.log(`Can't conduct survey id #{id}. Record not found`);
+    debug(`Can't conduct survey id #{id}. Record not found`);
     return result;
   }
   // Generate unique one-shot code for survey
