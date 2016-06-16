@@ -1,0 +1,25 @@
+{
+  "name": "sccds-list-prefill",
+  "version": "0.0.1",
+  "description": "Search for yelp business ID against SCCDS list",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-dynamodb": "^0.1.53",
+    "aws-sdk": "^2.4.0",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-1": "^6.5.0",
+    "babel-register": "^6.9.0",
+    "co": "^4.6.0",
+    "co-request": "^1.0.0",
+    "lodash": "^4.13.1",
+    "source-map-support": "^0.4.0"
+  }
+}
