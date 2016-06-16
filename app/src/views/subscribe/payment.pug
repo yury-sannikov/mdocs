@@ -322,7 +322,8 @@ block content
                     input.form-control(type='text', size='4', data-stripe='cvc', placeholder='CVC')
                   .col-sm-6
                     input.form-control(type='text', size='6', data-stripe='address_zip', placeholder='Billing ZIP')
-            a(href='https://stripe.com/docs/testing#cards') Test Cards
+            if (config.STRIPE_PUB_KEY.indexOf('pk_test_') === 0)
+              a(href='https://stripe.com/docs/testing#cards') Test Cards
             .row.rowaccent(style='padding: 20px;')
               .col-sm-8.col-sm-offset-2
                 .form-group

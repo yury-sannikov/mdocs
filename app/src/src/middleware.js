@@ -40,9 +40,6 @@ exports.wrapCurrUser = function() {
 
     if (this.session.passport.user) {
       this.currentUser = this.session.passport.user;
-      debug('[wrapCurrUser] User found');
-    } else {
-      debug('[wrapCurrUser] No user found');
     }
     yield* next;
   };
