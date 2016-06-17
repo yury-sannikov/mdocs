@@ -12,15 +12,33 @@ function hasDynamoData(data) {
   return _.isArray(data) && data.length > 0;
 }
 
-export function* queryUnprocessed() {
+export function queryUnprocessed$(limit, $lastKey) {
+  return new Promise(function (resolve, reject) {
+    let chain = DynamoDB
+      .table('sccds_list')
+      .having('yelpBusinessId').undefined()
+      .limit(limit);
+    if (limit) {
+      chain = chain.resume($lastKey)
+    }
+    chain.scan(function( err, data ) {
+      if (err) {
+        return reject(err);
+      }
+      resolve({
+        data,
+        key: this.LastEvaluatedKey
+      });
+    });
+  });
+};
+
+export function* saveRecord$(key, data) {
   const chain = DynamoDB
     .table('sccds_list')
-    .having('yelpBusinessId').undefined()
-    .limit(5);
+    .where('fullname').eq(key);
 
-  const queryAsync = Promise.promisify(chain.scan, {context: chain});
+  const updateAsync = Promise.promisify(chain.update, {context: chain});
 
-  const data = yield queryAsync();
-
-  return hasDynamoData(data) ? data : null;
-};
+  return updateAsync(data);
+}

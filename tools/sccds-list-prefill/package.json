@@ -18,11 +18,13 @@
     "babel-preset-stage-1": "^6.5.0",
     "babel-register": "^6.9.0",
     "bluebird": "^3.4.0",
+    "clj-fuzzy": "^0.3.1",
     "co": "^4.6.0",
     "co-request": "^1.0.0",
     "debug": "^2.2.0",
     "dotenv": "^2.0.0",
     "lodash": "^4.13.1",
+    "md5": "^2.1.0",
     "source-map-support": "^0.4.0",
     "yelp": "^1.0.1"
   }
