@@ -12,6 +12,29 @@ function hasDynamoData(data) {
   return _.isArray(data) && data.length > 0;
 }
 
+export function queryAvailable$(limit, $lastKey) {
+  return new Promise(function (resolve, reject) {
+    let chain = DynamoDB
+      .table('sccds_list')
+      .having('yelpBusinessId').defined()
+      .having('yelpBusinessId').ne('-')
+      .limit(limit);
+    if (limit) {
+      chain = chain.resume($lastKey)
+    }
+    chain.scan(function( err, data ) {
+      if (err) {
+        return reject(err);
+      }
+      resolve({
+        data,
+        key: this.LastEvaluatedKey
+      });
+    });
+  });
+};
+
+
 export function queryUnprocessed$(limit, $lastKey) {
   return new Promise(function (resolve, reject) {
     let chain = DynamoDB
