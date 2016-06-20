@@ -3830,7 +3830,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     }
     /* Process */
     .section-process {
-      background: url(../img/bg-process.jpg) top center no-repeat;
+      background: url(../images/bg-process.jpg) top center no-repeat;
     }
     .phase-box {
       margin-top: 4px;
