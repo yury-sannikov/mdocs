@@ -7,12 +7,13 @@ const Koa = require('koa');
 const bouncer = require('koa-bouncer');
 const Pug = require('koa-pug');
 const debug = require('debug')('app:index');
-const csrf = require('koa-csrf');
 // 1st party
 const config = require('./config');
 const mw = require('./middleware');
 const belt = require('./belt');
 const cancan = require('./cancan');
+const csrf = require('koa-csrf');
+
 
 ////////////////////////////////////////////////////////////
 
@@ -102,23 +103,19 @@ const session = require('koa-session');
 app.keys = ['4d92163b86ad469c8861a4e0d399a524-app-mdocs-co'];
 app.use(session(app));
 
-// csrf
-app.use(csrf({
-  middleware: mw.csrfMiddleware()
-}));
-
-// Need session & body
-app.use(mw.ensureReferer());
-
-// Jade locals with csrf
-app.use(mw.wrapJadeLocals());
-
-
 // authentication
 require('./auth');
 const passport = require('koa-passport');
 app.use(passport.initialize());
 app.use(passport.session());
+
+// csrf
+app.use(csrf({
+  middleware: mw.csrfMiddleware()
+}));
+// Jade locals with csrf
+app.use(mw.wrapJadeLocals());
+
 
 // Provide a convience function for protecting our routes behind
 // our authorization rules. If authorization check fails, 404 response.
@@ -140,13 +137,13 @@ app.use(function*(next) {
   yield* next;
 });
 
-app.use(mw.checkJWTExpiration());
 
 ////////////////////////////////////////////////////////////
 // Routes
 ////////////////////////////////////////////////////////////
 
 app.use(require('./routes').routes());
+app.use(require('./routes/reports').routes());
 
 ////////////////////////////////////////////////////////////
 
