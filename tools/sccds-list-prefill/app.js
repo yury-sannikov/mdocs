@@ -90,9 +90,10 @@ function negativeReviewAppears(data, businessData, firstTime) {
   });
 }
 
-function* updateDynamoRate(data, businessData, firstTime) {
+function* updateDynamoRate(data, businessData, yelpBusinessReviewHash, firstTime) {
   const lastReview = businessData.reviews[0];
   let newData = Object.assign({}, data, {
+    yelpBusinessReviewHash,
     yelpBusinessReviewRate: lastReview.rating,
     yelpBusinessReviewRateDate: lastReview.time_created,
     yelpBusiness: businessData
@@ -130,12 +131,14 @@ function* processNextCheck(limit, rkey) {
     }
     const lastReview = bData.reviews[0];
 
+    const yelpBusinessReviewHash = md5(lastReview.excerpt);
+
     if (!d.yelpBusinessReviewRate) {
-      yield updateDynamoRate(d, bData, true);
+      yield updateDynamoRate(d, bData, yelpBusinessReviewHash, true);
     } else {
-      const lastReviewHash = md5(lastReview.excerpt);
-      if (d.yelpBusinessReviewHash !== lastReviewHash) {
-        yield updateDynamoRate(d, bData, false);
+
+      if (d.yelpBusinessReviewHash !== yelpBusinessReviewHash) {
+        yield updateDynamoRate(d, bData, yelpBusinessReviewHash, false);
       }
     }
   };
