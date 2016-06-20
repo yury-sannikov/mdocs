@@ -1,4 +1,4 @@
-var name = "/app/report/data/brian_kong.json";
+var name = "/reports/data/brian_kong.json";
 
 $.getJSON( name, function( data ) {
   var items = [];
