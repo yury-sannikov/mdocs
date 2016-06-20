@@ -3322,11 +3322,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     font-size: 22px;
   }
   .btn-primary {
-    background-color: #ff910f;
+    background-color: #FF196F;
   }
   .btn-primary:hover,
   .btn-primary:focus {
-    background-color: #e97e00;
+    background-color: #FF4B6F;
   }
   /* Forms */
   .form-inline .radio,
@@ -3606,7 +3606,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     padding: 10px;
     font-size: 12px;
     font-weight: 300;
-    background: #23272e url(../img/bg-howitworks.jpg) bottom center no-repeat;
+    background: #23272e url(../images/bg-howitworks.jpg) bottom center no-repeat;
     color: #fff;
   }
   .section-howitworks h2 {
@@ -3639,10 +3639,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     width: 184px;
     height: 222px;
     margin: 0 auto 10px;
-    background: url(../img/hiw-serps.png) top center no-repeat;
+    background: url(../images/hiw-serps.png) top center no-repeat;
   }
   .hiw-serps.nolla {
-    background-image: url(../img/hiw-serps-nolla.png);
+    background-image: url(../images/hiw-serps-nolla.png);
   }
   .serps {
     position: absolute;
@@ -3666,7 +3666,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     width: 184px;
     height: 101px;
     margin: 0 auto 10px;
-    background: url(../img/hiw-trl-serps.png) top center no-repeat;
+    background: url(../images/hiw-trl-serps.png) top center no-repeat;
   }
   .hiw-trl__one {
     top: 11px;
@@ -3784,6 +3784,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     margin-bottom: 10px;
     padding: 10px 0;
     background: #1aadec;
+  }
+
+  .box-logo img {
+    width: 80%;
   }
 /* ==========================================================================
    Media Queries
