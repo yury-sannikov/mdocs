@@ -125,8 +125,12 @@ block scripts
       }
 
       $.validator.addMethod("lettersonly", function(value, element) {
-        return this.optional(element) || /^[a-z ]+$/i.test(value);
+        return this.optional(element) || /^[a-z .]+$/i.test(value);
       }, "Letters and spaces only, please!");
+
+      $.validator.addMethod("nowhitespace", function(value, element) {
+        return this.optional(element) || (value.indexOf(" ") < 0 && value !== "");
+      }, "No white space please."); 
 
       $(function() {
         // Password Strength
@@ -147,31 +151,18 @@ block scripts
               maxlength: 60
             },
             email: {
-              required: {
-                depends: function() {
-                  $(this).val($.trim($(this).val()));
-                  return true;
-                }
-              },
+              required: true,
               email: true
             },
             pass: {
-              required: {
-                depends: function() {
-                  $(this).val($.trim($(this).val()));
-                  return true;
-                }
-              },
+              required: true,
+              nowhitespace: true,
               minlength: 5,
               maxlength: 100
             },
             passcheck: {
-              required: {
-                depends: function() {
-                  $(this).val($.trim($(this).val()));
-                  return true;
-                }
-              },
+              required: true,
+              nowhitespace: true,
               equalTo: "#pass"
             }
           },
