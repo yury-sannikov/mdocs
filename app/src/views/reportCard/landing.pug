@@ -14,20 +14,44 @@ html
           h1 PATIENT REVIEWS REPORT CARD
           p.reportDate
             i
-              | Report generated on
+              | Report generated on&nbsp;
               span#reportDate
               | .
             table.table.table-bordered.valigned
               tbody
                 tr
                   td(colspan='2')
-                    strong#providerName
+                    strong #{doctor.fullname}&nbsp;#{doctor.title}
                     br
-                    span#providerAddress
+                    each address, i in doctor.yelpBusiness.location.display_address
+                      span #{address}
+                      br
+                    span #{doctor.phone}
                   td(style='text-align: center; vertical-align: middle;')
                     span#avgStars
                   td(style='text-align: center; vertical-align: middle;')
                     span#avgGrade
+            br
+            br
+          h2 COMPETITORS ANALYSIS
+          i Facts
+          table.table.table-bordered.valigned
+            tbody
+              tr
+                td(colspan='3')
+                  strong Competitors nearby
+                td(style='text-align: center; vertical-align: middle;')
+                  span #{competitors.totalCompetitors}
+              tr
+                td(colspan='3')
+                  strong Your position among competitors
+                td(style='text-align: center; vertical-align: middle;')
+                  if (competitors.doctorWasInList)
+                    span #{competitors.doctorRateIndex}
+                  else
+                    span Well Below
+          img(width='650', alt='Competitors Map', src=competitors.mapURL)
+
             br
             br
           h2 DETAILED REVIEW CARD
