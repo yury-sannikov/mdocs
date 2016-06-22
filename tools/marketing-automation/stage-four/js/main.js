@@ -106,7 +106,88 @@ donutChart.on('draw', function(data) {
     }
 });
 
+new Chartist.Line('.ct-chart-tresh', {
+  labels: ['Today', '3mo', '6mo', '9mo', '12mo', '15mo', '18mo', '21mo', '24mo', '27mo', '30mo', '33mo', '36mo'],
+  series: [
+    [2.7, 2.8, 3.1, 3.2, 3.3, 3.6, 3.8, 4.4, 4.3, 4.5, 4.3, 4.9, 5.0]
+  ]
+}, {
+  showArea: true,
+  axisY: {
+    onlyInteger: false
+  },
+  plugins: [
+    Chartist.plugins.ctThreshold({
+      threshold: 4
+    }),
+    Chartist.plugins.ctPointLabels({
+      textAnchor: 'middle'
+    }),
+    Chartist.plugins.ctAxisTitle({
+      axisX: {
+        axisTitle: 'Time (months)',
+        axisClass: 'ct-axis-title',
+        offset: {
+          x: 0,
+          y: 32
+        },
+        textAnchor: 'middle'
+      },
+      axisY: {
+        axisTitle: 'Ratings',
+        axisClass: 'ct-axis-title',
+        offset: {
+          x: 0,
+          y: -4
+        },
+        textAnchor: 'middle',
+        flipTitle: false
+      }
+    })
+  ]
+});
 
+new Chartist.Line('.ct-chart-line', {
+    labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    series: [
+        [12, 9, 7, 8, 5],
+        [2, 1, 3.5, 7, 3],
+        [1, 3, 4, 5, 6]
+    ]
+}, {
+    fullWidth: true,
+    chartPadding: {
+        right: 40
+    },
+    plugins: [
+        Chartist.plugins.legend({
+            legendNames: ['Blue pill', 'Red pill', 'Purple pill'],
+        })
+    ]
+});
+
+new Chartist.Pie('.ct-chart-pie', {
+    labels: ['Piece A', 'Piece B', 'Piece C', 'Piece D'],
+    series: [20, 10, 30, 40]
+}, {
+    showLabel: false,
+    plugins: [
+        Chartist.plugins.legend()
+    ]
+});
+
+new Chartist.Bar('.ct-chart-bar', {
+    labels: ['First quarter of the year', 'Second quarter of the year', 'Third quarter of the year', 'Fourth quarter of the year'],
+    series: [
+        {"name": "Money A", "data": [60000, 40000, 80000, 70000]},
+        {"name": "Money B", "data": [40000, 30000, 70000, 65000]},
+        {"name": "Money C", "data": [8000, 3000, 10000, 6000]}
+    ]
+}, {
+    plugins: [
+        Chartist.plugins.legend()
+    ]
+});
 var dataFileName = "./data/7eedf541-8974-42fe-a38e-f688e8ccfcdc-elizabeth-zapp.json";
 
 $.getJSON(dataFileName, function(data) {

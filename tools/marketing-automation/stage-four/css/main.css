@@ -5,7 +5,7 @@ body {
 /* Use this selector to override the line style on a given series */
 .ct-series-a .ct-line {
   /* Set the colour of this series line */
-  stroke: #FF196F;
+  stroke: #d70206;
   /* Control the thikness of your lines */
   stroke-width: 4px;
   /* Create a dashed line with a pattern */
@@ -15,7 +15,7 @@ body {
 /* This selector overrides the points style on line charts. Points on line charts are actually just very short strokes. This allows you to customize even the point size in CSS */
 .ct-series-a .ct-point {
   /* Colour of your points */
-  stroke: #FF196F;
+  stroke: #d70206;
   /* Size of your points */
   stroke-width: 12px;
   /* Make your points appear as squares */
@@ -26,4 +26,216 @@ body {
   padding: 20px;
   background: #fff9f9;
   border-radius: 5px;
+}
+
+.ct-chart-tresh .ct-series-a .ct-line {
+  stroke: #d70206;
+  fill: none;
+  stroke-width: 4px;
+  stroke-dasharray: 5px;
+  -webkit-animation: dashoffset 1s linear infinite;
+  -moz-animation: dashoffset 1s linear infinite;
+  -o-animation: dashoffset 1s linear infinite;
+  animation: dashoffset 1s linear infinite
+}
+
+.ct-chart-tresh .ct-series-a .ct-area {
+  fill: #00aa00;
+}
+
+.ct-chart-tresh .ct-area.ct-threshold-below {
+  fill: #aa0000;
+}
+
+.ct-label {
+    color: rgba(0,0,0,.6);
+    font-size: 1rem;
+}
+
+// .ct-chart-tresh .ct-label {
+//     color: rgba(0,0,0,.4);
+//     font-size: 1rem;
+// }
+
+.ct-chart {
+  position: relative;
+}
+
+.ct-legend {
+    position: relative;
+    z-index: 10;
+    list-style: none;
+}
+.ct-legend li {
+    position: relative;
+    padding-left: 23px;
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+.ct-legend li:before {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    content: '';
+    border: 3px solid transparent;
+    border-radius: 2px;
+}
+.ct-legend li.inactive:before {
+    background: transparent;
+}
+.ct-legend.ct-legend-inside {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.ct-legend .ct-series-0:before {
+    background-color: #d70206;
+    border-color: #d70206;
+}
+.ct-legend .ct-series-1:before {
+    background-color: #f05b4f;
+    border-color: #f05b4f;
+}
+.ct-legend .ct-series-2:before {
+    background-color: #f4c63d;
+    border-color: #f4c63d;
+}
+.ct-legend .ct-series-3:before {
+    background-color: #d17905;
+    border-color: #d17905;
+}
+.ct-legend .ct-series-4:before {
+    background-color: #453d3f;
+    border-color: #453d3f;
+}
+
+
+@-webkit-keyframes dashoffset {
+    0% {
+        stroke-dashoffset: 0
+    }
+
+    100% {
+        stroke-dashoffset: -20px
+    }
+}
+
+@-moz-keyframes dashoffset {
+    0% {
+        stroke-dashoffset: 0
+    }
+
+    100% {
+        stroke-dashoffset: -20px
+    }
+}
+
+@-ms-keyframes dashoffset {
+    0% {
+        stroke-dashoffset: 0
+    }
+
+    100% {
+        stroke-dashoffset: -20px
+    }
+}
+
+@keyframes dashoffset {
+    0% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: -20px;
+    }
+}
+
+@-webkit-keyframes bouncing-stroke {
+    0%,100% {
+        stroke-width: 5px
+    }
+
+    50% {
+        stroke-width: 10px
+    }
+}
+
+@-moz-keyframes bouncing-stroke {
+    0%,100% {
+        stroke-width: 5px
+    }
+
+    50% {
+        stroke-width: 10px
+    }
+}
+
+@-ms-keyframes bouncing-stroke {
+    0%,100% {
+        stroke-width: 5px
+    }
+
+    50% {
+        stroke-width: 10px
+    }
+}
+
+@keyframes bouncing-stroke {
+    0%,100% {
+        stroke-width: 5px
+    }
+
+    50% {
+        stroke-width: 10px
+    }
+}
+
+@-webkit-keyframes exploding-stroke {
+    0% {
+        stroke-width: 2px;
+        opacity: 1
+    }
+
+    100% {
+        stroke-width: 20px;
+        opacity: 0
+    }
+}
+
+@-moz-keyframes exploding-stroke {
+    0% {
+        stroke-width: 2px;
+        opacity: 1
+    }
+
+    100% {
+        stroke-width: 20px;
+        opacity: 0
+    }
+}
+
+@-ms-keyframes exploding-stroke {
+    0% {
+        stroke-width: 2px;
+        opacity: 1
+    }
+
+    100% {
+        stroke-width: 20px;
+        opacity: 0
+    }
+}
+
+@keyframes exploding-stroke {
+    0% {
+        stroke-width: 2px;
+        opacity: 1
+    }
+
+    100% {
+        stroke-width: 20px;
+        opacity: 0
+    }
 }
