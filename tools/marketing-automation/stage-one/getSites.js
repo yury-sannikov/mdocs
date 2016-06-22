@@ -1,6 +1,5 @@
 var fs = require('fs');
 var _ = require('lodash');
-var cheerio = require('cheerio');
 var sp = require('scrapejs').init({
 	cc: 2, // up to 2 concurrent requests 
 	delay: 5 * 100 // delay 5 seconds before each request 

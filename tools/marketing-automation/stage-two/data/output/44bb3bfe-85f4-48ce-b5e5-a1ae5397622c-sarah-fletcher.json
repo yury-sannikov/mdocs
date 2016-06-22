@@ -1,0 +1,24 @@
+{
+  "reportDate": "06/22/2016",
+  "providerName": "Sarah Fletcher, MD",
+  "providerAddress": "20808 WATERBEACH PL<br>STERLING, VA 20165-7407<br>(703) 421-7000",
+  "bias": 0,
+  "reviews": [
+    {
+      "siteId": "Vitals",
+      "siteName": "VITALS.COM",
+      "siteUrl": "http://www.vitals.com/doctors/Dr_Sarah_Fletcher.html",
+      "addressAccurate": true,
+      "reviewCount": 3,
+      "rating": 4.5
+    },
+    {
+      "siteId": "HealthGrades",
+      "siteName": "HEALTH GRADES",
+      "siteUrl": "https://www.healthgrades.com/physician/dr-sarah-fletcher-3cf32",
+      "addressAccurate": true,
+      "reviewCount": 8,
+      "rating": 5
+    }
+  ]
+}
