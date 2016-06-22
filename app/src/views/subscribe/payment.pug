@@ -3,6 +3,7 @@ extends ../layouts/layout.pug
 block head
   title Subscribe
   script(type='text/javascript', src='https://js.stripe.com/v2/')
+  script(type='text/javascript', src='/app/lib/zxcvbn/dist/zxcvbn.js')
 
 block styles
   link(rel='stylesheet', href='/app/lib/animate.css/animate.css')
@@ -85,30 +86,25 @@ block scripts
       }
 
       function checkPasswordStrength($strengthLabel, password) {
-        password = password.trim();
         $strengthLabel.removeClass();
+        password = password.trim();
 
         if(password.length === 0) {
           $strengthLabel.addClass('passnone');
           return 'None';
         }
 
-        var strength = 0;
-        //if length is 8 characters or more, increase strength value
-        if (password.length > 7) { strength++; }
-        //if password contains both lower and uppercase characters, increase strength value
-        if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) { strength++; }
-        //if it has numbers and characters, increase strength value
-        if (password.match(/([a-zA-Z])/) && password.match(/([0-9])/)) { strength++; }
-        //if it has a special character, increase strength value
-        if (password.match(/([!,%,&,@,#,$,^,*,?,_,~])/)) { strength++; }
+        const strength = zxcvbn(password);
 
-        switch(strength) {
+        switch(strength.score) {
           case 0:
+            $strengthLabel.addClass('passveryweak');
+            $('#passwordStrength').val('very_weak');
+            return 'Very Weak';
+          case 1:
             $strengthLabel.addClass('passweak');
             $('#passwordStrength').val('weak');
             return 'Weak';
-          case 1:
           case 2:
             $strengthLabel.addClass('passgood');
             $('#passwordStrength').val('good');
@@ -130,7 +126,7 @@ block scripts
 
       $.validator.addMethod("nowhitespace", function(value, element) {
         return this.optional(element) || (value.indexOf(" ") < 0 && value !== "");
-      }, "No white space please."); 
+      }, "No white spaces please."); 
 
       $(function() {
         // Password Strength
@@ -214,6 +210,9 @@ block content
       padding-bottom: 10px;
     }
     .passnone{
+      color: #FF0000;
+    }
+    .passveryweak{
       color: #FF0000;
     }
     .passweak{
