@@ -7,14 +7,14 @@
       "zip": "20165",
       "sites": [
         {
+          "site": "Vitals",
+          "title": "Dr. Loc T Nguyen MD",
+          "url": "http://www.vitals.com/doctors/Dr_Loc_T_Nguyen.html"
+        },
+        {
           "site": "HealthGrades",
           "title": "Dr. Bich-Loc Nguyen, DDS",
           "url": "https://www.healthgrades.com/dentist/dr-bich-loc-nguyen-3gcr8"
-        },
-        {
-          "site": "Vitals",
-          "title": "Dr. Loc Nguyen DDS, DMD",
-          "url": "http://www.vitals.com/dentists/Dr_Loc_Nguyen_2"
         },
         {
           "site": "Yelp",

@@ -1,0 +1,55 @@
+{
+  "reportDate": "Jun-16, 2016",
+  "providers": [
+    {
+      "name": "Sarah Fletcher, MD",
+      "address": "21135 Whitfield Pl # 107",
+      "city": "Sterling",
+      "state": "VA",
+      "zip": "20165",
+      "phone": "(703) 421-7000",
+      "sites": [
+        {
+          "site": "Vitals",
+          "title": "Dr. Sarah S Fletcher MD",
+          "url": "http://www.vitals.com/doctors/Dr_Sarah_Fletcher/profile"
+        },
+        {
+          "site": "Yelp",
+          "title": "Dr. Sarah Fletcher, MD",
+          "url": "http://www.yelp.com/biz/dr-sarah-fletcher-md-sterling"
+        },
+        {
+          "site": "RateMDs",
+          "title": "Dr. Sarah L. Fletcher",
+          "url": "https://www.ratemds.com/doctor-ratings/3656452/Dr-Sarah+L.-Fletcher-Elk+Grove-CA.html"
+        },
+        {
+          "site": "HealthGrades",
+          "title": "Dr. Sarah S. Fletcher, MD",
+          "url": "https://www.healthgrades.com/physician/dr-sarah-fletcher-3cf32"
+        }
+      ]
+    },
+    {
+      "name": "Elizabeth Zapp, MD",
+      "address": "21135 Whitfield Pl # 107",
+      "city": "Sterling",
+      "state": "VA",
+      "zip": "20165",
+      "phone": "(703) 421-7000",
+      "sites": [
+        {
+          "site": "Vitals",
+          "title": "Dr. Elizabeth Zapp MD",
+          "url": "http://www.vitals.com/doctors/Dr_Elizabeth_Zapp.html"
+        },
+        {
+          "site": "HealthGrades",
+          "title": "Dr. Elizabeth A. Zapp, MD",
+          "url": "https://www.healthgrades.com/physician/dr-elizabeth-zapp-xl9x3"
+        }
+      ]
+    }
+  ]
+}

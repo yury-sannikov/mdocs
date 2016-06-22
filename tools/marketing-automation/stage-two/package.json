@@ -7,5 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.13.1",
+    "moment": "^2.13.0",
+    "node-rest-client": "^1.8.0",
+    "scrapejs": "^1.0.4",
+    "uuid": "^2.0.2"
+  }
 }

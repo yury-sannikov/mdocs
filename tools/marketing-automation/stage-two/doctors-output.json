@@ -1,0 +1,97 @@
+{
+  "reportDate": "Jun-12, 2016",
+  "providerName": "Brian Kong, DDS",
+  "providerAddress": "1620 Westwood Drive, Suite A<br>San Jose, CA 95125<br>(408) 264-3911",
+  "bias": 3,
+  "reviews":
+    [
+      {
+        "siteId": "yelp",
+        "siteName": "YELP.COM",
+        "siteUrl": "http://www.yelp.com/biz/willow-glen-dental-san-jose",
+        "addressAccurate": true,
+        "reviewCount": 128,
+        "rating": 5.0
+      },
+      {
+        "siteId": "google",
+        "siteName": "GOOGLE.COM",
+        "siteUrl": "https://plus.google.com/113491288699964531349",
+        "addressAccurate": true,
+        "reviewCount": 25,
+        "rating": 4.9
+      },
+      {
+        "siteId": "healthgrades",
+        "siteName": "HEALTH GRADES",
+        "siteUrl": "https://beta.healthgrades.com/dentist/dr-brian-kong-2sjgj",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "facebook",
+        "siteName": "FACEBOOK.COM",
+        "siteUrl": "https://www.facebook.com/briankongdds",
+        "addressAccurate": true,
+        "reviewCount": 10,
+        "rating": 4.4
+      },
+      {
+        "siteId": "vitals",
+        "siteName": "VITALS.COM",
+        "siteUrl": "http://www.vitals.com/dentists/Dr_Brian_Kong",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "yellowpages",
+        "siteName": "YELLOW PAGES ",
+        "siteUrl": "http://www.yellowpages.com/san-jose-ca/mip/dr-douglas-kong-dr-brian-kong-and-dr-glenn-lee-472645093",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "ratemds",
+        "siteName": "RATEMDS.COM",
+        "siteUrl": "https://www.ratemds.com/doctor-ratings/2916838",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "angieslist",
+        "siteName": "ANGIESLIST.COM",
+        "siteUrl": "https://www.angieslist.com/companylist/us/ca/san-jose/brian-kong-dds-reviews-6855762.htm",
+        "addressAccurate": false,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "ucomparehealthcare",
+        "siteName": "UCOMPARE HEALTHCARE",
+        "siteUrl": "http://www.ucomparehealthcare.com/dentist/brian_kong",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "yahoo",
+        "siteName": "YAHOO LOCAL",
+        "siteUrl": "https://local.yahoo.com/info-159031199-kong-brian-r-ddsglenn-w-lee-incorporated-san-jose",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "merchantcircle",
+        "siteName": "MERCHANT CIRCLE",
+        "siteUrl": "http://www.merchantcircle.com/brian-kong-dds-san-jose-ca",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      }
+    ]
+}

@@ -19,7 +19,7 @@ var googleBaseSearchUrl = 'https://www.googleapis.com/customsearch/v1?q=';
 var Client = require('node-rest-client').Client; 
 var client = new Client();
 
-var fileName = 'dentists.json';
+var fileName = 'doctors.json';
 var d = JSON.parse(fs.readFileSync(fileName, 'utf8'));
 
 var hgBaseSearchUrl = 'https://www.healthgrades.com/provider-search-directory/search?q=';
