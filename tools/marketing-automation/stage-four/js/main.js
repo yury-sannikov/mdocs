@@ -1,25 +1,92 @@
-var data = {
-  // A labels array that can contain any sort of values
-  labels: [1, 2, 3, 4, 5],
-  // Our series array that contains series objects or in this case series data arrays
+new Chartist.Line('.ct-chart-tresh', {
+  labels: ['Today', '3mo', '6mo', '9mo', '12mo', '15mo', '18mo', '21mo', '24mo', '27mo', '30mo', '33mo', '36mo'],
   series: [
-    [0, 5, 8, 5, 0]
+    [2.7, 2.8, 3.1, 3.2, 3.3, 3.6, 3.8, 4.4, 4.3, 4.5, 4.3, 4.9, 5.0]
   ]
-};
+}, {
+  showArea: true,
+  axisY: {
+    onlyInteger: false
+  },
+  plugins: [
+    Chartist.plugins.ctThreshold({
+      threshold: 4
+    }),
+    Chartist.plugins.ctPointLabels({
+      textAnchor: 'middle'
+    }),
+    Chartist.plugins.ctAxisTitle({
+      axisX: {
+        axisTitle: 'Time (months)',
+        axisClass: 'ct-axis-title',
+        offset: {
+          x: 0,
+          y: 32
+        },
+        textAnchor: 'middle'
+      },
+      axisY: {
+        axisTitle: 'Ratings',
+        axisClass: 'ct-axis-title',
+        offset: {
+          x: 0,
+          y: -4
+        },
+        textAnchor: 'middle',
+        flipTitle: false
+      }
+    })
+  ]
+});
 
-// Create a new line chart object where as first parameter we pass in a selector
-// that is resolving to our chart container element. The Second parameter
-// is the actual data object.
-new Chartist.Line('.ct-chart', data);
+
+new Chartist.Bar('.ct-chart-revenue', {
+    labels: ['Today', '3mo', '6mo', '9mo', '12mo', '15mo', '18mo', '21mo', '24mo', '27mo', '30mo', '33mo', '36mo'],
+    series: [
+      {
+        "name": "Revenue Growth",
+        "data": [3000, 4000, 5000, 7000, 9000, 12000, 12000, 14000, 18000, 20000, 24000, 28000, 32000]
+      }
+    ]
+}, {
+    plugins: [
+      Chartist.plugins.ctPointLabels({
+      textAnchor: 'middle'
+    }),
+    Chartist.plugins.ctAxisTitle({
+      axisX: {
+        axisTitle: 'Time (months)',
+        axisClass: 'ct-axis-title',
+        offset: {
+          x: 0,
+          y: 32
+        },
+        textAnchor: 'middle'
+      },
+      axisY: {
+        axisTitle: 'Revenue ($)',
+        axisClass: 'ct-axis-title',
+        offset: {
+          x: 0,
+          y: 0
+        },
+        textAnchor: 'middle',
+        flipTitle: false
+      }
+    })
+        // Chartist.plugins.legend()
+    ]
+});
 
 
 
 
 new Chartist.Line('.ct-chart-comp', {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  labels: ['Today', '3mo', '6mo', '9mo', '12mo', '15mo', '18mo', '21mo', '24mo', '27mo', '30mo', '33mo', '36mo'],
   series: [
-    {name: 'Income', data: [20000, 30000, 35000, 32000, 40000, 42000, 50000, 62000, 80000, 94000, 100000, 120000]},
-    {name: 'Expenses', data: [10000, 15000, 12000, 14000, 20000, 23000, 22000, 24000, 21000, 18000, 30000, 32000]}
+    {name: 'Revenue', data: [20000, 30000, 35000, 32000, 40000, 42000, 50000, 62000, 80000, 94000, 100000, 120000]},
+    {name: 'Ratings', data: [2700, 2800, 3.1, 3.2, 3.3, 3.6, 3.8, 4.4, 4.3, 4.5, 4.3, 4.9, 5.0]},
+    {name: 'Rati', data: [2700, 20000, 3.1, 3.2, 3.3, 3.6, 3.8, 4.4, 4.3, 4.5, 4.3, 4.9, 5.0]}
   ]
 }, {
   fullWidth: true,
@@ -35,8 +102,8 @@ new Chartist.Line('.ct-chart-comp', {
   },
   plugins: [
     Chartist.plugins.ctAccessibility({
-      caption: 'Fiscal year 2015',
-      seriesHeader: 'business numbers',
+      caption: 'Ratings vs. Revenue Projection',
+      seriesHeader: '',
       summary: 'A graphic that shows the business numbers of the fiscal year 2015',
       valueTransform: function(value) {
         return value + ' dollar';
@@ -46,6 +113,26 @@ new Chartist.Line('.ct-chart-comp', {
     })
   ]
 });
+
+
+
+
+
+var data = {
+  // A labels array that can contain any sort of values
+  labels: [1, 2, 3, 4, 5],
+  // Our series array that contains series objects or in this case series data arrays
+  series: [
+    [0, 5, 8, 5, 0]
+  ]
+};
+
+// Create a new line chart object where as first parameter we pass in a selector
+// that is resolving to our chart container element. The Second parameter
+// is the actual data object.
+new Chartist.Line('.ct-chart-line', data);
+
+
 
 
 
@@ -106,46 +193,7 @@ donutChart.on('draw', function(data) {
     }
 });
 
-new Chartist.Line('.ct-chart-tresh', {
-  labels: ['Today', '3mo', '6mo', '9mo', '12mo', '15mo', '18mo', '21mo', '24mo', '27mo', '30mo', '33mo', '36mo'],
-  series: [
-    [2.7, 2.8, 3.1, 3.2, 3.3, 3.6, 3.8, 4.4, 4.3, 4.5, 4.3, 4.9, 5.0]
-  ]
-}, {
-  showArea: true,
-  axisY: {
-    onlyInteger: false
-  },
-  plugins: [
-    Chartist.plugins.ctThreshold({
-      threshold: 4
-    }),
-    Chartist.plugins.ctPointLabels({
-      textAnchor: 'middle'
-    }),
-    Chartist.plugins.ctAxisTitle({
-      axisX: {
-        axisTitle: 'Time (months)',
-        axisClass: 'ct-axis-title',
-        offset: {
-          x: 0,
-          y: 32
-        },
-        textAnchor: 'middle'
-      },
-      axisY: {
-        axisTitle: 'Ratings',
-        axisClass: 'ct-axis-title',
-        offset: {
-          x: 0,
-          y: -4
-        },
-        textAnchor: 'middle',
-        flipTitle: false
-      }
-    })
-  ]
-});
+
 
 new Chartist.Line('.ct-chart-line', {
     labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],

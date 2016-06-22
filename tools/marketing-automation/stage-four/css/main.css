@@ -2,6 +2,10 @@ body {
   font-family: Lato, sans, sans-serif;
 }
 
+.row {
+  margin-bottom: 40px;
+}
+
 /* Use this selector to override the line style on a given series */
 .ct-series-a .ct-line {
   /* Set the colour of this series line */
