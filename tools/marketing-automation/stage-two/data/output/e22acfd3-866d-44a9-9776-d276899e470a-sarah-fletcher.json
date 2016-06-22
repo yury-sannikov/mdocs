@@ -1,0 +1,24 @@
+{
+  "reportDate": "06/21/2016",
+  "providerName": "Sarah Fletcher, MD",
+  "providerAddress": "21135 Whitfield Pl # 107 Sterling, VA 20165",
+  "bias": 0,
+  "reviews": [
+    {
+      "siteId": "HealthGrades",
+      "siteName": "HEALTH GRADES",
+      "siteUrl": "https://www.healthgrades.com/physician/dr-sarah-fletcher-3cf32",
+      "addressAccurate": true,
+      "reviewCount": 8,
+      "rating": 5
+    },
+    {
+      "siteId": "Vitals",
+      "siteName": "VITALS.COM",
+      "siteUrl": "http://www.vitals.com/doctors/Dr_Sarah_Fletcher/profile",
+      "addressAccurate": true,
+      "reviewCount": 3,
+      "rating": 4.5
+    }
+  ]
+}

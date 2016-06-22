@@ -26,10 +26,10 @@ var parseHealthGrades = function (url, file) {
   sp.load(url)
     .then(function($){
       $.q("//span[@itemprop='ratingValue'][1]").forEach(function(node){
-        result.rating = node.textContent;
+        result.rating = parseFloat(node.textContent);
       });
       $.q("//a[@data-hgoname='survey-results'][1]").forEach(function(node){
-        result.reviewCount = node.textContent.split(' ')[0];
+        result.reviewCount = parseFloat(node.textContent.split(' ')[0]);
       });
 
       var dentist = JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -37,7 +37,6 @@ var parseHealthGrades = function (url, file) {
       // HealthGrades.com
       var hgIndex = _.findLastIndex(dentist.reviews, function(s) {return s.siteId == 'HealthGrades';});
       if (_.findLastIndex(dentist.reviews, function(s) {return s.siteId == 'HealthGrades';}) < 0) {
-        // console.log("Attempting to parse HealthGrades for record #: " + index + '   Name: ' + dentist.name);
         try {
             dentist.reviews.push(result);
             fs.writeFile(file, JSON.stringify(dentist, null, 2), function (err) {
@@ -65,14 +64,14 @@ var parseVitals = function (url, file) {
         "rating": 0
       };
 
-  sp.load(url)    
+  sp.load(url)
     .then(function($){
 
       $.q("//div[@class='child']/span[1]").forEach(function(node){
-        result.rating = node.textContent;
+        result.rating = parseFloat(node.textContent);
       });
       $.q("//a[@class='reviews_count']").forEach(function(node){
-        result.reviewCount = node.textContent.split(' ')[0];
+        result.reviewCount = parseFloat(node.textContent.split(' ')[0]);
       });
 
       var dentist = JSON.parse(fs.readFileSync(file, 'utf8'));

@@ -1,0 +1,51 @@
+body {
+  font-family: Lato, sans, sans-serif;
+}
+
+h1, h2 {
+  font-weight: 700;
+}
+
+.golden {
+  color: #FFC40E;
+  font-size: 2em;
+}
+
+.grey {
+  color: #AAA;
+  font-size: 2em;
+}
+
+.green {
+  color: #17D103;
+  font-size: 2em;
+}
+
+.red {
+  color: #D1161D;
+  font-size: 2em;
+}
+
+.reportDate {
+  color: #999;
+}
+
+.valigned td {
+  vertical-align: middle;
+}
+
+.score {
+  font-size: 5em;
+  margin: 0;
+}
+
+.logo {
+  width: 300px;
+  margin: 30px auto;
+}
+
+footer {
+  color: #AAA;
+  font-size: 1em;
+  text-align: center;
+}
