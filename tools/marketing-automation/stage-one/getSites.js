@@ -24,6 +24,7 @@ var hgBaseSearchUrl = 'https://www.healthgrades.com/provider-search-directory/se
 var vitalsBaseSearchUrl = 'http://www.vitals.com/search?type=name&provider_type=0&q=';
 var yelpBaseSearchUrl = 'http://www.yelp.com/search?find_desc=';
 var rateMDsBaseSearchUrl = 'https://www.ratemds.com/best-doctors/?text=';
+var ypBaseSearchUrl = 'http://www.yellowpages.com/search?search_terms=';
 
 var generateHealthGradesUrl = function(q, loc) {
 	return hgBaseSearchUrl + q + '&loc=' + loc;
@@ -41,9 +42,10 @@ var generateRateMDsSearchUrl = function(q) {
 	return rateMDsBaseSearchUrl + q;
 }
 
-// var generateYelpUrl = function(query) {
-// 	return googleBaseSearchUrl + query + '&cx=' + yelpCxKey + '&num=5&key=' + googleSearchKey;
-// }
+var generateYPSearchUrl = function(q, loc) {
+  return ypBaseSearchUrl + q + '&geo_location_terms=' + loc;
+}
+
 
 var parseHealthGrades = function (dentist) {
 	sp.load(generateHealthGradesUrl(dentist.name, dentist.zip))
@@ -124,7 +126,6 @@ var parseVitals = function (dentist) {
 
 var parseYelp = function (dentist) {
 	var url = generateYelpSearchUrl(dentist.name, dentist.zip);
-
 	sp.load(url)
 		.then(function($){
 			$.q("//span[@class='indexed-biz-name']/a[1]").forEach(function(node){
@@ -162,7 +163,6 @@ var parseYelp = function (dentist) {
 
 var parseRateMDs = function (dentist) {
 	var url = generateRateMDsSearchUrl(dentist.name);
-	console.log(url);
 	sp.load(url)
 		.then(function($){
 			$.q("//h2[@class='search-item-doctor-name']/a[1]").forEach(function(node){
@@ -198,6 +198,45 @@ var parseRateMDs = function (dentist) {
 	})
 }
 
+var parseYellowPages = function (dentist) {
+  var url = generateYPSearchUrl(dentist.name, dentist.zip);
+  console.log(url);
+  sp.load(url)
+    .then(function($){
+      $.q("//div[@class='v-card']/div[@class='info']/h3[@class='n']/a[@class='business-name'][1]").forEach(function(node){
+        var res = {
+          title: node.textContent,
+          url: node.x("./@href")
+        }
+
+        console.log(res);
+
+        if (_.findLastIndex(dentist.sites, function(s) { 
+          return s.site == 'YellowPages'; 
+        }) >= 0) {
+          console.log("YellowPages URL found.");
+          dentist.sites[0].site = 'YellowPages';
+          dentist.sites[0].title = node.textContent.replace(/\t/g, "").replace(/\n/g, "");
+          dentist.sites[0].url = node.x("./@href");
+        } else {
+          console.log("Adding YellowPages URL: " + url);
+          dentist.sites.push(
+            {
+              "site": 'YellowPages',
+              "title": node.textContent.replace(/\t/g, "").replace(/\n/g, ""),
+              "url" : node.x("./@href")
+            });
+        }
+
+      fs.writeFile(fileName, JSON.stringify(d, null, 2), function (err) {
+        if (err) return console.log(err);
+      });
+    })
+  })
+  .fail(function(err){
+    console.log(err);
+  })
+}
 var index = 0;
 _(d.providers).forEach(function(dentist) {
 	index++;
@@ -212,8 +251,6 @@ _(d.providers).forEach(function(dentist) {
 		} catch (e) {
 			console.log(e);
 		}
-	} else {
-	
 	}
 
 	// Vitals.com
@@ -226,8 +263,6 @@ _(d.providers).forEach(function(dentist) {
 		} catch (e) {
 			console.log(e);
 		}
-	} else {
-
 	}
 
 	// Yelp.com
@@ -240,8 +275,6 @@ _(d.providers).forEach(function(dentist) {
 		} catch (e) {
 			console.log(e);
 		}
-	} else {
-
 	}
 
 	// RateMDs.com
@@ -254,8 +287,19 @@ _(d.providers).forEach(function(dentist) {
 		} catch (e) {
 			console.log(e);
 		}
-	} else {
-
 	}
+
+  // Yellow Pages
+  if (_.findLastIndex(dentist.sites, function(s) { 
+   return s.site == 'YellowPages'; 
+  }) < 0) {
+   console.log("Attempting to parse YellowPages for record #: " + index + '   Name: ' + dentist.name);
+   try {
+     parseYellowPages(dentist);
+   } catch (e) {
+     console.log(e);
+   }
+  }
+
 });
 
