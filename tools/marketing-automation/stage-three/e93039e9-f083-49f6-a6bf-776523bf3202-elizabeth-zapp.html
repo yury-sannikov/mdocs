@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Report Card</title>
+  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-md-offset-3">
+        <img src="images/logo.png" class="logo">
+        <h1>PATIENT REVIEWS REPORT CARD</h1>
+        <p class="reportDate"><i>Report generated on <span id="reportDate"></span>.</i></span>
+        <table class="table table-bordered valigned">
+          <tbody>
+            <tr>
+              <td colspan="2">
+                <strong id="providerName"></strong><br>
+                <span id="providerAddress"></span>
+              </td>
+              
+              <td style="text-align: center; vertical-align: middle;">
+                <span id="avgStars"></span>
+              </td>
+              <td style="text-align: center; vertical-align: middle;">
+                <span id="avgGrade"></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <br>
+        <br>
+        <h2>DETAILED REVIEW CARD</h2>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr class="active">
+              <th style="text-align: center; vertical-align: middle; width: 120px">YOUR PROFILE</th>
+              <th style="text-align: center; vertical-align: middle;">CONTACT INFO</th>
+              <th style="text-align: center; vertical-align: middle;">RATING</th>
+              <th style="text-align: center; vertical-align: middle;">GRADE</th>
+            </tr>
+          </thead>
+          <tbody id="dataTable"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-7 col-md-offset-3">
+        <br>
+        <br>
+        <footer>
+        Copyright © 2016 <a href="https://pr.mdocs.co">Patient Reviews by MDOCS</a>. All rights reserved.
+        </footer>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="node_modules/lodash/lodash.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</html>

@@ -95,6 +95,18 @@ var parseVitals = function (url, file) {
   })
 }
 
+// Clean output folder
+// fs.unlinkSync('./data/output');
+// fs.mkdirSync('./data/output');
+
+var dir = fs.readdirSync('./data/output');
+
+_(dir).forEach(function(f) {
+  fs.unlinkSync('./data/output/' + f);
+  // fs.createReadStream(inputFile).pipe(fs.createWriteStream(f.split('.')[0]+ '.html'));
+});
+
+
 var index = 0;
 _(d.providers).forEach(function(dentist) {
     index++;
@@ -105,7 +117,7 @@ _(d.providers).forEach(function(dentist) {
     var initialData = {
       "reportDate": moment().format("MM/DD/YYYY"),
       "providerName": dentist.name,
-      "providerAddress": dentist.address + ' ' + dentist.city + ', ' + dentist.state + ' ' + dentist.zip,
+      "providerAddress": dentist.address + '<br>' + dentist.city + ', ' + dentist.state + ' ' + dentist.zip + '<br>' + dentist.phone,
       "bias": 0,
       "reviews": []
     };

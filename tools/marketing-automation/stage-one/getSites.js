@@ -13,7 +13,6 @@ var sp = require('scrapejs').init({
 var googleSearchKey = 'AIzaSyAh4GFdzf9pktMpDJCKa1rrxaKiFroZjjM';
 var healthGradesCxKey = '009344016812831918064:e3zkekpedge';
 var yelpCxKey = '009344016812831918064:pw3fojj8rmi';
-
 var googleBaseSearchUrl = 'https://www.googleapis.com/customsearch/v1?q=';
 
 var Client = require('node-rest-client').Client; 
@@ -203,7 +202,7 @@ var parseRateMDs = function (dentist) {
 var index = 0;
 _(d.providers).forEach(function(dentist) {
 	index++;
-	
+
 	// HealthGrades.com
 	if (_.findLastIndex(dentist.sites, function(s) { 
 		return s.site == 'HealthGrades'; 

@@ -4,7 +4,8 @@
   "description": "",
   "main": "getSites.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "execute": "node getSites.js",
+    "verify": "node verifyAddress.js"
   },
   "author": "",
   "license": "ISC",
@@ -12,6 +13,7 @@
     "casperjs": "^1.1.1",
     "cheerio": "^0.20.0",
     "jquery": "^3.0.0",
+    "lob": "^3.9.0",
     "lodash": "^4.13.1",
     "node-rest-client": "^1.8.0",
     "scrapejs": "^1.0.4"
