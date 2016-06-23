@@ -9,7 +9,7 @@ body {
 /* Use this selector to override the line style on a given series */
 .ct-series-a .ct-line {
   /* Set the colour of this series line */
-  stroke: #d70206;
+  stroke: #FF196F;
   /* Control the thikness of your lines */
   stroke-width: 4px;
   /* Create a dashed line with a pattern */
@@ -19,21 +19,44 @@ body {
 /* This selector overrides the points style on line charts. Points on line charts are actually just very short strokes. This allows you to customize even the point size in CSS */
 .ct-series-a .ct-point {
   /* Colour of your points */
-  stroke: #d70206;
+  stroke: #FF196F;
   /* Size of your points */
   stroke-width: 12px;
   /* Make your points appear as squares */
   // stroke-linecap: square;
 }
 
+.ct-chart-revenue table tr th, .ct-chart-revenue table tr td {
+  padding: 6px 12px 0 12px;
+  font-size: 1.2em;
+}
+
+.ct-series-a .ct-bar, .ct-series-a .ct-slice-donut {
+    stroke: #00A3C8;
+}
+
+.ct-bar {
+    fill: none;
+    stroke-width: 20px;
+}
+
 .ct-fill-donut-label {
-  padding: 20px;
-  background: #fff9f9;
-  border-radius: 5px;
+  // padding: 2px;
+  // border-radius: 4px;
+  text-align: center;
+}
+
+.ct-fill-donut-label h3 {
+  font-size: 1.6em;
+}
+
+.ct-fill-donut-label span {
+  color: #666;
+  font-size: 0.8em;
 }
 
 .ct-chart-tresh .ct-series-a .ct-line {
-  stroke: #d70206;
+  stroke: #FF196F;
   fill: none;
   stroke-width: 4px;
   stroke-dasharray: 5px;

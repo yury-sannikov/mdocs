@@ -2,6 +2,7 @@ var dataFileName = './data/7eedf541-8974-42fe-a38e-f688e8ccfcdc-elizabeth-zapp.j
 
 var ratingsSeries = [];
 var revenueSeries = [];
+var topRatingsSeries = [];
 
 $.getJSON(dataFileName, function(data) {
   var averageRating = _.round(_.meanBy(data.reviews, function(d) { return d.rating; }),2);
@@ -19,16 +20,74 @@ $.getJSON(dataFileName, function(data) {
   ratingsSeries.push(5);
 
   var revenueCoefficient = 1270.80;
-  // revenueSeries = _.filter(ratingsSeries, function(o) { return o*revenueCoefficient; });
   _(ratingsSeries).forEach(function(value) {
     revenueSeries.push(_.round(value * revenueCoefficient + _.random(0, revenueCoefficient/3, true)));
   });
 
-  // revenueSeries[0] = 0;
-  console.log(revenueSeries);
-});
+  // Top ratings
+  topRatingsSeries = _.orderBy(data.reviews, ['rating'], ['desc']);
 
-//[2.7, 2.8, 3.1, 3.2, 3.3, 3.6, 3.8, 4.4, 4.3, 4.5, 4.3, 4.9, 5.0]
+  var i = 0;
+  _.forEach(topRatingsSeries, function(item) {
+    console.log(item.rating);
+    var donutDivName = 'ct-chart-donut' + i;
+    console.log(donutDivName);
+    $("#donutCharts").append($( "<div class='col-md-4'><div class='" + donutDivName + "'></div>" ));
+    new Chartist.Pie('.' + donutDivName, 
+      {
+        series: [220*(item.rating)/5, 220-(220*(item.rating)/5)]
+      }, {
+          donut: true,
+          donutWidth: 20,
+          startAngle: 210,
+          total: 260,
+          showLabel: false,
+          plugins: [
+              Chartist.plugins.fillDonut({
+                  items: [{
+                      content: '<i class="fa fa-tachometer"></i>',
+                      position: 'bottom',
+                      offsetY : 12,
+                      offsetX: 0
+                  }, {
+                      content: '<h3>' + item.rating + '</h3><span>' + item.siteId + '</span>'
+                  }]
+              })
+          ],
+      });
+
+    i++;
+  });
+
+  
+
+  
+
+  // new Chartist.Pie('.ct-chart-donut1', 
+  //   {
+  //     series: [220*(topRatingsSeries[1].rating)/5, 220-(220*(topRatingsSeries[1].rating)/5)]
+  //   }, {
+  //       donut: true,
+  //       donutWidth: 30,
+  //       startAngle: 210,
+  //       total: 260,
+  //       showLabel: false,
+  //       plugins: [
+  //           Chartist.plugins.fillDonut({
+  //               items: [{
+  //                   content: '<i class="fa fa-tachometer"></i>',
+  //                   position: 'bottom',
+  //                   offsetY : 0,
+  //                   offsetX: 0
+  //               }, {
+  //                   content: '<h3>' + topRatingsSeries[1].rating + '</h3><span>' + topRatingsSeries[1].siteId + '</span>'
+  //               }]
+  //           })
+  //       ],
+  //   });
+
+
+});
 
 new Chartist.Line('.ct-chart-tresh', {
   labels: ['Today', '3mo', '6mo', '9mo', '12mo', '15mo', '18mo', '21mo', '24mo', '27mo', '30mo', '33mo', '36mo'],
@@ -76,7 +135,7 @@ new Chartist.Bar('.ct-chart-revenue', {
     labels: ['Today', '3mo', '6mo', '9mo', '12mo', '15mo', '18mo', '21mo', '24mo', '27mo', '30mo', '33mo', '36mo'],
     series: [
       {
-        "name": "Revenue Growth",
+        "name": "Revenue",
         "data": revenueSeries
       }
     ]
@@ -111,53 +170,13 @@ new Chartist.Bar('.ct-chart-revenue', {
         seriesHeader: '',
         summary: 'A graphic that shows the business numbers of the fiscal year 2015',
         valueTransform: function(value) {
-          return value + ' dollar';
+          return '$' + value;
         },
         // ONLY USE THIS IF YOU WANT TO MAKE YOUR ACCESSIBILITY TABLE ALSO VISIBLE!
         visuallyHiddenStyles: 'position: absolute; top: 100%; width: 100%; font-size: 11px; overflow-x: auto; background-color: rgba(0, 0, 0, 0.1); padding: 10px'
       })
     ]
 });
-
-
-
-
-new Chartist.Line('.ct-chart-comp', {
-  labels: ['Today', '3mo', '6mo', '9mo', '12mo', '15mo', '18mo', '21mo', '24mo', '27mo', '30mo', '33mo', '36mo'],
-  series: [
-    {name: 'Revenue', data: [20000, 30000, 35000, 32000, 40000, 42000, 50000, 62000, 80000, 94000, 100000, 120000]},
-    {name: 'Ratings', data: [2700, 2800, 3.1, 3.2, 3.3, 3.6, 3.8, 4.4, 4.3, 4.5, 4.3, 4.9, 5.0]},
-    {name: 'Rati', data: [2700, 20000, 3.1, 3.2, 3.3, 3.6, 3.8, 4.4, 4.3, 4.5, 4.3, 4.9, 5.0]}
-  ]
-}, {
-  fullWidth: true,
-  lineSmooth: false,
-  chartPadding: {
-    right: 20,
-    left: 10
-  },
-  axisX: {
-    labelInterpolationFnc: function(value) {
-      return value.split('').slice(0, 3).join('');
-    }
-  },
-  plugins: [
-    Chartist.plugins.ctAccessibility({
-      caption: 'Ratings vs. Revenue Projection',
-      seriesHeader: '',
-      summary: 'A graphic that shows the business numbers of the fiscal year 2015',
-      valueTransform: function(value) {
-        return value + ' dollar';
-      },
-      // ONLY USE THIS IF YOU WANT TO MAKE YOUR ACCESSIBILITY TABLE ALSO VISIBLE!
-      visuallyHiddenStyles: 'position: absolute; top: 100%; width: 100%; font-size: 11px; overflow-x: auto; background-color: rgba(0, 0, 0, 0.1); padding: 10px'
-    })
-  ]
-});
-
-
-
-
 
 var data = {
   // A labels array that can contain any sort of values
@@ -177,63 +196,53 @@ new Chartist.Line('.ct-chart-line', data);
 
 
 
-var donutChart = new Chartist.Pie('.ct-chart-donut', 
-    {
-        series: [160, 60],
-        labels: ['', '']
-    }, {
-        donut: true,
-        donutWidth: 40,
-        startAngle: 210,
-        total: 260,
-        showLabel: false,
-        plugins: [
-            Chartist.plugins.fillDonut({
-                items: [{
-                    content: '<i class="fa fa-tachometer"></i>',
-                    position: 'bottom',
-                    offsetY : 10,
-                    offsetX: -2
-                }, {
-                    content: '<h3>155<span class="small"> reviews</span></h3>'
-                }]
-            })
-        ],
-    });
+// var donutChart = new Chartist.Pie('.ct-chart-donut1', 
+//     {
+//         series: [160, 60],
+//         labels: ['', '']
+//     }, {
+//         donut: true,
+//         donutWidth: 40,
+//         startAngle: 210,
+//         total: 260,
+//         showLabel: false,
+//         plugins: [
+//             Chartist.plugins.fillDonut({
+//                 items: [{
+//                     content: '<i class="fa fa-tachometer"></i>',
+//                     position: 'bottom',
+//                     offsetY : 10,
+//                     offsetX: -2
+//                 }, {
+//                     content: '<h3>155<span class="small"> reviews</span></h3>'
+//                 }]
+//             })
+//         ],
+//     });
 
-donutChart.on('draw', function(data) {
-    if(data.type === 'slice' && data.index == 0) {
-        // Get the total path length in order to use for dash array animation
-        var pathLength = data.element._node.getTotalLength();
-
-        // Set a dasharray that matches the path length as prerequisite to animate dashoffset
-        data.element.attr({
-            'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
-        });
-
-        // Create animation definition while also assigning an ID to the animation for later sync usage
-        var animationDefinition = {
-            'stroke-dashoffset': {
-                id: 'anim' + data.index,
-                dur: 1200,
-                from: -pathLength + 'px',
-                to:  '0px',
-                easing: Chartist.Svg.Easing.easeOutQuint,
-                fill: 'freeze'
-            }
-        };
-
-        // We need to set an initial value before the animation starts as we are not in guided mode which would do that for us
-        data.element.attr({
-            'stroke-dashoffset': -pathLength + 'px'
-        });
-
-        // We can't use guided mode as the animations need to rely on setting begin manually
-        // See http://gionkunz.github.io/chartist-js/api-documentation.html#chartistsvg-function-animate
-        data.element.animate(animationDefinition, true);
-    }
-});
-
+// var donutChart = new Chartist.Pie('.ct-chart-donut2', 
+//     {
+//         series: [160, 60],
+//         labels: ['', '']
+//     }, {
+//         donut: true,
+//         donutWidth: 40,
+//         startAngle: 210,
+//         total: 260,
+//         showLabel: false,
+//         plugins: [
+//             Chartist.plugins.fillDonut({
+//                 items: [{
+//                     content: '<i class="fa fa-tachometer"></i>',
+//                     position: 'bottom',
+//                     offsetY : 10,
+//                     offsetX: -2
+//                 }, {
+//                     content: '<h3>155<span class="small"> reviews</span></h3>'
+//                 }]
+//             })
+//         ],
+//     });
 
 
 new Chartist.Line('.ct-chart-line', {

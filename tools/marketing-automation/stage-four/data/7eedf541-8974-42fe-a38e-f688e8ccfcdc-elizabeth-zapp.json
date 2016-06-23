@@ -5,7 +5,7 @@
   "bias": 0,
   "reviews": [
     {
-      "siteId": "HealthGrades",
+      "siteId": "Health Grades",
       "siteName": "HEALTH GRADES",
       "siteUrl": "https://www.healthgrades.com/physician/dr-elizabeth-zapp-xl9x3",
       "addressAccurate": true,
@@ -19,6 +19,38 @@
       "addressAccurate": true,
       "reviewCount": 1,
       "rating": 3.5
+    },
+    {
+      "siteId": "Yelp",
+      "siteName": "YELP.COM",
+      "siteUrl": "http://www.vitals.com/doctors/Dr_Elizabeth_Zapp.html",
+      "addressAccurate": true,
+      "reviewCount": 4,
+      "rating": 2.8
+    },
+    {
+      "siteId": "Yellow Pages",
+      "siteName": "YP.COM",
+      "siteUrl": "http://www.vitals.com/doctors/Dr_Elizabeth_Zapp.html",
+      "addressAccurate": true,
+      "reviewCount": 1,
+      "rating": 3.2
+    },
+    {
+      "siteId": "Yellows Pages",
+      "siteName": "YP.COM",
+      "siteUrl": "http://www.vitals.com/doctors/Dr_Elizabeth_Zapp.html",
+      "addressAccurate": true,
+      "reviewCount": 1,
+      "rating": 3.2
+    },
+    {
+      "siteId": "Yelloww Pages",
+      "siteName": "YP.COM",
+      "siteUrl": "http://www.vitals.com/doctors/Dr_Elizabeth_Zapp.html",
+      "addressAccurate": true,
+      "reviewCount": 1,
+      "rating": 3.2
     }
   ]
 }
