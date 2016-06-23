@@ -4,6 +4,8 @@ const argv = require('minimist')(process.argv.slice(2));
 import fs from 'fs';
 import co from 'co';
 import * as commands from './commands';
+import JSONStream from 'JSONStream';
+
 
 function showUsage() {
   const commandsList = Object.keys(commands).map( c=>`    ${c}`).join('\n');
@@ -11,6 +13,8 @@ function showUsage() {
   Available commands are:\n${commandsList}`;
   console.error(helpText);
 }
+
+
 function joinOptions(options) {
   const basicOptions = [
     {
@@ -32,6 +36,15 @@ function joinOptions(options) {
   return [...basicOptions, ...options];
 }
 
+function showUsageFor(commandObject) {
+  const helpInfo = commandObject.help();
+  const options = joinOptions(helpInfo.options).map(o => `${o.key} ${o.required ? '<' : '['}${o.short}${o.required ? '>' : ']'}`).join(' ');
+  const longOptions = joinOptions(helpInfo.options).map(o => `\t${o.key} ${o.description}`).join('\n');
+  const helpText = `${helpInfo.description}\nUsage: automator ${commandName} ${options}\n${longOptions}`;
+  console.error(helpText);
+}
+
+
 if (argv._.length === 0) {
   showUsage();
   process.exit(-1);
@@ -41,17 +54,14 @@ const commandName = argv._[0];
 var commandObject = commands[commandName];
 
 if (!commandObject) {
-  console.log(`Unknown command ${commandName}`);
+  console.error(`Unknown command ${commandName}`);
   showUsage();
   process.exit(-2);
 }
 
 if (argv._.indexOf('help') !== -1) {
-  const helpInfo = commandObject.help();
-  const options = joinOptions(helpInfo.options).map(o => `${o.key} ${o.required ? '<' : '['}${o.short}${o.required ? '>' : ']'}`).join(' ');
-  const longOptions = joinOptions(helpInfo.options).map(o => `\t${o.key} ${o.description}`).join('\n');
-  const helpText = `${helpInfo.description}\nUsage: automator ${commandName} ${options}\n${longOptions}`;
-  console.log(helpText);
+  showUsageFor(commandObject);
+  process.exit(0);
 }
 
 const inputFile = argv['input-file'];
@@ -60,11 +70,17 @@ const outputFile = argv['output-file'];
 const outputStream = outputFile ? fs.createWriteStream(outputFile, {flags: 'w'}) : process.stdout;
 
 co(function* () {
-  return yield commandObject.execute(inputStream, outputStream, argv);
-}).then(function (value) {
-  if (value) {
-    console.log(value);
-  }
+  const result = yield commandObject.execute(inputStream, argv);
+  return result;
+}).then(function (stream) {
+  stream
+    .pipe(JSONStream.stringify())
+    .pipe(outputStream);
 }, function (err) {
-  console.error(err.stack);
+  if (err instanceof TypeError) {
+    console.error(err.message);
+    showUsageFor(commandObject);
+  } else {
+    console.error(err.stack);
+  }
 });

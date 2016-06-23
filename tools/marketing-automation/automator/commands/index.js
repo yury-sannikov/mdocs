@@ -1,2 +1,3 @@
 import * as competitors from './competitors'
-export { competitors }
+import * as getsites from './getsites'
+export { competitors, getsites }
