@@ -6,28 +6,28 @@ var fileName = 'doctors.json';
 var d = JSON.parse(fs.readFileSync(fileName, 'utf8'));
 
 var index = 0;
-_(d.providers).forEach(function(dentist) {
+_(d.providers).forEach(function(provider) {
   index++;
   
   // Verify address
   Lob.verification.verify({
-    address_line1: dentist.address,
-    address_city: dentist.city,
-    address_state: dentist.state,
-    address_zip: dentist.zip,
+    address_line1: provider.address,
+    address_city: provider.city,
+    address_state: provider.state,
+    address_zip: provider.zip,
   }, function (err, res) {
     if (!err) {
-      dentist.address = res.address.address_line1;
-      dentist.address2 = res.address.address_line2;
-      dentist.city = res.address.address_city;
-      dentist.state = res.address.address_state;
-      dentist.zip = res.address.address_zip;
-      dentist.country = res.address.address_country;
+      provider.address = res.address.address_line1;
+      provider.address2 = res.address.address_line2;
+      provider.city = res.address.address_city;
+      provider.state = res.address.address_state;
+      provider.zip = res.address.address_zip;
+      provider.country = res.address.address_country;
 
       fs.writeFile(fileName, JSON.stringify(d, null, 2), function (err) {
         if (err) return console.log(err);
       });
-      // console.log(dentist);
+      // console.log(provider);
     } else {
       console.log("Error: " + err);
     }

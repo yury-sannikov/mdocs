@@ -51,30 +51,39 @@ new Chartist.Bar('.ct-chart-revenue', {
 }, {
     plugins: [
       Chartist.plugins.ctPointLabels({
-      textAnchor: 'middle'
-    }),
-    Chartist.plugins.ctAxisTitle({
-      axisX: {
-        axisTitle: 'Time (months)',
-        axisClass: 'ct-axis-title',
-        offset: {
-          x: 0,
-          y: 32
-        },
         textAnchor: 'middle'
-      },
-      axisY: {
-        axisTitle: 'Revenue ($)',
-        axisClass: 'ct-axis-title',
-        offset: {
-          x: 0,
-          y: 0
+      }),
+      Chartist.plugins.ctAxisTitle({
+        axisX: {
+          axisTitle: 'Time (months)',
+          axisClass: 'ct-axis-title',
+          offset: {
+            x: 0,
+            y: 32
+          },
+          textAnchor: 'middle'
         },
-        textAnchor: 'middle',
-        flipTitle: false
-      }
-    })
-        // Chartist.plugins.legend()
+        axisY: {
+          axisTitle: 'Revenue ($)',
+          axisClass: 'ct-axis-title',
+          offset: {
+            x: 0,
+            y: 0
+          },
+          textAnchor: 'middle',
+          flipTitle: false
+        }
+      }),
+      Chartist.plugins.ctAccessibility({
+        caption: 'Ratings vs. Revenue Projection',
+        seriesHeader: '',
+        summary: 'A graphic that shows the business numbers of the fiscal year 2015',
+        valueTransform: function(value) {
+          return value + ' dollar';
+        },
+        // ONLY USE THIS IF YOU WANT TO MAKE YOUR ACCESSIBILITY TABLE ALSO VISIBLE!
+        visuallyHiddenStyles: 'position: absolute; top: 100%; width: 100%; font-size: 11px; overflow-x: auto; background-color: rgba(0, 0, 0, 0.1); padding: 10px'
+      })
     ]
 });
 
