@@ -1,7 +1,39 @@
+var dataFileName = './data/7eedf541-8974-42fe-a38e-f688e8ccfcdc-elizabeth-zapp.json';
+
+var ratingsSeries = [];
+var revenueSeries = [];
+
+$.getJSON(dataFileName, function(data) {
+  var averageRating = _.round(_.meanBy(data.reviews, function(d) { return d.rating; }),2);
+  var delta = 5 - averageRating;
+  var step = _.round(delta/12, 2);
+  
+  ratingsSeries.push(averageRating);
+
+  for (i=1; i<12; i++) {
+    var bias = _.random(0, step);
+    var total = averageRating + i*step + bias;
+    ratingsSeries.push(_.round(total, 2));
+  }
+
+  ratingsSeries.push(5);
+
+  var revenueCoefficient = 1270.80;
+  // revenueSeries = _.filter(ratingsSeries, function(o) { return o*revenueCoefficient; });
+  _(ratingsSeries).forEach(function(value) {
+    revenueSeries.push(_.round(value * revenueCoefficient + _.random(0, revenueCoefficient/3, true)));
+  });
+
+  // revenueSeries[0] = 0;
+  console.log(revenueSeries);
+});
+
+//[2.7, 2.8, 3.1, 3.2, 3.3, 3.6, 3.8, 4.4, 4.3, 4.5, 4.3, 4.9, 5.0]
+
 new Chartist.Line('.ct-chart-tresh', {
   labels: ['Today', '3mo', '6mo', '9mo', '12mo', '15mo', '18mo', '21mo', '24mo', '27mo', '30mo', '33mo', '36mo'],
   series: [
-    [2.7, 2.8, 3.1, 3.2, 3.3, 3.6, 3.8, 4.4, 4.3, 4.5, 4.3, 4.9, 5.0]
+    ratingsSeries
   ]
 }, {
   showArea: true,
@@ -45,7 +77,7 @@ new Chartist.Bar('.ct-chart-revenue', {
     series: [
       {
         "name": "Revenue Growth",
-        "data": [3000, 4000, 5000, 7000, 9000, 12000, 12000, 14000, 18000, 20000, 24000, 28000, 32000]
+        "data": revenueSeries
       }
     ]
 }, {
@@ -245,13 +277,6 @@ new Chartist.Bar('.ct-chart-bar', {
         Chartist.plugins.legend()
     ]
 });
-var dataFileName = "./data/7eedf541-8974-42fe-a38e-f688e8ccfcdc-elizabeth-zapp.json";
-
-$.getJSON(dataFileName, function(data) {
-  console.log(data.reviews);
-  var items = [];
-});
-
 
 
 
