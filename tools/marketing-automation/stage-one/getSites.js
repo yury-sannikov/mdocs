@@ -334,89 +334,89 @@ var index = 0;
 _(d.providers).forEach(function(dentist) {
 	index++;
 
-	// // HealthGrades.com
-	// if (_.findLastIndex(dentist.sites, function(s) { 
-	// 	return s.site == 'HealthGrades'; 
-	// }) < 0) {
-	// 	console.log("Attempting to parse HealthGrades for record #: " + index + '   Name: ' + dentist.name);
-	// 	try {
-	// 		parseHealthGrades(dentist);
-	// 	} catch (e) {
-	// 		console.log(e);
-	// 	}
-	// }
+	// HealthGrades.com
+	if (_.findLastIndex(dentist.sites, function(s) { 
+		return s.site == 'HealthGrades'; 
+	}) < 0) {
+		console.log("Attempting to parse HealthGrades for record #: " + index + '   Name: ' + dentist.name);
+		try {
+			parseHealthGrades(dentist);
+		} catch (e) {
+			console.log(e);
+		}
+	}
 
-	// // Vitals.com
-	// if (_.findLastIndex(dentist.sites, function(s) { 
-	// 	return s.site == 'Vitals'; 
-	// }) < 0) {
-	// 	console.log("Attempting to parse Vitals for record #: " + index + '   Name: ' + dentist.name);
-	// 	try {
-	// 		parseVitals(dentist);
-	// 	} catch (e) {
-	// 		console.log(e);
-	// 	}
-	// }
+	// Vitals.com
+	if (_.findLastIndex(dentist.sites, function(s) { 
+		return s.site == 'Vitals'; 
+	}) < 0) {
+		console.log("Attempting to parse Vitals for record #: " + index + '   Name: ' + dentist.name);
+		try {
+			parseVitals(dentist);
+		} catch (e) {
+			console.log(e);
+		}
+	}
 
-	// // Yelp.com
-	// if (_.findLastIndex(dentist.sites, function(s) { 
-	// 	return s.site == 'Yelp'; 
-	// }) < 0) {
-	// 	console.log("Attempting to parse Yelp for record #: " + index + '   Name: ' + dentist.name);
-	// 	try {
-	// 		parseYelp(dentist);
-	// 	} catch (e) {
-	// 		console.log(e);
-	// 	}
-	// }
+	// Yelp.com
+	if (_.findLastIndex(dentist.sites, function(s) { 
+		return s.site == 'Yelp'; 
+	}) < 0) {
+		console.log("Attempting to parse Yelp for record #: " + index + '   Name: ' + dentist.name);
+		try {
+			parseYelp(dentist);
+		} catch (e) {
+			console.log(e);
+		}
+	}
 
-	// // RateMDs.com
-	// if (_.findLastIndex(dentist.sites, function(s) { 
-	// 	return s.site == 'RateMDs'; 
-	// }) < 0) {
-	// 	console.log("Attempting to parse RateMDs for record #: " + index + '   Name: ' + dentist.name);
-	// 	try {
-	// 		parseRateMDs(dentist);
-	// 	} catch (e) {
-	// 		console.log(e);
-	// 	}
-	// }
+	// RateMDs.com
+	if (_.findLastIndex(dentist.sites, function(s) { 
+		return s.site == 'RateMDs'; 
+	}) < 0) {
+		console.log("Attempting to parse RateMDs for record #: " + index + '   Name: ' + dentist.name);
+		try {
+			parseRateMDs(dentist);
+		} catch (e) {
+			console.log(e);
+		}
+	}
 
- //  // Yellow Pages
- //  if (_.findLastIndex(dentist.sites, function(s) { 
- //   return s.site == 'YellowPages'; 
- //  }) < 0) {
- //    console.log("Attempting to parse YellowPages for record #: " + index + '   Name: ' + dentist.name);
- //    try {
- //      parseYellowPages(dentist);
- //    } catch (e) {
- //      console.log(e);
- //    }
- //  }
+  // Yellow Pages
+  if (_.findLastIndex(dentist.sites, function(s) { 
+   return s.site == 'YellowPages'; 
+  }) < 0) {
+    console.log("Attempting to parse YellowPages for record #: " + index + '   Name: ' + dentist.name);
+    try {
+      parseYellowPages(dentist);
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
- //  // Merchant Circle
- //  if (_.findLastIndex(dentist.sites, function(s) { 
- //   return s.site == 'MerchantCircle'; 
- //  }) < 0) {
- //    console.log("Attempting to parse Merchant Circle for record #: " + index + '   Name: ' + dentist.name);
- //    try {
- //      parseMerchantCircle(dentist);
- //    } catch (e) {
- //      console.log(e);
- //    }
- //  }
+  // Merchant Circle
+  if (_.findLastIndex(dentist.sites, function(s) { 
+   return s.site == 'MerchantCircle'; 
+  }) < 0) {
+    console.log("Attempting to parse Merchant Circle for record #: " + index + '   Name: ' + dentist.name);
+    try {
+      parseMerchantCircle(dentist);
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
- //  // Yahoo Local
- //  if (_.findLastIndex(dentist.sites, function(s) { 
- //   return s.site == 'Yahoo'; 
- //  }) < 0) {
- //    console.log("Attempting to parse Yahoo Local for record #: " + index + '   Name: ' + dentist.name);
- //    try {
- //      parseYahooLocal(dentist);
- //    } catch (e) {
- //      console.log(e);
- //    }
- //  }
+  // Yahoo Local
+  if (_.findLastIndex(dentist.sites, function(s) { 
+   return s.site == 'Yahoo'; 
+  }) < 0) {
+    console.log("Attempting to parse Yahoo Local for record #: " + index + '   Name: ' + dentist.name);
+    try {
+      parseYahooLocal(dentist);
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
 });
 
