@@ -61,6 +61,7 @@ var generateYahooSearchUrl = function(q, loc) {
 // Parsing the links
 var parseHealthGrades = function (dentist) {
   url = generateHealthGradesUrl(dentist.name, dentist.zip);
+
 	sp.load(url)
 		.then(function($){
 			$.q("//h2/a[@data-hgoname='psr-natural-result-provider-name'][1]").forEach(function(node){
@@ -137,6 +138,7 @@ var parseVitals = function (dentist) {
 
 var parseYelp = function (dentist) {
 	var url = generateYelpSearchUrl(dentist.name, dentist.zip);
+
 	sp.load(url)
 		.then(function($){
 			$.q("//span[@class='indexed-biz-name']/a[1]").forEach(function(node){
@@ -173,7 +175,9 @@ var parseYelp = function (dentist) {
 }
 
 var parseRateMDs = function (dentist) {
-	var url = generateRateMDsSearchUrl(dentist.name);
+  var denName = dentist.name.split(',')[0];
+	var url = generateRateMDsSearchUrl(denName);
+
 	sp.load(url)
 		.then(function($){
 			$.q("//h2[@class='search-item-doctor-name']/a[1]").forEach(function(node){
@@ -211,6 +215,7 @@ var parseRateMDs = function (dentist) {
 
 var parseYellowPages = function (dentist) {
   var url = generateYPSearchUrl(dentist.name, dentist.zip);
+
   sp.load(url)
     .then(function($){
       $.q("//div[@class='v-card']/div[@class='info']/h3[@class='n']/a[@class='business-name'][1]").forEach(function(node){
@@ -248,6 +253,7 @@ var parseYellowPages = function (dentist) {
 
 var parseMerchantCircle = function (dentist) {
   var url = generateMCSearchUrl(dentist.name, dentist.zip);
+
   sp.load(url)
     .then(function($){
       $.q("//div[@class='pageContent']/main[@class='mainSection']/ol[@class='srp']/li[@class='result'][2]/header[@class='srpHeader']/a[@class='title'][1]").forEach(function(node){
@@ -287,6 +293,7 @@ var parseMerchantCircle = function (dentist) {
 
 var parseYahooLocal = function (dentist) {
   var url = generateYahooSearchUrl(dentist.name, dentist.zip);
+  
   sp.load(url)
     .then(function($){
       // Single result
