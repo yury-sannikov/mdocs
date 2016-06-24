@@ -3,7 +3,7 @@ section#coverPage.section-page.text-center.section-one
     .header-logo
       p.bottom
         | —
-        span.doctorType
+        span.doctorType #{data.type}
         |  —
       p.bottom.hidden-print
         img(src='images/logo-mdocs-light.png', alt='Patient Reviews by MDOCS')
@@ -11,21 +11,21 @@ section#coverPage.section-page.text-center.section-one
         img(src='images/logo-mdocs-dark.png', alt='')
     .header-title
       p.subtitle.bottom Proposal for:
-      h1.doctorName
-      h5.doctorAddress
+      h1.doctorName #{data.name}
+      h5.doctorAddress #{data.address}
   .section-padding.bg-grey.text-lg
     p.bottom.text-lite Created By:
     p
-      strong.createdBy
+      strong.createdBy #{data.created.by}
     p.bottom.text-lite Date:
     p.bottom
-      strong.createdDate
+      strong.createdDate #{data.created.date}
   .padding-all.section-overview.text-white
     h2.bottom20
       | The
       strong.text-lowercase
         | #1 patient reviews system for
-        span.doctorType
+        span.doctorType #{data.type}
         | s
       br.hidden-xs
       | and the best online reputation management for generating more sales.
@@ -34,7 +34,7 @@ section#coverPage.section-page.text-center.section-one
     p.text-lite.text-lg.bottom35-md.text-capitals
       em
         | Top Rated National™
-        span.doctorType
+        span.doctorType #{data.type}
         |  Patient Review Platform
     p.bottom
       img(src='images/overview-devices.png', alt='')

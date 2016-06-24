@@ -3,7 +3,7 @@ section#howItWorks.section-page
     .header-logo
       p.bottom
         | —
-        span.doctorType
+        span.doctorType #{data.type}
         |  —
       p.bottom
         img(src='images/logo-mdocs-light.png', alt='Patient Reviews by MDOCS')
@@ -37,7 +37,7 @@ section#howItWorks.section-page
           p.serps.serps-one Top Rated Local® Dentist
           p.serps.serps-two #1 Choice - Top Rated Local® Dentist
           p.serps.serps-three
-            span.doctorName
+            span.doctorName #{data.name}
       .col-sm-4
         span.icon-number 2
         h2
@@ -63,15 +63,15 @@ section#howItWorks.section-page
           p.bottom5 Rank highly in organic search when a prospect searches for your top keywords.
           .hiw-trl
             p.serps.hiw-trl__one
-              span.doctorName
+              span.doctorName #{data.name}
               |  Reviews
             .serps.hiw-trl__two
               p.hiw-trl__title
-                span.doctorName
+                span.doctorName #{data.name}
                 |  Reviews
               p.hiw-trl__link
                 | www.topratedlocal.com/
-                span.doctorName
+                span.doctorName #{data.name}
               p
                 span.glyphicon.glyphicon-star
                 span.glyphicon.glyphicon-star

@@ -4,6 +4,7 @@ import cs from 'co-stream';
 import pug from 'pug';
 import fs from 'fs';
 import ncp from 'ncp';
+import moment from 'moment';
 
 ncp.limit = 16;
 const Promise = require('bluebird');
@@ -73,8 +74,18 @@ export function* execute(inputStream, params) {
     },{ objectMode: true, parallel: 1 }));
 }
 
+const NONEXISTENT_DATA = {
+  type: 'Dentist',
+  created: {
+    by: 'Levent Gurses',
+    date: moment().format('MM/DD/YYYY')
+  }
+}
+
 function* process(data, resourceName, outputPath, pugify) {
-  const html = pugify(data);
-  const fileName = `${outputPath}/${data.key}`;
+  const html = pugify({
+    data: Object.assign({}, NONEXISTENT_DATA, data)
+  });
+  const fileName = `${outputPath}/${data.key}.html`;
   yield Fs.writeFileAsync(fileName, html);
 }

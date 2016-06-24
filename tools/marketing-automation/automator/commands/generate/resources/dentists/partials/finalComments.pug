@@ -3,7 +3,7 @@ section#finalComments.section-page
     .header-logo
       p.bottom
         | —
-        span.doctorType
+        span.doctorType #{data.type}
         |  —
       p.bottom
         img(src='images/logo-mdocs-light.png', alt='Patient Reviews by MDOCS')
@@ -17,14 +17,14 @@ section#finalComments.section-page
         img(src='images/logo-mdocs-white.png')
       p.subtitle.bottom Proposal for:
       h2.title
-        span.doctorName
+        span.doctorName #{data.name}
       .text-lg
         p.bottom.text-lite Created By:
         p
-          strong.createdBy
+          strong.createdBy #{data.created.by}
         p.bottom.text-lite Date:
         p
-          strong.createdDate
+          strong.createdDate #{data.created.date}
       // <p class="text-blue"><strong><em>Learn More At:</em></strong></p>
       p
         a.btn.btn-primary.btn-lg(href='#', target='_blank') Learn More
