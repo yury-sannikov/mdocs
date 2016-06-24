@@ -26,6 +26,12 @@ export function help() {
       required: true,
       short: 'cat',
       description: 'Yelp default categories. Use for search for business in case of no categories is available from Yelp site.'
+    },
+    {
+      key: '--selector',
+      required: false,
+      short: 'sel',
+      description: 'JSON selector, for instance providers.* process each element in providers array'
     }]
 
   };

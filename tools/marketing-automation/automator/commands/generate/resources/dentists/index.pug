@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    title Dentist Proposal
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='shortcut icon', type='image/x-icon', href='images/favicon.ico')
+    meta(name='robots', content='noindex,nofollow')
+    link(href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='/css/main.css')
+  body
+    main.main(role='main')
+      .container
+        include ./partials/coverPage.pug
+        include ./partials/tableOfContents.pug
+        include ./partials/executiveSummary.pug
+        include ./partials/reportCard.pug
+        include ./partials/competitiveAnalysis.pug
+        include ./partials/financialProjection.pug
+        include ./partials/gamePlan.pug
+        include ./partials/usDifferent.pug
+        include ./partials/softwareServiceHybrid.pug
+        include ./partials/howItWorks.pug
+        include ./partials/whatsIncluded.pug
+        include ./partials/ourReviews.pug
+        include ./partials/ourAwards.pug
+        include ./partials/smbPartner.pug
+        include ./partials/sectionPage.pug
+        include ./partials/finalComments.pug
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js')
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js')
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment-with-locales.min.js')
+    script(type='text/javascript', src='js/main.js')
+    block scripts

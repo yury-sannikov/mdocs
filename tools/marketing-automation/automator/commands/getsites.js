@@ -18,7 +18,7 @@ export function help() {
     description: 'Marketing Step 2: Get array of providers and return site URLs',
     options: [{
       key: '--selector',
-      required: true,
+      required: false,
       short: 'sel',
       description: 'JSON selector, for instance providers.* process each element in providers array'
     }]
