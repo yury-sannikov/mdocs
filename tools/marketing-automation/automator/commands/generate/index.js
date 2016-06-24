@@ -83,8 +83,13 @@ const NONEXISTENT_DATA = {
 }
 
 function* process(data, resourceName, outputPath, pugify) {
+
+  let reviewCardData = Object.assign({}, data, { competitors: null });
+
   const html = pugify({
-    data: Object.assign({}, NONEXISTENT_DATA, data)
+    data: Object.assign({}, NONEXISTENT_DATA, data, {
+      reviewCardData
+    })
   });
   const fileName = `${outputPath}/${data.key}.html`;
   yield Fs.writeFileAsync(fileName, html);
