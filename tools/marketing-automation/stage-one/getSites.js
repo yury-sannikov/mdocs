@@ -256,34 +256,32 @@ var parseMerchantCircle = function (dentist) {
 
   sp.load(url)
     .then(function($){
-      $.q("//div[@class='pageContent']/main[@class='mainSection']/ol[@class='srp']/li[@class='result'][2]/header[@class='srpHeader']/a[@class='title'][1]").forEach(function(node){
+      $.q("//*[@class='title'][1]").forEach(function(node){
         var res = {
-          title: node.textContent,
+          title: node.textContent.replace(/\t/g, "").replace(/\n/g, "").replace(/[0-9]+.[0-9]+/g, ""),
           url: node.x("./@href")
         }
 
-        console.log(res);
+        if (_.findLastIndex(dentist.sites, function(s) { 
+          return s.site == 'MerchantCircle'; 
+        }) >= 0) {
+          console.log("MerchantCircle URL found.");
+          dentist.sites[0].site = 'MerchantCircle';
+          dentist.sites[0].title = node.textContent.replace(/\t/g, "").replace(/\n/g, "").replace(/[0-9]+.[0-9]+/g, "");
+          dentist.sites[0].url = node.x("./@href");
+        } else {
+          console.log("Adding MerchantCircle URL: " + url);
+          dentist.sites.push(
+            {
+              "site": 'MerchantCircle',
+              "title": node.textContent.replace(/\t/g, "").replace(/\n/g, "").replace(/[0-9]+.[0-9]+/g, ""),
+              "url" : node.x("./@href")
+            });
+        }
 
-        // if (_.findLastIndex(dentist.sites, function(s) { 
-        //   return s.site == 'MerchantCircle'; 
-        // }) >= 0) {
-        //   console.log("MerchantCircle URL found.");
-        //   dentist.sites[0].site = 'MerchantCircle';
-        //   dentist.sites[0].title = node.textContent.replace(/\t/g, "").replace(/\n/g, "");
-        //   dentist.sites[0].url = node.x("./@href");
-        // } else {
-        //   console.log("Adding MerchantCircle URL: " + url);
-        //   dentist.sites.push(
-        //     {
-        //       "site": 'MerchantCircle',
-        //       "title": node.textContent.replace(/\t/g, "").replace(/\n/g, ""),
-        //       "url" : node.x("./@href")
-        //     });
-        // }
-
-        // fs.writeFile(fileName, JSON.stringify(d, null, 2), function (err) {
-        //   if (err) return console.log(err);
-        // });
+        fs.writeFile(fileName, JSON.stringify(d, null, 2), function (err) {
+          if (err) return console.log(err);
+        });
       });
     })
     .fail(function(err){
