@@ -13,11 +13,6 @@
           "url": "https://www.healthgrades.com/physician/dr-sarah-fletcher-3cf32"
         },
         {
-          "site": "Vitals",
-          "title": "Dr. Sarah V Fletcher V MD",
-          "url": "http://www.vitals.com/doctors/Dr_Sarah_V_Fletcher.html"
-        },
-        {
           "site": "Yelp",
           "title": "Dr. Sarah Fletcher, MD",
           "url": "http://www.yelp.com/biz/dr-sarah-fletcher-md-sterling"
@@ -28,9 +23,19 @@
           "url": "https://www.ratemds.com/doctor-ratings/3656452/Dr-Sarah+L.-Fletcher-Elk+Grove-CA.html"
         },
         {
+          "site": "Yahoo",
+          "title": "Dr Sarah Fletcher, MD",
+          "url": "https://local.yahoo.com/info-199024246-dr-sarah-fletcher-md-sterlingundefined?stx=Sarah%20Fletcher,%20MD&csz=20165-7407&fr=lsrp"
+        },
+        {
           "site": "YellowPages",
           "title": "Fletcher, Sarah S, MD",
           "url": "http://www.yellowpages.com/sterling-va/mip/fletcher-sarah-s-md-479545276?lid=479545276"
+        },
+        {
+          "site": "Vitals",
+          "title": "Dr. Sarah V Fletcher V MD",
+          "url": "http://www.vitals.com/doctors/Dr_Sarah_V_Fletcher.html"
         }
       ],
       "address2": "",
@@ -51,8 +56,13 @@
         },
         {
           "site": "Vitals",
-          "title": "Elizabeth Zapp MD",
+          "title": "Dr. Elizabeth Zapp MD",
           "url": "http://www.vitals.com/doctors/Dr_Elizabeth_Zapp.html"
+        },
+        {
+          "site": "Yahoo",
+          "title": "Zapp, Elizabeth Dr-Sterling Family Practice",
+          "url": "https://local.yahoo.com/info-79281724-zapp-elizabeth-drsterling-family-practice-sterlingundefined?stx=Elizabeth%20Zapp,%20MD&csz=20165-7283&fr=lsrp"
         },
         {
           "site": "YellowPages",
