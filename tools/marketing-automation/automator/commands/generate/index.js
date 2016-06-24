@@ -1,6 +1,14 @@
 import _ from 'lodash';
 import JSONStream from 'JSONStream';
 import cs from 'co-stream';
+import pug from 'pug';
+import fs from 'fs';
+import ncp from 'ncp';
+
+ncp.limit = 16;
+const Promise = require('bluebird');
+const Ncp = Promise.promisifyAll(ncp);
+const Fs = Promise.promisifyAll(fs);
 
 export function help() {
   return {
@@ -40,13 +48,33 @@ export function* execute(inputStream, params) {
     throw TypeError('You have to specify output-path parameter');
   }
   const { selector } = params;
+
+  const basePath =`${__dirname}/resources/${resourceName}`;
+
+  // Copy resource folder to output except pug and paritals
+  yield Ncp.ncpAsync(basePath, outputPath, {
+    filter: (f) => (f.indexOf('.pug') === -1) && (f.indexOf('partials') === -1)
+  });
+
+  // Compile index.pug with partials
+  const indexPug =`${basePath}/index.pug`;
+  const rawPug = yield Fs.readFileAsync(indexPug)
+  const pugify = pug.compile(rawPug, {
+    filename: indexPug,
+    compileDebug: true,
+    pretty: true
+  });
+
+  // Process JSON data
   return inputStream
     .pipe(JSONStream.parse(selector || '*'))
     .pipe(cs.map(function* (data) {
-      return yield process(data, resourceName, outputPath);
+      return yield process(data, resourceName, outputPath, pugify);
     },{ objectMode: true, parallel: 1 }));
 }
 
-function* process(data, resourceName, outputPath) {
-
+function* process(data, resourceName, outputPath, pugify) {
+  const html = pugify(data);
+  const fileName = `${outputPath}/${data.key}`;
+  yield Fs.writeFileAsync(fileName, html);
 }
