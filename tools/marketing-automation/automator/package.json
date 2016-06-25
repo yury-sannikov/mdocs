@@ -3,9 +3,17 @@
   "version": "0.0.1",
   "description": "Automator for marketing campaigns",
   "main": "index.js",
+  "watch": {
+    "example-generate": {
+      "patterns": ["commands", "examples"],
+      "ignore": "examples/out",
+      "extensions": "js,css,pug"
+    }
+  },
   "scripts": {
     "start": "node ./index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "example-generate": "cd examples && ./stage-generate.sh",
+    "watch": "npm-watch"
   },
   "author": "",
   "license": "ISC",
@@ -32,6 +40,7 @@
     "moment": "^2.13.0",
     "ncp": "^2.0.0",
     "node-rest-client": "^1.8.0",
+    "npm-watch": "^0.1.4",
     "pug": "^2.0.0-beta3",
     "scrapejs": "^1.0.4",
     "source-map-support": "^0.4.0",

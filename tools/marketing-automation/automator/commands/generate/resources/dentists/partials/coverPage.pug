@@ -12,7 +12,7 @@ section#coverPage.section-page.text-center.section-one
     .header-title
       p.subtitle.bottom Proposal for:
       h1.doctorName #{data.name}
-      h5.doctorAddress #{data.address}
+      h5.doctorAddress #{data.address} #{data.city}, #{data.state} #{data.zip}
   .section-padding.bg-grey.text-lg
     p.bottom.text-lite Created By:
     p
@@ -24,7 +24,7 @@ section#coverPage.section-page.text-center.section-one
     h2.bottom20
       | The
       strong.text-lowercase
-        | #1 patient reviews system for
+        | #1 patient reviews system for&nbsp;
         span.doctorType #{data.type}
         | s
       br.hidden-xs
