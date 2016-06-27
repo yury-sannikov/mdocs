@@ -1,0 +1,76 @@
+{
+  "_args": [
+    [
+      "chartist-plugin-tooltip@0.0.11",
+      "/Users/yuriysannikov/repo/mdocs/mdocs-survey/tools/marketing-automation/stage-four"
+    ]
+  ],
+  "_from": "chartist-plugin-tooltip@0.0.11",
+  "_id": "chartist-plugin-tooltip@0.0.11",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/chartist-plugin-tooltip",
+  "_nodeVersion": "4.3.2",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/chartist-plugin-tooltip-0.0.11.tgz_1457613766884_0.030856241239234805"
+  },
+  "_npmUser": {
+    "email": "contact@codeyellow.nl",
+    "name": "codeyellow"
+  },
+  "_npmVersion": "2.14.12",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "chartist-plugin-tooltip",
+    "raw": "chartist-plugin-tooltip@0.0.11",
+    "rawSpec": "0.0.11",
+    "scope": null,
+    "spec": "0.0.11",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/chartist-plugin-tooltip/-/chartist-plugin-tooltip-0.0.11.tgz",
+  "_shasum": "cec2195fa505f4d34e6d8e41a86bfbcb9bfff461",
+  "_shrinkwrap": null,
+  "_spec": "chartist-plugin-tooltip@0.0.11",
+  "_where": "/Users/yuriysannikov/repo/mdocs/mdocs-survey/tools/marketing-automation/stage-four",
+  "author": {
+    "email": "kees@codeyellow.nl",
+    "name": "Kees Kluskens"
+  },
+  "bugs": {
+    "url": "https://github.com/CodeYellowBV/chartist-plugin-tooltip/issues"
+  },
+  "dependencies": {},
+  "description": "Tooltip plugin for Chartist.js.",
+  "devDependencies": {
+    "chartist": "^0.9.5"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "cec2195fa505f4d34e6d8e41a86bfbcb9bfff461",
+    "tarball": "https://registry.npmjs.org/chartist-plugin-tooltip/-/chartist-plugin-tooltip-0.0.11.tgz"
+  },
+  "gitHead": "4362f828e7c977951f0ffb3ab575ec0fb40caaf5",
+  "homepage": "https://github.com/CodeYellowBV/chartist-plugin-tooltip#readme",
+  "license": "ISC",
+  "main": "chartist-plugin-tooltip.js",
+  "maintainers": [
+    {
+      "email": "contact@codeyellow.nl",
+      "name": "codeyellow"
+    }
+  ],
+  "name": "chartist-plugin-tooltip",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeYellowBV/chartist-plugin-tooltip.git"
+  },
+  "scripts": {},
+  "version": "0.0.11"
+}

@@ -1,0 +1,72 @@
+{
+  "_args": [
+    [
+      "chartist-plugin-fill-donut@0.0.2",
+      "/Users/yuriysannikov/repo/mdocs/mdocs-survey/tools/marketing-automation/stage-four"
+    ]
+  ],
+  "_from": "chartist-plugin-fill-donut@0.0.2",
+  "_id": "chartist-plugin-fill-donut@0.0.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/chartist-plugin-fill-donut",
+  "_nodeVersion": "5.1.0",
+  "_npmOperationalInternal": {
+    "host": "packages-13-west.internal.npmjs.com",
+    "tmp": "tmp/chartist-plugin-fill-donut-0.0.2.tgz_1457180584365_0.5939442198723555"
+  },
+  "_npmUser": {
+    "email": "mario@mookey.at",
+    "name": "moxx"
+  },
+  "_npmVersion": "3.3.12",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "chartist-plugin-fill-donut",
+    "raw": "chartist-plugin-fill-donut@0.0.2",
+    "rawSpec": "0.0.2",
+    "scope": null,
+    "spec": "0.0.2",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/chartist-plugin-fill-donut/-/chartist-plugin-fill-donut-0.0.2.tgz",
+  "_shasum": "64586179a84f2bcfe082c2203b29414d875b0fa3",
+  "_shrinkwrap": null,
+  "_spec": "chartist-plugin-fill-donut@0.0.2",
+  "_where": "/Users/yuriysannikov/repo/mdocs/mdocs-survey/tools/marketing-automation/stage-four",
+  "author": {
+    "name": "moxx"
+  },
+  "dependencies": {},
+  "description": "This plugin use jQuery to provides a hacky way to fill a donut before the animation will start. Also on board is a way to add multiple html or text elements to the Donut on different positions. Plugin will just work with Chartist Pie charts.",
+  "devDependencies": {
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.4.1",
+    "gulp-watch": "^4.3.5"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "64586179a84f2bcfe082c2203b29414d875b0fa3",
+    "tarball": "https://registry.npmjs.org/chartist-plugin-fill-donut/-/chartist-plugin-fill-donut-0.0.2.tgz"
+  },
+  "gitHead": "32b2443259301398f5bdd359fff69b3bb296e8b6",
+  "license": "MIT",
+  "main": "./dist/chartist-plugin-fill-donut.js",
+  "maintainers": [
+    {
+      "email": "mario@mookey.at",
+      "name": "moxx"
+    }
+  ],
+  "name": "chartist-plugin-fill-donut",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.2"
+}

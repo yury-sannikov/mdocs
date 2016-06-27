@@ -1,0 +1,456 @@
+section#financialProjections.section-page
+  .section-header
+    .header-logo
+      p.bottom
+        | —
+        span.doctorType #{data.type}
+        |  —
+      p.bottom
+        img(src='images/logo-mdocs-light.png', alt='Patient Reviews by MDOCS')
+    .header-title
+      h1 Financial Projections
+  .padding-all.bg-grey
+    .container
+      .row
+        .col-md-6
+          h1 FINANCIAL PROJECTIONS
+      // Average Ratings Projection - 36 months
+      .row
+        .col-md-6
+          h3 Average Ratings Projection - 36 months
+          .ct-chart-tresh.ct-perfect-fourth
+      .row
+        .col-md-6
+          h3 Additional Revenue Projection - 36 months
+          .ct-chart-revenue.ct-perfect-fourth
+          div(style='height: 100px;')
+      .row
+        .col-md-6
+          h3 Top 10 Review Sites Ratings
+      .row
+        .col-md-6
+          #donutCharts.row(style='width:600px;float:left;')
+
+  style.
+    body {
+      font-family: Lato, sans, sans-serif;
+    }
+
+    .row {
+      margin-bottom: 40px;
+    }
+
+    /* Use this selector to override the line style on a given series */
+    .ct-series-a .ct-line {
+      /* Set the colour of this series line */
+      stroke: #FF196F;
+      /* Control the thikness of your lines */
+      stroke-width: 4px;
+      /* Create a dashed line with a pattern */
+      // stroke-dasharray: 10px 20px;
+    }
+
+    /* This selector overrides the points style on line charts. Points on line charts are actually just very short strokes. This allows you to customize even the point size in CSS */
+    .ct-series-a .ct-point {
+      /* Colour of your points */
+      stroke: #FF196F;
+      /* Size of your points */
+      stroke-width: 12px;
+      /* Make your points appear as squares */
+      // stroke-linecap: square;
+    }
+
+    .ct-chart-revenue table tr th, .ct-chart-revenue table tr td {
+      padding: 6px 12px 0 12px;
+      font-size: 1.2em;
+    }
+
+    .ct-series-a .ct-bar, .ct-series-a .ct-slice-donut {
+        stroke: #00A3C8;
+    }
+
+    .ct-bar {
+        fill: none;
+        stroke-width: 20px;
+    }
+
+    .ct-fill-donut-label {
+      // padding: 2px;
+      // border-radius: 4px;
+      text-align: center;
+    }
+
+    .ct-fill-donut-label h3 {
+      font-size: 1.6em;
+    }
+
+    .ct-fill-donut-label span {
+      color: #666;
+      font-size: 0.8em;
+    }
+
+    .ct-chart-tresh .ct-series-a .ct-line {
+      stroke: #FF196F;
+      fill: none;
+      stroke-width: 4px;
+      stroke-dasharray: 5px;
+      -webkit-animation: dashoffset 1s linear infinite;
+      -moz-animation: dashoffset 1s linear infinite;
+      -o-animation: dashoffset 1s linear infinite;
+      animation: dashoffset 1s linear infinite
+    }
+
+    .ct-chart-tresh .ct-series-a .ct-area {
+      fill: #00aa00;
+    }
+
+    .ct-chart-tresh .ct-area.ct-threshold-below {
+      fill: #aa0000;
+    }
+
+    .ct-label {
+        color: rgba(0,0,0,.6);
+        font-size: 1rem;
+    }
+
+    // .ct-chart-tresh .ct-label {
+    //     color: rgba(0,0,0,.4);
+    //     font-size: 1rem;
+    // }
+
+    .ct-chart {
+      position: relative;
+    }
+
+    .ct-legend {
+        position: relative;
+        z-index: 10;
+        list-style: none;
+    }
+    .ct-legend li {
+        position: relative;
+        padding-left: 23px;
+        margin-bottom: 3px;
+        cursor: pointer;
+    }
+    .ct-legend li:before {
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        content: '';
+        border: 3px solid transparent;
+        border-radius: 2px;
+    }
+    .ct-legend li.inactive:before {
+        background: transparent;
+    }
+    .ct-legend.ct-legend-inside {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .ct-legend .ct-series-0:before {
+        background-color: #d70206;
+        border-color: #d70206;
+    }
+    .ct-legend .ct-series-1:before {
+        background-color: #f05b4f;
+        border-color: #f05b4f;
+    }
+    .ct-legend .ct-series-2:before {
+        background-color: #f4c63d;
+        border-color: #f4c63d;
+    }
+    .ct-legend .ct-series-3:before {
+        background-color: #d17905;
+        border-color: #d17905;
+    }
+    .ct-legend .ct-series-4:before {
+        background-color: #453d3f;
+        border-color: #453d3f;
+    }
+
+
+    @-webkit-keyframes dashoffset {
+        0% {
+            stroke-dashoffset: 0
+        }
+
+        100% {
+            stroke-dashoffset: -20px
+        }
+    }
+
+    @-moz-keyframes dashoffset {
+        0% {
+            stroke-dashoffset: 0
+        }
+
+        100% {
+            stroke-dashoffset: -20px
+        }
+    }
+
+    @-ms-keyframes dashoffset {
+        0% {
+            stroke-dashoffset: 0
+        }
+
+        100% {
+            stroke-dashoffset: -20px
+        }
+    }
+
+    @keyframes dashoffset {
+        0% {
+            stroke-dashoffset: 0;
+        }
+
+        100% {
+            stroke-dashoffset: -20px;
+        }
+    }
+
+    @-webkit-keyframes bouncing-stroke {
+        0%,100% {
+            stroke-width: 5px
+        }
+
+        50% {
+            stroke-width: 10px
+        }
+    }
+
+    @-moz-keyframes bouncing-stroke {
+        0%,100% {
+            stroke-width: 5px
+        }
+
+        50% {
+            stroke-width: 10px
+        }
+    }
+
+    @-ms-keyframes bouncing-stroke {
+        0%,100% {
+            stroke-width: 5px
+        }
+
+        50% {
+            stroke-width: 10px
+        }
+    }
+
+    @keyframes bouncing-stroke {
+        0%,100% {
+            stroke-width: 5px
+        }
+
+        50% {
+            stroke-width: 10px
+        }
+    }
+
+    @-webkit-keyframes exploding-stroke {
+        0% {
+            stroke-width: 2px;
+            opacity: 1
+        }
+
+        100% {
+            stroke-width: 20px;
+            opacity: 0
+        }
+    }
+
+    @-moz-keyframes exploding-stroke {
+        0% {
+            stroke-width: 2px;
+            opacity: 1
+        }
+
+        100% {
+            stroke-width: 20px;
+            opacity: 0
+        }
+    }
+
+    @-ms-keyframes exploding-stroke {
+        0% {
+            stroke-width: 2px;
+            opacity: 1
+        }
+
+        100% {
+            stroke-width: 20px;
+            opacity: 0
+        }
+    }
+
+    @keyframes exploding-stroke {
+        0% {
+            stroke-width: 2px;
+            opacity: 1
+        }
+
+        100% {
+            stroke-width: 20px;
+            opacity: 0
+        }
+    }
+
+  script.
+    (function(init) {
+      init(window.jQuery, window, document);
+    }(function($, window, document) {
+      var ratingsSeries = [];
+      var revenueSeries = [];
+      var topRatingsSeries = [];
+
+      function renderData(data) {
+        var averageRating = _.round(_.meanBy(data.reviews, function(d) { return d.rating; }),2);
+        var delta = 5 - averageRating;
+        var step = _.round(delta/12, 2);
+
+        ratingsSeries.push(averageRating);
+
+        for (i=1; i<12; i++) {
+          var bias = _.random(0, step);
+          var total = averageRating + i*step + bias;
+          ratingsSeries.push(_.round(total, 2));
+        }
+
+        ratingsSeries.push(5);
+
+        var revenueCoefficient = 1270.80;
+        _(ratingsSeries).forEach(function(value) {
+          revenueSeries.push(_.round(value * revenueCoefficient + _.random(0, revenueCoefficient/3, true)));
+        });
+
+        // Top ratings
+        topRatingsSeries = _.orderBy(data.reviews, ['rating'], ['desc']);
+
+        var i = 0;
+        _.forEach(topRatingsSeries, function(item) {
+          var donutDivName = 'ct-chart-donut' + i;
+          $("#donutCharts").append($( "<div class='col-md-4'><div class='" + donutDivName + "'></div>" ));
+          new Chartist.Pie('.' + donutDivName,
+            {
+              series: [220*(item.rating)/5, 220-(220*(item.rating)/5)]
+            }, {
+                donut: true,
+                donutWidth: 20,
+                startAngle: 210,
+                total: 260,
+                showLabel: false,
+                plugins: [
+                    Chartist.plugins.fillDonut({
+                        items: [{
+                            content: '<i class="fa fa-tachometer"></i>',
+                            position: 'bottom',
+                            offsetY : 12,
+                            offsetX: 0
+                        }, {
+                            content: '<h3>' + item.rating + '</h3><span>' + item.siteId + '</span>'
+                        }]
+                    })
+                ],
+            });
+
+          i++;
+        });
+      }
+
+      new Chartist.Line('.ct-chart-tresh', {
+        labels: ['Today', '3mo', '6mo', '9mo', '12mo', '15mo', '18mo', '21mo', '24mo', '27mo', '30mo', '33mo', '36mo'],
+        series: [
+          ratingsSeries
+        ]
+      }, {
+        showArea: true,
+        axisY: {
+          onlyInteger: false
+        },
+        plugins: [
+          Chartist.plugins.ctThreshold({
+            threshold: 4
+          }),
+          Chartist.plugins.ctPointLabels({
+            textAnchor: 'middle'
+          }),
+          Chartist.plugins.ctAxisTitle({
+            axisX: {
+              axisTitle: 'Time (months)',
+              axisClass: 'ct-axis-title',
+              offset: {
+                x: 0,
+                y: 32
+              },
+              textAnchor: 'middle'
+            },
+            axisY: {
+              axisTitle: 'Ratings',
+              axisClass: 'ct-axis-title',
+              offset: {
+                x: 0,
+                y: -4
+              },
+              textAnchor: 'middle',
+              flipTitle: false
+            }
+          })
+        ]
+      });
+
+
+      new Chartist.Bar('.ct-chart-revenue', {
+          labels: ['Today', '3mo', '6mo', '9mo', '12mo', '15mo', '18mo', '21mo', '24mo', '27mo', '30mo', '33mo', '36mo'],
+          series: [
+            {
+              "name": "Revenue",
+              "data": revenueSeries
+            }
+          ]
+      }, {
+          plugins: [
+            Chartist.plugins.ctPointLabels({
+              textAnchor: 'middle'
+            }),
+            Chartist.plugins.ctAxisTitle({
+              axisX: {
+                axisTitle: 'Time (months)',
+                axisClass: 'ct-axis-title',
+                offset: {
+                  x: 0,
+                  y: 32
+                },
+                textAnchor: 'middle'
+              },
+              axisY: {
+                axisTitle: 'Revenue ($)',
+                axisClass: 'ct-axis-title',
+                offset: {
+                  x: 0,
+                  y: 0
+                },
+                textAnchor: 'middle',
+                flipTitle: false
+              }
+            }),
+            Chartist.plugins.ctAccessibility({
+              caption: 'Ratings vs. Revenue Projection',
+              seriesHeader: '',
+              summary: 'A graphic that shows the business numbers of the fiscal year 2015',
+              valueTransform: function(value) {
+                return '$' + value;
+              },
+              // ONLY USE THIS IF YOU WANT TO MAKE YOUR ACCESSIBILITY TABLE ALSO VISIBLE!
+              visuallyHiddenStyles: 'position: absolute; top: 100%; width: 100%; font-size: 11px; overflow-x: auto; background-color: rgba(0, 0, 0, 0.1); padding: 10px'
+            })
+          ]
+      });
+
+      renderData(JSON.parse(document.getElementById('reviewCardData').innerHTML));
+    }));
