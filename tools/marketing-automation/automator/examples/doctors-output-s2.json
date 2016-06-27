@@ -51,8 +51,8 @@
     "city": "STERLING",
     "state": "VA",
     "country": "US",
-    "key": "b5ccdf30-0459-4e62-8a42-45e4571095ec-sarah-fletcher",
-    "uuid": "b5ccdf30-0459-4e62-8a42-45e4571095ec",
+    "key": "24ddd4b3-87c6-4650-8ffc-19aa68f56382-sarah-fletcher",
+    "uuid": "24ddd4b3-87c6-4650-8ffc-19aa68f56382",
     "reportDate": "06/27/2016",
     "providerName": "Sarah Fletcher, MD",
     "providerAddress": "20808 WATERBEACH PL<br>STERLING, VA 20165-7407<br>(703) 421-7000",
@@ -175,8 +175,8 @@
     "city": "STERLING",
     "state": "VA",
     "country": "US",
-    "key": "cc16ea30-8a17-44e3-8c5d-25e8cacdefce-elizabeth-zapp",
-    "uuid": "cc16ea30-8a17-44e3-8c5d-25e8cacdefce",
+    "key": "002d3705-7c4a-4ddc-83cb-35b08540bd99-elizabeth-zapp",
+    "uuid": "002d3705-7c4a-4ddc-83cb-35b08540bd99",
     "reportDate": "06/27/2016",
     "providerName": "Elizabeth Zapp, MD",
     "providerAddress": "21135 WHITFIELD PL<br>STERLING, VA 20165-7283<br>(703) 421-7000",
@@ -228,7 +228,7 @@
         "siteUrl": "https://maps.google.com/?cid=13604324308237150113",
         "addressAccurate": true,
         "reviewCount": 1,
-        "rating": 0,
+        "rating": 5,
         "reviews": [
           {
             "aspects": [
@@ -308,8 +308,8 @@
     "state": "VA",
     "country": "US",
     "address2": "",
-    "key": "d50b25f0-4ca7-4bc8-b472-036713a5c8ef-joyce-xia",
-    "uuid": "d50b25f0-4ca7-4bc8-b472-036713a5c8ef",
+    "key": "0ed39f0f-4fa9-40a4-b21f-46ebcaae6fdc-joyce-xia",
+    "uuid": "0ed39f0f-4fa9-40a4-b21f-46ebcaae6fdc",
     "reportDate": "06/27/2016",
     "providerName": "Joyce Xia, DDS",
     "providerAddress": "46090 LAKE CENTER PLZ STE 105<br>STERLING, VA 20165-5877<br>undefined",
@@ -377,7 +377,7 @@
         "siteUrl": "https://maps.google.com/?cid=9047540472783007341",
         "addressAccurate": true,
         "reviewCount": 2,
-        "rating": 0,
+        "rating": 3,
         "reviews": [
           {
             "aspects": [

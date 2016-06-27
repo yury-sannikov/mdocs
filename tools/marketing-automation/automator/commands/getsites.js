@@ -247,6 +247,17 @@ var parseGoogle$ = function (url) {
       if(!_.isEmpty(res.result.reviews)) {
         result.reviewCount = res.result.reviews.length;
         result.reviews = res.result.reviews;
+        if(result.rating === 0) {
+          result.rating = res.result.reviews.reduce(function(values, obj) {
+            if (obj.hasOwnProperty('rating')) {
+              values.sum += obj.rating;
+              values.count++;
+              values.average = values.sum / values.count;
+            }
+            return values;
+          }, {sum:0, count:0, average: void 0}
+          ).average;
+        }
       }
       if(!_.isEmpty(res.result.geometry.location)) {
         result.locationDetails = res.result.geometry.location;
