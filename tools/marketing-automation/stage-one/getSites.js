@@ -281,13 +281,13 @@ var parseGoogle = function (dentist) {
             if (_.findLastIndex(dentist.sites, function(s) { 
               return s.site == 'Google'; 
             }) < 0) {
-              console.log("Adding Google information: " + url);
+              console.log("Adding Google information: " + 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + result.results[0].place_id);
               dentist.sites.push(
                 {
                   "site": 'Google',
                   "title": result.results[0].name,
                   "place_id" : result.results[0].place_id,
-                  "url": url
+                  "url": 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + result.results[0].place_id
                 });
             }
 
