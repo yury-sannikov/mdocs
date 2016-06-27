@@ -1,0 +1,57 @@
+{
+  "reportDate": "Jun-27, 2016",
+  "providers": [
+    {
+      "name": "Joyce Xia, DDS",
+      "address": "46090 LAKE CENTER PLZ STE 105",
+      "zip": "20165-5877",
+      "sites": [
+        {
+          "site": "Google",
+          "title": "Dr. Joyce Xia, DDS",
+          "place_id": "ChIJu_o4aZQ5tokRbW4zwx9Sj30",
+          "url": "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Joyce Xia, DDS&key=AIzaSyAMlBXqOQ_Ugk36ttc95Nc9hNnECfQghJY"
+        },
+        {
+          "site": "Vitals",
+          "title": "Dr. Joyce Xia DDS",
+          "url": "http://www.vitals.com/dentists/Dr_Joyce_Xia"
+        },
+        {
+          "site": "HealthGrades",
+          "title": "Dr. Joyce Xia, DDS",
+          "url": "https://www.healthgrades.com/dentist/dr-joyce-xia-yn74x"
+        },
+        {
+          "site": "RateMDs",
+          "title": "Dr. Joyce Xia",
+          "url": "https://www.ratemds.com/doctor-ratings/870963/Dr-Joyce-Xia-STERLING-VA.html"
+        },
+        {
+          "site": "Yelp",
+          "title": "Joyce Xia, DDS",
+          "url": "http://www.yelp.com/biz/joyce-xia-dds-sterling"
+        },
+        {
+          "site": "MerchantCircle",
+          "title": "Xia Joyce DDS",
+          "url": "http://www.merchantcircle.com/xia-joyce-dds-sterling-va"
+        },
+        {
+          "site": "YellowPages",
+          "title": "Lake Center Dental Care, PC ( Joyce Xia, D.D.S.)",
+          "url": "http://www.yellowpages.com/sterling-va/mip/lake-center-dental-care-pc-joyce-xia-d-d-s--17616799?lid=17616799"
+        },
+        {
+          "site": "Yahoo",
+          "title": "Joyce Xia, DDS",
+          "url": "https://local.yahoo.com/info-125547835-joyce-xia-dds-sterlingundefined?stx=Joyce%20Xia,%20DDS&csz=20165&fr=lsrp"
+        }
+      ],
+      "city": "STERLING",
+      "state": "VA",
+      "country": "US",
+      "address2": ""
+    }
+  ]
+}
