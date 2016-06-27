@@ -5,6 +5,7 @@
   "main": "getSites.js",
   "scripts": {
     "execute": "node getSites.js",
+    "process": "node copyToStageTwo.js",
     "verify": "node verifyAddress.js"
   },
   "author": "",
