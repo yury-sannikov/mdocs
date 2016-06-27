@@ -1,0 +1,216 @@
+section#competitorsMap.section-page
+  .section-header
+    .header-logo
+      p.bottom
+        | —
+        span.doctorType #{data.type}
+        |  —
+      p.bottom
+        img(src='images/logo-mdocs-light.png', alt='Patient Reviews by MDOCS')
+    .header-title
+      h1 Your Competitors Map
+  .padding-all.bg-grey(style='height: 650px;')
+    #map(style='height: 100%; width: 100%;')
+      span#mapLoading Loading Map...
+  style.
+    .map-icon-text {
+      font-size: 13pt !important;
+      color: #222 !important;
+      position: relative;
+      top: -5px;
+      font-family: 'Source Sans Pro' !important;
+    }
+    .map-icon-text-competitor {
+      font-size: 10pt !important;
+      color: #FFF !important;
+      position: relative;
+      top: 10px;
+      font-family: 'Source Sans Pro' !important;
+    }
+  script#competitor-template(type='text/x-handlebars-template').
+    <div id="content">
+    <div id="siteNotice">
+    </div>
+    <h1 id="firstHeading" class="firstHeading">Competitor # {{competitorIndex}}</h1>
+    <div id="bodyContent">
+    <table class="table valigned">
+      <tbody>
+        <tr>
+          <td colspan="3">
+            <strong>MDOCS Rank</strong>
+          </td>
+          <td>
+            <span>No. {{rank}}</span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <strong>Star Ratings</strong>
+          </td>
+          <td>
+            <span>
+              {{#each stars}}
+                <i class='fa fa-star{{c}}'></i>
+              {{/each}}
+              &nbsp;({{rating}}) based on {{reviewCount}} reviews.
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <strong>Location</strong>
+          </td>
+          <td>
+            <span>{{location}}</span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <strong>Categories</strong>
+          </td>
+          <td>
+            {{#each categories}}
+              <p>{{category}}</p>
+            {{/each}}
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <strong>Distance From You</strong>
+          </td>
+          <td>
+            <span>{{distance}} miles</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+  script.
+    function initCompetitorsMap() {
+      var data = JSON.parse(document.getElementById('reviewCardData').innerHTML);
+
+      var competitorTemplate = Handlebars.compile(document.getElementById('competitor-template').innerHTML);
+
+      function placeMyself(mapObj, location) {
+
+        var myselfIcon = {
+          path: 'M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z',
+          fillColor: '#FF196F',
+          fillOpacity: 1,
+          scale: 1,
+          strokeColor: '#9E003B',
+          strokeWeight: 2
+        };
+
+        var marker = new Marker({
+          position: location,
+          map: mapObj,
+          icon: myselfIcon,
+          map_icon_label: '<span class="map-icon map-icon-text">You</span>'
+        });
+      }
+
+      function infowindowForCompetitor(competitor, index) {
+        var categories = competitor.categories.map(function(arr) {
+          return { category: arr[0]};
+        });
+        var stars = [1, 2, 3, 4, 5].map(function(idx) {
+          var c = (competitor.rating >= idx) ? '' : (
+            (Math.ceil(competitor.rating) === Math.ceil(idx)) ? '-half-o' :'-o'
+          );
+          return {c:c};
+        });
+        var content = competitorTemplate( {
+            rank: index,
+            reviewCount: competitor.review_count,
+            location: competitor.location.city + ', ' + competitor.location.state_code,
+            distance: (competitor.distance / 1600.0).toFixed(2),
+            stars: stars,
+            rating: competitor.rating.toFixed(1),
+            competitorIndex: index,
+            categories: categories
+          });
+        var infowindow = new google.maps.InfoWindow({
+          content: content
+        });
+        return infowindow;
+      }
+
+      function placeCompetitors(mapObj, location) {
+        var yelpCompetitors = ((data.competitors || {}).yelpCompetitors || []);
+        for (var i = 0; i < yelpCompetitors.length; i++) {
+          var competitor = yelpCompetitors[i];
+
+          var clickHandlerFn = (function(competitor, i) {
+            var yelpPos = ((competitor.location || {}).coordinate || {});
+            var marker = new Marker({
+              position: {lat: yelpPos.latitude, lng: yelpPos.longitude},
+              map: mapObj,
+              icon: {
+                path: SQUARE_PIN,
+                fillColor: '#23282e',
+                fillOpacity: 1,
+                strokeColor: '#30373F',
+                strokeWeight: 1,
+                scale: 0.5
+              },
+              title: 'Competitor #' + i,
+              map_icon_label: '<span class="map-icon map-icon-text-competitor">#' + i + '</span>'
+            });
+            var fn = function() {
+              if (window.__currentInfoWindow) {
+                window.__currentInfoWindow.close();
+              }
+              var infowindow = infowindowForCompetitor(competitor, i);
+              infowindow.open(mapObj, marker);
+              window.__currentInfoWindow = infowindow;
+            };
+            fn.marker = marker;
+            return fn;
+          })(competitor, i);
+          var marker = clickHandlerFn.marker;
+          marker.addListener('click', clickHandlerFn);
+
+          var current_bounds = mapObj.getBounds();
+          var marker_pos = marker.getPosition();
+
+          if( !current_bounds.contains( marker_pos ) ){
+
+              var new_bounds = current_bounds.extend( marker_pos );
+              mapObj.fitBounds( new_bounds );
+          }
+
+        }
+      }
+
+      var geocoder = new google.maps.Geocoder();
+      var addressQuery = data.address + ', ' + data.address2 + ', ' + data.city + ', ' + data.state + ' ' + data.zip;
+      geocoder.geocode(
+        { address: addressQuery },
+        function( results, status ){
+          var loadingEl = document.getElementById('mapLoading').innerHTML;
+          if( status !== 'OK' ) {
+            loadingEl.innerHTML = 'Sorry. Unable to load map';
+            return;
+          }
+          loadingEl.innerHTML = '';
+
+          var mapObj = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15
+          });
+          var result = results[0];
+          var centerLocation = result.geometry.location.toJSON();
+          mapObj.setCenter(centerLocation);
+          window.setTimeout(function(){
+            placeCompetitors(mapObj, centerLocation);
+            placeMyself(mapObj, centerLocation);
+          }, 2000);
+        }
+      );
+    }
+
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js')
+  script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCKJes8GVG8WXULPuwx17muLOSVWyharEM&callback=initCompetitorsMap')
+  link(rel='stylesheet', type='text/css', href='vendor/mapicon/css/map-icons.min.css')
+  script(type='text/javascript', src='vendor/mapicon/js/map-icons.js')
