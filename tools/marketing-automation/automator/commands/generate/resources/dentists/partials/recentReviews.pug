@@ -1,0 +1,54 @@
+section#recentReviews.section-page
+  .section-header
+    .header-logo
+      p.bottom
+        | —
+        span.doctorType #{data.type}
+        |  —
+      p.bottom
+        img(src='images/logo-mdocs-light.png', alt='Patient Reviews by MDOCS')
+    .header-title
+      h1 Recent Reviews
+  .padding-all.bg-grey
+    table.table.table-bordered
+      tbody#recentReviewsTable
+  script.
+    (function(init) {
+      init(window.jQuery, window, document);
+    }(function($, window, document) {
+      function renderData( data ) {
+        var items = data.reviews;
+        var googleReviews = items[_.findLastIndex(items, function(o) { return o.siteId == 'Google'; })].reviews;
+
+        var makeStars = function(rating) {
+          var result = "";
+          for (var i=0; i < Math.floor(rating); i++) {
+            result += "<i class='fa fa-star golden'></i>";
+          }
+
+          for (var i=0; i < 5-Math.floor(rating); i++) {
+            result += "<i class='fa fa-star grey'></i>";
+          }
+
+          return "<td style='text-align: center; vertical-align: middle;'>" + result + "</td>";
+        }
+        
+        if (googleReviews) {
+          $.each( _.sortBy(googleReviews, ['time']).reverse(), function( key, val ) {
+            var rowStr = "<tr>";
+            rowStr += '<td style="text-align: center; vertical-align: middle;">' + val.author_name + '</td>';
+            rowStr += "<td style='text-align: center; vertical-align: middle;'>" + moment(new Date(val.time*1000)).format('MM/DD/YYYY') + '</td>';
+            rowStr += makeStars(val.rating, val.reviewCount);
+            rowStr += "</tr>";
+            rowStr += "<tr>";
+            rowStr += "<td colspan='3'>" + val.text + '</td>';
+            rowStr += "</tr>";
+            $('#recentReviewsTable').append(rowStr);
+          });
+        } else {
+          var rowStr = "<tr><td>No recent reviews found.</td></tr>";
+          $('#recentReviewsTable').append(rowStr);
+        }
+      };
+      renderData(JSON.parse(document.getElementById('reviewCardData').innerHTML));
+    }));

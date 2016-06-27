@@ -4010,12 +4010,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   font-weight: 700;
 }
 
-#reviewCard .golden {
+#reviewCard .golden, #recentReviewsTable .golden {
   color: #FFC40E;
   font-size: 2em;
 }
 
-#reviewCard .grey {
+#reviewCard .grey, #recentReviewsTable .grey {
   color: #AAA;
   font-size: 2em;
 }
