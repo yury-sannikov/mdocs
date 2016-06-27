@@ -1,4 +1,5 @@
 var fs = require('fs');
+var req = require('request-promise');
 var _ = require('lodash');
 var sp = require('scrapejs').init({
 	cc: 2, // up to 2 concurrent requests 
@@ -12,7 +13,6 @@ var sp = require('scrapejs').init({
 var googleSearchKey = 'AIzaSyAh4GFdzf9pktMpDJCKa1rrxaKiFroZjjM';
 var healthGradesCxKey = '009344016812831918064:e3zkekpedge';
 var yelpCxKey = '009344016812831918064:pw3fojj8rmi';
-var googleBaseSearchUrl = 'https://www.googleapis.com/customsearch/v1?q=';
 
 var Client = require('node-rest-client').Client; 
 var client = new Client();
@@ -28,6 +28,11 @@ var rateMDsBaseSearchUrl = 'https://www.ratemds.com/best-doctors/?text=';
 var ypBaseSearchUrl = 'http://www.yellowpages.com/search?search_terms=';
 var mcBaseSearchUrl = 'http://www.merchantcircle.com/search?q=';
 var yahooBaseSearchUrl = 'https://search.yahoo.com/local/?p=';
+var googleBaseSearchUrl = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=';
+
+// Used API Keys
+var googleAPIKey = 'AIzaSyAMlBXqOQ_Ugk36ttc95Nc9hNnECfQghJY';
+
 
 // Generating actual URL links
 var generateHealthGradesUrl = function(q, loc) {
@@ -56,6 +61,10 @@ var generateMCSearchUrl = function(q, loc) {
 
 var generateYahooSearchUrl = function(q, loc) {
   return yahooBaseSearchUrl + q + '&addr=' + loc;
+}
+
+var generateGoogleSearchUrl = function(q) {
+  return googleBaseSearchUrl + q + '&key=' + googleAPIKey;
 }
 
 // Parsing the links
@@ -334,6 +343,53 @@ var parseYahooLocal = function (dentist) {
     });
 }
 
+var parseGoogle = function (dentist) {
+  var url = generateGoogleSearchUrl(dentist.name);
+  
+  req(url)
+    .then(function(result){
+      result = JSON.parse(result);
+
+      switch(result.status) {
+        case 'ZERO_RESULTS':    
+          console.log("ZERO_RESULTS: " + dentist.name);
+          break;
+        case 'OK':
+          if(!_.isEmpty(result.results)) {
+            if (_.findLastIndex(dentist.sites, function(s) { 
+              return s.site == 'Google'; 
+            }) >= 0) {
+              console.log("Google information found.");
+              dentist.sites[0].site = 'Google';
+              dentist.sites[0].title = result.results[0].name;
+              dentist.sites[0].place_id = result.results[0].place_id;
+              dentist.sites[0].url = result.results[0].url;
+            } else {
+              console.log("Adding Google information: " + url);
+              dentist.sites.push(
+                {
+                  "site": 'Google',
+                  "title": result.results[0].name,
+                  "place_id" : result.results[0].place_id,
+                  "url": url
+                });
+            }
+
+            fs.writeFile(fileName, JSON.stringify(d, null, 2), function (err) {
+              if (err) return console.log(err);
+            });
+            }
+          break;
+        default: 
+            console.log(result.status + ': ' + dentist.name);
+            break;
+      }
+    })
+    .catch(function (err) {
+        console.error(err + "\n" + dentist.name);
+    });
+}
+
 // Getting data for each doctor
 var index = 0;
 _(d.providers).forEach(function(dentist) {
@@ -418,6 +474,18 @@ _(d.providers).forEach(function(dentist) {
     console.log("Attempting to parse Yahoo Local for record #: " + index + '   Name: ' + dentist.name);
     try {
       parseYahooLocal(dentist);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  // Google
+  if (_.findLastIndex(dentist.sites, function(s) { 
+   return s.site == 'Google'; 
+  }) < 0) {
+    console.log("Attempting to parse Google for record #: " + index + '   Name: ' + dentist.name);
+    try {
+      parseGoogle(dentist);
     } catch (e) {
       console.log(e);
     }

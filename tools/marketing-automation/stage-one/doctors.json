@@ -41,6 +41,12 @@
           "site": "Yahoo",
           "title": "Dr Sarah Fletcher, MD",
           "url": "https://local.yahoo.com/info-199024246-dr-sarah-fletcher-md-sterlingundefined?stx=Sarah%20Fletcher,%20MD&csz=20165-7407&fr=lsrp"
+        },
+        {
+          "site": "Google",
+          "title": "Sterling Family Practice: Fletcher Sarah S MD",
+          "place_id": "ChIJvXdLNeo5tokRFHdLd2ReT-s",
+          "url": "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Sarah Fletcher, MD&key=AIzaSyAMlBXqOQ_Ugk36ttc95Nc9hNnECfQghJY"
         }
       ],
       "address2": "",
@@ -83,6 +89,12 @@
           "site": "Yahoo",
           "title": "Zapp, Elizabeth Dr-Sterling Family Practice",
           "url": "https://local.yahoo.com/info-79281724-zapp-elizabeth-drsterling-family-practice-sterlingundefined?stx=Elizabeth%20Zapp,%20MD&csz=20165-7283&fr=lsrp"
+        },
+        {
+          "site": "Google",
+          "title": "Sterling Family Practice: Zapp Elizabeth MD",
+          "place_id": "ChIJvXdLNeo5tokRoeevKeFEzLw",
+          "url": "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Elizabeth Zapp, MD&key=AIzaSyAMlBXqOQ_Ugk36ttc95Nc9hNnECfQghJY"
         }
       ],
       "address2": "",
