@@ -1,5 +1,246 @@
 [
-{"name":"Sarah Fletcher, MD","phone":"(703) 421-7000","address":"20808 WATERBEACH PL","zip":"20165-7407","sites":[{"site":"HealthGrades","title":"Dr. Sarah S. Fletcher, MD","url":"https://www.healthgrades.com/physician/dr-sarah-fletcher-3cf32"},{"site":"Vitals","title":"Dr. Sarah V Fletcher V MD","url":"http://www.vitals.com/doctors/Dr_Sarah_V_Fletcher.html"},{"site":"Yelp","title":"Dr. Sarah Fletcher, MD","url":"http://www.yelp.com/biz/dr-sarah-fletcher-md-sterling"},{"site":"RateMDs","title":"Dr. Sarah S. Fletcher","url":"https://www.ratemds.com/doctor-ratings/363552/Dr-Sarah+S.-Fletcher-Sterling-VA.html"},{"site":"MerchantCircle","title":"Fletcher Sarah Doctor of Medicine","url":"http://www.merchantcircle.com/fletcher-sarah-doctor-of-medicine-sterling-va"},{"site":"YellowPages","title":"Fletcher, Sarah S, MD","url":"http://www.yellowpages.com/sterling-va/mip/fletcher-sarah-s-md-479545276?lid=479545276"},{"site":"Yahoo","title":"Dr Sarah Fletcher, MD","url":"https://local.yahoo.com/info-199024246-dr-sarah-fletcher-md-sterlingundefined?stx=Sarah%20Fletcher,%20MD&csz=20165-7407&fr=lsrp"}],"address2":"","city":"STERLING","state":"VA","country":"US","key":"d9ef4410-4fea-44a5-afe8-d325353198eb-sarah-fletcher","uuid":"d9ef4410-4fea-44a5-afe8-d325353198eb","reportDate":"06/25/2016","providerName":"Sarah Fletcher, MD","providerAddress":"20808 WATERBEACH PL<br>STERLING, VA 20165-7407<br>(703) 421-7000","bias":0,"reviews":[{"siteId":"HealthGrades","siteName":"HEALTH GRADES","siteUrl":"https://www.healthgrades.com/physician/dr-sarah-fletcher-3cf32","addressAccurate":true,"reviewCount":8,"rating":5},{"siteId":"Vitals","siteName":"VITALS.COM","siteUrl":"http://www.vitals.com/doctors/Dr_Sarah_V_Fletcher.html","addressAccurate":true,"reviewCount":0,"rating":0},{"siteId":"Yelp","siteName":"YELP.COM","siteUrl":"http://www.yelp.com/biz/dr-sarah-fletcher-md-sterling","addressAccurate":true,"reviewCount":0,"rating":0},{"siteId":"RateMDs","siteName":"RATEMDS.COM","siteUrl":"https://www.ratemds.com/doctor-ratings/363552/Dr-Sarah+S.-Fletcher-Sterling-VA.html","addressAccurate":true,"reviewCount":8,"rating":3.16},{"siteId":"YellowPages","siteName":"YELLOWPAGES.COM","siteUrl":"http://www.yellowpages.com/sterling-va/mip/fletcher-sarah-s-md-479545276?lid=479545276","addressAccurate":true,"reviewCount":0,"rating":0},{"siteId":"MerchantCircle","siteName":"MERCHANTCIRCLE.COM","siteUrl":"http://www.merchantcircle.com/fletcher-sarah-doctor-of-medicine-sterling-va","addressAccurate":true,"reviewCount":0,"rating":0},{"siteId":"Yahoo","siteName":"LOCAL.YAHOO.COM","siteUrl":"https://local.yahoo.com/info-199024246-dr-sarah-fletcher-md-sterlingundefined?stx=Sarah%20Fletcher,%20MD&csz=20165-7407&fr=lsrp","addressAccurate":true,"reviewCount":0,"rating":0}]}
-,
-{"name":"Elizabeth Zapp, MD","phone":"(703) 421-7000","address":"21135 WHITFIELD PL","zip":"20165-7283","sites":[{"site":"HealthGrades","title":"Dr. Elizabeth A. Zapp, MD","url":"https://www.healthgrades.com/physician/dr-elizabeth-zapp-xl9x3"},{"site":"Vitals","title":"Dr. Elizabeth Zapp MD","url":"http://www.vitals.com/doctors/Dr_Elizabeth_Zapp.html"},{"site":"RateMDs","title":"Dr. Elizabeth A. Zapp","url":"https://www.ratemds.com/doctor-ratings/948467/Dr-Elizabeth+A.-Zapp-Sterling-VA.html"},{"site":"MerchantCircle","title":"Zapp Elizabeth MD","url":"http://www.merchantcircle.com/zapp-elizabeth-md-sterling-va"},{"site":"YellowPages","title":"Zapp, Elizabeth, MD","url":"http://www.yellowpages.com/sterling-va/mip/zapp-elizabeth-md-459158269?lid=459158269"},{"site":"Yahoo","title":"Zapp, Elizabeth Dr-Sterling Family Practice","url":"https://local.yahoo.com/info-79281724-zapp-elizabeth-drsterling-family-practice-sterlingundefined?stx=Elizabeth%20Zapp,%20MD&csz=20165-7283&fr=lsrp"}],"address2":"","city":"STERLING","state":"VA","country":"US","key":"65ee4334-b190-47a6-9cd6-babc697f4f49-elizabeth-zapp","uuid":"65ee4334-b190-47a6-9cd6-babc697f4f49","reportDate":"06/25/2016","providerName":"Elizabeth Zapp, MD","providerAddress":"21135 WHITFIELD PL<br>STERLING, VA 20165-7283<br>(703) 421-7000","bias":0,"reviews":[{"siteId":"HealthGrades","siteName":"HEALTH GRADES","siteUrl":"https://www.healthgrades.com/physician/dr-elizabeth-zapp-xl9x3","addressAccurate":true,"reviewCount":5,"rating":2.6},{"siteId":"Vitals","siteName":"VITALS.COM","siteUrl":"http://www.vitals.com/doctors/Dr_Elizabeth_Zapp.html","addressAccurate":true,"reviewCount":6,"rating":3.5},{"siteId":"RateMDs","siteName":"RATEMDS.COM","siteUrl":"https://www.ratemds.com/doctor-ratings/948467/Dr-Elizabeth+A.-Zapp-Sterling-VA.html","addressAccurate":true,"reviewCount":2,"rating":2.75},{"siteId":"YellowPages","siteName":"YELLOWPAGES.COM","siteUrl":"http://www.yellowpages.com/sterling-va/mip/zapp-elizabeth-md-459158269?lid=459158269","addressAccurate":true,"reviewCount":0,"rating":0},{"siteId":"MerchantCircle","siteName":"MERCHANTCIRCLE.COM","siteUrl":"http://www.merchantcircle.com/zapp-elizabeth-md-sterling-va","addressAccurate":true,"reviewCount":0,"rating":0},{"siteId":"Yahoo","siteName":"LOCAL.YAHOO.COM","siteUrl":"https://local.yahoo.com/info-79281724-zapp-elizabeth-drsterling-family-practice-sterlingundefined?stx=Elizabeth%20Zapp,%20MD&csz=20165-7283&fr=lsrp","addressAccurate":true,"reviewCount":0,"rating":0}]}
+  {
+    "name": "Sarah Fletcher, MD",
+    "phone": "(703) 421-7000",
+    "address": "20808 WATERBEACH PL",
+    "zip": "20165-7407",
+    "sites": [
+      {
+        "site": "Google",
+        "title": "Sterling Family Practice: Fletcher Sarah S MD",
+        "place_id": "ChIJvXdLNeo5tokRFHdLd2ReT-s",
+        "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJvXdLNeo5tokRFHdLd2ReT-s"
+      },
+      {
+        "site": "HealthGrades",
+        "title": "Dr. Sarah S. Fletcher, MD",
+        "url": "https://www.healthgrades.com/physician/dr-sarah-fletcher-3cf32"
+      },
+      {
+        "site": "Vitals",
+        "title": "Dr. Sarah V Fletcher V MD",
+        "url": "http://www.vitals.com/doctors/Dr_Sarah_V_Fletcher.html"
+      },
+      {
+        "site": "Yelp",
+        "title": "Dr. Sarah Fletcher, MD",
+        "url": "http://www.yelp.com/biz/dr-sarah-fletcher-md-sterling"
+      },
+      {
+        "site": "RateMDs",
+        "title": "Dr. Sarah S. Fletcher",
+        "url": "https://www.ratemds.com/doctor-ratings/363552/Dr-Sarah+S.-Fletcher-Sterling-VA.html"
+      },
+      {
+        "site": "MerchantCircle",
+        "title": "Fletcher Sarah Doctor of Medicine",
+        "url": "http://www.merchantcircle.com/fletcher-sarah-doctor-of-medicine-sterling-va"
+      },
+      {
+        "site": "YellowPages",
+        "title": "Fletcher, Sarah S, MD",
+        "url": "http://www.yellowpages.com/sterling-va/mip/fletcher-sarah-s-md-479545276?lid=479545276"
+      },
+      {
+        "site": "Yahoo",
+        "title": "Dr Sarah Fletcher, MD",
+        "url": "https://local.yahoo.com/info-199024246-dr-sarah-fletcher-md-sterlingundefined?stx=Sarah%20Fletcher,%20MD&csz=20165-7407&fr=lsrp"
+      }
+    ],
+    "address2": "",
+    "city": "STERLING",
+    "state": "VA",
+    "country": "US",
+    "key": "ee4bfb41-667e-40e1-977f-cd8839759229-sarah-fletcher",
+    "uuid": "ee4bfb41-667e-40e1-977f-cd8839759229",
+    "reportDate": "06/27/2016",
+    "providerName": "Sarah Fletcher, MD",
+    "providerAddress": "20808 WATERBEACH PL<br>STERLING, VA 20165-7407<br>(703) 421-7000",
+    "bias": 0,
+    "reviews": [
+      {
+        "siteId": "HealthGrades",
+        "siteName": "HEALTH GRADES",
+        "siteUrl": "https://www.healthgrades.com/physician/dr-sarah-fletcher-3cf32",
+        "addressAccurate": true,
+        "reviewCount": 8,
+        "rating": 5
+      },
+      {
+        "siteId": "Vitals",
+        "siteName": "VITALS.COM",
+        "siteUrl": "http://www.vitals.com/doctors/Dr_Sarah_V_Fletcher.html",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "Yelp",
+        "siteName": "YELP.COM",
+        "siteUrl": "http://www.yelp.com/biz/dr-sarah-fletcher-md-sterling",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "RateMDs",
+        "siteName": "RATEMDS.COM",
+        "siteUrl": "https://www.ratemds.com/doctor-ratings/363552/Dr-Sarah+S.-Fletcher-Sterling-VA.html",
+        "addressAccurate": true,
+        "reviewCount": 8,
+        "rating": 3.16
+      },
+      {
+        "siteId": "YellowPages",
+        "siteName": "YELLOWPAGES.COM",
+        "siteUrl": "http://www.yellowpages.com/sterling-va/mip/fletcher-sarah-s-md-479545276?lid=479545276",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "MerchantCircle",
+        "siteName": "MERCHANTCIRCLE.COM",
+        "siteUrl": "http://www.merchantcircle.com/fletcher-sarah-doctor-of-medicine-sterling-va",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "Yahoo",
+        "siteName": "LOCAL.YAHOO.COM",
+        "siteUrl": "https://local.yahoo.com/info-199024246-dr-sarah-fletcher-md-sterlingundefined?stx=Sarah%20Fletcher,%20MD&csz=20165-7407&fr=lsrp",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "Google",
+        "siteName": "GOOGLE.COM",
+        "siteUrl": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJvXdLNeo5tokRFHdLd2ReT-s",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0,
+        "mapUrl": "https://maps.google.com/?cid=16955874907664381716",
+        "locationDetails": {
+          "lat": 39.0310741,
+          "lng": -77.39690689999999
+        },
+        "website": "http://www.sterlingfamilypractice.com/",
+        "phone": [
+          "(703) 421-7000",
+          "+1 703-421-7000"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Elizabeth Zapp, MD",
+    "phone": "(703) 421-7000",
+    "address": "21135 WHITFIELD PL",
+    "zip": "20165-7283",
+    "sites": [
+      {
+        "site": "Google",
+        "title": "Sterling Family Practice: Zapp Elizabeth MD",
+        "place_id": "ChIJvXdLNeo5tokRoeevKeFEzLw",
+        "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJvXdLNeo5tokRoeevKeFEzLw"
+      },
+      {
+        "site": "HealthGrades",
+        "title": "Dr. Elizabeth A. Zapp, MD",
+        "url": "https://www.healthgrades.com/physician/dr-elizabeth-zapp-xl9x3"
+      },
+      {
+        "site": "Vitals",
+        "title": "Dr. Elizabeth Zapp MD",
+        "url": "http://www.vitals.com/doctors/Dr_Elizabeth_Zapp.html"
+      },
+      {
+        "site": "RateMDs",
+        "title": "Dr. Elizabeth A. Zapp",
+        "url": "https://www.ratemds.com/doctor-ratings/948467/Dr-Elizabeth+A.-Zapp-Sterling-VA.html"
+      },
+      {
+        "site": "YellowPages",
+        "title": "Zapp, Elizabeth, MD",
+        "url": "http://www.yellowpages.com/sterling-va/mip/zapp-elizabeth-md-459158269?lid=459158269"
+      },
+      {
+        "site": "MerchantCircle",
+        "title": "Zapp Elizabeth MD",
+        "url": "http://www.merchantcircle.com/zapp-elizabeth-md-sterling-va"
+      }
+    ],
+    "address2": "",
+    "city": "STERLING",
+    "state": "VA",
+    "country": "US",
+    "key": "067328fd-ed05-43a1-bb98-3c9798ef38bd-elizabeth-zapp",
+    "uuid": "067328fd-ed05-43a1-bb98-3c9798ef38bd",
+    "reportDate": "06/27/2016",
+    "providerName": "Elizabeth Zapp, MD",
+    "providerAddress": "21135 WHITFIELD PL<br>STERLING, VA 20165-7283<br>(703) 421-7000",
+    "bias": 0,
+    "reviews": [
+      {
+        "siteId": "HealthGrades",
+        "siteName": "HEALTH GRADES",
+        "siteUrl": "https://www.healthgrades.com/physician/dr-elizabeth-zapp-xl9x3",
+        "addressAccurate": true,
+        "reviewCount": 5,
+        "rating": 2.6
+      },
+      {
+        "siteId": "Vitals",
+        "siteName": "VITALS.COM",
+        "siteUrl": "http://www.vitals.com/doctors/Dr_Elizabeth_Zapp.html",
+        "addressAccurate": true,
+        "reviewCount": 6,
+        "rating": 3.5
+      },
+      {
+        "siteId": "RateMDs",
+        "siteName": "RATEMDS.COM",
+        "siteUrl": "https://www.ratemds.com/doctor-ratings/948467/Dr-Elizabeth+A.-Zapp-Sterling-VA.html",
+        "addressAccurate": true,
+        "reviewCount": 2,
+        "rating": 2.75
+      },
+      {
+        "siteId": "YellowPages",
+        "siteName": "YELLOWPAGES.COM",
+        "siteUrl": "http://www.yellowpages.com/sterling-va/mip/zapp-elizabeth-md-459158269?lid=459158269",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "MerchantCircle",
+        "siteName": "MERCHANTCIRCLE.COM",
+        "siteUrl": "http://www.merchantcircle.com/zapp-elizabeth-md-sterling-va",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "Google",
+        "siteName": "GOOGLE.COM",
+        "siteUrl": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJvXdLNeo5tokRoeevKeFEzLw",
+        "addressAccurate": true,
+        "reviewCount": 1,
+        "rating": 0,
+        "mapUrl": "https://maps.google.com/?cid=13604324308237150113",
+        "locationDetails": {
+          "lat": 39.0310741,
+          "lng": -77.39690689999999
+        },
+        "website": "http://www.sterlingfamilypractice.com/",
+        "phone": [
+          "(703) 421-7000",
+          "+1 703-421-7000"
+        ]
+      }
+    ]
+  }
 ]

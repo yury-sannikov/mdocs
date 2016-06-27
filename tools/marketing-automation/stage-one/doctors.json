@@ -11,7 +11,7 @@
           "site": "Google",
           "title": "Sterling Family Practice: Fletcher Sarah S MD",
           "place_id": "ChIJvXdLNeo5tokRFHdLd2ReT-s",
-          "url": "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Sarah Fletcher, MD&key=AIzaSyAMlBXqOQ_Ugk36ttc95Nc9hNnECfQghJY"
+          "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJvXdLNeo5tokRFHdLd2ReT-s"
         },
         {
           "site": "HealthGrades",
@@ -34,14 +34,14 @@
           "url": "https://www.ratemds.com/doctor-ratings/363552/Dr-Sarah+S.-Fletcher-Sterling-VA.html"
         },
         {
-          "site": "YellowPages",
-          "title": "Fletcher, Sarah S, MD",
-          "url": "http://www.yellowpages.com/sterling-va/mip/fletcher-sarah-s-md-479545276?lid=479545276"
-        },
-        {
           "site": "MerchantCircle",
           "title": "Fletcher Sarah Doctor of Medicine",
           "url": "http://www.merchantcircle.com/fletcher-sarah-doctor-of-medicine-sterling-va"
+        },
+        {
+          "site": "YellowPages",
+          "title": "Fletcher, Sarah S, MD",
+          "url": "http://www.yellowpages.com/sterling-va/mip/fletcher-sarah-s-md-479545276?lid=479545276"
         },
         {
           "site": "Yahoo",
@@ -64,7 +64,7 @@
           "site": "Google",
           "title": "Sterling Family Practice: Zapp Elizabeth MD",
           "place_id": "ChIJvXdLNeo5tokRoeevKeFEzLw",
-          "url": "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Elizabeth Zapp, MD&key=AIzaSyAMlBXqOQ_Ugk36ttc95Nc9hNnECfQghJY"
+          "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJvXdLNeo5tokRoeevKeFEzLw"
         },
         {
           "site": "HealthGrades",
