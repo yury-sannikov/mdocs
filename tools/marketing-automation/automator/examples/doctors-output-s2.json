@@ -1,6 +1,8 @@
 [
   {
     "name": "Sarah Fletcher, MD",
+    "type": "Doctor",
+    "bias": 0,
     "phone": "(703) 421-7000",
     "address": "20808 WATERBEACH PL",
     "zip": "20165-7407",
@@ -51,12 +53,11 @@
     "city": "STERLING",
     "state": "VA",
     "country": "US",
-    "key": "24ddd4b3-87c6-4650-8ffc-19aa68f56382-sarah-fletcher",
-    "uuid": "24ddd4b3-87c6-4650-8ffc-19aa68f56382",
+    "key": "e4f1495d-959f-4ad7-97cf-f90ae5e46b0b-sarah-fletcher",
+    "uuid": "e4f1495d-959f-4ad7-97cf-f90ae5e46b0b",
     "reportDate": "06/27/2016",
     "providerName": "Sarah Fletcher, MD",
     "providerAddress": "20808 WATERBEACH PL<br>STERLING, VA 20165-7407<br>(703) 421-7000",
-    "bias": 0,
     "reviews": [
       {
         "siteId": "HealthGrades",
@@ -135,6 +136,8 @@
   },
   {
     "name": "Elizabeth Zapp, MD",
+    "type": "Doctor",
+    "bias": 0,
     "phone": "(703) 421-7000",
     "address": "21135 WHITFIELD PL",
     "zip": "20165-7283",
@@ -175,12 +178,11 @@
     "city": "STERLING",
     "state": "VA",
     "country": "US",
-    "key": "002d3705-7c4a-4ddc-83cb-35b08540bd99-elizabeth-zapp",
-    "uuid": "002d3705-7c4a-4ddc-83cb-35b08540bd99",
+    "key": "4c517965-ce52-48c8-9644-0c2d34b56c35-elizabeth-zapp",
+    "uuid": "4c517965-ce52-48c8-9644-0c2d34b56c35",
     "reportDate": "06/27/2016",
     "providerName": "Elizabeth Zapp, MD",
     "providerAddress": "21135 WHITFIELD PL<br>STERLING, VA 20165-7283<br>(703) 421-7000",
-    "bias": 0,
     "reviews": [
       {
         "siteId": "HealthGrades",
@@ -260,6 +262,8 @@
   {
     "name": "Joyce Xia, DDS",
     "address": "46090 LAKE CENTER PLZ STE 105",
+    "type": "Dentist",
+    "bias": 0,
     "zip": "20165-5877",
     "sites": [
       {
@@ -308,12 +312,11 @@
     "state": "VA",
     "country": "US",
     "address2": "",
-    "key": "0ed39f0f-4fa9-40a4-b21f-46ebcaae6fdc-joyce-xia",
-    "uuid": "0ed39f0f-4fa9-40a4-b21f-46ebcaae6fdc",
+    "key": "182ff2e5-01c4-427d-9426-8c6e25148a99-joyce-xia",
+    "uuid": "182ff2e5-01c4-427d-9426-8c6e25148a99",
     "reportDate": "06/27/2016",
     "providerName": "Joyce Xia, DDS",
     "providerAddress": "46090 LAKE CENTER PLZ STE 105<br>STERLING, VA 20165-5877<br>undefined",
-    "bias": 0,
     "reviews": [
       {
         "siteId": "HealthGrades",
@@ -416,6 +419,237 @@
         "phone": [
           "(703) 444-8800",
           "+1 703-444-8800"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Jessica Scalzo",
+    "type": "Nurse Practitioner",
+    "bias": 0,
+    "address": "21135 WHITFIELD PL",
+    "zip": "20165-7283",
+    "sites": [
+      {
+        "site": "Google",
+        "title": "Scalzo Jessica A",
+        "place_id": "ChIJvXdLNeo5tokRxbZrHXkKYkk",
+        "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJvXdLNeo5tokRxbZrHXkKYkk"
+      },
+      {
+        "site": "HealthGrades",
+        "title": "Jessica A. Scalzo, CFNP",
+        "url": "https://www.healthgrades.com/provider/jessica-scalzo-27nqs"
+      },
+      {
+        "site": "Yelp",
+        "title": "Sterling Family Practice",
+        "url": "http://www.yelp.com/biz/sterling-family-practice-sterling?osq=Jessica+Scalzo"
+      },
+      {
+        "site": "RateMDs",
+        "title": "Jessica A. Scalzo",
+        "url": "https://www.ratemds.com/doctor-ratings/3689833/JESSICA+A.-SCALZO-Sterling-VA.html"
+      },
+      {
+        "site": "MerchantCircle",
+        "title": "Scalzo Jessica A",
+        "url": "http://www.merchantcircle.com/scalzo-jessica-a-sterling-va"
+      },
+      {
+        "site": "YellowPages",
+        "title": "Scalzo, Jessica A",
+        "url": "http://www.yellowpages.com/sterling-va/mip/scalzo-jessica-a-462746589?lid=462746589"
+      }
+    ],
+    "address2": "",
+    "city": "STERLING",
+    "state": "VA",
+    "country": "US",
+    "key": "5ecdc357-923b-4ec3-9565-c47145216322-jessica-scalzo",
+    "uuid": "5ecdc357-923b-4ec3-9565-c47145216322",
+    "reportDate": "06/27/2016",
+    "providerName": "Jessica Scalzo",
+    "providerAddress": "21135 WHITFIELD PL<br>STERLING, VA 20165-7283<br>undefined",
+    "reviews": [
+      {
+        "siteId": "HealthGrades",
+        "siteName": "HEALTH GRADES",
+        "siteUrl": "https://www.healthgrades.com/provider/jessica-scalzo-27nqs",
+        "addressAccurate": true,
+        "reviewCount": 3,
+        "rating": 5
+      },
+      {
+        "siteId": "Yelp",
+        "siteName": "YELP.COM",
+        "siteUrl": "http://www.yelp.com/biz/sterling-family-practice-sterling?osq=Jessica+Scalzo",
+        "addressAccurate": true,
+        "reviewCount": 11,
+        "rating": 3.5
+      },
+      {
+        "siteId": "RateMDs",
+        "siteName": "RATEMDS.COM",
+        "siteUrl": "https://www.ratemds.com/doctor-ratings/3689833/JESSICA+A.-SCALZO-Sterling-VA.html",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "YellowPages",
+        "siteName": "YELLOWPAGES.COM",
+        "siteUrl": "http://www.yellowpages.com/sterling-va/mip/scalzo-jessica-a-462746589?lid=462746589",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "MerchantCircle",
+        "siteName": "MERCHANTCIRCLE.COM",
+        "siteUrl": "http://www.merchantcircle.com/scalzo-jessica-a-sterling-va",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "Google",
+        "siteName": "GOOGLE.COM",
+        "siteUrl": "https://maps.google.com/?cid=5287800427787302597",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0,
+        "locationDetails": {
+          "lat": 39.0310741,
+          "lng": -77.39690689999999
+        },
+        "phone": [
+          "(703) 421-7000",
+          "+1 703-421-7000"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Cynthia Yew",
+    "type": "Nurse Practitioner",
+    "bias": 0,
+    "address": "21135 WHITFIELD PL",
+    "zip": "20165-7283",
+    "sites": [
+      {
+        "site": "Google",
+        "title": "Cynthia Yew, NP",
+        "place_id": "ChIJvXdLNeo5tokRxQho7OoiUT4",
+        "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJvXdLNeo5tokRxQho7OoiUT4"
+      },
+      {
+        "site": "HealthGrades",
+        "title": "Cynthia D. Yew, CFNP",
+        "url": "https://www.healthgrades.com/provider/cynthia-yew-2gx5j"
+      },
+      {
+        "site": "Yelp",
+        "title": "Yew Cynthia Fnp",
+        "url": "http://www.yelp.com/biz/yew-cynthia-fnp-sterling"
+      },
+      {
+        "site": "RateMDs",
+        "title": "Cynthia D. Yew",
+        "url": "https://www.ratemds.com/doctor-ratings/3689839/CYNTHIA+D.-YEW-Sterling-VA.html"
+      },
+      {
+        "site": "MerchantCircle",
+        "title": "Yew Cynthia Fnp",
+        "url": "http://www.merchantcircle.com/yew-cynthia-fnp-sterling-va"
+      },
+      {
+        "site": "YellowPages",
+        "title": "Cynthia Yew Fnp",
+        "url": "http://www.yellowpages.com/sterling-va/mip/cynthia-yew-fnp-927420?lid=927420"
+      }
+    ],
+    "address2": "",
+    "city": "STERLING",
+    "state": "VA",
+    "country": "US",
+    "key": "8ee048a8-bc53-4e2b-a862-682c1fe0835b-cynthia-yew",
+    "uuid": "8ee048a8-bc53-4e2b-a862-682c1fe0835b",
+    "reportDate": "06/27/2016",
+    "providerName": "Cynthia Yew",
+    "providerAddress": "21135 WHITFIELD PL<br>STERLING, VA 20165-7283<br>undefined",
+    "reviews": [
+      {
+        "siteId": "HealthGrades",
+        "siteName": "HEALTH GRADES",
+        "siteUrl": "https://www.healthgrades.com/provider/cynthia-yew-2gx5j",
+        "addressAccurate": true,
+        "reviewCount": 4,
+        "rating": 4.5
+      },
+      {
+        "siteId": "Yelp",
+        "siteName": "YELP.COM",
+        "siteUrl": "http://www.yelp.com/biz/yew-cynthia-fnp-sterling",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "RateMDs",
+        "siteName": "RATEMDS.COM",
+        "siteUrl": "https://www.ratemds.com/doctor-ratings/3689839/CYNTHIA+D.-YEW-Sterling-VA.html",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "YellowPages",
+        "siteName": "YELLOWPAGES.COM",
+        "siteUrl": "http://www.yellowpages.com/sterling-va/mip/cynthia-yew-fnp-927420?lid=927420",
+        "addressAccurate": true,
+        "reviewCount": 1,
+        "rating": 5
+      },
+      {
+        "siteId": "MerchantCircle",
+        "siteName": "MERCHANTCIRCLE.COM",
+        "siteUrl": "http://www.merchantcircle.com/yew-cynthia-fnp-sterling-va",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "Google",
+        "siteName": "GOOGLE.COM",
+        "siteUrl": "https://maps.google.com/?cid=4490408695849027781",
+        "addressAccurate": true,
+        "reviewCount": 1,
+        "rating": 5,
+        "reviews": [
+          {
+            "aspects": [
+              {
+                "rating": 3,
+                "type": "overall"
+              }
+            ],
+            "author_name": "Rick Dean",
+            "author_url": "https://plus.google.com/109441071905866650384",
+            "language": "en",
+            "rating": 5,
+            "text": "Amazing health care professional.  Have been seeing her for many years.",
+            "time": 1342357861
+          }
+        ],
+        "locationDetails": {
+          "lat": 39.0310741,
+          "lng": -77.39690689999999
+        },
+        "website": "http://www.sterlingfamilypractice.com/",
+        "phone": [
+          "(703) 421-7000",
+          "+1 703-421-7000"
         ]
       }
     ]
