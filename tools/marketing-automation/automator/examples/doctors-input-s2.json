@@ -5,6 +5,7 @@
       "name": "Sarah Fletcher, MD",
       "type": "Doctor",
       "bias": 3,
+      "yelpcategory": "familydr",
       "phone": "(703) 421-7000",
       "address": "20808 WATERBEACH PL",
       "zip": "20165-7407",
@@ -60,6 +61,7 @@
       "name": "Elizabeth Zapp, MD",
       "type": "Doctor",
       "bias": 2,
+      "yelpcategory": "familydr",
       "phone": "(703) 421-7000",
       "address": "21135 WHITFIELD PL",
       "zip": "20165-7283",
@@ -105,6 +107,7 @@
       "name": "Joyce Xia, DDS",
       "address": "46090 LAKE CENTER PLZ STE 105",
       "type": "Dentist",
+      "yelpcategory": "generaldentistry",
       "bias": 3,
       "zip": "20165-5877",
       "sites": [
@@ -158,6 +161,7 @@
     {
       "name": "Jessica Scalzo",
       "type": "Nurse Practitioner",
+      "yelpcategory": "nursepractitioner",
       "bias": 3,
       "address": "21135 WHITFIELD PL",
       "zip": "20165-7283",
@@ -203,6 +207,7 @@
       "name": "Cynthia Yew",
       "type": "Nurse Practitioner",
       "bias": 3,
+      "yelpcategory": "nursepractitioner",
       "address": "21135 WHITFIELD PL",
       "zip": "20165-7283",
       "sites": [
