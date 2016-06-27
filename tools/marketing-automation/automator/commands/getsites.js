@@ -1,4 +1,5 @@
 var uuid = require('uuid');
+var req = require('request-promise');
 var sp = require('scrapejs').init({
     cc: 2, // up to 2 concurrent requests
     delay: 5 * 1 // delay 5 seconds before each request
@@ -34,6 +35,10 @@ export function* execute(inputStream, params) {
     },{ objectMode: true, parallel: 1 }));
 }
 
+// Used API Keys
+var googleAPIKey = 'AIzaSyAMlBXqOQ_Ugk36ttc95Nc9hNnECfQghJY';
+
+// Parsing the passed-in links
 var parseHealthGrades$ = function (url) {
   var result = {
     "siteId": "HealthGrades",
@@ -217,6 +222,57 @@ var parseYahooLocal$ = function (url) {
     });
 }
 
+var parseGoogle$ = function (url) {
+  var result = {
+    "siteId": "Google",
+    "siteName": "GOOGLE.COM",
+    "siteUrl": url,
+    "addressAccurate": true,
+    "reviewCount": 0,
+    "rating": 0
+  };
+
+  url = url + '&key=' + googleAPIKey;
+
+  return req(url)
+    .then(function(res){
+      res = JSON.parse(res);
+
+      if(!_.isEmpty(res.result.rating)) {
+        result.rating = res.result.rating;
+      }
+      if(!_.isEmpty(res.result.url)) {
+        result.siteUrl = res.result.url;
+      }
+      if(!_.isEmpty(res.result.reviews)) {
+        result.reviewCount = res.result.reviews.length;
+        result.reviews = res.result.reviews;
+      }
+      if(!_.isEmpty(res.result.geometry.location)) {
+        result.locationDetails = res.result.geometry.location;
+      }
+      if(!_.isEmpty(res.result.website)) {
+        result.website = res.result.website;
+      }
+
+      var phone = [];
+      if(!_.isEmpty(res.result.formatted_phone_number)) {
+        phone.push(res.result.formatted_phone_number);
+      }
+      if(!_.isEmpty(res.result.international_phone_number)) {
+        phone.push(res.result.international_phone_number);
+      }
+      if(!_.isEmpty(phone)) {
+        result.phone = phone;
+      }
+
+      return result;
+    })
+    .catch(function(err){
+      console.error(err + "\nGoogle: " + url);
+    });
+}
+
 // Getting ratings from each site
 var index = 0;
 function* process(dentist) {
@@ -323,6 +379,19 @@ function* process(dentist) {
     }
   } else {
     console.error("Yahoo Local URL not found for record #: " + index + '   Name: ' + dentist.name);
+  }
+
+  // Google
+  var vIndex = _.findLastIndex(dentist.sites, function(s) {return s.site.toLowerCase() == 'google';});
+  if (vIndex > -1) {
+    try {
+        const data = yield parseGoogle$(dentist.sites[vIndex].url);
+        initialData.reviews.push(data);
+    } catch (e) {
+        console.error(e.stack);
+    }
+  } else {
+    console.error("Google URL not found for record #: " + index + '   Name: ' + dentist.name);
   }
 
   return Object.assign({}, dentist, initialData);

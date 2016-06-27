@@ -51,8 +51,8 @@
     "city": "STERLING",
     "state": "VA",
     "country": "US",
-    "key": "ee4bfb41-667e-40e1-977f-cd8839759229-sarah-fletcher",
-    "uuid": "ee4bfb41-667e-40e1-977f-cd8839759229",
+    "key": "b5ccdf30-0459-4e62-8a42-45e4571095ec-sarah-fletcher",
+    "uuid": "b5ccdf30-0459-4e62-8a42-45e4571095ec",
     "reportDate": "06/27/2016",
     "providerName": "Sarah Fletcher, MD",
     "providerAddress": "20808 WATERBEACH PL<br>STERLING, VA 20165-7407<br>(703) 421-7000",
@@ -117,11 +117,10 @@
       {
         "siteId": "Google",
         "siteName": "GOOGLE.COM",
-        "siteUrl": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJvXdLNeo5tokRFHdLd2ReT-s",
+        "siteUrl": "https://maps.google.com/?cid=16955874907664381716",
         "addressAccurate": true,
         "reviewCount": 0,
         "rating": 0,
-        "mapUrl": "https://maps.google.com/?cid=16955874907664381716",
         "locationDetails": {
           "lat": 39.0310741,
           "lng": -77.39690689999999
@@ -176,8 +175,8 @@
     "city": "STERLING",
     "state": "VA",
     "country": "US",
-    "key": "067328fd-ed05-43a1-bb98-3c9798ef38bd-elizabeth-zapp",
-    "uuid": "067328fd-ed05-43a1-bb98-3c9798ef38bd",
+    "key": "cc16ea30-8a17-44e3-8c5d-25e8cacdefce-elizabeth-zapp",
+    "uuid": "cc16ea30-8a17-44e3-8c5d-25e8cacdefce",
     "reportDate": "06/27/2016",
     "providerName": "Elizabeth Zapp, MD",
     "providerAddress": "21135 WHITFIELD PL<br>STERLING, VA 20165-7283<br>(703) 421-7000",
@@ -226,11 +225,26 @@
       {
         "siteId": "Google",
         "siteName": "GOOGLE.COM",
-        "siteUrl": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJvXdLNeo5tokRoeevKeFEzLw",
+        "siteUrl": "https://maps.google.com/?cid=13604324308237150113",
         "addressAccurate": true,
         "reviewCount": 1,
         "rating": 0,
-        "mapUrl": "https://maps.google.com/?cid=13604324308237150113",
+        "reviews": [
+          {
+            "aspects": [
+              {
+                "rating": 3,
+                "type": "overall"
+              }
+            ],
+            "author_name": "Marilyn Morton",
+            "author_url": "https://plus.google.com/104547474104661801640",
+            "language": "en",
+            "rating": 5,
+            "text": "Very kind....she listens!",
+            "time": 1381507108
+          }
+        ],
         "locationDetails": {
           "lat": 39.0310741,
           "lng": -77.39690689999999
@@ -239,6 +253,169 @@
         "phone": [
           "(703) 421-7000",
           "+1 703-421-7000"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Joyce Xia, DDS",
+    "address": "46090 LAKE CENTER PLZ STE 105",
+    "zip": "20165-5877",
+    "sites": [
+      {
+        "site": "Google",
+        "title": "Dr. Joyce Xia, DDS",
+        "place_id": "ChIJu_o4aZQ5tokRbW4zwx9Sj30",
+        "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJu_o4aZQ5tokRbW4zwx9Sj30"
+      },
+      {
+        "site": "HealthGrades",
+        "title": "Dr. Joyce Xia, DDS",
+        "url": "https://www.healthgrades.com/dentist/dr-joyce-xia-yn74x"
+      },
+      {
+        "site": "Vitals",
+        "title": "Dr. Joyce Xia DDS",
+        "url": "http://www.vitals.com/dentists/Dr_Joyce_Xia"
+      },
+      {
+        "site": "RateMDs",
+        "title": "Dr. Joyce Xia",
+        "url": "https://www.ratemds.com/doctor-ratings/870963/Dr-Joyce-Xia-STERLING-VA.html"
+      },
+      {
+        "site": "Yelp",
+        "title": "Joyce Xia, DDS",
+        "url": "http://www.yelp.com/biz/joyce-xia-dds-sterling"
+      },
+      {
+        "site": "MerchantCircle",
+        "title": "Xia Joyce DDS",
+        "url": "http://www.merchantcircle.com/xia-joyce-dds-sterling-va"
+      },
+      {
+        "site": "YellowPages",
+        "title": "Lake Center Dental Care, PC ( Joyce Xia, D.D.S.)",
+        "url": "http://www.yellowpages.com/sterling-va/mip/lake-center-dental-care-pc-joyce-xia-d-d-s--17616799?lid=17616799"
+      },
+      {
+        "site": "Yahoo",
+        "title": "Joyce Xia, DDS",
+        "url": "https://local.yahoo.com/info-125547835-joyce-xia-dds-sterlingundefined?stx=Joyce%20Xia,%20DDS&csz=20165-5877&fr=lsrp"
+      }
+    ],
+    "city": "STERLING",
+    "state": "VA",
+    "country": "US",
+    "address2": "",
+    "key": "d50b25f0-4ca7-4bc8-b472-036713a5c8ef-joyce-xia",
+    "uuid": "d50b25f0-4ca7-4bc8-b472-036713a5c8ef",
+    "reportDate": "06/27/2016",
+    "providerName": "Joyce Xia, DDS",
+    "providerAddress": "46090 LAKE CENTER PLZ STE 105<br>STERLING, VA 20165-5877<br>undefined",
+    "bias": 0,
+    "reviews": [
+      {
+        "siteId": "HealthGrades",
+        "siteName": "HEALTH GRADES",
+        "siteUrl": "https://www.healthgrades.com/dentist/dr-joyce-xia-yn74x",
+        "addressAccurate": true,
+        "reviewCount": 3,
+        "rating": 2.7
+      },
+      {
+        "siteId": "Vitals",
+        "siteName": "VITALS.COM",
+        "siteUrl": "http://www.vitals.com/dentists/Dr_Joyce_Xia",
+        "addressAccurate": true,
+        "reviewCount": 4,
+        "rating": 1
+      },
+      {
+        "siteId": "Yelp",
+        "siteName": "YELP.COM",
+        "siteUrl": "http://www.yelp.com/biz/joyce-xia-dds-sterling",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "RateMDs",
+        "siteName": "RATEMDS.COM",
+        "siteUrl": "https://www.ratemds.com/doctor-ratings/870963/Dr-Joyce-Xia-STERLING-VA.html",
+        "addressAccurate": true,
+        "reviewCount": 9,
+        "rating": 3.89
+      },
+      {
+        "siteId": "YellowPages",
+        "siteName": "YELLOWPAGES.COM",
+        "siteUrl": "http://www.yellowpages.com/sterling-va/mip/lake-center-dental-care-pc-joyce-xia-d-d-s--17616799?lid=17616799",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "MerchantCircle",
+        "siteName": "MERCHANTCIRCLE.COM",
+        "siteUrl": "http://www.merchantcircle.com/xia-joyce-dds-sterling-va",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "Yahoo",
+        "siteName": "LOCAL.YAHOO.COM",
+        "siteUrl": "https://local.yahoo.com/info-125547835-joyce-xia-dds-sterlingundefined?stx=Joyce%20Xia,%20DDS&csz=20165-5877&fr=lsrp",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "Google",
+        "siteName": "GOOGLE.COM",
+        "siteUrl": "https://maps.google.com/?cid=9047540472783007341",
+        "addressAccurate": true,
+        "reviewCount": 2,
+        "rating": 0,
+        "reviews": [
+          {
+            "aspects": [
+              {
+                "rating": 0,
+                "type": "overall"
+              }
+            ],
+            "author_name": "Hernandez Rene",
+            "author_url": "https://plus.google.com/104018327784232422923",
+            "language": "en",
+            "profile_photo_url": "//lh6.googleusercontent.com/-S7I9JqkVDiw/AAAAAAAAAAI/AAAAAAAAAF8/YKzwCooVVhI/photo.jpg",
+            "rating": 1,
+            "text": "HORRRIBLE CUSTOMER SERVICE!!!!!!!!!!... Do not even tried to set an appointment here.. Whoever the recptionist is, rudely cut me off as I ask to speak to a doctor and he literally said \"Doctor Xia would never speak to you over the phone\" HOW Unprofessional!! Is this the kind of \"first impression\" shown here? Specially to potential new customers?... This guy should be fired and I hope the Doctor realize the kind of employee he has soon.. I wish I could give them ZERO stars.",
+            "time": 1434470728
+          },
+          {
+            "aspects": [
+              {
+                "rating": 3,
+                "type": "overall"
+              }
+            ],
+            "author_name": "A Google User",
+            "language": "en",
+            "rating": 5,
+            "text": "She is able to find the problem source and fix it in a right way. I am happy to have her take care of my teeth. \n",
+            "time": 1258662376
+          }
+        ],
+        "locationDetails": {
+          "lat": 39.0334784,
+          "lng": -77.40518850000001
+        },
+        "website": "http://www.drxia.com/",
+        "phone": [
+          "(703) 444-8800",
+          "+1 703-444-8800"
         ]
       }
     ]
