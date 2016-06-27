@@ -6,6 +6,7 @@
   "scripts": {
     "execute": "node getSites.js",
     "process": "node copyToStageTwo.js",
+    "uuid": "node assignUuids.js",
     "verify": "node verifyAddress.js"
   },
   "author": "",
@@ -19,6 +20,7 @@
     "moment": "^2.13.0",
     "node-rest-client": "^1.8.0",
     "request-promise": "^3.0.0",
-    "scrapejs": "^1.0.4"
+    "scrapejs": "^1.0.4",
+    "uuid": "^2.0.2"
   }
 }

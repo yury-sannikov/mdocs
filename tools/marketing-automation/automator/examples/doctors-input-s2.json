@@ -5,7 +5,6 @@
       "name": "Sarah Fletcher, MD",
       "type": "Doctor",
       "bias": 3,
-      "yelpcategory": "familydr",
       "phone": "(703) 421-7000",
       "address": "20808 WATERBEACH PL",
       "zip": "20165-7407",
@@ -55,13 +54,14 @@
       "address2": "",
       "city": "STERLING",
       "state": "VA",
-      "country": "US"
+      "country": "US",
+      "yelpcategory": "familydr",
+      "uuid": "54fbe499-edf8-4beb-9802-8bdb551b6402"
     },
     {
       "name": "Elizabeth Zapp, MD",
       "type": "Doctor",
       "bias": 2,
-      "yelpcategory": "familydr",
       "phone": "(703) 421-7000",
       "address": "21135 WHITFIELD PL",
       "zip": "20165-7283",
@@ -101,13 +101,14 @@
       "address2": "",
       "city": "STERLING",
       "state": "VA",
-      "country": "US"
+      "country": "US",
+      "yelpcategory": "familydr",
+      "uuid": "efda04da-5f12-41ee-9301-cd3ae28a6e45"
     },
     {
       "name": "Joyce Xia, DDS",
       "address": "46090 LAKE CENTER PLZ STE 105",
       "type": "Dentist",
-      "yelpcategory": "generaldentistry",
       "bias": 3,
       "zip": "20165-5877",
       "sites": [
@@ -156,12 +157,13 @@
       "city": "STERLING",
       "state": "VA",
       "country": "US",
-      "address2": ""
+      "address2": "",
+      "yelpcategory": "generaldentistry",
+      "uuid": "ed0e4efa-8553-4a29-ac28-dc09524729fe"
     },
     {
       "name": "Jessica Scalzo",
       "type": "Nurse Practitioner",
-      "yelpcategory": "nursepractitioner",
       "bias": 3,
       "address": "21135 WHITFIELD PL",
       "zip": "20165-7283",
@@ -201,13 +203,14 @@
       "address2": "",
       "city": "STERLING",
       "state": "VA",
-      "country": "US"
+      "country": "US",
+      "yelpcategory": "nursepractitioner",
+      "uuid": "0cb6fcb7-2644-4760-ab91-8f1a2e31ecc3"
     },
     {
       "name": "Cynthia Yew",
       "type": "Nurse Practitioner",
       "bias": 3,
-      "yelpcategory": "nursepractitioner",
       "address": "21135 WHITFIELD PL",
       "zip": "20165-7283",
       "sites": [
@@ -246,7 +249,9 @@
       "address2": "",
       "city": "STERLING",
       "state": "VA",
-      "country": "US"
+      "country": "US",
+      "yelpcategory": "nursepractitioner",
+      "uuid": "d8e547b0-74b6-494f-9340-7a5a22a5703b"
     }
   ]
 }
