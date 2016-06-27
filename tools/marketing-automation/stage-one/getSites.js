@@ -6,14 +6,6 @@ var sp = require('scrapejs').init({
 	delay: 5 * 100 // delay 5 seconds before each request 
 });
 
-// levent@movel.co Keys
-// var googleSearchKey = 'AIzaSyC0e8rdDoTo4CjrInzYP-HMhBLqYNR_wFs';
-
-// levent.gurses@64clicks.com Keys
-var googleSearchKey = 'AIzaSyAh4GFdzf9pktMpDJCKa1rrxaKiFroZjjM';
-var healthGradesCxKey = '009344016812831918064:e3zkekpedge';
-var yelpCxKey = '009344016812831918064:pw3fojj8rmi';
-
 var Client = require('node-rest-client').Client; 
 var client = new Client();
 
@@ -74,19 +66,9 @@ var parseHealthGrades = function (dentist) {
 	sp.load(url)
 		.then(function($){
 			$.q("//h2/a[@data-hgoname='psr-natural-result-provider-name'][1]").forEach(function(node){
-				var res = {
-					title: node.textContent,
-					url: node.x("./@href")
-				}
-
 				if (_.findLastIndex(dentist.sites, function(s) { 
 					return s.site == 'HealthGrades'; 
-				}) >= 0) {
-					console.log("HealthGrades URL found.");
-					dentist.sites[0].site = 'HealthGrades';
-					dentist.sites[0].title = node.textContent;
-					dentist.sites[0].url = node.x("./@href");
-				} else {
+				}) < 0) {
 					console.log("Adding HealthGrades URL: " + url);
 					dentist.sites.push(
 						{
@@ -113,19 +95,9 @@ var parseVitals = function (dentist) {
 	sp.load(url)
 		.then(function($){
 			$.q("//div[@class='serplist-listing-title']/a[1]").forEach(function(node){
-				var res = {
-					title: node.textContent,
-					url: node.x("./@href")
-				}
-
 				if (_.findLastIndex(dentist.sites, function(s) { 
 					return s.site == 'Vitals'; 
-				}) >= 0) {
-					console.log("Vitals URL found.");
-					dentist.sites[0].site = 'Vitals';
-					dentist.sites[0].title = node.textContent.replace(/\t/g, "").replace(/\n/g, "");
-					dentist.sites[0].url = node.x("./@href");
-				} else {
+				}) < 0) {
 					console.log("Adding Vitals URL: " + url);
 					dentist.sites.push(
 						{
@@ -151,19 +123,9 @@ var parseYelp = function (dentist) {
 	sp.load(url)
 		.then(function($){
 			$.q("//span[@class='indexed-biz-name']/a[1]").forEach(function(node){
-				var res = {
-					title: node.textContent,
-					url: node.x("./@href")
-				}
-
 				if (_.findLastIndex(dentist.sites, function(s) { 
 					return s.site == 'Yelp'; 
-				}) >= 0) {
-					console.log("Yelp URL found.");
-					dentist.sites[0].site = 'Yelp';
-					dentist.sites[0].title = node.textContent.replace(/\t/g, "").replace(/\n/g, "");
-					dentist.sites[0].url = node.x("./@href");
-				} else {
+				}) < 0) {
 					console.log("Adding Yelp URL: " + url);
 					dentist.sites.push(
 						{
@@ -190,19 +152,9 @@ var parseRateMDs = function (dentist) {
 	sp.load(url)
 		.then(function($){
 			$.q("//h2[@class='search-item-doctor-name']/a[1]").forEach(function(node){
-				var res = {
-					title: node.textContent,
-					url: node.x("./@href")
-				}
-
 				if (_.findLastIndex(dentist.sites, function(s) { 
 					return s.site == 'RateMDs'; 
-				}) >= 0) {
-					console.log("RateMDs URL found.");
-					dentist.sites[0].site = 'RateMDs';
-					dentist.sites[0].title = node.textContent.replace(/\t/g, "").replace(/\n/g, "");
-					dentist.sites[0].url = node.x("./@href");
-				} else {
+				}) < 0) {
 					console.log("Adding RateMDs URL: " + url);
 					dentist.sites.push(
 						{
@@ -228,19 +180,9 @@ var parseYellowPages = function (dentist) {
   sp.load(url)
     .then(function($){
       $.q("//div[@class='v-card']/div[@class='info']/h3[@class='n']/a[@class='business-name'][1]").forEach(function(node){
-        var res = {
-          title: node.textContent,
-          url: node.x("./@href")
-        }
-
         if (_.findLastIndex(dentist.sites, function(s) { 
           return s.site == 'YellowPages'; 
-        }) >= 0) {
-          console.log("YellowPages URL found.");
-          dentist.sites[0].site = 'YellowPages';
-          dentist.sites[0].title = node.textContent.replace(/\t/g, "").replace(/\n/g, "");
-          dentist.sites[0].url = node.x("./@href");
-        } else {
+        }) < 0) {
           console.log("Adding YellowPages URL: " + url);
           dentist.sites.push(
             {
@@ -266,19 +208,9 @@ var parseMerchantCircle = function (dentist) {
   sp.load(url)
     .then(function($){
       $.q("//*[@class='title'][1]").forEach(function(node){
-        var res = {
-          title: node.textContent.replace(/\t/g, "").replace(/\n/g, "").replace(/[0-9]+.[0-9]+/g, ""),
-          url: node.x("./@href")
-        }
-
         if (_.findLastIndex(dentist.sites, function(s) { 
           return s.site == 'MerchantCircle'; 
-        }) >= 0) {
-          console.log("MerchantCircle URL found.");
-          dentist.sites[0].site = 'MerchantCircle';
-          dentist.sites[0].title = node.textContent.replace(/\t/g, "").replace(/\n/g, "").replace(/[0-9]+.[0-9]+/g, "");
-          dentist.sites[0].url = node.x("./@href");
-        } else {
+        }) < 0) {
           console.log("Adding MerchantCircle URL: " + url);
           dentist.sites.push(
             {
@@ -311,19 +243,9 @@ var parseYahooLocal = function (dentist) {
       }
 
       parseTry.forEach(function(node){
-        var res = {
-          title: node.textContent,
-          url: node.x("./@href")
-        }
-
         if (_.findLastIndex(dentist.sites, function(s) { 
           return s.site == 'Yahoo'; 
-        }) >= 0) {
-          console.log("Yahoo Local URL found.");
-          dentist.sites[0].site = 'Yahoo';
-          dentist.sites[0].title = node.textContent.replace(/\t/g, "").replace(/\n/g, "");
-          dentist.sites[0].url = node.x("./@href");
-        } else {
+        }) < 0) {
           console.log("Adding Yahoo Local URL: " + url);
           dentist.sites.push(
             {
@@ -358,13 +280,7 @@ var parseGoogle = function (dentist) {
           if(!_.isEmpty(result.results)) {
             if (_.findLastIndex(dentist.sites, function(s) { 
               return s.site == 'Google'; 
-            }) >= 0) {
-              console.log("Google information found.");
-              dentist.sites[0].site = 'Google';
-              dentist.sites[0].title = result.results[0].name;
-              dentist.sites[0].place_id = result.results[0].place_id;
-              dentist.sites[0].url = result.results[0].url;
-            } else {
+            }) < 0) {
               console.log("Adding Google information: " + url);
               dentist.sites.push(
                 {
