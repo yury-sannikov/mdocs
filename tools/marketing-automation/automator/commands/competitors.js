@@ -51,7 +51,8 @@ export function* execute(inputStream, params) {
     },{ objectMode: true, parallel: 1 }));
 }
 
-function* process(data, yelpcategories) {
+function* process(data, yelpDefaultCategories) {
+  const yelpcategories = data.yelpcategory || yelpDefaultCategories;
   const { sites } = data;
   if (!_.isArray(sites)) {
     return data;
