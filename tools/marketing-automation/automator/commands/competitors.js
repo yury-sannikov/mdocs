@@ -70,6 +70,7 @@ function* process(data, yelpDefaultCategories) {
     bData = yield yelp.business(businessId);
   }
   catch(e) {
+    console.error(`${businessId} - ${e.message || e.data}`);
     return yield processNoYelp(data, yelpcategories);
   }
   let thisCategory = yelpcategories;
@@ -104,7 +105,7 @@ function* process(data, yelpDefaultCategories) {
 
 
 function* processNoYelp(data, yelpcategories) {
-  const address = `${data.address}, ${data.city}, ${data.state}, ${data.zip}`;
+  const address = `${data.address}, ${data.city}, ${data.state} ${data.zip}`;
   let bData = {}
   try {
     const searchRequest = {
@@ -134,6 +135,9 @@ function updateCompetitors(data, bData, yelpBusiness) {
       }
       return b.review_count - a.review_count;
     });
+  if (businesses.length === 0) {
+    console.error(`Warn: No competitors found for ${data.name}`);
+  }
 
   const competitors = {
     yelpBusiness,
