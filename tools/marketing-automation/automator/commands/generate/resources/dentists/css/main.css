@@ -4043,3 +4043,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   font-weight: 600;
   margin: 0;
 }
+
+.section-process .row {
+  margin-bottom: 0px;
+}
