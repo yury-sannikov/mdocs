@@ -9,8 +9,9 @@ section#competitiveAnalysis.section-page
         img(src='images/logo-mdocs-light.png', alt='Patient Reviews by MDOCS')
     .header-title
       h1 Competitive Analysis
-  .padding-all.bg-grey(style='height: 650px;')
-    #map(style='height: 100%; width: 100%;')
+  .padding-all.bg-grey(style='height: 100%;')
+    #competitors-table-placeholder
+    #map(style='height: 650px; width: 100%')
       span#mapLoading Loading Map...
   style.
     .map-icon-text {
@@ -26,6 +27,9 @@ section#competitiveAnalysis.section-page
       position: relative;
       top: 10px;
       font-family: 'Source Sans Pro' !important;
+    }
+    .self-cell {
+      background-color: #FAA;
     }
   script#competitor-template(type='text/x-handlebars-template').
     <div id="content">
@@ -130,6 +134,30 @@ section#competitiveAnalysis.section-page
     </table>
     </div>
     </div>
+  script#competitors-table(type='text/x-handlebars-template').
+    <table class="table table-condensed valigned">
+      <thead>
+        <tr>
+          <td colspan="3">Name</td>
+          <td>Ratings</td>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each tableItems}}
+          <tr class="{{isSelf}}">
+            <td colspan="3">{{{name}}}</td>
+            <td>
+              <span>
+                {{#each stars}}
+                  <i class='fa fa-star{{c}}'></i>
+                {{/each}}
+                &nbsp;({{rating}}) based on {{reviewCount}} reviews.
+              </span>
+            </td>
+          </tr>
+        {{/each}}
+      <tbody>
+
   script.
     function initCompetitorsMap() {
       var data = JSON.parse(document.getElementById('reviewCardData').innerHTML);
@@ -196,6 +224,39 @@ section#competitiveAnalysis.section-page
 
       var competitorTemplate = Handlebars.compile(document.getElementById('competitor-template').innerHTML);
       var entityTemplate = Handlebars.compile(document.getElementById('entity-template').innerHTML);
+      var competitorsTable = Handlebars.compile(document.getElementById('competitors-table').innerHTML);
+
+      document.getElementById('competitors-table-placeholder').innerHTML = competitorsTable({tableItems: competitorsTableData(data)});
+
+      function starsMap(rating) {
+        return [1, 2, 3, 4, 5].map(function(idx) {
+          var c = (rating >= idx) ? '' : (
+            (Math.ceil(rating) === Math.ceil(idx)) ? '-half-o' :'-o'
+          );
+          return {c:c};
+        });
+      }
+      function competitorsTableData(data) {
+        var yelpCompetitors = ((data.competitors || {}).yelpCompetitors || []);
+        var result = yelpCompetitors.map(function(c, i) {
+          return {
+            name: 'Competitor # ' + (i + 1),
+            stars: starsMap(c.rating),
+            rating: c.rating.toFixed(2),
+            reviewCount: c.review_count,
+            isSelf: false
+          }
+        });
+        result.splice(data.selfRating.rank, 0, {
+          name: '<strong>YOU</strong>',
+          stars: starsMap(data.selfRating.rating),
+          rating: data.selfRating.rating.toFixed(4),
+          reviewCount: data.selfRating.totalReviewCount,
+          isSelf: 'self-cell'
+        });
+
+        return result;
+      }
 
       function placeMyself(mapObj, location) {
 
@@ -247,7 +308,7 @@ section#competitiveAnalysis.section-page
         });
         var content = entityTemplate( {
           name: data.name,
-          rank: data.selfRating.rank,
+          rank: data.selfRating.rank + 1,
           totalReviewCount: data.selfRating.totalReviewCount,
           totalReviewRating: data.selfRating.rating.toFixed(1),
           total: (data.competitors.yelpCompetitors || []).length,
