@@ -109,10 +109,10 @@ section#competitiveAnalysis.section-page
           </td>
           <td>
             <span>
-              {{#each stars}}
+              {{#each starsTotal}}
                 <i class='fa fa-star{{c}}'></i>
               {{/each}}
-              &nbsp;({{rating}}) based on {{reviewCount}} reviews.
+              &nbsp;({{totalReviewRating}}) based on {{totalReviewCount}} reviews.
             </span>
           </td>
         </tr>
@@ -133,6 +133,66 @@ section#competitiveAnalysis.section-page
   script.
     function initCompetitorsMap() {
       var data = JSON.parse(document.getElementById('reviewCardData').innerHTML);
+
+      function calculateSelfRank(data) {
+        var competitors = data.competitors.yelpCompetitors || []
+        var totalCompetitors = competitors.length;
+        var DEFAULT_RANK = 7;
+
+        function massageRank(index) {
+          if (index >= totalCompetitors) {
+            return totalCompetitors / 2; // In the middle
+          }
+          if (index >= ( (totalCompetitors * 2) / 3)) {
+            return index / 2;
+          }
+
+          return index;
+        }
+
+        var totalRating = data.reviews.reduce(function(total, current) {
+          if (!current.reviewCount) {
+            return total;
+          }
+          return {
+            rating: total.rating + current.rating,
+            reviewCount: total.reviewCount + current.reviewCount,
+            count: total.count + 1
+          };
+        }, {rating: 0, reviewCount: 0, count: 0})
+
+        console && console.log && console.log(JSON.stringify(totalRating, null, 2));
+
+        if (totalRating.count === 0) {
+          totalRating.rank = massageRank(DEFAULT_RANK);
+          return totalRating;
+        }
+
+        totalRating.rating = totalRating.rating / totalRating.count;
+        totalRating.totalReviewCount = totalRating.reviewCount;
+        totalRating.reviewCount = totalRating.reviewCount / totalRating.count;
+        delete totalRating.count;
+
+        console && console.log && console.log(JSON.stringify(totalRating, null, 2));
+
+        const index = competitors.findIndex(function(c) {
+          if (c.rating < totalRating.rating) {
+            return true;
+          }
+          if (c.rating === totalRating.rating) {
+            return c.review_count < totalRating.reviewCount;
+          }
+          return false;
+        });
+
+        console && console.log && console.log('R='+index);
+
+        totalRating.rank = massageRank( (index === -1) ? DEFAULT_RANK : index);
+
+        return totalRating;
+      }
+
+      data.selfRating = calculateSelfRank(data);
 
       var competitorTemplate = Handlebars.compile(document.getElementById('competitor-template').innerHTML);
       var entityTemplate = Handlebars.compile(document.getElementById('entity-template').innerHTML);
@@ -170,7 +230,7 @@ section#competitiveAnalysis.section-page
       function infowindowForSelf(data) {
         var yelpSite = (data.reviews.find(function(r) {
           return r.siteId === 'Yelp';
-        })) || {};
+        })) || {rating: 0, reviewCount: 0};
 
 
         var stars = [1, 2, 3, 4, 5].map(function(idx) {
@@ -179,11 +239,20 @@ section#competitiveAnalysis.section-page
           );
           return {c:c};
         });
+        var starsTotal = [1, 2, 3, 4, 5].map(function(idx) {
+          var c = (data.selfRating.rating >= idx) ? '' : (
+            (Math.ceil(data.selfRating.rating) === Math.ceil(idx)) ? '-half-o' :'-o'
+          );
+          return {c:c};
+        });
         var content = entityTemplate( {
           name: data.name,
-          rank: 0,
+          rank: data.selfRating.rank,
+          totalReviewCount: data.selfRating.totalReviewCount,
+          totalReviewRating: data.selfRating.rating.toFixed(1),
           total: (data.competitors.yelpCompetitors || []).length,
           stars: stars,
+          starsTotal: starsTotal,
           reviewCount: yelpSite.reviewCount,
           location: data.providerAddress.replace('undefined', '').split('<br>').map(function(e) {return {e:e}}),
           rating: yelpSite.rating.toFixed(1)
@@ -245,7 +314,7 @@ section#competitiveAnalysis.section-page
               if (window.__currentInfoWindow) {
                 window.__currentInfoWindow.close();
               }
-              var infowindow = infowindowForCompetitor(competitor, i);
+              var infowindow = infowindowForCompetitor(competitor, i + 1);
               infowindow.open(mapObj, marker);
               window.__currentInfoWindow = infowindow;
             };
