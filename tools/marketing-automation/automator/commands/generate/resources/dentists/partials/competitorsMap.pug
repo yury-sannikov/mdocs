@@ -100,7 +100,7 @@ section#competitiveAnalysis.section-page
             <strong>MDOCS Rank</strong>
           </td>
           <td>
-            <span>No. {{rank}}</span>
+            <span>No. {{rank}} out of {{total}} competitors</span>
           </td>
         </tr>
         <tr>
@@ -121,25 +121,9 @@ section#competitiveAnalysis.section-page
             <strong>Location</strong>
           </td>
           <td>
-            <span>{{location}}</span>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="3">
-            <strong>Categories</strong>
-          </td>
-          <td>
-            {{#each categories}}
-              <p>{{category}}</p>
+            {{#each location}}
+              <p>{{e}}</p>
             {{/each}}
-          </td>
-        </tr>
-        <tr>
-          <td colspan="3">
-            <strong>Distance From You</strong>
-          </td>
-          <td>
-            <span>{{distance}} miles</span>
           </td>
         </tr>
       </tbody>
@@ -151,6 +135,7 @@ section#competitiveAnalysis.section-page
       var data = JSON.parse(document.getElementById('reviewCardData').innerHTML);
 
       var competitorTemplate = Handlebars.compile(document.getElementById('competitor-template').innerHTML);
+      var entityTemplate = Handlebars.compile(document.getElementById('entity-template').innerHTML);
 
       function placeMyself(mapObj, location) {
 
@@ -169,6 +154,44 @@ section#competitiveAnalysis.section-page
           icon: myselfIcon,
           map_icon_label: '<span class="map-icon map-icon-text">You</span>'
         });
+        var infowindow = infowindowForSelf(data);
+
+        function openInfowindow() {
+          if (window.__currentInfoWindow) {
+            window.__currentInfoWindow.close();
+          }
+          infowindow.open(mapObj, marker);
+          window.__currentInfoWindow = infowindow;
+        }
+        marker.addListener('click', openInfowindow);
+        openInfowindow();
+      }
+
+      function infowindowForSelf(data) {
+        var yelpSite = (data.reviews.find(function(r) {
+          return r.siteId === 'Yelp';
+        })) || {};
+
+
+        var stars = [1, 2, 3, 4, 5].map(function(idx) {
+          var c = (yelpSite.rating >= idx) ? '' : (
+            (Math.ceil(yelpSite.rating) === Math.ceil(idx)) ? '-half-o' :'-o'
+          );
+          return {c:c};
+        });
+        var content = entityTemplate( {
+          name: data.name,
+          rank: 0,
+          total: (data.competitors.yelpCompetitors || []).length,
+          stars: stars,
+          reviewCount: yelpSite.reviewCount,
+          location: data.providerAddress.replace('undefined', '').split('<br>').map(function(e) {return {e:e}}),
+          rating: yelpSite.rating.toFixed(1)
+          });
+        var infowindow = new google.maps.InfoWindow({
+          content: content
+        });
+        return infowindow;
       }
 
       function infowindowForCompetitor(competitor, index) {
