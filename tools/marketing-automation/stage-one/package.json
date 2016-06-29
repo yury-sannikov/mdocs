@@ -4,10 +4,10 @@
   "description": "",
   "main": "getSites.js",
   "scripts": {
-    "execute": "node getSites.js",
-    "process": "node copyToStageTwo.js",
     "initialize": "node assignInitialValues.js",
-    "verify": "node verifyAddress.js"
+    "verifyAddress": "node verifyAddress.js",
+    "execute": "node getSites.js",
+    "process": "node copyToStageTwo.js"
   },
   "author": "",
   "license": "ISC",

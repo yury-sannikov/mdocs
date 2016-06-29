@@ -4,8 +4,8 @@
     "type": "Doctor",
     "bias": 3,
     "phone": "(703) 421-7000",
-    "address": "20808 WATERBEACH PL",
-    "zip": "20165-7407",
+    "address": "21135 WHITFIELD PL",
+    "zip": "20165-7283",
     "sites": [
       {
         "site": "Google",
@@ -133,7 +133,7 @@
         ]
       }
     ],
-    "providerAddress": "20808 WATERBEACH PL<br>STERLING, VA 20165-7407<br>(703) 421-7000"
+    "providerAddress": "21135 WHITFIELD PL<br>STERLING, VA 20165-7283<br>(703) 421-7000"
   },
   {
     "name": "Elizabeth Zapp, MD",
@@ -658,5 +658,128 @@
       }
     ],
     "providerAddress": "21135 WHITFIELD PL<br>STERLING, VA 20165-7283<br>"
+  },
+  {
+    "name": "Meghal Antani, MD",
+    "type": "Doctor",
+    "bias": 1,
+    "phone": "(571) 494-1445",
+    "address": "6551 LOISDALE CT",
+    "zip": "22150-1828",
+    "sites": [
+      {
+        "site": "HealthGrades",
+        "title": "Dr. Meghal R. Antani, MD",
+        "url": "https://www.healthgrades.com/physician/dr-meghal-antani-2l57h"
+      },
+      {
+        "site": "RateMDs",
+        "title": "Dr. Meghal R. Antani",
+        "url": "https://www.ratemds.com/doctor-ratings/957621/Dr-Meghal+R.-Antani-Springfield-VA.html"
+      },
+      {
+        "site": "YellowPages",
+        "title": "Antani, Meghal R, MD",
+        "url": "http://www.yellowpages.com/springfield-va/mip/antani-meghal-r-md-497210264?lid=497210264"
+      },
+      {
+        "site": "Yahoo",
+        "title": "Antani, Meghal R MD",
+        "url": "https://local.yahoo.com/info-169382738-antani-meghal-r-md-springfieldundefined?stx=Meghal%20R.%20Antani,%20MD&csz=22150-1828&fr=lsrp"
+      },
+      {
+        "site": "Google",
+        "title": "Dr. Meghal R. Antani, MD",
+        "place_id": "ChIJ2UlU4xJStokRD72WR3Z_nu0",
+        "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJ2UlU4xJStokRD72WR3Z_nu0"
+      },
+      {
+        "site": "Vitals",
+        "title": "Dr. Meghal Antani MD",
+        "url": "http://www.vitals.com/doctors/Dr_Meghal_Antani.html"
+      },
+      {
+        "site": "Yelp",
+        "title": "Center for Interventional Medicine",
+        "url": "http://www.yelp.com/biz/center-for-interventional-medicine-springfield?osq=Meghal+Antani%2C+MD"
+      }
+    ],
+    "city": "SPRINGFIELD",
+    "state": "VA",
+    "yelpcategory": "radiologists",
+    "reviews": [
+      {
+        "siteId": "HealthGrades",
+        "siteName": "HEALTH GRADES",
+        "siteUrl": "https://www.healthgrades.com/physician/dr-meghal-antani-2l57h",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "Vitals",
+        "siteName": "VITALS.COM",
+        "siteUrl": "http://www.vitals.com/doctors/Dr_Meghal_Antani.html",
+        "addressAccurate": true,
+        "reviewCount": 9,
+        "rating": 4.5
+      },
+      {
+        "siteId": "Yelp",
+        "siteName": "YELP.COM",
+        "siteUrl": "http://www.yelp.com/biz/center-for-interventional-medicine-springfield?osq=Meghal+Antani%2C+MD",
+        "addressAccurate": true,
+        "reviewCount": 3,
+        "rating": 5
+      },
+      {
+        "siteId": "RateMDs",
+        "siteName": "RATEMDS.COM",
+        "siteUrl": "https://www.ratemds.com/doctor-ratings/957621/Dr-Meghal+R.-Antani-Springfield-VA.html",
+        "addressAccurate": true,
+        "reviewCount": 1,
+        "rating": 5
+      },
+      {
+        "siteId": "YellowPages",
+        "siteName": "YELLOWPAGES.COM",
+        "siteUrl": "http://www.yellowpages.com/springfield-va/mip/antani-meghal-r-md-497210264?lid=497210264",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "Yahoo",
+        "siteName": "LOCAL.YAHOO.COM",
+        "siteUrl": "https://local.yahoo.com/info-169382738-antani-meghal-r-md-springfieldundefined?stx=Meghal%20R.%20Antani,%20MD&csz=22150-1828&fr=lsrp",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "Google",
+        "siteName": "GOOGLE.COM",
+        "siteUrl": "https://maps.google.com/?cid=17122262979293134095",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0,
+        "locationDetails": {
+          "lat": 38.77536509999999,
+          "lng": -77.1779349
+        },
+        "website": "http://www.cfim.biz/",
+        "phone": [
+          "(571) 494-1445",
+          "+1 571-494-1445"
+        ]
+      }
+    ],
+    "uuid": "e2dfa0f5-c3f6-4272-bc47-c014c815bd43",
+    "key": "e2dfa0f5-c3f6-4272-bc47-c014c815bd43-meghal-r.",
+    "reportDate": "06/29/2016",
+    "providerName": "Meghal Antani, MD",
+    "address2": "",
+    "country": "US",
+    "providerAddress": "6551 LOISDALE CT<br>SPRINGFIELD, VA 22150-1828<br>(571) 494-1445"
   }
 ]
