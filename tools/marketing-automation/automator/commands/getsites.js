@@ -299,10 +299,14 @@ function* process(dentist) {
     "uuid": _uuid,
     "reportDate": moment().format("MM/DD/YYYY"),
     "providerName": dentist.name,
-    "providerAddress": dentist.address + '<br>' + dentist.city + ', ' + dentist.state + ' ' + dentist.zip + '<br>' + dentist.phone,
-    "bias": 0,
     "reviews": []
   };
+
+  if(!_.isEmpty(dentist.phone)) {
+    initialData.providerAddress = dentist.address + '<br>' + dentist.city + ', ' + dentist.state + ' ' + dentist.zip + '<br>' + dentist.phone;
+  } else {
+    initialData.providerAddress = dentist.address + '<br>' + dentist.city + ', ' + dentist.state + ' ' + dentist.zip + '<br>';
+  }
 
   // HealthGrades.com
   var hgIndex = _.findLastIndex(dentist.sites, function(s) {return s.site.toLowerCase() == 'healthgrades';});
