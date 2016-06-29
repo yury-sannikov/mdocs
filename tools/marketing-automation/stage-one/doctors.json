@@ -56,7 +56,11 @@
       "state": "VA",
       "country": "US",
       "yelpcategory": "familydr",
-      "uuid": "54fbe499-edf8-4beb-9802-8bdb551b6402"
+      "uuid": "54fbe499-edf8-4beb-9802-8bdb551b6402",
+      "key": "54fbe499-edf8-4beb-9802-8bdb551b6402-sarah-fletcher",
+      "reportDate": "06/29/2016",
+      "providerName": "Sarah Fletcher, MD",
+      "reviews": []
     },
     {
       "name": "Elizabeth Zapp, MD",
@@ -103,7 +107,11 @@
       "state": "VA",
       "country": "US",
       "yelpcategory": "familydr",
-      "uuid": "efda04da-5f12-41ee-9301-cd3ae28a6e45"
+      "uuid": "efda04da-5f12-41ee-9301-cd3ae28a6e45",
+      "key": "efda04da-5f12-41ee-9301-cd3ae28a6e45-elizabeth-zapp",
+      "reportDate": "06/29/2016",
+      "providerName": "Elizabeth Zapp, MD",
+      "reviews": []
     },
     {
       "name": "Joyce Xia, DDS",
@@ -159,7 +167,11 @@
       "country": "US",
       "address2": "",
       "yelpcategory": "generaldentistry",
-      "uuid": "ed0e4efa-8553-4a29-ac28-dc09524729fe"
+      "uuid": "ed0e4efa-8553-4a29-ac28-dc09524729fe",
+      "key": "ed0e4efa-8553-4a29-ac28-dc09524729fe-joyce-xia",
+      "reportDate": "06/29/2016",
+      "providerName": "Joyce Xia, DDS",
+      "reviews": []
     },
     {
       "name": "Jessica Scalzo",
@@ -205,7 +217,11 @@
       "state": "VA",
       "country": "US",
       "yelpcategory": "nursepractitioner",
-      "uuid": "0cb6fcb7-2644-4760-ab91-8f1a2e31ecc3"
+      "uuid": "0cb6fcb7-2644-4760-ab91-8f1a2e31ecc3",
+      "key": "0cb6fcb7-2644-4760-ab91-8f1a2e31ecc3-jessica-scalzo",
+      "reportDate": "06/29/2016",
+      "providerName": "Jessica Scalzo",
+      "reviews": []
     },
     {
       "name": "Cynthia Yew",
@@ -251,7 +267,11 @@
       "state": "VA",
       "country": "US",
       "yelpcategory": "nursepractitioner",
-      "uuid": "d8e547b0-74b6-494f-9340-7a5a22a5703b"
+      "uuid": "d8e547b0-74b6-494f-9340-7a5a22a5703b",
+      "key": "d8e547b0-74b6-494f-9340-7a5a22a5703b-cynthia-yew",
+      "reportDate": "06/29/2016",
+      "providerName": "Cynthia Yew",
+      "reviews": []
     }
   ]
 }

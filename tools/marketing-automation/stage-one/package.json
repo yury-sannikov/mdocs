@@ -6,7 +6,7 @@
   "scripts": {
     "execute": "node getSites.js",
     "process": "node copyToStageTwo.js",
-    "uuid": "node assignUuids.js",
+    "initialize": "node assignInitialValues.js",
     "verify": "node verifyAddress.js"
   },
   "author": "",

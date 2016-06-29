@@ -289,14 +289,7 @@ var index = 0;
 function* process(dentist) {
   index++;
 
-  var _uuid = uuid.v4();
-  if(dentist.hasOwnProperty('uuid')) {
-    _uuid = dentist.uuid;
-  }
-
   var initialData = {
-    key: _uuid + '-' + dentist.name.split(' ')[0].toLowerCase() + '-' + dentist.name.split(' ')[1].toLowerCase().replace(',', ''),
-    "uuid": _uuid,
     "reportDate": moment().format("MM/DD/YYYY"),
     "providerName": dentist.name,
     "reviews": []
