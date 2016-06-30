@@ -1,6 +1,4 @@
 'use strict';
-require('./_babel');
-
 // 3rd party
 require('dotenv').config(); // Load env vars from .env, always run this early
 const Koa = require('koa');
