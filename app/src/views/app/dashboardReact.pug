@@ -1,0 +1,18 @@
+extends ../layouts/layout.pug
+
+block head
+  title #{application} &middot; Dashboard
+
+block styles
+  style.
+
+block scripts
+  script(src=assets.javascript.vendors)
+  script(src=assets.javascript.dashboard)
+
+block content
+  //- React rendered content
+  div(id='content')
+  //- Isomorphic tools assets (debug only)
+  pre
+    sub #{JSON.stringify(assets, null, 2)}

@@ -14,7 +14,7 @@
     "start-dev": "better-npm-run start-dev",
     "watch-client": "better-npm-run watch-client",
     "test": "NODE_ENV=test mocha --reporter spec",
-    "lubricate": "npm cache clean && npm install && bower cache clean && bower install && gulp clean && gulp build"
+    "lubricate": "npm cache clean && npm install && bower cache clean && bower install && gulp clean && gulp build && npm run build"
   },
   "betterScripts": {
     "start-dev": {

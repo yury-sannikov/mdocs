@@ -75,7 +75,7 @@ const dest = document.getElementById('content');
 
 class World extends React.Component {
   render() {
-    return <div>W</div>;
+    return <div>World!</div>;
   }
 }
 
