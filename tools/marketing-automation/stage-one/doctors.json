@@ -328,6 +328,50 @@
       "providerName": "Meghal R. Antani, MD",
       "address2": "",
       "country": "US"
+    },
+    {
+      "name": "Liberty Laser Eye Center",
+      "type": "Doctor",
+      "bias": 0,
+      "phone": "(571) 234-5678",
+      "address": "8321 Old Courthouse Rd.",
+      "zip": "22182",
+      "sites": [
+        {
+          "site": "Google",
+          "title": "Liberty Laser Eye Center",
+          "place_id": "ChIJgynDuPtKtokRl-Qpz2EKu_w",
+          "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJgynDuPtKtokRl-Qpz2EKu_w"
+        },
+        {
+          "site": "Yelp",
+          "title": "Liberty Laser Eye Center",
+          "url": "http://www.yelp.com/biz/liberty-laser-eye-center-vienna"
+        },
+        {
+          "site": "YellowPages",
+          "title": "TLC Laser Eye Centers",
+          "url": "http://www.yellowpages.com/nationwide/mip/tlc-laser-eye-centers-505246156?lid=1001230289823"
+        },
+        {
+          "site": "MerchantCircle",
+          "title": "Liberty Laser Eye Center",
+          "url": "http://www.merchantcircle.com/liberty-laser-eye-center-vienna-va"
+        },
+        {
+          "site": "Yahoo",
+          "title": "Liberty Laser Eye Center",
+          "url": "https://local.yahoo.com/info-12689317-liberty-laser-eye-center-viennaundefined?stx=Liberty%20Laser%20Eye%20Center&csz=22182&fr=lsrp"
+        }
+      ],
+      "city": "Vienna",
+      "state": "VA",
+      "yelpcategory": "optometrists",
+      "reviews": [],
+      "uuid": "32bac815-0d9b-49f3-a99c-1bb2c784f942",
+      "key": "32bac815-0d9b-49f3-a99c-1bb2c784f942-liberty-laser",
+      "reportDate": "06/30/2016",
+      "providerName": "Liberty Laser Eye Center"
     }
   ]
 }
