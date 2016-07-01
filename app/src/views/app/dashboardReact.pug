@@ -4,15 +4,20 @@ block head
   title #{application} &middot; Dashboard
 
 block styles
-  style.
+  each style, key in Object.keys(assets.styles)
+    link(href=assets.styles[style], key=key, media="screen, projection", rel="stylesheet", type="text/css", charset="UTF-8")
+
+  if (developmentStyles)
+    style.
+      !{developmentStyles}
 
 block scripts
-  script(src=assets.javascript.vendors)
-  script(src=assets.javascript.dashboard)
+  //-script(src=assets.javascript.vendors)
+  //-script(src=assets.javascript.dashboard)
 
 block content
   //- React rendered content
-  div(id='content')
+  div(id='content') !{serverPrerender}
   //- Isomorphic tools assets (debug only)
   pre
     sub #{JSON.stringify(assets, null, 2)}

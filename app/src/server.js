@@ -1,6 +1,6 @@
 require('./src/_babel');
 var path = require('path');
-var rootDir = path.resolve(__dirname, '.');
+var rootDir = path.resolve(__dirname, './');
 /**
  * Define isomorphic constants.
  */
