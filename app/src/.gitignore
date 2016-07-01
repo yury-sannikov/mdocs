@@ -3,3 +3,6 @@
 node_modules
 .projectile
 public/app
+webpack-assets.json
+webpack-stats.json
+npm-debug.log

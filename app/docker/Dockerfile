@@ -6,4 +6,4 @@ ENV SERVICE_8080_NAME="app-mdocs-co" \
 
 EXPOSE 3030
 
-CMD ["node", "./src/index.js"]
+CMD ["node", "./server.js"]

@@ -8,28 +8,22 @@
     "url": "https://github.com/danneu/koa-skeleton"
   },
   "scripts": {
-    "dev": "concurrent --kill-others \"npm run watch-client\" \"npm run start-dev\"",
+    "start": "concurrent --kill-others \"npm run build\" \"npm run start-dev\"",
+    "apps-dev": "concurrent --kill-others \"npm run watch-client\" \"npm run start-dev\"",
+    "build": "better-npm-run build",
     "start-dev": "better-npm-run start-dev",
     "watch-client": "better-npm-run watch-client",
-    "startOld": "export DEBUG=app:* && nodemon --ext js ./server.js",
     "test": "NODE_ENV=test mocha --reporter spec",
     "lubricate": "npm cache clean && npm install && bower cache clean && bower install && gulp clean && gulp build"
   },
   "betterScripts": {
-    "start-prod": {
-      "command": "node ./server.js",
-      "env": {
-        "NODE_PATH": "./src",
-        "NODE_ENV": "production",
-        "PORT": 8080
-      }
-    },
     "start-dev": {
       "command": "node ./server.js",
       "env": {
         "NODE_PATH": "./src",
         "NODE_ENV": "development",
-        "PORT": 3000
+        "DEBUG": "app:*",
+        "PORT": 3030
       }
     },
     "watch-client": {
@@ -37,7 +31,7 @@
       "env": {
         "UV_THREADPOOL_SIZE": 100,
         "NODE_PATH": "./src",
-        "PORT": 3000
+        "PORT": 3030
       }
     },
     "build": {

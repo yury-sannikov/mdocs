@@ -95,6 +95,7 @@ module.exports = {
   progress: true,
   resolve: {
     modulesDirectories: [
+      path.resolve(__dirname, '../src/apps'),
       path.resolve(__dirname, '../node_modules')
     ],
     extensions: ['', '.json', '.js', '.jsx']
