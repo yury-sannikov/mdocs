@@ -554,3 +554,14 @@ div.tagsinput span.tag {
 .side-header > span, .side-header > a {
   margin-left: -10px;
 }
+
+h2.dash-widget {
+  font-size: 4em;
+  color: #00A3C8;
+}
+
+h3.dash-widget {
+  font-size: 3em;
+  font-weight: 400;
+  color: #00A3C8;
+}

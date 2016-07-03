@@ -35,7 +35,8 @@ App.config(['$stateProvider', '$urlRouterProvider',
                                 'assets/js/plugins/slick/slick.min.css',
                                 'assets/js/plugins/slick/slick-theme.min.css',
                                 'assets/js/plugins/slick/slick.min.js',
-                                'assets/js/plugins/chartjs/Chart.min.js'
+                                // 'assets/js/plugins/chartjs/Chart.min.js'
+                                'node_modules/chart.js/dist/Chart.min.js'
                             ]
                         });
                     }]
