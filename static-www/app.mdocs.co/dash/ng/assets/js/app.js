@@ -16,11 +16,24 @@ var App = angular.module('app', [
 // Router configuration
 App.config(['$stateProvider', '$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/angularjs');
+        $urlRouterProvider.otherwise('/welcome');
         $stateProvider
-            .state('angularjs', {
-                url: '/angularjs',
-                templateUrl: 'assets/views/ready_angularjs.html'
+            .state('welcome', {
+                url: '/welcome',
+                templateUrl: 'assets/views/welcome.html',
+                resolve: {
+                    deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            insertBefore: '#css-bootstrap',
+                            serie: true,
+                            files: [
+                                'assets/js/plugins/slick/slick.min.css',
+                                'assets/js/plugins/slick/slick-theme.min.css',
+                                'assets/js/plugins/slick/slick.min.js'
+                            ]
+                        });
+                    }]
+                }
             })
             .state('dashboard', {
                 url: '/dashboard',
