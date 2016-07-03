@@ -374,6 +374,39 @@ App.config(['$stateProvider', '$urlRouterProvider',
                     }]
                 }
             })
+            .state('providersLocations', {
+                url: '/settings/providers',
+                templateUrl: 'assets/views/providers.html'
+            })
+            .state('myProfile', {
+                url: '/settings/profile',
+                templateUrl: 'assets/views/myprofile.html'
+            })
+            .state('billing', {
+                url: '/settings/billing',
+                templateUrl: 'assets/views/billing.html'
+            })
+            .state('help', {
+                url: '/help',
+                templateUrl: 'assets/views/help.html'
+            })
+            .state('widget', {
+                url: '/settings/widget',
+                templateUrl: 'assets/views/widget.html',
+                controller: 'CompSyntaxHighlightingCtrl',
+                resolve: {
+                    deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            insertBefore: '#css-bootstrap',
+                            serie: true,
+                            files: [
+                                'assets/js/plugins/highlightjs/github-gist.min.css',
+                                'assets/js/plugins/highlightjs/highlight.pack.js'
+                            ]
+                        });
+                    }]
+                }
+            })
             .state('compMapsVector', {
                 url: '/components/maps/vector',
                 templateUrl: 'assets/views/comp_maps_vector.html',
