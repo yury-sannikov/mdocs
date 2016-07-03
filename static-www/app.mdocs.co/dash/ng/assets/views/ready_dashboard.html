@@ -1,14 +1,12 @@
-<!-- Page Header -->
-<div class="content bg-image overflow-hidden" style="background-image: url('assets/img/photos/photo3@2x.jpg');">
+<!-- <div class="content bg-image overflow-hidden" style="background-image: url('assets/img/photos/photo3@2x.jpg');">
     <div class="push-50-t push-15">
         <h1 class="h2 text-white animated zoomIn">Dashboard</h1>
         <h2 class="h5 text-white-op animated zoomIn">Welcome Administrator</h2>
     </div>
 </div>
-<!-- END Page Header -->
+ -->
 
-<!-- Stats -->
-<div class="content bg-white border-b">
+<!-- <div class="content bg-white border-b">
     <div class="row items-push text-uppercase">
         <div class="col-xs-6 col-sm-3">
             <div class="font-w700 text-gray-darker animated fadeIn">Product Sales</div>
@@ -31,28 +29,22 @@
             <a class="h2 font-w300 text-primary animated flipInX" href="javascript:void(0)">$ 270</a>
         </div>
     </div>
-</div>
-<!-- END Stats -->
+</div> -->
 
 <!-- Page Content -->
 <div class="content">
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-3">
             <!-- Main Dashboard Chart -->
             <div class="block">
-                <div class="block-header">
-                    <ul class="block-options">
-                        <li>
-                            <button type="button" data-js-block-option data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
-                        </li>
-                    </ul>
-                    <h3 class="block-title">Weekly Overview</h3>
+                <div class="block-header bottom-border">
+                  <h3 class="block-title">GOAL</h3>
                 </div>
-                <div class="block-content block-content-full bg-gray-lighter text-center">
-                    <!-- Chart.js Chart (.js-dash-chartjs-lines is initialized in js/controllers.js -> 'DashboardCtrl' Controller), for more examples you can check out http://www.chartjs.org/docs/ -->
-                    <div style="height: 374px;"><canvas class="js-dash-chartjs-lines"></canvas></div>
+                <div class="block-content block-content-full bg-white text-center">
+                  <p>You want <a href="#">5</a> reviews this month.</p>
+                  <p>To reach your goal we recommend sending at least <a href="#">30</a> invites.</p>
                 </div>
-                <div class="block-content text-center">
+                <!-- <div class="block-content text-center">
                     <div class="row items-push text-center">
                         <div class="col-xs-6 col-lg-3">
                             <div class="push-10"><i class="si si-graph fa-2x"></i></div>
@@ -71,162 +63,45 @@
                             <div class="h5 font-w300 text-muted">+ 35 Followers</div>
                         </div>
                     </div>
+                </div> -->
+            </div>
+            <!-- END Main Dashboard Chart -->
+        </div>
+        <div class="col-lg-5">
+            <!-- Main Dashboard Chart -->
+            <div class="block">
+                <div class="block-header bottom-border">
+                  <h3 class="block-title">INVITE PROGRESS <span class="grey-out">(THIS MONTH)</span></h3>
+                </div>
+                <div class="block-content block-content-full text-center">
+                    <!-- Bars Chart Container -->
+                    <div style="height: 330px;"><canvas class="js-chartjs-bars"></canvas></div>
                 </div>
             </div>
             <!-- END Main Dashboard Chart -->
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-2">
             <!-- Latest Sales Widget -->
             <div class="block">
-                <div class="block-header">
-                    <ul class="block-options">
-                        <li>
-                            <button type="button" data-js-block-option data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
-                        </li>
-                    </ul>
-                    <h3 class="block-title">Latest Sales</h3>
+                <div class="block-header bottom-border">
+                    <h3 class="block-title">RATING</h3>
                 </div>
-                <div class="block-content bg-gray-lighter">
-                    <div class="row items-push">
-                        <div class="col-xs-4">
-                            <div class="text-muted"><small><i class="si si-calendar"></i> 24 hrs</small></div>
-                            <div class="font-w600">18 Sales</div>
-                        </div>
-                        <div class="col-xs-4">
-                            <div class="text-muted"><small><i class="si si-calendar"></i> 7 days</small></div>
-                            <div class="font-w600">78 Sales</div>
-                        </div>
-                        <div class="col-xs-4 h1 font-w300 text-right">$769</div>
-                    </div>
-                </div>
-                <div class="block-content">
-                    <div class="pull-t pull-r-l">
-                        <!-- Slick slider (data-js-slider attribute is initialized in js/directives.js) -->
-                        <!-- For more info and examples you can check out http://kenwheeler.github.io/slick/ -->
-                        <div class="js-slider remove-margin-b" data-js-slider>
-                            <div>
-                                <table class="table remove-margin-b font-s13">
-                                    <tbody>
-                                        <tr>
-                                            <td class="font-w600">
-                                                <a href="javascript:void(0)">Admin Template</a>
-                                            </td>
-                                            <td class="hidden-xs text-muted text-right" style="width: 70px;">23:01</td>
-                                            <td class="font-w600 text-success text-right" style="width: 70px;">+ $21</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-w600"><a href="javascript:void(0)">WP Theme</a></td>
-                                            <td class="hidden-xs text-muted text-right">22:15</td>
-                                            <td class="font-w600 text-success text-right">+ $52</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-w600"><a href="javascript:void(0)">HTML Template</a></td>
-                                            <td class="hidden-xs text-muted text-right">22:01</td>
-                                            <td class="font-w600 text-success text-right">+ $16</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-w600"><a href="javascript:void(0)">Admin Template</a></td>
-                                            <td class="hidden-xs text-muted text-right">21:45</td>
-                                            <td class="font-w600 text-success text-right">+ $23</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-w600"><a href="javascript:void(0)">WP Theme</a></td>
-                                            <td class="hidden-xs text-muted text-right">21:15</td>
-                                            <td class="font-w600 text-success text-right">+ $48</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-w600"><a href="javascript:void(0)">Admin Template</a></td>
-                                            <td class="hidden-xs text-muted text-right">20:11</td>
-                                            <td class="font-w600 text-success text-right">+ $23</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-w600"><a href="javascript:void(0)">WP Theme</a></td>
-                                            <td class="hidden-xs text-muted text-right">20:01</td>
-                                            <td class="font-w600 text-success text-right">+ $50</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-w600"><a href="javascript:void(0)">HTML Template</a></td>
-                                            <td class="hidden-xs text-muted text-right">19:35</td>
-                                            <td class="font-w600 text-success text-right">+ $16</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-w600"><a href="javascript:void(0)">WP Theme</a></td>
-                                            <td class="hidden-xs text-muted text-right">19:17</td>
-                                            <td class="font-w600 text-success text-right">+ $60</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-w600"><a href="javascript:void(0)">WP Theme</a></td>
-                                            <td class="hidden-xs text-muted text-right">17:49</td>
-                                            <td class="font-w600 text-success text-right">+ $59</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div>
-                                <table class="table remove-margin-b font-s13">
-                                    <tbody>
-                                        <tr>
-                                            <td class="font-w600">
-                                                <a href="javascript:void(0)">Admin Template</a>
-                                            </td>
-                                            <td class="hidden-xs text-muted text-right" style="width: 70px;">16:10</td>
-                                            <td class="font-w600 text-success text-right" style="width: 70px;">+ $21</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-w600"><a href="javascript:void(0)">WP Theme</a></td>
-                                            <td class="hidden-xs text-muted text-right">16:06</td>
-                                            <td class="font-w600 text-success text-right">+ $48</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-w600"><a href="javascript:void(0)">WP Theme</a></td>
-                                            <td class="hidden-xs text-muted text-right">15:21</td>
-                                            <td class="font-w600 text-success text-right">+ $52</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-w600"><a href="javascript:void(0)">Admin Template</a></td>
-                                            <td class="hidden-xs text-muted text-right">12:10</td>
-                                            <td class="font-w600 text-success text-right">+ $23</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-w600"><a href="javascript:void(0)">Admin Template</a></td>
-                                            <td class="hidden-xs text-muted text-right">12:09</td>
-                                            <td class="font-w600 text-success text-right">+ $23</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-w600"><a href="javascript:void(0)">HTML Template</a></td>
-                                            <td class="hidden-xs text-muted text-right">11:39</td>
-                                            <td class="font-w600 text-success text-right">+ $16</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-w600"><a href="javascript:void(0)">Admin Template</a></td>
-                                            <td class="hidden-xs text-muted text-right">11:33</td>
-                                            <td class="font-w600 text-success text-right">+ $23</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-w600"><a href="javascript:void(0)">Admin Template</a></td>
-                                            <td class="hidden-xs text-muted text-right">11:18</td>
-                                            <td class="font-w600 text-success text-right">+ $23</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-w600"><a href="javascript:void(0)">WP Theme</a></td>
-                                            <td class="hidden-xs text-muted text-right">09:49</td>
-                                            <td class="font-w600 text-success text-right">+ $50</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="font-w600"><a href="javascript:void(0)">HTML Template</a></td>
-                                            <td class="hidden-xs text-muted text-right">09:35</td>
-                                            <td class="font-w600 text-success text-right">+ $16</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <!-- END Slick slider -->
-                    </div>
-                </div>
+                
             </div>
             <!-- END Latest Sales Widget -->
         </div>
+
+        <div class="col-lg-2">
+            <!-- Latest Sales Widget -->
+            <div class="block">
+                <div class="block-header bottom-border">
+                    <h3 class="block-title">REVIEWS</h3>
+                </div>
+                
+            </div>
+            <!-- END Latest Sales Widget -->
+        </div>
+        
     </div>
     <div class="row">
         <div class="col-lg-8">

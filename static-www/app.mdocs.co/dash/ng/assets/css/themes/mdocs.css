@@ -532,3 +532,25 @@ div.tagsinput span.tag {
 .autocomplete-suggestion b {
     color: #ff6c9d
 }
+
+.bottom-border {
+  border-bottom: solid 1px #ddd;
+}
+
+.grey-out {
+  color: #ccc;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 992px) {
+  .header-navbar-fixed.sidebar-l.sidebar-o #header-navbar {
+    background-color: #333a47;
+  }
+  .nav-header .btn-success, .orgName {
+    display: none;
+  }
+}
+
+.side-header > span, .side-header > a {
+  margin-left: -10px;
+}
