@@ -1,0 +1,173 @@
+p NEW LAYOUT
+nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+  .container
+    .navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+        //- if you want you may use the font awesome icon instead
+        //- i.fa.fa-lg.fa-bars
+      a.navbar-brand(href='/app') #{application}
+    if (bareHeader !== true)
+      .collapse.navbar-collapse
+        if (user && !_.isEmpty(user))
+          ul.nav.navbar-nav
+
+            //- li.dropdown(class=url=='/apiopen'?'active':undefined)
+            //-   a.dropdown-toggle(href='#', data-toggle='dropdown')
+            //-     i.fa.fa-fw.fa-laptop
+            //-     | &nbsp;APIs (open)&nbsp;
+            //-     b.caret
+            //-   ul.dropdown-menu
+            //-     li
+            //-       a(href='/api/lastfm')
+            //-         i.fa.fa-fw.fa-laptop
+            //-         | &nbsp;Last.fm
+            //-     li
+            //-       a(href='/api/nyt')
+            //-         i.fa.fa-fw.fa-laptop
+            //-         | &nbsp;New York Times
+            //-     li
+            //-       a(href='/api/twilio')
+            //-         i.fa.fa-fw.fa-laptop
+            //-         | &nbsp;Twilio
+            //-     li
+            //-       a(href='/api/scraping')
+            //-         i.fa.fa-fw.fa-laptop
+            //-         | &nbsp;Hacker News
+            //-     li
+            //-       a(href='/api/socrata')
+            //-         i.fa.fa-fw.fa-laptop
+            //-         | &nbsp;Open Data
+            //-     li
+            //-       a(href='/api/creditcard')
+            //-         i.fa.fa-fw.fa-laptop
+            //-         | &nbsp;Credit Card Form
+            //-     li
+            //-       a(href='/api/react')
+            //-         i.fa.fa-fw.fa-laptop
+            //-         | &nbsp;React Markdown Editor
+            //- li.dropdown(class=url=='/apilocked'?'active':undefined)
+            //-   a.dropdown-toggle(href='#', data-toggle='dropdown')
+            //-     i.fa.fa-fw.fa-lock
+            //-     | &nbsp;APIs (auth req'd) &nbsp;
+            //-     b.caret
+            //-   ul.dropdown-menu
+            //-     li
+            //-       a(href='/api/facebook')
+            //-         i.fa.fa-fw.fa-lock
+            //-         | &nbsp;Facebook
+            //-     li
+            //-       a(href='/api/foursquare')
+            //-         i.fa.fa-fw.fa-lock
+            //-         | &nbsp;Foursquare
+            //-     li
+            //-       a(href='/api/github')
+            //-         i.fa.fa-fw.fa-lock
+            //-         | &nbsp;GitHub
+            //-     li
+            //-       a(href='/api/paypal')
+            //-         i.fa.fa-fw.fa-lock
+            //-         | &nbsp;PayPal
+            //-     li
+            //-       a(href='/api/stripe')
+            //-         i.fa.fa-fw.fa-lock
+            //-         | &nbsp;Stripe
+            //-     li
+            //-       a(href='/api/tumblr')
+            //-         i.fa.fa-fw.fa-lock
+            //-         | &nbsp;Tumblr
+            //-     li
+            //-       a(href='/api/twitter')
+            //-         i.fa.fa-fw.fa-lock
+            //-         | &nbsp;Twitter
+            li.dropdown(class=url=='/apilocked'?'active':undefined)
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                i.fa.fa-fw.fa-heartbeat
+                | &nbsp;My Practice &nbsp;
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href='/app')
+                    i.fa.fa-fw.fa-dashboard
+                    | &nbsp;Dashboard
+                li
+                  a(href='/app/pr/phi/patient-reviews')
+                    i.fa.fa-fw.fa-thumbs-o-up
+                    | &nbsp;Patient Reviews
+            li.dropdown(class=url=='/apilocked'?'active':undefined)
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                i.fa.fa-fw.fa-sliders
+                | &nbsp;My Settings &nbsp;
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href='/app/pr/providers')
+                    i.fa.fa-fw.fa-user
+                    | &nbsp;Providers
+                li
+                  a(href='/app/pr/locations')
+                    i.fa.fa-fw.fa-home
+                    | &nbsp;Locations
+
+
+          //- Right side
+          ul.nav.navbar-nav.navbar-right
+
+            //- Visible to Admin users only!
+            // if user.type == 'admin'
+            //   li.dropdown(class=url=='/administration'?'active':undefined)
+            //     a.dropdown-toggle(href='#', data-toggle='dropdown')
+            //       i.fa.fa-fw.fa-cogs
+            //       | &nbsp;Admin&nbsp;
+            //       b.caret
+            //     ul.dropdown-menu
+            //       li
+            //         a(href='/dashboard')
+            //           i.fa.fa-fw.fa-laptop
+            //           | &nbsp;Dashboard
+            //       li
+            //         a(href='/accounts')
+            //           i.fa.fa-fw.fa-users
+            //           | &nbsp;Accounts
+            //       li
+            //         a(href='/colors')
+            //           i.fa.fa-fw.fa-cog
+            //           | &nbsp;Color Scheme
+
+            //- User account
+            li.dropdown(class=url=='/app/profile'?'active':undefined)
+              a.dropdown-toggle(href='#', data-toggle='dropdown')
+                if user.picture
+                  img.profile-image(src = user.picture)
+                | #{user.displayName || user.nickname || user.id}&nbsp;
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href='/app/profile')
+                    i.fa.fa-fw.fa-user
+                    | &nbsp;My Profile
+                li
+                  a(href='/app/subscription')
+                    i.fa.fa-fw.fa-list
+                    | &nbsp;My Subscription
+
+                // li
+                //   a(href='/contact')
+                //     i.fa.fa-fw.fa-envelope-o
+                //     | &nbsp;Contact Us
+                li.divider
+                li
+                  a(href='/app/logout')
+                    i.fa.fa-fw.fa-sign-out
+                    | &nbsp;Logout
+
+        else
+          //- No user/not logged in
+          ul.nav.navbar-nav.navbar-right
+            li(class=url=='/app/subscribe/pricing'?'active':undefined)
+              a(href='/app/subscribe/pricing')
+                i.fa.fa-user
+                | &nbsp;Sign up

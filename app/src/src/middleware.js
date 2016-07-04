@@ -54,6 +54,7 @@ exports.wrapJadeLocals = function() {
     const showCreateLocationProviderAlert = needShowCreateLocationProviderAlert(subInfo);
     const { subscriptions = [] } = subInfo;
     const hasSubscription = subscriptions.length > 0;
+    const useNewLayout = (this.request.querystring || '').indexOf('new-layout') !== -1;
 
     this.jadeLocals = {
       csrf: this.csrf,
@@ -65,7 +66,8 @@ exports.wrapJadeLocals = function() {
       flash: this.flash,
       config: config,
       hasSubscription,
-      showCreateLocationProviderAlert
+      showCreateLocationProviderAlert,
+      useNewLayout
     };
 
     yield* next;
