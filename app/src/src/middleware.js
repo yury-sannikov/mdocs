@@ -8,6 +8,7 @@ const bouncer = require('koa-bouncer');
 const _ = require('lodash');
 const recaptcha = require('recaptcha-validator');
 const csrf = require('koa-csrf');
+const pugLoad = require('pug-load');
 // 1st
 //const db = require('./db');
 const config = require('./config');
@@ -16,6 +17,28 @@ import jwt from 'jsonwebtoken';
 import { redirectToLogin, needShowCreateLocationProviderAlert } from './belt';
 
 const CSRF_SKIP_PREFIX = '/app/hooks';
+
+const _originalPugLoad = pugLoad.resolve;
+let _requestUsesNewLayout = false;
+
+pugLoad.resolve = function pugLoadOverrideHack(filename, source, options) {
+  let result = _originalPugLoad(filename, source, options);
+  if (!_requestUsesNewLayout) {
+    return result;
+  }
+
+  if (filename.indexOf('layout.pug') !== -1) {
+    return result.replace('layout.pug', 'layoutNew.pug');
+  }
+  return result;
+}
+
+exports.hackyChangeLayoutMiddleware = function() {
+  return function*(next) {
+    _requestUsesNewLayout = (this.request.querystring || '').indexOf('new-layout') !== -1;
+    return yield next;
+  }
+};
 
 exports.checkJWTExpiration = function() {
   return function*(next){
@@ -54,6 +77,7 @@ exports.wrapJadeLocals = function() {
     const showCreateLocationProviderAlert = needShowCreateLocationProviderAlert(subInfo);
     const { subscriptions = [] } = subInfo;
     const hasSubscription = subscriptions.length > 0;
+
 
     this.jadeLocals = {
       csrf: this.csrf,

@@ -1,0 +1,186 @@
+.content
+  .row
+    .col-lg-3
+      // Main Dashboard Chart
+      .block.dash-widget
+        .block-header.bottom-border
+          h3.block-title GOAL
+        .block-content.block-content-full.bg-white.text-center
+          | You want
+          a(href='#') 5
+          |  reviews this month.
+          br
+          br
+          |                   To reach your goal we recommend sending at least
+          a(href='#') 30
+          |  invites.
+    .col-lg-5
+      .block.dash-widget
+        .block-header.bottom-border
+          h3.block-title
+            | INVITE PROGRESS
+            span.grey-out (THIS MONTH)
+        .block-content.block-content-full.text-center
+          canvas#chart-progress-bar(width='400', height='100')
+    .col-lg-2
+      // Latest Sales Widget
+      .block
+        .block-header.bottom-border
+          h3.block-title RATING
+        .block-content.block-content-full.bg-white.text-center
+          h2.dash-widget 4.6
+          small Average rating among 10 sites.
+      // END Latest Sales Widget
+    .col-lg-2
+      // Latest Sales Widget
+      .block
+        .block-header.bottom-border
+          h3.block-title REVIEWS
+        .block-content.block-content-full.bg-white.text-center
+          h2.dash-widget 513
+          small Total reviews from 10 sites.
+      // END Latest Sales Widget
+  .content.bg-white.border-b
+    .row.items-push.text-uppercase
+      .col-xs-6.col-sm-3.text-center
+        .font-w700.text-gray-darker.animated.fadeIn Reviews
+        .text-muted.animated.fadeIn
+          small
+            i.si.si-calendar
+            |  This Week
+        a.h2.font-w300.text-primary.animated.flipInX(href='javascript:void(0)') 2
+      .col-xs-6.col-sm-3.text-center
+        .font-w700.text-gray-darker.animated.fadeIn Reviews
+        .text-muted.animated.fadeIn
+          small
+            i.si.si-calendar
+            |  This Month
+        a.h2.font-w300.text-primary.animated.flipInX(href='javascript:void(0)') 12
+      .col-xs-6.col-sm-3.text-center
+        .font-w700.text-gray-darker.animated.fadeIn Total Reviews
+        .text-muted.animated.fadeIn
+          small
+            i.si.si-calendar
+            |  All Time
+        a.h2.font-w300.text-primary.animated.flipInX(href='javascript:void(0)') 234
+      .col-xs-6.col-sm-3.text-center
+        .font-w700.text-gray-darker.animated.fadeIn Average Rating
+        .text-muted.animated.fadeIn
+          small
+            i.si.si-calendar
+            |  All Time
+        a.h2.font-w300.text-primary.animated.flipInX(href='javascript:void(0)') 4.8
+  br
+  .row
+    .col-lg-6
+      .block
+        .block-header.bottom-border
+          ul.block-options
+            li
+              button(type='button', data-js-block-option='', data-action='refresh_toggle', data-action-mode='demo')
+                i.si.si-refresh
+          h3.block-title.text-center Recent Reviews
+        .block-content
+          ul.list.list-timeline.pull-t
+            li
+              .list-timeline-time 12 hrs ago
+              i.fa.fa-google-plus.list-timeline-icon.bg-modern
+              .list-timeline-content
+                p.font-w600 Amy Fowler
+                .js-rating(data-score='5', style='cursor: pointer;')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='1', title='Bad')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='2', title='Poor')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='3', title='Regular')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='4', title='Good')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='5', title='Gorgeous')
+                  input(name='score', type='hidden', value='3')
+                small
+                  | Like my fear of the dark as a child, my fear of the dentist is finally starting to go away. Thanks to Dr. Cheung's office! I thought I'd posted a review on this previously, but apparently I was mistaken, so this is a long time in coming. I've been coming for the past several years and can honestly say that I love my dental office.
+                br
+                i.fa.fa-ellipsis-h.fa-2x
+            li
+              .list-timeline-time 2 days ago
+              i.fa.fa-yelp.list-timeline-icon.bg-city
+              .list-timeline-content
+                p.font-w600 Jack Miller
+                .js-rating(data-score='5', style='cursor: pointer;')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='1', title='Bad')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='2', title='Poor')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='3', title='Regular')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='4', title='Good')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='5', title='Gorgeous')
+                  input(name='score', type='hidden', value='3')
+                small
+                  | Long overdue review for such a great dental office! I've been Dr. Joyce's loyal patient for over 2 years now, even the drive all the way from the Valley can't stop me from coming here.
+            li
+              .list-timeline-time 10 day ago
+              i.fa.fa-yelp.list-timeline-icon.bg-city
+              .list-timeline-content
+                p.font-w600 Francis D. Malloney
+                .js-rating(data-score='5', style='cursor: pointer;')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='1', title='Bad')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='2', title='Poor')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='3', title='Regular')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='4', title='Good')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='5', title='Gorgeous')
+                  input(name='score', type='hidden', value='3')
+                small
+                  | Late emergency tooth extraction at 10:30pm Friday night is not the first thing you want to do, but when it was needed this wonderful dentist and his family opened the office. It was like being welcomed into his home. Careful, comforting, considerate, full information before beginning the procedure, he was gentle...
+                br
+                i.fa.fa-ellipsis-h.fa-2x
+            li
+              .list-timeline-time 21 days ago
+              i.fa.fa-facebook.list-timeline-icon.bg-default
+              .list-timeline-content
+                p.font-w600 Cynthia Wells
+                .js-rating(data-score='5', style='cursor: pointer;')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='1', title='Bad')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='2', title='Poor')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='3', title='Regular')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='4', title='Good')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='5', title='Gorgeous')
+                  input(name='score', type='hidden', value='3')
+                small
+                  | This review is for Dr. Joyce and her staff. Very professional , courteous, timely, and she explains everything in lay mans terms. I already know what I will have to pay before the visit (estimated). She reviews all your options. The tv and Hulu shows are cool as distractions to the drill and noise but inevitably the staff and dr have to constantly...
+                br
+                i.fa.fa-ellipsis-h.fa-2x
+            li
+              .list-timeline-time 12 hrs ago
+              i.fa.fa-google-plus.list-timeline-icon.bg-modern
+              .list-timeline-content
+                p.font-w600 Ty Hallinger Jr.
+                .js-rating(data-score='5', style='cursor: pointer;')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='1', title='Bad')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='2', title='Poor')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='3', title='Regular')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='4', title='Good')
+                  i.fa.fa-fw.fa-star.text-warning(data-alt='5', title='Gorgeous')
+                  input(name='score', type='hidden', value='3')
+                small
+                  | Fantastic ! This Dentist and staff are very professional , courteous, compassionate and attentive. The office has state of the art equipment and set up Artistically yet with the utmost privacy and emaculately sterile.
+    .col-lg-6
+      .block
+        .block-header.bottom-border
+          h3.block-title.text-center Growth
+        .content-grid
+          .row
+            .col-xs-4
+              .block-header
+                h3.block-title.text-center New Reviews
+              .row.items-push.text-center.bottom-border
+                .col-xs-6.dash-widget
+                  h3.dash-widget 55
+                  small This Month
+                .col-xs-6.dash-widget
+                  h3.dash-widget 234
+                  small Since Joining
+              .row.items-push.text-center.bottom-border
+                .col-xs-12.dash-widget
+                  br
+                  small End of Year Review Projection
+                  h2.dash-widget 346
+            .col-xs-8
+              .block-header
+                h3.block-title.text-center Reviews by Month
+              .block-content.block-content-full.text-center
+                canvas#chart-reviews-by-month(width='400', height='300')

@@ -4,10 +4,10 @@ mixin star_mixin(rate)
       i.fa.fa-fw.fa-star(data-index=i)
     else if (i < rate) && ((i + 0.1) <= rate)
       i.fa.fa-fw.fa-star-half-o(data-index=i)
-    else 
+    else
       i.fa.fa-fw.fa-star-o(data-index=i)
   - }
-  
+
 mixin survery_status(status)
   case status
     when 0
@@ -18,7 +18,7 @@ mixin survery_status(status)
       span Submitted
 
 doctype html
-html(lang="en")
+html(lang='en')
   include ../partials/head.pug
   body
     include ../partials/navigation.pug
@@ -26,4 +26,3 @@ html(lang="en")
     block content
     include ../partials/footer.pug
     block scripts
-

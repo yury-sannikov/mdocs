@@ -55,7 +55,7 @@ router.get('/:idkey', function*() {
   const idKey = (this.params.idkey || '').split(':');
 
   // Parse id and survey key
-  if (!_.isArray(idKey) || idKey.length != 2) {
+  if (!_.isArray(idKey) || idKey.length === 0) {
     debug(`Wrong survey id-key format. Supplied parameter: ${this.params.idkey}`);
     this.redirect('/');
     return;

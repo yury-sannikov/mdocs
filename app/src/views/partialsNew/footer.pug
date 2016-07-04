@@ -1,0 +1,65 @@
+//- footer.footer.bg-black
+//-   .container
+//-     p
+//-       | Copyright © #{moment().format('YYYY')}&nbsp;
+//-       //- img.hidden-xs(src='/favicon.png', width='50px')
+//-       a(href='http://www.mdocs.co') #{application}, Inc.
+//-       |  All Rights Reserved. |&nbsp;
+//-       a(href='/app/terms') Terms of Use&nbsp;
+//-       | |&nbsp;
+//-       a(href='/app/privacy') Privacy Policy
+//-       | |&nbsp;
+//-       a(href='/app/agreement') Agreement
+
+//- Load jQuery, food for thought:
+//- https://palant.de/2014/06/30/please-don-t-use-externally-hosted-javascript-libraries
+script(src='/app/lib/jquery/dist/jquery.min.js')
+script(src='/app/lib/jquery-validation/dist/jquery.validate.min.js')
+script(src='/app/js/MDOCS.min.js')
+script(src='/app/lib/rxjs/dist/rx.lite.min.js')
+script(src='/app/lib/rxjs-jquery/rx.jquery.js')
+script.
+  $(document).ready(function() {
+    $('.alert button.close').click(function (e) {
+        var animationName = 'zoomOut';
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        var cont = $(this).parent();
+        cont.addClass('animated ' + animationName).one(animationEnd, function() {
+            cont.alert('close');
+        });
+    });
+    $.validator.setDefaults({
+      highlight: function(element) {
+          $(element).closest('.form-group').addClass('has-error');
+      },
+      unhighlight: function(element) {
+          $(element).closest('.form-group').removeClass('has-error');
+      },
+      errorElement: 'span',
+      errorClass: 'help-block',
+      errorPlacement: function(error, element) {
+        if(element.parent('.input-group').length) {
+          error.insertAfter(element.parent());
+        } else {
+          error.insertAfter(element);
+        }
+      }
+    });
+    //- Async load socket.io
+    // $.ajax({
+    //   type: 'GET',
+    //   url: '//cdn.socket.io/socket.io-1.2.1.js',
+    //   dataType: 'script',
+    //   cache: true
+    // }).done(function () {
+    //   $(function(){
+    //     var socket = io(window.location.hostname);
+    //     socket.on('connect', function () {
+    //       socket.emit('pageview', window.location.href);
+    //     });
+    //     window.onhashchange = function () {
+    //       socket.emit('pageview', window.location.href);
+    //     };
+    //   });
+    // });
+  });

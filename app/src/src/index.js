@@ -114,6 +114,8 @@ app.use(csrf({
 // Jade locals with csrf
 app.use(mw.wrapJadeLocals());
 
+app.use(mw.hackyChangeLayoutMiddleware());
+
 
 // Provide a convience function for protecting our routes behind
 // our authorization rules. If authorization check fails, 404 response.
@@ -134,6 +136,7 @@ app.use(function*(next) {
   };
   yield* next;
 });
+
 
 
 ////////////////////////////////////////////////////////////

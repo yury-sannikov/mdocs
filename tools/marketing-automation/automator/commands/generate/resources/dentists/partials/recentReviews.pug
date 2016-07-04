@@ -47,7 +47,7 @@ section#recentReviews.section-page
           });
         } else {
           var rowStr = "<tr><td>No recent reviews found.</td></tr>";
-          $('#recentReviewsTable').append(rowStr);
+          $('#recentReviews').hide();
         }
       };
       renderData(JSON.parse(document.getElementById('reviewCardData').innerHTML));

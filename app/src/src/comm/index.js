@@ -27,12 +27,12 @@ exports.generateSurveyDetailsUrl = function(id) {
   return `https://app.mdocs.co/app/pr/phi/review/${id}`;
 };
 
-exports.generateSurveyUrl = function(id, code) {
-  return `https://app.mdocs.co/app/pr/survey/${id}:${code}`;
+exports.generateSurveyUrl = function(id) {
+  return `https://app.mdocs.co/app/pr/survey/${id}`;
 };
 
-exports.generateUnsubscriveUrl = function(id, code) {
-  return `https://app.mdocs.co/app/pr/survey/stop/${id}:${code}`;
+exports.generateUnsubscriveUrl = function(id) {
+  return `https://app.mdocs.co/app/pr/survey/stop/${id}`;
 };
 
 exports.conductSurvey = function* (id) {
@@ -50,15 +50,10 @@ exports.conductSurvey = function* (id) {
     debug(`Can't conduct survey id #{id}. Record not found`);
     return result;
   }
-  // Generate unique one-shot code for survey
-  const surveyCode = uuid.v4();
-
-  // Write code to the database
-  yield db.assignSurveyCode(id, surveyCode);
 
   // Generate URLs
-  const url = exports.generateSurveyUrl(id, surveyCode);
-  const urlUnsubscribe = exports.generateUnsubscriveUrl(id, surveyCode);
+  const url = exports.generateSurveyUrl(id);
+  const urlUnsubscribe = exports.generateUnsubscriveUrl(id);
 
   // Send email
   const record = surveyData[0];

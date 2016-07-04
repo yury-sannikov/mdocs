@@ -16,11 +16,24 @@ var App = angular.module('app', [
 // Router configuration
 App.config(['$stateProvider', '$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/angularjs');
+        $urlRouterProvider.otherwise('/welcome');
         $stateProvider
-            .state('angularjs', {
-                url: '/angularjs',
-                templateUrl: 'assets/views/ready_angularjs.html'
+            .state('welcome', {
+                url: '/welcome',
+                templateUrl: 'assets/views/welcome.html',
+                resolve: {
+                    deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            insertBefore: '#css-bootstrap',
+                            serie: true,
+                            files: [
+                                'assets/js/plugins/slick/slick.min.css',
+                                'assets/js/plugins/slick/slick-theme.min.css',
+                                'assets/js/plugins/slick/slick.min.js'
+                            ]
+                        });
+                    }]
+                }
             })
             .state('dashboard', {
                 url: '/dashboard',
@@ -35,7 +48,8 @@ App.config(['$stateProvider', '$urlRouterProvider',
                                 'assets/js/plugins/slick/slick.min.css',
                                 'assets/js/plugins/slick/slick-theme.min.css',
                                 'assets/js/plugins/slick/slick.min.js',
-                                'assets/js/plugins/chartjs/Chart.min.js'
+                                // 'assets/js/plugins/chartjs/Chart.min.js'
+                                'node_modules/chart.js/dist/Chart.min.js'
                             ]
                         });
                     }]
@@ -360,6 +374,39 @@ App.config(['$stateProvider', '$urlRouterProvider',
                     }]
                 }
             })
+            .state('providersLocations', {
+                url: '/settings/providers',
+                templateUrl: 'assets/views/providers.html'
+            })
+            .state('myProfile', {
+                url: '/settings/profile',
+                templateUrl: 'assets/views/myprofile.html'
+            })
+            .state('billing', {
+                url: '/settings/billing',
+                templateUrl: 'assets/views/billing.html'
+            })
+            .state('help', {
+                url: '/help',
+                templateUrl: 'assets/views/help.html'
+            })
+            .state('widget', {
+                url: '/settings/widget',
+                templateUrl: 'assets/views/widget.html',
+                controller: 'CompSyntaxHighlightingCtrl',
+                resolve: {
+                    deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            insertBefore: '#css-bootstrap',
+                            serie: true,
+                            files: [
+                                'assets/js/plugins/highlightjs/github-gist.min.css',
+                                'assets/js/plugins/highlightjs/highlight.pack.js'
+                            ]
+                        });
+                    }]
+                }
+            })
             .state('compMapsVector', {
                 url: '/components/maps/vector',
                 templateUrl: 'assets/views/comp_maps_vector.html',
@@ -445,22 +492,6 @@ App.config(['$uibTooltipProvider',
 // Custom UI helper functions
 App.factory('uiHelpers', function () {
     return {
-        // Handles active color theme
-        uiHandleColorTheme: function (themeName) {
-            var colorTheme = jQuery('#css-theme');
-
-            if (themeName) {
-                if (colorTheme.length && (colorTheme.prop('href') !== 'assets/css/themes/' + themeName + '.min.css')) {
-                    jQuery('#css-theme').prop('href', 'assets/css/themes/' + themeName + '.min.css');
-                } else if (!colorTheme.length) {
-                    jQuery('#css-main').after('<link rel="stylesheet" id="css-theme" href="assets/css/themes/' + themeName + '.min.css">');
-                }
-            } else {
-                if (colorTheme.length) {
-                    colorTheme.remove();
-                }
-            }
-        },
         // Handles #main-container height resize to push footer to the bottom of the page
         uiHandleMain: function () {
             var lMain       = jQuery('#main-container');
@@ -804,12 +835,6 @@ App.controller('AppCtrl', ['$scope', '$localStorage', '$window',
                 $localStorage.oneuiSettings = $scope.oneui.settings;
             }, true);
         }
-
-        // Watch for activeColorTheme variable update
-        $scope.$watch('oneui.settings.activeColorTheme', function () {
-            // Handle Color Theme
-            $scope.helpers.uiHandleColorTheme($scope.oneui.settings.activeColorTheme);
-        }, true);
 
         // Watch for sideScroll variable update
         $scope.$watch('oneui.settings.sideScroll', function () {

@@ -121,18 +121,6 @@ exports.createNewSurvey = function() {
   };
 };
 
-exports.assignSurveyCode = function* (id, surveyCode) {
-  const chain = DynamoDB
-    .table('survey_review')
-    .where('id').eq(id);
-
-  const updateAsync = Promise.promisify(chain.update, {context: chain});
-
-  return yield updateAsync({
-    survey_code: surveyCode ? surveyCode : DynamoDB.del()
-  });
-};
-
 exports.deleteSurvey = function* (id) {
   const chain = DynamoDB
     .table('survey_review')
