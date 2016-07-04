@@ -1,0 +1,61 @@
+// Header Navigation Right
+ul.nav-header.pull-right
+  li
+    button.btn.btn-success(data-uib-tooltip='Use this button to send an invite for a review.', data-tooltip-placement='bottom', data-toggle='modal', data-target='#modal-popout', type='button')
+      i.fa.fa-paper-plane-o
+      |  Send Review Invite
+  li
+    .btn-group(data-on-toggle='toggled(open)', data-uib-dropdown='')
+      button.btn.btn-default.btn-image(type='button', data-uib-dropdown-toggle='')
+        img(src='/app/oneui/assets/img/avatars/avatar10.jpg', alt='Avatar')
+        span.orgName Liberty Laser Eye Center
+        span.caret
+    //- TODO:
+    //-   ul.dropdown-menu-right(data-uib-dropdown-menu='')
+    //-     li.dropdown-header Profile
+    //-     li
+    //-       a(tabindex='-1', href='javascript:void(0)')
+    //-         i.si.si-envelope-open.pull-right
+    //-         span.badge.badge-primary.pull-right 3
+    //-         | Inbox
+    //-     li
+    //-       a(tabindex='-1', href='javascript:void(0)')
+    //-         i.si.si-user.pull-right
+    //-         span.badge.badge-success.pull-right 1
+    //-         | Profile
+    //-     li
+    //-       a(tabindex='-1', href='javascript:void(0)')
+    //-         i.si.si-settings.pull-right
+    //-         | Settings
+    //-     li.divider
+    //-     li.dropdown-header Actions
+    //-     li
+    //-       a(tabindex='-1', href='javascript:void(0)')
+    //-         i.si.si-lock.pull-right
+    //-         | Lock Account
+    //-     li
+    //-       a(tabindex='-1', href='javascript:void(0)')
+    //-         i.si.si-logout.pull-right
+    //-         | Log out
+  //
+    <li>
+    <button class="btn btn-default" type="button" data-ng-click="oneui.settings.sideOverlayOpen = ! oneui.settings.sideOverlayOpen" data-js-blur>
+    <i class="fa fa-tasks"></i>
+    </button>
+    </li>
+// END Header Navigation Right
+// Header Navigation Left
+ul.nav-header.pull-left
+  li.hidden-md.hidden-lg
+    button.btn.btn-default(type='button', data-ng-click='oneui.settings.sidebarOpenXs = ! oneui.settings.sidebarOpenXs', data-js-blur='')
+      i.fa.fa-navicon
+  li.hidden-xs.hidden-sm
+    button.btn.btn-default(type='button', data-ng-click='oneui.settings.sidebarMini = ! oneui.settings.sidebarMini', data-js-blur='')
+      i.fa.fa-ellipsis-v
+  li.visible-xs
+    // Toggle class helper (data-js-toggle-class attribute is initialized in js/directives.js)
+    //
+      <button class="btn btn-default" type="button" data-js-toggle-class="{target: '.js-header-search', class: 'header-search-xs-visible'}" data-js-blur>
+      <i class="fa fa-search"></i>
+      </button>
+// END Header Navigation Left
