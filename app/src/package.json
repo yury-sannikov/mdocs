@@ -56,6 +56,7 @@
     "node-uuid": "^1.4.7",
     "passport-auth0": "^0.5.1",
     "pug": "^2.0.0-alpha7",
+    "pug-load": "^2.0.0",
     "recaptcha-validator": "1.0.1",
     "slack-notify": "^0.1.6",
     "source-map-support": "^0.4.0",

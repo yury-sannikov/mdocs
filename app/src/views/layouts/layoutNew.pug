@@ -19,10 +19,11 @@ mixin survery_status(status)
 
 doctype html
 html(lang='en')
-  include ../partials/head.pug
+  include ../partialsNew/head.pug
   body
-    include ../partials/navigation.pug
-    include ../partials/flash.pug
+    span New Layout
+    include ../partialsNew/navigation.pug
+    include ../partialsNew/flash.pug
     block content
-    include ../partials/footer.pug
+    include ../partialsNew/footer.pug
     block scripts
