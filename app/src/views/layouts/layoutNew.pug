@@ -21,9 +21,13 @@ doctype html
 html(lang='en')
   include ../partialsNew/head.pug
   body
-    span New Layout
-    include ../partialsNew/navigation.pug
-    include ../partialsNew/flash.pug
-    block content
-    include ../partialsNew/footer.pug
-    block scripts
+    #page-container.sidebar-l.sidebar-o.side-scroll.header-navbar-fixed
+      nav(id='sidebar')
+        include ../partialsNew/sidebar.pug
+      main#main-container
+        include ../partialsNew/navigation.pug
+        include ../partialsNew/flash.pug
+        block content
+        //- include ../partialsNew/testDashboard.pug
+      include ../partialsNew/footer.pug
+      block scripts
