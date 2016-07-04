@@ -1,0 +1,232 @@
+<div class="content">
+    <div class="row">
+        <div class="col-lg-3">
+            <!-- Main Dashboard Chart -->
+            <div class="block dash-widget">
+                <div class="block-header bottom-border">
+                  <h3 class="block-title">GOAL</h3>
+                </div>
+                <div class="block-content block-content-full bg-white text-center">
+                  You want <a href="#">5</a> reviews this month.
+                  <br><br>
+                  To reach your goal we recommend sending at least <a href="#">30</a> invites.
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="block dash-widget">
+                <div class="block-header bottom-border">
+                  <h3 class="block-title">INVITE PROGRESS <span class="grey-out">(THIS MONTH)</span></h3>
+                </div>
+                <div class="block-content block-content-full text-center">
+                    <canvas id="chart-progress-bar" width="400" height="100"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <!-- Latest Sales Widget -->
+            <div class="block">
+                <div class="block-header bottom-border">
+                    <h3 class="block-title">RATING</h3>
+                </div>
+                
+                <div class="block-content block-content-full bg-white text-center">
+                  <h2 class="dash-widget">4.6</h2>
+                  <small>Average rating among 10 sites.</small>
+                </div>
+                
+            </div>
+            <!-- END Latest Sales Widget -->
+        </div>
+
+        <div class="col-lg-2">
+            <!-- Latest Sales Widget -->
+            <div class="block">
+                <div class="block-header bottom-border">
+                    <h3 class="block-title">REVIEWS</h3>
+                </div>
+                <div class="block-content block-content-full bg-white text-center">
+                  <h2 class="dash-widget">513</h2>
+                  <small>Total reviews from 10 sites.</small>
+                </div>
+            </div>
+            <!-- END Latest Sales Widget -->
+        </div>
+    </div>
+
+    <div class="content bg-white border-b">
+      <div class="row items-push text-uppercase">
+        <div class="col-xs-6 col-sm-3 text-center">
+            <div class="font-w700 text-gray-darker animated fadeIn">Reviews</div>
+            <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> This Week</small></div>
+            <a class="h2 font-w300 text-primary animated flipInX" href="javascript:void(0)">2</a>
+        </div>
+        <div class="col-xs-6 col-sm-3 text-center">
+            <div class="font-w700 text-gray-darker animated fadeIn">Reviews</div>
+            <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> This Month</small></div>
+            <a class="h2 font-w300 text-primary animated flipInX" href="javascript:void(0)">12</a>
+        </div>
+        <div class="col-xs-6 col-sm-3 text-center">
+            <div class="font-w700 text-gray-darker animated fadeIn">Total Reviews</div>
+            <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> All Time</small></div>
+            <a class="h2 font-w300 text-primary animated flipInX" href="javascript:void(0)">234</a>
+        </div>
+        <div class="col-xs-6 col-sm-3 text-center">
+            <div class="font-w700 text-gray-darker animated fadeIn">Average Rating</div>
+            <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> All Time</small></div>
+            <a class="h2 font-w300 text-primary animated flipInX" href="javascript:void(0)">4.8</a>
+        </div>
+      </div>
+    </div>
+    <br>
+    
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="block">
+                <div class="block-header bottom-border">
+                    <ul class="block-options">
+                        <li>
+                            <button type="button" data-js-block-option data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                        </li>
+                    </ul>
+                    <h3 class="block-title text-center">Recent Reviews</h3>
+                </div>
+                
+                <div class="block-content">
+                    <ul class="list list-timeline pull-t">
+                        
+                        <li>
+                            <div class="list-timeline-time">12 hrs ago</div>
+                            <i class="fa fa-google-plus list-timeline-icon bg-modern"></i>
+                            <div class="list-timeline-content">
+                                <p class="font-w600">Amy Fowler</p>
+                                <div class="js-rating" data-score="5" style="cursor: pointer;">
+                                  <i data-alt="1" class="fa fa-fw fa-star text-warning" title="Bad"></i>&nbsp;
+                                  <i data-alt="2" class="fa fa-fw fa-star text-warning" title="Poor"></i>&nbsp;
+                                  <i data-alt="3" class="fa fa-fw fa-star text-warning" title="Regular"></i>&nbsp;
+                                  <i data-alt="4" class="fa fa-fw fa-star text-warning" title="Good"></i>&nbsp;
+                                  <i data-alt="5" class="fa fa-fw fa-star text-warning" title="Gorgeous"></i><input name="score" type="hidden" value="3"></div>
+                                <small>Like my fear of the dark as a child, my fear of the dentist is finally starting to go away. Thanks to Dr. Cheung's office! I thought I'd posted a review on this previously, but apparently I was mistaken, so this is a long time in coming. I've been coming for the past several years and can honestly say that I love my dental office.</small>
+                                <br>
+                                <i class="fa fa-ellipsis-h fa-2x"></i>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="list-timeline-time">2 days ago</div>
+                            <i class="fa fa-yelp list-timeline-icon bg-city"></i>
+                            <div class="list-timeline-content">
+                              <p class="font-w600">Jack Miller</p>
+                              <div class="js-rating" data-score="5" style="cursor: pointer;">
+                                <i data-alt="1" class="fa fa-fw fa-star text-warning" title="Bad"></i>&nbsp;
+                                <i data-alt="2" class="fa fa-fw fa-star text-warning" title="Poor"></i>&nbsp;
+                                <i data-alt="3" class="fa fa-fw fa-star text-warning" title="Regular"></i>&nbsp;
+                                <i data-alt="4" class="fa fa-fw fa-star text-warning" title="Good"></i>&nbsp;
+                                <i data-alt="5" class="fa fa-fw fa-star text-warning" title="Gorgeous"></i><input name="score" type="hidden" value="3"></div>
+                              <small>Long overdue review for such a great dental office! I've been Dr. Joyce's loyal patient for over 2 years now, even the drive all the way from the Valley can't stop me from coming here.</small>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="list-timeline-time">10 day ago</div>
+                            <i class="fa fa-yelp list-timeline-icon bg-city"></i>
+                            <div class="list-timeline-content">
+                              <p class="font-w600">Francis D. Malloney</p>
+                              <div class="js-rating" data-score="5" style="cursor: pointer;">
+                                <i data-alt="1" class="fa fa-fw fa-star text-warning" title="Bad"></i>&nbsp;
+                                <i data-alt="2" class="fa fa-fw fa-star text-warning" title="Poor"></i>&nbsp;
+                                <i data-alt="3" class="fa fa-fw fa-star text-warning" title="Regular"></i>&nbsp;
+                                <i data-alt="4" class="fa fa-fw fa-star text-warning" title="Good"></i>&nbsp;
+                                <i data-alt="5" class="fa fa-fw fa-star text-warning" title="Gorgeous"></i><input name="score" type="hidden" value="3"></div>
+                              <small>Late emergency tooth extraction at 10:30pm Friday night is not the first thing you want to do, but when it was needed this wonderful dentist and his family opened the office. It was like being welcomed into his home. Careful, comforting, considerate, full information before beginning the procedure, he was gentle...</small>
+                              <br>
+                              <i class="fa fa-ellipsis-h fa-2x"></i>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="list-timeline-time">21 days ago</div>
+                            <i class="fa fa-facebook list-timeline-icon bg-default"></i>
+                            <div class="list-timeline-content">
+                              <p class="font-w600">Cynthia Wells</p>
+                              <div class="js-rating" data-score="5" style="cursor: pointer;">
+                              <i data-alt="1" class="fa fa-fw fa-star text-warning" title="Bad"></i>&nbsp;
+                              <i data-alt="2" class="fa fa-fw fa-star text-warning" title="Poor"></i>&nbsp;
+                              <i data-alt="3" class="fa fa-fw fa-star text-warning" title="Regular"></i>&nbsp;
+                              <i data-alt="4" class="fa fa-fw fa-star text-warning" title="Good"></i>&nbsp;
+                              <i data-alt="5" class="fa fa-fw fa-star text-warning" title="Gorgeous"></i><input name="score" type="hidden" value="3"></div>
+                              <small>This review is for Dr. Joyce and her staff. Very professional , courteous, timely, and she explains everything in lay mans terms. I already know what I will have to pay before the visit (estimated). She reviews all your options. The tv and Hulu shows are cool as distractions to the drill and noise but inevitably the staff and dr have to constantly...</small>
+                              <br>
+                              <i class="fa fa-ellipsis-h fa-2x"></i>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="list-timeline-time">12 hrs ago</div>
+                            <i class="fa fa-google-plus list-timeline-icon bg-modern"></i>
+                            <div class="list-timeline-content">
+                                <p class="font-w600">Ty Hallinger Jr.</p>
+                                <div class="js-rating" data-score="5" style="cursor: pointer;">
+                                  <i data-alt="1" class="fa fa-fw fa-star text-warning" title="Bad"></i>&nbsp;
+                                  <i data-alt="2" class="fa fa-fw fa-star text-warning" title="Poor"></i>&nbsp;
+                                  <i data-alt="3" class="fa fa-fw fa-star text-warning" title="Regular"></i>&nbsp;
+                                  <i data-alt="4" class="fa fa-fw fa-star text-warning" title="Good"></i>&nbsp;
+                                  <i data-alt="5" class="fa fa-fw fa-star text-warning" title="Gorgeous"></i><input name="score" type="hidden" value="3"></div>
+                                <small>Fantastic ! This Dentist and staff are very professional , courteous, compassionate and attentive. The office has state of the art equipment and set up Artistically yet with the utmost privacy and emaculately sterile.</small>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="block">
+            <div class="block-header bottom-border">
+              <h3 class="block-title text-center">Growth</h3>
+            </div>
+          
+
+            <div class="content-grid">
+              <div class="row">
+                <div class="col-xs-4">
+                  <div class="block-header">
+                      <h3 class="block-title text-center">New Reviews</h3>
+                  </div>
+                  <div class="row items-push text-center bottom-border">
+                    <div class="col-xs-6 dash-widget">
+                      <h3 class="dash-widget">55</h3>
+                      <small>This Month</small>
+                    </div>
+                    <div class="col-xs-6 dash-widget">
+                      <h3 class="dash-widget">234</h3>
+                      <small>Since Joining</small>
+                    </div>
+                  </div>
+
+                  <div class="row items-push text-center bottom-border">
+                    <div class="col-xs-12 dash-widget">
+                      <br>
+                      <small>End of Year Review Projection</small>
+                      <h2 class="dash-widget">346</h2>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xs-8">
+                  <div class="block-header">
+                      <h3 class="block-title text-center">Reviews by Month</h3>
+                  </div>
+
+                  <div class="block-content block-content-full text-center">
+                    <canvas id="chart-reviews-by-month" width="400" height="300"></canvas>
+                  </div>
+                  
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
