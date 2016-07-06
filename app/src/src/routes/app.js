@@ -71,7 +71,7 @@ router.get('dashboard', '/', checkAuthenticated, function*() {
   this.render('app/dashboard', this.jadeLocals, true);
 });
 
-router.get('dashboardNew', '/d', checkAuthenticated, function*() {
+router.get('dashboardNew', '/dashboard*', checkAuthenticated, function*() {
   yield dashboardRender(this, this.jadeLocals);
 });
 

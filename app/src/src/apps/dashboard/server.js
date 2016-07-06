@@ -12,7 +12,8 @@ export function render(ctx, locals) {
   if (__DEVELOPMENT__) {
     webpackIsomorphicTools.refresh();
   }
-  const memoryHistory = createHistory(ctx.request.originalUrl);
+  const clientLocation = ctx.request.originalUrl;
+  const memoryHistory = createHistory(clientLocation);
   const store = createStore(memoryHistory, null, {});
   const history = syncHistoryWithStore(memoryHistory, store);
 
@@ -28,17 +29,20 @@ export function render(ctx, locals) {
   }
   return new Promise((resolve, reject) => {
 
-    match({ history, routes: getRoutes(store), location: ctx.request.originalUrl }, (error, redirectLocation, renderProps) => {
+    match({ history, routes: getRoutes(store), location: clientLocation }, (error, redirectLocation, renderProps) => {
       if (error) {
+        console.warn(`Server render error: ${error.stack}`);
         return reject(error);
       }
 
       if (redirectLocation) {
+        console.warn(`Server render redirect to ${redirectLocation}`);
         ctx.redirect(redirectLocation.pathname + redirectLocation.search);
         return resolve();
       }
 
       if (!renderProps) {
+        console.warn(`Server render has no renderProps. Redirect to root`);
         ctx.redirect('/');
         return resolve();
       }
@@ -50,6 +54,8 @@ export function render(ctx, locals) {
           </Provider>
         );
         const content = ReactDOM.renderToString(component);
+
+        console.log('\n'+content+'\n');
 
         let developmentStyles = '';
         if (Object.keys(webpackIsomorphicTools.assets().styles).length === 0) {
