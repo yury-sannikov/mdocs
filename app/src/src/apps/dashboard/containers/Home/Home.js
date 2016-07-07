@@ -3,7 +3,6 @@ import { Link } from 'react-router'
 import { asyncConnect } from 'redux-async-connect'
 
 @asyncConnect([{
-  deferred: true,
   promise: ({store: {dispatch, getState}}) => {
     return Promise.resolve(true)
   }

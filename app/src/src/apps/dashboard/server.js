@@ -7,6 +7,7 @@ import { ReduxAsyncConnect, loadOnServer } from 'redux-async-connect';
 import {Provider} from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
+import serialize from 'serialize-javascript';
 
 export function render(ctx, locals) {
   if (__DEVELOPMENT__) {
@@ -55,16 +56,16 @@ export function render(ctx, locals) {
         );
         const content = ReactDOM.renderToString(component);
 
-        console.log('\n'+content+'\n');
-
         let developmentStyles = '';
         if (Object.keys(webpackIsomorphicTools.assets().styles).length === 0) {
           developmentStyles = `${require('./containers/App/App.scss')._style}`;
         }
+        const reduxState = serialize(store.getState());
 
         ctx.render('app/dashboardReact', Object.assign({}, locals, {
           assets: webpackIsomorphicTools.assets(),
           serverPrerender: content,
+          reduxState,
           developmentStyles
         }), true);
 
