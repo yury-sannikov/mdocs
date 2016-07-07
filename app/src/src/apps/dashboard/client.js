@@ -29,17 +29,16 @@ const history = syncHistoryWithStore(_browserHistory, store)
 //     dest
 //   );
 // }
-
+const filterDeferred = (item) => !item.deferred
+const renderReduxAsync = (props) => {
+  return <ReduxAsyncConnect
+    {...props}
+    helpers={{ test: 1 }}
+    filter={filterDeferred}
+  />
+}
 const component = (
-  <Router
-    render={(props) => <ReduxAsyncConnect
-      {...props}
-      helpers={{ test: 1 }}
-      filter={item => !item.deferred}
-    />
-    }
-    history={history}
-  >
+  <Router render={renderReduxAsync} history={history}>
     {getRoutes(store)}
   </Router>
 )
