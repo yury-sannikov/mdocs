@@ -10,6 +10,8 @@ cp -rf ../../app/src/src/* ./tmp/src/
 cp -rf ../../app/src/views/* ./tmp/views/
 cp -rf ../../app/src/resources ./tmp/resources
 cp -rf ../../app/src/.env_prod ./tmp/.env
+cp -rf ../../app/src/server.js ./tmp/server.js
+cp -rf ../../app/src/webpack-assets.json ./tmp/webpack-assets.json
 COMMIT_HASH=`git rev-parse HEAD`
 echo "{\"value\":\"${COMMIT_HASH}\"}" > ./tmp/src/revision.json
 cp ../../app/src/package.json ./tmp/package.json
