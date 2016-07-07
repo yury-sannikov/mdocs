@@ -128,6 +128,7 @@
     "clean-webpack-plugin": "*",
     "concurrently": "^2.2.0",
     "css-loader": "*",
+    "del": "^2.2.1",
     "eslint": "^2.13.1",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-config-standard": "^5.3.1",
