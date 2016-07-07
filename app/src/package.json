@@ -14,7 +14,7 @@
     "start-dev": "better-npm-run start-dev",
     "watch-client": "better-npm-run watch-client",
     "test": "NODE_ENV=test mocha --reporter spec",
-    "install": "npm-git-install",
+    "install": "npm-git-install || true",
     "lubricate": "npm cache clean && npm install && bower cache clean && bower install && gulp clean && gulp build && npm run build",
     "lint": "eslint --ignore-pattern server.js ./src/apps/",
     "validate": "npm ls"
