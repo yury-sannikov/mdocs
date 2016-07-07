@@ -63,6 +63,12 @@
       // 'public/lib/bootstrap/js/tab.js',
       // 'public/lib/bootstrap/js/affix.js'
       // =========================================
+      'public/app/oneui/assets/js/core/jquery.slimscroll.min.js',
+      'public/app/oneui/assets/js/core/jquery.scrollLock.min.js',
+      'public/app/oneui/assets/js/core/jquery.appear.min.js',
+      'public/app/oneui/assets/js/core/jquery.countTo.min.js',
+      'public/app/oneui/assets/js/core/jquery.placeholder.min.js',     
+      // =========================================
       'public/app/lib/fastclick/lib/fastclick.js',
       'public/app/js/main.js'
     ],

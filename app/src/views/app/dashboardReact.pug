@@ -1,0 +1,176 @@
+extends ../layouts/layoutNew.pug
+
+block head
+  title #{application} &middot; Dashboard
+
+block styles
+  each style, key in Object.keys(assets.styles)
+    link(href=assets.styles[style], key=key, media="screen, projection", rel="stylesheet", type="text/css", charset="UTF-8")
+
+  if (developmentStyles)
+    style.
+      !{developmentStyles}
+
+block styles
+  link(rel='stylesheet', href='/app/oneui/assets/js/plugins/slick/slick.min.css')
+  link(rel='stylesheet', href='/app/oneui/assets/js/plugins/slick/slick-theme.min.css')
+
+block scripts
+  script.
+    window.__data=!{reduxState};
+  script(src=assets.javascript.vendors)
+  script(src=assets.javascript.dashboard)
+  script(src='/app/oneui/assets/js/plugins/slick/slick.min.js')
+  //- script(src='/app/oneui/assets/js/plugins/chartjs/Chart.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js')
+  script.
+    var initProgressBarChart = function () {
+        // Get Chart Containers
+        var chartBarsCon   = jQuery('#chart-progress-bar')[0].getContext('2d');
+
+        // Set Chart and Chart Data variables
+        var chartBars;
+
+        // Set global chart options
+        var options = {
+          title: {
+            display: false,
+          },
+          legend: {
+            display: true,
+            position: 'bottom'
+          },
+          scales: {
+            xAxes: [{
+              gridLines: {
+                display: false
+              },
+              stacked: true,
+              ticks: {
+                beginAtZero:true
+              }
+            }],
+            yAxes: [{
+              display: false,
+              gridLines: {
+                display: false
+              },
+              stacked: true
+            }]
+          }
+        };
+
+        // Lines/Bar/Radar Chart Data
+        var data = {
+            labels: ["Invites"],
+            datasets: [
+                {
+                    label: "Sent",
+                    backgroundColor: "rgba(0,163,200,1)",
+                    borderColor: "rgba(0,163,200,1)",
+                    borderWidth: 1,
+                    hoverBackgroundColor: "rgba(0,163,200,0.8)",
+                    hoverBorderColor: "rgba(0,163,200,1)",
+                    data: [25],
+                },
+                {
+                    label: "Remaining",
+                    backgroundColor: "rgba(0,163,200,0)",
+                    borderColor: "rgba(0,163,200,1)",
+                    borderWidth: 1,
+                    hoverBackgroundColor: "rgba(0,0,0,0.1)",
+                    hoverBorderColor: "rgba(0,163,200,1)",
+                    data: [5],
+                }
+            ]
+        };
+
+        // Init Charts
+        // chartBars  = new Chart(chartBarsCon).Bar(chartLinesBarsRadarData, globalOptions);
+
+        chartBars = new Chart(chartBarsCon, {
+          type: 'horizontalBar',
+          data: data,
+          options: options
+        });
+    };
+
+    var initReviewsByMonthBarChart = function () {
+        // Get Chart Containers
+        var chartBarsCon   = jQuery('#chart-reviews-by-month')[0].getContext('2d');
+
+        // Set Chart and Chart Data variables
+        var chartBars;
+
+        // Set global chart options
+        var options = {
+          title: {
+            display: false,
+          },
+          legend: {
+            display: false,
+            position: 'bottom'
+          },
+          scales: {
+            xAxes: [{
+              min: 0,
+              gridLines: {
+                display: false
+              },
+              stacked: false,
+              ticks: {
+                display: true,
+                beginAtZero:true
+              }
+            }],
+            yAxes: [{
+              min: 0,
+              gridLines: {
+                display: true,
+                beginAtZero: true
+              },
+              stacked: false,
+              ticks: {
+                display: true,
+                beginAtZero:true
+              }
+            }]
+          }
+        };
+
+        // Lines/Bar/Radar Chart Data
+        var data = {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+            datasets: [
+              {
+                label: "Reviews",
+                backgroundColor: "rgba(0,163,200,1)",
+                borderColor: "rgba(0,163,200,1)",
+                borderWidth: 1,
+                hoverBackgroundColor: "rgba(0,163,200,0.8)",
+                hoverBorderColor: "rgba(0,163,200,1)",
+                data: [25, 35, 42, 54, 62, 70]
+              }
+            ]
+        };
+
+        // Init Charts
+        // chartBars  = new Chart(chartBarsCon).Bar(chartLinesBarsRadarData, globalOptions);
+
+        chartBars = new Chart(chartBarsCon, {
+          type: 'bar',
+          data: data,
+          options: options
+        });
+    };
+    $(document).ready(function() {
+      initProgressBarChart();
+      initReviewsByMonthBarChart();
+    });    
+block content
+  include ../partialsNew/fakeDashboard.pug
+  //- React rendered content
+  div(id='content') !{serverPrerender}
+  //- Isomorphic tools assets (debug only)
+  pre
+    sub #{JSON.stringify(assets, null, 2)}

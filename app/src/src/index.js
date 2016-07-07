@@ -1,6 +1,4 @@
 'use strict';
-require('./_babel');
-
 // 3rd party
 require('dotenv').config(); // Load env vars from .env, always run this early
 const Koa = require('koa');
@@ -150,13 +148,6 @@ app.use(require('./routes/reports').routes());
 
 ////////////////////////////////////////////////////////////
 
-// If we run this file directly (npm start, npm run start-dev, node src/index.js)
-// then start the server. Else, if we require() this file (like from
-// our tests), then don't start the server and instead just export the app.
-if (require.main === module) {
-  app.listen(config.PORT, function() {
-    debug('Listening on port', config.PORT);
-  });
-} else {
-  module.exports = app;
-}
+app.listen(config.PORT, function() {
+  debug('Listening on port', config.PORT);
+});

@@ -1,8 +1,14 @@
 'use strict';
-// We need the polyfill.
-require('babel-polyfill');
+var fs = require('fs');
 
-// Sourcemaps are nice.
-require('source-map-support/register');
+var babelrc = fs.readFileSync('./.babelrc');
+var config;
 
-require('babel-register');
+try {
+  config = JSON.parse(babelrc);
+} catch (err) {
+  console.error('==>     ERROR: Error parsing your .babelrc.');
+  console.error(err);
+}
+
+require('babel-register')(config);

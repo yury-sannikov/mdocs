@@ -5,7 +5,7 @@ import { checkAuthenticated, hasSubscription } from '../belt';
 import { sendEmailTrackingToSlack } from '../comm';
 import stream from 'koa-stream';
 import { getFutureInvoice, cancelSubscriptions, updateSessionSubscriptionInfo } from '../stripe';
-
+import { render as dashboardRender } from '../apps/dashboard/server';
 /*
 app:
   - login
@@ -69,6 +69,10 @@ router.post('/delete-subscription', checkAuthenticated, function* () {
 // Show Dashboard
 router.get('dashboard', '/', checkAuthenticated, function*() {
   this.render('app/dashboard', this.jadeLocals, true);
+});
+
+router.get('dashboardNew', '/dashboard*', checkAuthenticated, function*() {
+  yield dashboardRender(this, this.jadeLocals);
 });
 
 // Show Terms of Use
