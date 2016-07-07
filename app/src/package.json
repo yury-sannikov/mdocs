@@ -12,6 +12,7 @@
     "apps-dev": "concurrently --kill-others \"npm run watch-client\" \"npm run start-dev\"",
     "build": "better-npm-run build",
     "start-dev": "better-npm-run start-dev",
+    "start-prod": "better-npm-run start-prod",
     "watch-client": "better-npm-run watch-client",
     "test": "NODE_ENV=test mocha --reporter spec",
     "lubricate": "npm cache clean && npm install && bower cache clean && bower install && gulp clean && gulp build && npm run build",
@@ -19,6 +20,15 @@
     "validate": "npm ls"
   },
   "betterScripts": {
+    "start-prod": {
+      "command": "node ./server.js",
+      "env": {
+        "NODE_PATH": "./src",
+        "NODE_ENV": "production",
+        "DEBUG": "app:*",
+        "PORT": 3030
+      }
+    },
     "start-dev": {
       "command": "node ./server.js",
       "env": {
@@ -97,6 +107,7 @@
     "pug": "^2.0.0-alpha7",
     "pug-load": "^2.0.0",
     "react": "^15.2.0",
+    "react-dom": "^15.2.0",
     "react-redux": "^4.4.5",
     "react-render-visualizer-decorator": "^0.3.0",
     "react-router": "^2.5.1",
