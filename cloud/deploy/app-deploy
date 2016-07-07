@@ -4,7 +4,7 @@ rm -rf ./tmp
 set -e
 
 mkdir tmp
-mkdir tmp/public tmp/src tmp/views
+mkdir tmp/public tmp/src tmp/views tmp/webpack
 cp -rf ../../app/src/public/* ./tmp/public/
 cp -rf ../../app/src/src/* ./tmp/src/
 cp -rf ../../app/src/webpack/* ./tmp/webpack/
