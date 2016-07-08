@@ -15,6 +15,7 @@
   var pngquant      = require('imagemin-pngquant');
   var terminus      = require('terminus');
   var runSequence   = require('run-sequence');
+  var babel         = require('gulp-babel')
 
   /**
    * Banner
@@ -71,6 +72,9 @@
       // =========================================
       'public/app/lib/fastclick/lib/fastclick.js',
       'public/app/js/main.js'
+    ],
+    widgetsjs: [
+      'src/widgets/widgets.js'
     ],
     lint: [
       'config/**/*.js',
@@ -139,6 +143,23 @@
   });
 
   /**
+   * Process Widget Scripts
+   */
+
+  gulp.task('widgets', function () {
+    return gulp.src(paths.widgetsjs)
+      .pipe($.concat('widgets.js'))
+      .pipe(babel({
+        presets: ['es2015', 'stage-0']
+      }))
+      .pipe(gulp.dest('./public/app/js'))
+      .pipe($.rename({ suffix: '.min' }))
+      .pipe($.uglify({ outSourceMap: false }))
+      .pipe($.size({ title: 'JS:' }))
+      .pipe(gulp.dest('./public/app/js'));
+  });
+
+  /**
    * Process Images
    */
 
@@ -188,7 +209,7 @@
     runSequence(
       'clean',                                // first clean
       ['lint', 'jscs'],                       // then lint and jscs in parallel
-      ['styles', 'scripts', 'images'],        // etc.
+      ['styles', 'scripts', 'widgets', 'images'],        // etc.
       cb);
   });
 
