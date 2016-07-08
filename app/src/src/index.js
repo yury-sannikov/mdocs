@@ -5,6 +5,8 @@ const Koa = require('koa');
 const bouncer = require('koa-bouncer');
 const Pug = require('koa-pug');
 const debug = require('debug')('app:index');
+const path = require('path');
+
 // 1st party
 const config = require('./config');
 const mw = require('./middleware');
@@ -81,6 +83,7 @@ app.use(require('koa-static')('public', {
   maxage: 1000 * 60 * 15,
   gzip: true
 }));
+
 // Don't show logger in test mode
 if (config.NODE_ENV !== 'test') {
   app.use(require('koa-logger')());
@@ -145,6 +148,7 @@ app.use(function*(next) {
 
 app.use(require('./routes').routes());
 app.use(require('./routes/reports').routes());
+app.use(require('./routes/widgets').routes());
 
 ////////////////////////////////////////////////////////////
 
