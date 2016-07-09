@@ -4,7 +4,7 @@
     {
       "name": "Sarah Fletcher, MD",
       "type": "Doctor",
-      "bias": 3,
+      "bias": 0,
       "phone": "(703) 421-7000",
       "address": "21135 WHITFIELD PL",
       "zip": "20165-7283",
@@ -334,8 +334,8 @@
       "type": "Doctor",
       "bias": 0,
       "phone": "(571) 234-5678",
-      "address": "8321 Old Courthouse Rd.",
-      "zip": "22182",
+      "address": "8321 OLD COURTHOUSE RD",
+      "zip": "22182-3817",
       "sites": [
         {
           "site": "Google",
@@ -364,14 +364,77 @@
           "url": "https://local.yahoo.com/info-12689317-liberty-laser-eye-center-viennaundefined?stx=Liberty%20Laser%20Eye%20Center&csz=22182&fr=lsrp"
         }
       ],
-      "city": "Vienna",
+      "city": "VIENNA",
       "state": "VA",
       "yelpcategory": "optometrists",
       "reviews": [],
       "uuid": "32bac815-0d9b-49f3-a99c-1bb2c784f942",
       "key": "32bac815-0d9b-49f3-a99c-1bb2c784f942-liberty-laser",
       "reportDate": "06/30/2016",
-      "providerName": "Liberty Laser Eye Center"
+      "providerName": "Liberty Laser Eye Center",
+      "address2": "",
+      "country": "US"
+    },
+    {
+      "name": "Shailendra Kumar, MD",
+      "type": "Doctor",
+      "bias": 0,
+      "phone": "301-477-2000",
+      "address": "50 W EDMONSTON DR",
+      "zip": "20852-1228",
+      "sites": [
+        {
+          "site": "Google",
+          "title": "Dr. Shailendra Kumar, MD",
+          "place_id": "ChIJjR1u17rNt4kRjQQNkfaSXHY",
+          "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJjR1u17rNt4kRjQQNkfaSXHY"
+        },
+        {
+          "site": "HealthGrades",
+          "title": "Dr. Shailendra Kumar, MD",
+          "url": "https://www.healthgrades.com/physician/dr-shailendra-kumar-xfwqh"
+        },
+        {
+          "site": "Vitals",
+          "title": "Shailendra Kumar MD",
+          "url": "http://www.vitals.com/doctors/Dr_Shailendra_Kumar.html"
+        },
+        {
+          "site": "Yelp",
+          "title": "Kumar Shailendra, MD",
+          "url": "http://www.yelp.com/biz/kumar-shailendra-md-rockville"
+        },
+        {
+          "site": "RateMDs",
+          "title": "Dr. Agarwal Shailendra Kumar",
+          "url": "https://www.ratemds.com/doctor-ratings/3792393/Dr-Agarwal+Shailendra-Kumar-Firozabad-UP.html"
+        },
+        {
+          "site": "MerchantCircle",
+          "title": "Shailendra Kumar MD",
+          "url": "http://www.merchantcircle.com/shailendra-kumar-md-rockville-md"
+        },
+        {
+          "site": "YellowPages",
+          "title": "Kumar Shailendra MD",
+          "url": "http://www.yellowpages.com/rockville-md/mip/kumar-shailendra-md-11082075?lid=11082075"
+        },
+        {
+          "site": "Yahoo",
+          "title": "Kumar Shailendra, MD",
+          "url": "https://local.yahoo.com/info-12505012-kumar-shailendra-md-rockvilleundefined?stx=Shailendra%20Kumar,%20MD&csz=20852-1228&fr=lsrp"
+        }
+      ],
+      "yelpcategory": "urologists",
+      "uuid": "47704ac5-780d-4dc4-96d4-ec6286305faf",
+      "key": "47704ac5-780d-4dc4-96d4-ec6286305faf-shailendra-kumar",
+      "reportDate": "07/08/2016",
+      "providerName": "Shailendra Kumar, MD",
+      "reviews": [],
+      "address2": "",
+      "city": "ROCKVILLE",
+      "state": "MD",
+      "country": "US"
     }
   ]
 }
