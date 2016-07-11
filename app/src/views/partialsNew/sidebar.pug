@@ -24,155 +24,46 @@
             span.sidebar-mini-hide Dashboard
         li.nav-main-heading
           span.sidebar-mini-hide Patient Reviews
-        li(data-ng-class="{open: (path.indexOf('/ui/') > -1)}")
-          a.nav-submenu(data-toggle='nav-submenu', href='/app')
-            i.si.si-bar-chart
-            span.sidebar-mini-hide Analytics
-          ul
-            li
-              a(data-ui-sref='uiActivity', data-ui-sref-active='active') Activity
-            li
-              a(data-ui-sref='uiTabs', data-ui-sref-active='active') Tabs
-            li
-              a(data-ui-sref='uiModalsTooltips', data-ui-sref-active='active') Modals & Tooltips
-            li
-              a(data-ui-sref='uiColorThemes', data-ui-sref-active='active') Color Themes
-            li
-              a(data-ui-sref='uiBlocksDraggable', data-ui-sref-active='active') Draggable Blocks
-            li(data-ng-class="{open: (path.indexOf('/ui/chat/') > -1)}")
-              a.nav-submenu(data-toggle='nav-submenu', href='#') Chat
-              ul
-                li
-                  a(data-ui-sref='uiChatFull', data-ui-sref-active='active') Full
-                li
-                  a(data-ui-sref='uiChatFixed', data-ui-sref-active='active') Fixed
-                li
-                  a(data-ui-sref='uiChatPopup', data-ui-sref-active='active') Popup
-        li(data-ng-class="{open: (path.indexOf('/ui/') > -1)}")
-          a.nav-submenu(data-toggle='nav-submenu', href='/app/pr/phi/patient-reviews')
-            i.si.si-badge
-            span.sidebar-mini-hide Reviews
-          ul
-            li
-              a(data-ui-sref='uiActivity', data-ui-sref-active='active') Activity
-            li
-              a(data-ui-sref='uiTabs', data-ui-sref-active='active') Tabs
-            li
-              a(data-ui-sref='uiModalsTooltips', data-ui-sref-active='active') Modals & Tooltips
-            li
-              a(data-ui-sref='uiColorThemes', data-ui-sref-active='active') Color Themes
-            li
-              a(data-ui-sref='uiBlocksDraggable', data-ui-sref-active='active') Draggable Blocks
-            li(data-ng-class="{open: (path.indexOf('/ui/chat/') > -1)}")
-              a.nav-submenu(data-toggle='nav-submenu', href='#') Chat
-              ul
-                li
-                  a(data-ui-sref='uiChatFull', data-ui-sref-active='active') Full
-                li
-                  a(data-ui-sref='uiChatFixed', data-ui-sref-active='active') Fixed
-                li
-                  a(data-ui-sref='uiChatPopup', data-ui-sref-active='active') Popup
-        li(data-ng-class="{open: (path.indexOf('/tables/') > -1)}")
-          a.nav-submenu(data-toggle='nav-submenu', href='#')
-            i.si.si-grid
-            span.sidebar-mini-hide Tables
-          ul
-            li
-              a(data-ui-sref='tablesTools', data-ui-sref-active='active') Tools
-            li
-              a(data-ui-sref='tablesDatatables', data-ui-sref-active='active') DataTables
-        li(data-ng-class="{open: (path.indexOf('/forms/') > -1)}")
-          a.nav-submenu(data-toggle='nav-submenu', href='#')
-            i.si.si-note
-            span.sidebar-mini-hide Forms
-          ul
-            li
-              a(data-ui-sref='formsPickersMore', data-ui-sref-active='active') Pickers & More
-            li
-              a(data-ui-sref='formsEditors', data-ui-sref-active='active') Text Editors
-            li
-              a(data-ui-sref='formsValidation', data-ui-sref-active='active') Validation
-            li
-              a(data-ui-sref='formsWizard', data-ui-sref-active='active') Wizard
-        li(data-ng-class="{open: (path.indexOf('/components/') > -1)}")
-          a.nav-submenu(data-toggle='nav-submenu', href='#')
-            i.si.si-wrench
-            span.sidebar-mini-hide Components
-          ul
-            li
-              a(data-ui-sref='compCharts', data-ui-sref-active='active') Charts
-            li
-              a(data-ui-sref='compCalendar', data-ui-sref-active='active') Calendar
-            li
-              a(data-ui-sref='compSliders', data-ui-sref-active='active') Sliders
-            li
-              a(data-ui-sref='compScrolling', data-ui-sref-active='active') Scrolling
-            li
-              a(data-ui-sref='compSyntaxHighlighting', data-ui-sref-active='active') Syntax Highlighting
-            li
-              a(data-ui-sref='compRating', data-ui-sref-active='active') Rating
-            li
-              a(data-ui-sref='compTreeview', data-ui-sref-active='active') Tree View
-            li(data-ng-class="{open: (path.indexOf('/components/maps/') > -1)}")
-              a.nav-submenu(data-toggle='nav-submenu', href='#') Maps
-              ul
-                li
-                  a(data-ui-sref='compMapsGoogle', data-ui-sref-active='active') Google
-                li
-                  a(data-ui-sref='compMapsGoogleFull', data-ui-sref-active='active') Google Full
-                li
-                  a(data-ui-sref='compMapsVector', data-ui-sref-active='active') Vector
-            li(data-ng-class="{open: (path.indexOf('/components/gallery/') > -1)}")
-              a.nav-submenu(data-toggle='nav-submenu', href='#') Gallery
-              ul
-                li
-                  a(data-ui-sref='compGallerySimple', data-ui-sref-active='active') Simple
-                li
-                  a(data-ui-sref='compGalleryAdvanced', data-ui-sref-active='active') Advanced
-        li.nav-main-heading
-          span.sidebar-mini-hide Appointments
         li
           a(data-ui-sref='blocks', data-ui-sref-active='active')
-            i.si.si-frame
-            span.sidebar-mini-hide Blocks
-        li
-          a(data-ui-sref='layout', data-ui-sref-active='active')
-            i.si.si-magic-wand
-            span.sidebar-mini-hide Layout
-        li.nav-main-heading
-          span.sidebar-mini-hide Bill Pay
+            i.si.si-speedometer
+            span.sidebar-mini-hide Overview
         li
           a(data-ui-sref='blocks', data-ui-sref-active='active')
-            i.si.si-frame
-            span.sidebar-mini-hide Blocks
-        li
-          a(data-ui-sref='layout', data-ui-sref-active='active')
-            i.si.si-magic-wand
-            span.sidebar-mini-hide Layout
+            i.si.si-star
+            span.sidebar-mini-hide Patient Reviews
         li.nav-main-heading
           span.sidebar-mini-hide Settings
         li
           a(data-ui-sref='providersLocations', data-ui-sref-active='active', href='/app/pr/providers')
             i.si.si-user
-            span.sidebar-mini-hide Providers/Locations
+            span.sidebar-mini-hide Profiles
         li
           a(data-ui-sref='myProfile', data-ui-sref-active='active', href='/app/profile')
             i.si.si-pin
-            span.sidebar-mini-hide My Profile
+            span.sidebar-mini-hide Account
         li
           a(data-ui-sref='widget', data-ui-sref-active='active')
             i.fa.fa-code
             span.sidebar-mini-hide Website Widget
-        li
-          a(data-ui-sref='billing', data-ui-sref-active='active')
-            i.si.si-credit-card
-            span.sidebar-mini-hide Billing
         li.nav-main-heading
           span.sidebar-mini-hide Help
         li
           a(data-ui-sref='help', data-ui-sref-active='active')
             i.si.si-question
             span.sidebar-mini-hide Help
+        li
+          a(data-ui-sref='help', data-ui-sref-active='active')
+            i.si.si-question
+            span.sidebar-mini-hide Privacy
+        li
+          a(data-ui-sref='help', data-ui-sref-active='active')
+            i.si.si-question
+            span.sidebar-mini-hide Agreement
+        li
+          a(data-ui-sref='help', data-ui-sref-active='active')
+            i.si.si-question
+            span.sidebar-mini-hide Terms of Use
     // END Side Content
   // Sidebar Content
 // END Sidebar Scroll Container
