@@ -23,9 +23,6 @@ const _originalPugLoad = pugLoad.resolve;
 pugLoad.resolve = function pugLoadOverrideHack(filename, source, options) {
   let result = _originalPugLoad(filename, source, options);
 
-  if (filename.indexOf('layout.pug') !== -1) {
-    return result.replace('layout.pug', 'layoutNew.pug');
-  }
   return result;
 }
 
