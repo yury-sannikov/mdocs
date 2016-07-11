@@ -48,6 +48,10 @@ router.get('/logout', function() {
   this.redirect('https://pr.mdocs.co');
 });
 
+router.get('/welcome', checkAuthenticated, function* () {
+  this.render('app/welcome', this.jadeLocals, true);
+});
+
 router.get('/profile', checkAuthenticated, function* () {
   this.render('app/profile', this.jadeLocals, true);
 });
@@ -73,6 +77,11 @@ router.get('dashboard', '/', checkAuthenticated, function*() {
 
 router.get('dashboardNew', '/dashboard*', checkAuthenticated, function*() {
   yield dashboardRender(this, this.jadeLocals);
+});
+
+// Show Help
+router.get('/help', function*() {
+  this.render('legal/help', this.jadeLocals, true);
 });
 
 // Show Terms of Use

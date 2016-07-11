@@ -5,63 +5,62 @@
   .sidebar-content
     // Side Header
     .side-header.side-content.bg-white-op
-      button.btn.btn-link.text-gray.pull-right.hidden-md.hidden-lg(type='button', data-ng-click='oneui.settings.sidebarOpenXs = false', data-js-blur='')
+      button.btn.btn-link.text-gray.pull-right.hidden-md.hidden-lg(type='button')
         i.fa.fa-timesa
-      a.h5.text-white(data-ui-sref='dashboard', data-js-blur='')
+      a.h5.text-white(href='/app/dashboard')
         img(src='/app/oneui/assets/img/mdocs-logo-horizontal-white-type.png', style='height:40px;float:left;')
     // END Side Header
     // Side Content
     .side-content
-      // Main navigation functionality (data-js-main-nav attribute is initialized in js/directives.js)
-      ul.nav-main(data-js-main-nav='')
+      ul.nav-main
         li
-          a(data-ui-sref='welcome', data-ui-sref-active='active')
+          a(href='/app/welcome')
             i.si.si-rocket
             span.sidebar-mini-hide Welcome
         li
-          a(data-ui-sref='dashboard', data-ui-sref-active='active')
+          a(href='/app/dashboard')
             i.si.si-speedometer
             span.sidebar-mini-hide Dashboard
         li.nav-main-heading
           span.sidebar-mini-hide Patient Reviews
         li
-          a(data-ui-sref='blocks', data-ui-sref-active='active')
+          a(href='/app/dashboard')
             i.si.si-speedometer
             span.sidebar-mini-hide Overview
         li
-          a(data-ui-sref='blocks', data-ui-sref-active='active')
+          a(href='/app/pr/phi/patient-reviews')
             i.si.si-star
             span.sidebar-mini-hide Patient Reviews
         li.nav-main-heading
           span.sidebar-mini-hide Settings
         li
-          a(data-ui-sref='providersLocations', data-ui-sref-active='active', href='/app/pr/providers')
+          a(href='/app/pr/providers')
             i.si.si-user
             span.sidebar-mini-hide Profiles
         li
-          a(data-ui-sref='myProfile', data-ui-sref-active='active', href='/app/profile')
+          a(href='/app/profile')
             i.si.si-pin
             span.sidebar-mini-hide Account
         li
-          a(data-ui-sref='widget', data-ui-sref-active='active')
+          a
             i.fa.fa-code
             span.sidebar-mini-hide Website Widget
         li.nav-main-heading
           span.sidebar-mini-hide Help
         li
-          a(data-ui-sref='help', data-ui-sref-active='active')
+          a(href='/app/help')
             i.si.si-question
             span.sidebar-mini-hide Help
         li
-          a(data-ui-sref='help', data-ui-sref-active='active')
+          a(href='/app/privacy')
             i.si.si-question
             span.sidebar-mini-hide Privacy
         li
-          a(data-ui-sref='help', data-ui-sref-active='active')
+          a(href='/app/agreement')
             i.si.si-question
             span.sidebar-mini-hide Agreement
         li
-          a(data-ui-sref='help', data-ui-sref-active='active')
+          a(href='/app/terms')
             i.si.si-question
             span.sidebar-mini-hide Terms of Use
     // END Side Content
