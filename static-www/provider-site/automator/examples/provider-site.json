@@ -1,0 +1,1243 @@
+[
+  {
+     "name":"Liberty Laser Eye Center",
+     "type":"Doctor",
+     "providerCatogory": "Laser Eye Surgery Center",
+     "bias":0,
+     "phone":"(571) 234-5678",
+     "address":"8321 Old Courthouse Rd.",
+     "zip":"22182",
+     "sites":[
+        {
+           "site":"Google",
+           "title":"Liberty Laser Eye Center",
+           "place_id":"ChIJgynDuPtKtokRl-Qpz2EKu_w",
+           "url":"https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJgynDuPtKtokRl-Qpz2EKu_w"
+        },
+        {
+           "site":"Yelp",
+           "title":"Liberty Laser Eye Center",
+           "url":"http://www.yelp.com/biz/liberty-laser-eye-center-vienna"
+        },
+        {
+           "site":"YellowPages",
+           "title":"TLC Laser Eye Centers",
+           "url":"http://www.yellowpages.com/nationwide/mip/tlc-laser-eye-centers-505246156?lid=1001230289823"
+        },
+        {
+           "site":"MerchantCircle",
+           "title":"Liberty Laser Eye Center",
+           "url":"http://www.merchantcircle.com/liberty-laser-eye-center-vienna-va"
+        },
+        {
+           "site":"Yahoo",
+           "title":"Liberty Laser Eye Center",
+           "url":"https://local.yahoo.com/info-12689317-liberty-laser-eye-center-viennaundefined?stx=Liberty%20Laser%20Eye%20Center&csz=22182&fr=lsrp"
+        }
+     ],
+     "city":"Vienna",
+     "state":"VA",
+     "yelpcategory":"laserlasikeyes",
+     "reviews":[
+        {
+           "siteId":"Yelp",
+           "siteName":"YELP.COM",
+           "siteUrl":"http://www.yelp.com/biz/liberty-laser-eye-center-vienna",
+           "addressAccurate":true,
+           "reviewCount":20,
+           "rating":5
+        },
+        {
+           "siteId":"YellowPages",
+           "siteName":"YELLOWPAGES.COM",
+           "siteUrl":"http://www.yellowpages.com/nationwide/mip/tlc-laser-eye-centers-505246156?lid=1001230289823",
+           "addressAccurate":true,
+           "reviewCount":0,
+           "rating":0
+        },
+        {
+           "siteId":"MerchantCircle",
+           "siteName":"MERCHANTCIRCLE.COM",
+           "siteUrl":"http://www.merchantcircle.com/liberty-laser-eye-center-vienna-va",
+           "addressAccurate":true,
+           "reviewCount":0,
+           "rating":4.3
+        },
+        {
+           "siteId":"Yahoo",
+           "siteName":"LOCAL.YAHOO.COM",
+           "siteUrl":"https://local.yahoo.com/info-12689317-liberty-laser-eye-center-viennaundefined?stx=Liberty%20Laser%20Eye%20Center&csz=22182&fr=lsrp",
+           "addressAccurate":true,
+           "reviewCount":19,
+           "rating":5
+        },
+        {
+           "siteId":"Google",
+           "siteName":"GOOGLE.COM",
+           "siteUrl":"https://maps.google.com/?cid=18211160933406467223",
+           "addressAccurate":true,
+           "reviewCount":5,
+           "rating":5,
+           "reviews":[
+              {
+                 "aspects":[
+                    {
+                       "rating":3,
+                       "type":"overall"
+                    }
+                 ],
+                 "author_name":"Joe Nazari",
+                 "author_url":"https://plus.google.com/107770125108752633569",
+                 "language":"en",
+                 "rating":5,
+                 "text":"I tried so many eye centers that offered LASIK and was denied due to having thin corneas. I finally heard about Liberty Laser Eye Center from a coworker. Dr. Tanchel performed Z-LASIK on my eyes. It took less than 30 minutes and the next day I had a pair of new eyes. It is by far the best eye center and one of a kind. I then recommended Dr. Tanchel to two other friends of mine who did their LASIK at this center. If you have thin corneas like I do then Dr. Tanchel is the best and only choice you have got.",
+                 "time":1445021747
+              },
+              {
+                 "aspects":[
+                    {
+                       "rating":3,
+                       "type":"overall"
+                    }
+                 ],
+                 "author_name":"Olivia Roberts",
+                 "author_url":"https://plus.google.com/105468313867713283143",
+                 "language":"en",
+                 "profile_photo_url":"//lh5.googleusercontent.com/-ONkFCPogxhU/AAAAAAAAAAI/AAAAAAAAAJ8/S6qVZMQNOX8/photo.jpg",
+                 "rating":5,
+                 "text":"I bought a Groupon here earlier this year, and it was the best decision of my life. The people at Liberty Laser were very attentive and thorough throughout the entire process. My mom was even able to watch the proceedure looking through an observation window!\n\nI was especially impressed by how Dr. Tanchel handled the proceedure itself. I had not been nervous about the proceedure for the entire time leading up to it, however, just as I sat down in the chair and saw the machines, I became very nervous. Thankfully, Dr. Tanchel talked soothingly throughout for the entire duration of the proceedure, explaining what she was doing, giving direction when necessary, and assuring me that I was doing well and everything was working perfectly. I was so thankful for her constant reassurance through the process.\n\nI am very particular about my vision, and for the month or so after the proceedure, I was constantly reevaluating my \"new\" vision and how it compared to my \"old\" vision with glasses. Sometimes, I thought my vision was inconsistent and I found it annoying at times and absolutely distressing at others. But she assured me that that was normal, explained that much of that was due to dryness and the general healing process, and sure enough, my vision is stable and absolutely wonderful all the time (except when my eyes are dry at the beginning and end of day, but that's how our eyes normally are). I have not experienced any excessive dryness or any other problems.\n\nI can hardly believe that I ever wore glasses. It has been incredibly liberating to not have to wear glasses (because I hated wearing contacts, so those weren't an option), and I've found that I actually don't miss wearing glasses like I thought I might. When I do want to wear glasses, I have a cute pair with simple glass lenses. I get the best of both worlds!!",
+                 "time":1356618027
+              },
+              {
+                 "aspects":[
+                    {
+                       "rating":3,
+                       "type":"overall"
+                    }
+                 ],
+                 "author_name":"Keri Burleson",
+                 "author_url":"https://plus.google.com/116806896286304942911",
+                 "language":"en",
+                 "profile_photo_url":"//lh4.googleusercontent.com/-lpoFK3ElB1M/AAAAAAAAAAI/AAAAAAAAI0g/nArcL-CzAt0/photo.jpg",
+                 "rating":5,
+                 "text":"I had an excellent experience with Dr. Tanchel and company.  The doctor sees you at every visit, and the no hassle, no \"different deal every few weeks\" pricing is very straight forward and easy to understand.",
+                 "time":1407797183
+              },
+              {
+                 "aspects":[
+                    {
+                       "rating":3,
+                       "type":"overall"
+                    }
+                 ],
+                 "author_name":"Kelly G Fernandez",
+                 "author_url":"https://plus.google.com/105760324855321026603",
+                 "language":"en",
+                 "profile_photo_url":"//lh5.googleusercontent.com/-q2ra3zQoTgM/AAAAAAAAAAI/AAAAAAAAARA/yqnxEYb8j4c/photo.jpg",
+                 "rating":5,
+                 "text":"Dr. Tanchel and her staff are phenomenal. They are friendly and work great as a team. My appointments started on time and went quickly, and 24 hours after my surgery I was 20/20! I couldn't have asked for a better experience.",
+                 "time":1335548319
+              },
+              {
+                 "aspects":[
+                    {
+                       "rating":3,
+                       "type":"overall"
+                    }
+                 ],
+                 "author_name":"A Google User",
+                 "language":"en",
+                 "rating":5,
+                 "text":"friendly staff - Dr. Tanchel is great!!!",
+                 "time":1294694644
+              }
+           ],
+           "locationDetails":{
+              "lat":38.913993,
+              "lng":-77.233094
+           },
+           "website":"http://www.libertylasereye.com/",
+           "phone":[
+              "(571) 234-5678",
+              "+1 571-234-5678"
+           ]
+        }
+     ],
+     "uuid":"32bac815-0d9b-49f3-a99c-1bb2c784f942",
+     "key":"32bac815-0d9b-49f3-a99c-1bb2c784f942-liberty-laser",
+     "reportDate":"06/30/2016",
+     "providerName":"Liberty Laser Eye Center",
+     "providerAddress":"8321 Old Courthouse Rd.<br>Vienna, VA 22182<br>(571) 234-5678",
+     "competitors":{
+        "yelpBusiness":{
+           "is_claimed":true,
+           "rating":5,
+           "mobile_url":"http://m.yelp.com/biz/liberty-laser-eye-center-vienna?utm_campaign=yelp_api&utm_medium=api_v2_business&utm_source=2UolyG7wPxAoqO3-xijMUA",
+           "rating_img_url":"https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+           "review_count":20,
+           "name":"Liberty Laser Eye Center",
+           "rating_img_url_small":"https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+           "url":"http://www.yelp.com/biz/liberty-laser-eye-center-vienna?utm_campaign=yelp_api&utm_medium=api_v2_business&utm_source=2UolyG7wPxAoqO3-xijMUA",
+           "categories":[
+              [
+                 "Optometrists",
+                 "optometrists"
+              ],
+              [
+                 "Ophthalmologists",
+                 "opthamalogists"
+              ],
+              [
+                 "Laser Eye Surgery/Lasik",
+                 "laserlasikeyes"
+              ]
+           ],
+           "reviews":[
+              {
+                 "rating":5,
+                 "excerpt":"Friendly and professional staff.\nNot just flawless surgery, but excellent follow ups (if needed) as well.\nWould recommend to family and friends thinking of...",
+                 "time_created":1454524444,
+                 "rating_image_url":"https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+                 "rating_image_small_url":"https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+                 "user":{
+                    "image_url":"http://s3-media3.fl.yelpcdn.com/photo/ozJA97JRt85dgkiVz2FNMw/ms.jpg",
+                    "id":"wksXfxpGjg7hQUMcintcpw",
+                    "name":"Randy F."
+                 },
+                 "rating_image_large_url":"https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+                 "id":"5_WqbW8nYlNQwv8lQ1p0eQ"
+              }
+           ],
+           "phone":"5712345678",
+           "snippet_text":"Friendly and professional staff.\nNot just flawless surgery, but excellent follow ups (if needed) as well.\nWould recommend to family and friends thinking of...",
+           "image_url":"https://s3-media2.fl.yelpcdn.com/bphoto/KMFggtQ3iJqDFH6zcVaXpQ/ms.jpg",
+           "snippet_image_url":"http://s3-media3.fl.yelpcdn.com/photo/ozJA97JRt85dgkiVz2FNMw/ms.jpg",
+           "display_phone":"+1-571-234-5678",
+           "rating_img_url_large":"https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+           "id":"liberty-laser-eye-center-vienna",
+           "is_closed":false,
+           "location":{
+              "city":"Vienna",
+              "display_address":[
+                 "8321 Old Courthouse Rd",
+                 "Ste 110",
+                 "Tysons Corner",
+                 "Vienna, VA 22182"
+              ],
+              "geo_accuracy":8,
+              "neighborhoods":[
+                 "Tysons Corner"
+              ],
+              "postal_code":"22182",
+              "country_code":"US",
+              "address":[
+                 "8321 Old Courthouse Rd",
+                 "Ste 110"
+              ],
+              "coordinate":{
+                 "latitude":38.9139214,
+                 "longitude":-77.2330399
+              },
+              "state_code":"VA"
+           }
+        },
+        "yelpCompetitors":[
+           {
+              "is_claimed":true,
+              "rating":5,
+              "mobile_url":"http://m.yelp.com/biz/annandale-eyecare-annandale-3?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+              "review_count":22,
+              "name":"Annandale EyeCare",
+              "snippet_image_url":"https://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/cc4afe21892e/assets/img/default_avatars/user_medium_square.png",
+              "rating_img_url_small":"https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+              "url":"http://www.yelp.com/biz/annandale-eyecare-annandale-3?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ],
+                 [
+                    "Eyewear & Opticians",
+                    "opticians"
+                 ],
+                 [
+                    "Medical Centers",
+                    "medcenters"
+                 ]
+              ],
+              "phone":"7039414111",
+              "snippet_text":"I have been very pleased with my experience with Annandale Eyecare. The professionalism, friendliness and courtesy of the Doctors and staff was exceptional....",
+              "image_url":"https://s3-media4.fl.yelpcdn.com/bphoto/LX1v-E_JPa4bx73CHimfFg/ms.jpg",
+              "location":{
+                 "city":"Annandale",
+                 "display_address":[
+                    "7540 Little River Tpke",
+                    "Ste B",
+                    "Annandale, VA 22003"
+                 ],
+                 "geo_accuracy":9.5,
+                 "postal_code":"22003",
+                 "country_code":"US",
+                 "address":[
+                    "7540 Little River Tpke",
+                    "Ste B"
+                 ],
+                 "coordinate":{
+                    "latitude":38.832806,
+                    "longitude":-77.2071145
+                 },
+                 "state_code":"VA"
+              },
+              "display_phone":"+1-703-941-4111",
+              "rating_img_url_large":"https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+              "id":"annandale-eyecare-annandale-3",
+              "is_closed":false,
+              "distance":9295.26581056738
+           },
+           {
+              "is_claimed":true,
+              "rating":5,
+              "mobile_url":"http://m.yelp.com/biz/liberty-laser-eye-center-vienna?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+              "review_count":20,
+              "name":"Liberty Laser Eye Center",
+              "snippet_image_url":"http://s3-media3.fl.yelpcdn.com/photo/ozJA97JRt85dgkiVz2FNMw/ms.jpg",
+              "rating_img_url_small":"https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+              "url":"http://www.yelp.com/biz/liberty-laser-eye-center-vienna?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ],
+                 [
+                    "Ophthalmologists",
+                    "opthamalogists"
+                 ],
+                 [
+                    "Laser Eye Surgery/Lasik",
+                    "laserlasikeyes"
+                 ]
+              ],
+              "phone":"5712345678",
+              "snippet_text":"Friendly and professional staff.\nNot just flawless surgery, but excellent follow ups (if needed) as well.\nWould recommend to family and friends thinking of...",
+              "image_url":"https://s3-media2.fl.yelpcdn.com/bphoto/KMFggtQ3iJqDFH6zcVaXpQ/ms.jpg",
+              "location":{
+                 "city":"Vienna",
+                 "display_address":[
+                    "8321 Old Courthouse Rd",
+                    "Ste 110",
+                    "Tysons Corner",
+                    "Vienna, VA 22182"
+                 ],
+                 "geo_accuracy":8,
+                 "neighborhoods":[
+                    "Tysons Corner"
+                 ],
+                 "postal_code":"22182",
+                 "country_code":"US",
+                 "address":[
+                    "8321 Old Courthouse Rd",
+                    "Ste 110"
+                 ],
+                 "coordinate":{
+                    "latitude":38.9139214,
+                    "longitude":-77.2330399
+                 },
+                 "state_code":"VA"
+              },
+              "display_phone":"+1-571-234-5678",
+              "rating_img_url_large":"https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+              "id":"liberty-laser-eye-center-vienna",
+              "is_closed":false,
+              "distance":9.267199838632413
+           },
+           {
+              "is_claimed":false,
+              "rating":5,
+              "mobile_url":"http://m.yelp.com/biz/larson-leonard-od-falls-church?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+              "review_count":17,
+              "name":"Larson Leonard, OD",
+              "snippet_image_url":"http://s3-media2.fl.yelpcdn.com/photo/qoait_9VIgsswaXH3ZtL7g/ms.jpg",
+              "rating_img_url_small":"https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+              "url":"http://www.yelp.com/biz/larson-leonard-od-falls-church?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ]
+              ],
+              "phone":"7035348111",
+              "snippet_text":"Dr. Larson is very professional and skilled, reasonably priced, friendly, and compassionate.  We will continue to use him, and to recommend him to others.",
+              "image_url":"https://s3-media2.fl.yelpcdn.com/bphoto/tKMStuI5jqdAx6KcE-3Jeg/ms.jpg",
+              "location":{
+                 "city":"Falls Church",
+                 "display_address":[
+                    "444 W Broad St",
+                    "Ste M",
+                    "Falls Church City",
+                    "Falls Church, VA 22046"
+                 ],
+                 "geo_accuracy":8,
+                 "neighborhoods":[
+                    "Falls Church City"
+                 ],
+                 "postal_code":"22046",
+                 "country_code":"US",
+                 "address":[
+                    "444 W Broad St",
+                    "Ste M"
+                 ],
+                 "coordinate":{
+                    "latitude":38.88636,
+                    "longitude":-77.17721
+                 },
+                 "state_code":"VA"
+              },
+              "display_phone":"+1-703-534-8111",
+              "rating_img_url_large":"https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+              "id":"larson-leonard-od-falls-church",
+              "is_closed":false,
+              "distance":5746.845544080686
+           },
+           {
+              "is_claimed":true,
+              "rating":5,
+              "mobile_url":"http://m.yelp.com/biz/andrew-e-holzman-md-facs-mclean?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+              "review_count":14,
+              "name":"Andrew E. Holzman, MD, FACS",
+              "snippet_image_url":"http://s3-media2.fl.yelpcdn.com/photo/KEi7WTv0Upq9S9kErN-WhA/ms.jpg",
+              "rating_img_url_small":"https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+              "url":"http://www.yelp.com/biz/andrew-e-holzman-md-facs-mclean?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ],
+                 [
+                    "Ophthalmologists",
+                    "opthamalogists"
+                 ],
+                 [
+                    "Laser Eye Surgery/Lasik",
+                    "laserlasikeyes"
+                 ]
+              ],
+              "phone":"7035569155",
+              "snippet_text":"If you are a candidate for laser eye correction, call this man.  Like.....NOW.\n\nYou arrive at TLC nervous, naturally.  You are, in fact, about to have a...",
+              "image_url":"https://s3-media4.fl.yelpcdn.com/bphoto/SVAH2gbd2h16NVtsQLz_3Q/ms.jpg",
+              "location":{
+                 "city":"McLean",
+                 "display_address":[
+                    "7930 Jones Branch Dr",
+                    "Ste 250",
+                    "Tysons Corner",
+                    "McLean, VA 22102"
+                 ],
+                 "geo_accuracy":8,
+                 "neighborhoods":[
+                    "Tysons Corner"
+                 ],
+                 "postal_code":"22102",
+                 "country_code":"US",
+                 "address":[
+                    "7930 Jones Branch Dr",
+                    "Ste 250"
+                 ],
+                 "coordinate":{
+                    "latitude":38.9284362792969,
+                    "longitude":-77.2154769897461
+                 },
+                 "state_code":"VA"
+              },
+              "display_phone":"+1-703-556-9155",
+              "rating_img_url_large":"https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+              "id":"andrew-e-holzman-md-facs-mclean",
+              "is_closed":false,
+              "distance":2208.9202604488155
+           },
+           {
+              "is_claimed":true,
+              "rating":5,
+              "mobile_url":"http://m.yelp.com/biz/nova-premier-eyecare-fairfax?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+              "review_count":10,
+              "name":"NOVA Premier Eyecare",
+              "snippet_image_url":"http://s3-media3.fl.yelpcdn.com/photo/RmB47KrcFUvQAfY-Fbj_yA/ms.jpg",
+              "rating_img_url_small":"https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+              "url":"http://www.yelp.com/biz/nova-premier-eyecare-fairfax?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ]
+              ],
+              "phone":"7033599290",
+              "snippet_text":"I've been going to Dr. Nguyen for 3-4 years, if not longer. I used to go to an eye doctor in Loudoun County when I worked in that area and I by chance was...",
+              "image_url":"https://s3-media1.fl.yelpcdn.com/bphoto/ESSuwc40M8mlQORC0VA9ZQ/ms.jpg",
+              "location":{
+                 "city":"Fairfax",
+                 "display_address":[
+                    "10333 Democracy Ln",
+                    "Ste A",
+                    "Fairfax, VA 22030"
+                 ],
+                 "geo_accuracy":8,
+                 "postal_code":"22030",
+                 "country_code":"US",
+                 "address":[
+                    "10333 Democracy Ln",
+                    "Ste A"
+                 ],
+                 "coordinate":{
+                    "latitude":38.849278986454,
+                    "longitude":-77.3010914772749
+                 },
+                 "state_code":"VA"
+              },
+              "display_phone":"+1-703-359-9290",
+              "rating_img_url_large":"https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+              "id":"nova-premier-eyecare-fairfax",
+              "is_closed":false,
+              "distance":9288.946244131337
+           },
+           {
+              "is_claimed":true,
+              "rating":4.5,
+              "mobile_url":"http://m.yelp.com/biz/tlc-laser-eye-centers-mclean?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+              "review_count":49,
+              "name":"TLC Laser Eye Centers",
+              "snippet_image_url":"http://s3-media2.fl.yelpcdn.com/photo/xfWa_6kZO1r0w5hDHpheqQ/ms.jpg",
+              "rating_img_url_small":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+              "url":"http://www.yelp.com/biz/tlc-laser-eye-centers-mclean?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ],
+                 [
+                    "Ophthalmologists",
+                    "opthamalogists"
+                 ],
+                 [
+                    "Laser Eye Surgery/Lasik",
+                    "laserlasikeyes"
+                 ]
+              ],
+              "phone":"8665962015",
+              "snippet_text":"I had PRK at this TLC Laser Eye Center in mid-January. Dr. Holzman and his team were great! The consultation and pre-op visits were very thorough and...",
+              "image_url":"https://s3-media2.fl.yelpcdn.com/bphoto/cWPdD_UMFwFpqUd_MV_8Mw/ms.jpg",
+              "location":{
+                 "city":"McLean",
+                 "display_address":[
+                    "7930 Jones Branch Dr",
+                    "Ste 250",
+                    "Tysons Corner",
+                    "McLean, VA 22102"
+                 ],
+                 "geo_accuracy":8,
+                 "neighborhoods":[
+                    "Tysons Corner"
+                 ],
+                 "postal_code":"22102",
+                 "country_code":"US",
+                 "address":[
+                    "7930 Jones Branch Dr",
+                    "Ste 250"
+                 ],
+                 "coordinate":{
+                    "latitude":38.9287109,
+                    "longitude":-77.2155685
+                 },
+                 "state_code":"VA"
+              },
+              "display_phone":"+1-866-596-2015",
+              "rating_img_url_large":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+              "id":"tlc-laser-eye-centers-mclean",
+              "is_closed":false,
+              "distance":2214.837194313619
+           },
+           {
+              "is_claimed":true,
+              "rating":4.5,
+              "mobile_url":"http://m.yelp.com/biz/galleria-optical-annandale?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+              "review_count":20,
+              "name":"Galleria Optical",
+              "snippet_image_url":"http://s3-media4.fl.yelpcdn.com/photo/X3-HmOGvlFNh2wXhv1aJrQ/ms.jpg",
+              "rating_img_url_small":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+              "url":"http://www.yelp.com/biz/galleria-optical-annandale?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ],
+                 [
+                    "Eyewear & Opticians",
+                    "opticians"
+                 ]
+              ],
+              "phone":"7036587070",
+              "snippet_text":"Recently I've been here to buy some sunglasses and glasses , they have many frames what I expected before I go. Also,Dr Song is very nice doctor to check my...",
+              "image_url":"https://s3-media1.fl.yelpcdn.com/bphoto/e-4PsF9HtuA8Ho_VZ89hZA/ms.jpg",
+              "location":{
+                 "city":"Annandale",
+                 "display_address":[
+                    "7700 Little River Tpke",
+                    "Ste 101",
+                    "Annandale, VA 22003"
+                 ],
+                 "geo_accuracy":9.5,
+                 "postal_code":"22003",
+                 "country_code":"US",
+                 "address":[
+                    "7700 Little River Tpke",
+                    "Ste 101"
+                 ],
+                 "coordinate":{
+                    "latitude":38.8328656,
+                    "longitude":-77.2109415
+                 },
+                 "state_code":"VA"
+              },
+              "display_phone":"+1-703-658-7070",
+              "rating_img_url_large":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+              "id":"galleria-optical-annandale",
+              "is_closed":false,
+              "distance":9214.43434651307
+           },
+           {
+              "is_claimed":true,
+              "rating":4.5,
+              "mobile_url":"http://m.yelp.com/biz/eye-central-mclean?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+              "review_count":17,
+              "name":"Eye Central",
+              "snippet_image_url":"https://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/cc4afe21892e/assets/img/default_avatars/user_medium_square.png",
+              "rating_img_url_small":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+              "url":"http://www.yelp.com/biz/eye-central-mclean?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ]
+              ],
+              "phone":"7033561292",
+              "snippet_text":"Dr Foley is amazing. He is so thorough and takes time with me during my Lasik follow up exams. I love how they are starting to send email and text reminders...",
+              "image_url":"https://s3-media2.fl.yelpcdn.com/bphoto/y2t1591mKHVcx2FFItNGdA/ms.jpg",
+              "location":{
+                 "city":"Mclean",
+                 "display_address":[
+                    "6740 Old Mclean Village Dr",
+                    "Mclean, VA 22101"
+                 ],
+                 "geo_accuracy":8,
+                 "postal_code":"22101",
+                 "country_code":"US",
+                 "address":[
+                    "6740 Old Mclean Village Dr"
+                 ],
+                 "coordinate":{
+                    "latitude":38.937683,
+                    "longitude":-77.176826
+                 },
+                 "state_code":"VA"
+              },
+              "display_phone":"+1-703-356-1292",
+              "rating_img_url_large":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+              "id":"eye-central-mclean",
+              "is_closed":false,
+              "distance":5533.035306352073
+           },
+           {
+              "is_claimed":true,
+              "rating":4.5,
+              "mobile_url":"http://m.yelp.com/biz/ted-chen-od-pc-falls-church?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+              "review_count":15,
+              "name":"Ted Chen, OD, PC",
+              "snippet_image_url":"http://s3-media3.fl.yelpcdn.com/photo/guigx2oJR5hAAUqmU2bByw/ms.jpg",
+              "rating_img_url_small":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+              "url":"http://www.yelp.com/biz/ted-chen-od-pc-falls-church?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ]
+              ],
+              "phone":"7035330323",
+              "snippet_text":"I'm so happy to have switched doctors to see Dr. Chen. My previous experiences with my optometrist were lackluster. The exams were short, nothing was...",
+              "image_url":"https://s3-media3.fl.yelpcdn.com/bphoto/xpOrSgMV25ry22LKUGBJJA/ms.jpg",
+              "location":{
+                 "city":"Falls Church",
+                 "display_address":[
+                    "6100 Arlington Blvd",
+                    "Seven Corners",
+                    "Falls Church, VA 22044"
+                 ],
+                 "geo_accuracy":8,
+                 "neighborhoods":[
+                    "Seven Corners"
+                 ],
+                 "postal_code":"22044",
+                 "country_code":"US",
+                 "address":[
+                    "6100 Arlington Blvd"
+                 ],
+                 "coordinate":{
+                    "latitude":38.868366,
+                    "longitude":-77.142517
+                 },
+                 "state_code":"VA"
+              },
+              "display_phone":"+1-703-533-0323",
+              "rating_img_url_large":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+              "id":"ted-chen-od-pc-falls-church",
+              "is_closed":false,
+              "distance":9328.842271945896
+           },
+           {
+              "is_claimed":true,
+              "rating":4.5,
+              "mobile_url":"http://m.yelp.com/biz/heloi-stark-od-fairfax?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+              "review_count":14,
+              "name":"Heloi Stark, OD",
+              "snippet_image_url":"http://s3-media2.fl.yelpcdn.com/photo/TcHg7bDuYTcd3A3EgE0gKg/ms.jpg",
+              "rating_img_url_small":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+              "url":"http://www.yelp.com/biz/heloi-stark-od-fairfax?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ],
+                 [
+                    "Ophthalmologists",
+                    "opthamalogists"
+                 ]
+              ],
+              "phone":"7033856134",
+              "snippet_text":"Dr. Stark is a wonderful, friendly, and thorough doctor. I have been going to her for about five years now and just adore her. She is so caring and kind,...",
+              "image_url":"https://s3-media3.fl.yelpcdn.com/bphoto/VcRx_NEa4Y3YwypQh-ESdA/ms.jpg",
+              "location":{
+                 "city":"Fairfax",
+                 "display_address":[
+                    "3900 Jermantown Rd",
+                    "Ste 170",
+                    "Fairfax, VA 22030"
+                 ],
+                 "geo_accuracy":8,
+                 "postal_code":"22030",
+                 "country_code":"US",
+                 "address":[
+                    "3900 Jermantown Rd",
+                    "Ste 170"
+                 ],
+                 "coordinate":{
+                    "latitude":38.8588333129883,
+                    "longitude":-77.3311462402344
+                 },
+                 "state_code":"VA"
+              },
+              "display_phone":"+1-703-385-6134",
+              "rating_img_url_large":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+              "id":"heloi-stark-od-fairfax",
+              "is_closed":false,
+              "distance":10493.116448831373
+           },
+           {
+              "is_claimed":true,
+              "rating":4.5,
+              "mobile_url":"http://m.yelp.com/biz/mclean-eyecare-center-mclean?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+              "review_count":14,
+              "name":"McLean Eyecare Center",
+              "snippet_image_url":"http://s3-media1.fl.yelpcdn.com/photo/wOhzeZHpRgQdlZrQROJQyA/ms.jpg",
+              "rating_img_url_small":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+              "url":"http://www.yelp.com/biz/mclean-eyecare-center-mclean?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ]
+              ],
+              "phone":"7038932020",
+              "snippet_text":"Outstanding service! Went here despite seeing mixed reviews on the yelp page prior and the service was top notch. I worked with both doctors on staff for my...",
+              "location":{
+                 "city":"McLean",
+                 "display_address":[
+                    "1340 Old Chain Bridge Rd",
+                    "Ste 102",
+                    "McLean, VA 22101"
+                 ],
+                 "geo_accuracy":8,
+                 "postal_code":"22101",
+                 "country_code":"US",
+                 "address":[
+                    "1340 Old Chain Bridge Rd",
+                    "Ste 102"
+                 ],
+                 "coordinate":{
+                    "latitude":38.9379692,
+                    "longitude":-77.1762772
+                 },
+                 "state_code":"VA"
+              },
+              "display_phone":"+1-703-893-2020",
+              "rating_img_url_large":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+              "id":"mclean-eyecare-center-mclean",
+              "is_closed":false,
+              "distance":5583.875064306439
+           },
+           {
+              "is_claimed":true,
+              "rating":4.5,
+              "mobile_url":"http://m.yelp.com/biz/myeyedr-mclean?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+              "review_count":12,
+              "name":"MyEyeDr.",
+              "snippet_image_url":"http://s3-media1.fl.yelpcdn.com/photo/bWlcdtrTz2jDo-P3Rz7U4Q/ms.jpg",
+              "rating_img_url_small":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+              "url":"http://www.yelp.com/biz/myeyedr-mclean?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ],
+                 [
+                    "Eyewear & Opticians",
+                    "opticians"
+                 ]
+              ],
+              "phone":"7037900377",
+              "snippet_text":"I have been putting off going to the eye doctor for a while.  I am very busy at work and find it hard to find the time.\n\nIf I knew how easy it was and how...",
+              "image_url":"https://s3-media3.fl.yelpcdn.com/bphoto/XCeN8vVtR-vywNT-pYaJmg/ms.jpg",
+              "location":{
+                 "city":"McLean",
+                 "display_address":[
+                    "6832 Old Dominion Dr",
+                    "McLean, VA 22101"
+                 ],
+                 "geo_accuracy":9.5,
+                 "postal_code":"22101",
+                 "country_code":"US",
+                 "address":[
+                    "6832 Old Dominion Dr"
+                 ],
+                 "coordinate":{
+                    "latitude":38.934894,
+                    "longitude":-77.180135
+                 },
+                 "state_code":"VA"
+              },
+              "display_phone":"+1-703-790-0377",
+              "rating_img_url_large":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+              "id":"myeyedr-mclean",
+              "is_closed":false,
+              "distance":5135.207031960715
+           },
+           {
+              "is_claimed":true,
+              "rating":4.5,
+              "mobile_url":"http://m.yelp.com/biz/voorthuis-opticians-bethesda?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+              "review_count":12,
+              "name":"Voorthuis Opticians",
+              "snippet_image_url":"http://s3-media4.fl.yelpcdn.com/photo/H_8sBVuooCZ_ZepR_tQL8A/ms.jpg",
+              "rating_img_url_small":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+              "url":"http://www.yelp.com/biz/voorthuis-opticians-bethesda?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ],
+                 [
+                    "Eyewear & Opticians",
+                    "opticians"
+                 ]
+              ],
+              "phone":"3014699058",
+              "snippet_text":"I came here as I was shopping for new glasses. The name is kinda funny and then I was told they were fee for service and couldn't use my insurance so I was...",
+              "image_url":"https://s3-media2.fl.yelpcdn.com/bphoto/S6IakQNScCEwT4fkhKSfKg/ms.jpg",
+              "location":{
+                 "city":"Bethesda",
+                 "display_address":[
+                    "Montgomery Mall",
+                    "7101 Democracy Blvd",
+                    "Bethesda, MD 20817"
+                 ],
+                 "geo_accuracy":8,
+                 "postal_code":"20817",
+                 "country_code":"US",
+                 "address":[
+                    "Montgomery Mall",
+                    "7101 Democracy Blvd"
+                 ],
+                 "coordinate":{
+                    "latitude":39.0221446752548,
+                    "longitude":-77.146939560771
+                 },
+                 "state_code":"MD"
+              },
+              "display_phone":"+1-301-469-9058",
+              "rating_img_url_large":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+              "id":"voorthuis-opticians-bethesda",
+              "is_closed":false,
+              "distance":11672.998204456977
+           },
+           {
+              "is_claimed":true,
+              "rating":4.5,
+              "mobile_url":"http://m.yelp.com/biz/the-eye-institute-of-reston-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+              "review_count":9,
+              "name":"The Eye Institute of Reston",
+              "snippet_image_url":"http://s3-media4.fl.yelpcdn.com/photo/w5a-WzixZ8P5sy8vw5UT4Q/ms.jpg",
+              "rating_img_url_small":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+              "url":"http://www.yelp.com/biz/the-eye-institute-of-reston-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ],
+                 [
+                    "Laser Eye Surgery/Lasik",
+                    "laserlasikeyes"
+                 ],
+                 [
+                    "Eyewear & Opticians",
+                    "opticians"
+                 ]
+              ],
+              "phone":"7035378157",
+              "snippet_text":"Very professional and highly recommend. Dr.Bathija takes her time with the eye exams and gave us a a lot of recommendations to prevent any damage to the...",
+              "image_url":"https://s3-media3.fl.yelpcdn.com/bphoto/WeGtkkA5ElMYIjYEMSgxoA/ms.jpg",
+              "location":{
+                 "city":"Reston",
+                 "display_address":[
+                    "1800 Michael Faraday Dr",
+                    "Ste 104",
+                    "Reston, VA 20190"
+                 ],
+                 "geo_accuracy":8,
+                 "postal_code":"20190",
+                 "country_code":"US",
+                 "address":[
+                    "1800 Michael Faraday Dr",
+                    "Ste 104"
+                 ],
+                 "coordinate":{
+                    "latitude":38.9488182,
+                    "longitude":-77.3336563
+                 },
+                 "state_code":"VA"
+              },
+              "display_phone":"+1-703-537-8157",
+              "rating_img_url_large":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+              "id":"the-eye-institute-of-reston-reston",
+              "is_closed":false,
+              "distance":9525.953368905602
+           },
+           {
+              "is_claimed":true,
+              "rating":4,
+              "mobile_url":"http://m.yelp.com/biz/myeyedr-falls-church-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+              "review_count":49,
+              "name":"MyEyeDr.",
+              "snippet_image_url":"http://s3-media2.fl.yelpcdn.com/photo/MRV6pYd0vDvdpG9LzRZIQQ/ms.jpg",
+              "rating_img_url_small":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+              "url":"http://www.yelp.com/biz/myeyedr-falls-church-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ],
+                 [
+                    "Eyewear & Opticians",
+                    "opticians"
+                 ]
+              ],
+              "phone":"7039425300",
+              "snippet_text":"This review is for the Roswell Rd. location in Atlanta, GA:\n\nNever before have I had such a smooth and pleasant experience at the eye doctor. From checking...",
+              "image_url":"https://s3-media4.fl.yelpcdn.com/bphoto/VKmWDZOmGwhMWeVU56z9GA/ms.jpg",
+              "location":{
+                 "city":"Falls Church",
+                 "display_address":[
+                    "7511 Leesburg Pike",
+                    "Falls Church, VA 22043"
+                 ],
+                 "geo_accuracy":9.5,
+                 "postal_code":"22043",
+                 "country_code":"US",
+                 "address":[
+                    "7511 Leesburg Pike"
+                 ],
+                 "coordinate":{
+                    "latitude":38.9033008389287,
+                    "longitude":-77.2044272386288
+                 },
+                 "state_code":"VA"
+              },
+              "display_phone":"+1-703-942-5300",
+              "rating_img_url_large":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+              "id":"myeyedr-falls-church-2",
+              "is_closed":false,
+              "distance":2742.4220615652307
+           },
+           {
+              "is_claimed":true,
+              "rating":4,
+              "mobile_url":"http://m.yelp.com/biz/myeyedr-fairfax-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+              "review_count":44,
+              "name":"MyEyeDr.",
+              "snippet_image_url":"http://s3-media4.fl.yelpcdn.com/photo/Irs8ZSQ3prEO5p2fd1mlTw/ms.jpg",
+              "rating_img_url_small":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+              "url":"http://www.yelp.com/biz/myeyedr-fairfax-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ],
+                 [
+                    "Eyewear & Opticians",
+                    "opticians"
+                 ]
+              ],
+              "phone":"7032699866",
+              "snippet_text":"This is an all-around excellent MyEyeDr. I had a terrible experience with my last pair of prescription Maui Jim sunglasses at the Clarendon location, but at...",
+              "image_url":"https://s3-media3.fl.yelpcdn.com/bphoto/Cp1e_Q3qDWF-9NpF9Nr7EQ/ms.jpg",
+              "location":{
+                 "city":"Fairfax",
+                 "display_address":[
+                    "Mosaic District",
+                    "2910 District Ave,Ste 160",
+                    "Merrifield",
+                    "Fairfax, VA 22031"
+                 ],
+                 "geo_accuracy":8,
+                 "neighborhoods":[
+                    "Merrifield",
+                    "Mosaic"
+                 ],
+                 "postal_code":"22031",
+                 "country_code":"US",
+                 "address":[
+                    "Mosaic District",
+                    "2910 District Ave,Ste 160"
+                 ],
+                 "coordinate":{
+                    "latitude":38.8724709,
+                    "longitude":-77.2299576
+                 },
+                 "state_code":"VA"
+              },
+              "display_phone":"+1-703-269-9866",
+              "rating_img_url_large":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+              "id":"myeyedr-fairfax-2",
+              "is_closed":false,
+              "distance":4601.779375099747
+           },
+           {
+              "is_claimed":true,
+              "rating":4,
+              "mobile_url":"http://m.yelp.com/biz/all-eyes-optometrists-fairfax?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+              "review_count":42,
+              "name":"All Eyes Optometrists",
+              "snippet_image_url":"https://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/cc4afe21892e/assets/img/default_avatars/user_medium_square.png",
+              "rating_img_url_small":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+              "url":"http://www.yelp.com/biz/all-eyes-optometrists-fairfax?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ],
+                 [
+                    "Eyewear & Opticians",
+                    "opticians"
+                 ]
+              ],
+              "phone":"7038772020",
+              "snippet_text":"Been wearing contacts for 20+ years. And I have changed brands many time over the years. And so far, this has been the most professional, competent place to...",
+              "image_url":"https://s3-media2.fl.yelpcdn.com/bphoto/igiIj6AkH8Qc1aA4qDL3wQ/ms.jpg",
+              "location":{
+                 "city":"Fairfax",
+                 "display_address":[
+                    "3950 University Dr",
+                    "Ste 211",
+                    "Old Town Fairfax",
+                    "Fairfax, VA 22030"
+                 ],
+                 "geo_accuracy":8,
+                 "neighborhoods":[
+                    "Old Town Fairfax"
+                 ],
+                 "postal_code":"22030",
+                 "country_code":"US",
+                 "address":[
+                    "3950 University Dr",
+                    "Ste 211"
+                 ],
+                 "coordinate":{
+                    "latitude":38.8470383,
+                    "longitude":-77.3050995
+                 },
+                 "state_code":"VA"
+              },
+              "display_phone":"+1-703-877-2020",
+              "rating_img_url_large":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+              "id":"all-eyes-optometrists-fairfax",
+              "is_closed":false,
+              "distance":9651.657050434793
+           },
+           {
+              "is_claimed":true,
+              "rating":4,
+              "mobile_url":"http://m.yelp.com/biz/northern-virginia-doctors-of-optometry-falls-church-4?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+              "review_count":24,
+              "name":"Northern Virginia Doctors of Optometry",
+              "snippet_image_url":"http://s3-media4.fl.yelpcdn.com/photo/PqgVl7TVjt_s59aPp7byBA/ms.jpg",
+              "rating_img_url_small":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+              "url":"http://www.yelp.com/biz/northern-virginia-doctors-of-optometry-falls-church-4?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ],
+                 [
+                    "Eyewear & Opticians",
+                    "opticians"
+                 ]
+              ],
+              "phone":"7035731200",
+              "snippet_text":"I had an appointment with Dr. Briceno. What a wonderful doctor! The staff were very friendly. There was even tasty coffee in the waiting area. Without...",
+              "image_url":"https://s3-media1.fl.yelpcdn.com/bphoto/1QyQf-SHKnH3rVX3-kKmnA/ms.jpg",
+              "location":{
+                 "city":"Falls Church",
+                 "display_address":[
+                    "Graham Park Plaza",
+                    "7263 E Arlington Blvd",
+                    "Falls Church, VA 22042"
+                 ],
+                 "geo_accuracy":9.5,
+                 "postal_code":"22042",
+                 "country_code":"US",
+                 "address":[
+                    "Graham Park Plaza",
+                    "7263 E Arlington Blvd"
+                 ],
+                 "coordinate":{
+                    "latitude":38.8649388908704,
+                    "longitude":-77.1959069743752
+                 },
+                 "state_code":"VA"
+              },
+              "display_phone":"+1-703-573-1200",
+              "rating_img_url_large":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+              "id":"northern-virginia-doctors-of-optometry-falls-church-4",
+              "is_closed":false,
+              "distance":6324.33707282525
+           },
+           {
+              "is_claimed":true,
+              "rating":4,
+              "mobile_url":"http://m.yelp.com/biz/tysons-eye-care-mc-lean?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+              "review_count":19,
+              "name":"Tyson's Eye Care",
+              "snippet_image_url":"http://s3-media3.fl.yelpcdn.com/photo/SiK-fIhh094ug8J4sKkJhQ/ms.jpg",
+              "rating_img_url_small":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+              "url":"http://www.yelp.com/biz/tysons-eye-care-mc-lean?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ]
+              ],
+              "phone":"7037481366",
+              "snippet_text":"I've been going to Dr. Son at Tyson's Eye Care for 19 years. The reason why I started going to him because literally all of my cousins, aunts and uncles...",
+              "image_url":"https://s3-media4.fl.yelpcdn.com/bphoto/pQHJ3ymuHgY4CAe-KBi10Q/ms.jpg",
+              "location":{
+                 "city":"Mc Lean",
+                 "display_address":[
+                    "8093-L Tyson's Corner Ctr",
+                    "Tysons Corner",
+                    "Mc Lean, VA 22102"
+                 ],
+                 "geo_accuracy":9.5,
+                 "neighborhoods":[
+                    "Tysons Corner"
+                 ],
+                 "postal_code":"22102",
+                 "country_code":"US",
+                 "address":[
+                    "8093-L Tyson's Corner Ctr"
+                 ],
+                 "coordinate":{
+                    "latitude":38.9165537,
+                    "longitude":-77.2214254
+                 },
+                 "state_code":"VA"
+              },
+              "display_phone":"+1-703-748-1366",
+              "rating_img_url_large":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+              "id":"tysons-eye-care-mc-lean",
+              "is_closed":false,
+              "distance":1045.371923595641
+           },
+           {
+              "is_claimed":true,
+              "rating":4,
+              "mobile_url":"http://m.yelp.com/biz/richard-m-davidson-od-mc-lean?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "rating_img_url":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+              "review_count":15,
+              "name":"Richard M Davidson, OD",
+              "snippet_image_url":"https://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/cc4afe21892e/assets/img/default_avatars/user_medium_square.png",
+              "rating_img_url_small":"https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+              "url":"http://www.yelp.com/biz/richard-m-davidson-od-mc-lean?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "categories":[
+                 [
+                    "Optometrists",
+                    "optometrists"
+                 ]
+              ],
+              "phone":"7038936586",
+              "snippet_text":"He was a wonderful professional who listened to my story.  Well rounded.  I was having color vision issues with 20/20 vision and he gave me great feedback...",
+              "location":{
+                 "city":"Mc Lean",
+                 "display_address":[
+                    "8025 Tysons Corner Ctr",
+                    "Tysons Corner",
+                    "Mc Lean, VA 22102"
+                 ],
+                 "geo_accuracy":8,
+                 "neighborhoods":[
+                    "Tysons Corner"
+                 ],
+                 "postal_code":"22102",
+                 "country_code":"US",
+                 "address":[
+                    "8025 Tysons Corner Ctr"
+                 ],
+                 "coordinate":{
+                    "latitude":38.9191666,
+                    "longitude":-77.2207947
+                 },
+                 "state_code":"VA"
+              },
+              "display_phone":"+1-703-893-6586",
+              "rating_img_url_large":"https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+              "id":"richard-m-davidson-od-mc-lean",
+              "is_closed":false,
+              "distance":1050.8658044829065
+           }
+        ]
+     }
+  }
+]

@@ -1,0 +1,111 @@
+{
+  "_args": [
+    [
+      "chartist-plugin-pointlabels@0.0.4",
+      "/Users/yuriysannikov/repo/mdocs/mdocs-survey/tools/marketing-automation/stage-four"
+    ]
+  ],
+  "_from": "chartist-plugin-pointlabels@0.0.4",
+  "_id": "chartist-plugin-pointlabels@0.0.4",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/chartist-plugin-pointlabels",
+  "_nodeVersion": "0.10.35",
+  "_npmUser": {
+    "email": "gion.kunz@gmail.com",
+    "name": "gionkunz"
+  },
+  "_npmVersion": "2.4.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "chartist-plugin-pointlabels",
+    "raw": "chartist-plugin-pointlabels@0.0.4",
+    "rawSpec": "0.0.4",
+    "scope": null,
+    "spec": "0.0.4",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/chartist-plugin-pointlabels/-/chartist-plugin-pointlabels-0.0.4.tgz",
+  "_shasum": "255da9478bfc9a3a4ce6027682cfe229ab33a40d",
+  "_shrinkwrap": null,
+  "_spec": "chartist-plugin-pointlabels@0.0.4",
+  "_where": "/Users/yuriysannikov/repo/mdocs/mdocs-survey/tools/marketing-automation/stage-four",
+  "author": {
+    "name": "Gion Kunz"
+  },
+  "browser": "dist/chartist-plugin-pointlabels.js",
+  "bugs": {
+    "url": "https://github.com/gionkunz/chartist-plugin-pointlabels/issues"
+  },
+  "config": {
+    "banner": "/* chartist-plugin-pointlabels <%= pkg.version %>\n * Copyright © <%= year %> Gion Kunz\n * Free to use under the WTFPL license.\n * http://www.wtfpl.net/\n */\n",
+    "dist": "dist",
+    "src": "src",
+    "test": "test",
+    "tmp": ".tmp"
+  },
+  "dependencies": {},
+  "description": "Point Labels Plugin for Chartist.js",
+  "devDependencies": {
+    "chartist": "~0.8.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-contrib-jasmine": "~0.8.1",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-uglify": "^0.6.0",
+    "grunt-newer": "^0.8.0",
+    "grunt-umd": "~2.2.1",
+    "jasmine-fixture": "~1.2.2",
+    "jshint-stylish": "~1.0.0",
+    "load-grunt-config": "^0.16.0",
+    "time-grunt": "^1.0.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "255da9478bfc9a3a4ce6027682cfe229ab33a40d",
+    "tarball": "https://registry.npmjs.org/chartist-plugin-pointlabels/-/chartist-plugin-pointlabels-0.0.4.tgz"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
+  "gitHead": "79998d64435d4bfea36d92592c1d2fa51b21d5ae",
+  "homepage": "https://gionkunz.github.io/chartist-plugin-pointlabels",
+  "keywords": [
+    "chartist",
+    "plugin"
+  ],
+  "licenses": [
+    {
+      "type": "WTFPL",
+      "url": "https://github.com/gionkunz/chartist-plugin-pointlabels/blob/master/LICENSE"
+    }
+  ],
+  "main": "dist/chartist-plugin-pointlabels.js",
+  "maintainers": [
+    {
+      "email": "gion.kunz@gmail.com",
+      "name": "gionkunz"
+    }
+  ],
+  "name": "chartist-plugin-pointlabels",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gionkunz/chartist-plugin-pointlabels.git"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "version": "0.0.4"
+}

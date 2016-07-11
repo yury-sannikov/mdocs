@@ -1,0 +1,79 @@
+section#headerNav
+  header#header-navbar.content-mini.content-mini-full
+    .content-boxed
+      // Header Navigation Right
+      ul.nav-header.pull-right
+        li
+          // Themes functionality initialized in App() -> uiHandleTheme()
+          .btn-group
+            button.btn.btn-link.text-white.dropdown-toggle(data-toggle='dropdown', type='button')
+              i.si.si-drop
+            ul.dropdown-menu.dropdown-menu-right.sidebar-mini-hide.font-s13
+              li
+                a(data-toggle='theme', data-theme='default', tabindex='-1', href='javascript:void(0)')
+                  i.fa.fa-circle.text-default.pull-right
+                  span.font-w600 Default
+              li
+                a(data-toggle='theme', data-theme='assets/css/themes/amethyst.min.css', tabindex='-1', href='javascript:void(0)')
+                  i.fa.fa-circle.text-amethyst.pull-right
+                  span.font-w600 Amethyst
+              li
+                a(data-toggle='theme', data-theme='assets/css/themes/city.min.css', tabindex='-1', href='javascript:void(0)')
+                  i.fa.fa-circle.text-city.pull-right
+                  span.font-w600 City
+              li
+                a(data-toggle='theme', data-theme='assets/css/themes/flat.min.css', tabindex='-1', href='javascript:void(0)')
+                  i.fa.fa-circle.text-flat.pull-right
+                  span.font-w600 Flat
+              li
+                a(data-toggle='theme', data-theme='assets/css/themes/modern.min.css', tabindex='-1', href='javascript:void(0)')
+                  i.fa.fa-circle.text-modern.pull-right
+                  span.font-w600 Modern
+              li
+                a(data-toggle='theme', data-theme='assets/css/themes/smooth.min.css', tabindex='-1', href='javascript:void(0)')
+                  i.fa.fa-circle.text-smooth.pull-right
+                  span.font-w600 Smooth
+        li.hidden-md.hidden-lg
+          // Toggle class helper (for main header navigation below in small screens), functionality initialized in App() -> uiToggleClass()
+          button.btn.btn-link.text-white.pull-right(data-toggle='class-toggle', data-target='.js-nav-main-header', data-class='nav-main-header-o', type='button')
+            i.fa.fa-navicon
+      // END Header Navigation Right
+      // Main Header Navigation
+      ul.js-nav-main-header.nav-main-header.pull-right
+        li.text-right.hidden-md.hidden-lg
+          // Toggle class helper (for main header navigation in small screens), functionality initialized in App() -> uiToggleClass()
+          button.btn.btn-link.text-white(data-toggle='class-toggle', data-target='.js-nav-main-header', data-class='nav-main-header-o', type='button')
+            i.fa.fa-times
+        li
+          a.active(href='frontend_home_header_nav.html') Home
+        li
+          a.nav-submenu(href='javascript:void(0)') Pages
+          ul
+            li
+              a(href='frontend_team.html') Team
+            li
+              a(href='frontend_support.html') Support
+            li
+              a(href='frontend_search.html') Search
+            li
+              a(href='frontend_about.html') About
+            li
+              a(href='frontend_login.html') Login
+            li
+              a(href='frontend_signup.html') Sign Up
+        li
+          a(href='frontend_features.html') Features
+        li
+          a(href='frontend_pricing.html') Pricing
+        li
+          a(href='frontend_contact.html') Contact
+      // END Main Header Navigation
+      // Header Navigation Left
+      ul.nav-header.pull-left
+        li.header-content
+          a.h5(href='frontend_home.html')
+            i.fa.fa-circle-o-notch.text-primary
+            span.h4.font-w600.text-white ne
+      // END Header Navigation Left
+
+
