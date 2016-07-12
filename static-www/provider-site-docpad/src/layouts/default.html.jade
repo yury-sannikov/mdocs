@@ -1,0 +1,14 @@
+doctype html
+html(lang="en")
+  head
+    != partial('header', {includeMenu: true})
+  body
+    div#page-container.header-navbar-fixed.header-navbar-transparent
+      != partial('navbar')
+      section#mainContent
+        main#main-container
+          != content
+      section#footerNav
+        footer#page-footer.bg-white
+          .content.content-boxed
+            != partial('footer', {anythingToPassToPartial: 1})

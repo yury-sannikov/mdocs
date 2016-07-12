@@ -1,0 +1,377 @@
+{
+  "reportDate": "Jun-16, 2016",
+  "providers": [
+    {
+      "name": "Sarah Fletcher, MD",
+      "type": "Doctor",
+      "bias": 3,
+      "phone": "(703) 421-7000",
+      "address": "21135 WHITFIELD PL",
+      "zip": "20165-7283",
+      "sites": [
+        {
+          "site": "Google",
+          "title": "Sterling Family Practice: Fletcher Sarah S MD",
+          "place_id": "ChIJvXdLNeo5tokRFHdLd2ReT-s",
+          "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJvXdLNeo5tokRFHdLd2ReT-s"
+        },
+        {
+          "site": "HealthGrades",
+          "title": "Dr. Sarah S. Fletcher, MD",
+          "url": "https://www.healthgrades.com/physician/dr-sarah-fletcher-3cf32"
+        },
+        {
+          "site": "Vitals",
+          "title": "Dr. Sarah V Fletcher V MD",
+          "url": "http://www.vitals.com/doctors/Dr_Sarah_V_Fletcher.html"
+        },
+        {
+          "site": "Yelp",
+          "title": "Dr. Sarah Fletcher, MD",
+          "url": "http://www.yelp.com/biz/dr-sarah-fletcher-md-sterling"
+        },
+        {
+          "site": "RateMDs",
+          "title": "Dr. Sarah S. Fletcher",
+          "url": "https://www.ratemds.com/doctor-ratings/363552/Dr-Sarah+S.-Fletcher-Sterling-VA.html"
+        },
+        {
+          "site": "MerchantCircle",
+          "title": "Fletcher Sarah Doctor of Medicine",
+          "url": "http://www.merchantcircle.com/fletcher-sarah-doctor-of-medicine-sterling-va"
+        },
+        {
+          "site": "YellowPages",
+          "title": "Fletcher, Sarah S, MD",
+          "url": "http://www.yellowpages.com/sterling-va/mip/fletcher-sarah-s-md-479545276?lid=479545276"
+        },
+        {
+          "site": "Yahoo",
+          "title": "Dr Sarah Fletcher, MD",
+          "url": "https://local.yahoo.com/info-199024246-dr-sarah-fletcher-md-sterlingundefined?stx=Sarah%20Fletcher,%20MD&csz=20165-7407&fr=lsrp"
+        }
+      ],
+      "address2": "",
+      "city": "STERLING",
+      "state": "VA",
+      "country": "US",
+      "yelpcategory": "familydr",
+      "uuid": "54fbe499-edf8-4beb-9802-8bdb551b6402",
+      "key": "54fbe499-edf8-4beb-9802-8bdb551b6402-sarah-fletcher",
+      "reportDate": "06/29/2016",
+      "providerName": "Sarah Fletcher, MD",
+      "reviews": []
+    },
+    {
+      "name": "Elizabeth Zapp, MD",
+      "type": "Doctor",
+      "bias": 2,
+      "phone": "(703) 421-7000",
+      "address": "21135 WHITFIELD PL",
+      "zip": "20165-7283",
+      "sites": [
+        {
+          "site": "Google",
+          "title": "Sterling Family Practice: Zapp Elizabeth MD",
+          "place_id": "ChIJvXdLNeo5tokRoeevKeFEzLw",
+          "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJvXdLNeo5tokRoeevKeFEzLw"
+        },
+        {
+          "site": "HealthGrades",
+          "title": "Dr. Elizabeth A. Zapp, MD",
+          "url": "https://www.healthgrades.com/physician/dr-elizabeth-zapp-xl9x3"
+        },
+        {
+          "site": "Vitals",
+          "title": "Dr. Elizabeth Zapp MD",
+          "url": "http://www.vitals.com/doctors/Dr_Elizabeth_Zapp.html"
+        },
+        {
+          "site": "RateMDs",
+          "title": "Dr. Elizabeth A. Zapp",
+          "url": "https://www.ratemds.com/doctor-ratings/948467/Dr-Elizabeth+A.-Zapp-Sterling-VA.html"
+        },
+        {
+          "site": "YellowPages",
+          "title": "Zapp, Elizabeth, MD",
+          "url": "http://www.yellowpages.com/sterling-va/mip/zapp-elizabeth-md-459158269?lid=459158269"
+        },
+        {
+          "site": "MerchantCircle",
+          "title": "Zapp Elizabeth MD",
+          "url": "http://www.merchantcircle.com/zapp-elizabeth-md-sterling-va"
+        }
+      ],
+      "address2": "",
+      "city": "STERLING",
+      "state": "VA",
+      "country": "US",
+      "yelpcategory": "familydr",
+      "uuid": "efda04da-5f12-41ee-9301-cd3ae28a6e45",
+      "key": "efda04da-5f12-41ee-9301-cd3ae28a6e45-elizabeth-zapp",
+      "reportDate": "06/29/2016",
+      "providerName": "Elizabeth Zapp, MD",
+      "reviews": []
+    },
+    {
+      "name": "Joyce Xia, DDS",
+      "address": "46090 LAKE CENTER PLZ STE 105",
+      "type": "Dentist",
+      "bias": 3,
+      "zip": "20165-5877",
+      "sites": [
+        {
+          "site": "Google",
+          "title": "Dr. Joyce Xia, DDS",
+          "place_id": "ChIJu_o4aZQ5tokRbW4zwx9Sj30",
+          "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJu_o4aZQ5tokRbW4zwx9Sj30"
+        },
+        {
+          "site": "HealthGrades",
+          "title": "Dr. Joyce Xia, DDS",
+          "url": "https://www.healthgrades.com/dentist/dr-joyce-xia-yn74x"
+        },
+        {
+          "site": "Vitals",
+          "title": "Dr. Joyce Xia DDS",
+          "url": "http://www.vitals.com/dentists/Dr_Joyce_Xia"
+        },
+        {
+          "site": "RateMDs",
+          "title": "Dr. Joyce Xia",
+          "url": "https://www.ratemds.com/doctor-ratings/870963/Dr-Joyce-Xia-STERLING-VA.html"
+        },
+        {
+          "site": "Yelp",
+          "title": "Joyce Xia, DDS",
+          "url": "http://www.yelp.com/biz/joyce-xia-dds-sterling"
+        },
+        {
+          "site": "MerchantCircle",
+          "title": "Xia Joyce DDS",
+          "url": "http://www.merchantcircle.com/xia-joyce-dds-sterling-va"
+        },
+        {
+          "site": "YellowPages",
+          "title": "Lake Center Dental Care, PC ( Joyce Xia, D.D.S.)",
+          "url": "http://www.yellowpages.com/sterling-va/mip/lake-center-dental-care-pc-joyce-xia-d-d-s--17616799?lid=17616799"
+        },
+        {
+          "site": "Yahoo",
+          "title": "Joyce Xia, DDS",
+          "url": "https://local.yahoo.com/info-125547835-joyce-xia-dds-sterlingundefined?stx=Joyce%20Xia,%20DDS&csz=20165-5877&fr=lsrp"
+        }
+      ],
+      "city": "STERLING",
+      "state": "VA",
+      "country": "US",
+      "address2": "",
+      "yelpcategory": "generaldentistry",
+      "uuid": "ed0e4efa-8553-4a29-ac28-dc09524729fe",
+      "key": "ed0e4efa-8553-4a29-ac28-dc09524729fe-joyce-xia",
+      "reportDate": "06/29/2016",
+      "providerName": "Joyce Xia, DDS",
+      "reviews": []
+    },
+    {
+      "name": "Jessica Scalzo",
+      "type": "Nurse Practitioner",
+      "bias": 3,
+      "address": "21135 WHITFIELD PL",
+      "zip": "20165-7283",
+      "sites": [
+        {
+          "site": "Google",
+          "title": "Scalzo Jessica A",
+          "place_id": "ChIJvXdLNeo5tokRxbZrHXkKYkk",
+          "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJvXdLNeo5tokRxbZrHXkKYkk"
+        },
+        {
+          "site": "HealthGrades",
+          "title": "Jessica A. Scalzo, CFNP",
+          "url": "https://www.healthgrades.com/provider/jessica-scalzo-27nqs"
+        },
+        {
+          "site": "Yelp",
+          "title": "Sterling Family Practice",
+          "url": "http://www.yelp.com/biz/sterling-family-practice-sterling?osq=Jessica+Scalzo"
+        },
+        {
+          "site": "RateMDs",
+          "title": "Jessica A. Scalzo",
+          "url": "https://www.ratemds.com/doctor-ratings/3689833/JESSICA+A.-SCALZO-Sterling-VA.html"
+        },
+        {
+          "site": "MerchantCircle",
+          "title": "Scalzo Jessica A",
+          "url": "http://www.merchantcircle.com/scalzo-jessica-a-sterling-va"
+        },
+        {
+          "site": "YellowPages",
+          "title": "Scalzo, Jessica A",
+          "url": "http://www.yellowpages.com/sterling-va/mip/scalzo-jessica-a-462746589?lid=462746589"
+        }
+      ],
+      "address2": "",
+      "city": "STERLING",
+      "state": "VA",
+      "country": "US",
+      "yelpcategory": "nursepractitioner",
+      "uuid": "0cb6fcb7-2644-4760-ab91-8f1a2e31ecc3",
+      "key": "0cb6fcb7-2644-4760-ab91-8f1a2e31ecc3-jessica-scalzo",
+      "reportDate": "06/29/2016",
+      "providerName": "Jessica Scalzo",
+      "reviews": []
+    },
+    {
+      "name": "Cynthia Yew",
+      "type": "Nurse Practitioner",
+      "bias": 3,
+      "address": "21135 WHITFIELD PL",
+      "zip": "20165-7283",
+      "sites": [
+        {
+          "site": "Google",
+          "title": "Cynthia Yew, NP",
+          "place_id": "ChIJvXdLNeo5tokRxQho7OoiUT4",
+          "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJvXdLNeo5tokRxQho7OoiUT4"
+        },
+        {
+          "site": "HealthGrades",
+          "title": "Cynthia D. Yew, CFNP",
+          "url": "https://www.healthgrades.com/provider/cynthia-yew-2gx5j"
+        },
+        {
+          "site": "Yelp",
+          "title": "Yew Cynthia Fnp",
+          "url": "http://www.yelp.com/biz/yew-cynthia-fnp-sterling"
+        },
+        {
+          "site": "RateMDs",
+          "title": "Cynthia D. Yew",
+          "url": "https://www.ratemds.com/doctor-ratings/3689839/CYNTHIA+D.-YEW-Sterling-VA.html"
+        },
+        {
+          "site": "MerchantCircle",
+          "title": "Yew Cynthia Fnp",
+          "url": "http://www.merchantcircle.com/yew-cynthia-fnp-sterling-va"
+        },
+        {
+          "site": "YellowPages",
+          "title": "Cynthia Yew Fnp",
+          "url": "http://www.yellowpages.com/sterling-va/mip/cynthia-yew-fnp-927420?lid=927420"
+        }
+      ],
+      "address2": "",
+      "city": "STERLING",
+      "state": "VA",
+      "country": "US",
+      "yelpcategory": "nursepractitioner",
+      "uuid": "d8e547b0-74b6-494f-9340-7a5a22a5703b",
+      "key": "d8e547b0-74b6-494f-9340-7a5a22a5703b-cynthia-yew",
+      "reportDate": "06/29/2016",
+      "providerName": "Cynthia Yew",
+      "reviews": []
+    },
+    {
+      "name": "Meghal Antani, MD",
+      "type": "Doctor",
+      "bias": 1,
+      "phone": "(571) 494-1445",
+      "address": "6551 LOISDALE CT",
+      "zip": "22150-1828",
+      "sites": [
+        {
+          "site": "HealthGrades",
+          "title": "Dr. Meghal R. Antani, MD",
+          "url": "https://www.healthgrades.com/physician/dr-meghal-antani-2l57h"
+        },
+        {
+          "site": "RateMDs",
+          "title": "Dr. Meghal R. Antani",
+          "url": "https://www.ratemds.com/doctor-ratings/957621/Dr-Meghal+R.-Antani-Springfield-VA.html"
+        },
+        {
+          "site": "YellowPages",
+          "title": "Antani, Meghal R, MD",
+          "url": "http://www.yellowpages.com/springfield-va/mip/antani-meghal-r-md-497210264?lid=497210264"
+        },
+        {
+          "site": "Yahoo",
+          "title": "Antani, Meghal R MD",
+          "url": "https://local.yahoo.com/info-169382738-antani-meghal-r-md-springfieldundefined?stx=Meghal%20R.%20Antani,%20MD&csz=22150-1828&fr=lsrp"
+        },
+        {
+          "site": "Google",
+          "title": "Dr. Meghal R. Antani, MD",
+          "place_id": "ChIJ2UlU4xJStokRD72WR3Z_nu0",
+          "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJ2UlU4xJStokRD72WR3Z_nu0"
+        },
+        {
+          "site": "Vitals",
+          "title": "Dr. Meghal Antani MD",
+          "url": "http://www.vitals.com/doctors/Dr_Meghal_Antani.html"
+        },
+        {
+          "site": "Yelp",
+          "title": "Center for Interventional Medicine",
+          "url": "http://www.yelp.com/biz/center-for-interventional-medicine-springfield?osq=Meghal+Antani%2C+MD"
+        }
+      ],
+      "city": "SPRINGFIELD",
+      "state": "VA",
+      "yelpcategory": "radiologists",
+      "reviews": [],
+      "uuid": "e2dfa0f5-c3f6-4272-bc47-c014c815bd43",
+      "key": "e2dfa0f5-c3f6-4272-bc47-c014c815bd43-meghal-r.",
+      "reportDate": "06/29/2016",
+      "providerName": "Meghal R. Antani, MD",
+      "address2": "",
+      "country": "US"
+    },
+    {
+      "name": "Liberty Laser Eye Center",
+      "type": "Doctor",
+      "bias": 0,
+      "phone": "(571) 234-5678",
+      "address": "8321 Old Courthouse Rd.",
+      "zip": "22182",
+      "sites": [
+        {
+          "site": "Google",
+          "title": "Liberty Laser Eye Center",
+          "place_id": "ChIJgynDuPtKtokRl-Qpz2EKu_w",
+          "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJgynDuPtKtokRl-Qpz2EKu_w"
+        },
+        {
+          "site": "Yelp",
+          "title": "Liberty Laser Eye Center",
+          "url": "http://www.yelp.com/biz/liberty-laser-eye-center-vienna"
+        },
+        {
+          "site": "YellowPages",
+          "title": "TLC Laser Eye Centers",
+          "url": "http://www.yellowpages.com/nationwide/mip/tlc-laser-eye-centers-505246156?lid=1001230289823"
+        },
+        {
+          "site": "MerchantCircle",
+          "title": "Liberty Laser Eye Center",
+          "url": "http://www.merchantcircle.com/liberty-laser-eye-center-vienna-va"
+        },
+        {
+          "site": "Yahoo",
+          "title": "Liberty Laser Eye Center",
+          "url": "https://local.yahoo.com/info-12689317-liberty-laser-eye-center-viennaundefined?stx=Liberty%20Laser%20Eye%20Center&csz=22182&fr=lsrp"
+        }
+      ],
+      "city": "Vienna",
+      "state": "VA",
+      "yelpcategory": "optometrists",
+      "reviews": [],
+      "uuid": "32bac815-0d9b-49f3-a99c-1bb2c784f942",
+      "key": "32bac815-0d9b-49f3-a99c-1bb2c784f942-liberty-laser",
+      "reportDate": "06/30/2016",
+      "providerName": "Liberty Laser Eye Center"
+    }
+  ]
+}

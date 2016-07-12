@@ -1,0 +1,2196 @@
+[
+  {
+    "name": "Sarah Fletcher, MD",
+    "phone": "(703) 421-7000",
+
+    "address": "20808 WATERBEACH PL",
+    "city": "STERLING",
+    "state": "VA",
+    "zip": "20165-7407",
+    "sites": [
+      {
+        "site": "Vitals",
+        "title": "Dr. Sarah S Fletcher MD",
+        "url": "http://www.vitals.com/doctors/Dr_Sarah_Fletcher.html"
+      },
+      {
+        "site": "Yelp",
+        "title": "Dr. Sarah Fletcher, MD",
+        "url": "http://www.yelp.com/biz/john-wesley-emison-md-dds-los-gatos"
+      },
+      {
+        "site": "RateMDs",
+        "title": "Dr. Sarah L. Fletcher",
+        "url": "https://www.ratemds.com/doctor-ratings/3656452/Dr-Sarah+L.-Fletcher-Elk+Grove-CA.html"
+      },
+      {
+        "site": "HealthGrades",
+        "title": "Dr. Sarah S. Fletcher, MD",
+        "url": "https://www.healthgrades.com/physician/dr-sarah-fletcher-3cf32"
+      }
+    ],
+    "address2": "",
+    "country": "US",
+    "key": "b1ddaf56-03cb-48f8-956a-b5bc5e032476-sarah-fletcher",
+    "reportDate": "06/23/2016",
+    "providerName": "Sarah Fletcher, MD",
+    "providerAddress": "20808 WATERBEACH PL<br>STERLING, VA 20165-7407<br>(703) 421-7000",
+    "bias": 0,
+    "reviews": [
+      {
+        "siteId": "HealthGrades",
+        "siteName": "HEALTH GRADES",
+        "siteUrl": "https://www.healthgrades.com/physician/dr-sarah-fletcher-3cf32",
+        "addressAccurate": true,
+        "reviewCount": 8,
+        "rating": 5
+      },
+      {
+        "siteId": "Vitals",
+        "siteName": "VITALS.COM",
+        "siteUrl": "http://www.vitals.com/doctors/Dr_Sarah_Fletcher.html",
+        "addressAccurate": true,
+        "reviewCount": 3,
+        "rating": 4.5
+      }
+    ],
+    "competitors": {
+      "yelpBusiness": {
+        "is_claimed": false,
+        "rating": 4.5,
+        "mobile_url": "http://m.yelp.com/biz/john-wesley-emison-md-dds-los-gatos?utm_campaign=yelp_api&utm_medium=api_v2_business&utm_source=2UolyG7wPxAoqO3-xijMUA",
+        "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+        "review_count": 9,
+        "name": "John Wesley Emison, MD, DDS",
+        "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+        "url": "http://www.yelp.com/biz/john-wesley-emison-md-dds-los-gatos?utm_campaign=yelp_api&utm_medium=api_v2_business&utm_source=2UolyG7wPxAoqO3-xijMUA",
+        "categories": [
+          [
+            "Oral Surgeons",
+            "oralsurgeons"
+          ],
+          [
+            "General Dentistry",
+            "generaldentistry"
+          ],
+          [
+            "Doctors",
+            "physicians"
+          ]
+        ],
+        "reviews": [
+          {
+            "rating": 5,
+            "excerpt": "I brought my 18 year old son who needed all 4 of his wisdom teeth pulled a few weeks before he stated college.  I was a bit nervous about the timing but Dr....",
+            "time_created": 1412028372,
+            "rating_image_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+            "rating_image_small_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+            "user": {
+              "image_url": "http://s3-media3.fl.yelpcdn.com/photo/itKNsKl8i1F2PIRmHBDR3A/ms.jpg",
+              "id": "Fab6eFzFLIo2WY_zMDpHsw",
+              "name": "Christine M."
+            },
+            "rating_image_large_url": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+            "id": "UHZHQq3BAYQ-pmeYr6k5uQ"
+          }
+        ],
+        "phone": "4083585000",
+        "snippet_text": "I brought my 18 year old son who needed all 4 of his wisdom teeth pulled a few weeks before he stated college.  I was a bit nervous about the timing but Dr....",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/NadJVRCC-xZPrFNdFKYbcw/ms.jpg",
+        "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/itKNsKl8i1F2PIRmHBDR3A/ms.jpg",
+        "display_phone": "+1-408-358-5000",
+        "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+        "id": "john-wesley-emison-md-dds-los-gatos",
+        "is_closed": false,
+        "location": {
+          "city": "Los Gatos",
+          "display_address": [
+            "15780 Los Gatos Blvd",
+            "Los Gatos, CA 95032"
+          ],
+          "geo_accuracy": 8,
+          "postal_code": "95032",
+          "country_code": "US",
+          "address": [
+            "15780 Los Gatos Blvd"
+          ],
+          "coordinate": {
+            "latitude": 37.239204,
+            "longitude": -121.960922
+          },
+          "state_code": "CA"
+        }
+      },
+      "yelpCompetitors": [
+        {
+          "is_claimed": true,
+          "rating": 5,
+          "mobile_url": "http://m.yelp.com/biz/titan-dental-care-sterling?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+          "review_count": 23,
+          "name": "Titan Dental Care",
+          "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/RGS5Pa8o1xBOBgPCedvWaQ/ms.jpg",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+          "url": "http://www.yelp.com/biz/titan-dental-care-sterling?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ],
+            [
+              "Cosmetic Dentists",
+              "cosmeticdentists"
+            ],
+            [
+              "General Dentistry",
+              "generaldentistry"
+            ]
+          ],
+          "deals": [
+            {
+              "what_you_get": "You get a voucher redeemable for $500 at Titan Dental Care.\nPrint out your voucher, or redeem on your phone with the <a href=\"http://www.yelp.com/mobile?source=deal_marketing\">Yelp app</a>.",
+              "time_start": 1461729111,
+              "title": "$350 for $500",
+              "url": "http://www.yelp.com/deals/titan-dental-care-sterling?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "additional_restrictions": "Promotion lasts for 1 year from date of purchase. After that period, your voucher is redeemable for the amount you paid, less any value you may have received. Not valid with other vouchers, certificates, or offers. Voucher can only be used for services, not retail products. Only 1 voucher(s) can be purchased and redeemed per person. Up to 3 can be purchased as gifts for others. Subject to the <a target=\"_blank\" href=\"http://www.yelp.com/tos/general_b2c_us_20120911\">General Terms</a>.",
+              "options": [
+                {
+                  "original_price": 50000,
+                  "title": "$350 for $500",
+                  "price": 35000,
+                  "purchase_url": "https://www.yelp.com/checkout/deal/xaChLFOHrlT2wJAnu55xbw?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+                  "formatted_original_price": "$500",
+                  "formatted_price": "$350",
+                  "is_quantity_limited": false
+                }
+              ],
+              "image_url": "https://s3-media1.fl.yelpcdn.com/dphoto/sBKkuo74-96Oa3Y8OuCo6A/m.jpg",
+              "id": "eqhD8QbHFC8O4g7-rBSyUg",
+              "currency_code": "USD"
+            }
+          ],
+          "phone": "7033449904",
+          "snippet_text": "My mother is visiting my kids and I from Hong Kong. During her stay she started complaining about sensitivity and pain on one of her teeth.\n\nMy mother does...",
+          "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/h6JfwNvK1t--i3v-1eZ7Kg/ms.jpg",
+          "location": {
+            "city": "Sterling",
+            "display_address": [
+              "21351 Gentry Dr",
+              "Ste 135",
+              "Sterling, VA 20166"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20166",
+            "country_code": "US",
+            "address": [
+              "21351 Gentry Dr",
+              "Ste 135"
+            ],
+            "coordinate": {
+              "latitude": 39.0250079333782,
+              "longitude": -77.4058075994253
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-344-9904",
+          "gift_certificates": [
+            {
+              "url": "http://www.yelp.com/gift-certificates/titan-dental-care-sterling?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "unused_balances": "CASH",
+              "options": [
+                {
+                  "price": 1000,
+                  "formatted_price": "$10"
+                },
+                {
+                  "price": 2500,
+                  "formatted_price": "$25"
+                },
+                {
+                  "price": 5000,
+                  "formatted_price": "$50"
+                },
+                {
+                  "price": 7500,
+                  "formatted_price": "$75"
+                },
+                {
+                  "price": 10000,
+                  "formatted_price": "$100"
+                },
+                {
+                  "price": 15000,
+                  "formatted_price": "$150"
+                }
+              ],
+              "image_url": "http://s3-media3.fl.yelpcdn.com/bphoto/mjowGvC0COD_7Ayet3ECsw/m.jpg",
+              "id": "gTPeYG45n1wYaMfotohMOw",
+              "currency_code": "USD"
+            }
+          ],
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "titan-dental-care-sterling",
+          "is_closed": false,
+          "distance": 5385.437533560318
+        },
+        {
+          "is_claimed": true,
+          "rating": 5,
+          "mobile_url": "http://m.yelp.com/biz/fairfax-oral-and-maxillofacial-surgery-reston-5?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+          "review_count": 9,
+          "name": "Fairfax Oral and Maxillofacial Surgery",
+          "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/kvY-pfaCbplL1avEeztnlw/ms.jpg",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+          "url": "http://www.yelp.com/biz/fairfax-oral-and-maxillofacial-surgery-reston-5?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ]
+          ],
+          "phone": "7034357100",
+          "snippet_text": "I actually saw Dr. Parker, I believe. The whole office was friendly, prompt, and attentive and the Dr., in particular, was awesome. He was incredibly...",
+          "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/JrNczuTFEfrreX1Me5mKvg/ms.jpg",
+          "location": {
+            "city": "Reston",
+            "display_address": [
+              "12359 Sunrise Valley Dr",
+              "Ste 300",
+              "Reston, VA 20191"
+            ],
+            "geo_accuracy": 9.5,
+            "postal_code": "20191",
+            "country_code": "US",
+            "address": [
+              "12359 Sunrise Valley Dr",
+              "Ste 300"
+            ],
+            "coordinate": {
+              "latitude": 38.949629,
+              "longitude": -77.373045
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-435-7100",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "fairfax-oral-and-maxillofacial-surgery-reston-5",
+          "is_closed": false,
+          "distance": 10297.875484892189
+        },
+        {
+          "is_claimed": true,
+          "rating": 5,
+          "mobile_url": "http://m.yelp.com/biz/vine-dental-herndon-3?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+          "review_count": 4,
+          "name": "Vine Dental",
+          "snippet_image_url": "https://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/cc4afe21892e/assets/img/default_avatars/user_medium_square.png",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+          "url": "http://www.yelp.com/biz/vine-dental-herndon-3?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ],
+            [
+              "Cosmetic Dentists",
+              "cosmeticdentists"
+            ],
+            [
+              "Periodontists",
+              "periodontists"
+            ]
+          ],
+          "deals": [
+            {
+              "what_you_get": "You get a voucher redeemable for $100 at Vine Dental.\nPrint out your voucher, or redeem on your phone with the <a href=\"http://www.yelp.com/mobile?source=deal_marketing\">Yelp app</a>.",
+              "time_start": 1358346149,
+              "title": "$75 for $100",
+              "url": "http://www.yelp.com/deals/vine-dental-herndon-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "additional_restrictions": "Promotion lasts for 1 year from date of purchase. After that period, your voucher is redeemable for the amount you paid, less any value you may have received. Not valid with other vouchers, certificates, or offers. Voucher can only be used for services, not retail products. Only 1 voucher(s) can be purchased and redeemed per person. Up to 1 can be purchased as gifts for others. Subject to the <a target=\"_blank\" href=\"http://www.yelp.com/tos/general_b2c_us_20120911\">General Terms</a>.",
+              "options": [
+                {
+                  "original_price": 10000,
+                  "title": "$75 for $100",
+                  "price": 7500,
+                  "purchase_url": "https://www.yelp.com/checkout/deal/UfzAl056WaD5_3b4JRIxbg?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+                  "formatted_original_price": "$100",
+                  "formatted_price": "$75",
+                  "is_quantity_limited": false
+                }
+              ],
+              "image_url": "https://s3-media4.fl.yelpcdn.com/dphoto/zBOVfbFm4gv5OEGLKMBamA/m.jpg",
+              "id": "43J6EDTLKWVItDeMic66ow",
+              "currency_code": "USD"
+            }
+          ],
+          "phone": "5714859098",
+          "snippet_text": "Dr. Park is without a doubt one of the best dentists I've had the pleasure of going to. She's a phenomenal dentist, always friendly, honest, and very up...",
+          "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/IJEZ9LN395JmxYspPIfIYg/ms.jpg",
+          "location": {
+            "city": "Herndon",
+            "display_address": [
+              "102 Elden",
+              "Ste 17",
+              "Herndon, VA 20170"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20170",
+            "country_code": "US",
+            "address": [
+              "102 Elden",
+              "Ste 17"
+            ],
+            "coordinate": {
+              "latitude": 38.96674,
+              "longitude": -77.36641
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-571-485-9098",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "vine-dental-herndon-3",
+          "is_closed": false,
+          "distance": 8317.323217652784
+        },
+        {
+          "is_claimed": false,
+          "rating": 5,
+          "mobile_url": "http://m.yelp.com/biz/pell-james-a-dds-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+          "review_count": 3,
+          "name": "Pell James A, DDS",
+          "snippet_image_url": "https://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/cc4afe21892e/assets/img/default_avatars/user_medium_square.png",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+          "url": "http://www.yelp.com/biz/pell-james-a-dds-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ]
+          ],
+          "phone": "7034354414",
+          "snippet_text": "Good doctor, honest, fast, experienced\n staff and Office environment needs to be fixed\n.",
+          "location": {
+            "city": "Reston",
+            "display_address": [
+              "1800 Town Center Dr",
+              "Reston, VA 20190"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20190",
+            "country_code": "US",
+            "address": [
+              "1800 Town Center Dr"
+            ],
+            "coordinate": {
+              "latitude": 38.9634056091309,
+              "longitude": -77.3646926879883
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-435-4414",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "pell-james-a-dds-reston",
+          "is_closed": false,
+          "distance": 8650.906101770976
+        },
+        {
+          "is_claimed": true,
+          "rating": 5,
+          "mobile_url": "http://m.yelp.com/biz/paul-r-finamore-dds-finamore-dental-sterling?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+          "review_count": 2,
+          "name": "Paul R Finamore, DDS - Finamore Dental",
+          "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/IBOEg1g7vO9jkGMYnFgk6A/ms.jpg",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+          "url": "http://www.yelp.com/biz/paul-r-finamore-dds-finamore-dental-sterling?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ],
+            [
+              "Cosmetic Dentists",
+              "cosmeticdentists"
+            ],
+            [
+              "Pediatric Dentists",
+              "pediatric_dentists"
+            ]
+          ],
+          "phone": "7034212600",
+          "snippet_text": "Ok, I am not saying that my last dentist was bad, and I really did like her (loyal client for 8+ years) but sometimes you just have to move on to a...",
+          "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/WcZkZq9ynZGlKJ1nRK2V4Q/ms.jpg",
+          "location": {
+            "city": "Sterling",
+            "display_address": [
+              "46161 Westlake Dr",
+              "Ste 230",
+              "Sterling, VA 20165"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20165",
+            "country_code": "US",
+            "address": [
+              "46161 Westlake Dr",
+              "Ste 230"
+            ],
+            "coordinate": {
+              "latitude": 39.0354699,
+              "longitude": -77.40345
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-421-2600",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "paul-r-finamore-dds-finamore-dental-sterling",
+          "is_closed": false,
+          "distance": 4945.6291886680965
+        },
+        {
+          "is_claimed": false,
+          "rating": 5,
+          "mobile_url": "http://m.yelp.com/biz/martinez-luis-dds-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+          "review_count": 1,
+          "name": "Martinez Luis, DDS",
+          "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/ldS1DIB1P4_EkduYYO4XAA/ms.jpg",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+          "url": "http://www.yelp.com/biz/martinez-luis-dds-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ]
+          ],
+          "phone": "7034378811",
+          "snippet_text": "We have been associated with Dr. Martinez ever since our Dad's front teeth fell out on Christmas Eve 3 years ago. Dr. Martinez was recovering from knee...",
+          "location": {
+            "city": "Reston",
+            "display_address": [
+              "11325 Sunset Hills Rd",
+              "Reston, VA 20190"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20190",
+            "country_code": "US",
+            "address": [
+              "11325 Sunset Hills Rd"
+            ],
+            "coordinate": {
+              "latitude": 38.9496841430664,
+              "longitude": -77.3378067016602
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-437-8811",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "martinez-luis-dds-reston",
+          "is_closed": false,
+          "distance": 10061.016338969066
+        },
+        {
+          "is_claimed": false,
+          "rating": 5,
+          "mobile_url": "http://m.yelp.com/biz/dennis-g-savage-dds-sterling?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+          "review_count": 1,
+          "name": "Dennis G Savage, DDS",
+          "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/jeOaCoeCBcuA48cY4s4opw/ms.jpg",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+          "url": "http://www.yelp.com/biz/dennis-g-savage-dds-sterling?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ],
+            [
+              "General Dentistry",
+              "generaldentistry"
+            ]
+          ],
+          "phone": "7034508771",
+          "snippet_text": "Growing up, I always hated going to the dentist. Now that I go here for every 6 month check-up, I look forward to going! Suzy, my dental hygienist, is so...",
+          "location": {
+            "city": "Sterling",
+            "display_address": [
+              "21495 Ridgetop Cir",
+              "Ste 200",
+              "Sterling, VA 20166"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20166",
+            "country_code": "US",
+            "address": [
+              "21495 Ridgetop Cir",
+              "Ste 200"
+            ],
+            "coordinate": {
+              "latitude": 39.0308495,
+              "longitude": -77.4063568
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-450-8771",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "dennis-g-savage-dds-sterling",
+          "is_closed": false,
+          "distance": 5257.056273604434
+        },
+        {
+          "is_claimed": true,
+          "rating": 5,
+          "mobile_url": "http://m.yelp.com/biz/pike-and-valega-dds-poolesville-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+          "review_count": 1,
+          "name": "Pike & Valega, DDS",
+          "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/x-AJ4B9H01oFGZMIEwPb6w/ms.jpg",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+          "url": "http://www.yelp.com/biz/pike-and-valega-dds-poolesville-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ],
+            [
+              "General Dentistry",
+              "generaldentistry"
+            ]
+          ],
+          "phone": "3019727000",
+          "snippet_text": "Good place and great employees. When you're in a small town everyone should respect everyone, and this business does their part. The location is in the...",
+          "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/Kgh8bk2dZRE0B_7NAbixDA/ms.jpg",
+          "location": {
+            "city": "Poolesville",
+            "display_address": [
+              "19601 Fisher Ave",
+              "Poolesville, MD 20837"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20837",
+            "country_code": "US",
+            "address": [
+              "19601 Fisher Ave"
+            ],
+            "coordinate": {
+              "latitude": 39.1443939208984,
+              "longitude": -77.4091033935547
+            },
+            "state_code": "MD"
+          },
+          "display_phone": "+1-301-972-7000",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "pike-and-valega-dds-poolesville-2",
+          "is_closed": false,
+          "distance": 12811.633480591732
+        },
+        {
+          "is_claimed": true,
+          "rating": 4.5,
+          "mobile_url": "http://m.yelp.com/biz/optimal-dental-center-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+          "review_count": 15,
+          "name": "Optimal Dental Center",
+          "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/1tahQfuENpq-poig0KrClg/ms.jpg",
+          "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+          "url": "http://www.yelp.com/biz/optimal-dental-center-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ],
+            [
+              "General Dentistry",
+              "generaldentistry"
+            ],
+            [
+              "Cosmetic Dentists",
+              "cosmeticdentists"
+            ]
+          ],
+          "deals": [
+            {
+              "what_you_get": "You get a voucher redeemable for $100 at Optimal Dental Center.\nPrint out your voucher, or redeem on your phone with the <a href=\"http://www.yelp.com/mobile?source=deal_marketing\">Yelp app</a>.",
+              "time_start": 1417806981,
+              "title": "$75 for $100",
+              "url": "http://www.yelp.com/deals/optimal-dental-center-reston-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "additional_restrictions": "Promotion lasts for 1 year from date of purchase. After that period, your voucher is redeemable for the amount you paid. Not valid with other vouchers, certificates, or offers. Voucher can only be used for services, not retail products. Only 1 voucher(s) can be purchased and redeemed per person. Must use in a single visit. Up to 3 can be purchased as gifts for others. Subject to the <a target=\"_blank\" href=\"http://www.yelp.com/tos/general_b2c_us_20120911\">General Terms</a>.",
+              "options": [
+                {
+                  "original_price": 10000,
+                  "title": "$75 for $100",
+                  "price": 7500,
+                  "purchase_url": "https://www.yelp.com/checkout/deal/f8DIhphxh7u-9e03Yp_zcQ?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+                  "remaining_count": 15,
+                  "formatted_original_price": "$100",
+                  "formatted_price": "$75",
+                  "is_quantity_limited": true
+                }
+              ],
+              "important_restrictions": "New customers only.",
+              "image_url": "https://s3-media4.fl.yelpcdn.com/dphoto/QJeTe-SxXjkUk5lUGopA2A/m.jpg",
+              "id": "C0K9A7U4VvBk9hDCNLvJrQ",
+              "currency_code": "USD"
+            }
+          ],
+          "phone": "7033912222",
+          "snippet_text": "I absolutely love the staff here. The receptionist goes out of her way to help you. I get a good cleaning from the hygienist. Dr Assadi is super nice. She...",
+          "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/4KUT_y7KchYULvNCmJPEyQ/ms.jpg",
+          "location": {
+            "city": "Reston",
+            "display_address": [
+              "1801 Robert Fulton Dr",
+              "Ste 250",
+              "Reston, VA 20191"
+            ],
+            "geo_accuracy": 9.5,
+            "postal_code": "20191",
+            "country_code": "US",
+            "address": [
+              "1801 Robert Fulton Dr",
+              "Ste 250"
+            ],
+            "coordinate": {
+              "latitude": 38.942552,
+              "longitude": -77.324549
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-391-2222",
+          "gift_certificates": [
+            {
+              "url": "http://www.yelp.com/gift-certificates/optimal-dental-center-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+              "unused_balances": "CASH",
+              "options": [
+                {
+                  "price": 1000,
+                  "formatted_price": "$10"
+                },
+                {
+                  "price": 2500,
+                  "formatted_price": "$25"
+                },
+                {
+                  "price": 5000,
+                  "formatted_price": "$50"
+                },
+                {
+                  "price": 7500,
+                  "formatted_price": "$75"
+                },
+                {
+                  "price": 10000,
+                  "formatted_price": "$100"
+                },
+                {
+                  "price": 15000,
+                  "formatted_price": "$150"
+                }
+              ],
+              "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/Dc2PsYG5u-fbnssMfN_UIw/m.jpg",
+              "id": "InJZ9jNGs-DZpWXkl7UFoQ",
+              "currency_code": "USD"
+            }
+          ],
+          "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+          "id": "optimal-dental-center-reston",
+          "is_closed": false,
+          "distance": 10991.030282569609
+        },
+        {
+          "is_claimed": true,
+          "rating": 4.5,
+          "mobile_url": "http://m.yelp.com/biz/calvin-k-nguyen-dds-herndon?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+          "review_count": 12,
+          "name": "Calvin K Nguyen DDS",
+          "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/Lz8V5x0DFeypn1m4KkCsmg/ms.jpg",
+          "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+          "url": "http://www.yelp.com/biz/calvin-k-nguyen-dds-herndon?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ],
+            [
+              "Cosmetic Dentists",
+              "cosmeticdentists"
+            ]
+          ],
+          "phone": "7038707675",
+          "snippet_text": "Moved to the area a few years ago and read a lot of reviews before picking a new dentist. I chose Franklin Dental because it was close to home, had good...",
+          "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/ZOmIZf3LJE5LCRuANYDAwg/ms.jpg",
+          "location": {
+            "city": "Herndon",
+            "display_address": [
+              "13320- I Franklin Farm Rd",
+              "Herndon, VA 20171"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20171",
+            "country_code": "US",
+            "address": [
+              "13320- I Franklin Farm Rd"
+            ],
+            "coordinate": {
+              "latitude": 38.9074346423149,
+              "longitude": -77.4066350609064
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-870-7675",
+          "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+          "id": "calvin-k-nguyen-dds-herndon",
+          "is_closed": false,
+          "distance": 15508.681408057393
+        },
+        {
+          "is_claimed": false,
+          "rating": 4.5,
+          "mobile_url": "http://m.yelp.com/biz/joseph-j-devylder-dds-vienna?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+          "review_count": 8,
+          "name": "Joseph J. Devylder, DDS",
+          "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/XjHixoqGascBcMTNLtrvdw/ms.jpg",
+          "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+          "url": "http://www.yelp.com/biz/joseph-j-devylder-dds-vienna?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ]
+          ],
+          "phone": "7039385664",
+          "snippet_text": "I have an extreme fear of dentists... When I had my first tooth removed at a different clinic, the dentist did local anesthesia and spent 3.5 hours yanking...",
+          "location": {
+            "city": "Vienna",
+            "display_address": [
+              "407 Church St NE",
+              "Ste F",
+              "Vienna, VA 22180"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "22180",
+            "country_code": "US",
+            "address": [
+              "407 Church St NE",
+              "Ste F"
+            ],
+            "coordinate": {
+              "latitude": 38.9082374572754,
+              "longitude": -77.2588958740234
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-938-5664",
+          "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+          "id": "joseph-j-devylder-dds-vienna",
+          "is_closed": false,
+          "distance": 16478.788299278443
+        },
+        {
+          "is_claimed": true,
+          "rating": 4.5,
+          "mobile_url": "http://m.yelp.com/biz/northern-virginia-oral-maxillofacial-and-implant-surgery-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+          "review_count": 7,
+          "name": "Northern Virginia Oral, Maxillofacial & Implant Surgery",
+          "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/ZL6F6xRbwO6r-jYcDLCS2Q/ms.jpg",
+          "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+          "url": "http://www.yelp.com/biz/northern-virginia-oral-maxillofacial-and-implant-surgery-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ]
+          ],
+          "phone": "7037361640",
+          "snippet_text": "I felt cared for and well-informed regarding my procedure.",
+          "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/g1-IZOf7n9v3aGA3sE9kQQ/ms.jpg",
+          "location": {
+            "city": "Reston",
+            "display_address": [
+              "11331 Sunset Hills Rd",
+              "Reston, VA 20190"
+            ],
+            "geo_accuracy": 9.5,
+            "postal_code": "20190",
+            "country_code": "US",
+            "address": [
+              "11331 Sunset Hills Rd"
+            ],
+            "coordinate": {
+              "latitude": 38.949422,
+              "longitude": -77.337962
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-736-1640",
+          "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+          "id": "northern-virginia-oral-maxillofacial-and-implant-surgery-reston",
+          "is_closed": false,
+          "distance": 10089.16420379838
+        },
+        {
+          "is_claimed": true,
+          "rating": 4.5,
+          "mobile_url": "http://m.yelp.com/biz/isam-estwani-dds-new-horizons-dental-center-herndon?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+          "review_count": 6,
+          "name": "Isam Estwani, DDS - New Horizons Dental Center",
+          "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/hdr-nvQSfSGtZQOyrC3HXg/ms.jpg",
+          "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+          "url": "http://www.yelp.com/biz/isam-estwani-dds-new-horizons-dental-center-herndon?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ]
+          ],
+          "phone": "7039554221",
+          "snippet_text": "I've been here several times since moving to Virginia. The dentist, Dr. Estwani, is very good. Highly recommended",
+          "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/nFPBIQY9xcgmSTAcuUc04w/ms.jpg",
+          "location": {
+            "city": "Herndon",
+            "display_address": [
+              "1020 Elden St",
+              "Ste 106",
+              "Herndon, VA 20170"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20170",
+            "country_code": "US",
+            "address": [
+              "1020 Elden St",
+              "Ste 106"
+            ],
+            "coordinate": {
+              "latitude": 38.968029,
+              "longitude": -77.3959579
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-955-4221",
+          "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+          "id": "isam-estwani-dds-new-horizons-dental-center-herndon",
+          "is_closed": false,
+          "distance": 9061.67882858804
+        },
+        {
+          "is_claimed": true,
+          "rating": 4,
+          "mobile_url": "http://m.yelp.com/biz/reston-town-center-dental-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+          "review_count": 13,
+          "name": "Reston Town Center Dental",
+          "snippet_image_url": "https://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/cc4afe21892e/assets/img/default_avatars/user_medium_square.png",
+          "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+          "url": "http://www.yelp.com/biz/reston-town-center-dental-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ],
+            [
+              "General Dentistry",
+              "generaldentistry"
+            ],
+            [
+              "Pediatric Dentists",
+              "pediatric_dentists"
+            ]
+          ],
+          "menu_date_updated": 1442109508,
+          "phone": "7039569444",
+          "snippet_text": "Since 6 years ago when my dentist of 20 years retired I have been looking for a dentist who I could feel at home and comfortable with and I found that with...",
+          "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/yo9MH9AoAY1fP2ZwwFp-yQ/ms.jpg",
+          "location": {
+            "city": "Reston",
+            "display_address": [
+              "1760 Reston Pkwy",
+              "Ste 415",
+              "Reston, VA 20190"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20190",
+            "country_code": "US",
+            "address": [
+              "1760 Reston Pkwy",
+              "Ste 415"
+            ],
+            "coordinate": {
+              "latitude": 38.962841,
+              "longitude": -77.3549271
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-956-9444",
+          "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+          "menu_provider": "single_platform",
+          "id": "reston-town-center-dental-reston",
+          "is_closed": false,
+          "distance": 8600.150264968042
+        },
+        {
+          "is_claimed": false,
+          "rating": 4,
+          "mobile_url": "http://m.yelp.com/biz/nicholas-a-muss-dds-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+          "review_count": 6,
+          "name": "Nicholas A Muss, DDS",
+          "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/J-csNMnjbQw1jcXhpKpWaQ/ms.jpg",
+          "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+          "url": "http://www.yelp.com/biz/nicholas-a-muss-dds-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ],
+            [
+              "General Dentistry",
+              "generaldentistry"
+            ]
+          ],
+          "phone": "7036892697",
+          "snippet_text": "Dr. Muss has been my dentist since my first ever teeth cleaning when I was a little kid! I am now 26 and still a patient of his. Dr. Muss is such a great...",
+          "location": {
+            "city": "Reston",
+            "display_address": [
+              "11339 Sunset Hills Rd",
+              "Reston, VA 20190"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20190",
+            "country_code": "US",
+            "address": [
+              "11339 Sunset Hills Rd"
+            ],
+            "coordinate": {
+              "latitude": 38.9496193,
+              "longitude": -77.338623
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-689-2697",
+          "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+          "id": "nicholas-a-muss-dds-reston",
+          "is_closed": false,
+          "distance": 10063.174708616167
+        },
+        {
+          "is_claimed": true,
+          "rating": 4,
+          "mobile_url": "http://m.yelp.com/biz/robert-s-sears-dds-herndon?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+          "review_count": 3,
+          "name": "Robert S Sears, DDS",
+          "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/cTjoPgD8cP180UpuyzQ06w/ms.jpg",
+          "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+          "url": "http://www.yelp.com/biz/robert-s-sears-dds-herndon?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ],
+            [
+              "Pediatric Dentists",
+              "pediatric_dentists"
+            ]
+          ],
+          "phone": "7037072070",
+          "snippet_text": "MUST GO! We LOVE Dr. Sears! I have sent all 3 of my children to Dr. Sears and they all have beautiful smiles.\n\nFirst of all, Dr. Sears himself is a great...",
+          "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/j8TTxOswPsIkwbuDKay3OA/ms.jpg",
+          "location": {
+            "city": "Herndon",
+            "display_address": [
+              "150 Elden St",
+              "Ste 200",
+              "Herndon, VA 20170"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20170",
+            "country_code": "US",
+            "address": [
+              "150 Elden St",
+              "Ste 200"
+            ],
+            "coordinate": {
+              "latitude": 38.9671288,
+              "longitude": -77.367691
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-707-2070",
+          "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+          "id": "robert-s-sears-dds-herndon",
+          "is_closed": false,
+          "distance": 8289.5770688129
+        },
+        {
+          "is_claimed": false,
+          "rating": 3.5,
+          "mobile_url": "http://m.yelp.com/biz/clark-r-brian-dds-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png",
+          "review_count": 3,
+          "name": "Clark R Brian, DDS",
+          "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/1uj_iNP07mby6ypw0aM7wQ/ms.jpg",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png",
+          "url": "http://www.yelp.com/biz/clark-r-brian-dds-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ]
+          ],
+          "phone": "7033912600",
+          "snippet_text": "Great Dentist.  I've been a patient of Dr Brian Clark for over 20 years and have always had a pleasant experience during my visits.  The office staff is top...",
+          "location": {
+            "city": "Reston",
+            "display_address": [
+              "1950 Roland Clarke Pl",
+              "Ste 420",
+              "Reston, VA 20191"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20191",
+            "country_code": "US",
+            "address": [
+              "1950 Roland Clarke Pl",
+              "Ste 420"
+            ],
+            "coordinate": {
+              "latitude": 38.9499740600586,
+              "longitude": -77.350700378418
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-391-2600",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png",
+          "id": "clark-r-brian-dds-reston",
+          "is_closed": false,
+          "distance": 10033.383332854291
+        },
+        {
+          "is_claimed": false,
+          "rating": 3,
+          "mobile_url": "http://m.yelp.com/biz/zacko-b-george-dds-reston-3?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/34bc8086841c/ico/stars/v1/stars_3.png",
+          "review_count": 6,
+          "name": "Zacko B George, DDS",
+          "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/BbDbpKVN0pB0JgEJWI3UOg/ms.jpg",
+          "rating_img_url_small": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/902abeed0983/ico/stars/v1/stars_small_3.png",
+          "url": "http://www.yelp.com/biz/zacko-b-george-dds-reston-3?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ],
+            [
+              "Cosmetic Dentists",
+              "cosmeticdentists"
+            ],
+            [
+              "Periodontists",
+              "periodontists"
+            ]
+          ],
+          "phone": "7034716600",
+          "snippet_text": "I recently switched dentists due to my previous dentist continuously finding issues and advising me to get various procedures done, not excluding teeth...",
+          "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/c7Oz7ha6e2Zt2rGy_l-Hiw/ms.jpg",
+          "location": {
+            "city": "Reston",
+            "display_address": [
+              "1712 Clubhouse Rd",
+              "Ste 106",
+              "Reston, VA 20190"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20190",
+            "country_code": "US",
+            "address": [
+              "1712 Clubhouse Rd",
+              "Ste 106"
+            ],
+            "coordinate": {
+              "latitude": 38.96197,
+              "longitude": -77.34727
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-471-6600",
+          "rating_img_url_large": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/e8b5b79d37ed/ico/stars/v1/stars_large_3.png",
+          "id": "zacko-b-george-dds-reston-3",
+          "is_closed": false,
+          "distance": 8673.010392575572
+        },
+        {
+          "is_claimed": false,
+          "rating": 3,
+          "mobile_url": "http://m.yelp.com/biz/patterson-adrian-l-dds-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/34bc8086841c/ico/stars/v1/stars_3.png",
+          "review_count": 2,
+          "name": "Patterson Adrian L DDS",
+          "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/PE5JCPsktxXROdOMkzLHJA/ms.jpg",
+          "rating_img_url_small": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/902abeed0983/ico/stars/v1/stars_small_3.png",
+          "url": "http://www.yelp.com/biz/patterson-adrian-l-dds-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ]
+          ],
+          "phone": "7037361640",
+          "snippet_text": "I was referred to Dr. Patterson by my Dentist and I am sooo happy for that referral. I had to get two wisdom teeth pulled and I was scared to death. Well...",
+          "location": {
+            "city": "Reston",
+            "display_address": [
+              "11331 Sunset Hills Rd",
+              "Reston, VA 20190"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20190",
+            "country_code": "US",
+            "address": [
+              "11331 Sunset Hills Rd"
+            ],
+            "coordinate": {
+              "latitude": 38.9494209289551,
+              "longitude": -77.3379592895508
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-736-1640",
+          "rating_img_url_large": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/e8b5b79d37ed/ico/stars/v1/stars_large_3.png",
+          "id": "patterson-adrian-l-dds-reston",
+          "is_closed": false,
+          "distance": 10089.16420379838
+        },
+        {
+          "is_claimed": false,
+          "rating": 3,
+          "mobile_url": "http://m.yelp.com/biz/clark-clark-and-sapperstein-dds-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/34bc8086841c/ico/stars/v1/stars_3.png",
+          "review_count": 2,
+          "name": "Clark Clark & Sapperstein DDS",
+          "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/G4s4gayjLMT4qgqvB7R-qQ/ms.jpg",
+          "rating_img_url_small": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/902abeed0983/ico/stars/v1/stars_small_3.png",
+          "url": "http://www.yelp.com/biz/clark-clark-and-sapperstein-dds-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ]
+          ],
+          "phone": "7033912600",
+          "snippet_text": "Back when it was \"Sapperstein\", Sapperstein was TOP NOTCH.  Clark and Clark are also top notch, but they went through a brief period where the third dentist...",
+          "location": {
+            "city": "Reston",
+            "display_address": [
+              "1950 Roland Clarke Pl Ste 420",
+              "Reston, VA 20191"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20191",
+            "country_code": "US",
+            "address": [
+              "1950 Roland Clarke Pl Ste 420"
+            ],
+            "coordinate": {
+              "latitude": 38.9499740600586,
+              "longitude": -77.350700378418
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-391-2600",
+          "rating_img_url_large": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/e8b5b79d37ed/ico/stars/v1/stars_large_3.png",
+          "id": "clark-clark-and-sapperstein-dds-reston",
+          "is_closed": false,
+          "distance": 10033.383332854291
+        }
+      ]
+    }
+  },
+  {
+    "name": "Elizabeth Zapp, MD",
+    "phone": "(703) 421-7000",
+    "address": "21135 WHITFIELD PL",
+    "zip": "20165-7283",
+    "sites": [
+      {
+        "site": "Vitals",
+        "title": "Dr. Elizabeth Zapp MD",
+        "url": "http://www.vitals.com/doctors/Dr_Elizabeth_Zapp.html"
+      },
+      {
+        "site": "HealthGrades",
+        "title": "Dr. Elizabeth A. Zapp, MD",
+        "url": "https://www.healthgrades.com/physician/dr-elizabeth-zapp-xl9x3"
+      }
+    ],
+    "address2": "",
+    "city": "STERLING",
+    "state": "VA",
+    "country": "US",
+    "key": "95a1d20b-3996-4b24-868c-ee329adcc2bb-elizabeth-zapp",
+    "reportDate": "06/23/2016",
+    "providerName": "Elizabeth Zapp, MD",
+    "providerAddress": "21135 WHITFIELD PL<br>STERLING, VA 20165-7283<br>(703) 421-7000",
+    "bias": 0,
+    "reviews": [
+      {
+        "siteId": "HealthGrades",
+        "siteName": "HEALTH GRADES",
+        "siteUrl": "https://www.healthgrades.com/physician/dr-elizabeth-zapp-xl9x3",
+        "addressAccurate": true,
+        "reviewCount": 5,
+        "rating": 2.6
+      },
+      {
+        "siteId": "Vitals",
+        "siteName": "VITALS.COM",
+        "siteUrl": "http://www.vitals.com/doctors/Dr_Elizabeth_Zapp.html",
+        "addressAccurate": true,
+        "reviewCount": 1,
+        "rating": 3.5
+      }
+    ],
+    "competitors": {
+      "yelpBusiness": null,
+      "yelpCompetitors": [
+        {
+          "is_claimed": true,
+          "rating": 5,
+          "mobile_url": "http://m.yelp.com/biz/doctors-to-you-washington-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+          "review_count": 29,
+          "name": "Doctors To You",
+          "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/_z8DzvmNPgp4Thd5A4j3gQ/ms.jpg",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+          "url": "http://www.yelp.com/biz/doctors-to-you-washington-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ],
+            [
+              "Urgent Care",
+              "urgent_care"
+            ],
+            [
+              "Home Health Care",
+              "homehealthcare"
+            ]
+          ],
+          "phone": "2025453300",
+          "snippet_text": "This service is incredibly convenient. My local walk-in clinic always has the longest lines in the world and Doctors to You allows me to skip those...",
+          "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/T0nodX0zuiTX89vpW5lXaQ/ms.jpg",
+          "location": {
+            "city": "Washington",
+            "display_address": [
+              "Penn Quarter",
+              "Washington, DC 20004"
+            ],
+            "geo_accuracy": 5,
+            "neighborhoods": [
+              "Penn Quarter"
+            ],
+            "postal_code": "20004",
+            "country_code": "US",
+            "address": [],
+            "coordinate": {
+              "latitude": 38.8931274414062,
+              "longitude": -77.0205535888672
+            },
+            "state_code": "DC"
+          },
+          "display_phone": "+1-202-545-3300",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "doctors-to-you-washington-2",
+          "is_closed": false,
+          "distance": 35716.02388547786
+        },
+        {
+          "is_claimed": true,
+          "rating": 5,
+          "mobile_url": "http://m.yelp.com/biz/family-immediate-care-herndon?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+          "review_count": 3,
+          "name": "Family Immediate Care",
+          "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/8RMv0rkEQowA0k4ECwQWJg/ms.jpg",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+          "url": "http://www.yelp.com/biz/family-immediate-care-herndon?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ],
+            [
+              "Urgent Care",
+              "urgent_care"
+            ]
+          ],
+          "phone": "5713531899",
+          "snippet_text": "The doctor saw me immediately and I felt very comfortable discussing my health with her. She gave me options to choose from in terms of treatment and gave...",
+          "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/rOUMyicvXzJyO-MNunl-kQ/ms.jpg",
+          "location": {
+            "city": "Herndon",
+            "display_address": [
+              "420 Elden St",
+              "Herndon, VA 20170"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20170",
+            "country_code": "US",
+            "address": [
+              "420 Elden St"
+            ],
+            "coordinate": {
+              "latitude": 38.9678923040628,
+              "longitude": -77.3755194246769
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-571-353-1899",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "family-immediate-care-herndon",
+          "is_closed": false,
+          "distance": 7232.70013666207
+        },
+        {
+          "is_claimed": false,
+          "rating": 5,
+          "mobile_url": "http://m.yelp.com/biz/charles-payling-wright-md-herndon?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+          "review_count": 2,
+          "name": "Charles Payling-Wright, MD",
+          "snippet_image_url": "https://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/cc4afe21892e/assets/img/default_avatars/user_medium_square.png",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+          "url": "http://www.yelp.com/biz/charles-payling-wright-md-herndon?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ]
+          ],
+          "phone": "7034813131",
+          "snippet_text": "I like Dr. Wright. He is my primary care doctor since we moved to VA. He is very methodical, knowledgeable, analytical and takes time to review his...",
+          "location": {
+            "city": "Herndon",
+            "display_address": [
+              "106 Elden St",
+              "Herndon, VA 20170"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20170",
+            "country_code": "US",
+            "address": [
+              "106 Elden St"
+            ],
+            "coordinate": {
+              "latitude": 38.9671440124512,
+              "longitude": -77.3658599853516
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-481-3131",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "charles-payling-wright-md-herndon",
+          "is_closed": false,
+          "distance": 7619.554996977834
+        },
+        {
+          "is_claimed": true,
+          "rating": 5,
+          "mobile_url": "http://m.yelp.com/biz/comprehensive-primary-care-ashburn?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+          "review_count": 2,
+          "name": "Comprehensive Primary Care",
+          "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/oVH6g2eM19bFoXZ5aDADjA/ms.jpg",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+          "url": "http://www.yelp.com/biz/comprehensive-primary-care-ashburn?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ],
+            [
+              "Hospitals",
+              "hospitals"
+            ],
+            [
+              "Surgeons",
+              "surgeons"
+            ]
+          ],
+          "phone": "7037266500",
+          "snippet_text": "Dr Marpu is wonderful. She really listens to all of your concerns. The staff is very friendly and asks plenty of questions. I would definitely recommend...",
+          "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/toe2N7GJ_KxD0pbwQ-xVOQ/ms.jpg",
+          "location": {
+            "city": "Ashburn",
+            "display_address": [
+              "43810 Central Station Dr",
+              "Ste 160",
+              "Ashburn, VA 20147"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20147",
+            "country_code": "US",
+            "address": [
+              "43810 Central Station Dr",
+              "Ste 160"
+            ],
+            "coordinate": {
+              "latitude": 39.00743,
+              "longitude": -77.48661
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-726-6500",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "comprehensive-primary-care-ashburn",
+          "is_closed": false,
+          "distance": 8159.618802773716
+        },
+        {
+          "is_claimed": true,
+          "rating": 5,
+          "mobile_url": "http://m.yelp.com/biz/helen-cho-md-sterling?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+          "review_count": 2,
+          "name": "Helen Cho, MD",
+          "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/5SWtzRlAKnLyto5ACHlvWw/ms.jpg",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+          "url": "http://www.yelp.com/biz/helen-cho-md-sterling?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ],
+            [
+              "Naturopathic/Holistic",
+              "naturopathic"
+            ]
+          ],
+          "phone": "7039352240",
+          "snippet_text": "My husband's health and mine have both improved greatly under Dr. Helen's care. She is especially good with auto-immune and chronic conditions that other...",
+          "location": {
+            "city": "Sterling",
+            "display_address": [
+              "625 Elden ST",
+              "St. 102",
+              "Sterling, VA 20170"
+            ],
+            "geo_accuracy": 9.5,
+            "postal_code": "20170",
+            "country_code": "US",
+            "address": [
+              "625 Elden ST",
+              "St. 102"
+            ],
+            "coordinate": {
+              "latitude": 38.9687465,
+              "longitude": -77.3818865
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-935-2240",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "helen-cho-md-sterling",
+          "is_closed": false,
+          "distance": 7051.770298109815
+        },
+        {
+          "is_claimed": true,
+          "rating": 5,
+          "mobile_url": "http://m.yelp.com/biz/lansdown-travel-and-family-medicine-lansdowne?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+          "review_count": 2,
+          "name": "Lansdown Travel & Family Medicine",
+          "snippet_image_url": "https://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/cc4afe21892e/assets/img/default_avatars/user_medium_square.png",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+          "url": "http://www.yelp.com/biz/lansdown-travel-and-family-medicine-lansdowne?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ]
+          ],
+          "phone": "5712233833",
+          "snippet_text": "Great doctor who cares more about his patients than making money. Very easy to make same day sick appointments. He detected and helped us investigate my...",
+          "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/-zeUBbXEU3JbyKPx5RXkgg/ms.jpg",
+          "location": {
+            "city": "Lansdowne",
+            "display_address": [
+              "19415 Deerfield Ave",
+              "Ste 103",
+              "Lansdowne, VA 20176"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20176",
+            "country_code": "US",
+            "address": [
+              "19415 Deerfield Ave",
+              "Ste 103"
+            ],
+            "coordinate": {
+              "latitude": 39.0793991,
+              "longitude": -77.4775085
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-571-223-3833",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "lansdown-travel-and-family-medicine-lansdowne",
+          "is_closed": false,
+          "distance": 8779.604862655675
+        },
+        {
+          "is_claimed": false,
+          "rating": 4.5,
+          "mobile_url": "http://m.yelp.com/biz/eric-s-havens-md-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+          "review_count": 2,
+          "name": "Eric S Havens, MD",
+          "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/2vt3W3K5tJL6iyqovuhyOw/ms.jpg",
+          "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+          "url": "http://www.yelp.com/biz/eric-s-havens-md-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ]
+          ],
+          "phone": "7034789390",
+          "snippet_text": "Greatest doctor this side of the Continental Divide. Anytime I get to feelin a bit peeked, I just mosey on down to Ole Dr. Havens and he fixes me up, right...",
+          "location": {
+            "city": "Reston",
+            "display_address": [
+              "1850 Town Center Pkwy",
+              "Reston, VA 20190"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20190",
+            "country_code": "US",
+            "address": [
+              "1850 Town Center Pkwy"
+            ],
+            "coordinate": {
+              "latitude": 38.9615288,
+              "longitude": -77.3630219
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-478-9390",
+          "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+          "id": "eric-s-havens-md-reston",
+          "is_closed": false,
+          "distance": 8161.875827728947
+        },
+        {
+          "is_claimed": false,
+          "rating": 4,
+          "mobile_url": "http://m.yelp.com/biz/family-practice-and-pediatrics-of-herndon-reston-herndon?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+          "review_count": 1,
+          "name": "Family Practice & Pediatrics of Herndon-Reston",
+          "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/W2VHTXMcOaCQdJT7b2kYBg/ms.jpg",
+          "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+          "url": "http://www.yelp.com/biz/family-practice-and-pediatrics-of-herndon-reston-herndon?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ]
+          ],
+          "phone": "7034717733",
+          "snippet_text": "Rewind to Thursday night.  Horribly ill, no health insurance for another two months (yay for newly employed syndrome).  Friday dawns, and I resort to...",
+          "location": {
+            "city": "Herndon",
+            "display_address": [
+              "100 Elden St",
+              "Ste 14",
+              "Herndon, VA 20170"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20170",
+            "country_code": "US",
+            "address": [
+              "100 Elden St",
+              "Ste 14"
+            ],
+            "coordinate": {
+              "latitude": 38.9665794372559,
+              "longitude": -77.3658447265625
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-471-7733",
+          "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+          "id": "family-practice-and-pediatrics-of-herndon-reston-herndon",
+          "is_closed": false,
+          "distance": 7655.627081273969
+        },
+        {
+          "is_claimed": false,
+          "rating": 4,
+          "mobile_url": "http://m.yelp.com/biz/martha-kendall-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+          "review_count": 1,
+          "name": "Martha Kendall",
+          "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/blhP9HAoNIrki3obKa7b3g/ms.jpg",
+          "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+          "url": "http://www.yelp.com/biz/martha-kendall-reston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ],
+            [
+              "Internal Medicine",
+              "internalmed"
+            ]
+          ],
+          "phone": "7034375532",
+          "snippet_text": "Back when I worked in Reston, my health care plan was only PPO (meaning the company was part of a plan) which meant that I needed to pick a doctor out of a...",
+          "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/UkW65LCwcIZteExwFsnaGg/ms.jpg",
+          "location": {
+            "city": "Reston",
+            "display_address": [
+              "Internal Medicine Associates",
+              "1850 Town Center Pkwy, Ste 209",
+              "Reston, VA 20193"
+            ],
+            "geo_accuracy": 5,
+            "postal_code": "20193",
+            "country_code": "US",
+            "address": [
+              "Internal Medicine Associates",
+              "1850 Town Center Pkwy, Ste 209"
+            ],
+            "coordinate": {
+              "latitude": 38.95998,
+              "longitude": -77.33726
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-437-5532",
+          "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+          "id": "martha-kendall-reston",
+          "is_closed": false,
+          "distance": 9437.600195744433
+        },
+        {
+          "is_claimed": true,
+          "rating": 3.5,
+          "mobile_url": "http://m.yelp.com/biz/sterling-family-practice-sterling?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png",
+          "review_count": 11,
+          "name": "Sterling Family Practice",
+          "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/ICMQfAWZweGCQeePtjyqxg/ms.jpg",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png",
+          "url": "http://www.yelp.com/biz/sterling-family-practice-sterling?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ]
+          ],
+          "phone": "7034217000",
+          "snippet_text": "So... My last post was unfair... I am an adult and I am not afraid to hold myself accountable for my actions and words. I previously railed against the...",
+          "location": {
+            "city": "Sterling",
+            "display_address": [
+              "21135 Whitfield Pl",
+              "Ste 107",
+              "Sterling, VA 20165"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20165",
+            "country_code": "US",
+            "address": [
+              "21135 Whitfield Pl",
+              "Ste 107"
+            ],
+            "coordinate": {
+              "latitude": 39.0311,
+              "longitude": -77.39692
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-421-7000",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png",
+          "id": "sterling-family-practice-sterling",
+          "is_closed": false,
+          "distance": 25.287832972726445
+        },
+        {
+          "is_claimed": false,
+          "rating": 3.5,
+          "mobile_url": "http://m.yelp.com/biz/shabnam-sachdeva-md-sterling?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png",
+          "review_count": 9,
+          "name": "Shabnam Sachdeva, MD",
+          "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/0HCC__5xLpFMlUf1pS3a3g/ms.jpg",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png",
+          "url": "http://www.yelp.com/biz/shabnam-sachdeva-md-sterling?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ]
+          ],
+          "phone": "7033524194",
+          "snippet_text": "I spent virtually my entire duration in DC seeing Dr. Sachdeva as my GP - initially before my first business trip to India.  She was instrumental in...",
+          "location": {
+            "city": "Sterling",
+            "display_address": [
+              "46169 Westlake Dr",
+              "Ste 230",
+              "Sterling, VA 20165"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20165",
+            "country_code": "US",
+            "address": [
+              "46169 Westlake Dr",
+              "Ste 230"
+            ],
+            "coordinate": {
+              "latitude": 39.0348396,
+              "longitude": -77.4026489
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-352-4194",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png",
+          "id": "shabnam-sachdeva-md-sterling",
+          "is_closed": false,
+          "distance": 650.1763285928172
+        },
+        {
+          "is_claimed": true,
+          "rating": 3.5,
+          "mobile_url": "http://m.yelp.com/biz/nova-medical-group-sterling-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png",
+          "review_count": 3,
+          "name": "Nova Medical Group",
+          "snippet_image_url": "https://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/cc4afe21892e/assets/img/default_avatars/user_medium_square.png",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png",
+          "url": "http://www.yelp.com/biz/nova-medical-group-sterling-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ],
+            [
+              "Internal Medicine",
+              "internalmed"
+            ],
+            [
+              "Naturopathic/Holistic",
+              "naturopathic"
+            ]
+          ],
+          "phone": "7034304750",
+          "snippet_text": "I've used Nova Medical for years and have always been completely satisfied.  My recent experience with nurse practitioner Liana Chen was one of the best....",
+          "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/l1Y9AM3NunliZ_4mKw6zDA/ms.jpg",
+          "location": {
+            "city": "Sterling",
+            "display_address": [
+              "21036 Triple Seven Rd",
+              "Sterling, VA 20164"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20164",
+            "country_code": "US",
+            "address": [
+              "21036 Triple Seven Rd"
+            ],
+            "coordinate": {
+              "latitude": 39.033665,
+              "longitude": -77.406593
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-430-4750",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png",
+          "id": "nova-medical-group-sterling-2",
+          "is_closed": false,
+          "distance": 878.1486522216665
+        },
+        {
+          "is_claimed": true,
+          "rating": 3,
+          "mobile_url": "http://m.yelp.com/biz/leesburg-sterling-family-practice-leesburg?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/34bc8086841c/ico/stars/v1/stars_3.png",
+          "review_count": 19,
+          "name": "Leesburg Sterling Family Practice",
+          "snippet_image_url": "https://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/cc4afe21892e/assets/img/default_avatars/user_medium_square.png",
+          "rating_img_url_small": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/902abeed0983/ico/stars/v1/stars_small_3.png",
+          "url": "http://www.yelp.com/biz/leesburg-sterling-family-practice-leesburg?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ]
+          ],
+          "phone": "7037247530",
+          "snippet_text": "After having some rather awful experiences with Drs in the past,especially the last physical I had two years ago,I just avoided going.\nSo I tried a new...",
+          "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/iakDZ5D5KzeGtZ9pZfMZXQ/ms.jpg",
+          "location": {
+            "city": "Leesburg",
+            "display_address": [
+              "44084 Riverside Pkwy",
+              "Ste 300",
+              "Leesburg, VA 20176"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20176",
+            "country_code": "US",
+            "address": [
+              "44084 Riverside Pkwy",
+              "Ste 300"
+            ],
+            "coordinate": {
+              "latitude": 39.0760726928711,
+              "longitude": -77.4743804931641
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-724-7530",
+          "rating_img_url_large": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/e8b5b79d37ed/ico/stars/v1/stars_large_3.png",
+          "id": "leesburg-sterling-family-practice-leesburg",
+          "is_closed": false,
+          "distance": 8326.033324607277
+        },
+        {
+          "is_claimed": true,
+          "rating": 3,
+          "mobile_url": "http://m.yelp.com/biz/medics-usa-ashburn-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/34bc8086841c/ico/stars/v1/stars_3.png",
+          "review_count": 7,
+          "name": "Medics USA",
+          "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/V682aa_aaiN2zBqCrasr6w/ms.jpg",
+          "rating_img_url_small": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/902abeed0983/ico/stars/v1/stars_small_3.png",
+          "url": "http://www.yelp.com/biz/medics-usa-ashburn-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ],
+            [
+              "Urgent Care",
+              "urgent_care"
+            ]
+          ],
+          "phone": "7037269401",
+          "snippet_text": "This was my first time at this office and I was very pleased. Everyone was very nice, friendly, and professional.",
+          "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/Wja_Ao8ROcNIGfSFDHfOCQ/ms.jpg",
+          "location": {
+            "city": "Ashburn",
+            "display_address": [
+              "44050 Ashburn Shopping Plz",
+              "Ste 179",
+              "Ashburn, VA 20147"
+            ],
+            "geo_accuracy": 9.5,
+            "postal_code": "20147",
+            "country_code": "US",
+            "address": [
+              "44050 Ashburn Shopping Plz",
+              "Ste 179"
+            ],
+            "coordinate": {
+              "latitude": 39.0437567,
+              "longitude": -77.4874416
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-726-9401",
+          "rating_img_url_large": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/e8b5b79d37ed/ico/stars/v1/stars_large_3.png",
+          "id": "medics-usa-ashburn-2",
+          "is_closed": false,
+          "distance": 7946.512225974521
+        },
+        {
+          "is_claimed": true,
+          "rating": 3,
+          "mobile_url": "http://m.yelp.com/biz/partner-md-lansdowne-leesburg-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/34bc8086841c/ico/stars/v1/stars_3.png",
+          "review_count": 2,
+          "name": "Partner MD - Lansdowne",
+          "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/EknPDA2t1-PztNPi6k4-Yg/ms.jpg",
+          "rating_img_url_small": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/902abeed0983/ico/stars/v1/stars_small_3.png",
+          "url": "http://www.yelp.com/biz/partner-md-lansdowne-leesburg-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ]
+          ],
+          "phone": "7038407340",
+          "snippet_text": "We've been seeing Dr. Ditaranto for a little over a year now and I have to say he is the best doctor I have ever had. He is the nicest, smartest, most...",
+          "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/XmULEbIFQVHSwgHU1pAGYw/ms.jpg",
+          "location": {
+            "city": "Leesburg",
+            "display_address": [
+              "19500 Sandridge Way",
+              "Ste 200",
+              "Leesburg, VA 20176"
+            ],
+            "geo_accuracy": 9.5,
+            "postal_code": "20176",
+            "country_code": "US",
+            "address": [
+              "19500 Sandridge Way",
+              "Ste 200"
+            ],
+            "coordinate": {
+              "latitude": 39.075153961677,
+              "longitude": -77.4801915776059
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-840-7340",
+          "rating_img_url_large": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/e8b5b79d37ed/ico/stars/v1/stars_large_3.png",
+          "id": "partner-md-lansdowne-leesburg-2",
+          "is_closed": false,
+          "distance": 8703.484250338248
+        },
+        {
+          "is_claimed": true,
+          "rating": 2.5,
+          "mobile_url": "http://m.yelp.com/biz/nova-urgent-care-ashburn?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png",
+          "review_count": 18,
+          "name": "Nova Urgent Care",
+          "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/WTwoWR0ApNb1D11S01-iUQ/ms.jpg",
+          "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/8e8633e5f8f0/ico/stars/v1/stars_small_2_half.png",
+          "url": "http://www.yelp.com/biz/nova-urgent-care-ashburn?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ],
+            [
+              "Urgent Care",
+              "urgent_care"
+            ]
+          ],
+          "phone": "7035541111",
+          "snippet_text": "I received good urgent care, and the staff was friendly.  I felt the delay and paperwork was too slow for an urgent care. I told the front desk person I was...",
+          "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/9-5ElidKDsPBkgTZhI5r2A/ms.jpg",
+          "location": {
+            "city": "Ashburn",
+            "display_address": [
+              "21785 Filigree Ct",
+              "Ste 100",
+              "Ashburn, VA 20147"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20147",
+            "country_code": "US",
+            "address": [
+              "21785 Filigree Ct",
+              "Ste 100"
+            ],
+            "coordinate": {
+              "latitude": 39.0125008,
+              "longitude": -77.4577103
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-554-1111",
+          "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/d63e3add9901/ico/stars/v1/stars_large_2_half.png",
+          "id": "nova-urgent-care-ashburn",
+          "is_closed": false,
+          "distance": 5643.97524788061
+        },
+        {
+          "is_claimed": false,
+          "rating": 2.5,
+          "mobile_url": "http://m.yelp.com/biz/dulles-family-medicine-pc-herndon?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png",
+          "review_count": 3,
+          "name": "Dulles Family Medicine PC",
+          "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/HxmR7RpeF8h7H-ejPLR6Uw/ms.jpg",
+          "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/8e8633e5f8f0/ico/stars/v1/stars_small_2_half.png",
+          "url": "http://www.yelp.com/biz/dulles-family-medicine-pc-herndon?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ],
+            [
+              "Internal Medicine",
+              "internalmed"
+            ]
+          ],
+          "phone": "7034710800",
+          "snippet_text": "Superb doctor in the northern Virginia area! My family and I have been with Dr. Imam for years and she is one of the best. You can tell she is an...",
+          "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/9Nt8t6-MM7_ZGw-ohClsrg/ms.jpg",
+          "location": {
+            "city": "Herndon",
+            "display_address": [
+              "504 Elden St",
+              "Herndon, VA 20170"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20170",
+            "country_code": "US",
+            "address": [
+              "504 Elden St"
+            ],
+            "coordinate": {
+              "latitude": 38.9689826965332,
+              "longitude": -77.3790817260742
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-471-0800",
+          "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/d63e3add9901/ico/stars/v1/stars_large_2_half.png",
+          "id": "dulles-family-medicine-pc-herndon",
+          "is_closed": false,
+          "distance": 7066.5495494070565
+        },
+        {
+          "is_claimed": true,
+          "rating": 2,
+          "mobile_url": "http://m.yelp.com/biz/potomac-family-practice-sterling?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/b561c24f8341/ico/stars/v1/stars_2.png",
+          "review_count": 6,
+          "name": "Potomac Family Practice",
+          "snippet_image_url": "https://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/cc4afe21892e/assets/img/default_avatars/user_medium_square.png",
+          "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a6210baec261/ico/stars/v1/stars_small_2.png",
+          "url": "http://www.yelp.com/biz/potomac-family-practice-sterling?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ]
+          ],
+          "phone": "7034443302",
+          "snippet_text": "I've been going to Potomac Family Practice for approximately 15 years.   Dr. Joseph Lee has been my physician the entire time and has always taken very good...",
+          "location": {
+            "city": "Sterling",
+            "display_address": [
+              "46165 Westlake Dr",
+              "Ste 120",
+              "Sterling, VA 20165"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20165",
+            "country_code": "US",
+            "address": [
+              "46165 Westlake Dr",
+              "Ste 120"
+            ],
+            "coordinate": {
+              "latitude": 39.0350113,
+              "longitude": -77.4040375
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-444-3302",
+          "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c00926ee5dcb/ico/stars/v1/stars_large_2.png",
+          "id": "potomac-family-practice-sterling",
+          "is_closed": false,
+          "distance": 759.3764445454983
+        },
+        {
+          "is_claimed": false,
+          "rating": 2,
+          "mobile_url": "http://m.yelp.com/biz/imam-shamim-a-md-herndon?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/b561c24f8341/ico/stars/v1/stars_2.png",
+          "review_count": 4,
+          "name": "Imam Shamim A MD",
+          "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/HxmR7RpeF8h7H-ejPLR6Uw/ms.jpg",
+          "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a6210baec261/ico/stars/v1/stars_small_2.png",
+          "url": "http://www.yelp.com/biz/imam-shamim-a-md-herndon?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ],
+            [
+              "Internal Medicine",
+              "internalmed"
+            ]
+          ],
+          "phone": "7034710800",
+          "snippet_text": "Superb doctor in the northern Virginia area! My family and I have been with her for years and she is one of the best. You can tell she is an experienced and...",
+          "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/VgowSBwOHhS-2JDloYjTXQ/ms.jpg",
+          "location": {
+            "city": "Herndon",
+            "display_address": [
+              "504 Elden St",
+              "Herndon, VA 20170"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20170",
+            "country_code": "US",
+            "address": [
+              "504 Elden St"
+            ],
+            "coordinate": {
+              "latitude": 38.9689826965332,
+              "longitude": -77.3790817260742
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-471-0800",
+          "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c00926ee5dcb/ico/stars/v1/stars_large_2.png",
+          "id": "imam-shamim-a-md-herndon",
+          "is_closed": false,
+          "distance": 7066.5495494070565
+        },
+        {
+          "is_claimed": false,
+          "rating": 1,
+          "mobile_url": "http://m.yelp.com/biz/ashburn-family-practice-ashburn-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f64056afac01/ico/stars/v1/stars_1.png",
+          "review_count": 4,
+          "name": "Ashburn Family Practice",
+          "snippet_image_url": "https://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/cc4afe21892e/assets/img/default_avatars/user_medium_square.png",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/74cb12ae7253/ico/stars/v1/stars_small_1.png",
+          "url": "http://www.yelp.com/biz/ashburn-family-practice-ashburn-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Family Practice",
+              "familydr"
+            ]
+          ],
+          "phone": "7037293700",
+          "snippet_text": "I really hope Karma works, the way they say it does, for WISNER! \n\nMy husband went and saw WISNER about a few weeks ago with a REAL bad cold. I'm not saying...",
+          "location": {
+            "city": "Ashburn",
+            "display_address": [
+              "44081 Pipeline Plz",
+              "Ste 110",
+              "Ashburn, VA 20147"
+            ],
+            "geo_accuracy": 9.5,
+            "postal_code": "20147",
+            "country_code": "US",
+            "address": [
+              "44081 Pipeline Plz",
+              "Ste 110"
+            ],
+            "coordinate": {
+              "latitude": 39.022222,
+              "longitude": -77.4786758
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-729-3700",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/cc5d90a21966/ico/stars/v1/stars_large_1.png",
+          "id": "ashburn-family-practice-ashburn-2",
+          "is_closed": false,
+          "distance": 7132.916770525023
+        }
+      ]
+    }
+  }
+]

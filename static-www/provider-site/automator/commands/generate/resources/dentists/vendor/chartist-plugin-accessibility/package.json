@@ -1,0 +1,112 @@
+{
+  "_args": [
+    [
+      "chartist-plugin-accessibility@0.0.4",
+      "/Users/yuriysannikov/repo/mdocs/mdocs-survey/tools/marketing-automation/stage-four"
+    ]
+  ],
+  "_from": "chartist-plugin-accessibility@0.0.4",
+  "_id": "chartist-plugin-accessibility@0.0.4",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/chartist-plugin-accessibility",
+  "_nodeVersion": "0.10.35",
+  "_npmUser": {
+    "email": "gion.kunz@gmail.com",
+    "name": "gionkunz"
+  },
+  "_npmVersion": "2.4.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "chartist-plugin-accessibility",
+    "raw": "chartist-plugin-accessibility@0.0.4",
+    "rawSpec": "0.0.4",
+    "scope": null,
+    "spec": "0.0.4",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/chartist-plugin-accessibility/-/chartist-plugin-accessibility-0.0.4.tgz",
+  "_shasum": "41a6a35fe6c163421e5b26e38e73d6195e717add",
+  "_shrinkwrap": null,
+  "_spec": "chartist-plugin-accessibility@0.0.4",
+  "_where": "/Users/yuriysannikov/repo/mdocs/mdocs-survey/tools/marketing-automation/stage-four",
+  "author": {
+    "name": "Gion Kunz"
+  },
+  "browser": "dist/chartist-plugin-accessibility.js",
+  "bugs": {
+    "url": "https://github.com/gionkunz/chartist-plugin-accessibility/issues"
+  },
+  "config": {
+    "banner": "/* chartist-plugin-accessibility <%= pkg.version %>\n * Copyright © <%= year %> Gion Kunz\n * Free to use under the WTFPL license.\n * http://www.wtfpl.net/\n */\n",
+    "dist": "dist",
+    "src": "src",
+    "test": "test",
+    "tmp": ".tmp"
+  },
+  "dependencies": {},
+  "description": "Accessibility Plugin for Chartist.js",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-contrib-jasmine": "~0.8.1",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-uglify": "^0.6.0",
+    "grunt-newer": "^0.8.0",
+    "grunt-umd": "~2.2.1",
+    "jasmine-fixture": "~1.2.2",
+    "jshint-stylish": "~1.0.0",
+    "load-grunt-config": "^0.16.0",
+    "time-grunt": "^1.0.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "41a6a35fe6c163421e5b26e38e73d6195e717add",
+    "tarball": "https://registry.npmjs.org/chartist-plugin-accessibility/-/chartist-plugin-accessibility-0.0.4.tgz"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
+  "gitHead": "4fff97574a1b1a5bc0f387984d024b75f450fe54",
+  "homepage": "https://gionkunz.github.io/chartist-plugin-accessibility",
+  "keywords": [
+    "chartist",
+    "charts",
+    "accessibility",
+    "plugin"
+  ],
+  "licenses": [
+    {
+      "type": "WTFPL",
+      "url": "https://github.com/gionkunz/chartist-plugin-accessibility/blob/master/LICENSE"
+    }
+  ],
+  "main": "dist/chartist-plugin-accessibility.js",
+  "maintainers": [
+    {
+      "email": "gion.kunz@gmail.com",
+      "name": "gionkunz"
+    }
+  ],
+  "name": "chartist-plugin-accessibility",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gionkunz/chartist-plugin-accessibility.git"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "version": "0.0.4"
+}

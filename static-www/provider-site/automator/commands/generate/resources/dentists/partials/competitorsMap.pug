@@ -1,0 +1,426 @@
+section#competitiveAnalysis.section-page
+  .section-header
+    .header-logo
+      p.bottom
+        | —
+        span.doctorType #{data.type}
+        |  —
+      p.bottom
+        img(src='images/logo-mdocs-light.png', alt='Patient Reviews by MDOCS')
+    .header-title
+      h1 Competitive Analysis
+  .padding-all.bg-grey(style='height: 100%;')
+    #competitors-table-placeholder
+    #map(style='height: 650px; width: 100%')
+      span#mapLoading Loading Map...
+  style.
+    .map-icon-text {
+      font-size: 13pt !important;
+      color: #222 !important;
+      position: relative;
+      top: -5px;
+      font-family: 'Source Sans Pro' !important;
+    }
+    .map-icon-text-competitor {
+      font-size: 10pt !important;
+      color: #FFF !important;
+      position: relative;
+      top: 10px;
+      font-family: 'Source Sans Pro' !important;
+    }
+    .self-cell {
+      background-color: #FAA;
+    }
+  script#competitor-template(type='text/x-handlebars-template').
+    <div id="content">
+    <div id="siteNotice">
+    </div>
+    <h1 id="firstHeading" class="firstHeading">Competitor # {{competitorIndex}}</h1>
+    <div id="bodyContent">
+    <table class="table valigned">
+      <tbody>
+        <tr>
+          <td colspan="3">
+            <strong>MDOCS Rank</strong>
+          </td>
+          <td>
+            <span>No. {{rank}}</span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <strong>Star Ratings</strong>
+          </td>
+          <td>
+            <span>
+              {{#each stars}}
+                <i class='fa fa-star{{c}}'></i>
+              {{/each}}
+              &nbsp;({{rating}}) based on {{reviewCount}} reviews.
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <strong>Location</strong>
+          </td>
+          <td>
+            <span>{{location}}</span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <strong>Categories</strong>
+          </td>
+          <td>
+            {{#each categories}}
+              <p>{{category}}</p>
+            {{/each}}
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <strong>Distance From You</strong>
+          </td>
+          <td>
+            <span>{{distance}} miles</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+
+  script#entity-template(type='text/x-handlebars-template').
+    <div id="content">
+    <div id="siteNotice">
+    </div>
+    <h1 id="firstHeading" class="firstHeading">{{name}}</h1>
+    <div id="bodyContent">
+    <table class="table valigned">
+      <tbody>
+        <tr>
+          <td colspan="3">
+            <strong>MDOCS Rank</strong>
+          </td>
+          <td>
+            <span>No. {{rank}} out of {{total}} competitors</span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <strong>Star Ratings</strong>
+          </td>
+          <td>
+            <span>
+              {{#each starsTotal}}
+                <i class='fa fa-star{{c}}'></i>
+              {{/each}}
+              &nbsp;({{totalReviewRating}}) based on {{totalReviewCount}} reviews.
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <strong>Location</strong>
+          </td>
+          <td>
+            {{#each location}}
+              <p>{{e}}</p>
+            {{/each}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+  script#competitors-table(type='text/x-handlebars-template').
+    <table class="table table-condensed valigned">
+      <thead>
+        <tr>
+          <td colspan="3">Name</td>
+          <td>Ratings</td>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each tableItems}}
+          <tr class="{{isSelf}}">
+            <td colspan="3">{{{name}}}</td>
+            <td>
+              <span>
+                {{#each stars}}
+                  <i class='fa fa-star{{c}}'></i>
+                {{/each}}
+                &nbsp;({{rating}}) based on {{reviewCount}} reviews.
+              </span>
+            </td>
+          </tr>
+        {{/each}}
+      <tbody>
+
+  script.
+    function initCompetitorsMap() {
+      var data = JSON.parse(document.getElementById('reviewCardData').innerHTML);
+
+      function calculateSelfRank(data) {
+        var competitors = data.competitors.yelpCompetitors || []
+        var totalCompetitors = competitors.length;
+        var DEFAULT_RANK = 7;
+
+        function massageRank(index) {
+          if (index >= totalCompetitors) {
+            return totalCompetitors / 2; // In the middle
+          }
+          if (index >= ( (totalCompetitors * 2) / 3)) {
+            return index / 2;
+          }
+
+          return index;
+        }
+
+        var totalRating = data.reviews.reduce(function(total, current) {
+          if (!current.reviewCount) {
+            return total;
+          }
+          return {
+            rating: total.rating + current.rating,
+            reviewCount: total.reviewCount + current.reviewCount,
+            count: total.count + 1
+          };
+        }, {rating: 0, reviewCount: 0, count: 0})
+
+        console && console.log && console.log(JSON.stringify(totalRating, null, 2));
+
+        if (totalRating.count === 0) {
+          totalRating.rank = massageRank(DEFAULT_RANK);
+          return totalRating;
+        }
+
+        totalRating.rating = totalRating.rating / totalRating.count;
+        totalRating.totalReviewCount = totalRating.reviewCount;
+        totalRating.reviewCount = totalRating.reviewCount / totalRating.count;
+        delete totalRating.count;
+
+        console && console.log && console.log(JSON.stringify(totalRating, null, 2));
+
+        const index = competitors.findIndex(function(c) {
+          if (c.rating < totalRating.rating) {
+            return true;
+          }
+          if (c.rating === totalRating.rating) {
+            return c.review_count < totalRating.reviewCount;
+          }
+          return false;
+        });
+
+        console && console.log && console.log('R='+index);
+
+        totalRating.rank = massageRank( (index === -1) ? DEFAULT_RANK : index);
+
+        return totalRating;
+      }
+
+      data.selfRating = calculateSelfRank(data);
+
+      var competitorTemplate = Handlebars.compile(document.getElementById('competitor-template').innerHTML);
+      var entityTemplate = Handlebars.compile(document.getElementById('entity-template').innerHTML);
+      var competitorsTable = Handlebars.compile(document.getElementById('competitors-table').innerHTML);
+
+      document.getElementById('competitors-table-placeholder').innerHTML = competitorsTable({tableItems: competitorsTableData(data)});
+
+      function starsMap(rating) {
+        return [1, 2, 3, 4, 5].map(function(idx) {
+          var c = (rating >= idx) ? '' : (
+            (Math.ceil(rating) === Math.ceil(idx)) ? '-half-o' :'-o'
+          );
+          return {c:c};
+        });
+      }
+      function competitorsTableData(data) {
+        var yelpCompetitors = ((data.competitors || {}).yelpCompetitors || []);
+        var result = yelpCompetitors.map(function(c, i) {
+          return {
+            name: 'Competitor # ' + (i + 1),
+            stars: starsMap(c.rating),
+            rating: c.rating.toFixed(2),
+            reviewCount: c.review_count,
+            isSelf: false
+          }
+        });
+        result.splice(data.selfRating.rank, 0, {
+          name: '<strong>YOU</strong>',
+          stars: starsMap(data.selfRating.rating),
+          rating: data.selfRating.rating.toFixed(4),
+          reviewCount: data.selfRating.totalReviewCount,
+          isSelf: 'self-cell'
+        });
+
+        return result;
+      }
+
+      function placeMyself(mapObj, location) {
+
+        var myselfIcon = {
+          path: 'M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z',
+          fillColor: '#FF196F',
+          fillOpacity: 1,
+          scale: 1,
+          strokeColor: '#9E003B',
+          strokeWeight: 2
+        };
+
+        var marker = new Marker({
+          position: location,
+          map: mapObj,
+          icon: myselfIcon,
+          map_icon_label: '<span class="map-icon map-icon-text">You</span>'
+        });
+        var infowindow = infowindowForSelf(data);
+
+        function openInfowindow() {
+          if (window.__currentInfoWindow) {
+            window.__currentInfoWindow.close();
+          }
+          infowindow.open(mapObj, marker);
+          window.__currentInfoWindow = infowindow;
+        }
+        marker.addListener('click', openInfowindow);
+        openInfowindow();
+      }
+
+      function infowindowForSelf(data) {
+        var yelpSite = (data.reviews.find(function(r) {
+          return r.siteId === 'Yelp';
+        })) || {rating: 0, reviewCount: 0};
+
+
+        var stars = [1, 2, 3, 4, 5].map(function(idx) {
+          var c = (yelpSite.rating >= idx) ? '' : (
+            (Math.ceil(yelpSite.rating) === Math.ceil(idx)) ? '-half-o' :'-o'
+          );
+          return {c:c};
+        });
+        var starsTotal = [1, 2, 3, 4, 5].map(function(idx) {
+          var c = (data.selfRating.rating >= idx) ? '' : (
+            (Math.ceil(data.selfRating.rating) === Math.ceil(idx)) ? '-half-o' :'-o'
+          );
+          return {c:c};
+        });
+        var content = entityTemplate( {
+          name: data.name,
+          rank: data.selfRating.rank + 1,
+          totalReviewCount: data.selfRating.totalReviewCount,
+          totalReviewRating: data.selfRating.rating.toFixed(1),
+          total: (data.competitors.yelpCompetitors || []).length,
+          stars: stars,
+          starsTotal: starsTotal,
+          reviewCount: yelpSite.reviewCount,
+          location: data.providerAddress.replace('undefined', '').split('<br>').map(function(e) {return {e:e}}),
+          rating: yelpSite.rating.toFixed(1)
+          });
+        var infowindow = new google.maps.InfoWindow({
+          content: content
+        });
+        return infowindow;
+      }
+
+      function infowindowForCompetitor(competitor, index) {
+        var categories = competitor.categories.map(function(arr) {
+          return { category: arr[0]};
+        });
+        var stars = [1, 2, 3, 4, 5].map(function(idx) {
+          var c = (competitor.rating >= idx) ? '' : (
+            (Math.ceil(competitor.rating) === Math.ceil(idx)) ? '-half-o' :'-o'
+          );
+          return {c:c};
+        });
+        var content = competitorTemplate( {
+            rank: index,
+            reviewCount: competitor.review_count,
+            location: competitor.location.city + ', ' + competitor.location.state_code,
+            distance: (competitor.distance / 1600.0).toFixed(2),
+            stars: stars,
+            rating: competitor.rating.toFixed(1),
+            competitorIndex: index,
+            categories: categories
+          });
+        var infowindow = new google.maps.InfoWindow({
+          content: content
+        });
+        return infowindow;
+      }
+
+      function placeCompetitors(mapObj, location) {
+        var yelpCompetitors = ((data.competitors || {}).yelpCompetitors || []);
+        for (var i = 0; i < yelpCompetitors.length; i++) {
+          var competitor = yelpCompetitors[i];
+
+          var clickHandlerFn = (function(competitor, i) {
+            var yelpPos = ((competitor.location || {}).coordinate || {});
+            var marker = new Marker({
+              position: {lat: yelpPos.latitude, lng: yelpPos.longitude},
+              map: mapObj,
+              icon: {
+                path: SQUARE_PIN,
+                fillColor: '#23282e',
+                fillOpacity: 1,
+                strokeColor: '#30373F',
+                strokeWeight: 1,
+                scale: 0.5
+              },
+              title: 'Competitor #' + i,
+              map_icon_label: '<span class="map-icon map-icon-text-competitor">#' + (i + 1) + '</span>'
+            });
+            var fn = function() {
+              if (window.__currentInfoWindow) {
+                window.__currentInfoWindow.close();
+              }
+              var infowindow = infowindowForCompetitor(competitor, i + 1);
+              infowindow.open(mapObj, marker);
+              window.__currentInfoWindow = infowindow;
+            };
+            fn.marker = marker;
+            return fn;
+          })(competitor, i);
+          var marker = clickHandlerFn.marker;
+          marker.addListener('click', clickHandlerFn);
+
+          var current_bounds = mapObj.getBounds();
+          var marker_pos = marker.getPosition();
+
+          if( !current_bounds.contains( marker_pos ) ){
+
+              var new_bounds = current_bounds.extend( marker_pos );
+              mapObj.fitBounds( new_bounds );
+          }
+
+        }
+      }
+
+      var geocoder = new google.maps.Geocoder();
+      var addressQuery = data.address + ', ' + data.address2 + ', ' + data.city + ', ' + data.state + ' ' + data.zip;
+      geocoder.geocode(
+        { address: addressQuery },
+        function( results, status ){
+          var loadingEl = document.getElementById('mapLoading').innerHTML;
+          if( status !== 'OK' ) {
+            loadingEl.innerHTML = 'Sorry. Unable to load map';
+            return;
+          }
+          loadingEl.innerHTML = '';
+
+          var mapObj = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15
+          });
+          var result = results[0];
+          var centerLocation = result.geometry.location.toJSON();
+          mapObj.setCenter(centerLocation);
+          window.setTimeout(function(){
+            placeCompetitors(mapObj, centerLocation);
+            placeMyself(mapObj, centerLocation);
+          }, 2000);
+        }
+      );
+    }
+
+
