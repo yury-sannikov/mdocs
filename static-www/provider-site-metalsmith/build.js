@@ -10,41 +10,47 @@ const measure = require('hrtime-measure');
 const renamer = require('metalsmith-renamer');
 const msIf = require('metalsmith-if');
 const asset = require('metalsmith-static');
+const markdown = require('metalsmith-markdown');
 
 
 
 const DIR = __dirname + '/src/';
-
-function renamePugToHtml(files, metalsmith, done)  {
-  Object.keys(files).forEach(function(file) {
-    if (file.indexOf('.pug') !== -1) {
-      const newName = file.replace('.pug', '.html');
-      files[newName] = files[file];
-      delete files[file];
-    }
-  });
-  done();
-}
 
 const build = (clean = false) => (done) => {
   console.log(`Building. clean: ${clean}.`);
   measure.start('build');
 
   Metalsmith(__dirname)
+    // Folder with source data
     .source('./src')
+    // Folder with results
     .destination('./__build')
+    // Clean result folder if 'clean' is true.
+    // Do full clean if layout or partial has been changed
     .clean(clean)
     .use(
+      // If clean build, copy over assets from public folder
       msIf(clean,
         asset({
           src: './public',
           dest: './'
         }))
     )
-    .use(changed())
+    // Track file changes in 'src' folder. Pass down only changed file to reduce build time
+    // Temporarely disabled as has a conflict with metalsmith-include plugin
+    // Can be improved by checking metalsmith-include dependencies and update ctime
+    //.use(changed())
+    // Markdown Syntax
+    .use(markdown({
+      smartypants: true,
+      gfm: true,
+      tables: true
+    }))
+    // Allow to include markdown files into JADE
     .use(include({
       deletePartials: true
     }))
+    // PUG/Jade layouts system
     .use(layouts({
       engine: 'pug',
       layoutPattern: '*.pug',
@@ -78,7 +84,7 @@ build(true)((err) => {
 
   // Quick build if src changed
   watch(__dirname + '/src/**/*', { ignoreInitial: true }, build(false));
-  // Rebuild if layout changed
+  // Full Rebuild if layout changed
   watch(__dirname + '/layouts/**/*', { ignoreInitial: true }, build(true));
   watch(__dirname + '/partials/**/*', { ignoreInitial: true }, build(true));
 
