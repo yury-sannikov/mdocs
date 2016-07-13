@@ -7,9 +7,24 @@ const open = require('open');
 const include = require('metalsmith-include');
 const layouts = require('metalsmith-layouts');
 const measure = require('hrtime-measure');
+const renamer = require('metalsmith-renamer');
+const msIf = require('metalsmith-if');
+const asset = require('metalsmith-static');
+
 
 
 const DIR = __dirname + '/src/';
+
+function renamePugToHtml(files, metalsmith, done)  {
+  Object.keys(files).forEach(function(file) {
+    if (file.indexOf('.pug') !== -1) {
+      const newName = file.replace('.pug', '.html');
+      files[newName] = files[file];
+      delete files[file];
+    }
+  });
+  done();
+}
 
 const build = (clean = false) => (done) => {
   console.log(`Building. clean: ${clean}.`);
@@ -19,6 +34,13 @@ const build = (clean = false) => (done) => {
     .source('./src')
     .destination('./__build')
     .clean(clean)
+    .use(
+      msIf(clean,
+        asset({
+          src: './public',
+          dest: './'
+        }))
+    )
     .use(changed())
     .use(include({
       deletePartials: true
@@ -26,7 +48,6 @@ const build = (clean = false) => (done) => {
     .use(layouts({
       engine: 'pug',
       layoutPattern: '*.pug',
-      partials: 'partials',
       pretty: true,
       helpers: {
         _: require('lodash')
@@ -34,13 +55,21 @@ const build = (clean = false) => (done) => {
     }))
     .use(livereload({ debug: true }))
     .build((err, files) => {
+      if (err) {
+        done(err);
+        return;
+      }
       let filenames = Object.keys(files).join(', ');
       measure.end('build', filenames, true);
       done(err);
     });
 };
 
-build(true)(() => {
+build(true)((err) => {
+  if (err) {
+    console.log(err);
+    return;
+  }
   var serve = new nodeStatic.Server(__dirname + '/__build');
   require('http').createServer((req, res) => {
     req.addListener('end', () => serve.serve(req, res));
@@ -51,7 +80,8 @@ build(true)(() => {
   watch(__dirname + '/src/**/*', { ignoreInitial: true }, build(false));
   // Rebuild if layout changed
   watch(__dirname + '/layouts/**/*', { ignoreInitial: true }, build(true));
+  watch(__dirname + '/partials/**/*', { ignoreInitial: true }, build(true));
 
-  open('http://localhost:8080');
+  //open('http://localhost:8080');
 });
 
