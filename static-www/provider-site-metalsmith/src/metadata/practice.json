@@ -1,3 +1,10 @@
 {
-  "address": "Practice Address from ./src/metadata/practice.json"
+  "name": "Liberty Laser Eye",
+  "address": "8321 Old Courthouse Road",
+  "city": "Vienna",
+  "state": "VA",
+  "zip": "22182",
+  "phone": "(571) 234-5678",
+  "fax": "(571) 234-5674",
+  "email": "info@libertylasereye.com"
 }

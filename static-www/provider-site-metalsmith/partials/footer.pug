@@ -1,6 +1,27 @@
 // Footer Navigation
 .row.push-30-t.items-push-2x
   .col-sm-4
+    h3.h5.font-w600.text-uppercase.push-20 LOCATION
+    .font-s13.push
+      strong= practice.name
+      br
+      span= practice.address
+      br
+      span= practice.city
+      |,  
+      span= practice.state
+      |  
+      span= practice.zip
+      br
+      |  Phone:  
+      span= practice.phone
+      br
+      |  Fax:  
+      span= practice.fax
+      br
+      |  Email:  
+      span= practice.email
+  .col-sm-4
     h3.h5.font-w600.text-uppercase.push-20 Company
     ul.list.list-simple-mini.font-s13
       li
@@ -26,20 +47,7 @@
         a.font-w600(href='javascript:void(0)') Privacy Policy
       li
         a.font-w600(href='javascript:void(0)') Terms & Conditions
-  .col-sm-4
-    h3.h5.font-w600.text-uppercase.push-20 Get In Touch
-    .font-s13.push
-      strong Liberty Eye Center
-      br
-      span= practice.address
-      br
-      |  City, State, Zip
-      br
-      abbr(title='Phone') P:
-      |  (123) 456-7890
-    .font-s13
-      i.si.si-envelope-open
-      |  company@example.com
+  
 // END Footer Navigation
 // Copyright Info
 .font-s12.push-20.clearfix
