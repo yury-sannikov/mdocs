@@ -14,7 +14,7 @@ const markdown = require('metalsmith-markdown');
 const jsonToFiles = require('metalsmith-json-to-files');
 const collections = require('metalsmith-collections');
 const permalinks = require('metalsmith-permalinks');
-
+const metadata = require('metalsmith-metadata');
 
 const DIR = __dirname + '/src/';
 
@@ -30,6 +30,10 @@ const build = (clean = false) => (done) => {
     // Clean result folder if 'clean' is true.
     // Do full clean if layout or partial has been changed
     .clean(clean)
+    // Inject metadata from JSON files into context.
+    .use(metadata({
+      practice: 'metadata/practice.json'
+    }))
     .use(
       // If clean build, copy over assets from public folder
       msIf(clean,
