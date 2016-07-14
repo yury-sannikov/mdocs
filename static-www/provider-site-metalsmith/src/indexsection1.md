@@ -1,6 +1,6 @@
 ---
-template: indexa.pug
+layout: markdown-wrapper.pug
 partial: true
 ---
 
-#### Markdown Section Included
+#### Markdown Section Included2

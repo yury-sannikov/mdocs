@@ -11,7 +11,9 @@ const renamer = require('metalsmith-renamer');
 const msIf = require('metalsmith-if');
 const asset = require('metalsmith-static');
 const markdown = require('metalsmith-markdown');
-
+const jsonToFiles = require('metalsmith-json-to-files');
+const collections = require('metalsmith-collections');
+const permalinks = require('metalsmith-permalinks');
 
 
 const DIR = __dirname + '/src/';
@@ -49,6 +51,22 @@ const build = (clean = false) => (done) => {
     // Allow to include markdown files into JADE
     .use(include({
       deletePartials: true
+    }))
+    .use(jsonToFiles({
+      source_path: './json/'
+    }))
+    .use(collections({
+      doctors: {}
+    }))
+    .use(permalinks({
+      relative: false,
+      date: 'YYYY',
+
+      linksets: [{
+          match: { collection: 'blogposts' },
+          pattern: 'blog/:date/:title',
+          date: 'mmddyy'
+      }]
     }))
     // PUG/Jade layouts system
     .use(layouts({
