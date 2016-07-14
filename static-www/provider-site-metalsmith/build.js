@@ -15,6 +15,7 @@ const jsonToFiles = require('metalsmith-json-to-files');
 const collections = require('metalsmith-collections');
 const permalinks = require('metalsmith-permalinks');
 const metadata = require('metalsmith-metadata');
+const dep = require('./metalsmith-include-dependency');
 
 const DIR = __dirname + '/src/';
 
@@ -42,10 +43,12 @@ const build = (clean = false) => (done) => {
           dest: './'
         }))
     )
+    // Dependency tracking for metalsmith-include. Set ctime for all dependent files to the latest value of the group
+    .use(dep())
     // Track file changes in 'src' folder. Pass down only changed file to reduce build time
     // Temporarely disabled as has a conflict with metalsmith-include plugin
     // Can be improved by checking metalsmith-include dependencies and update ctime
-    //.use(changed())
+    .use(changed())
     // Markdown Syntax
     .use(markdown({
       smartypants: true,
