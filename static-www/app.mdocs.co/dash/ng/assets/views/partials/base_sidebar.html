@@ -232,6 +232,78 @@
                         <i class="si si-magic-wand"></i><span class="sidebar-mini-hide">Layout</span>
                     </a>
                 </li>
+
+                <li class="nav-main-heading"><span class="sidebar-mini-hide">Website</span></li>
+                <li data-ng-class="{open: (path.indexOf('/ui/') > -1)}">
+                  <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-cubes"></i><span class="sidebar-mini-hide">Content</span></a>
+                    <ul>
+                        <li>
+                            <a data-ui-sref="contentPages" data-ui-sref-active="active">Pages</a>
+                        </li>
+                        <li>
+                            <a data-ui-sref="uiTabs" data-ui-sref-active="active">Blog Posts</a>
+                        </li>
+                        <li>
+                            <a data-ui-sref="uiModalsTooltips" data-ui-sref-active="active">Menus</a>
+                        </li>
+                        <li>
+                            <a data-ui-sref="uiColorThemes" data-ui-sref-active="active">File Manager</a>
+                        </li>
+                        <li>
+                            <a data-ui-sref="uiBlocksDraggable" data-ui-sref-active="active">Hosting</a>
+                        </li>
+                        <li data-ng-class="{open: (path.indexOf('/ui/chat/') > -1)}">
+                            <a class="nav-submenu" data-toggle="nav-submenu" href="#">Chat</a>
+                            <ul>
+                                <li>
+                                    <a data-ui-sref="uiChatFull" data-ui-sref-active="active">Full</a>
+                                </li>
+                                <li>
+                                    <a data-ui-sref="uiChatFixed" data-ui-sref-active="active">Fixed</a>
+                                </li>
+                                <li>
+                                    <a data-ui-sref="uiChatPopup" data-ui-sref-active="active">Popup</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li data-ng-class="{open: (path.indexOf('/ui/') > -1)}">
+                  <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-cogs"></i><span class="sidebar-mini-hide">Settings</span></a>
+                  <ul>
+                      <li>
+                          <a data-ui-sref="practiceSettings" data-ui-sref-active="active">Practice</a>
+                      </li>
+                      <li>
+                          <a data-ui-sref="uiTabs" data-ui-sref-active="active">Locations</a>
+                      </li>
+                      <li>
+                          <a data-ui-sref="uiModalsTooltips" data-ui-sref-active="active">Providers</a>
+                      </li>
+                      <li>
+                          <a data-ui-sref="uiColorThemes" data-ui-sref-active="active">Insurance</a>
+                      </li>
+                      <li>
+                          <a data-ui-sref="uiBlocksDraggable" data-ui-sref-active="active">Draggable Blocks</a>
+                      </li>
+                      <li data-ng-class="{open: (path.indexOf('/ui/chat/') > -1)}">
+                          <a class="nav-submenu" data-toggle="nav-submenu" href="#">Chat</a>
+                          <ul>
+                              <li>
+                                  <a data-ui-sref="uiChatFull" data-ui-sref-active="active">Full</a>
+                              </li>
+                              <li>
+                                  <a data-ui-sref="uiChatFixed" data-ui-sref-active="active">Fixed</a>
+                              </li>
+                              <li>
+                                  <a data-ui-sref="uiChatPopup" data-ui-sref-active="active">Popup</a>
+                              </li>
+                          </ul>
+                      </li>
+                  </ul>
+              </li>
+
                 <li class="nav-main-heading"><span class="sidebar-mini-hide">Settings</span></li>
                 <li>
                     <a data-ui-sref="providersLocations" data-ui-sref-active="active">

@@ -374,6 +374,16 @@ App.config(['$stateProvider', '$urlRouterProvider',
                     }]
                 }
             })
+            .state('practiceSettings', {
+                url: '/settings/website/practice',
+                templateUrl: 'assets/views/practiceSettings.html',
+                controller: 'WebsiteSettingsCtrl'
+            })
+            .state('contentPages', {
+                url: '/settings/website/pages',
+                templateUrl: 'assets/views/contentPages.html',
+                controller: 'WebsiteContentCtrl'
+            })
             .state('providersLocations', {
                 url: '/settings/providers',
                 templateUrl: 'assets/views/providers.html'
@@ -803,7 +813,7 @@ App.controller('AppCtrl', ['$scope', '$localStorage', '$window',
     function ($scope, $localStorage, $window) {
         // Template Settings
         $scope.oneui = {
-            version: '2.1', // Template version
+            version: '2.2', // Template version
             localStorage: false, // Enable/Disable local storage
             settings: {
                 activeColorTheme: false, // Set a color theme of your choice, available: 'amethyst', 'city, 'flat', 'modern' and 'smooth'

@@ -2357,3 +2357,97 @@ App.controller('CompMapsVectorCtrl', ['$scope', '$localStorage', '$window',
         });
     }
 ]);
+
+// Website Settings Controller
+App.controller('WebsiteSettingsCtrl', ['$scope', '$localStorage', '$window',
+    function ($scope, $localStorage, $window) {
+        // Template Settings
+        $scope.websiteEditor = {
+            version: '2.2', // Template version
+            localStorage: true, // Enable/Disable local storage
+            settings: {
+                practiceName: 'Liberty Laser Eye',
+                practiceDescription: 'Laser Eye Surgery Center',
+                practicePhone: '571-234-4567',
+                practiceEmail: 'info@livertylasereye.com',
+                sidebarMini: false,
+                sideOverlayOpen: false,
+                sideOverlayHover: false,
+                sideScroll: true,
+                headerFixed: true
+            }
+        };
+
+        // If local storage setting is enabled
+        if ($scope.websiteEditor.localStorage) {
+            // Save/Restore local storage settings
+            if ($scope.websiteEditor.localStorage) {
+                if (angular.isDefined($localStorage.websiteEditorSettings)) {
+                    $scope.websiteEditor.settings = $localStorage.websiteEditorSettings;
+                } else {
+                    $localStorage.websiteEditorSettings = $scope.websiteEditor.settings;
+                }
+            }
+
+            // Watch for settings changes
+            $scope.$watch('websiteEditor.settings', function () {
+                // If settings are changed then save them to localstorage
+                $localStorage.websiteEditorSettings = $scope.websiteEditor.settings;
+            }, true);
+        }
+    }
+]);
+
+// Website Content Controller
+App.controller('WebsiteContentCtrl', ['$scope', '$localStorage', '$window',
+    function ($scope, $localStorage, $window) {
+        // Template Settings
+        $scope.websiteContent = {
+          pages: [{
+            'id': 0,
+            'name': 'Page Zero',
+            'content': 'What\'s up cowboy?'
+          },{
+            'id': 1,
+            'name': 'Page One',
+            'content': 'What\'s up cowgirl?'
+          }],
+            version: '2.2', // Template version
+            localStorage: true, // Enable/Disable local storage
+            settings: {
+                practiceName: 'Liberty Laser Eye',
+                practiceDescription: 'Laser Eye Surgery Center',
+                practicePhone: '571-234-4567',
+                practiceEmail: 'info@livertylasereye.com',
+                sidebarMini: false,
+                sideOverlayOpen: false,
+                sideOverlayHover: false,
+                sideScroll: true,
+                headerFixed: true
+            }
+        };
+
+        $scope.deletePage = function(pageId) {
+          console.log('Deleted page ' + pageId);
+          $scope.websiteContent.pages.pop();
+        };
+
+        // If local storage setting is enabled
+        if ($scope.websiteContent.localStorage) {
+            // Save/Restore local storage settings
+            if ($scope.websiteContent.localStorage) {
+                if (angular.isDefined($localStorage.websiteContent)) {
+                    $scope.websiteContent = $localStorage.websiteContent;
+                } else {
+                    $localStorage.websiteContent = $scope.websiteContent;
+                }
+            }
+
+            // Watch for settings changes
+            $scope.$watch('websiteContent', function () {
+                // If settings are changed then save them to localstorage
+                $localStorage.websiteContent = $scope.websiteContent;
+            }, true);
+        }
+    }
+]);
