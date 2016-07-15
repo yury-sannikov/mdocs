@@ -1,0 +1,168 @@
+extends ../layouts/layout.pug
+
+block head
+  title #{application} &middot; New Profile
+
+block styles
+  style.
+    .progress {
+      background-color: black;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      height: 5px;
+    }
+
+    ul.nav > li {
+      width: 33%;
+      text-align: center;
+    }
+
+    .wrapper {
+      text-align: center;
+    }
+
+block content
+  .container
+    .row
+      .col-sm-10.col-md-10
+        br
+        br
+        - if (_.isEmpty(profile))
+          h2 New Profile 
+        - else
+          h2 Edit Profile
+        br
+        .progress
+          .progress-bar.progress-bar-success(role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3" style="width: 33%;")
+        br
+        .navbar
+          .navbar-inner
+            ul.nav.nav-pills(style='border: solid 1px gray;')
+              li.active
+                a(href="#profileType" data-toggle="tab" data-step="1" style='border-right: solid 1px gray;') Select Type
+              li
+                a(href="#profileInfo" data-toggle="tab" data-step="2" style='border-right: solid 1px gray;') Information
+              li
+                a(href="#profileSites" data-toggle="tab" data-step="3") Review Sites
+        br
+        .tab-content
+          #profileType
+            .tab-pane.fade.in.active
+              .well
+                h4 Please choose the profile type
+                br
+                .radio
+                  label
+                    input(type="radio", name="isProvider", id="providerRadio", checked="checked", value='yes') 
+                    | Provider (Doctor)
+                .radio
+                  label
+                    input(type="radio", name="isProvider", id="locationRadio", value='no') 
+                    | Location (Office)
+              .wrapper
+                a.btn.btn-success.btn-lg.next(href="#") Continue >
+          #profileInfo
+            .tab-pane.fade
+              form#providerform(action='new-provider', method='POST')
+                input.form-control(type='hidden', name='_csrf', value=_csrf)
+                .form-group
+                  h4 Please provide your Full Name
+                  br
+                  label.sr-only(for='name') Name
+                  input.form-control(type='text', name='name', id='name', placeholder='Full name')
+                .form-group
+                  h4 Please provide your Email
+                  br
+                  label.sr-only(for='email') Email
+                  input.form-control(type='email', name='email', id='email', placeholder='Email')
+                  #hint
+                #addressArea.form-group
+                  h4 Please provide your Address
+                  br
+                  label.sr-only(for='address') Address
+                  input.form-control(type='text', name='address', id='address', placeholder='Location address')
+                .form-group
+                  h4 Please provide your Phone Number
+                  br
+                  label.sr-only(for='phoneMobile') Phone
+                  input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Phone number e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
+              a.btn.btn-info.btn-lg.prev(href="#") < Back
+              a.btn.btn-success.btn-lg.next.pull-right(href="#") Continue >
+          #profileSites
+            .tab-pane.fade
+              .well
+                label Please provide your Review Sites 
+                input.form-control.input-lg
+              a.btn.btn-info.btn-lg.prev(href="#") < Back
+              a#saveprofilebutton.btn.btn-success.btn-lg.create.pull-right(href="#") Create Profile
+
+block scripts
+  script(src='/app/lib/bootstrap/dist/js/bootstrap.min.js')
+  script.
+    // Profile passed in, if any
+    const profile = !{JSON.stringify(profile)};
+
+    // DOM Ready =============================================================
+    (function(init) {
+      init(window.jQuery, window, document);
+    }(function($, window, document) {
+
+      $(function() {
+
+        //- Async Load Bootstrap Modal
+        $.ajax({
+          type: 'GET',
+          url: '/app/lib/bootstrap/js/modal.js',
+          dataType: 'script',
+          cache: true
+        });
+
+
+        // Creating New Profile
+        if(profile == null || profile === '') {
+          // Initially hide address area
+          $('#addressArea').hide();
+        }
+        else { 
+          // Editing Profile
+          if(profile.isProvider) {
+            $('#providerRadio').attr('checked', 'checked');
+            $('#addressArea').hide();
+          }
+          else {
+            $('#locationRadio').attr('checked', 'checked');
+            $('#address').val(profile.address);
+          }
+          $('#name').val(profile.name);
+          $('#email').val(profile.email);
+          $('#phoneMobile').val(profile.phone);
+        }
+
+
+        // Fire event when input radio button is clicked
+        $('input[type="radio"]').on('click', inputChanged);
+
+        // Fire event when tab is clicked
+        $('a[data-toggle="tab"]').on('shown.bs.tab', tabChanged);
+
+        // ToDO:
+        // - Set up review Sites
+        // - When click on tabs, change the tab accordingly
+        // - When click on back or continue, change the tab accordingly
+      });
+    }));
+
+    // Functions =============================================================
+
+    // Hide/Show address area based on the profile type
+    function inputChanged(event) {
+      $(this).attr('id') === 'locationRadio' ? $('#addressArea').show() : $('#addressArea').hide();
+    }
+
+    // Tab clicked
+    function tabChanged(event) {
+      // Update progress bar
+      var step = $(event.target).data('step');
+      var percent = (parseInt(step) / 3) * 100;
+      $('.progress-bar').css({width: percent + '%'});
+    }

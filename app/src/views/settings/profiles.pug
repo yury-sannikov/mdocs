@@ -1,0 +1,136 @@
+extends ../layouts/layout.pug
+
+//- http://cwbuecheler.com/web/tutorials/2014/restful-web-app-node-express-mongodb/
+
+block head
+  title #{application} &middot; Profiles
+
+block content
+  .container
+    .row
+      //- PROFILES INFO
+      .col-md-12
+        .page-header
+          h2
+            i.fa.fa-user
+            | &nbsp;Profiles
+        a.btn.btn-success.pull-center(href="new-profile") New Profile
+        //- /LOCATIONS INFO
+
+        //- WRAPPER
+        #wrapper
+
+          //- USER LIST
+          #userList
+            table.table.table-striped
+              thead
+                th Name
+                th Address
+                th Email
+                th Phone
+                th Type
+                th Actions
+              tbody
+                each profile, i in profiles
+                  tr
+                    td
+                      span #{profile.name}
+                    - if(!_.isEmpty(profile.address))
+                      td
+                        span #{profile.address}
+                    - else
+                      td
+                        span
+                    td
+                      strong #{profile.email}
+                    td
+                      span #{formatPhone(profile.phone)}
+                    td
+                      span #{profile.type}
+                    td
+                      a.btn.btn-info.btn-xs(href='profile/'+profile.id) View
+                      | &nbsp;
+                      a.btn.btn-primary.btn-xs(href='update-profile/'+profile.id) Edit&nbsp;
+                      | &nbsp;
+                      a.linkdeleteprofile.btn.btn-danger.btn-xs(href="#", data-profileId=profile.id) Delete&nbsp;
+          - if (profiles.length === 0)
+            span No profiles found in a database.
+          //- /USER LIST
+
+        //- /WRAPPER
+
+
+  #deleteModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='deleteModalLabel', aria-hidden='true')
+      .modal-dialog.modal-sm
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+            h4#deleteModalLabel.modal-title Delete confirmation
+          .modal-body
+            h4 Are you sure?
+            form#deleteform(action='delete-profile', method='POST')
+              input.form-control(type='hidden', name='_csrf', value=_csrf)
+              input#deleteformid.form-control(type='hidden', name='id')
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') No
+            button#deleteModalConfirm.btn.btn-primary(type='button') Yes!
+
+  //- script(src='lib/moment/min/moment.min.js')
+  //- script(src='lib/bootstrap/js/modal.js')
+block scripts
+  script.
+    // Userlist data array for filling in info box
+    var userListData = [];
+    // List of profiles passed in
+    const profiles = !{JSON.stringify(profiles)};
+
+    // DOM Ready =============================================================
+    (function(init) {
+      init(window.jQuery, window, document);
+    }(function($, window, document) {
+
+      $(function() {
+
+        //- Async Load Bootstrap Modal
+        $.ajax({
+          type: 'GET',
+          url: '/app/lib/bootstrap/js/modal.js',
+          dataType: 'script',
+          cache: true
+        });
+
+
+        // Delete profile link click
+        $('#userList').on('click', '.linkdeleteprofile', deleteProfile);
+
+      });
+    }));
+
+    // Functions =============================================================
+
+
+    // Delete Profile
+    function deleteProfile(event) {
+
+      // Prevent Link from Firing
+      event.preventDefault();
+
+      // Pop up a confirmation dialog
+      // Convoluted because we have to
+      // pass the user's id through
+      function showmodal(id) {
+        // show modal
+        $('#deleteModal').modal({keyboard:true,backdrop:'static'});
+        // if "yes" clicked
+        $('#deleteModalConfirm').one('click', function () {
+          // close the modal
+          $('#deleteformid').val(id);
+          $('#deleteform').submit();
+          $('#deleteModal').modal('hide');
+        });
+      }
+
+      // call modal function with the user's account id
+      showmodal($(this).attr('data-profileId'));
+
+    };

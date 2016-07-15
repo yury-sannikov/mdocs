@@ -34,9 +34,18 @@
         li.nav-main-heading
           span.sidebar-mini-hide Settings
         li
-          a(href='/app/pr/providers')
+          a.nav-submenu(href='#profilesSubMenu', data-toggle="collapse")
             i.si.si-user
             span.sidebar-mini-hide Profiles
+          #profilesSubMenu.collapse
+            a(href='/app/pr/new-profile')
+              i
+              i.si.si-frame
+              span.sidebar-mini-hide Add Profile
+            a(href='/app/pr/profiles') 
+              i
+              i.si.si-users
+              span.sidebar-mini-hide View Profiles
         li
           a(href='/app/profile')
             i.si.si-pin
