@@ -1,0 +1,19 @@
+doctype html
+
+html(lang="en")
+  head
+    include ../partials/header.pug
+  body
+    div#page-container.header-navbar-fixed.header-navbar-transparent
+      include ../partials/navbar.pug
+      section#mainContent
+        main#main-container
+          p Total Doctors: #{collections.providers.length}
+          each provider in collections.providers
+            a(href= '/' + provider.path)
+              strong= provider.data.name
+            p!= provider.data.providerAddress
+      section#footerNav
+        footer#page-footer.bg-white
+          .content.content-boxed
+            include ../partials/footer.pug

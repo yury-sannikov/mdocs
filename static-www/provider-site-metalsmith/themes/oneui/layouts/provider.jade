@@ -8,11 +8,7 @@ html(lang="en")
       include ../partials/navbar.pug
       section#mainContent
         main#main-container
-          p Total Doctors: #{collections.doctors.length}
-          each doctor in collections.doctors
-            a(href= '/'+doctor.path)
-              strong= doctor.data.name
-            p!= doctor.data.providerAddress
+          h1 #{data.name}
       section#footerNav
         footer#page-footer.bg-white
           .content.content-boxed

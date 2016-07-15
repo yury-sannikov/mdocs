@@ -18,6 +18,8 @@ const metadata = require('metalsmith-metadata');
 const dep = require('./metalsmith-include-dependency');
 
 const DIR = __dirname + '/src/';
+const THEME_DIR = '/themes/'
+const CURRENT_THEME = 'cleanui';
 
 const build = (clean = false) => (done) => {
   console.log(`Building. clean: ${clean}.`);
@@ -33,14 +35,14 @@ const build = (clean = false) => (done) => {
     .clean(clean)
     // Inject metadata from JSON files into context.
     .use(metadata({
-      practice: 'metadata/practice.json'
+      practice: 'data/practice.json'
     }))
     .use(
       // If clean build, copy over assets from public folder
       msIf(clean,
         asset({
-          src: './public',
-          dest: './'
+          src: THEME_DIR + CURRENT_THEME + '/assets',
+          dest: './assets'
         }))
     )
     // Dependency tracking for metalsmith-include. Set ctime for all dependent files to the latest value of the group
@@ -60,10 +62,10 @@ const build = (clean = false) => (done) => {
       deletePartials: true
     }))
     .use(jsonToFiles({
-      source_path: './json/'
+      source_path: 'src/data/'
     }))
     .use(collections({
-      doctors: {}
+      providers: {}
     }))
     .use(permalinks({
       relative: false,
@@ -80,6 +82,7 @@ const build = (clean = false) => (done) => {
       engine: 'pug',
       layoutPattern: '*.pug',
       pretty: true,
+      directory: __dirname + THEME_DIR + CURRENT_THEME + '/layouts',
       helpers: {
         _: require('lodash')
       }
@@ -110,8 +113,9 @@ build(true)((err) => {
   // Quick build if src changed
   watch(__dirname + '/src/**/*', { ignoreInitial: true }, build(false));
   // Full Rebuild if layout changed
-  watch(__dirname + '/layouts/**/*', { ignoreInitial: true }, build(true));
-  watch(__dirname + '/partials/**/*', { ignoreInitial: true }, build(true));
+  watch(__dirname + THEME_DIR + CURRENT_THEME + '/layouts/**/*', { ignoreInitial: true }, build(true));
+  watch(__dirname + THEME_DIR + CURRENT_THEME + '/partials/**/*', { ignoreInitial: true }, build(true));
+  watch(__dirname + THEME_DIR + CURRENT_THEME + '/assets/**/*', { ignoreInitial: true }, build(true));
 
   //open('http://localhost:8080');
 });
