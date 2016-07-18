@@ -1,0 +1,131 @@
+.content
+  //- .row
+  //-   .col-lg-3
+  //-     // Main Dashboard Chart
+  //-     .block.dash-widget
+  //-       .block-header.bottom-border
+  //-         h3.block-title GOAL
+  //-       .block-content.block-content-full.bg-white.text-center
+  //-         | You want&nbsp;
+  //-         a(href='#') 5
+  //-         |  reviews this month.
+  //-         br
+  //-         br
+  //-         |                   To reach your goal we recommend sending at least&nbsp;
+  //-         a(href='#') 30
+  //-         |  invites.
+  //-   .col-lg-5
+  //-     .block.dash-widget
+  //-       .block-header.bottom-border
+  //-         h3.block-title
+  //-           | INVITE PROGRESS
+  //-           span.grey-out (THIS MONTH)
+  //-       .block-content.block-content-full.text-center
+  //-         canvas#chart-progress-bar(width='400', height='100')
+  //-   .col-lg-2
+  //-     // Latest Sales Widget
+  //-     .block
+  //-       .block-header.bottom-border
+  //-         h3.block-title RATING
+  //-       .block-content.block-content-full.bg-white.text-center
+  //-         h2.dash-widget 4.6
+  //-         small Average rating among 10 sites.
+  //-     // END Latest Sales Widget
+  //-   .col-lg-2
+  //-     // Latest Sales Widget
+  //-     .block
+  //-       .block-header.bottom-border
+  //-         h3.block-title REVIEWS
+  //-       .block-content.block-content-full.bg-white.text-center
+  //-         h2.dash-widget 513
+  //-         small Total reviews from 10 sites.
+  //-     // END Latest Sales Widget
+  .content.bg-white.border-b
+    .row.items-push.text-uppercase
+      .col-xs-6.col-sm-3.text-center
+        .font-w700.text-gray-darker.animated.fadeIn Visits
+        .text-muted.animated.fadeIn
+          small
+            i.si.si-calendar
+            |  This Week
+        a.h2.font-w300.text-primary.animated.flipInX(href='javascript:void(0)') 2
+      .col-xs-6.col-sm-3.text-center
+        .font-w700.text-gray-darker.animated.fadeIn Visits
+        .text-muted.animated.fadeIn
+          small
+            i.si.si-calendar
+            |  This Month
+        a.h2.font-w300.text-primary.animated.flipInX(href='javascript:void(0)') 12
+      .col-xs-6.col-sm-3.text-center
+        .font-w700.text-gray-darker.animated.fadeIn Visits
+        .text-muted.animated.fadeIn
+          small
+            i.si.si-calendar
+            |  All Time
+        a.h2.font-w300.text-primary.animated.flipInX(href='javascript:void(0)') 234
+      .col-xs-6.col-sm-3.text-center
+        .font-w700.text-gray-darker.animated.fadeIn Average Time Spent
+        .text-muted.animated.fadeIn
+          small
+            i.si.si-calendar
+            |  All Time
+        a.h2.font-w300.text-primary.animated.flipInX(href='javascript:void(0)') 1:30
+  br
+  .row
+    .col-lg-6
+      .block
+        .block-header.bottom-border
+          ul.block-options
+            li
+              button(type='button', data-js-block-option='', data-action='refresh_toggle', data-action-mode='demo')
+                i.si.si-refresh
+          h3.block-title.text-center Recent Deployments
+        .block-content
+          ul.list.list-timeline.pull-t
+            li.pull-right.active
+              a(href="#btabs-static-settings" data-uib-tooltip="Settings" data-toggle="tooltip" data-placement="top" title="" type="button" data-original-title="Top Tooltip")
+                i.fa.fa-life-ring
+            li
+              .list-timeline-time 12 hrs ago
+              i.fa.fa-github.list-timeline-icon.bg-flat
+              .list-timeline-content
+                p.font-w600 Administrator
+                small
+                  | Update header logo caption
+                br
+            hr
+            li
+              .list-timeline-time 2 days ago
+              i.fa.fa-github.list-timeline-icon.bg-flat
+              .list-timeline-content
+                p.font-w600 Administrator
+                small
+                  | Update About section content
+                br
+            br
+    .col-lg-6
+      //- .block
+      //-   .block-header.bottom-border
+      //-     h3.block-title.text-center Growth
+      //-   .content-grid
+      //-     .row
+      //-       .col-xs-4
+      //-         .block-header
+      //-           h3.block-title.text-center New Reviews
+      //-         .row.items-push.text-center.bottom-border
+      //-           .col-xs-6.dash-widget
+      //-             h3.dash-widget 55
+      //-             small This Month
+      //-           .col-xs-6.dash-widget
+      //-             h3.dash-widget 234
+      //-             small Since Joining
+      //-         .row.items-push.text-center.bottom-border
+      //-           .col-xs-12.dash-widget
+      //-             br
+      //-             small End of Year Review Projection
+      //-             h2.dash-widget 346
+      //-       .col-xs-8
+      //-         .block-header
+      //-           h3.block-title.text-center Reviews by Month
+      //-         .block-content.block-content-full.text-center
+      //-           canvas#chart-reviews-by-month(width='400', height='300')

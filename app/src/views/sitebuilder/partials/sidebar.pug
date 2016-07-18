@@ -1,0 +1,83 @@
+// Sidebar Scroll Container
+#sidebar-scroll
+  // Sidebar Content
+  // Adding .sidebar-mini-hide to an element will hide it when the sidebar is in mini mode
+  .sidebar-content
+    // Side Header
+    .side-header.side-content.bg-white-op
+      button.btn.btn-link.text-gray.pull-right.hidden-md.hidden-lg(type='button')
+        i.fa.fa-timesa
+      a.h5.text-white(href='/app/dashboard')
+        img(src='/app/oneui/assets/img/mdocs-logo-horizontal-white-type.png', style='height:40px;float:left;')
+    // END Side Header
+    // Side Content
+    .side-content
+      ul.nav-main
+        li
+          a(href='/app/welcome')
+            i.si.si-rocket
+            span.sidebar-mini-hide Welcome
+        li
+          a(href='/app/dashboard')
+            i.si.si-speedometer
+            span.sidebar-mini-hide Dashboard
+        section
+          li.nav-main-heading
+            span.sidebar-mini-hide Web Site Management
+          li
+            a(href='/app/sitebuilder')
+              i.fa.fa-internet-explorer
+              span.sidebar-mini-hide Overview
+          li
+            a(href='/app/sitebuilder/edit')
+              i.fa.fa-pencil-square-o
+              span.sidebar-mini-hide Manage Content
+        section
+          li.nav-main-heading
+            span.sidebar-mini-hide Website Settings
+          li
+            a(href='/app/sitebuilder/practice')
+              i.si.si-pin
+              span.sidebar-mini-hide Practice
+          li
+            a.nav-submenu(href='#profilesSubMenu', data-toggle="collapse")
+              i.si.si-user
+              span.sidebar-mini-hide Collections
+            #profilesSubMenu.collapse
+              a(href='/app/sitebuilder/collections/providers')
+                i
+                i.si.si-frame
+                span.sidebar-mini-hide Providers
+              a(href='/app/sitebuilder/collections/providers') 
+                i
+                i.si.si-users
+                span.sidebar-mini-hide View Profiles
+          li
+            a(href='/app/sitebuilder/practice')
+              i.si.si-pin
+              span.sidebar-mini-hide Practice
+          li
+            a
+              i.fa.fa-code
+              span.sidebar-mini-hide Website Widget
+        li.nav-main-heading
+          span.sidebar-mini-hide Help
+        li
+          a(href='/app/help')
+            i.si.si-question
+            span.sidebar-mini-hide Help
+        li
+          a(href='/app/privacy')
+            i.si.si-question
+            span.sidebar-mini-hide Privacy
+        li
+          a(href='/app/agreement')
+            i.si.si-question
+            span.sidebar-mini-hide Agreement
+        li
+          a(href='/app/terms')
+            i.si.si-question
+            span.sidebar-mini-hide Terms of Use
+    // END Side Content
+  // Sidebar Content
+// END Sidebar Scroll Container
