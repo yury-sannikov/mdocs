@@ -186,7 +186,6 @@
     "json-loader": "*",
     "node-sass": "*",
     "nodemon": "^1.9.2",
-    "npm-git-install": "^0.1.3",
     "precommit-hook-eslint": "^3.0.0",
     "psi": "^2.0.3",
     "react-a11y": "*",
