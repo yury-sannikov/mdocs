@@ -361,3 +361,67 @@ exports.deleteProvider = function* (id) {
 
   return yield deleteAsync();
 };
+
+// LOCATIONS
+exports.locationsForAdmin = function(adminId) {
+  const chain = DynamoDB
+    .table('locations')
+    .where('admin_id').eq(adminId)
+    .order_by('admin_id-index');
+  return Promise.promisify(chain.query, {context: chain});
+}
+
+exports.locationById = function (id) {
+  const chain = DynamoDB
+    .table('locations')
+    .where('id').eq(id);
+  return Promise.promisify(chain.query, {context: chain});
+};
+
+exports.createLocation = function() {
+  return function* (adminId, data) {
+    const chain = DynamoDB
+      .table('locations');
+    const insertAsync = Promise.promisify(chain.insert, {context: chain});
+    const id = uuid.v4();
+
+    yield insertAsync({
+      id: id,
+      admin_id: adminId,
+      name: data.name,
+      address: data.address,
+      email: data.email,
+      phone: data.phoneMobile,
+      review_sites: formatReviewSites(data),
+      default_review_site: checkReviewSite(data)
+    });
+    return id;
+  };
+};
+
+exports.updateLocation = function* (id, data) {
+  const chain = DynamoDB
+    .table('locations')
+    .where('id').eq(id);
+
+  const updateAsync = Promise.promisify(chain.update, {context: chain});
+
+  return yield updateAsync({
+      name: data.name,
+      address: data.address,
+      email: data.email,
+      phone: data.phoneMobile,
+      review_sites: formatReviewSites(data),
+      default_review_site: checkReviewSite(data)
+    });
+};
+
+exports.deleteLocation = function* (id) {
+  const chain = DynamoDB
+    .table('locations')
+    .where('id').eq(id);
+
+  const deleteAsync = Promise.promisify(chain.delete, {context: chain});
+
+  return yield deleteAsync();
+};
