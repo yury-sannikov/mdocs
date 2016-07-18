@@ -46,61 +46,115 @@ block content
                 a(href="#profileSites" data-toggle="tab" data-step="3") Review Sites
         br
         .tab-content
-          #profileType
-            .tab-pane.fade.in.active
-              .well
-                h4 Please choose the profile type
-                br
-                .radio
-                  label
-                    input(type="radio", name="isProvider", id="providerRadio", checked="checked", value='yes') 
-                    | Provider (Doctor)
-                .radio
-                  label
-                    input(type="radio", name="isProvider", id="locationRadio", value='no') 
-                    | Location (Office)
-              .wrapper
-                a.btn.btn-success.btn-lg.next(href="#") Continue >
-          #profileInfo
-            .tab-pane.fade
-              form#providerform(action='new-provider', method='POST')
-                input.form-control(type='hidden', name='_csrf', value=_csrf)
-                .form-group
-                  h4 Please provide your Full Name
-                  br
-                  label.sr-only(for='name') Name
-                  input.form-control(type='text', name='name', id='name', placeholder='Full name')
-                .form-group
-                  h4 Please provide your Email
-                  br
-                  label.sr-only(for='email') Email
-                  input.form-control(type='email', name='email', id='email', placeholder='Email')
-                  #hint
-                #addressArea.form-group
-                  h4 Please provide your Address
-                  br
-                  label.sr-only(for='address') Address
-                  input.form-control(type='text', name='address', id='address', placeholder='Location address')
-                .form-group
-                  h4 Please provide your Phone Number
-                  br
-                  label.sr-only(for='phoneMobile') Phone
-                  input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Phone number e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
+          #profileType.tab-pane.fade.in.active
+            .well
+              h4 Please choose the profile type
+              br
+              .radio
+                label
+                  input(type="radio", name="profileType", id="providerRadio", checked="checked", value='yes') 
+                  | Provider (Doctor)
+              .radio
+                label
+                  input(type="radio", name="profileType", id="locationRadio", value='no') 
+                  | Location (Office)
+            .wrapper
+              a.btn.btn-success.btn-lg.next(href="#") Continue >
+          #profileInfo.tab-pane.fade
+            .well
+              - if (_.isEmpty(profile))
+                form#profileform(action='new-profile', method='POST')
+                  input.form-control(type='hidden', name='_csrf', value=_csrf)
+                  .form-group
+                    h4 Please provide your Full Name
+                    br
+                    label.sr-only(for='name') Name
+                    input.form-control(type='text', name='name', id='name', placeholder='Full name')
+                  .form-group
+                    h4 Please provide your Email
+                    br
+                    label.sr-only(for='email') Email
+                    input.form-control(type='email', name='email', id='email', placeholder='Email')
+                    #hint
+                  #addressArea.form-group
+                    h4 Please provide your Address
+                    br
+                    label.sr-only(for='address') Address
+                    input.form-control(type='text', name='address', id='address', placeholder='Location address')
+                  .form-group
+                    h4 Please provide your Phone Number
+                    br
+                    label.sr-only(for='phoneMobile') Phone
+                    input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Phone number e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
+              - else   
+                form#profileform(action='update-profile', method='POST')
+                  input.form-control(type='hidden', name='_csrf', value=_csrf)
+                  .form-group
+                    h4 Please provide your Full Name
+                    br
+                    label.sr-only(for='name') Name
+                    input.form-control(type='text', name='name', id='name', placeholder='Full name')
+                  .form-group
+                    h4 Please provide your Email
+                    br
+                    label.sr-only(for='email') Email
+                    input.form-control(type='email', name='email', id='email', placeholder='Email')
+                    #hint
+                  #addressArea.form-group
+                    h4 Please provide your Address
+                    br
+                    label.sr-only(for='address') Address
+                    input.form-control(type='text', name='address', id='address', placeholder='Location address')
+                  .form-group
+                    h4 Please provide your Phone Number
+                    br
+                    label.sr-only(for='phoneMobile') Phone
+                    input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Phone number e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
               a.btn.btn-info.btn-lg.prev(href="#") < Back
               a.btn.btn-success.btn-lg.next.pull-right(href="#") Continue >
-          #profileSites
-            .tab-pane.fade
-              .well
-                label Please provide your Review Sites 
-                input.form-control.input-lg
-              a.btn.btn-info.btn-lg.prev(href="#") < Back
-              a#saveprofilebutton.btn.btn-success.btn-lg.create.pull-right(href="#") Create Profile
+          #profileSites.tab-pane.fade
+            .well
+              h4 Please provide your Review Sites 
+              br
+              h5 
+                strong ADD A REVIEW SITE
+              br
+              label Review Site
+              .form-group
+                #siteDropdown.dropdown
+                  button#siteDropdownButton.form-control.btn-lg.btn.btn-default.dropdown-toggle(type='button', name='siteDropdownButton' data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Yelp
+                    span.caret.pull-right
+                  ul.dropdown-menu(aria-labelledby="siteDropdownButton")
+                    li(id="yelpOption")
+                      a(href="#", data-id='yelp', data-form-value='reviewSite') Yelp
+                    li(id="googleOption")
+                      a(href="#", data-id='google', data-form-value='reviewSite') Google
+              label Review Site Link
+              input#siteLink.form-control.input-lg(name='siteLink', placeholder='Paste the link here', value='ea')
+              .wrapper
+                a#addSite.btn.btn-primary.btn-lg.next
+                  i.fa.fa-check
+                  |  Add Review Site
+              br
+              h5 
+                strong SAVED REVIEW SITES
+              table#sitesTable.table.table-striped
+                thead
+                  th Site Name
+                  th Site Link
+                  th Actions
+                tbody
+            a.btn.btn-info.btn-lg.prev(href="#") < Back
+            a#saveprofilebutton.btn.btn-success.btn-lg.create.pull-right(href="#") Create Profile
 
 block scripts
   script(src='/app/lib/bootstrap/dist/js/bootstrap.min.js')
+  //- script(src='/app/lib/jquery/dist/jquery.min.js')
+  //- script(src='/app/lib/jquery-validation/dist/jquery.validate.js')
   script.
     // Profile passed in, if any
     const profile = !{JSON.stringify(profile)};
+    var sites = [];
 
     // DOM Ready =============================================================
     (function(init) {
@@ -125,7 +179,7 @@ block scripts
         }
         else { 
           // Editing Profile
-          if(profile.isProvider) {
+          if(profile.type === 'Provider') {
             $('#providerRadio').attr('checked', 'checked');
             $('#addressArea').hide();
           }
@@ -136,6 +190,8 @@ block scripts
           $('#name').val(profile.name);
           $('#email').val(profile.email);
           $('#phoneMobile').val(profile.phone);
+
+          setUpSites();
         }
 
 
@@ -145,24 +201,183 @@ block scripts
         // Fire event when tab is clicked
         $('a[data-toggle="tab"]').on('shown.bs.tab', tabChanged);
 
+        // Fire event when 'Back' is clicked
+        $('.prev').on('click', pageChange);
+
+        // Fire event when 'Continue' is clicked
+        $('.next').on('click', pageChange);
+
+        // Fire event when 'Add Review Site' is clicked
+        $('#addSite').on('click', addSite);
+
+        // Fire event when 'Delete Review Site' is clicked
+        $('.linkdeleteprofile').on('click', removeSite);
+
+        // Fire event when 'Create Profile' is clicked
+        $('#saveprofilebutton').on('click', submitForm);
+
+
         // ToDO:
-        // - Set up review Sites
-        // - When click on tabs, change the tab accordingly
-        // - When click on back or continue, change the tab accordingly
+        // - Adding/removing review Sites
+        // - Validate information tab
+        // - Post form properly (make sure review sites are saved as well)
       });
     }));
 
     // Functions =============================================================
 
+    // Get pretty site name
+    function getFullSiteName(short) {
+      switch(short) {
+        case 'yelp':
+          return 'Yelp';
+        case 'google':
+          return 'Google Plus';
+        case 'healthgrades':
+          return 'HealthGrades.com';
+        case 'vitals':
+          return 'Vitals.com';
+        case 'ratemds':
+          return 'RateMDs.com';
+        case 'yellowpages':
+          return 'YellowPages';
+        default:
+          return null;
+      }
+    }
+
+    // Set Up Review Sites
+    function setUpSites() {
+      sites = profile.review_sites;
+      var sitesTable = document.getElementById('sitesTable');
+
+      // Yelp
+      if(sites.yelp != null) {
+        var row = sitesTable.insertRow();
+        var cell1 = row.insertCell();
+        cell1.innerHTML = getFullSiteName('yelp');
+        var cell2 = row.insertCell();
+        cell2.innerHTML = '<a name="yelp">' + sites.yelp + '</a>';
+        var cell2 = row.insertCell();
+        cell2.innerHTML = '<a class="linkdeleteprofile btn btn-danger btn-xs", href="#", data-profileId="yelp"> Delete&nbsp;</a>';
+      }
+
+      // Google Plus
+      if(sites.google != null) {
+        var row = sitesTable.insertRow();
+        var cell1 = row.insertCell();
+        cell1.innerHTML = getFullSiteName('google');
+        var cell2 = row.insertCell();
+        cell2.innerHTML = '<a name="google">' + sites.google + '</a>';
+        var cell2 = row.insertCell();
+        cell2.innerHTML = '<a class="linkdeleteprofile btn btn-danger btn-xs", href="#", data-profileId="google"> Delete&nbsp;</a>';
+      }
+
+      // HealthGrades.com
+      if(sites.healthgrades != null) {
+        var row = sitesTable.insertRow();
+        var cell1 = row.insertCell();
+        cell1.innerHTML = getFullSiteName('healthgrades');
+        var cell2 = row.insertCell();
+        cell2.innerHTML = '<a name="healthgrades">' + sites.healthgrades + '</a>';
+        var cell2 = row.insertCell();
+        cell2.innerHTML = '<a class="linkdeleteprofile btn btn-danger btn-xs", href="#", data-profileId="healthgrades"> Delete&nbsp;</a>';
+      }
+
+      // Vitals.com
+      if(sites.vitals != null) {
+        var row = sitesTable.insertRow();
+        var cell1 = row.insertCell();
+        cell1.innerHTML = getFullSiteName('vitals');
+        var cell2 = row.insertCell();
+        cell2.innerHTML = '<a name="vitals">' + sites.vitals + '</a>';
+        var cell2 = row.insertCell();
+        cell2.innerHTML = '<a class="linkdeleteprofile btn btn-danger btn-xs", href="#", data-profileId="vitals"> Delete&nbsp;</a>';
+      }
+
+      // RateMDs.com
+      if(sites.ratemds != null) {
+        var row = sitesTable.insertRow();
+        var cell1 = row.insertCell();
+        cell1.innerHTML = getFullSiteName('ratemds');
+        var cell2 = row.insertCell();
+        cell2.innerHTML = '<a name="ratemds">' + sites.ratemds + '</a>';
+        var cell2 = row.insertCell();
+        cell2.innerHTML = '<a class="linkdeleteprofile btn btn-danger btn-xs", href="#", data-profileId="ratemds"> Delete&nbsp;</a>';
+      }
+
+      // YellowPages
+      if(sites.yellowpages != null) {
+        var row = sitesTable.insertRow();
+        var cell1 = row.insertCell();
+        cell1.innerHTML = getFullSiteName('yellowpages');
+        var cell2 = row.insertCell();
+        cell2.innerHTML = '<a name="yellowpages">' + sites.yellowpages + '</a>';
+        var cell2 = row.insertCell();
+        cell2.innerHTML = '<a class="linkdeleteprofile btn btn-danger btn-xs", href="#", data-profileId="yellowpages"> Delete&nbsp;</a>';
+      }
+    }
+
+    // Add review site
+    function addSite(event) {
+      // Prevent Link from Firing
+      event.preventDefault();
+
+    }
+
+    // Remove Review Site
+    function removeSite(event) {
+      // Prevent Link from Firing
+      event.preventDefault();
+
+    }
+
     // Hide/Show address area based on the profile type
     function inputChanged(event) {
+      // Prevent Link from Firing
+      event.preventDefault();
+
       $(this).attr('id') === 'locationRadio' ? $('#addressArea').show() : $('#addressArea').hide();
     }
 
     // Tab clicked
     function tabChanged(event) {
+      // Prevent Link from Firing
+      event.preventDefault();
+
       // Update progress bar
       var step = $(event.target).data('step');
       var percent = (parseInt(step) / 3) * 100;
       $('.progress-bar').css({width: percent + '%'});
     }
+
+    // Back or Continue clicked
+    function pageChange(event) {
+      // Prevent Link from Firing
+      event.preventDefault();
+
+      if($(this).hasClass('next')) {
+        // Next Tab
+        var nextId = $(this).parents('.tab-pane').next().attr("id");
+        $('[href="#'+nextId+'"]').tab('show');
+      }
+      else if($(this).hasClass('prev')) {
+        // Previous Tab
+        var nextId = $(this).parents('.tab-pane').prev().attr("id");
+        $('[href="#'+nextId+'"]').tab('show');
+      }
+    }
+
+    // Creating Profile
+    function submitForm(event) {
+      // Prevent Link from Firing
+      event.preventDefault();
+
+      if(sites === []) {
+        alert('Please add at least one review site.')
+      }
+      else {
+        //$('#profileform').submit();
+      }
+    }
+
