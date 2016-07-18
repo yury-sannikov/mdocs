@@ -1,64 +1,100 @@
-// Footer Navigation
-.row.push-30-t.items-push-2x
-  .col-sm-4
-    h3.h5.font-w600.text-uppercase.push-20 LOCATION
-    .font-s13.push
-      strong= practice.name
-      br
-      span= practice.address
-      br
-      span= practice.city
-      |,  
-      span= practice.state
-      |  
-      span= practice.zip
-      br
-      |  Phone:  
-      span= practice.phone
-      br
-      |  Fax:  
-      span= practice.fax
-      br
-      |  Email:  
-      span= practice.email
-  .col-sm-4
-    h3.h5.font-w600.text-uppercase.push-20 Company
-    ul.list.list-simple-mini.font-s13
-      li
-        a.font-w600(href='frontend_home.html') Home
-      li
-        a.font-w600(href='frontend_features.html') Features
-      li
-        a.font-w600(href='frontend_pricing.html') Pricing
-      li
-        a.font-w600(href='frontend_about.html') About Us
-      li
-        a.font-w600(href='frontend_contact.html') Contact Us
-  .col-sm-4
-    h3.h5.font-w600.text-uppercase.push-20 Support
-    ul.list.list-simple-mini.font-s13
-      li
-        a.font-w600(href='frontend_login.html') Log In
-      li
-        a.font-w600(href='frontend_signup.html') Sign Up
-      li
-        a.font-w600(href='frontend_support.html') Support Center
-      li
-        a.font-w600(href='javascript:void(0)') Privacy Policy
-      li
-        a.font-w600(href='javascript:void(0)') Terms & Conditions
+footer
+  .row
+    .span12
+      ul
+        li
+          .copy
+            p Copyright &copy; 2016 MDOCS
+        li
+          a(href='http://www.beverlyoakssurgery.com/your-privacy') Privacy Policy
+        li
+          a(href='http://www.beverlyoakssurgery.com/our-terms') Terms & Conditions
+        li
+          a(href='http://www.beverlyoakssurgery.com/contactus') Contact Us
+    .span12
+      .nap.vcard(itemscope='', itemtype='http://schema.org/Organization')
+        .fn.org(itemprop='name')  Beverly Oaks Surgery, Sherman Oaks, CA
+        |         Phone (appointments): 
+        span.tel.mm-phone-number.phoneupdated(itemprop='telephone', content='8188397077') 818-839-7003
+        span.divider |
+        |         Phone (general inquiries): 818-986-9099
+        .adr
+          | Address: 
+          span.street-address(itemprop='streetAddress') 4910 Van Nuys Boulevard, Suite #308, 
+          span.locality(itemprop='addressLocality') Sherman Oaks
+          | , 
+          span.region(itemprop='addressRegion') CA
+          span(itemprop='postalCode') 91403
+    .span12
+      p
+        a(href='https://www.mdocs.co', target='_blank') Powered by MDOCS
+          //- img(src='https://sa1s3.patientpop.com/assets/images/patientpop/pbp.png', alt='')
+
+
+
+
+
+//- // Footer Navigation
+//- .row.push-30-t.items-push-2x
+//-   .col-sm-4
+//-     h3.h5.font-w600.text-uppercase.push-20 LOCATION
+//-     .font-s13.push
+//-       strong= practice.name
+//-       br
+//-       span= practice.address
+//-       br
+//-       span= practice.city
+//-       |,  
+//-       span= practice.state
+//-       |  
+//-       span= practice.zip
+//-       br
+//-       |  Phone:  
+//-       span= practice.phone
+//-       br
+//-       |  Fax:  
+//-       span= practice.fax
+//-       br
+//-       |  Email:  
+//-       span= practice.email
+//-   .col-sm-4
+//-     h3.h5.font-w600.text-uppercase.push-20 Company
+//-     ul.list.list-simple-mini.font-s13
+//-       li
+//-         a.font-w600(href='frontend_home.html') Home
+//-       li
+//-         a.font-w600(href='frontend_features.html') Features
+//-       li
+//-         a.font-w600(href='frontend_pricing.html') Pricing
+//-       li
+//-         a.font-w600(href='frontend_about.html') About Us
+//-       li
+//-         a.font-w600(href='frontend_contact.html') Contact Us
+//-   .col-sm-4
+//-     h3.h5.font-w600.text-uppercase.push-20 Support
+//-     ul.list.list-simple-mini.font-s13
+//-       li
+//-         a.font-w600(href='frontend_login.html') Log In
+//-       li
+//-         a.font-w600(href='frontend_signup.html') Sign Up
+//-       li
+//-         a.font-w600(href='frontend_support.html') Support Center
+//-       li
+//-         a.font-w600(href='javascript:void(0)') Privacy Policy
+//-       li
+//-         a.font-w600(href='javascript:void(0)') Terms & Conditions
   
-// END Footer Navigation
-// Copyright Info
-.font-s12.push-20.clearfix
-  hr.remove-margin-t
-  .pull-right
-    | Crafted with 
-    i.fa.fa-heart.text-city
-    |  by 
-    a.font-w600(href='http://mdocs.co', target='_blank') MDOCS
-  .pull-left
-    a.font-w600(href='http://mdocs.co', target='_blank') MDOCS v.2.1
-    |  © 
-    span.js-year-copy
-// END Copyright Info
+//- // END Footer Navigation
+//- // Copyright Info
+//- .font-s12.push-20.clearfix
+//-   hr.remove-margin-t
+//-   .pull-right
+//-     | Crafted with 
+//-     i.fa.fa-heart.text-city
+//-     |  by 
+//-     a.font-w600(href='http://mdocs.co', target='_blank') MDOCS
+//-   .pull-left
+//-     a.font-w600(href='http://mdocs.co', target='_blank') MDOCS v.2.1
+//-     |  © 
+//-     span.js-year-copy
+//- // END Copyright Info

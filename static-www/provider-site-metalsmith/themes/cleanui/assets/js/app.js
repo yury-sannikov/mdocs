@@ -83,6 +83,15 @@ var MDOCS = (function() {
         //     }
         // });
 
+
+        $('.map').click(function () {
+          $('.map iframe').css("pointer-events", "auto");
+        });
+        
+        $('.map').mouseleave(function() {
+          $('.map iframe').css("pointer-events", "none"); 
+        });
+
         $('.location-map').each(MDOCS.loadMaps);
         var shownMap = false;
         if ($(document).scrollTop() > 180) {
@@ -126,7 +135,11 @@ var MDOCS = (function() {
         if ($('#testimonial-slider').length > 0)
             $('#testimonial-slider').flexslider({
                 animation: "swing",
-                controlsContainer: ".flex-container"
+                controlNav: true,
+                directionNav: true,
+                prevText: '',
+                nextText: '',
+                randomize: false
             });
         
         $(".navbar-toggle").click(function() {
@@ -239,11 +252,13 @@ var MDOCS = (function() {
                     height: "auto"
                 })
         });
-        $("div.promo-slider").each(function() {
-            $(this).carouselize(parseInt($(this).data('delay')) > 0 ? {
-                scrollDelay: $(this).data('delay') + '000'
-            } : {})
-        });
+
+        // $("div.promo-slider").each(function() {
+        //     $(this).carouselize(parseInt($(this).data('delay')) > 0 ? {
+        //         scrollDelay: $(this).data('delay') + '000'
+        //     } : {})
+        // });
+
         if ($('body.VERMEER').length) {
             $("section.promo:odd").addClass('odd')
         } else

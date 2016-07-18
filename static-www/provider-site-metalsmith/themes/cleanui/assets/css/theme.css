@@ -4,6 +4,10 @@ html {
     -webkit-text-size-adjust: 100%
 }
 
+.map iframe{
+    pointer-events: none;
+}
+
 body {
     margin: 0
 }
