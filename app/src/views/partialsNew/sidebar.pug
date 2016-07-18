@@ -47,9 +47,18 @@
               i.si.si-users
               span.sidebar-mini-hide View Profiles
         li
-          a(href='/app/profile')
+          a.nav-submenu(href='#accountSubMenu', data-toggle="collapse")
             i.si.si-pin
             span.sidebar-mini-hide Account
+          #accountSubMenu.collapse
+            a(href='/app/profile')
+              i
+              i.si.si-pin
+              span.sidebar-mini-hide My Account
+            a(href='/app/subscription') 
+              i
+              i.si.si-pin
+              span.sidebar-mini-hide My Subscriptions
         li
           a
             i.fa.fa-code
