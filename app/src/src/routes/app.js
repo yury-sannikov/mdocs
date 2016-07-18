@@ -37,6 +37,7 @@ router.use(require('./hooks').routes());
 router.use(require('./subscribe').routes());
 router.use(require('./pr/survey').routes());
 router.use(require('./pr').routes());
+router.use(require('./sitebuilder').routes());
 
 router.get('/login', function() {
   this.session.redirectOnLogin = this.query.r;
