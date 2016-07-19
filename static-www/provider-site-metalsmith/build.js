@@ -16,6 +16,7 @@ const collections = require('metalsmith-collections');
 const permalinks = require('metalsmith-permalinks');
 const metadata = require('metalsmith-metadata');
 const dep = require('./metalsmith-include-dependency');
+const inplace = require('metalsmith-in-place');
 
 const DIR = __dirname + '/src/';
 const THEME_DIR = '/themes/'
@@ -24,6 +25,10 @@ const CURRENT_THEME = 'cleanui';
 const build = (clean = false) => (done) => {
   console.log(`Building. clean: ${clean}.`);
   measure.start('build');
+
+  const helpers = {
+    _: require('lodash')
+  }
 
   Metalsmith(__dirname)
     // Folder with source data
@@ -83,9 +88,11 @@ const build = (clean = false) => (done) => {
       layoutPattern: '*.pug',
       pretty: true,
       directory: __dirname + THEME_DIR + CURRENT_THEME + '/layouts',
-      helpers: {
-        _: require('lodash')
-      }
+      helpers
+    }))
+    .use(inplace({
+      engine: 'handlebars',
+      partials: 'partials'
     }))
     .use(livereload({ debug: true }))
     .build((err, files) => {
