@@ -71,7 +71,8 @@ const build = (clean = false) => (done) => {
       source_path: 'src/data/'
     }))
     .use(collections({
-      providers: {}
+      providers: {},
+      services: {}
     }))
     .use(permalinks({
       relative: false,
