@@ -16,7 +16,7 @@
     "watch-client": "better-npm-run watch-client",
     "test": "NODE_ENV=test mocha --reporter spec",
     "lubricate": "npm cache clean && npm install && bower cache clean && bower install && gulp clean && gulp build && npm run build",
-    "lint": "eslint --ignore-pattern server.js ./src/apps/",
+    "lint": "eslint --ignore-pattern server.js ./src/apps/dashboard/",
     "validate": "npm ls"
   },
   "betterScripts": {
