@@ -1,3 +1,11 @@
+mixin menu_link_item(menuItem, isChild)
+  - var item_class = isChild ? 'child-link' : ''
+  - var hash_idx = menuItem.href.indexOf('#')
+  if (hash_idx !== -1 && hash_idx <= 1)
+    - item_class = item_class + ' section-nav-bar-item nav-item';
+  a.clickable(href=menuItem.href, target='_self', class=item_class)
+    span #{menuItem.caption}
+
 header
   nav#main-nav
     .navbar-header
@@ -5,66 +13,26 @@ header
         span.icon-bar
         span.icon-bar
         span.icon-bar
+
     .navbar-collapse
       ul
         li.logo
           a(href='/')
             img(src=practice.logo.small, height='56', alt=practice.name)
-        li.drop
-          a#meet.clickable.section-nav-bar-item.nav-item(href='/#meet', target='')
-            span About Practice
-          i#drop-minus-13758.fa.fa-minus(data-partner='#drop-plus-13758', data-drop='.dropdownContain')
-          i#drop-plus-13758.fa.fa-plus.active(data-partner='#drop-minus-13758', data-drop='.dropdownContain')
-          .dropdownContain
-            .dropOut
-              ul
-                li.sideNav
-                  a.child-link.clickable.section-nav-bar-item.nav-item(href='/#jcaho-accredited', id='About Practice_JCAHO Accredited', target='')
-                    span JCAHO Accredited
-                li.sideNav
-                  a.child-link.clickable.section-nav-bar-item.nav-item(href='/#insurance', id='Insurance', target='')
-                    span Insurance
-        li.drop
-          a#information(href='javascript:void(0);', target='')
-            span Information
-          i#drop-minus-15315.fa.fa-minus(data-partner='#drop-plus-15315', data-drop='.dropdownContain')
-          i#drop-plus-15315.fa.fa-plus.active(data-partner='#drop-minus-15315', data-drop='.dropdownContain')
-          .dropdownContain
-            .dropOut
-              ul
-                li.sideNav
-                  a.child-link.clickable(href='/contents/information/patient-information', id='Information_Patient Information', target='')
-                    span Patient Information
-                li.sideNav
-                  a.child-link.clickable(href='/contents/information/photos', id='Information_Before & After Gallery', target='')
-                    span Before & After Gallery
-                li.sideNav
-                  a.child-link.clickable(href='/contents/information/financing-options', id='Information_Financing Options', target='')
-                    span Financing Options
-                li.sideNav
-                  a.child-link.clickable(href='/contents/information/safety-information', id='Information_Safety Information', target='')
-                    span Safety Information
-                li.sideNav
-                  a.child-link.clickable(href='/contents/information/morbid-obesity-risks', id='Information_Morbid Obesity Risks', target='')
-                    span Morbid Obesity Risks
-                li.sideNav
-                  a#Information_FAQ.child-link.clickable(href='/contents/information/faq', target='')
-                    span FAQ
-        li
-          a#providers.clickable(href='/providers', target='_self')
-            span Providers
-        li
-          a#services.clickable.section-nav-bar-item.nav-item(href='/#services', target='')
-            span Services
-        //- li
-        //-   a#insurance.clickable.section-nav-bar-item.nav-item(href='/#insurance', target='')
-        //-     span Insurance
-        li
-          a#testimonials.clickable(href='/testimonials', target='_self')
-            span Testimonials
-        li
-          a#contact.clickable(href='/contactus', target='_self')
-            span Contact
+        each menuItem in menu
+          if menuItem.content
+            li.drop
+              +menu_link_item(menuItem)
+              .dropdownContain
+                .dropOut
+                  ul
+                    each subMenuItem in menuItem.content
+                      li.sideNav
+                        +menu_link_item(subMenuItem, true)
+          else
+            li
+              +menu_link_item(menuItem)
+                
     #contact-action
       ul
         li.action-route

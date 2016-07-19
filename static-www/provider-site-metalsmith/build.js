@@ -40,7 +40,8 @@ const build = (clean = false) => (done) => {
     .clean(clean)
     // Inject metadata from JSON files into context.
     .use(metadata({
-      practice: 'data/practice.json'
+      practice: 'data/practice.json',
+      menu: 'data/menu.json'
     }))
     .use(
       // If clean build, copy over assets from public folder
