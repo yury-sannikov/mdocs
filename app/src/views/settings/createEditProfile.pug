@@ -52,11 +52,11 @@ block content
               br
               .radio
                 label
-                  input(type="radio", name="profileType", id="providerRadio", checked="checked", value='yes') 
+                  input(type="radio", name="profileType", id="providerRadio", checked="checked", value='Provider') 
                   | Provider (Doctor)
               .radio
                 label
-                  input(type="radio", name="profileType", id="locationRadio", value='no') 
+                  input(type="radio", name="profileType", id="locationRadio", value='Location') 
                   | Location (Office)
             .wrapper
               a.btn.btn-success.btn-lg.next(href="#") Continue >
@@ -111,7 +111,7 @@ block content
                     label.sr-only(for='phoneMobile') Phone
                     input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Phone number e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
               a.btn.btn-info.btn-lg.prev(href="#") < Back
-              a.btn.btn-success.btn-lg.next.pull-right(href="#") Continue >
+              a.btn.btn-success.btn-lg.next-validate.pull-right(href="#") Continue >
           #profileSites.tab-pane.fade
             .well
               h4 Please provide your Review Sites 
@@ -119,42 +119,40 @@ block content
               h5 
                 strong ADD A REVIEW SITE
               br
-              label Review Site
+              label Review 
+              h4#dropdownWarningLabel.wrapper(style='color:red;') No Site Selected!
               .form-group
-                #siteDropdown.dropdown
-                  button#siteDropdownButton.form-control.btn-lg.btn.btn-default.dropdown-toggle(type='button', name='siteDropdownButton' data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Yelp
+                .dropdown
+                  button.form-control.btn-lg.btn.btn-default.dropdown-toggle(type='button', name='sitesDropdownButton', id='sitesDropdownButton', data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Choose the Review Site
                     span.caret.pull-right
-                  ul.dropdown-menu(aria-labelledby="siteDropdownButton")
-                    li(id="yelpOption")
-                      a(href="#", data-id='yelp', data-form-value='reviewSite') Yelp
-                    li(id="googleOption")
-                      a(href="#", data-id='google', data-form-value='reviewSite') Google
+                  ul.form-control.dropdown-menu(id='sitesDropdownMenu', aria-labelledby="dropdownMenu")
               label Review Site Link
-              input#siteLink.form-control.input-lg(name='siteLink', placeholder='Paste the link here', value='ea')
+              h4#linkWarningLabel.wrapper(style='color:red;') Please Provide a Link!
+              input#siteLink.form-control.input-lg(name='siteLink', placeholder='Paste the link here: e.g. http://www.yelp.com/biz/movel-sterling')
+              br
               .wrapper
-                a#addSite.btn.btn-primary.btn-lg.next
+                a#addSite.btn.btn-primary.btn-lg
                   i.fa.fa-check
                   |  Add Review Site
               br
               h5 
                 strong SAVED REVIEW SITES
-              table#sitesTable.table.table-striped
-                thead
-                  th Site Name
-                  th Site Link
-                  th Actions
-                tbody
+              br
+              .form-group
+                table#sitesTable.table.table-striped
+                  thead
+                    th Site Name
+                    th Site Link
+                    th Actions
+              h4#submitWarningLabel.wrapper(style='color:red;') Please Add at Least One Review Site!
             a.btn.btn-info.btn-lg.prev(href="#") < Back
             a#saveprofilebutton.btn.btn-success.btn-lg.create.pull-right(href="#") Create Profile
 
 block scripts
-  script(src='/app/lib/bootstrap/dist/js/bootstrap.min.js')
-  //- script(src='/app/lib/jquery/dist/jquery.min.js')
-  //- script(src='/app/lib/jquery-validation/dist/jquery.validate.js')
+  script(type='text/javascript', src='/app/lib/bootstrap/dist/js/bootstrap.min.js')
   script.
     // Profile passed in, if any
     const profile = !{JSON.stringify(profile)};
-    var sites = [];
 
     // DOM Ready =============================================================
     (function(init) {
@@ -170,6 +168,11 @@ block scripts
           dataType: 'script',
           cache: true
         });
+
+        // Initially hide warning labels
+        $('#dropdownWarningLabel').hide();
+        $('#linkWarningLabel').hide();
+        $('#submitWarningLabel').hide();
 
 
         // Creating New Profile
@@ -195,10 +198,45 @@ block scripts
         }
 
 
+        // Setting Up Validation
+        $('#profileform').validate({
+          rules: {
+            name: "required",
+            email: {
+              required: true,
+              email: true
+            },
+            address: {
+              required: {
+                depends: function (element) {
+                  return $('#locationRadio').is(':checked');
+                }
+              }
+            },
+            phoneMobile: {
+              required: true
+            }
+          },
+          messages: {
+            name: "Please provide the full name",
+            email: {
+              required: "We need an email address to contact",
+              email: "The email address must be in the format of name@domain.com"
+            },
+            address: {
+              required: "Please provide the location's address"
+            },
+            phoneMobile: {
+              required: "Please provide a phone to contact"
+            }
+          }
+        });
+
         // Fire event when input radio button is clicked
         $('input[type="radio"]').on('click', inputChanged);
 
         // Fire event when tab is clicked
+        $('a[data-toggle="tab"]').on('show.bs.tab', allowTabChange);
         $('a[data-toggle="tab"]').on('shown.bs.tab', tabChanged);
 
         // Fire event when 'Back' is clicked
@@ -206,20 +244,20 @@ block scripts
 
         // Fire event when 'Continue' is clicked
         $('.next').on('click', pageChange);
+        $('.next-validate').on('click', pageChange);
+
+        // Diplay change in dropdown selection
+        $(".dropdown-menu").on('click', 'li a', updateDropdownValue);
 
         // Fire event when 'Add Review Site' is clicked
         $('#addSite').on('click', addSite);
-
-        // Fire event when 'Delete Review Site' is clicked
-        $('.linkdeleteprofile').on('click', removeSite);
 
         // Fire event when 'Create Profile' is clicked
         $('#saveprofilebutton').on('click', submitForm);
 
 
         // ToDO:
-        // - Adding/removing review Sites
-        // - Validate information tab
+        // - Bootstrap script (don't load twice)
         // - Post form properly (make sure review sites are saved as well)
       });
     }));
@@ -242,79 +280,81 @@ block scripts
         case 'yellowpages':
           return 'YellowPages';
         default:
-          return null;
+          return '';
       }
+    }
+
+    // Add a site to table
+    function saveSiteToTable(siteName, siteLink) {
+      var sitesTable = document.getElementById('sitesTable');
+      var row = sitesTable.insertRow();
+      var cell1 = row.insertCell();
+      cell1.innerHTML = getFullSiteName(siteName);
+      var cell2 = row.insertCell();
+      cell2.innerHTML = '<a name="' + siteName + '", href="' + siteLink + '">' + siteLink + '</a>';
+      var cell2 = row.insertCell();
+      cell2.innerHTML = '<a class="linkremoveprofile btn btn-danger btn-xs", href="#", data-profileId="' + siteName + '"> Remove&nbsp;</a>';
+      // Fire event when 'Remove Review Site' is clicked
+      $('.linkremoveprofile').on('click', removeSite);
+    }
+
+    // Add a site to dropdown
+    function addToDropdown(siteName) {
+      $('#sitesDropdownMenu').append('<div class="wrapper"><li><a class="form-control" href="#", data-id="' + siteName + '", data-form-value="reviewSite">' + getFullSiteName(siteName) + '</a></li></div>');
     }
 
     // Set Up Review Sites
     function setUpSites() {
-      sites = profile.review_sites;
-      var sitesTable = document.getElementById('sitesTable');
-
       // Yelp
-      if(sites.yelp != null) {
-        var row = sitesTable.insertRow();
-        var cell1 = row.insertCell();
-        cell1.innerHTML = getFullSiteName('yelp');
-        var cell2 = row.insertCell();
-        cell2.innerHTML = '<a name="yelp">' + sites.yelp + '</a>';
-        var cell2 = row.insertCell();
-        cell2.innerHTML = '<a class="linkdeleteprofile btn btn-danger btn-xs", href="#", data-profileId="yelp"> Delete&nbsp;</a>';
+      if(profile.review_sites.yelp != null) {
+        saveSiteToTable('yelp', profile.review_sites.yelp);
       }
-
+      else {
+        addToDropdown('yelp');
+      }
       // Google Plus
-      if(sites.google != null) {
-        var row = sitesTable.insertRow();
-        var cell1 = row.insertCell();
-        cell1.innerHTML = getFullSiteName('google');
-        var cell2 = row.insertCell();
-        cell2.innerHTML = '<a name="google">' + sites.google + '</a>';
-        var cell2 = row.insertCell();
-        cell2.innerHTML = '<a class="linkdeleteprofile btn btn-danger btn-xs", href="#", data-profileId="google"> Delete&nbsp;</a>';
+      if(profile.review_sites.google != null) {
+        saveSiteToTable('google', profile.review_sites.google);
       }
-
+      else {
+        addToDropdown('google');
+      }
       // HealthGrades.com
-      if(sites.healthgrades != null) {
-        var row = sitesTable.insertRow();
-        var cell1 = row.insertCell();
-        cell1.innerHTML = getFullSiteName('healthgrades');
-        var cell2 = row.insertCell();
-        cell2.innerHTML = '<a name="healthgrades">' + sites.healthgrades + '</a>';
-        var cell2 = row.insertCell();
-        cell2.innerHTML = '<a class="linkdeleteprofile btn btn-danger btn-xs", href="#", data-profileId="healthgrades"> Delete&nbsp;</a>';
+      if(profile.review_sites.healthgrades != null) {
+        saveSiteToTable('healthgrades', profile.review_sites.healthgrades);
       }
-
+      else {
+        addToDropdown('healthgrades');
+      }
       // Vitals.com
-      if(sites.vitals != null) {
-        var row = sitesTable.insertRow();
-        var cell1 = row.insertCell();
-        cell1.innerHTML = getFullSiteName('vitals');
-        var cell2 = row.insertCell();
-        cell2.innerHTML = '<a name="vitals">' + sites.vitals + '</a>';
-        var cell2 = row.insertCell();
-        cell2.innerHTML = '<a class="linkdeleteprofile btn btn-danger btn-xs", href="#", data-profileId="vitals"> Delete&nbsp;</a>';
+      if(profile.review_sites.vitals != null) {
+        saveSiteToTable('vitals', profile.review_sites.vitals);
       }
-
+      else {
+        addToDropdown('vitals');
+      }
       // RateMDs.com
-      if(sites.ratemds != null) {
-        var row = sitesTable.insertRow();
-        var cell1 = row.insertCell();
-        cell1.innerHTML = getFullSiteName('ratemds');
-        var cell2 = row.insertCell();
-        cell2.innerHTML = '<a name="ratemds">' + sites.ratemds + '</a>';
-        var cell2 = row.insertCell();
-        cell2.innerHTML = '<a class="linkdeleteprofile btn btn-danger btn-xs", href="#", data-profileId="ratemds"> Delete&nbsp;</a>';
+      if(profile.review_sites.ratemds != null) {
+        saveSiteToTable('ratemds', profile.review_sites.ratemds);
       }
-
+      else {
+        addToDropdown('ratemds');
+      }
       // YellowPages
-      if(sites.yellowpages != null) {
-        var row = sitesTable.insertRow();
-        var cell1 = row.insertCell();
-        cell1.innerHTML = getFullSiteName('yellowpages');
-        var cell2 = row.insertCell();
-        cell2.innerHTML = '<a name="yellowpages">' + sites.yellowpages + '</a>';
-        var cell2 = row.insertCell();
-        cell2.innerHTML = '<a class="linkdeleteprofile btn btn-danger btn-xs", href="#", data-profileId="yellowpages"> Delete&nbsp;</a>';
+      if(profile.review_sites.yellowpages != null) {
+        saveSiteToTable('yellowpages', profile.review_sites.yellowpages);
+      }
+      else {
+        addToDropdown('yellowpages');
+      }
+    }
+
+    // Diplay change in dropdown selection
+    function updateDropdownValue(event) {
+      $(this).parents('.dropdown').find('.btn').html($(this).text() + ' <span class="caret pull-right"></span>');
+      $(this).parents('.dropdown').find('.btn').val($(this).data('id'));
+      if($('#dropdownWarningLabel').is(':visible')) {
+        $('#dropdownWarningLabel').hide();
       }
     }
 
@@ -323,21 +363,66 @@ block scripts
       // Prevent Link from Firing
       event.preventDefault();
 
+      var siteName = $(this).parents('.well').find('.dropdown').find('.btn').val();
+      var siteLink = $('#siteLink').val();
+
+      // Display warnings if needed
+      if(siteName === '') { 
+        $('#dropdownWarningLabel').show();
+      }
+      else if($('#dropdownWarningLabel').is(':visible')) {
+        $('#dropdownWarningLabel').hide();
+      }
+      if(siteLink === '') { 
+        $('#linkWarningLabel').show();
+      }
+      else if($('#linkWarningLabel').is(':visible')) {
+        $('#linkWarningLabel').hide();
+      }
+
+      if(siteName !== '' && siteLink !== '')
+      {
+        if($('#submitWarningLabel').is(':visible')) {
+          $('#submitWarningLabel').hide();
+        }
+        saveSiteToTable(siteName, siteLink);
+        $('#sitesDropdownMenu li a[data-id="' + siteName + '"]').remove();
+        $(this).parents('.well').find('.dropdown').find('.btn').html('Choose the Review Site' + '<span class="caret pull-right"></span>');
+        $(this).parents('.well').find('.dropdown').find('.btn').val('');
+        $('#siteLink').val('');
+      }
     }
 
     // Remove Review Site
     function removeSite(event) {
       // Prevent Link from Firing
       event.preventDefault();
-
+      
+      var siteName = $(event.target).data('profileid');
+      addToDropdown(siteName);
+      $(this).parents('tr').remove();
     }
 
     // Hide/Show address area based on the profile type
     function inputChanged(event) {
-      // Prevent Link from Firing
-      event.preventDefault();
-
       $(this).attr('id') === 'locationRadio' ? $('#addressArea').show() : $('#addressArea').hide();
+    }
+
+    // Check if tab click is allowed
+    function allowTabChange(event) {
+      const step = $(event.target).data('step');
+      if(step === 3) {
+        const currentStep = $(event.relatedTarget).data('step');
+        if(currentStep === 1) {
+          // Disallow to skip tab 2
+          event.preventDefault();
+          $('[href="#profileInfo"]').tab('show');
+        }
+        else if (currentStep === 2 && !$('#profileform').valid()) {
+          // Disallow if form not validated
+          event.preventDefault(); 
+        }
+      }
     }
 
     // Tab clicked
@@ -366,6 +451,13 @@ block scripts
         var nextId = $(this).parents('.tab-pane').prev().attr("id");
         $('[href="#'+nextId+'"]').tab('show');
       }
+      else if($(this).hasClass('next-validate')) {
+        if($('#profileform').valid()) {
+          // Next Tab
+          var nextId = $(this).parents('.tab-pane').next().attr("id");
+          $('[href="#'+nextId+'"]').tab('show');
+        }
+      }
     }
 
     // Creating Profile
@@ -373,8 +465,10 @@ block scripts
       // Prevent Link from Firing
       event.preventDefault();
 
-      if(sites === []) {
-        alert('Please add at least one review site.')
+      var sitesTable = document.getElementById('sitesTable');
+      
+      if(sitesTable.rows.length === 1) {
+        $('#submitWarningLabel').show();
       }
       else {
         //$('#profileform').submit();
