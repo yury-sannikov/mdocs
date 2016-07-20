@@ -64,15 +64,17 @@ router.get('/update-profile/:id', function*() {
 });
 
 router.post('/new-profile', hasSubscription, function*() {
-  const provider = Object.assign({}, this.request.body);
-  const id = yield db.createProvider()(this.currentUser.id, provider);
-  yield updateSubscription(this.currentUser.id, this.session);
+  console.log(this.request.body);
+  // const provider = Object.assign({}, this.request.body);
+  // const id = yield db.createProvider()(this.currentUser.id, provider);
+  // yield updateSubscription(this.currentUser.id, this.session);
   this.redirect(router.url('profiles'));
 });
 
 router.post('/update-profile', hasSubscription, function*() {
-  const provider = Object.assign({}, this.request.body);
-  const id = yield db.updateProvider(this.request.body.editID, provider);
+  console.log(this.request.body);
+  // const provider = Object.assign({}, this.request.body);
+  // const id = yield db.updateProvider(this.request.body.editID, provider);
 
   this.redirect(router.url('profiles'));
 });

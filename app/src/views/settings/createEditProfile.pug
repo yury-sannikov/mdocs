@@ -87,7 +87,7 @@ block content
                     label.sr-only(for='phoneMobile') Phone
                     input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Phone number e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
               - else   
-                form#profileform(action='update-profile', method='POST')
+                form#profileform(action='../update-profile', method='POST')
                   input.form-control(type='hidden', name='_csrf', value=_csrf)
                   .form-group
                     h4 Please provide your Full Name
@@ -149,7 +149,7 @@ block content
             a#saveprofilebutton.btn.btn-success.btn-lg.create.pull-right(href="#") Create Profile
 
 block scripts
-  script(type='text/javascript', src='/app/lib/bootstrap/dist/js/bootstrap.min.js')
+  script(type='text/javascript', src='/app/lib/bootstrap/js/tab.js')
   script.
     // Profile passed in, if any
     const profile = !{JSON.stringify(profile)};
@@ -174,7 +174,6 @@ block scripts
         $('#linkWarningLabel').hide();
         $('#submitWarningLabel').hide();
 
-
         // Creating New Profile
         if(profile == null || profile === '') {
           // Initially hide address area
@@ -193,10 +192,10 @@ block scripts
           $('#name').val(profile.name);
           $('#email').val(profile.email);
           $('#phoneMobile').val(profile.phone);
-
-          setUpSites();
         }
 
+        // Set up dropdown menu
+        setUpSites();
 
         // Setting Up Validation
         $('#profileform').validate({
@@ -254,11 +253,6 @@ block scripts
 
         // Fire event when 'Create Profile' is clicked
         $('#saveprofilebutton').on('click', submitForm);
-
-
-        // ToDO:
-        // - Bootstrap script (don't load twice)
-        // - Post form properly (make sure review sites are saved as well)
       });
     }));
 
@@ -291,7 +285,7 @@ block scripts
       var cell1 = row.insertCell();
       cell1.innerHTML = getFullSiteName(siteName);
       var cell2 = row.insertCell();
-      cell2.innerHTML = '<a name="' + siteName + '", href="' + siteLink + '">' + siteLink + '</a>';
+      cell2.innerHTML = '<a name="' + siteName + '", target="_blank", href="' + siteLink + '">' + siteLink + '</a>';
       var cell2 = row.insertCell();
       cell2.innerHTML = '<a class="linkremoveprofile btn btn-danger btn-xs", href="#", data-profileId="' + siteName + '"> Remove&nbsp;</a>';
       // Fire event when 'Remove Review Site' is clicked
@@ -306,42 +300,42 @@ block scripts
     // Set Up Review Sites
     function setUpSites() {
       // Yelp
-      if(profile.review_sites.yelp != null) {
+      if(profile != '' && profile.review_sites.yelp != null) {
         saveSiteToTable('yelp', profile.review_sites.yelp);
       }
       else {
         addToDropdown('yelp');
       }
       // Google Plus
-      if(profile.review_sites.google != null) {
+      if(profile != '' && profile.review_sites.google != null) {
         saveSiteToTable('google', profile.review_sites.google);
       }
       else {
         addToDropdown('google');
       }
       // HealthGrades.com
-      if(profile.review_sites.healthgrades != null) {
+      if(profile != '' && profile.review_sites.healthgrades != null) {
         saveSiteToTable('healthgrades', profile.review_sites.healthgrades);
       }
       else {
         addToDropdown('healthgrades');
       }
       // Vitals.com
-      if(profile.review_sites.vitals != null) {
+      if(profile != '' && profile.review_sites.vitals != null) {
         saveSiteToTable('vitals', profile.review_sites.vitals);
       }
       else {
         addToDropdown('vitals');
       }
       // RateMDs.com
-      if(profile.review_sites.ratemds != null) {
+      if(profile != '' && profile.review_sites.ratemds != null) {
         saveSiteToTable('ratemds', profile.review_sites.ratemds);
       }
       else {
         addToDropdown('ratemds');
       }
       // YellowPages
-      if(profile.review_sites.yellowpages != null) {
+      if(profile != '' && profile.review_sites.yellowpages != null) {
         saveSiteToTable('yellowpages', profile.review_sites.yellowpages);
       }
       else {
@@ -471,7 +465,7 @@ block scripts
         $('#submitWarningLabel').show();
       }
       else {
-        //$('#profileform').submit();
+        $('#profileform').submit();
       }
     }
 
