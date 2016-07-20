@@ -1,0 +1,20 @@
+---
+title: Content
+layout: contents.pug
+json_files:
+    source_file: contents
+    filename_pattern: content/:data.permalink
+    as_permalink: true
+    layout: content.pug
+    collection: contents
+---
+<!-- <section>
+  <h1>Content Page</h1> 
+</section> -->
+
+<div data-exclude-from-wysiwyg="true"
+  data-placeholder-width="100px"
+  data-placeholder-heigth="100px">
+  {{> contents }}
+</div>
+

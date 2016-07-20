@@ -41,7 +41,8 @@ const build = (clean = false) => (done) => {
     // Inject metadata from JSON files into context.
     .use(metadata({
       practice: 'data/practice.json',
-      menu: 'data/menu.json'
+      menu: 'data/menu.json',
+      contents: 'data/contents.json'
     }))
     .use(
       // If clean build, copy over assets from public folder
@@ -72,7 +73,8 @@ const build = (clean = false) => (done) => {
     }))
     .use(collections({
       providers: {},
-      services: {}
+      services: {},
+      contents: {}
     }))
     .use(permalinks({
       relative: false,

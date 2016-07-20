@@ -1,0 +1,34 @@
+section.practice-service
+  .photo-layout.hero-media(style='display: block; background: url("/assets/img/1395837.png") 50% 0px / cover no-repeat;')
+    .cloak
+  .social-container
+    a.social-tab.social-plus(href='https://plus.google.com/102320204994320909014/about', target='_blank')
+      i.fa.fa-2x.fa-google-plus
+    a.social-tab.social-tw(href='https://twitter.com/BeverlyOaksSurg', target='_blank')
+      i.fa.fa-2x.fa-twitter
+    a.social-tab.social-fb(href='https://www.facebook.com/BeverlyOaksPhysicians', target='_blank')
+      i.fa.fa-2x.fa-facebook
+    a.social-tab.social-yelp(href='https://www.yelp.com/biz/beverly-oaks-surgery-sherman-oaks', target='_blank')
+      i.fa.fa-2x.fa-yelp
+  .row
+    .left
+      figure
+        img(src=practice.logo.big, width='200', height='200', alt=practice.name)
+      h2= practice.name
+      h3= practice.description 
+        |  located in  
+        span= practice.city
+        |, 
+        span= practice.state
+    .right
+      h1= data.header
+      .service-description= data.description
+      ul.booking-options
+        li
+          a.btn-call(href= 'tel:' + practice.phone)
+            i.fa.fa-phone
+            span.mm-phone-number.phoneupdated= practice.phone
+        li
+          button.btn-book-online.ppop_bookonline_action(type='button', data-practiceid='1', data-locationid='1')
+            | Book Online
+    .clear-40

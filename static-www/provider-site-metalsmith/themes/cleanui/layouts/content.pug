@@ -4,8 +4,8 @@ html(lang="en")
     include ../partials/header.pug
   body.PARALLAX
     include ../partials/navbar.pug
-    include ../partials/raw/service-header.pug
-    include ../partials/reviewsSmallFlexSlider.pug
+    //- include ../partials/raw/service-header.pug
+    //- include ../partials/reviewsSmallFlexSlider.pug
 
 
     section.service.pinstripe(style='background-color: rgb(245, 249, 249);')
@@ -14,9 +14,7 @@ html(lang="en")
           .breadcrumb(itemprop='breadcrumb')
             a(href='/')= practice.name
             i.fa.fa-angle-right
-            a(href='/services') Services
-            i.fa.fa-angle-right
-            span= data.name
+            span= data.title
       //-   .span6
       //-     ul.social-share
       //-       li
@@ -31,16 +29,14 @@ html(lang="en")
       //-         iframe(src='//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.beverlyoakssurgery.com%2Fservices%2Fpain-management&width=140&layout=button_count&action=like&show_faces=false&share=true&height=21&appId=189402354556900', scrolling='no', frameborder='0', style='border:none; overflow:hidden; width:140px; height:21px;', allowtransparency='true')
       .row
         .span12
-          h4= data.name
-          //- a.author-tag(href='https://plus.google.com/102320204994320909014/about', target='_blank') Beverly Oaks Surgery
+          h4= data.title
           .details
             != data.htmlContent
             != contents
           button.btn-book-online.ppop_bookonline_action.small(type='button', data-practiceid='1')
             | Book Online
 
-    include ../partials/insurance.pug
-    include ../partials/reviewsBigFlexSlider.pug
+    include ../partials/reviewsSmallFlexSlider.pug
     include ../partials/contact.pug
     include ../partials/map.pug
     include ../partials/footer.pug
