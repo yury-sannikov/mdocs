@@ -1,0 +1,62 @@
+extends ./layout/layout.pug
+
+block head
+  title #{application} &middot; Page
+  include ./partials/editor-header.pug
+
+block styles
+  style.
+    textarea[name="ro-ot[htmlContent]"] {
+      height: 350px
+    }
+
+block scripts
+  include ./partials/editor-scripts.pug
+  script(src='/app/js/jsoneditor.min.js')
+  script.
+    JSONEditor.defaults.editors.froala = JSONEditor.defaults.editors.string.extend({
+      afterInputReady: function() {
+        var self = this;
+        if (this.source_code) {
+          $(self.input).froalaEditor({
+            toolbarInline: false
+          });
+        } else {
+          this._super();
+        }
+      }
+    });
+    JSONEditor.defaults.resolvers.unshift(function(schema) {
+      if(schema.type === "string" && schema.format === "html") {
+        return "froala";
+      }
+    });
+  script.
+   (function(init) {
+      init(window.jQuery, window, document);
+    }(function($, window, document) {
+      var jsoneditor;
+      var options = {
+        theme: 'bootstrap3',
+        iconlib: 'fontawesome4',
+        disable_collapse: true,
+        disable_edit_json: true,
+        disable_properties: true,
+        schema: !{schema}
+      };
+      var page = !{page}
+      $(function() {
+
+        var element = document.querySelector('.json-editor-holder');
+        jsoneditor = new JSONEditor(element, options);
+        jsoneditor.setValue(page);
+
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    }));
+
+block content
+  .container-fluid
+    .row
+      .col-md-10.col-md-offset-1
+        .json-editor-holder

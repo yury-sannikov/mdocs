@@ -1,0 +1,80 @@
+extends ./layout/layout.pug
+
+block head
+  title #{application} &middot; Pages
+
+block styles
+  style.
+    .pages-table {
+      table-layout:fixed;
+    }
+
+    .pages-table td {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .action-cell {
+      text-align: center;
+    }
+    .permalink-cell {
+      width: 40px;
+    }
+
+block content
+  .container-fluid
+    .row
+      .col-md-12
+        .page-header
+          h2
+            i.fa.fa-file-text-o
+            | &nbsp;Pages
+        a.action-new-page.btn.btn-success.pull-center(href="#") New Page
+        #wrapper
+          #userList
+            table.table.table-striped.pages-table
+              thead
+                th.permalink-cell
+                th Title
+                th.hidden-xs Header
+                th.hidden-xs Description
+                th.action-cell Actions
+              tbody
+                each page, i in pages
+                  tr
+                    td.permalink-cell
+                      a.action-copy-permalink.btn.btn-default.btn-xs(href='#' data-toggle="tooltip" data-placement="right" title="" type="button" data-original-title="Copy Permalink to Clipboard")
+                        i.fa.fa-clipboard
+                    td
+                      a.label.label-default(href='page/'+i)
+                        strong #{page.title}
+                    td.hidden-xs
+                      span #{page.header}
+                    td.hidden-xs
+                      span #{page.description}
+                    td.action-cell
+                      a.btn.btn-default.btn-xs(href='preview/'+i data-toggle="tooltip" data-placement="top" title="" type="button" data-original-title="Preview Page in a new window") Preview
+                      | &nbsp;
+                      a.action-delete-page.btn.btn-danger.btn-xs(href="#", data-page-id=i data-toggle="tooltip" data-placement="top" title="" type="button" data-original-title="Delete Page") Delete&nbsp;
+block scripts
+  script.
+
+    // DOM Ready =============================================================
+    (function(init) {
+      init(window.jQuery, window, document);
+    }(function($, window, document) {
+
+      $(function() {
+
+        //- Async Load Bootstrap Modal
+        $.ajax({
+          type: 'GET',
+          url: '/app/lib/bootstrap/js/modal.js',
+          dataType: 'script',
+          cache: true
+        });
+
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    }));
+

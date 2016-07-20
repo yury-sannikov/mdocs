@@ -68,7 +68,7 @@
       'public/app/oneui/assets/js/core/jquery.scrollLock.min.js',
       'public/app/oneui/assets/js/core/jquery.appear.min.js',
       'public/app/oneui/assets/js/core/jquery.countTo.min.js',
-      'public/app/oneui/assets/js/core/jquery.placeholder.min.js',     
+      'public/app/oneui/assets/js/core/jquery.placeholder.min.js',
       // =========================================
       'public/app/lib/fastclick/lib/fastclick.js',
       'public/app/js/main.js'
@@ -93,6 +93,9 @@
       'less/page-dashboard.less',
       'less/page-privacy.less',
       'less/page-react.less'
+    ],
+    npm: [
+      'node_modules/json-editor/dist/jsoneditor.min.js'
     ]
   };
 
@@ -140,6 +143,15 @@
       .pipe($.size({ title: 'JS:' }))         // What size are we at?
       .pipe(gulp.dest('./public/app/js'));     // Save minified .js
       // .pipe($.livereload());                  // Initiate a reload
+  });
+
+  /**
+   * Process NPM Scripts
+   */
+
+  gulp.task('npmscripts', function () {
+    return gulp.src(paths.npm)
+      .pipe(gulp.dest('./public/app/js'));
   });
 
   /**
@@ -209,7 +221,7 @@
     runSequence(
       'clean',                                // first clean
       ['lint', 'jscs'],                       // then lint and jscs in parallel
-      ['styles', 'scripts', 'widgets', 'images'],        // etc.
+      ['styles', 'scripts', 'npmscripts', 'widgets', 'images'],        // etc.
       cb);
   });
 

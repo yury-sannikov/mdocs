@@ -82,6 +82,7 @@
     "debug": "2.2.0",
     "dotenv": "^2.0.0",
     "interval-cache": "0.0.1",
+    "json-editor": "^0.7.27",
     "jsonwebtoken": "^7.0.0",
     "koa": "1.2.0",
     "koa-body": "1.4.0",
