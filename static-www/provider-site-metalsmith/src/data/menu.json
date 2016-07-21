@@ -48,28 +48,8 @@
     "href": "/providers",
     "content": [
       {
-        "caption": "Cynthia Yew",
-        "href": "/providers/cynthia-yew"
-      },
-      {
-        "caption": "Before & After Gallery",
-        "href": "/contents/information/photos"
-      },
-      {
-        "caption": "Financing Options",
-        "href": "/contents/information/financing-options"
-      },
-      {
-        "caption": "Safety Information",
-        "href": "/contents/information/safety-information"
-      },
-      {
-        "caption": "Morbid Obesity Risks",
-        "href": "/contents/information/morbid-obesity-risks"
-      },
-      {
-        "caption": "FAQ",
-        "href": "/contents/information/faq"
+        "caption": "Dr. Nancy Tanchel",
+        "href": "/providers/dr-nancy-tanchel"
       }
     ]
   },

@@ -1,6 +1,6 @@
 ---
 title: Providers
-layout: providers.jade
+layout: providers.pug
 json_files:
     source_file: providers
     filename_pattern: providers/:data.name
@@ -9,3 +9,8 @@ json_files:
     collection: providers
 ---
 
+<div data-exclude-from-wysiwyg="true"
+  data-placeholder-width="100px"
+  data-placeholder-heigth="100px">
+  {{> providers }}
+</div>

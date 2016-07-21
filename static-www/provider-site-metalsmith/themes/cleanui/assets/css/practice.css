@@ -65,11 +65,27 @@ section.doctor-service .right,section.practice-service .right {
     float: right
 }
 
+section.meet {
+    border-bottom: 1px solid #dfe5e8;
+}
+
+section.meet .meet-frame {
+    text-align: center;
+    width: 460px;
+    overflow: hidden;
+    padding: 0;
+    margin: 0 auto;
+}
+
 section.doctor-service .right h1:after,section.practice-service .right h1:after {
     display: table;
     content: " ";
     clear: both;
     height: 20px
+}
+
+section.terms, section.doctor, section.doctor-service, section.doctor-testimonials-landing {
+    background: #22313f;
 }
 
 @media only screen and (max-width : 1025px) {
