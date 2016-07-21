@@ -42,7 +42,8 @@ const build = (clean = false) => (done) => {
     .use(metadata({
       practice: 'data/practice.json',
       menu: 'data/menu.json',
-      contents: 'data/contents.json'
+      contents: 'data/contents.json',
+      reviews: 'data/reviews.json'
     }))
     .use(
       // If clean build, copy over assets from public folder

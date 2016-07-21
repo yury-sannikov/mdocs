@@ -8,43 +8,12 @@ section.testimonials.pinstripe(style='background-color: rgb(245, 249, 249);')
       #testimonial-slider.flexslider
         .flex-viewport(style='overflow: hidden; position: relative;')
           ul.slides(style='width: 1000%; transition-duration: 0.6s; transform: translate3d(-2310px, 0px, 0px);')
-            li.clone(aria-hidden='true', style='width: 770px; float: left; display: block;')
-              .slider-content
-                img(src='/assets/img/1353592.jpg', width='134', height='124', alt='Yelp', draggable='false')
-                p
-                  | "We were pleasantly accommodated! Beginning to end glad we were able to deal with your professional medical group."
-                h5 Sean M
-            li(style='width: 770px; float: left; display: block;')
-              .slider-content
-                img(src='/assets/img/1353592.jpg', width='134', height='124', alt='Yelp', draggable='false')
-                p
-                  | "Thank you to Dr. Elias and his wonderful team for taking such good care of me and changing my life!! I feel so confident and beautiful!!!"
-                h5 Melissa M
-            li(style='width: 770px; float: left; display: block;')
-              .slider-content
-                img(src='/assets/img/1353592.jpg', width='134', height='124', alt='Yelp', draggable='false')
-                p
-                  | "From the moment you call for the first time and make the appointment you can tell they are different from the rest."
-                h5 Luis C
-            li.flex-active-slide(style='width: 770px; float: left; display: block;')
-              .slider-content
-                img(src='/assets/img/1353592.jpg', width='134', height='124', alt='Yelp', draggable='false')
-                p
-                  | "We were pleasantly accommodated! Beginning to end glad we were able to deal with your professional medical group."
-                h5 Sean M
-            li.clone(aria-hidden='true', style='width: 770px; float: left; display: block;')
-              .slider-content
-                img(src='/assets/img/1353592.jpg', width='134', height='124', alt='Yelp', draggable='false')
-                p
-                  | "Thank you to Dr. Elias and his wonderful team for taking such good care of me and changing my life!! I feel so confident and beautiful!!!"
-                h5 Melissa M
-        //- ol.flex-control-nav.flex-control-paging
-        //-   li
-        //-     a 1
-        //-   li
-        //-     a 2
-        //-   li
-        //-     a.flex-active 3
+            each review in reviews
+              li(style='width: 770px; float: left; display: block;')
+                .slider-content
+                  img(src='/assets/img/' + review.site.toLowerCase() + '.jpg', width='134', height='124', alt= review.site, draggable='false')
+                  p= review.reviewLong
+                  h5= review.user
         ul.flex-direction-nav
           li
             a.flex-prev(href='#')
