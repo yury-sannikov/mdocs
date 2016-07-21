@@ -104,7 +104,6 @@
     "moment": "^2.13.0",
     "node-bitlyapi": "^0.4.0",
     "node-uuid": "^1.4.7",
-    "nodegit": "^0.14.1",
     "passport-auth0": "^0.5.1",
     "piping": "^1.0.0-rc.2",
     "pug": "^2.0.0-alpha7",
