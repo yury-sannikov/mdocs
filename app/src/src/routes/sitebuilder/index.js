@@ -1,6 +1,7 @@
 
 import Router from 'koa-router';
 import _ from 'lodash';
+import { Repo } from '../../sitebuilder';
 
 const debug = require('debug')('app:routes:sitebuilder');
 
@@ -31,6 +32,8 @@ const pages = [
 ];
 
 router.get('pages', '/pages', function*() {
+  const res = yield Repo.ensureWorkingDirectory();
+  console.dir(res);
   this.render('sitebuilder/pages', Object.assign({}, this.jadeLocals, {
     pages
   }), true);

@@ -62,6 +62,11 @@ exports.AUTH_API_JWT = process.env.AUTH_API_JWT;
 
 exports.STRIPE_PUB_KEY = process.env.STRIPE_PUB_KEY;
 exports.STRIPE_SEC_KEY = process.env.STRIPE_SEC_KEY;
+
+exports.SITEBUILDER_DIR = process.env.SITEBUILDER_DIR || './__sitebuilder/';
+exports.SITEBUILDER_ACCESS_KEY = process.env.SITEBUILDER_ACCESS_KEY
+exports.SITEBUILDER_SECRET_ACCESS_KEY = process.env.SITEBUILDER_SECRET_ACCESS_KEY
+exports.SITEBUILDER_CC_USER = process.env.SITEBUILDER_CC_USER
 ////////////////////////////////////////////////////////////
 
 // DynamoDB workaround
