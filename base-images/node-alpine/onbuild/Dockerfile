@@ -22,7 +22,7 @@ ONBUILD RUN info(){ printf '\n--\n%s\n--\n\n' "$*"; } \
     make gcc g++ python musl-dev openssl-dev zlib-dev \
     linux-headers binutils-gold \
  && info '==> Installing NPM modules...' \
- && npm install --production \
+ && BUILD_ONLY=true npm install --production \
  && mv node_modules node_modules_new \
  && info '==> Finishing...' \
  && apk del build-deps \
