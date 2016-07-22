@@ -20,5 +20,11 @@
     "fri": "9:00am - 5:00pm",
     "sat": "Closed",
     "sun": "Closed"
+  },
+  "social": {
+    "twitter": "https://twitter.com/libertylasereye",
+    "facebook": "https://www.facebook.com/LibertyLaserEye",
+    "googleplus": "https://plus.google.com/111129373947656600476",
+    "yelp": "http://www.yelp.com/biz/liberty-laser-eye-center-vienna"
   }
 }
