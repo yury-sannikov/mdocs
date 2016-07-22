@@ -117,9 +117,9 @@ router.post('/submit', function*() {
     yield communicator.notifyWithNegativeReview(survey);
     this.render('reviews/negative', Object.assign({}, this.jadeLocals, { survey: survey }), true);
   } else {
-    const providerOrLocation = yield db.getReviewObject(survey.reviewFor.id, survey.reviewFor.reviewType);
+    const profile = yield db.getReviewObject(survey.reviewFor.id, survey.reviewFor.reviewType);
 
-    const siteId = providerOrLocation[0][0].review_sites[survey.reviewSite];
+    const siteId = profile[0][0].review_sites[survey.reviewSite];
 
     if (!siteId) {
       throw Error(`Review Site '${survey.reviewSite}' wasn't registered.`);

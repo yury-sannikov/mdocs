@@ -9,12 +9,12 @@ block content
   .container
     .row
       //- REVIEWS INFO
-      .col-md-12
+      .col-md-11
         .page-header
           h2
             i.fa.fa-thumbs-o-up
             | &nbsp;Patient Reviews
-        a.linknewrequest.btn.btn-success.pull-center(href="#") New Review Request
+        a.linknewrequest.btn.btn-success.pull-center(href="#") Send Review Invite
         //- /REVIEWS INFO
 
         //- WRAPPER
@@ -30,8 +30,8 @@ block content
                 th.hidden-xs Request Date
                 th.hidden-xs Review Date
                 th Rating
-                th.hidden-xs Actions
-                th Status
+                th Actions
+                th.hidden-xs Status
               tbody
                 each review, i in reviews
                   tr
@@ -47,13 +47,13 @@ block content
                       span #{moment.unix(review.survey_date).format('MMM-DD-YYYY')}
                     td
                       +star_mixin(review.averageRating)
-                    td.hidden-xs
+                    td
                       a.btn.btn-info.btn-xs(href='review/'+review.id) View
                       | &nbsp;
                       a.linkresend.btn.btn-primary.btn-xs(href="#", data-surveyid=review.id) Resend&nbsp;
                       | &nbsp;
                       a.linkdeletesurvey.btn.btn-danger.btn-xs(href="#", data-surveyid=review.id) Delete&nbsp;
-                    td
+                    td.hidden-xs
                       +survery_status(review.status)
           - if (reviews.length === 0)
             span No reviews found in a database.
@@ -78,112 +78,85 @@ block content
           button#resendModalConfirm.btn.btn-primary(type='button') Yes!
 
   #deleteModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='deleteModalLabel', aria-hidden='true')
-      .modal-dialog.modal-sm
-        .modal-content
-          .modal-header
-            button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-            h4#deleteModalLabel.modal-title Delete confirmation
-          .modal-body
-            h4 Are you sure?
-            form#deleteform(action='delete-survey', method='POST')
-              input.form-control(type='hidden', name='_csrf', value=_csrf)
-              input#deleteformid.form-control(type='hidden', name='id')
-          .modal-footer
-            button.btn.btn-default(type='button', data-dismiss='modal') No
-            button#deleteModalConfirm.btn.btn-primary(type='button') Yes!
-
+    .modal-dialog.modal-sm
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h4#deleteModalLabel.modal-title Delete confirmation
+        .modal-body
+          h4 Are you sure?
+          form#deleteform(action='delete-survey', method='POST')
+            input.form-control(type='hidden', name='_csrf', value=_csrf)
+            input#deleteformid.form-control(type='hidden', name='id')
+        .modal-footer
+          button.btn.btn-default(type='button', data-dismiss='modal') No
+          button#deleteModalConfirm.btn.btn-primary(type='button') Yes!
 
   #requestModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
-      .modal-dialog.modal-md
-        .modal-content
-          .modal-header
-            button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-            h4#myModalLabel.modal-title New Review Request
-          .modal-body
-            .row
-              .col-sm-12
-                h4 Details
-                form#requestform(action='new-request', method='POST')
-                  input.form-control(type='hidden', name='_csrf', value=_csrf)
-                  input.form-control(type='hidden', name='locationOrProvider')
-                  input.form-control(type='hidden', name='reviewSite')
-                  .form-group
-                    label.sr-only(for='name') Name
-                    .input-group
-                      input.form-control(type='text', name='name', id='name', placeholder='Patient name')
-                  .form-group
-                    label.sr-only(for='email') Email
-                    input.form-control(type='email', name='email', id='email', placeholder='Patient email')
-                    #hint
-                  .form-group
-                    label.sr-only(for='phoneMobile') Mobile Phone
-                    input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Patient phone # e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
-                  .form-group
-                    label.sr-only(for='visitDate') Visit date
-                    input.form-control(type='date', name='visitDate', id='visitDate', placeholder='Visit date (MM/DD/YYYY) e.g. 10/14/2016 ')
-                  .form-group
-                    strong Review type
-                    div.radio
-                      label(style="margin-left: -20px;") Provider
-                        input(type="radio", name="isProvider", id="providerRadio", checked="checked", value='yes', style="margin-left: 10px;")
-                      label(style="margin-left: 20px;") Office
-                        input(type="radio", name="isProvider", id="locationRadio", value='no', style="margin-left: 10px;")
-                  .form-group
-                    div.dropdown(id="providerType")
-                      button.btn.btn-default.dropdown-toggle(type="button", name="providerDropdown", id="providerDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") No Providers Found
-                        span.caret
-                      ul.dropdown-menu(id="providersList", aria-labelledby="providerDropdown")
-                        - if (providers.length === 0)
-                          span &nbsp;&nbsp;No providers found in the database.&nbsp;&nbsp;
-                        - else
-                          each provider, i in providers
-                            li
-                              a(href="#", data-id=provider.id) #{provider.name}
-                  .form-group
-                    div.dropdown(id="locationType")
-                      button.btn.btn-default.dropdown-toggle(type="button", name = "locationDropdown", id="locationDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") No Locations Found
-                        span.caret
-                      ul.dropdown-menu(aria-labelledby="locationDropdown")
-                        - if (locations.length === 0)
-                          span &nbsp;&nbsp;No locations found in the database.&nbsp;&nbsp;
-                        - else
-                          each location, i in locations
-                            li
-                              a(href="#", data-id=location.id) #{location.name}
-                  strong Review site
-                  .form-group
-                    div.dropdown(id="dropdownType")
-                      button.btn.btn-default.dropdown-toggle(type="button", name="sitesDropdown", id="sitesDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Yelp
-                        span.caret
-                      ul.dropdown-menu(aria-labelledby="sitesDropdown")
-                        li(id="yelpOption")
-                          a(href="#", data-id='yelp', data-form-value='reviewSite') Yelp
-                        li(id="googleOption")
-                          a(href="#", data-id='google', data-form-value='reviewSite') Google
-                        li(id="healthgradesOption")
-                          a(href="#", data-id='healthgrades', data-form-value='reviewSite') HealthGrades.com
-                        li(id="vitalsOption")
-                          a(href="#", data-id='vitals', data-form-value='reviewSite') Vitals.com
-                        li(id="ratemdsOption")
-                          a(href="#", data-id='ratemds', data-form-value='reviewSite') RateMDs.com
-                        li(id="yellowpagesOption")
-                          a(href="#", data-id='yellowpages', data-form-value='reviewSite') Yellow Pages
+    .modal-dialog.modal-md
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h4.modal-title New Review Request
+        .modal-body
+          .row
+            .col-sm-12
+              form#requestform(action='new-request', method='POST')
+                input.form-control(type='hidden', name='_csrf', value=_csrf)
+                .form-group
+                  label.sr-only(for='name') Name
+                  input.form-control(type='text', name='name', id='name', placeholder='Patient name')
+                .form-group
+                  label.sr-only(for='email') Email
+                  input.form-control(type='email', name='email', id='email', placeholder='Patient email')
+                  #hint
+                .form-group
+                  label.sr-only(for='phoneMobile') Mobile Phone
+                  input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Patient phone # e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
+                .form-group
+                  input.form-control(type='hidden', name='visitDate', id='visitDate')
+                .form-group
+                  #profileDropdown.dropdown
+                    input.form-control(type='hidden', name='selectedProfile', id='selectedProfile')
+                    input.form-control(type='hidden', name='selectedProfileType', id='selectedProfileType')
+                    button#profileDropdownButton.form-control.btn.btn-default.dropdown-toggle(type="button", name="profileDropdownButton", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Select a Profile
+                      span.caret.pull-right
+                    ul.form-control.dropdown-menu(aria-labelledby="profileDropdownButton")
+                      - if (profiles.length === 0)
+                        span &nbsp;&nbsp;No profiles found in the database.&nbsp;&nbsp;
+                      - else
+                        each profile, i in profiles
+                          li
+                            a.form-control(href="#", data-id=profile.id, data-type=profile.type) #{profile.name}
+                h6#profileDropdownWarningLabel(style='color:#d26a5c; font-style:italic; margin-top:-5px') Please select a profile, or create one first if none exist
+                .form-group
+                  #reviewSiteDropdown.dropdown
+                    input.form-control(type='hidden', name='reviewSite', id='reviewSite')
+                    button#reviewSiteDropdownButton.form-control.btn.btn-default.dropdown-toggle(type="button", name="reviewSiteDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Select a Review Site
+                      span.caret.pull-right
+                    ul.form-control.dropdown-menu(aria-labelledby="reviewSiteDropdownButton")
+                      li#yelp
+                        a.form-control(href="#", data-site='yelp') Yelp
+                      li#google
+                        a.form-control(href="#", data-site='google') Google Plus
+                      li#healthgrades
+                        a.form-control(href="#", data-site='healthgrades') HealthGrades.com
+                      li#vitals
+                        a.form-control(href="#", data-site='vitals') Vitals.com
+                      li#ratemds
+                        a.form-control(href="#", data-site='ratemds') RateMDs.com
+                      li#yellowpages
+                        a.form-control(href="#", data-site='yellowpages') YellowPages
+                h6#reviewSiteDropdownWarningLabel(style='color:#d26a5c; font-style:italic; margin-top:-5px') Please select a review site
 
-          .modal-footer
-            button.btn.btn-default(type='button', data-dismiss='modal') Cancel
-            button#sendrequestbutton.btn.btn-primary(type='button') Send Request
+        .modal-footer
+          button.btn.btn-default(type='button', data-dismiss='modal') Cancel
+          button#sendrequestbutton.btn.btn-primary(type='button') Send Request
 
-  //- script(src='lib/moment/min/moment.min.js')
-  //- script(src='lib/bootstrap/js/modal.js')
 block scripts
   script.
-    // Userlist data array for filling in info box
-    var userListData = [];
     // List of providers and locations passed
-    const providers = !{JSON.stringify(providers)};
-    const locations = !{JSON.stringify(locations)};
-    // Hardecoded review site names
-    const HARDCODED_SITE_NAMES = ["Yelp", "Google", "HealthGrades.com", "Vitals.com", "RateMDs.com", "Yellow Pages"];
+    const profiles = !{JSON.stringify(profiles)};
 
     // DOM Ready =============================================================
     (function(init) {
@@ -191,7 +164,6 @@ block scripts
     }(function($, window, document) {
 
       $(function() {
-
         //- Async Load Bootstrap Modal
         $.ajax({
           type: 'GET',
@@ -210,21 +182,17 @@ block scripts
 
         // REVIEW REQUEST MODAL
 
+        // Initially hide warning labels and the review site dropdown
+        $('#profileDropdownWarningLabel').hide();
+        $('#reviewSiteDropdownWarningLabel').hide();
+        $('#reviewSiteDropdown').hide();
+
         // New request link click
         $('.linknewrequest').on('click', newRequest);
 
         // Diplay change in dropdown selection
-        $(".dropdown-menu").on('click', 'li a', updateDropdownValue);
-
-        // Display change in review type
-        $('input[type=radio]').on('change', changeReviewType);
-
-        // When a new option is selected, adjust the available review sites
-        $('#providerType').on('click', 'li a', changeAvailableReviewSites);
-        $('#locationType').on('click', 'li a', changeAvailableReviewSites);
-
-        // Saving updated review site value
-        $('[data-form-value]').on('click', updateFormValue);
+        $("#profileDropdown").on('click', 'li a', updateProfileDropdownValue);
+        $("#reviewSiteDropdown").on('click', 'li a', updateReviewSiteDropdownValue);
 
         // Default visit date to current date
         var local = new Date();
@@ -235,121 +203,55 @@ block scripts
 
     // Functions =============================================================
 
-    // Diplay change in dropdown selection
-    function updateDropdownValue(event) {
-      $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
-      $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
-    }
+    // Diplay change in profile dropdown selection
+    function updateProfileDropdownValue(event) {
+      var $profileDropdownButton = $('#profileDropdownButton');
+      var $reviewSiteDropdown = $('#reviewSiteDropdown');
+      var $profileDropdownWarningLabel = $('#profileDropdownWarningLabel');
+      const selectedProfileId = $(this).data('id');
 
-    // Saving updated review site value
-    function updateFormValue(event) {
-      $('input[name="' + $(this).attr('data-form-value') + '"]').val($(this).attr('data-id'));
-    }
-
-    // Change Review Type
-    function changeReviewType(event) {
-
-      // Prevent Link from Firing
-      event.preventDefault();
-
-      // Display providers dropdown
-      if($('#providerRadio').is(':checked')) {
-        $('#providerType').show();
-        $('#locationType').hide();
-
-        var providerDropdown = $("#providerDropdown");
-
-        if(providerDropdown.text() === "No Providers Found" && providers.length > 0) {
-          providerDropdown.html(providers[0].name + ' <span class="caret"></span>');
-          $('input[name="locationOrProvider"]').val(providers[0].id);
-          $('#providerType li:first a').trigger('click');
-        }
-        else {
-          $('#providerType li:first-child a').trigger('click');
-        }
+      // Update button
+      $profileDropdownButton.html($(this).text() + ' <span class="caret pull-right"></span>');
+      $profileDropdownButton.val($(this).data('id'));
+      // Update hidden input values
+      $('#selectedProfile').val($(this).data('id'));
+      $('#selectedProfileType').val($(this).data('type'));
+      // Show review site dropdown
+      if(!$reviewSiteDropdown.is(':visible')) {
+        $reviewSiteDropdown.show();
       }
-      // Display locations dropdown
-      else {
-        $('#providerType').hide();
-        $('#locationType').show();
-
-        var locationDropdown = $("#locationDropdown");
-
-        if(locationDropdown.text() === "No Locations Found" && locations.length > 0) {
-          locationDropdown.html(locations[0].name + ' <span class="caret"></span>');
-          $('input[name="locationOrProvider"]').val(locations[0].id);
-          $('#locationType li:first a').trigger('click');
-        }
-        else {
-          $('#locationType li:first-child a').trigger('click');
-        }
+      // Update available review site options
+      const selectedProfile = profiles.filter(function(p) {
+        return p.id === selectedProfileId;
+      })[0];
+      console.log(JSON.stringify(selectedProfile));
+      selectedProfile.review_sites.yelp == null ? $('#yelp').hide() : $('#yelp').show();
+      selectedProfile.review_sites.google == null ? $('#google').hide() : $('#google').show();
+      selectedProfile.review_sites.healthgrades == null ? $('#healthgrades').hide() : $('#healthgrades').show();
+      selectedProfile.review_sites.vitals == null ? $('#vitals').hide() : $('#vitals').show();
+      selectedProfile.review_sites.ratemds == null ? $('#ratemds').hide() : $('#ratemds').show();
+      selectedProfile.review_sites.yellowpages == null ? $('#yellowpages').hide() : $('#yellowpages').show();
+      // Remove warning label
+      if($profileDropdownWarningLabel.is(':visible')) {
+        $profileDropdownWarningLabel.hide();
+        $profileDropdownButton.css('border', '1px solid #e6e6e6');
       }
     }
 
-    // Change Available Review Sites
-    function changeAvailableReviewSites(event) {
+    // Diplay change in review site dropdown selection
+    function updateReviewSiteDropdownValue(event) {
+      var $reviewSiteDropdownButton = $('#reviewSiteDropdownButton');
+      var $reviewSiteDropdownWarningLabel = $('#reviewSiteDropdownWarningLabel');
 
-      // Prevent Link from Firing
-      event.preventDefault();
-
-      // Selected provider/location name
-      const name = $(this).text();
-
-      // Get the provider/location that was chosen
-      var selectedOption = {};
-      if($('#locationType').is(':visible')) {
-        if($("#locationDropdown").text() === "Select Location") { return; }
-        selectedOption = locations.filter(function(l) {
-          return l.name === name;
-        })[0];
-      }
-      else {
-        if($("#providerDropdown").text() === "Select Provider") { return; }
-        selectedOption = providers.filter(function(p) {
-          return p.name == name;
-        })[0];
-      }
-      $('input[name="locationOrProvider"]').val(selectedOption.id);
-
-
-      // Set available options
-      selectedOption.review_sites.yelp == null ? $('#yelpOption').hide() : $('#yelpOption').show();
-
-      selectedOption.review_sites.google == null ? $('#googleOption').hide() :
-        $('#googleOption').show();
-
-      selectedOption.review_sites.healthgrades == null ? $('#healthgradesOption').hide() : $('#healthgradesOption').show();
-
-      selectedOption.review_sites.vitals == null ? $('#vitalsOption').hide() : $('#vitalsOption').show();
-
-      selectedOption.review_sites.ratemds == null ? $('#ratemdsOption').hide() : $('#ratemdsOption').show();
-
-      selectedOption.review_sites.yellowpages == null ? $('#yellowpagesOption').hide() : $('#yellowpagesOption').show();
-
-      // Show default value
-      const defaultSite = selectedOption.default_review_site;
-      $('#reviewSite').val(defaultSite);
-      $('input[name="reviewSite"]').val(defaultSite);
-
-      switch(defaultSite) {
-        case 'yelp':
-          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[0]);
-          break;
-        case 'google':
-          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[1]);
-          break;
-        case 'healthgrades':
-          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[2]);
-          break;
-        case 'vitals':
-          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[3]);
-          break;
-        case 'ratemds':
-          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[4]);
-          break;
-        default:
-          $('#sitesDropdown').text(HARDCODED_SITE_NAMES[5]);
-          break;
+      // Update button
+      $reviewSiteDropdownButton.html($(this).text() + ' <span class="caret pull-right"></span>');
+      $reviewSiteDropdownButton.val($(this).data('site'));
+      // Update hidden input values
+      $('#reviewSite').val($(this).data('site'));
+      // Remove warning label
+      if($reviewSiteDropdownWarningLabel.is(':visible')) {
+        $reviewSiteDropdownWarningLabel.hide();
+        $reviewSiteDropdownButton.css('border', '1px solid #e6e6e6');
       }
     }
 
@@ -404,22 +306,8 @@ block scripts
       event.preventDefault();
 
       // Pop up a confirmation dialog
-      // Convoluted because we have to
-      // pass the user's id through
+      // Convoluted because we have to pass the user's id through
       function showmodal(userid) {
-        // Set default to first provider
-        $('#providerRadio').click();
-        var providerDropdown = $('#providerDropdown');
-        if(providerDropdown.text() === "No Providers Found" && providers.length > 0) {
-          providerDropdown.html(providers[0].name + ' <span class="caret"></span>');
-          providerDropdown.val(providers[0].name);
-          $('input[name="locationOrProvider"]').val(providers[0].id);
-        }
-        $('#providerType li:first a').trigger('click');
-
-        // Hide location option
-        $('#locationType').hide();
-
         // show modal
         $('#requestModal').modal({keyboard:true,backdrop:'static'});
         $("#requestform").validate({
@@ -429,48 +317,50 @@ block scripts
               required: true,
               email: true
             },
-            //- phoneMobile: {
-            //-   required: true
-            //- },
-            physician: {
-              required: true
-            },
-            visitDate: {
+            phoneMobile: {
               required: true
             }
           },
           messages: {
             name: "Please specify patient name",
             email: {
-              required: "We need patient email address to contact",
+              required: "Please provide a patient email address to contact",
               email: "Patient email address must be in the format of name@domain.com"
             },
-            //- phoneMobile: {
-            //-   required: "We need patient phone to contact"
-            //- },
-            physician: {
-              required: "We need physician name"
-            },
-            visitDate: {
-              required: "We need visit date"
+            phoneMobile: {
+              required: "Please provide a patient phone to contact"
             }
-          },
-          submitHandler: function(form) {
-            form.submit();
-          },
-          invalidHandler: function(event, validator) {
-            console.log(event);
-            console.log(validator);
           }
         });
 
-        // if "yes" clicked
-        $('#sendrequestbutton').one('click', function () {
-            $('#requestform').submit();
-        });
+        // Submit new review request
+        $('#sendrequestbutton').on('click', sendRequest);
       }
 
       // call modal function with the user's account id
       showmodal($(this).attr('rel'));
 
     };
+
+    // Send review request
+    function sendRequest(event) {
+      // Prevent Link from Firing
+      event.preventDefault();
+
+      const $profileDropdownButton = $('#profileDropdownButton');
+      const $reviewSiteDropdownButton = $('#reviewSiteDropdownButton');
+
+      if($profileDropdownButton.val() == null || $profileDropdownButton.val() === '') {
+        $('#profileDropdownWarningLabel').show();
+        $profileDropdownButton.css('border', '1px solid #d26a5c');
+        $('#requestform').valid();
+      }
+      else if($reviewSiteDropdownButton.val() == null || $reviewSiteDropdownButton.val() === '') {
+        $('#reviewSiteDropdownWarningLabel').show();
+        $reviewSiteDropdownButton.css('border', '1px solid #d26a5c');
+        $('#requestform').valid();
+      }
+      else if($('#requestform').valid) {
+        $('#requestform').submit();
+      }
+    }

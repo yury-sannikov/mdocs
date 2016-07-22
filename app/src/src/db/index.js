@@ -30,10 +30,10 @@ function hasDynamoData(data) {
 }
 
 // SURVEYS - PATIENT REVIEWS
-exports.surveysForProfile = function (providerId) {
+exports.surveysForProfile = function (profileId) {
   const chain = DynamoDB
     .table('survey_review')
-    .where('provider_id').eq(providerId)
+    .where('provider_id').eq(profileId)
     .order_by('provider_id-survey_date-index').descending();
   return Promise.promisify(chain.query, {context: chain});
 };
@@ -45,18 +45,8 @@ exports.surveyById = function (id) {
   return Promise.promisify(chain.query, {context: chain});
 };
 
-exports.getReviewObject = function (id, type) {
-  const isProvider = type === 'provider';
-
-  const chain = DynamoDB
-    .table(isProvider ? 'providers' : 'locations')
-    .where('id').eq(id);
-  return Promise.promisify(chain.query, {context: chain});
-};
-
-
 exports.createNewSurvey = function() {
-  return function* (providerId, survey, questions, title) {
+  return function* (profileId, survey, questions, title) {
     const chain = DynamoDB
       .table('survey_review');
     const insertAsync = Promise.promisify(chain.insert, {context: chain});
@@ -64,7 +54,7 @@ exports.createNewSurvey = function() {
 
     var newSurvey = {
       id: id,
-      provider_id: providerId,
+      provider_id: profileId,
       status: 0,
       survey_date: moment().utc().unix(),
       visit_date: moment(survey.visitDate).utc().unix(),

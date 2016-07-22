@@ -70,33 +70,33 @@ router.post('/resend-survey', hasSubscription, function*() {
 });
 
 router.post('/new-request', hasSubscription, function*() {
-  const locationOrProvider = this.request.body.locationOrProvider;
+  const selectedProfile = this.request.body.selectedProfile;
+  const selectedProfileType = this.request.body.selectedProfileType;
   const reviewSite = this.request.body.reviewSite;
-  const isProvider = this.request.body.isProvider === 'yes';
 
-  if (!locationOrProvider || !reviewSite || !this.request.body.isProvider) {
+  if (!selectedProfile || !selectedProfileType || !reviewSite) {
     // Client JS should avoid this path
     throw Error('Form is not filled properly.');
   }
 
   const survey = Object.assign({}, this.request.body, {
     reviewFor: {
-      id: locationOrProvider,
-      reviewType: isProvider ? 'provider' : 'location'
+      id: selectedProfile,
+      reviewType: selectedProfileType
     },
     reviewSite: reviewSite
   });
 
-  const providerOrLocation = yield db.getReviewObject(survey.reviewFor.id, survey.reviewFor.reviewType);
+  const profile = yield db.profileById(survey.reviewFor.id);
 
-  if (!hasDynamoData(providerOrLocation)) {
+  if (!hasDynamoData(profile)) {
     debug(`Can't find review object: ${JSON.stringify(survey.reviewFor)}`);
     this.flash = 'Unable to find specified review object';
     this.redirect(router.url('patient-reviews'));
     return;
   }
 
-  const title = providerOrLocation[0][0].name;
+  const title = profile[0][0].name;
 
   const questions = Object.assign({}, HARDCODED_QUESTIONS, { '2': title });
   debug(this.currentUser.id, survey, questions, title);

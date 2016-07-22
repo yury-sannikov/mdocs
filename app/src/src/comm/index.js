@@ -65,7 +65,7 @@ exports.conductSurvey = function* (id) {
     unsubscribeUrl: urlUnsubscribe
   };
 
-  const isProviderReview = record.reviewFor.reviewType == 'provider';
+  const isProviderReview = record.reviewFor.reviewType === 'Provider';
 
   try {
     const emailResult = yield email[isProviderReview ? 'sendReviewRequest' : 'sendLocationReviewRequest'](record.patient.email, emailLocals);
