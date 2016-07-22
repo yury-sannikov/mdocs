@@ -21,8 +21,9 @@ ONBUILD RUN info(){ printf '\n--\n%s\n--\n\n' "$*"; } \
  && apk add --update --virtual build-deps \
     make gcc g++ python musl-dev openssl-dev zlib-dev \
     linux-headers binutils-gold \
+ && apk add --update git \
  && info '==> Installing NPM modules...' \
- && BUILD_ONLY=true npm install --production \
+ && npm install --production \
  && mv node_modules node_modules_new \
  && info '==> Finishing...' \
  && apk del build-deps \
