@@ -11,5 +11,14 @@
   "logo": {
     "small": "/assets/img/logo_small.png",
     "big": "/assets/img/logo_big.png"
+  },
+  "hours": {
+    "mon": "9:00am - 5:00pm",
+    "tue": "9:00am - 5:00pm",
+    "wed": "9:00am - 5:00pm",
+    "thu": "9:00am - 5:00pm",
+    "fri": "9:00am - 5:00pm",
+    "sat": "Closed",
+    "sun": "Closed"
   }
 }

@@ -4,60 +4,56 @@ section.contact.pinstripe
       div(about='0', typeof='{"type":"MODULE", "secondary_type": "CONTACT", "type_id": 9938, "fieldname": "location"}')
         .contact-header(property='fieldtext') Location
       address
-        span(property='name') Beverly Oaks Surgery
+        span(property='name')= practice.name
         br
-        span(property='streetAddress')
-          | 4910 Van Nuys Boulevard, Suite #308
+        span(property='streetAddress')= practice.address
         br
-        span(property='addressLocality') Sherman Oaks, CA 91403
+        span(property='addressLocality')= practice.city  
+        |,  
+        span= practice.state  
+        |,  
+        span= practice.zip
         br
-        |         Phone: 
-        span.mm-phone-number.phoneupdated(property='telephone') 818-839-7003
+        |  Phone: 
+        span.mm-phone-number.phoneupdated(property='telephone')= practice.phone
         br
-        span(about='0', typeof='{"type":"MODULE", "secondary_type": "CONTACT", "type_id": 9938, "fieldname": "fax"}')
+        span(about='0', typeof='{"type":"MODULE", "secondary_type": "CONTACT", "type_id": 1, "fieldname": "fax"}')
           span(property='fieldtext') Fax: 
-        span(property='fax') 818-986-9089
+        span(property='fax')= practice.fax
     .span4.middle
-      div(about='0', typeof='{"type":"MODULE", "secondary_type": "CONTACT", "type_id": 9938, "fieldname": "office-hours"}')
+      div(about='0', typeof='{"type":"MODULE", "secondary_type": "CONTACT", "type_id": 1, "fieldname": "office-hours"}')
         .contact-header(property='fieldtext') Office Hours
       p
         label
           | Monday
-          span
-            | 9:00am - 5:00pm
+          span= practice.hours.mon
         label
           | Tuesday
-          span
-            | 9:00am - 5:00pm
+          span= practice.hours.tue
         label
           | Wednesday
-          span
-            | 9:00am - 5:00pm
+          span= practice.hours.wed
         label
           | Thursday
-          span
-            | 9:00am - 5:00pm
+          span= practice.hours.thu
         label
           | Friday
-          span
-            | 9:00am - 5:00pm
+          span= practice.hours.fri
         label
           | Saturday
-          span
-            | Closed
+          span= practice.hours.sat
         label
           | Sunday
-          span
-            | Closed
+          span= practice.hours.sun
     .span4.right
       div(about='0', typeof='{"type":"MODULE", "secondary_type": "CONTACT", "type_id": 9938, "fieldname": "get-in-touch"}')
         .contact-header(property='fieldtext') Get in touch
       p
-        a(href='mailto:christine@beverlyoakssurgery.com') christine@beverlyoakssurgery.com
+        a(href='mailto:' + practice.email)= practice.email
         br
-        a.btn-call(href='tel:8188397003')
+        a.btn-call(href='tel:' + practice.phone)
           i.fa.fa-phone
-          span.mm-phone-number.phoneupdated 818-839-7003
+          span.mm-phone-number.phoneupdated= practice.phone
         br
-        button.btn-book-online.ppop_bookonline_action.small(type='button', data-locationid='9938')
+        button.btn-book-online.ppop_bookonline_action.small(type='button', data-locationid='1')
           | Book Online
