@@ -80,7 +80,6 @@ const build = (clean = false) => (done) => {
     .use(permalinks({
       relative: false,
       date: 'YYYY',
-
       linksets: [{
           match: { collection: 'blogposts' },
           pattern: 'blog/:date/:title',

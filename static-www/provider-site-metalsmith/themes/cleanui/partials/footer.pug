@@ -6,25 +6,32 @@ footer
           .copy
             p Copyright &copy; 2016 MDOCS
         li
-          a(href='http://www.beverlyoakssurgery.com/your-privacy') Privacy Policy
+          a(href='/content/privacy-policy/') Privacy Policy
         li
-          a(href='http://www.beverlyoakssurgery.com/our-terms') Terms & Conditions
+          a(href='/content/terms') Terms & Conditions
         li
-          a(href='http://www.beverlyoakssurgery.com/contactus') Contact Us
+          a(href='/contact') Contact Us
     .span12
       .nap.vcard(itemscope='', itemtype='http://schema.org/Organization')
-        .fn.org(itemprop='name')  Beverly Oaks Surgery, Sherman Oaks, CA
-        |         Phone (appointments): 
-        span.tel.mm-phone-number.phoneupdated(itemprop='telephone', content='8188397077') 818-839-7003
+        .fn.org(itemprop='name')= practice.name  
+          span  - 
+          span= practice.description  
+          span  located in  
+          span= practice.city  
+          span ,  
+          span= practice.state  
+        |  Phone: 
+        span.tel.mm-phone-number.phoneupdated(itemprop='telephone', content= practice.phone)= practice.phone
         span.divider |
-        |         Phone (general inquiries): 818-986-9099
+        |  Fax:  
+        span.tel.mm-phone-number.phoneupdated(itemprop='telephone', content= practice.fax)= practice.fax
         .adr
           | Address: 
-          span.street-address(itemprop='streetAddress') 4910 Van Nuys Boulevard, Suite #308, 
-          span.locality(itemprop='addressLocality') Sherman Oaks
+          span.street-address(itemprop='streetAddress')= practice.address
+          span.locality(itemprop='addressLocality')= practice.city
           | , 
-          span.region(itemprop='addressRegion') CA
-          span(itemprop='postalCode') 91403
+          span.region(itemprop='addressRegion')= practice.state
+          span(itemprop='postalCode')= practice.zip
     .span12
       p
         a(href='https://www.mdocs.co', target='_blank') Powered by MDOCS
