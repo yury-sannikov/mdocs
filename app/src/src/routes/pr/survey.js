@@ -117,7 +117,7 @@ router.post('/submit', function*() {
     yield communicator.notifyWithNegativeReview(survey);
     this.render('reviews/negative', Object.assign({}, this.jadeLocals, { survey: survey }), true);
   } else {
-    const profile = yield db.getReviewObject(survey.reviewFor.id, survey.reviewFor.reviewType);
+    const profile = yield db.profileById(survey.reviewFor.id);
 
     const siteId = profile[0][0].review_sites[survey.reviewSite];
 
@@ -135,7 +135,7 @@ router.post('/submit', function*() {
 
     this.render('reviews/positive', Object.assign({}, this.jadeLocals, {
       survey: survey,
-      reviewLink: reviewLink
+      reviewLink: siteId//reviewLink
     }), true);
   }
 });

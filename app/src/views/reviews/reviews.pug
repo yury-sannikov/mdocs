@@ -14,7 +14,9 @@ block content
           h2
             i.fa.fa-thumbs-o-up
             | &nbsp;Patient Reviews
-        a.linknewrequest.btn.btn-success.pull-center(href="#") Send Review Invite
+        a.linknewrequest.btn.btn-success.pull-center(href="#") 
+          i.fa.fa-paper-plane-o
+          |   Send Review Invite
         //- /REVIEWS INFO
 
         //- WRAPPER
@@ -50,8 +52,12 @@ block content
                     td
                       a.btn.btn-info.btn-xs(href='review/'+review.id) View
                       | &nbsp;
-                      a.linkresend.btn.btn-primary.btn-xs(href="#", data-surveyid=review.id) Resend&nbsp;
-                      | &nbsp;
+                      - if(review.status === 2)
+                        a.linkresend.btn.btn-primary.btn-xs.disabled(href="#", data-surveyid=review.id) Resend&nbsp;
+                        | &nbsp;
+                      -else
+                        a.linkresend.btn.btn-primary.btn-xs(href="#", data-surveyid=review.id) Resend&nbsp;
+                        | &nbsp;
                       a.linkdeletesurvey.btn.btn-danger.btn-xs(href="#", data-surveyid=review.id) Delete&nbsp;
                     td.hidden-xs
                       +survery_status(review.status)
