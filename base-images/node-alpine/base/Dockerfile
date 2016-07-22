@@ -4,9 +4,15 @@ ENV NODEJS_VERSION=5.7.0 \
     NODEJS_SHA256=2338b46a2f45fbb747089c66931f62555f25a5928511d3a43bbb3a39dcded2d8 \
     NPM_VERSION=3.7.3
 
+ENV SOCKET_DIR /ssh
+ENV SSH_AUTH_SOCK ${SOCKET_DIR}/auth/sock
+
 RUN info(){ printf '\n--\n%s\n--\n\n' "$*"; } \
- && info "==> Installing build dependencies..." \
+ && info "==> Installing openssh..." \
  && apk update \
+ && apk add --update openssh \
+ && mkdir -p ${SOCKET_DIR} && chmod 777 ${SOCKET_DIR} \
+ && info "==> Installing build dependencies..." \
  && apk add --virtual build-deps \
     curl make gcc g++ python paxctl \
     musl-dev openssl-dev zlib-dev \
