@@ -256,8 +256,7 @@ exports.createProfile = function() {
       email: data.email,
       phone: data.phoneMobile,
       type: data.profileType,
-      review_sites: formatReviewSites(data),
-      default_review_site: checkReviewSite(data)
+      review_sites: formatReviewSites(data)
     };
     if(!_.isEmpty(data.address)) {
       newProfile.address = data.address;
@@ -280,8 +279,7 @@ exports.updateProfile = function* (id, data) {
       email: data.email,
       phone: data.phoneMobile,
       type: data.profileType,
-      review_sites: formatReviewSites(data),
-      default_review_site: checkReviewSite(data)
+      review_sites: formatReviewSites(data)
     };
     if(!_.isEmpty(data.address)) {
       newProfile.address = data.address;

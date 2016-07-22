@@ -45,108 +45,87 @@ block content
               li
                 a(href="#profileSites" data-toggle="tab" data-step="3") Review Sites
         br
-        .tab-content
-          #profileType.tab-pane.fade.in.active
-            .well
-              h4 Please choose the profile type
-              br
-              .radio
-                label
-                  input(type="radio", name="profileType", id="providerRadio", checked="checked", value='Provider') 
-                  | Provider (Doctor)
-              .radio
-                label
-                  input(type="radio", name="profileType", id="locationRadio", value='Location') 
-                  | Location (Office)
-            .wrapper
-              a.btn.btn-success.btn-lg.next(href="#") Continue >
-          #profileInfo.tab-pane.fade
-            .well
-              - if (_.isEmpty(profile))
-                form#profileform(action='new-profile', method='POST')
-                  input.form-control(type='hidden', name='_csrf', value=_csrf)
-                  .form-group
-                    h4 Please provide your Full Name
-                    br
-                    label.sr-only(for='name') Name
-                    input.form-control(type='text', name='name', id='name', placeholder='Full name')
-                  .form-group
-                    h4 Please provide your Email
-                    br
-                    label.sr-only(for='email') Email
-                    input.form-control(type='email', name='email', id='email', placeholder='Email')
-                    #hint
-                  #addressArea.form-group
-                    h4 Please provide your Address
-                    br
-                    label.sr-only(for='address') Address
-                    input.form-control(type='text', name='address', id='address', placeholder='Location address')
-                  .form-group
-                    h4 Please provide your Phone Number
-                    br
-                    label.sr-only(for='phoneMobile') Phone
-                    input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Phone number e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
-              - else   
-                form#profileform(action='../update-profile', method='POST')
-                  input.form-control(type='hidden', name='_csrf', value=_csrf)
-                  .form-group
-                    h4 Please provide your Full Name
-                    br
-                    label.sr-only(for='name') Name
-                    input.form-control(type='text', name='name', id='name', placeholder='Full name')
-                  .form-group
-                    h4 Please provide your Email
-                    br
-                    label.sr-only(for='email') Email
-                    input.form-control(type='email', name='email', id='email', placeholder='Email')
-                    #hint
-                  #addressArea.form-group
-                    h4 Please provide your Address
-                    br
-                    label.sr-only(for='address') Address
-                    input.form-control(type='text', name='address', id='address', placeholder='Location address')
-                  .form-group
-                    h4 Please provide your Phone Number
-                    br
-                    label.sr-only(for='phoneMobile') Phone
-                    input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Phone number e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
-              a.btn.btn-info.btn-lg.prev(href="#") < Back
-              a.btn.btn-success.btn-lg.next-validate.pull-right(href="#") Continue >
-          #profileSites.tab-pane.fade
-            .well
-              h4 Please provide your Review Sites 
-              br
-              h5 
-                strong ADD A REVIEW SITE
-              br
-              label Review 
-              h4#dropdownWarningLabel.wrapper(style='color:red;') No Site Selected!
-              .form-group
-                .dropdown
-                  button.form-control.btn-lg.btn.btn-default.dropdown-toggle(type='button', name='sitesDropdownButton', id='sitesDropdownButton', data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Choose the Review Site
-                    span.caret.pull-right
-                  ul.form-control.dropdown-menu(id='sitesDropdownMenu', aria-labelledby="dropdownMenu")
-              label Review Site Link
-              h4#linkWarningLabel.wrapper(style='color:red;') Please Provide a Link!
-              input#siteLink.form-control.input-lg(name='siteLink', placeholder='Paste the link here: e.g. http://www.yelp.com/biz/movel-sterling')
-              br
+        - var actionValue = 'new-profile'
+        if (!_.isEmpty(profile))
+          - actionValue = '../update-profile'
+        form#profileform(action=actionValue, method='POST')
+          input.form-control(type='hidden', name='editID', id='editID')
+          input.form-control(type='hidden', name='_csrf', value=_csrf)
+          .tab-content
+            #profileType.tab-pane.fade.in.active
+              .well
+                h4 Please choose the profile type
+                br
+                .radio
+                  label
+                    input(type="radio", name="profileType", id="providerRadio", checked="checked", value='Provider') 
+                    | Provider (Doctor)
+                .radio
+                  label
+                    input(type="radio", name="profileType", id="locationRadio", value='Location') 
+                    | Location (Office)
               .wrapper
-                a#addSite.btn.btn-primary.btn-lg
-                  i.fa.fa-check
-                  |  Add Review Site
-              br
-              h5 
-                strong SAVED REVIEW SITES
-              br
-              .form-group
-                table#sitesTable.table.table-striped
-                  thead
-                    th Site Name
-                    th Site Link
-                    th Actions
-              h4#submitWarningLabel.wrapper(style='color:red;') Please Add at Least One Review Site!
-            a.btn.btn-info.btn-lg.prev(href="#") < Back
-            a#saveprofilebutton.btn.btn-success.btn-lg.create.pull-right(href="#") Create Profile
+                a.btn.btn-success.btn-lg.next(href="#") Continue >
+            #profileInfo.tab-pane.fade
+              .well
+                .form-group
+                  h4 Please provide your Full Name
+                  br
+                  label.sr-only(for='name') Name
+                  input.form-control(type='text', name='name', id='name', placeholder='Full name')
+                .form-group
+                  h4 Please provide your Email
+                  br
+                  label.sr-only(for='email') Email
+                  input.form-control(type='email', name='email', id='email', placeholder='Email')
+                  #hint
+                #addressArea.form-group
+                  h4 Please provide your Address
+                  br
+                  label.sr-only(for='address') Address
+                  input.form-control(type='text', name='address', id='address', placeholder='Location address')
+                .form-group
+                  h4 Please provide your Phone Number
+                  br
+                  label.sr-only(for='phoneMobile') Phone
+                  input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Phone number e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
+                a.btn.btn-info.btn-lg.prev(href="#") < Back
+                a.btn.btn-success.btn-lg.next-validate.pull-right(href="#") Continue >
+            #profileSites.tab-pane.fade
+              .well
+                h4 Please provide your Review Sites 
+                br
+                h5 
+                  strong ADD A REVIEW SITE
+                br
+                label Review 
+                h4#dropdownWarningLabel.wrapper(style='color:red;') No Site Selected!
+                .form-group
+                  .dropdown
+                    button.form-control.btn-lg.btn.btn-default.dropdown-toggle(type='button', name='sitesDropdownButton', id='sitesDropdownButton', data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Choose the Review Site
+                      span.caret.pull-right
+                    ul.form-control.dropdown-menu(id='sitesDropdownMenu', aria-labelledby="dropdownMenu")
+                label Review Site Link
+                h4#linkWarningLabel.wrapper(style='color:red;') Please Provide a Link!
+                input#siteLink.form-control.input-lg(name='siteLink', placeholder='Paste the link here: e.g. http://www.yelp.com/biz/movel-sterling')
+                br
+                .wrapper
+                  a#addSite.btn.btn-primary.btn-lg
+                    i.fa.fa-check
+                    |  Add Review Site
+                br
+                h5 
+                  strong SAVED REVIEW SITES
+                br
+                .form-group
+                  table#sitesTable.table.table-striped
+                    thead
+                      th Site Name
+                      th Site Link
+                      th Actions
+                h4#submitWarningLabel.wrapper(style='color:red;') Please Add at Least One Review Site!
+              a.btn.btn-info.btn-lg.prev(href="#") < Back
+              a#saveprofilebutton.btn.btn-success.btn-lg.create.pull-right(href="#") Create Profile
 
 block scripts
   script(type='text/javascript', src='/app/lib/bootstrap/js/tab.js')
@@ -189,6 +168,7 @@ block scripts
             $('#locationRadio').attr('checked', 'checked');
             $('#address').val(profile.address);
           }
+          $('#editID').val(profile.id);
           $('#name').val(profile.name);
           $('#email').val(profile.email);
           $('#phoneMobile').val(profile.phone);
@@ -285,7 +265,7 @@ block scripts
       var cell1 = row.insertCell();
       cell1.innerHTML = getFullSiteName(siteName);
       var cell2 = row.insertCell();
-      cell2.innerHTML = '<a name="' + siteName + '", target="_blank", href="' + siteLink + '">' + siteLink + '</a>';
+      cell2.innerHTML = '<input type="hidden", class="form-control", name="' + siteName + '" value="' + siteLink + '"/>' + '<a name="' + siteName + '", target="_blank", href="' + siteLink + '">' + siteLink + '</a>';
       var cell2 = row.insertCell();
       cell2.innerHTML = '<a class="linkremoveprofile btn btn-danger btn-xs", href="#", data-profileId="' + siteName + '"> Remove&nbsp;</a>';
       // Fire event when 'Remove Review Site' is clicked

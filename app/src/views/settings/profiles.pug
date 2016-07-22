@@ -25,10 +25,10 @@ block content
             table.table.table-striped
               thead
                 th Name
-                th Address
+                th.hidden-xs Address
                 th Email
                 th Phone
-                th Type
+                th.hidden-xs Type
                 th Actions
               tbody
                 each profile, i in profiles
@@ -36,16 +36,16 @@ block content
                     td
                       span #{profile.name}
                     - if(!_.isEmpty(profile.address))
-                      td
+                      td.hidden-xs
                         span #{profile.address}
                     - else
-                      td
+                      td.hidden-xs
                         span
                     td
                       strong #{profile.email}
                     td
                       span #{formatPhone(profile.phone)}
-                    td
+                    td.hidden-xs
                       span #{profile.type}
                     td
                       a.btn.btn-info.btn-xs(href='profile/'+profile.id) View

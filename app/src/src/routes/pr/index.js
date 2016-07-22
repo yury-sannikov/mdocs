@@ -37,12 +37,12 @@ router.get('/', function*() {
 
 // Show profiles
 router.get('profiles', '/profiles', function*() {
-  const data = yield db.providersForAdmin(this.currentUser.id);
+  const data = yield db.profilesForAdmin(this.currentUser.id);
   this.render('settings/profiles', Object.assign({}, this.jadeLocals, { profiles: data[0] }), true);
 });
 
 router.get('/profile/:id', function*() {
-  const data = yield db.providerById(this.params.id);
+  const data = yield db.profileById(this.params.id);
   if (!data || !data[0] || data[0].length == 0) {
     this.redirect(router.url('profiles'));
     return;
@@ -55,7 +55,7 @@ router.get('/new-profile', function*() {
 });
 
 router.get('/update-profile/:id', function*() {
-  const data = yield db.providerById(this.params.id);
+  const data = yield db.profileById(this.params.id);
   if (!data || !data[0] || data[0].length == 0) {
     this.redirect(router.url('profiles'));
     return;
@@ -64,18 +64,15 @@ router.get('/update-profile/:id', function*() {
 });
 
 router.post('/new-profile', hasSubscription, function*() {
-  console.log(this.request.body);
-  // const provider = Object.assign({}, this.request.body);
-  // const id = yield db.createProvider()(this.currentUser.id, provider);
-  // yield updateSubscription(this.currentUser.id, this.session);
+  const profile = Object.assign({}, this.request.body);
+  const id = yield db.createProfile()(this.currentUser.id, profile);
+  yield updateSubscription(this.currentUser.id, this.session);
   this.redirect(router.url('profiles'));
 });
 
 router.post('/update-profile', hasSubscription, function*() {
-  console.log(this.request.body);
-  // const provider = Object.assign({}, this.request.body);
-  // const id = yield db.updateProvider(this.request.body.editID, provider);
-
+  const profile = Object.assign({}, this.request.body);
+  const id = yield db.updateProfile(this.request.body.editID, profile);
   this.redirect(router.url('profiles'));
 });
 
