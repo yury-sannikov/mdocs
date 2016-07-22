@@ -35,78 +35,52 @@ router.get('/', function*() {
   this.redirect(phi.url('patient-reviews'));
 });
 
-// Show providers
-router.get('providers', '/providers', function*() {
-  const data = yield db.providersForAdmin(this.currentUser.id);
-  this.render('settings/providers', Object.assign({}, this.jadeLocals, {providers: data[0]}), true);
+// Show profiles
+router.get('profiles', '/profiles', function*() {
+  const data = yield db.profilesForAdmin(this.currentUser.id);
+  this.render('settings/profiles', Object.assign({}, this.jadeLocals, { profiles: data[0] }), true);
 });
 
-router.get('/provider/:id', function*() {
-  const data = yield db.providerById(this.params.id);
+router.get('/profile/:id', function*() {
+  const data = yield db.profileById(this.params.id);
   if (!data || !data[0] || data[0].length == 0) {
-    this.redirect(router.url('providers'));
+    this.redirect(router.url('profiles'));
     return;
   }
-  this.render('settings/providerDetail', Object.assign({}, this.jadeLocals, { provider: data[0][0] }), true);
+  this.render('settings/profileDetail', Object.assign({}, this.jadeLocals, { profile: data[0][0] }), true);
 });
 
-router.post('/new-provider', hasSubscription, function*() {
-  const provider = Object.assign({}, this.request.body);
-  const id = yield db.createProvider()(this.currentUser.id, provider);
-  yield updateSubscription(this.currentUser.id, this.session);
-  this.redirect(router.url('providers'));
+router.get('/new-profile', function*() {
+  this.render('settings/createEditProfile', Object.assign({}, this.jadeLocals, { profile: '' }), true);
 });
 
-router.post('/update-provider', hasSubscription, function*() {
-  const provider = Object.assign({}, this.request.body);
-  const id = yield db.updateProvider(this.request.body.editID, provider);
-
-  this.redirect(router.url('providers'));
-});
-
-router.post('/delete-provider', hasSubscription, function*() {
-  yield db.deleteProvider(this.request.body.id);
-  this.flash = 'Provider deleted successfully.';
-  yield updateSubscription(this.currentUser.id, this.session);
-  this.redirect(router.url('providers'));
-});
-
-// Show office locations
-router.get('locations', '/locations', function*() {
-  const data = yield db.locationsForAdmin(this.currentUser.id);
-  this.render('settings/locations', Object.assign({}, this.jadeLocals, {locations: data[0]}), true);
-});
-
-router.get('/location/:id', function*() {
-  const data = yield db.locationById(this.params.id);
+router.get('/update-profile/:id', function*() {
+  const data = yield db.profileById(this.params.id);
   if (!data || !data[0] || data[0].length == 0) {
-    this.redirect(router.url('locations'));
+    this.redirect(router.url('profiles'));
     return;
   }
-  this.render('settings/locationDetail', Object.assign({}, this.jadeLocals, { location: data[0][0] }), true);
+  this.render('settings/createEditProfile', Object.assign({}, this.jadeLocals, { profile: data[0][0] }), true);
 });
 
-router.post('/new-location', hasSubscription, function*() {
-  const location = Object.assign({}, this.request.body);
-  const id = yield db.createLocation()(this.currentUser.id, location);
+router.post('/new-profile', hasSubscription, function*() {
+  const profile = Object.assign({}, this.request.body);
+  const id = yield db.createProfile()(this.currentUser.id, profile);
   yield updateSubscription(this.currentUser.id, this.session);
-
-  this.redirect(router.url('locations'));
+  this.redirect(router.url('profiles'));
 });
 
-router.post('/update-location', hasSubscription, function*() {
-
-  const location = Object.assign({}, this.request.body);
-  const id = yield db.updateLocation(this.request.body.editID, location);
-
-  this.redirect(router.url('locations'));
+router.post('/update-profile', hasSubscription, function*() {
+  const profile = Object.assign({}, this.request.body);
+  const id = yield db.updateProfile(this.request.body.editID, profile);
+  this.redirect(router.url('profiles'));
 });
 
-router.post('/delete-location', hasSubscription, function*() {
-  yield db.deleteLocation(this.request.body.id);
-  this.flash = 'Location deleted successfully.';
+router.post('/delete-profile', hasSubscription, function*() {
+  yield db.deleteProfile(this.request.body.id);
+  this.flash = 'Profile deleted successfully.';
   yield updateSubscription(this.currentUser.id, this.session);
-  this.redirect(router.url('locations'));
+  this.redirect(router.url('profiles'));
 });
 
 module.exports = router;

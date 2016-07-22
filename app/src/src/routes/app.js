@@ -20,10 +20,7 @@ app/subscribe
 app/pr/phi: (HIPAA)
   - patient reviews
 app/pr
-  - locations
-  - providers
-
-
+  - profiles
 */
 
 
@@ -49,6 +46,10 @@ router.get('/logout', function() {
   this.redirect('https://pr.mdocs.co');
 });
 
+router.get('/welcome', checkAuthenticated, function* () {
+  this.render('app/welcome', this.jadeLocals, true);
+});
+
 router.get('/profile', checkAuthenticated, function* () {
   this.render('app/profile', this.jadeLocals, true);
 });
@@ -69,11 +70,16 @@ router.post('/delete-subscription', checkAuthenticated, function* () {
 
 // Show Dashboard
 router.get('dashboard', '/', checkAuthenticated, function*() {
-  this.render('app/dashboard', this.jadeLocals, true);
+  this.render('app/welcome', this.jadeLocals, true);
 });
 
 router.get('dashboardNew', '/dashboard*', checkAuthenticated, function*() {
   yield dashboardRender(this, this.jadeLocals);
+});
+
+// Show Help
+router.get('/help', function*() {
+  this.render('legal/help', this.jadeLocals, true);
 });
 
 // Show Terms of Use

@@ -193,12 +193,12 @@ export function* hasSubscription(next) {
   this.redirect('/app/subscribe');
 }
 
-export function needShowCreateLocationProviderAlert(subInfo) {
-  const { locations = 0, providers = 0, subscriptions = [] } = subInfo;
+export function needShowCreateProfileAlert(subInfo) {
+  const { profiles = 0, subscriptions = [] } = subInfo;
   if (subscriptions.length === 0) {
     return false;
   }
   const mainSubscription = subscriptions[0] || {};
-  const totalEntities = locations + providers;
+  const totalEntities = profiles;
   return totalEntities < _.get(mainSubscription, 'qty', 0);
 }

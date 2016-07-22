@@ -14,31 +14,17 @@ const pugLoad = require('pug-load');
 const config = require('./config');
 const comm = require('./comm');
 import jwt from 'jsonwebtoken';
-import { redirectToLogin, needShowCreateLocationProviderAlert } from './belt';
+import { redirectToLogin, needShowCreateProfileAlert } from './belt';
 
 const CSRF_SKIP_PREFIX = '/app/hooks';
 
 const _originalPugLoad = pugLoad.resolve;
-let _requestUsesNewLayout = false;
 
 pugLoad.resolve = function pugLoadOverrideHack(filename, source, options) {
   let result = _originalPugLoad(filename, source, options);
-  if (!_requestUsesNewLayout) {
-    return result;
-  }
 
-  if (filename.indexOf('layout.pug') !== -1) {
-    return result.replace('layout.pug', 'layoutNew.pug');
-  }
   return result;
 }
-
-exports.hackyChangeLayoutMiddleware = function() {
-  return function*(next) {
-    _requestUsesNewLayout = (this.request.querystring || '').indexOf('new-layout') !== -1;
-    return yield next;
-  }
-};
 
 exports.checkJWTExpiration = function() {
   return function*(next){
@@ -74,7 +60,7 @@ exports.wrapJadeLocals = function() {
   return function *(next) {
     const currentUser = this.currentUser || {};
     const { subInfo = {} } = currentUser;
-    const showCreateLocationProviderAlert = needShowCreateLocationProviderAlert(subInfo);
+    const showCreateProfileAlert = needShowCreateProfileAlert(subInfo);
     const { subscriptions = [] } = subInfo;
     const hasSubscription = subscriptions.length > 0;
 
@@ -89,7 +75,7 @@ exports.wrapJadeLocals = function() {
       flash: this.flash,
       config: config,
       hasSubscription,
-      showCreateLocationProviderAlert
+      showCreateProfileAlert
     };
 
     yield* next;

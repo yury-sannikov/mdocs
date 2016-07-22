@@ -47,13 +47,22 @@
               i.si.si-users
               span.sidebar-mini-hide View Profiles
         li
-          a(href='/app/profile')
+          a.nav-submenu(href='#accountSubMenu', data-toggle="collapse")
             i.si.si-pin
             span.sidebar-mini-hide Account
-        li
-          a
-            i.fa.fa-code
-            span.sidebar-mini-hide Website Widget
+          #accountSubMenu.collapse
+            a(href='/app/profile')
+              i
+              i.si.si-pin
+              span.sidebar-mini-hide My Account
+            a(href='/app/subscription') 
+              i
+              i.fa.fa-newspaper-o
+              span.sidebar-mini-hide My Subscriptions
+        //- li
+        //-   a
+        //-     i.fa.fa-code
+        //-     span.sidebar-mini-hide Website Widget
         li.nav-main-heading
           span.sidebar-mini-hide Help
         li
@@ -62,15 +71,15 @@
             span.sidebar-mini-hide Help
         li
           a(href='/app/privacy')
-            i.si.si-question
+            i.si.si-lock
             span.sidebar-mini-hide Privacy
         li
           a(href='/app/agreement')
-            i.si.si-question
+            i.si.si-info
             span.sidebar-mini-hide Agreement
         li
           a(href='/app/terms')
-            i.si.si-question
+            i.si.si-bell
             span.sidebar-mini-hide Terms of Use
     // END Side Content
   // Sidebar Content

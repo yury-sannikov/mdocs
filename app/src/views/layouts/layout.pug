@@ -21,8 +21,18 @@ doctype html
 html(lang='en')
   include ../partials/head.pug
   body
-    include ../partials/navigation.pug
-    include ../partials/flash.pug
-    block content
-    include ../partials/footer.pug
-    block scripts
+    #page-container.sidebar-l.sidebar-o.side-scroll.header-navbar-fixed
+      nav(id='sidebar')
+        include ../partials/sidebar.pug
+      include ../partials/navigation.pug
+      header#header-navbar.content-mini.content-mini-full
+        include ../partials/base_header.pug
+      main#main-container
+        hr
+        include ../partials/flash.pug
+        block content
+        //- include ../partials/testDashboard.pug
+      footer#page-footer.content-mini.content-mini-full.font-s12.bg-gray-lighter.clearfix
+        include ../partials/base_footer.pug
+      include ../partials/footer.pug
+      block scripts

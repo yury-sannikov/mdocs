@@ -6,7 +6,7 @@ const debug = require('debug')('app:routes:user_hook');
 import passport from 'koa-passport';
 import { findUserById } from '../db';
 import { sendStripeCallbackToSlack } from '../comm';
-import { needShowCreateLocationProviderAlert } from '../belt';
+import { needShowCreateProfileAlert } from '../belt';
 
 const router = new Router({
   prefix: '/hooks'
@@ -37,7 +37,7 @@ function* loginCallbackHandler() {
     } else {
       yield ctx.login(user);
 
-      const showWelcome = needShowCreateLocationProviderAlert(ctx.session.passport.user.subInfo);
+      const showWelcome = needShowCreateProfileAlert(ctx.session.passport.user.subInfo);
 
       ctx.response.redirect(redirectTo + ( showWelcome ? '?welcome=y' : '') );
     }
