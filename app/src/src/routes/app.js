@@ -20,10 +20,7 @@ app/subscribe
 app/pr/phi: (HIPAA)
   - patient reviews
 app/pr
-  - locations
-  - providers
-
-
+  - profiles
 */
 
 

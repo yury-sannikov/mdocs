@@ -14,7 +14,7 @@ const pugLoad = require('pug-load');
 const config = require('./config');
 const comm = require('./comm');
 import jwt from 'jsonwebtoken';
-import { redirectToLogin, needShowCreateLocationProviderAlert } from './belt';
+import { redirectToLogin, needShowCreateProfileAlert } from './belt';
 
 const CSRF_SKIP_PREFIX = '/app/hooks';
 
@@ -60,7 +60,7 @@ exports.wrapJadeLocals = function() {
   return function *(next) {
     const currentUser = this.currentUser || {};
     const { subInfo = {} } = currentUser;
-    const showCreateLocationProviderAlert = needShowCreateLocationProviderAlert(subInfo);
+    const showCreateProfileAlert = needShowCreateProfileAlert(subInfo);
     const { subscriptions = [] } = subInfo;
     const hasSubscription = subscriptions.length > 0;
 
@@ -75,7 +75,7 @@ exports.wrapJadeLocals = function() {
       flash: this.flash,
       config: config,
       hasSubscription,
-      showCreateLocationProviderAlert
+      showCreateProfileAlert
     };
 
     yield* next;

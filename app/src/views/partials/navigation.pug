@@ -82,34 +82,30 @@ nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
             //-       a(href='/api/twitter')
             //-         i.fa.fa-fw.fa-lock
             //-         | &nbsp;Twitter
-            li.dropdown(class=url=='/apilocked'?'active':undefined)
-              a.dropdown-toggle(href='#', data-toggle='dropdown')
-                i.fa.fa-fw.fa-heartbeat
-                | &nbsp;My Practice &nbsp;
-                b.caret
-              ul.dropdown-menu
-                li
-                  a(href='/app')
-                    i.fa.fa-fw.fa-dashboard
-                    | &nbsp;Dashboard
-                li
-                  a(href='/app/pr/phi/patient-reviews')
-                    i.fa.fa-fw.fa-thumbs-o-up
-                    | &nbsp;Patient Reviews
-            li.dropdown(class=url=='/apilocked'?'active':undefined)
-              a.dropdown-toggle(href='#', data-toggle='dropdown')
-                i.fa.fa-fw.fa-sliders
-                | &nbsp;My Settings &nbsp;
-                b.caret
-              ul.dropdown-menu
-                li
-                  a(href='/app/pr/providers')
-                    i.fa.fa-fw.fa-user
-                    | &nbsp;Providers
-                li
-                  a(href='/app/pr/locations')
-                    i.fa.fa-fw.fa-home
-                    | &nbsp;Locations
+            //- li.dropdown(class=url=='/apilocked'?'active':undefined)
+            //-   a.dropdown-toggle(href='#', data-toggle='dropdown')
+            //-     i.fa.fa-fw.fa-heartbeat
+            //-     | &nbsp;My Practice &nbsp;
+            //-     b.caret
+            //-   ul.dropdown-menu
+            //-     li
+            //-       a(href='/app')
+            //-         i.fa.fa-fw.fa-dashboard
+            //-         | &nbsp;Dashboard
+            //-     li
+            //-       a(href='/app/pr/phi/patient-reviews')
+            //-         i.fa.fa-fw.fa-thumbs-o-up
+            //-         | &nbsp;Patient Reviews
+            //- li.dropdown(class=url=='/apilocked'?'active':undefined)
+            //-   a.dropdown-toggle(href='#', data-toggle='dropdown')
+            //-     i.fa.fa-fw.fa-sliders
+            //-     | &nbsp;My Settings &nbsp;
+            //-     b.caret
+            //-   ul.dropdown-menu
+            //-     li
+            //-       a(href='/app/pr/profiles')
+            //-         i.fa.fa-fw.fa-user
+            //-         | &nbsp;Profiles
 
 
           //- Right side
@@ -139,8 +135,6 @@ nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
             //- User account
             li.dropdown(class=url=='/app/profile'?'active':undefined)
               a.dropdown-toggle(href='#', data-toggle='dropdown')
-                if user.picture
-                  img.profile-image(src = user.picture)
                 | #{user.displayName || user.nickname || user.id}&nbsp;
                 b.caret
               ul.dropdown-menu

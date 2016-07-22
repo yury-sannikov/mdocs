@@ -8,39 +8,6 @@ const moment = require('moment');
 const _ = require('lodash');
 
 // Review sites validation and formatting
-const checkReviewSite = function(sites) {
-  // Firstly check if provided for the selected option
-  switch(sites.defaultReviewSite) {
-    case 'yelp':
-      if(!_.isEmpty(sites.yelp)) { return 'yelp'; }
-      break;
-    case 'google':
-      if(!_.isEmpty(sites.google)) { return 'google'; }
-      break;
-    case 'healthgrades':
-      if(!_.isEmpty(sites.healthgrades)) { return 'healthgrades'; }
-      break;
-    case 'vitals':
-      if(!_.isEmpty(sites.vitals)) { return 'vitals'; }
-      break;
-    case 'ratemds':
-      if(!_.isEmpty(sites.ratemds)) { return 'ratemds'; }
-      break;
-    case 'yellowpages':
-      if(!_.isEmpty(sites.yellowpages)) { return 'yellowpages'; }
-      break;
-    default:
-      break;
-  }
-
-  // Otherwise choose the first option
-  if(!_.isEmpty(sites.yelp)) { return 'yelp'; }
-  if(!_.isEmpty(sites.google)) { return 'google'; }
-  if(!_.isEmpty(sites.healthgrades)) { return 'healthgrades'; }
-  if(!_.isEmpty(sites.vitals)) { return 'vitals'; }
-  if(!_.isEmpty(sites.ratemds)) { return 'ratemds'; }
-  if(!_.isEmpty(sites.yellowpages)) { return 'yellowpages'; }
-}
 
 const formatReviewSites = function(sites) {
   var formatted = {};
@@ -63,7 +30,7 @@ function hasDynamoData(data) {
 }
 
 // SURVEYS - PATIENT REVIEWS
-exports.surveysForProvider = function (providerId) {
+exports.surveysForProfile = function (providerId) {
   const chain = DynamoDB
     .table('survey_review')
     .where('provider_id').eq(providerId)
@@ -291,132 +258,6 @@ exports.updateProfile = function* (id, data) {
 exports.deleteProfile = function* (id) {
   const chain = DynamoDB
     .table('profiles')
-    .where('id').eq(id);
-
-  const deleteAsync = Promise.promisify(chain.delete, {context: chain});
-
-  return yield deleteAsync();
-};
-
-// PROVIDERS
-exports.providersForAdmin = function(adminId) {
-  const chain = DynamoDB
-    .table('providers')
-    .where('admin_id').eq(adminId)
-    .order_by('admin_id-index');
-  return Promise.promisify(chain.query, {context: chain});
-}
-
-exports.providerById = function (id) {
-  const chain = DynamoDB
-    .table('providers')
-    .where('id').eq(id);
-  return Promise.promisify(chain.query, {context: chain});
-};
-
-exports.createProvider = function() {
-  return function* (adminId, data) {
-    const chain = DynamoDB
-      .table('providers');
-    const insertAsync = Promise.promisify(chain.insert, {context: chain});
-    const id = uuid.v4();
-
-    yield insertAsync({
-      id: id,
-      admin_id: adminId,
-      name: data.name,
-      email: data.email,
-      phone: data.phoneMobile,
-      review_sites: formatReviewSites(data),
-      default_review_site: checkReviewSite(data)
-    });
-    return id;
-  };
-};
-
-exports.updateProvider = function* (id, data) {
-  const chain = DynamoDB
-    .table('providers')
-    .where('id').eq(id);
-
-  const updateAsync = Promise.promisify(chain.update, {context: chain});
-
-  return yield updateAsync({
-      name: data.name,
-      email: data.email,
-      phone: data.phoneMobile,
-      review_sites: formatReviewSites(data),
-      default_review_site: checkReviewSite(data)
-    });
-};
-
-exports.deleteProvider = function* (id) {
-  const chain = DynamoDB
-    .table('providers')
-    .where('id').eq(id);
-
-  const deleteAsync = Promise.promisify(chain.delete, {context: chain});
-
-  return yield deleteAsync();
-};
-
-// LOCATIONS
-exports.locationsForAdmin = function(adminId) {
-  const chain = DynamoDB
-    .table('locations')
-    .where('admin_id').eq(adminId)
-    .order_by('admin_id-index');
-  return Promise.promisify(chain.query, {context: chain});
-}
-
-exports.locationById = function (id) {
-  const chain = DynamoDB
-    .table('locations')
-    .where('id').eq(id);
-  return Promise.promisify(chain.query, {context: chain});
-};
-
-exports.createLocation = function() {
-  return function* (adminId, data) {
-    const chain = DynamoDB
-      .table('locations');
-    const insertAsync = Promise.promisify(chain.insert, {context: chain});
-    const id = uuid.v4();
-
-    yield insertAsync({
-      id: id,
-      admin_id: adminId,
-      name: data.name,
-      address: data.address,
-      email: data.email,
-      phone: data.phoneMobile,
-      review_sites: formatReviewSites(data),
-      default_review_site: checkReviewSite(data)
-    });
-    return id;
-  };
-};
-
-exports.updateLocation = function* (id, data) {
-  const chain = DynamoDB
-    .table('locations')
-    .where('id').eq(id);
-
-  const updateAsync = Promise.promisify(chain.update, {context: chain});
-
-  return yield updateAsync({
-      name: data.name,
-      address: data.address,
-      email: data.email,
-      phone: data.phoneMobile,
-      review_sites: formatReviewSites(data),
-      default_review_site: checkReviewSite(data)
-    });
-};
-
-exports.deleteLocation = function* (id) {
-  const chain = DynamoDB
-    .table('locations')
     .where('id').eq(id);
 
   const deleteAsync = Promise.promisify(chain.delete, {context: chain});

@@ -1,5 +1,4 @@
 head
-
   //- Behavioral Meta Data
   meta(charset='utf-8')
   meta(name='x-csrf-token', content=_csrf)
@@ -7,6 +6,8 @@ head
   meta(name='apple-mobile-web-app-capable', content='yes')
   //- http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  meta(name='robots', content='noindex, nofollow')
+
 
   //- SEO Meta Data
   block head
@@ -34,12 +35,15 @@ head
   link(rel='author', href='humans.txt')
 
   //- Styles
-  link(rel='stylesheet', href='/app/css/main.min.css')
+  link#css-bootstrap(rel='stylesheet', href='/app/oneui/assets/css/bootstrap.min.css')
+  link#css-main(rel='stylesheet', href='/app/oneui/assets/css/oneui.css')
+  link#css-theme(rel='stylesheet', href='/app/oneui/assets/css/themes/mdocs.css')
   link(rel='stylesheet', href='/app/lib/animate.css/animate.css')
+
   block styles
 
   //- Fonts
-  link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,500,700')
+  link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700')
 
   //- favicon.ico and apple-touch-icon(s)
   link(href='favicon.png', rel='shortcut icon', type='image/png')

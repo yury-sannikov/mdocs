@@ -77,7 +77,7 @@ router.post('/update-profile', hasSubscription, function*() {
 });
 
 router.post('/delete-profile', hasSubscription, function*() {
-  yield db.deleteProvider(this.request.body.id);
+  yield db.deleteProfile(this.request.body.id);
   this.flash = 'Profile deleted successfully.';
   yield updateSubscription(this.currentUser.id, this.session);
   this.redirect(router.url('profiles'));

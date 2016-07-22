@@ -6,11 +6,38 @@ block head
 block styles
   link(rel='stylesheet', href='/app/css/page-privacy.min.css')
 
-block content
+block scripts
+  script(type='text/javascript', src='/app/lib/bootstrap/js/carousel.js')
 
+block content
   .container
     .row
       .col-sm-12.col-md-10
         h1 Patient Reviews by MDOCS is here!
         br
-        p TODO: Fill with content
+        //- #welcomeCarousel.carousel.slide(data-ride='carousel')
+        //-   ol.carousel-indicators
+        //-     li.active(data-target='#welcomeCarousel', data-slide-to='0')
+        //-     li(data-target='#welcomeCarousel', data-slide-to='1')
+        //-     li(data-target='#welcomeCarousel', data-slide-to='2')
+        //-     li(data-target='#welcomeCarousel', data-slide-to='3')
+        //-   .carousel-inner(role='listbox')
+        //-     .item.active
+        //-       img(src="http://placehold.it/1200x315")
+        //-       .carousel-content
+        //-         .h3.font-w300.text-black.push-30-t.push-20 Enjoy Your New Patient Reviews System
+        //-         p This version uses the exact same CSS files the HTML/PHP versions are using, so any markup from the example pages of those versions can be used in this one. All ready pages which are not presented here will look great, so no worries!
+        //-         p OneUI's core JS functionality was rewritten and adjusted to play nice with AngularJS and some new features were introduced including lazy loading and localStorage support for saving your app’s active layout/theme. Also, Grunt’s build task was enchanced for this version and will now build your whole app and prepare it for production environments.
+        //-         p AngularJS directives were created (replacing almost all classic JS helpers from HTML/PHP versions) to assist when initializing jQuery plugins or custom functionality. Furthermore, generic examples are also provided for showcasing a way of using more complex jQuery plugins which require custom code/data to initialize.
+        //-     .item
+        //-       h1 2
+        //-     .item
+        //-       h1 3
+        //-     .item
+        //-       h1 4
+        //-   a.left.carousel-control(href="#welcomeCarousel", role="button", data-slide="prev")
+        //-     span.glyphicon.glyphicon-chevron-left(aria-hidden="true")
+        //-     span.sr-only Previous
+        //-   a.right.carousel-control(href="#welcomeCarousel", role="button", data-slide="next")
+        //-     span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
+        //-     span.sr-only Next

@@ -32,14 +32,13 @@ router.get('/', function*() {
 });
 
 router.get('patient-reviews', '/patient-reviews', function*() {
-  const data = yield db.surveysForProvider(this.currentUser.id);
+  const data = yield db.surveysForProfile(this.currentUser.id);
   const reviews = data[0].map((item) => {
     const avg = _.chain(item.answers).values().sum().value() / _.values(item.answers).length;
     return Object.assign({}, item, {averageRating: avg });
   });
-  const providers = yield db.providersForAdmin(this.currentUser.id);
-  const locations = yield db.locationsForAdmin(this.currentUser.id);
-  this.render('reviews/reviews', Object.assign({}, this.jadeLocals, {reviews: reviews, providers: providers[0], locations: locations[0]}), true);
+  const profiles = yield db.profilesForAdmin(this.currentUser.id);
+  this.render('reviews/reviews', Object.assign({}, this.jadeLocals, {reviews: reviews, profiles: profiles[0]}), true);
 });
 
 function* conductSurvey(id) {

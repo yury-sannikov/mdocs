@@ -8,14 +8,12 @@
         a(href='/app/subscribe') activate
         |  now.
 
-  if showCreateLocationProviderAlert
+  if showCreateProfileAlert
     .alert.alert-danger.alert-dismissable
       button.close(type='button', aria-hidden='true')
         i.fa.fa-times-circle-o
       | Please create your first&nbsp;
-      a(href='/app/pr/locations') Location&nbsp;
-      | or&nbsp;
-      a(href='/app/pr/providers') Provider
+      a(href='/app/pr/profiles') Profile
       | .
   if messages.error
     .alert.alert-danger.alert-dismissable

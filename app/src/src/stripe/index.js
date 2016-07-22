@@ -6,8 +6,7 @@ import _ from 'lodash';
 import {
   updateUserStripeCustomerToken,
   findUserById,
-  locationsForAdmin,
-  providersForAdmin,
+  profilesForAdmin,
   deleteUserSubscriptionsInfo } from '../db';
 const debug = require('debug')('app:stripe');
 
@@ -30,9 +29,9 @@ export function* createSubscription(userId, token, plan, email) {
     throw Error('User already has subscription');
   }
 
-  // Get existing locations & providers
+  // Get existing profiles
   const info = yield getSubscription(userId);
-  let quantity = info.locations + info.providers;
+  let quantity = info.profiles;
 
   if (quantity === 0) {
     quantity = 1;
@@ -56,14 +55,12 @@ export function* createSubscription(userId, token, plan, email) {
 }
 
 function* getSubscription(userId) {
-  const locations = yield locationsForAdmin(userId);
-  const providers = yield providersForAdmin(userId);
+  const profiles = yield profilesForAdmin(userId);
   const user = yield findUserById(userId);
   const stripeId = _.get(user, 'stripeCustomer.id');
 
   let result = {
-    locations: locations[0].length,
-    providers: providers[0].length,
+    profiles: profiles[0].length,
     customer: {}
   };
 
@@ -83,8 +80,7 @@ function* getSubscription(userId) {
 export function* getSubscriptionInfo(userId) {
   const subscription = yield getSubscription(userId);
   let result = Object.assign({}, {
-    locations: subscription.locations,
-    providers: subscription.providers,
+    profiles: subscription.profiles,
     subscriptions: []
   });
 
@@ -109,16 +105,15 @@ export function* updateSessionSubscriptionInfo(ctx, userId) {
 export function* updateSubscription(userId, session) {
   const currentSubscription = yield getSubscription(userId);
 
-  const providersLocations = currentSubscription.providers + currentSubscription.locations;
-  const quantity = providersLocations === 0 ? 1 : providersLocations;
+  const profilesQuantity = currentSubscription.profiles;
+  const quantity = profilesQuantity === 0 ? 1 : profilesQuantity;
   const mainSubscription = _.get(currentSubscription, 'customer.subscriptions.data[0]');
   if (!mainSubscription) {
     return;
   }
   if (mainSubscription.quantity === quantity) {
     session.passport.user.subInfo = Object.assign({}, session.passport.user.subInfo, {
-      providers: currentSubscription.providers,
-      locations: currentSubscription.locations
+      profiles: currentSubscription.profiles
     });
     return;
   }

@@ -19,20 +19,20 @@ mixin survery_status(status)
 
 doctype html
 html(lang='en')
-  include ../partialsNew/head.pug
+  include ../partials/head.pug
   body
     #page-container.sidebar-l.sidebar-o.side-scroll.header-navbar-fixed
       nav(id='sidebar')
-        include ../partialsNew/sidebar.pug
-      include ../partialsNew/navigation.pug
+        include ../partials/sidebar.pug
+      include ../partials/navigation.pug
       header#header-navbar.content-mini.content-mini-full
-        include ../partialsNew/base_header.pug
+        include ../partials/base_header.pug
       main#main-container
         hr
-        include ../partialsNew/flash.pug
+        include ../partials/flash.pug
         block content
-        //- include ../partialsNew/testDashboard.pug
+        //- include ../partials/testDashboard.pug
       footer#page-footer.content-mini.content-mini-full.font-s12.bg-gray-lighter.clearfix
-        include ../partialsNew/base_footer.pug
-      include ../partialsNew/footer.pug
+        include ../partials/base_footer.pug
+      include ../partials/footer.pug
       block scripts
