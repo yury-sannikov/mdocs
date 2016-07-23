@@ -1271,10 +1271,11 @@ body {
 }
 
 .error {
-    color: #f00;
+    color: #f66;
     text-transform: capitalize;
     display: inline-block;
-    padding-left: 6px
+    padding-top: 6px;
+    font-size: 0.75em;
 }
 
 .required {
@@ -4846,7 +4847,7 @@ section.meet .type-no-media {
     font-size: 15px;
     line-height: 180%;
     color: #747c83;
-    height: 346px;
+    height: 490px;
     overflow: hidden
 }
 
@@ -5792,14 +5793,6 @@ section.promo.split .row .slider-frame ul li .left .split-media,section.promo.sp
     section.promo .modal-body .slider-frame button.main-slide-right {
         right: 0
     }
-}
-
-.type-wrapper {
-    font-size: 15px;
-    line-height: 180%;
-    color: #747c83;
-    height: 346px;
-    overflow: hidden
 }
 
 .full-height {
@@ -7890,15 +7883,13 @@ section.testimonials-reviews .internal-review .type-wrapper {
     height: 165px;
 }
 
-.type-wrapper {
-    font-size: 15px;
-    line-height: 180%;
-    color: #747c83;
-    height: 346px;
-    overflow: hidden;
-}
 
 section.testimonials-reviews .btn-book-online {
     margin: 50px auto 30px;
     display: block;
+}
+
+section.contact-form button.btn-submit, body.VINCI section.practice-testimonials-landing .testimonial-hero .inner ul.leave-review li .btn-leave-review {
+    background: #4183d7;
+    color: #fff;
 }
