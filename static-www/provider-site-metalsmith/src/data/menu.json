@@ -81,10 +81,16 @@
   },
   {
     "caption": "Testimonials",
-    "href": "/testimonials"
+    "href": "/testimonials",
+    "content": [
+      {
+        "caption": "Patient Reviews",
+        "href": "/reviews"
+      }
+    ]
   },
   {
     "caption": "Contact",
-    "href": "/contactus"
+    "href": "/contact"
   }
 ]
