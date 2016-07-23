@@ -364,8 +364,9 @@ button.close {
     -webkit-appearance: none
 }
 
-.modal-open {
-    overflow: hidden
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .modal {
@@ -378,7 +379,7 @@ button.close {
     left: 0;
     z-index: 1040;
     -webkit-overflow-scrolling: touch;
-    outline: 0
+    outline: 0;
 }
 
 .modal.fade .modal-dialog {

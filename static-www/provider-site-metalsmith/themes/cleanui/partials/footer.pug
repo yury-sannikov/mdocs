@@ -105,3 +105,272 @@ footer
 //-     |  © 
 //-     span.js-year-copy
 //- // END Copyright Info
+
+
+#pp_booking
+  #book-online.modal(tabindex='-1', role='dialog', aria-hidden='true', aria-labelledby='bookAppointmentLabel')
+    .modal-backdrop.in(style='height: 746px;')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h4#bookAppointmentLabel.modal-title
+            | Request Now 
+            span.subtitle= practice.name
+        .modal-body.loading(style='display: none;')
+          i.fa.fa-cog.fa-spin
+          |  Loading calendar. Please wait.
+        .modal-body.selectdoc.provider-blocks(style='display:none;')
+        #calDocTemplate(style='display:none;')
+          .provider-block.doc-modal
+            .provider-pic(data-env='production')
+              img.doc-photo(src='https://sa1s3.patientpop.com/assets/images/provider/photos/photo.jpg', width='180', height='180', alt='')
+            .provider-info
+              .provider-details
+                h6
+                label.spec
+            .doc-select-hover(data-docid='')
+            a.doc-select.link(href='#', data-docid='') select
+        .modal-body.selectloc.location-blocks(style='display:none;')
+        #calLocTemplate(style='display:none;')
+          .location-block.loc-modal(data-locid='LOCID')
+            .location-name LOCNAME
+            .location-address LOCADDRESS
+            #location-LOCID.location-map(data-address='LOCADDRESS', data-mapsize='bookonline')
+            .call-to-actions
+              button.btn-book-online SELECT
+        .caldetails(style='display: block;')
+          form#patient-form(method='POST', action='https://www.patientpop.com/widgets/bookonline/template/2be8b97786ba248363b66c598c1f374a1164a5c5', accept-charset='UTF-8', data-toggle='validator', role='form')
+            input(name='_token', type='hidden', value='8QqzNGXJR5PrR37Hin02K83RNvRLCGJzlY8ArJ8a')
+            .modal-body
+              input(name='calendar_id', type='hidden', value='9843')
+              input#block-id(name='calendar_block_id', type='hidden', value='')
+              input(name='doctor_id', type='hidden', value='3849105739')
+              input(name='location_id', type='hidden', value='9731')
+              .left
+                #newpatient-section-1
+                  #newpatient-label.label New Patient?
+                  ul
+                    li
+                      input#new-patient-yes(name='newpatient', type='radio', value='yes')
+                      label(for='new-patient-yes') Yes
+                    li
+                      input#new-patient-no(name='newpatient', type='radio', value='no')
+                      label(for='new-patient-no') No
+                #reason-section-1
+                  .label.reason-label Reason
+                  input.txt-input(placeholder='e.g. annual checkup, follow-up, ...', maxlength='150', name='reason', type='text', value='')
+                  select.txt-input(name='reason', style='display: none;', disabled='')
+                #name-section-1
+                  #name-label.label Name
+                  input.txt-input.inline-input(placeholder='First', name='firstname', type='text', value='')
+                  input.txt-input.inline-input(placeholder='Last', name='lastname', type='text', value='')
+                #email-section-1
+                  #email-label.label Email address
+                  input.txt-input(name='email', type='email', value='')
+                #phone-section-1
+                  #phone-label.label Mobile Phone Number
+                  input#appointment-phone.txt-input(name='phone', type='tel', value='')
+                #date_of_birth-section-1
+                  #date_of_birth-label.label Date of Birth
+                  input.txt-input(placeholder='mm/dd/yyyy', maxlength='10', name='date_of_birth', type='text', value='')
+                #sex-section-1(style='display: none;')
+                  #sex-label.label Gender
+                  select.txt-input(name='sex')
+                    option(value='', selected='selected') - Select One -
+                    option(value='undisclosed') Do not wish to disclose
+                    option(value='male') Male
+                    option(value='female') Female
+                    option(value='other') Other
+                #insurance_provider_id-section-1(style='display: none;')
+                  #insurance_provider_id-label.label.add-insurance-dropdown Insurance
+                  select.txt-input.add-info-insurance-select-dropdown(name='insurance_provider_id', disabled='', style='display: none;')
+                  .chosen-container.chosen-container-single.chosen-container-single-nosearch(style='width: 250px;', title='')
+                    a.chosen-single.chosen-default(tabindex='-1')
+                      span Select an Option
+                      div
+                        b
+                    .chosen-drop
+                      .chosen-search
+                        input(type='text', autocomplete='off', readonly='')
+                      ul.chosen-results
+                #insurance_id_number-section-1(style='display: none;')
+                  #insurance_id_number-label.label.hide.insurance-selected Insurance ID #
+                  input#appointment-insurance-id-number.txt-input.hide.insurance-selected(name='insurance_id_number', type='text', value='', disabled='')
+                #insurance_group_number-section-1(style='display: none;')
+                  #insurance_group_number-label.label.hide.insurance-selected Insurance Group #
+                  input#appointment-insurance-group-number.txt-input.hide.insurance-selected(name='insurance_group_number', type='text', value='', disabled='')
+                #insurance_phone-section-1(style='display: none;')
+                  #insurance_phone-label.label.hide.insurance-selected Insurance Phone #
+                  input#appointment-insurance-phone-number.txt-input.hide.insurance-selected(name='insurance_phone', type='text', value='', disabled='')
+              .right
+                #calendar-block.visible
+                  button.schedule-prev(type='button', style='visibility: hidden;')
+                    i.fa.fa-chevron-circle-left.fa-2x
+                  #grid-block
+                    ul(style='width: 180px;')
+                      li.day-grid.empty-grid
+                        ol
+                          li
+                            | MON
+                            span 08/22/2016
+                          li.slot-holder
+                            #2016-08-22.slots
+                          li.scroller More...
+                      li.day-grid.maxed-grid
+                        ol
+                          li
+                            | FRI
+                            span 08/26/2016
+                          li.slot-holder
+                            #2016-08-26.slots
+                              a.time-slot(href='#', data-blockid='15268399') 1:30 pm
+                              a.time-slot(href='#', data-blockid='15268401') 2:30 pm
+                              a.time-slot(href='#', data-blockid='15268403') 3:30 pm
+                          li.scroller More...
+                  button.schedule-next(type='button', style='display: none;')
+                    i.fa.fa-chevron-circle-right.fa-2x
+                #calendar-block-select-newpatient(style='display: none;')
+                  i.fa.fa-arrow-left
+                  |  Please select whether you are a new or existing patient.
+                #calendar-block-select-reason(style='display: none;')
+                  i.fa.fa-arrow-left
+                  |  Please select an appointment reason.
+                #calendar-block-loading(style='display: none;')
+                  i.fa.fa-cog.fa-spin
+                  |  Loading calendar ...
+                #calendar-select
+                  .label Date - Time
+                  select#calendar-time.form-control
+                    option(value='')  - Select Date & Time - 
+                    optgroup(label='FRI 08/26/2016')
+                      option(value='15268399') 1:30 pm
+                      option(value='15268401') 2:30 pm
+                      option(value='15268403') 3:30 pm
+                #terms_confirm(style='display: none;')
+                  input(type='checkbox')
+                  |                 I have read and agreed to the 
+                  a(href='/your-privacy', target='_blank') Privacy Policy
+                  |  and 
+                  a(href='/our-terms', target='_blank') Terms of Use
+              .clear-both
+              .book-online-message
+            .modal-footer
+              button.btn-cancel(type='button', data-dismiss='modal') Cancel
+              button.btn-book-now(type='button') Request Now
+  #booked-additional-info.modal(tabindex='-1', role='dialog', aria-hidden='true', aria-labelledby='bookAppointmentLabel')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h4#bookedAppointmentLabel.modal-title Appointment Requested
+        .additional-questions
+          form#patient-additional-info-form(method='POST', action='https://www.patientpop.com/widgets/appointment/update', accept-charset='UTF-8', data-toggle='validator', role='form')
+            input(name='_token', type='hidden', value='8QqzNGXJR5PrR37Hin02K83RNvRLCGJzlY8ArJ8a')
+            .modal-body
+              p.type-wrapper
+                | Thank you for your appointment request. We will contact you shortly to confirm your request.
+                br
+                | Please call our office 
+                span.apt-conf-phone at 
+                |  if you have any questions.
+              span.apt-conf-formlinks.apt-conf-formlinks1
+              h4 Additional Information
+              input(name='id', type='hidden', value='')
+              .left
+                #name-section-2(style='display: none;')
+                  #name-label.label Name
+                  input.txt-input.inline-input(placeholder='First', name='firstname', type='text', value='', disabled='')
+                  input.txt-input.inline-input(placeholder='Last', name='lastname', type='text', value='', disabled='')
+                #email-section-2(style='display: none;')
+                  #email-label.label Email address
+                  input.txt-input(name='email', type='email', value='', disabled='')
+                #phone-section-2(style='display: none;')
+                  #phone-label.label Mobile Phone Number
+                  input#appointment-phone.txt-input(name='phone', type='tel', value='', disabled='')
+                #reason-section-2(style='display: none;')
+                  .label.reason-label Reason
+                  input.txt-input(placeholder='e.g. annual checkup, follow-up, ...', maxlength='150', name='reason', type='text', value='', disabled='')
+                  select.txt-input(name='reason', disabled='')
+                #date_of_birth-section-2(style='display: none;')
+                  #date_of_birth-label.label Date of Birth
+                  input.txt-input(placeholder='mm/dd/yyyy', maxlength='10', name='date_of_birth', type='text', value='', disabled='')
+                #sex-section-2(style='display: none;')
+                  #sex-label.label Gender
+                  select.txt-input(name='sex')
+                    option(value='', selected='selected') - Select One -
+                    option(value='undisclosed') Do not wish to disclose
+                    option(value='male') Male
+                    option(value='female') Female
+                    option(value='other') Other
+                #insurance_provider_id-section-2
+                  #insurance_provider_id-label.label.add-insurance-dropdown Insurance
+                  select.txt-input.add-info-insurance-select-dropdown(name='insurance_provider_id', style='display: none;')
+                    option(value='', selected='selected') - Select One -
+                    option(value='700') No Insurance
+                    option(value='701') Other Insurance
+                    option(value='3') AARP
+                    option(value='12') Aetna
+                    option(value='64') Blue Cross Blue Shield
+                    option(value='135') Cigna
+                    option(value='203') First Choice Health
+                    option(value='243') Health Net
+                    option(value='294') LifeWise
+                    option(value='345') Multiplan PHCS
+                    option(value='635') Multiplan, Inc.
+                    option(value='396') Premera Blue Cross
+                    option(value='404') Providence Health Plans
+                    option(value='533') Regence Blue Cross Blue Shield
+                    option(value='469') Tricare
+                    option(value='482') UnitedHealthcare
+                  .chosen-container.chosen-container-single(style='width: 250px;', title='')
+                    a.chosen-single(tabindex='-1')
+                      span - Select One -
+                      div
+                        b
+                    .chosen-drop
+                      .chosen-search
+                        input(type='text', autocomplete='off')
+                      ul.chosen-results
+                #insurance_id_number-section-2
+                  #insurance_id_number-label.label.hide.insurance-selected Insurance ID #
+                  input#appointment-insurance-id-number.txt-input.hide.insurance-selected(name='insurance_id_number', type='text', value='')
+                #insurance_group_number-section-2
+                  #insurance_group_number-label.label.hide.insurance-selected Insurance Group #
+                  input#appointment-insurance-group-number.txt-input.hide.insurance-selected(name='insurance_group_number', type='text', value='')
+                #insurance_phone-section-2
+                  #insurance_phone-label.label.hide.insurance-selected Insurance Phone #
+                  input#appointment-insurance-phone-number.txt-input.hide.insurance-selected(name='insurance_phone', type='text', value='')
+              .right
+                #comment-section-2
+                  #comment-label.label Comment
+                  textarea.txtarea-input(placeholder='Is there anything you would like us to know before your appointment?', maxlength='250', rows='4', name='comment', cols='50')
+              .clear-both
+            .modal-footer
+              button.btn-skip(type='button', data-dismiss='modal') Skip
+              button.btn-book-additional-submit(type='button') Submit
+  #booked-online.modal(tabindex='-1', role='dialog', aria-hidden='true', aria-labelledby='appointmentRequestLabel')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h4#appointmentRequestLabel.modal-title Thank You
+        .modal-body
+          p.type-wrapper
+            | Thank you for your appointment request. We will contact you shortly to confirm your request. Please call our office 
+            span.apt-conf-phone at 
+            |  if you have any questions.
+          span.apt-conf-formlinks.apt-conf-formlinks2
+  #booking-screened.modal(tabindex='-1', role='dialog', aria-hidden='true', aria-labelledby='appointmentRequestLabel')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h4#appointmentRequestLabel.modal-title Please call our office
+        .modal-body
+          p
+            | We unfortunately can't schedule this type of appointment online. Please call our office 
+            span.apt-conf-phone at 
+            |  to make your appointment.
+
+script(src='/assets/js/widget.js')

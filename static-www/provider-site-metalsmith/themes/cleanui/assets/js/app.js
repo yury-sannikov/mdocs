@@ -92,15 +92,15 @@ var MDOCS = (function() {
           $('.map iframe').css("pointer-events", "none"); 
         });
 
-        $('.location-map').each(MDOCS.loadMaps);
-        var shownMap = false;
-        if ($(document).scrollTop() > 180) {
-            $('body.VERMEER header').addClass('scrolling');
-            if ($('.language-bar').length) {
-                $('body').removeClass('eyebrow');
-                $('.language-bar').hide()
-            }
-        };
+        // $('.location-map').each(MDOCS.loadMaps);
+        // var shownMap = false;
+        // if ($(document).scrollTop() > 180) {
+        //     $('body.VERMEER header').addClass('scrolling');
+        //     if ($('.language-bar').length) {
+        //         $('body').removeClass('eyebrow');
+        //         $('.language-bar').hide()
+        //     }
+        // };
 
         $(window).scroll(function() {
             if ($(document).scrollTop() > 180) {
@@ -377,53 +377,53 @@ var MDOCS = (function() {
     }
 }());
 
-MDOCS.loadMaps = function() {
-    var $mapCont = $(this);
-    $mapCont.lazyLoadGoogleMaps({
-        callback: function(container, map) {
-            var address = $(container).data('address')
-              , geocoder = new google.maps.Geocoder();
-            geocoder.geocode({
-                address: address
-            }, function(results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    var styles = [{
-                        stylers: []
-                    }];
-                    if ($('body.VERMEER').length) {
-                        styles = [{
-                            stylers: [{
-                                hue: "#363534"
-                            }, {
-                                saturation: -90
-                            }]
-                        }]
-                    } else if ($('body.VINCI').length > 0)
-                        styles = [{
-                            stylers: [{
-                                hue: "#3d4148"
-                            }, {
-                                saturation: -90
-                            }]
-                        }];
-                    map.setCenter(results[0].geometry.location);
-                    map.setOptions({
-                        scrollwheel: false,
-                        disableDefaultUI: true,
-                        zoomControl: false,
-                        draggable: false,
-                        disableDoubleClickZoom: true,
-                        styles: styles
-                    });
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        position: results[0].geometry.location
-                    })
-                }
-            })
-        }
-    })
-};
+// MDOCS.loadMaps = function() {
+//     var $mapCont = $(this);
+//     $mapCont.lazyLoadGoogleMaps({
+//         callback: function(container, map) {
+//             var address = $(container).data('address')
+//               , geocoder = new google.maps.Geocoder();
+//             geocoder.geocode({
+//                 address: address
+//             }, function(results, status) {
+//                 if (status == google.maps.GeocoderStatus.OK) {
+//                     var styles = [{
+//                         stylers: []
+//                     }];
+//                     if ($('body.VERMEER').length) {
+//                         styles = [{
+//                             stylers: [{
+//                                 hue: "#363534"
+//                             }, {
+//                                 saturation: -90
+//                             }]
+//                         }]
+//                     } else if ($('body.VINCI').length > 0)
+//                         styles = [{
+//                             stylers: [{
+//                                 hue: "#3d4148"
+//                             }, {
+//                                 saturation: -90
+//                             }]
+//                         }];
+//                     map.setCenter(results[0].geometry.location);
+//                     map.setOptions({
+//                         scrollwheel: false,
+//                         disableDefaultUI: true,
+//                         zoomControl: false,
+//                         draggable: false,
+//                         disableDoubleClickZoom: true,
+//                         styles: styles
+//                     });
+//                     var marker = new google.maps.Marker({
+//                         map: map,
+//                         position: results[0].geometry.location
+//                     })
+//                 }
+//             })
+//         }
+//     })
+// };
 
 MDOCS.swingToHash = function() {
     if (window.location.hash != '' && $("section." + window.location.hash.substring(1)).length > 0)
