@@ -1,7 +1,7 @@
 section.contact.pinstripe
   .row
     .span4.left
-      div(about='0', typeof='{"type":"MODULE", "secondary_type": "CONTACT", "type_id": 9938, "fieldname": "location"}')
+      div(about='0', typeof='{"type":"MODULE", "secondary_type": "CONTACT", "type_id": 1, "fieldname": "location"}')
         .contact-header(property='fieldtext') Location
       address
         span(property='name')= practice.name
@@ -46,7 +46,7 @@ section.contact.pinstripe
           | Sunday
           span= practice.hours.sun
     .span4.right
-      div(about='0', typeof='{"type":"MODULE", "secondary_type": "CONTACT", "type_id": 9938, "fieldname": "get-in-touch"}')
+      div(about='0', typeof='{"type":"MODULE", "secondary_type": "CONTACT", "type_id": 1, "fieldname": "get-in-touch"}')
         .contact-header(property='fieldtext') Get in touch
       p
         a(href='mailto:' + practice.email)= practice.email

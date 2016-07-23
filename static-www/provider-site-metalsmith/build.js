@@ -44,7 +44,8 @@ const build = (clean = false) => (done) => {
       practice: 'data/practice.json',
       menu: 'data/menu.json',
       contents: 'data/contents.json',
-      reviews: 'data/reviews.json'
+      reviews: 'data/reviews.json',
+      testimonials: 'data/testimonials.json'
     }))
     .use(
       // If clean build, copy over assets from public folder

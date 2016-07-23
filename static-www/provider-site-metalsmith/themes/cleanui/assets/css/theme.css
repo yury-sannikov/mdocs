@@ -7692,5 +7692,19 @@ section.not-found .logo img, section.practice .logo img, section.practice-servic
 }
 
 header nav ul li.pic a {
-    border-radius: 8px;
+  border-radius: 8px;
+}
+
+.video-container {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
