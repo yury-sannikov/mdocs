@@ -1015,7 +1015,7 @@ html[xmlns] .slides {
     }
 }
 
-.btn-book-online {
+.btn-book-online, .btn-leave-review {
     padding: 0;
     width: 224px;
     height: 46px;
@@ -1027,7 +1027,6 @@ html[xmlns] .slides {
     text-transform: uppercase;
     cursor: pointer;
     border: 0;
-    background: #fca407;
     text-rendering: optimizeLegibility;
     -webkit-backface-visibility: hidden;
     -webkit-font-smoothing: antialiased;
@@ -1150,40 +1149,40 @@ html[xmlns] .slides {
     border-color: #ffb93d
 }
 
-.btn-leave-review {
-    padding: 0;
-    width: 224px;
-    height: 46px;
-    color: #fff;
-    font-size: 15px;
-    line-height: 100%;
-    display: inline-block;
-    text-align: center;
-    text-transform: uppercase;
-    cursor: pointer;
-    border: 0;
-    background: #fca407;
-    display: none;
-    text-rendering: optimizeLegibility;
-    -webkit-backface-visibility: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-transition: all 0.2s ease-in-out 0s;
-    -moz-transition: all 0.2s ease-in-out 0s;
-    -ms-transition: all 0.2s ease-in-out 0s;
-    transition: all 0.2s ease-in-out 0s;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-    -moz-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-    -ms-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15)
-}
+// .btn-leave-review {
+//     padding: 0;
+//     width: 224px;
+//     height: 46px;
+//     color: #fff;
+//     font-size: 15px;
+//     line-height: 100%;
+//     display: inline-block;
+//     text-align: center;
+//     text-transform: uppercase;
+//     cursor: pointer;
+//     border: 0;
+//     background: #fca407;
+//     text-rendering: optimizeLegibility;
+//     -webkit-backface-visibility: hidden;
+//     -webkit-font-smoothing: antialiased;
+//     -moz-osx-font-smoothing: grayscale;
+//     -webkit-transition: all 0.2s ease-in-out 0s;
+//     -moz-transition: all 0.2s ease-in-out 0s;
+//     -ms-transition: all 0.2s ease-in-out 0s;
+//     transition: all 0.2s ease-in-out 0s;
+//     -webkit-border-radius: 5px;
+//     -moz-border-radius: 5px;
+//     -ms-border-radius: 5px;
+//     border-radius: 5px;
+//     -webkit-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+//     -moz-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+//     -ms-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+//     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15)
+// }
 
 .btn-leave-review:hover {
-    background: #ffb93d
+  background : #19b5fe;
+  border : 1px solid #19b5fe;
 }
 
 .btn-leave-review.small {
@@ -1522,7 +1521,9 @@ h4.modal-title {
     -webkit-border-radius: 0 0 5px 5px;
     -moz-border-radius: 0 0 5px 5px;
     -ms-border-radius: 0 0 5px 5px;
-    border-radius: 0 0 5px 5px
+    border-radius: 0 0 5px 5px;
+    height: 320px;
+    width: 100%;
 }
 
 .modal-title .subtitle {
@@ -2435,7 +2436,8 @@ body.SOLID section.doctor .row .span12.no-hero,body.SOLID section.practice .row 
 
 #book-online .left {
     width: 250px;
-    float: left
+    float: left;
+    margin-right: 40px;
 }
 
 #book-online .left ul li {
@@ -2564,8 +2566,8 @@ body.SOLID section.doctor .row .span12.no-hero,body.SOLID section.practice .row 
     display: none;
     width: 692px;
     height: 280px;
-    background: #fff;
-    border: 1px solid #d7dfe2;
+    // background: #fff;
+    // border: 1px solid #d7dfe2;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
@@ -7894,3 +7896,7 @@ section.contact-form button.btn-submit, body.VINCI section.practice-testimonials
     background: #4183d7;
     color: #fff;
 }
+
+// #datetimepicker {
+//   z-index: 999;
+// }

@@ -1,3 +1,145 @@
+Date.parseDate = function( input, format ){
+  return moment(input,format).toDate();
+};
+
+Date.prototype.dateFormat = function( format ){
+  return moment(this).format(format);
+};
+
+// left: 37, up: 38, right: 39, down: 40,
+// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
+function preventDefault(e) {
+  e = e || window.event;
+  if (e.preventDefault)
+      e.preventDefault();
+  e.returnValue = false;  
+}
+
+function preventDefaultForScrollKeys(e) {
+    if (keys[e.keyCode]) {
+        preventDefault(e);
+        return false;
+    }
+}
+
+function disableScroll() {
+  if (window.addEventListener) // older FF
+      window.addEventListener('DOMMouseScroll', preventDefault, false);
+  window.onwheel = preventDefault; // modern standard
+  window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+  window.ontouchmove  = preventDefault; // mobile
+  document.onkeydown  = preventDefaultForScrollKeys;
+}
+
+function enableScroll() {
+    if (window.removeEventListener)
+        window.removeEventListener('DOMMouseScroll', preventDefault, false);
+    window.onmousewheel = document.onmousewheel = null; 
+    window.onwheel = null; 
+    window.ontouchmove = null;  
+    document.onkeydown = null;  
+}
+
+function showCalModal() {
+  $('#pp_booking #book-online').show();
+  $('#datetimepicker').datetimepicker('show');
+  if ($(document).width() > 900) {
+    disableScroll();
+  }
+}
+
+function hideCalModal() {
+  $('#pp_booking #book-online').hide();
+  $('#datetimepicker').datetimepicker('hide');
+  enableScroll();
+}
+
+function showThankYouModal() {
+  $('#pp_booking #booked-online').show();
+}
+
+function hideThankYouModal() {
+  $('#pp_booking #booked-online').hide();
+}
+
+
+function showReviewModal() {
+  $('#pp_booking #leave-review').show();
+}
+
+function hideReviewModal() {
+  $('#pp_booking #leave-review').hide();
+}
+
+function showReviewThankYouModal() {
+  $('#pp_booking #leave-review-ty').show();
+}
+
+function hideReviewThankYouModal() {
+  $('#pp_booking #leave-review-ty').hide();
+}
+
+
+$(document).ready(function() {
+
+  $('#datetimepicker').datetimepicker({
+    onShow: function(ct){
+      // this.setOptions({
+      //   minDate: new Date()
+      // });
+    },
+    onGenerate:function( ct ){
+      jQuery(this).find('.xdsoft_date.xdsoft_weekend')
+        .addClass('xdsoft_disabled');
+    },
+    lang: 'en',
+    format: 'MM/DD/YYYY h:mm a',
+    formatDate: 'MM/DD/YYYY',
+    formatTime: 'h:mm a',
+    datepicker: true,
+    timepicker: true,
+    minDate: '-1970/01/01',
+    allowTimes:[ '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00'],
+    inline: false,
+    hours12: true,
+    dayOfWeekStart: 1,
+    closeOnDateSelect: false,
+    closeOnTimeSelect: false,
+    closeOnWithoutClick: false,
+    defaultSelect: false
+  });
+
+  $(".btn-book-online").click(function() {
+    showCalModal();
+  });
+
+  $(".ppop_bookonline_action").click(function() {
+    showCalModal();
+  });
+
+  $(".btn-leave-review").click(function() {
+    showReviewModal();
+  });
+  
+
+  $(".close").click(function() {
+    hideCalModal();
+    hideReviewModal();
+    hideThankYouModal();
+    hideReviewThankYouModal();
+  });
+
+  $(".btn-cancel").click(function() {
+    hideCalModal();
+    hideReviewModal();
+    hideThankYouModal();
+    hideReviewThankYouModal();
+  });
+
+});
+
 // /*! jQuery v1.11.0 | (c) 2005, 2014 jQuery Foundation, Inc. | jquery.org/license */
 // !function(a, b) {
 //     "object" == typeof module && "object" == typeof module.exports ? module.exports = a.document ? b(a, !0) : function(a) {
@@ -9464,34 +9606,6 @@
 // }
 // ).call(this);
 // ;
-
-
-
-$(document).ready(function() {
-  console.log('ready');
-
-  var showCalModal = function () {
-    $('#pp_booking #book-online').show();
-  }
-
-  // .$(".ppop_bookonline_action").on("click", 'showCalModal');
-
-  $(".btn-book-online").click(function() {
-    $('#pp_booking #book-online').show();
-  });
-
-  $(".ppop_bookonline_action").click(function() {
-    $('#pp_booking #book-online').show();
-  });
-  
-
-  $(".close").click(function() {
-    $('#pp_booking #book-online').hide();
-  });
-
-});
-
-
 
 
 
