@@ -1220,7 +1220,7 @@ $(document).ready(function() {
         var form_val = JSON.stringify($(form).serializeArray(), null, 2);
 
 
-        form_btn.attr("disabled","disabled");
+        form_btn.attr("disabled", "disabled");
         form_btn.text(loading_msg);
 
         $.ajax({
@@ -1255,6 +1255,19 @@ $(document).ready(function() {
                 if (formType == 'book') {
                   hideCalModal();
                   showThankYouModal();
+                } else if (formType == 'review') {
+                  var rating = $(form).find('input[type="hidden"]');
+                  hideReviewModal();
+                  if (rating.val() > 3) {
+                    // Positive review
+                    showReviewThankYouModal();
+                    $('#positive-section').css('visibility', 'visible');
+                  } else {
+                    // Negative review
+                    showReviewThankYouModal();
+                    $('#positive-section').css('visibility', 'hidden');
+                  }
+                  
                 }
               }, 2000);
             },
@@ -1273,5 +1286,5 @@ $(document).ready(function() {
 
     // Contact Form
     $(".contact_form").validate(formValidateBlock);
-
+    $(".review_form").validate(formValidateBlock);
 });

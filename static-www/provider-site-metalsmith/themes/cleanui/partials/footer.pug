@@ -275,11 +275,11 @@ footer
         .modal-header
           button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
           h4#bookAppointmentLabel.modal-title
-            | Leave Review
-            span.subtitle= practice.name
+            | Leave Review  
+            span.subtitle= practice.name  
         
         .caldetails(style='display: block;')
-          form.contact_form
+          form.review_form
             .modal-body
               .left
                 .label Full name
@@ -290,28 +290,16 @@ footer
                 input.txt-input(placeholder='Phone number', name='form_phone', type='tel', value='', required='true')
               
               .left
-                .label New Patient?
-                ul
-                  li
-                    input#new-patient-yes(name='form_name_new', type='radio', value='yes', checked='checked', required='true')
-                    label(for='new-patient-yes') Yes
-                  li
-                    input#new-patient-no(name='form_name_new', type='radio', value='no', required='true')
-                    label(for='new-patient-no') No
-                .label Reason
-                input.txt-input(placeholder='E.g. initial consultation, follow-up, ...', maxlength='150', name='form_reason', type='text', value='', form_name)
-                .label Date of Birth
-                input.txt-input(placeholder='MM/DD/YYYY', maxlength='10', name='form_dob', type='text', value='')
-                
-              .left
-                .label Select date
-                input#datetimepicker(type="text", style="visibility: hidden; height:1px", name="form_date")
-                #calendar-block.visible
-                  
+                .label Rating
+                #review-rate(style="float:left")
+                .counter(style="float:left;background-color:#333;font-size:1.6em;color:#fff;border-radius:6px;float:left;margin 0 10px;padding:10px;height:36px;width:48px;text-align:center")
+                .label Your comments
+                textarea.txt-input(placeholder='Your comments', name='form_review', type='text', value='', style='width:240px;height:120px')
                     
             .modal-footer
+              input(name='form_rating', id='form_rating', type='hidden', value='0')
               button.btn-cancel(type='button', data-dismiss='modal') Cancel
-              button.btn-book-now(type='submit', value='Request Now', data-loading-msg='Submitting...', data-success-msg='Success!', data-error-msg='Error! Try again.', data-form-type='book') Request Now
+              button.btn-book-now(type='submit', value='Submit Review', data-loading-msg='Submitting...', data-success-msg='Success!', data-error-msg='Error! Try again.', data-form-type='review') Submit Review
 
   #leave-review-ty.modal(tabindex='-1', role='dialog', aria-hidden='true', aria-labelledby='appointmentRequestLabel')
     .modal-backdrop.in(style='height: 100%;')
@@ -321,10 +309,22 @@ footer
           button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
           h4#appointmentRequestLabel.modal-title Thank You
         .modal-body
-          p.type-wrapper
-            | Thank you for your appointment request. We will contact you shortly to confirm your request. Please call our office 
+          p(style="line-height: 180%")
+            | Thank you for your review. We will review your comments and get in touch to answer your questions. Please call our office 
             span.apt-conf-phone at 
+            span= practice.phone  
             |  if you have any questions.
           span.apt-conf-formlinks.apt-conf-formlinks2
+          #positive-section(style="visibility:hidden")
+            p(style="line-height: 180%") We appreciate your help spreading the word. Please click on the following link to leave us a public review:
+            br
+            center
+              a(href= practice.social.yelp, target='_blank')
+                img(src='/assets/img/yelp_logo.png', style='width:140px;height:140px;border-radius:50%;margin:20px')
+              a(href= practice.social.facebook, target='_blank')
+                img(src='/assets/img/facebook-logo.png', style='width:140px;height:140px;border-radius:50%;margin:20px')
+              a(href= practice.social.googleplus, target='_blank')
+                img(src='/assets/img/google_plus_logo.png', style='width:140px;height:140px;border-radius:50%;margin:20px')
+            
 script(src='/assets/js/widget.js')
 script(src='/assets/js/app.js')

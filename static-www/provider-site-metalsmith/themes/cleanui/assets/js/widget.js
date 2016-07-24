@@ -73,6 +73,7 @@ function hideReviewModal() {
   $('#pp_booking #leave-review').hide();
 }
 
+
 function showReviewThankYouModal() {
   $('#pp_booking #leave-review-ty').show();
 }
@@ -84,6 +85,22 @@ function hideReviewThankYouModal() {
 
 $(document).ready(function() {
 
+  // Rate widget
+  $("#review-rate").rateYo({
+    rating: 0,
+    precision: 0,
+    onInit: function (rating, rateYoInstance) {
+      $(this).next().text(0);
+    },
+    onChange: function (rating, rateYoInstance) {
+      $(this).next().text(rating);
+    },
+    onSet: function (rating, rateYoInstance) {
+      $('#form_rating').val(rating);
+    }
+  });
+
+  // Datepicker
   $('#datetimepicker').datetimepicker({
     onShow: function(ct){
       // this.setOptions({

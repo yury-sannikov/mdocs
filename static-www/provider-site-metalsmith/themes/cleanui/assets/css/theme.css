@@ -499,7 +499,7 @@ button.close {
 
 @media (min-width: 768px) {
     .modal-dialog {
-        width:600px;
+        width: 640px;
         margin: 30px auto
     }
 
@@ -1526,6 +1526,10 @@ h4.modal-title {
     width: 100%;
 }
 
+#leave-review-ty .modal-body {
+  height: 400px;
+}
+
 .modal-title .subtitle {
     font-size: 22px
 }
@@ -2207,7 +2211,11 @@ body.SOLID section.doctor .row .span12.no-hero,body.SOLID section.practice .row 
 }
 
 #book-online .modal-dialog {
-    width: 1036px
+  width: 1036px
+}
+
+#leave-review .modal-dialog {
+  width: 640px;
 }
 
 #book-online .modal-dialog .modal-body.selectdoc.provider-blocks .provider-block {
@@ -2407,7 +2415,7 @@ body.SOLID section.doctor .row .span12.no-hero,body.SOLID section.practice .row 
     }
 }
 
-#book-online .label {
+#book-online .label, #leave-review .label {
     font: 12px/130% "open_sanssemibold", arial, sans-serif;
     padding: 0;
     display: block;
@@ -2416,14 +2424,14 @@ body.SOLID section.doctor .row .span12.no-hero,body.SOLID section.practice .row 
     clear: both
 }
 
-#book-online .label:before {
+#book-online .label:before, #leave-review .label:before {
     display: table;
     content: " ";
     clear: both;
     height: 20px
 }
 
-#book-online .label:after {
+#book-online .label:after, #leave-review .label:after {
     display: table;
     content: " ";
     clear: both;
@@ -2434,8 +2442,7 @@ body.SOLID section.doctor .row .span12.no-hero,body.SOLID section.practice .row 
     display: none
 }
 
-#book-online .left {
-    width: 250px;
+#book-online .left, #leave-review .left {
     float: left;
     margin-right: 40px;
 }
@@ -2489,7 +2496,7 @@ body.SOLID section.doctor .row .span12.no-hero,body.SOLID section.practice .row 
     float: none
 }
 
-#book-online .left .txt-input {
+#book-online .left .txt-input, #leave-review .left .txt-input {
     width: 250px;
     display: block;
     height: 34px;
@@ -2756,14 +2763,14 @@ body.SOLID section.doctor .row .span12.no-hero,body.SOLID section.practice .row 
     margin-top: 20px
 }
 
-#book-online .modal-footer {
+#book-online .modal-footer, #leave-review .modal-footer {
     margin-top: 0;
     text-align: center;
     padding: 19px 20px 20px
 }
 
 @media only screen and (max-width : 1025px) {
-    #book-online .modal-dialog {
+    #book-online .modal-dialog, #leave-review .modal-dialog {
         width:auto
     }
 }
