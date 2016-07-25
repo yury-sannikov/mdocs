@@ -28,7 +28,7 @@ block content
               thead
                 th Name
                 th.hidden-xs Email
-                th.hidden-xs.hidden-sm.hidden-md Phone
+                th.hidden-xs.hidden Phone
                 th.hidden-xs Request Date
                 th.hidden-xs Review Date
                 th Rating
@@ -41,7 +41,7 @@ block content
                       span #{review.patient.name}
                     td.hidden-xs
                       strong #{review.patient.email}
-                    td.hidden-xs.hidden-sm.hidden-md
+                    td.hidden-xs.hidden
                       span #{formatPhone(review.patient.phone)}
                     td.hidden-xs
                       span #{moment.unix(review.visit_date).format('MMM-DD-YYYY')}

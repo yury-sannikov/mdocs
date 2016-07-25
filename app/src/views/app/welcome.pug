@@ -4,10 +4,12 @@ block head
   title #{application} &middot; Welcome
 
 block styles
-  link(rel='stylesheet', href='/app/css/page-privacy.min.css')
-
-block scripts
-  script(type='text/javascript', src='/app/lib/bootstrap/js/carousel.js')
+  link(rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css")
+  link(rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css")
+  style.
+    h2 {
+      text-align: center;
+    }
 
 block content
   .container
@@ -15,30 +17,152 @@ block content
       .col-sm-12.col-md-10
         h1 Patient Reviews by MDOCS is here!
         br
-        p This page is currently under development.
-        //- #welcomeCarousel.carousel.slide(data-ride='carousel')
-        //-   ol.carousel-indicators
-        //-     li.active(data-target='#welcomeCarousel', data-slide-to='0')
-        //-     li(data-target='#welcomeCarousel', data-slide-to='1')
-        //-     li(data-target='#welcomeCarousel', data-slide-to='2')
-        //-     li(data-target='#welcomeCarousel', data-slide-to='3')
-        //-   .carousel-inner(role='listbox')
-        //-     .item.active
-        //-       img(src="http://placehold.it/1200x315")
-        //-       .carousel-content
-        //-         .h3.font-w300.text-black.push-30-t.push-20 Enjoy Your New Patient Reviews System
-        //-         p This version uses the exact same CSS files the HTML/PHP versions are using, so any markup from the example pages of those versions can be used in this one. All ready pages which are not presented here will look great, so no worries!
-        //-         p OneUI's core JS functionality was rewritten and adjusted to play nice with AngularJS and some new features were introduced including lazy loading and localStorage support for saving your app’s active layout/theme. Also, Grunt’s build task was enchanced for this version and will now build your whole app and prepare it for production environments.
-        //-         p AngularJS directives were created (replacing almost all classic JS helpers from HTML/PHP versions) to assist when initializing jQuery plugins or custom functionality. Furthermore, generic examples are also provided for showcasing a way of using more complex jQuery plugins which require custom code/data to initialize.
-        //-     .item
-        //-       h1 2
-        //-     .item
-        //-       h1 3
-        //-     .item
-        //-       h1 4
-        //-   a.left.carousel-control(href="#welcomeCarousel", role="button", data-slide="prev")
-        //-     span.glyphicon.glyphicon-chevron-left(aria-hidden="true")
-        //-     span.sr-only Previous
-        //-   a.right.carousel-control(href="#welcomeCarousel", role="button", data-slide="next")
-        //-     span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
-        //-     span.sr-only Next
+        .responsive-slider
+          div
+            h2 Welcome to your digital practice
+            br
+            p MDOCS is an integrated practice management system. MDOCS provides healthcare professionals with opportunities to create an unforgettable experience for their patients:
+            ul
+              li Online Presence
+              li Online Reputation
+              li Patient Acquisition
+              li Patient Retention
+              li Social Media Management
+              li Analytics & Insights
+              li Support
+          div
+            h2 Online Presence
+            br
+            p MDOCS websites provide the ultimate user experience:
+            ul
+              li 
+                strong Modern, customizable design. 
+                | MDOCS offers a sweeping selection of smart, sleek templates and themes to choose from for your new website. This not only empowers you to convey a powerful first impression of your practice to potential patients, but also creates an effortless, fluid experience for both current and prospective customers - and for you.
+              br
+              li 
+                strong Responsive website. 
+                | As skyrocketing percentages of the population flock to the convenience and portability of mobile technology, MDOCS ensures that your website is welcoming and smooth for your patients to interact with from any device, whether on a smartphone, tablet, or personal computer.
+              br
+              li 
+                strong Healthcare and business listing management. 
+                | MDOCS gives you a wider footprint by maintaining your practice’s ubiquity in online directories, making it easier than ever for patients to find you.
+          div
+            h2 Online Reputation
+            br
+            p MDOCS patient review management system hands you the reins to control your online reputation:
+            ul
+              li 
+                strong Patient testimonials. 
+                | MDOCS allows you to attract future clients by allowing you to easily invite patients to share their life-changing experiences at your practice with the world.
+              br
+              li 
+                strong Criticism management. 
+                | While other practices stand helpless against of the power of online criticism, MDOCS catches your negative reviews before publishing and allows you to privately engage with dissatisfied patients’ complaints.
+              br
+              li 
+                strong Review syndication. 
+                | MDOCS ensures that all your practice’s new positive testimonials will be seen by more people by automatically publishing patients’ reviews to other major platforms, including Yelp, HealthGrades, Facebook, Google+, and beyond.
+          div
+            h2 Patient Acquisition
+            br
+            p MDOCS brings potential patients to you and makes it easy for them to join you:
+            ul
+              li 
+                strong Search engine optimization. 
+                | MDOCS is here to ensure that while your competitors drown in the contemporary data deluge, your practice is at the top of the list and more prospective searchers can discover you online with ease.
+              br
+              li 
+                strong Brand recognition. 
+                | MDOCS comes alongside you to increase your brand awareness by expanding the reach of your advertising.
+              br
+              li 
+                strong 24/7 scheduling. 
+                | MDOCS frees you from the limits of regular business hours, allowing your practice to serve more patients with less staff, and increasing the ease with which new clients can connect with you quickly.
+          div
+            h2 Patient Retention
+            br
+            p MDOCS allows you to be more involved with your patients’ healthcare and build better long-term relationships:
+            ul
+              li 
+                strong Appointment & re-care reminders. 
+                | MDOCS notifies your practice’s current patients about upcoming appointments and allows you to communicate easily with patients, enriching your patients’ healthcare experiences in the short- and long-term.
+              br
+              li 
+                strong Telemedicine. 
+                | MDOCS integrates your physician portal with patients’ wearable devices by sending patient data directly to you, from physical activity to heart rate, enabling you to make informed care decisions.
+              br
+              li 
+                strong Self-serve portal. 
+                | Thanks to the machine learning system provided by MDOCS, your practice’s website enables patients to get any question answered, without unnecessary phone calls.
+          div
+            h2 Social Media Management
+            br
+            p MDOCS does the work for you to connect you with your patients on every platform:
+            ul
+              li 
+                strong Content blog. 
+                | MDOCS makes it effortless to engage your patients and attract others to your practice by posting videos, informative healthcare articles, news, events, promotions, and more on your blog.
+              br
+              li 
+                strong Integrated networks. 
+                | MDOCS integrates your updates so that all your blog posts are also published to your social media networks, including Facebook, Twitter, Google+, and beyond, maximizing your reach.
+          div
+            h2 Analytics & Insights
+            br
+            p MDOCS gives you the statistics and analytic tools to understand and improve your practice’s success:
+            ul
+              li 
+                strong Appointment tracking. 
+                | MDOCS allows you to easily monitor missed appointments to ensure your patients’ healthcare needs are met.
+              br
+              li 
+                strong SEO dashboard. 
+                | Watch your online presence expand hit-by-hit with MDOCS’ search-engine optimization tracking.
+              br
+              li 
+                strong Reputation tracking. 
+                | MDOCS allows you to see your testimonial invitations success rates, monitor complaints, and garner glowing reviews.
+
+
+block scripts
+  script(type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js")
+  script.
+    // DOM Ready =============================================================
+    (function(init) {
+      init(window.jQuery, window, document);
+    }(function($, window, document) {
+
+      $(function() {
+        //- Async Load Bootstrap Modal
+        $.ajax({
+          type: 'GET',
+          url: '/app/lib/bootstrap/js/modal.js',
+          dataType: 'script',
+          cache: true
+        });
+
+        // Make the slider responsive
+        $('.responsive-slider').slick({
+          dots: true,
+          infinite: false,
+          speed: 300,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: true
+              }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+          ]
+        });
+
+      });
+    }));
