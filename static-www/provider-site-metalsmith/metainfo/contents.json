@@ -1,0 +1,50 @@
+{
+  "schema": {
+    "type": "object",
+    "title": "",
+    "properties": {
+      "title": {
+        "title": "Title",
+        "type": "string"
+      },
+      "permalink": {
+        "title": "Permanent Link",
+        "type": "string",
+        "format": "url"
+      },
+      "header": {
+        "title": "Page Header",
+        "type": "string"
+      },
+      "layout": {
+        "title": "Page Layout",
+        "type": "string",
+        "enum": [
+          "content.pug",
+          "legal.pug"
+        ]
+      },
+      "description": {
+        "title": "Page Description",
+        "type": "string"
+      },
+      "htmlContent": {
+        "title": "Page Content",
+        "input_height":"200px",
+        "type": "string",
+        "format": "html",
+        "options": {
+          "wysiwyg": true
+        }
+      }
+    }
+  },
+  "defaults": {
+    "title": "New Title",
+    "permalink": "new_title",
+    "layout": "content.pug",
+    "header": "Content Header",
+    "description": "Content Description",
+    "htmlContent": "<p>HTML Content Goes Here.</p>"
+  }
+}

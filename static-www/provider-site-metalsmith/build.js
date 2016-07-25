@@ -18,6 +18,7 @@ const metadata = require('metalsmith-metadata');
 const dep = require('./metalsmith-include-dependency');
 const inplace = require('metalsmith-in-place');
 const evalLayout = require('./metalsmith-eval-layout');
+const metainfo = require('./metalsmith-metainfo');
 
 const DIR = __dirname + '/src/';
 const THEME_DIR = '/themes/'
@@ -90,6 +91,12 @@ const build = (clean = false) => (done) => {
     }))
     // If eval_layout is true, treat layout as a field containing computable value
     .use(evalLayout())
+    .use(metainfo({
+      metainfoPath: './metainfo',
+      includeForMetaOnly: ['menu', 'practice'],
+      outputFile: './metainfo.json'
+    }))
+
     // PUG/Jade layouts system
     .use(layouts({
       engine: 'pug',
