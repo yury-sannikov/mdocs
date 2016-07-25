@@ -13,6 +13,9 @@ block styles
     span {
       font-style: italic;
     }
+    .slick-dots {
+      margin-bottom: 20px;
+    }
 
 block content
 
@@ -23,6 +26,8 @@ block content
         br
         .responsive-slider
           div
+            br
+            br
             p Having trouble navigating MDOCS? Here is an explanation of each area of this site. For additional help or to seek answers not provided here, click the blue 
               span Ask a Question 
               | button at the bottom right corner of your browser, provide your name, email, or social media profile, and leave a message for us.
@@ -146,23 +151,10 @@ block scripts
         $('.responsive-slider').slick({
           dots: true,
           infinite: false,
-          speed: 300,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          responsive: [
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                infinite: true,
-                dots: true
-              }
-            }
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
-          ]
+          autoplay: true,
+          autoplaySpeed: 10000,
+          prevArrow: null,
+          nextArrow: null
         });
 
       });
