@@ -1,0 +1,14 @@
+if nav_title
+  .content.bg-gray-lighter
+    .row.items-push
+      .col-sm-7
+        h1.page-heading
+          | #{nav_title}
+      .col-sm-5.text-right.hidden-xs
+        ol.breadcrumb.push-10-t
+          each element in nav_crumbs
+            if element.length == 2
+              li
+                a.link-effect(href=element[1]) #{element[0]}
+            else
+              li #{element[0]}
