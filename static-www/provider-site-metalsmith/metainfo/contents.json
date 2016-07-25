@@ -1,4 +1,6 @@
 {
+  "menuCaption": "Contents",
+  "menuIconClass": "si si-frame",
   "schema": {
     "type": "object",
     "title": "",
