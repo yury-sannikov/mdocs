@@ -28,7 +28,7 @@ block content
         .page-header
           h2
             i.fa.fa-file-text-o
-            | &nbsp;Pages
+            | &nbsp;#{metainfo.menuCaption}
         a.action-new-page.btn.btn-success.pull-center(href="#") New Page
         #wrapper
           #userList
@@ -40,13 +40,13 @@ block content
                 th.hidden-xs Description
                 th.action-cell Actions
               tbody
-                each page, i in pages
+                each page, i in contentItems
                   tr
                     td.permalink-cell
                       a.action-copy-permalink.btn.btn-default.btn-xs(href='#' data-toggle="tooltip" data-placement="right" title="" type="button" data-original-title="Copy Permalink to Clipboard")
                         i.fa.fa-clipboard
                     td
-                      a.label.label-default(href='page/'+i)
+                      a.label.label-default(href=contentKey + '/' + i)
                         strong #{page.title}
                     td.hidden-xs
                       span #{page.header}

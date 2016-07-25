@@ -28,27 +28,16 @@
             a(href='/app/sitebuilder')
               i.fa.fa-internet-explorer
               span.sidebar-mini-hide Overview
-          li
+          li(class=isContentOpen ? 'open' : '')
             a.nav-submenu(href='#profilesSubMenu', data-toggle="collapse")
               i.si.si-user
               span.sidebar-mini-hide Content
-            #profilesSubMenu.collapse
-              a(href='/app/sitebuilder/pages')
-                i
-                i.si.si-frame
-                span.sidebar-mini-hide Pages
-              a(href='/app/sitebuilder/menu')
-                i
-                i.si.si-users
-                span.sidebar-mini-hide Menu
-              a(href='/app/sitebuilder/blog')
-                i
-                i.si.si-users
-                span.sidebar-mini-hide Blog Posts
-              a(href='/app/sitebuilder/assets')
-                i
-                i.si.si-users
-                span.sidebar-mini-hide File Manager
+            #profilesSubMenu(class=isContentOpen ? 'collapse in' : 'collapse')
+              each item, i in contentMenuItems
+                a(href='/app/sitebuilder/content/'+item.key)
+                  i
+                  i(class=item.metainfo.menuIconClass)
+                  span.sidebar-mini-hide #{item.metainfo.menuCaption || item.key}
         section
           li.nav-main-heading
             span.sidebar-mini-hide Settings
