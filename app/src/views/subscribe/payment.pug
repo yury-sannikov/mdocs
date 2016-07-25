@@ -1,4 +1,4 @@
-extends ../layouts/layout.pug
+extends ../layouts/landingLayout.pug
 
 block head
   title Subscribe
@@ -238,7 +238,7 @@ block content
     br
     .container
       .row
-        .col-sm-7.col-sm-offset-3.col-md-5.col-md-offset-3.col-lg-4.col-lg-offset-4
+        .col-sm-7.col-sm-offset-3.col-md-8.col-md-offset-2.col-lg-8.col-lg-offset-2
           h1.text-center
             strong Sign up for Patient Reviews
           h4.text-center 30-Day Money Back Guarantee.&nbsp;
@@ -246,7 +246,7 @@ block content
             | &nbsp;Anytime.
       br
       .row
-        .col-sm-7.col-sm-offset-3.col-md-5.col-md-offset-3.col-lg-4.col-lg-offset-4.rowaccent
+        .col-sm-7.col-sm-offset-3.col-md-8.col-md-offset-2.col-lg-8.col-lg-offset-2.rowaccent
           form.subscribeform(action=checkoutUrl, method='POST')
             input.form-control(type='hidden', name='_csrf', value=_csrf)
             input.form-control(type='hidden', name='plan', value=plan)

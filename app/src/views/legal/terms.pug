@@ -3,11 +3,19 @@ extends ../layouts/layout
 block head
   title #{application} &middot; Terms
 
+block styles
+  style.
+    h2 {
+      text-align: center;
+      color: blue;
+    }
+
 block content
   .container
     .row
       .col-sm-12.col-md-10
         h2 #{application} TERMS OF USE
+        br
         p Your use of our service is governed by these terms. By using our website, you are accepting these terms.
 
         h3 ACCEPTANCE OF TERMS
