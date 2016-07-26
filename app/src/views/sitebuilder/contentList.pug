@@ -25,15 +25,14 @@ block content
   .container-fluid
     .row
       .col-md-12
-        a.action-new-page.btn.btn-success.pull-center(href="#") New Page
+        a.action-new-page.btn.btn-success.pull-center(href="#") New Item
         #wrapper
           #userList
             table.table.table-striped.pages-table
               thead
                 th.permalink-cell
-                th Title
-                th.hidden-xs Header
-                th.hidden-xs Description
+                  each hdr in contentHeaders
+                    th(class=hdr.css) #{hdr.title}
                 th.action-cell Actions
               tbody
                 each page, i in contentItems
@@ -41,13 +40,13 @@ block content
                     td.permalink-cell
                       a.action-copy-permalink.btn.btn-default.btn-xs(href='#' data-toggle="tooltip" data-placement="right" title="" type="button" data-original-title="Copy Permalink to Clipboard")
                         i.fa.fa-clipboard
-                    td
-                      a.label.label-default(href=contentKey + '/' + i)
-                        strong #{page.title}
-                    td.hidden-xs
-                      span #{page.header}
-                    td.hidden-xs
-                      span #{page.description}
+                    each hdr, hdrIdx in contentHeaders
+                      td(class=hdr.css)
+                        if (hdrIdx === 0)
+                          a.label.label-default(href=contentKey + '/' + i)
+                            strong #{page[hdr.ref]}
+                        else
+                          span #{page[hdr.ref]}
                     td.action-cell
                       a.btn.btn-default.btn-xs(href='preview/'+i data-toggle="tooltip" data-placement="top" title="" type="button" data-original-title="Preview Page in a new window") Preview
                       | &nbsp;

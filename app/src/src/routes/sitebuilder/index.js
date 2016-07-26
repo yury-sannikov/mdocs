@@ -24,9 +24,11 @@ router.get('contentList', '/content/:key', function*() {
     return;
   }
   const data = this.sbMetainfo[this.params.key]
+  const contentHeaders = data.metainfo.listProps
   const contentItems = yield Repo.readJSONData('liberty-laser-eye-0', this.params.key)
   this.render('sitebuilder/contentList', Object.assign({}, this.jadeLocals, {
     contentItems,
+    contentHeaders,
     metainfo: data.metainfo,
     contentKey: this.params.key,
     isContentOpen: true,
@@ -44,7 +46,8 @@ router.get('/content/:key/:index', function*() {
   const data = this.sbMetainfo[this.params.key]
   const contentItems = yield Repo.readJSONData('liberty-laser-eye-0', this.params.key)
   const dataItem = contentItems[this.params.index];
-  const title = data.metainfo.schema.title || `${dataItem.title} Editor`
+  const dataTitle = data.metainfo.titleRef ? dataItem[data.metainfo.titleRef] : ''
+  const title = data.metainfo.schema.title || dataTitle
   this.render('sitebuilder/contentEditor', Object.assign({}, this.jadeLocals, {
     page: JSON.stringify(dataItem),
     schema: JSON.stringify(data.metainfo.schema),
