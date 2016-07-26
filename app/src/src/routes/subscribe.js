@@ -124,8 +124,6 @@ function* renderPayment(plan, errorMessage, formValues) {
 
 function* checkoutNewUser() {
 
-  throw Error('You should log out first to sign up a new user');
-
   if (this.currentUser) {
     throw Error('You should log out first to sign up a new user');
   }
