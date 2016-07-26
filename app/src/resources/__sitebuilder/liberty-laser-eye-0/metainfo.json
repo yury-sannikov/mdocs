@@ -1,0 +1,359 @@
+{
+  "menu": {
+    "indexPath": "",
+    "permalinks": [],
+    "metainfo": {}
+  },
+  "practice": {
+    "indexPath": "",
+    "permalinks": [],
+    "metainfo": {}
+  },
+  "contents": {
+    "indexPath": "content",
+    "permalinks": [
+      "content/about",
+      "content/privacy-policy",
+      "content/terms",
+      "content/information",
+      "content/faq"
+    ],
+    "metainfo": {
+      "menuCaption": "Contents",
+      "menuIconClass": "si si-frame",
+      "titleRef": "title",
+      "listProps": [
+        {
+          "title": "Title",
+          "ref": "title",
+          "css": ""
+        },
+        {
+          "title": "Header",
+          "ref": "header",
+          "css": "hidden-xs"
+        },
+        {
+          "title": "Description",
+          "ref": "description",
+          "css": "hidden-xs"
+        }
+      ],
+      "schema": {
+        "type": "object",
+        "title": "",
+        "properties": {
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "permalink": {
+            "title": "Permanent Link",
+            "type": "string",
+            "format": "url"
+          },
+          "header": {
+            "title": "Page Header",
+            "type": "string"
+          },
+          "layout": {
+            "title": "Page Layout",
+            "type": "string",
+            "enum": [
+              "content.pug",
+              "legal.pug"
+            ]
+          },
+          "description": {
+            "title": "Page Description",
+            "type": "string"
+          },
+          "htmlContent": {
+            "title": "Page Content",
+            "input_height": "200px",
+            "type": "string",
+            "format": "html",
+            "options": {
+              "wysiwyg": true
+            }
+          }
+        }
+      },
+      "defaults": {
+        "title": "New Title",
+        "permalink": "new_title",
+        "layout": "content.pug",
+        "header": "Content Header",
+        "description": "Content Description",
+        "htmlContent": "<p>HTML Content Goes Here.</p>"
+      }
+    }
+  },
+  "providers": {
+    "indexPath": "providers",
+    "permalinks": [
+      "providers/dr-nancy-tanchel"
+    ],
+    "metainfo": {
+      "menuCaption": "Providers",
+      "menuIconClass": "si si-user-female",
+      "titleRef": "name",
+      "listProps": [
+        {
+          "title": "Provider",
+          "ref": "name",
+          "css": ""
+        },
+        {
+          "title": "Header",
+          "ref": "header",
+          "css": "hidden-xs"
+        },
+        {
+          "title": "Description",
+          "ref": "description",
+          "css": "hidden-xs"
+        }
+      ],
+      "schema": {
+        "type": "object",
+        "title": "",
+        "properties": {
+          "name": {
+            "title": "Provider Name",
+            "type": "string"
+          },
+          "header": {
+            "title": "Provider Page Header",
+            "type": "string"
+          },
+          "thumbnail": {
+            "title": "Provider Thumbnail",
+            "type": "string"
+          },
+          "permalink": {
+            "title": "Permanent Link",
+            "type": "string",
+            "format": "url"
+          },
+          "description": {
+            "title": "Provider Page Description",
+            "type": "string"
+          },
+          "htmlContent": {
+            "title": "Provider Page Content",
+            "input_height": "200px",
+            "type": "string",
+            "format": "html",
+            "options": {
+              "wysiwyg": true
+            }
+          }
+        }
+      },
+      "defaults": {
+        "name": "John Smith",
+        "header": "An Awesome Doctor",
+        "thumbnail": "",
+        "permalink": "dr-john-smith",
+        "description": "Provider Description",
+        "htmlContent": "<p>HTML Content Goes Here.</p>"
+      }
+    }
+  },
+  "reviews": {
+    "indexPath": "reviews",
+    "permalinks": [],
+    "metainfo": {
+      "menuCaption": "Reviews",
+      "menuIconClass": "si si-like",
+      "titleRef": "site",
+      "listProps": [
+        {
+          "title": "Date",
+          "ref": "date",
+          "css": ""
+        },
+        {
+          "title": "Site",
+          "ref": "site",
+          "css": ""
+        },
+        {
+          "title": "User",
+          "ref": "user",
+          "css": "hidden-xs"
+        },
+        {
+          "title": "Review",
+          "ref": "reviewShort",
+          "css": "hidden-xs"
+        }
+      ],
+      "schema": {
+        "type": "object",
+        "title": "",
+        "properties": {
+          "date": {
+            "title": "Review Date",
+            "type": "string",
+            "format": "date"
+          },
+          "site": {
+            "title": "Review Site",
+            "type": "string",
+            "enum": [
+              "Yelp",
+              "Google+"
+            ]
+          },
+          "link": {
+            "title": "Link to Revie Page",
+            "type": "string",
+            "format": "url"
+          },
+          "user": {
+            "title": "Review User Name",
+            "type": "string"
+          },
+          "reviewShort": {
+            "title": "Review Short Text",
+            "type": "string"
+          },
+          "reviewLong": {
+            "title": "Review Long Text",
+            "type": "string"
+          }
+        }
+      },
+      "defaults": {
+        "date": "1/1/2016",
+        "site": "Yelp",
+        "link": "",
+        "user": "",
+        "reviewShort": "Short Review Text",
+        "reviewLong": "Full Review Text"
+      }
+    }
+  },
+  "services": {
+    "indexPath": "services",
+    "permalinks": [
+      "services/all-laser-lasic",
+      "services/presby-lasic",
+      "services/prk-procedures",
+      "services/wavefront-eye-analysis",
+      "services/topography-guided"
+    ],
+    "metainfo": {
+      "menuCaption": "Services",
+      "menuIconClass": "si si-book-open",
+      "titleRef": "name",
+      "listProps": [
+        {
+          "title": "Service",
+          "ref": "name",
+          "css": ""
+        },
+        {
+          "title": "Header",
+          "ref": "header",
+          "css": "hidden-xs"
+        },
+        {
+          "title": "Description",
+          "ref": "description",
+          "css": "hidden-xs"
+        }
+      ],
+      "schema": {
+        "type": "object",
+        "title": "",
+        "properties": {
+          "name": {
+            "title": "Service Name",
+            "type": "string"
+          },
+          "header": {
+            "title": "Service Page Header",
+            "type": "string"
+          },
+          "thumbnail": {
+            "title": "Service Thumbnail",
+            "type": "string"
+          },
+          "permalink": {
+            "title": "Service Link",
+            "type": "string",
+            "format": "url"
+          },
+          "description": {
+            "title": "Service Page Description",
+            "type": "string"
+          },
+          "htmlContent": {
+            "title": "Service Page Content",
+            "input_height": "200px",
+            "type": "string",
+            "format": "html",
+            "options": {
+              "wysiwyg": true
+            }
+          }
+        }
+      },
+      "defaults": {
+        "name": "Service Name",
+        "thumbnail": "",
+        "permalink": "service-name",
+        "header": "Service Header",
+        "description": "Service Description Short",
+        "htmlContent": "<p>HTML Content</p>"
+      }
+    }
+  },
+  "testimonials": {
+    "indexPath": "testimonials",
+    "permalinks": [],
+    "metainfo": {
+      "menuCaption": "Testimonials",
+      "menuIconClass": "si si-social-youtube",
+      "titleRef": "",
+      "listProps": [
+        {
+          "title": "Testimonial",
+          "ref": "link",
+          "css": ""
+        },
+        {
+          "title": "Platform",
+          "ref": "site",
+          "css": "hidden-xs"
+        }
+      ],
+      "schema": {
+        "type": "object",
+        "title": "Testimonials",
+        "properties": {
+          "site": {
+            "title": "Testimonial Platform",
+            "type": "string",
+            "enum": [
+              "YouTube",
+              "Vimeo"
+            ]
+          },
+          "link": {
+            "title": "Link",
+            "type": "string",
+            "format": "url"
+          }
+        }
+      },
+      "defaults": {
+        "site": "YouTube",
+        "link": ""
+      }
+    }
+  }
+}
