@@ -4,13 +4,17 @@ import _ from 'lodash';
 import bouncer from 'koa-bouncer';
 import {createSubscription, updateSessionSubscriptionInfo} from '../stripe';
 import { findUserByEmail, findUserById, insertOrUpdateUser } from '../db';
-import { createUser, loginUser } from '../auth0';
+import { createUser, loginUser, getUserInfo } from '../auth0';
 import jwt from 'jsonwebtoken';
 import { serializeUserFromProfile } from '../auth';
 
 const debug = require('debug')('app:routes:subscribe');
 
 const DASHBOARD_URL = '/app?welcome=y';
+
+const AUTH0_MESSAGES_HASH = {
+  password_leaked: 'Auth0 has blocked your account. Please contact support.'
+}
 
 const PLAN_INFO = {
   'pr-basic': {
@@ -67,8 +71,11 @@ router.post('checkout', '/checkout', function*() {
     yield updateSessionSubscriptionInfo(this, this.session.passport.user.id);
 
   } catch(err) {
-    debug(err.stack);
-    yield renderPayment.call(this, this.request.body.plan, err.message);
+    debug(JSON.stringify(err));
+    yield renderPayment.call(this,
+      this.request.body.plan,
+      err.message || AUTH0_MESSAGES_HASH[err.name] || err.name,
+      this.request.body);
     return;
   }
 });
@@ -88,7 +95,7 @@ router.get('/payment/emailCheck', function*() {
 
 module.exports = router;
 
-function* renderPayment(plan, errorMessage) {
+function* renderPayment(plan, errorMessage, formValues) {
   const thisPlan = _.has(PLAN_INFO, plan) && PLAN_INFO[plan];
 
   if (!thisPlan) {
@@ -109,12 +116,15 @@ function* renderPayment(plan, errorMessage) {
     plan,
     planInfo: thisPlan,
     messages : errorMessage ? { error: [{msg: errorMessage}] } : {},
-    hasSubscription
+    hasSubscription,
+    formValues: formValues || {}
   }), true);
 }
 
 
 function* checkoutNewUser() {
+
+  throw Error('You should log out first to sign up a new user');
 
   if (this.currentUser) {
     throw Error('You should log out first to sign up a new user');
@@ -146,9 +156,29 @@ function* checkoutNewUser() {
 
   this.request.body.name.trim();
 
-  const userProfile = yield createUser(this.request.body.email, this.request.body.pass, this.request.body.name);
+  let loginResult
 
-  const loginResult = yield loginUser(this.request.body.email, this.request.body.pass);
+  // Try login first with supplied credentials
+  try {
+    loginResult = yield loginUser(this.request.body.email, this.request.body.pass);
+
+    debug(`checkoutNewUser has been invoked with existing user credentials. User name: ${this.request.body.email}`)
+  }
+  catch(e) {
+
+  }
+
+  let userProfile;
+
+  if (loginResult) {
+    debug(`Getting user profile from its id_token`)
+    userProfile = yield getUserInfo(loginResult.id_token)
+    debug(`User profile has been received successfully`)
+  } else {
+    debug(`Creating user profile`)
+    userProfile = yield createUser(this.request.body.email, this.request.body.pass, this.request.body.name);
+    loginResult = yield loginUser(this.request.body.email, this.request.body.pass);
+  }
 
   const decoded = jwt.decode(loginResult.id_token);
 

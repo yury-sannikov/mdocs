@@ -15,6 +15,8 @@ const auth0 = new AuthenticationClient({
 
 const usersAsync = Promise.promisifyAll(management.users, {context: management.users});
 
+const tokensAsync = Promise.promisifyAll(auth0.tokens, {context: auth0.tokens});
+
 const databaseAuth = Promise.promisifyAll(auth0.database, {context: auth0.database});
 
 const DEFAULT_CONNECTION = 'Username-Password-Authentication';
@@ -25,7 +27,7 @@ exports.loginUser = function*(email, password) {
     password: password,
     connection: DEFAULT_CONNECTION
   };
- 
+
   return yield databaseAuth.signIn(data);
 };
 
@@ -34,14 +36,14 @@ exports.getUserByEmail = function* (email) {
     q:`email:${email}`,
     search_engine: 'v2'
   };
-  
+
   const users = yield usersAsync.getAllAsync(params);
-  
+
   return users.length == 0 ? null : users[0];
 };
 
 exports.createUser = function* (email, pwd, name) {
-  
+
   const params = {
     connection: DEFAULT_CONNECTION,
     email: email,
@@ -51,7 +53,12 @@ exports.createUser = function* (email, pwd, name) {
       name: name
     }
   };
-  
+
   return yield usersAsync.createAsync(params);
-  
+
 };
+
+exports.getUserInfo = function* (idToken) {
+  return yield tokensAsync.getInfoAsync(idToken);
+};
+

@@ -126,7 +126,7 @@ block scripts
 
       $.validator.addMethod("nowhitespace", function(value, element) {
         return this.optional(element) || (value.indexOf(" ") < 0 && value !== "");
-      }, "No white spaces please."); 
+      }, "No white spaces please.");
 
       $(function() {
         // Password Strength
@@ -275,13 +275,13 @@ block content
                 h3 Account Information
                 br
                 .form-group
-                  input.form-control(type='text', placeholder='Full Name', name='name')
+                  input.form-control(type='text', placeholder='Full Name', name='name', value=formValues.name)
                 .form-group
-                  input.form-control(type='email', placeholder='Email\t\t\t\t(Will be your user name)', name='email')
+                  input.form-control(type='email', placeholder='Email\t\t\t\t(Will be your user name)', name='email', value=formValues.email)
                 .form-group
-                  input.form-control(type='password', placeholder='Password\t\t\t(No spaces)', name='pass', id='pass')
+                  input.form-control(type='password', placeholder='Password\t\t\t(No spaces)', name='pass', id='pass', value=formValues.pass)
                 .form-group
-                  input.form-control(type='password', placeholder='Confirm Password\t(No spaces)', name='passcheck')
+                  input.form-control(type='password', placeholder='Confirm Password\t(No spaces)', name='passcheck', value=formValues.passcheck)
                 .form-group
                   span
                     strong Password Strength:
