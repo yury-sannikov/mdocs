@@ -1,11 +1,11 @@
 {
-  "menuCaption": "Contents",
-  "menuIconClass": "si si-frame",
-  "titleRef": "title",
+  "menuCaption": "Providers",
+  "menuIconClass": "si si-user-female",
+  "titleRef": "name",
   "listProps": [
     {
-      "title": "Title",
-      "ref": "title",
+      "title": "Provider",
+      "ref": "name",
       "css": ""
     },
     {
@@ -23,8 +23,16 @@
     "type": "object",
     "title": "",
     "properties": {
-      "title": {
-        "title": "Title",
+      "name": {
+        "title": "Provider Name",
+        "type": "string"
+      },
+      "header": {
+        "title": "Provider Page Header",
+        "type": "string"
+      },
+      "thumbnail": {
+        "title": "Provider Thumbnail",
         "type": "string"
       },
       "permalink": {
@@ -32,24 +40,12 @@
         "type": "string",
         "format": "url"
       },
-      "header": {
-        "title": "Page Header",
-        "type": "string"
-      },
-      "layout": {
-        "title": "Page Layout",
-        "type": "string",
-        "enum": [
-          "content.pug",
-          "legal.pug"
-        ]
-      },
       "description": {
-        "title": "Page Description",
+        "title": "Provider Page Description",
         "type": "string"
       },
       "htmlContent": {
-        "title": "Page Content",
+        "title": "Provider Page Content",
         "input_height":"200px",
         "type": "string",
         "format": "html",
@@ -60,11 +56,11 @@
     }
   },
   "defaults": {
-    "title": "New Title",
-    "permalink": "new_title",
-    "layout": "content.pug",
-    "header": "Content Header",
-    "description": "Content Description",
+    "name": "John Smith",
+    "header": "An Awesome Doctor",
+    "thumbnail": "",
+    "permalink": "dr-john-smith",
+    "description": "Provider Description",
     "htmlContent": "<p>HTML Content Goes Here.</p>"
   }
 }
