@@ -95,7 +95,8 @@
       'less/page-react.less'
     ],
     npm: [
-      'node_modules/json-editor/dist/jsoneditor.min.js'
+      'node_modules/json-editor/dist/jsoneditor.min.js',
+      'node_modules/card/dist/jquery.card.js',
     ]
   };
 
@@ -151,6 +152,7 @@
 
   gulp.task('npmscripts', function () {
     return gulp.src(paths.npm)
+      .pipe($.uglify({ outSourceMap: false }))
       .pipe(gulp.dest('./public/app/js'));
   });
 
