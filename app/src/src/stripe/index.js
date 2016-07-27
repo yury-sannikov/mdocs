@@ -25,7 +25,7 @@ export function* createSubscription(userId, token, plan, email) {
     throw Error(`Unable to create subscription for user id ${userId}. User not found`);
   }
 
-  if (user.stripeCustomer) {
+  if (user.stripeCustomer && user.stripeCustomer) {
     throw Error('User already has subscription');
   }
 
@@ -104,7 +104,6 @@ export function* updateSessionSubscriptionInfo(ctx, userId) {
 
 export function* updateSubscription(userId, session) {
   const currentSubscription = yield getSubscription(userId);
-
   const profilesQuantity = currentSubscription.profiles;
   const quantity = profilesQuantity === 0 ? 1 : profilesQuantity;
   const mainSubscription = _.get(currentSubscription, 'customer.subscriptions.data[0]');
@@ -119,7 +118,11 @@ export function* updateSubscription(userId, session) {
   }
   debug(`Update subscription quantity for user ${userId} from ${mainSubscription.quantity} to ${quantity}`);
 
+  const prorationDate = mainSubscription.start
+  debug(`Use proration date ${(new Date(prorationDate * 1000)).toString()}`)
   yield subscriptionsAsync.updateAsync(mainSubscription.id, {
+    prorate: true,
+    proration_date: prorationDate,
     quantity
   });
 
@@ -129,9 +132,17 @@ export function* updateSubscription(userId, session) {
 }
 
 export function* getFutureInvoice(userId) {
+  const currentInvoice = yield invoicesAsync.listAsync({limit: 1});
+  const currentSubscription = yield getSubscription(userId);
   const user = yield findUserById(userId);
   const stripeId = _.get(user, 'stripeCustomer.id');
-  return yield invoicesAsync.retrieveUpcomingAsync(stripeId);
+  const upcomingInvoice = yield invoicesAsync.retrieveUpcomingAsync(stripeId);
+  // console.log(JSON.stringify(currentInvoice, null, 2))
+  // console.log('----')
+  // console.log(JSON.stringify(upcomingInvoice, null, 2))
+  // console.log('----')
+  // console.log(JSON.stringify(currentSubscription, null, 2))
+  return {currentInvoice, upcomingInvoice, currentSubscription}
 }
 
 export function* cancelSubscriptions(userId) {

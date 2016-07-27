@@ -106,7 +106,7 @@ function* renderPayment(plan, errorMessage, formValues) {
 
   if (this.currentUser) {
     const user = yield findUserById(this.currentUser.id);
-    hasSubscription = !_.isEmpty(user) && !_.isEmpty(user.stripeCustomer);
+    hasSubscription = !_.isEmpty(user) && !_.isEmpty(user.stripeCustomer) && !_.isEmpty(user.stripeCustomer.id);
   }
 
   this.render('subscribe/payment', Object.assign({}, this.jadeLocals, {
