@@ -11,42 +11,138 @@ block content
     .danger-well {
       border: 2px solid #ff0000;
     }
-  .container
+    .lineitem-notes {
+      font-size: smaller;
+      color: #ccc;
+      padding-left: 20px
+    }
+  .container-fluid
     .row
       .col-sm-10.col-sm-offset-1
-        h3 Upcoming Invoice Details
+        h3 Your Subscription
+    .row
+      .col-sm-10.col-sm-offset-1
+        table.table
+          tr
+            td.col-md-3
+              strong Plan
+            td.col-md-9 #{currentInvoiceLine.plan.name || currentInvoiceLine.plan.id}
+          tr
+            td.col-md-3
+              strong Current Billing Cycle Date
+            td.col-md-9 #{moment(currentInvoice.period_start * 1000).format('MMMM Do YYYY')}
+          tr
+            td.col-md-3
+              strong Billing Cycle Interval
+            td.col-md-9 #{currentInvoiceLine.plan.interval}
+    br
+    .row
+      .col-sm-10.col-sm-offset-1
+        h4 Subsription Information Per Current Billing Cycle
+    .row
+      .col-sm-10.col-sm-offset-1
+        table.table
+          tr
+            td.col-md-3
+              strong Charged Payment
+            td.col-md-9
+              strong #{formatCents(currentInvoiceLine.plan.amount)}
+              | &nbsp;per&nbsp;
+              strong #{currentInvoiceLine.plan.interval}
+              | &nbsp;for&nbsp;
+              strong #{currentInvoiceLine.quantity}
+              | &nbsp;subscriptions. Total&nbsp;
+              strong #{formatCents(currentInvoice.total)}
+          tr
+            td.col-md-3
+              strong Paid
+            td.col-md-9
+              if currentInvoice.paid
+                i.fa.fa-check
+              else
+                i.fa.fa-ban
+
+    br
+    - var upcomingSub = currentSubscription.customer.subscriptions.data[0]
+    .row
+      .col-sm-10.col-sm-offset-1
+        h4 Subsription Information Per Upcoming Billing Cycle
+    .row
+      .col-sm-10.col-sm-offset-1
+        table.table
+          tr
+            td.col-md-3
+              strong Upcoming Cycle Payment
+            td.col-md-9
+              strong #{formatCents(upcomingSub.plan.amount)}
+              | &nbsp;per&nbsp;
+              strong #{upcomingSub.plan.interval}
+              | &nbsp;for&nbsp;
+              strong #{upcomingSub.quantity}
+              | &nbsp;subscriptions. Total&nbsp;
+              strong #{formatCents(upcomingSub.plan.amount * upcomingSub.quantity)}
+              | &nbsp;at&nbsp;
+              strong #{moment(futureInvoice.date * 1000).format('MMMM Do YYYY')}
+          tr
+            td.col-md-3
+              strong Total Amount Due
+            td.col-md-9
+              strong #{formatCents(futureInvoice.amount_due)}
+              | &nbsp;at&nbsp;
+              strong #{moment(futureInvoice.date * 1000).format('MMMM Do YYYY')}
+          tr
+            td.col-md-3
+              strong Including Prorated Amount
+            td.col-md-9
+              strong #{formatCents(paymentDelta)}
+              i.lineitem-notes &nbsp;See&nbsp;
+                a(href="#invDetails") Invoice Change Details
+          tr
+            td.col-md-3
+              strong Active
+            td.col-md-9
+              if upcomingSub.status === 'active'
+                i.fa.fa-check
+              else
+                i.fa.fa-ban
+
+    br
+    .row(id='invDetails')
+      .col-sm-10.col-sm-offset-1
+        h4 Invoice Change Details
     .row
       .col-sm-10.col-sm-offset-1
         table.table.table-hover
-          tr
-            th Date
-            th Amount
-            th Description
-          tr.info
-            td #{moment(futureInvoice.date * 1000).format('MMMM Do YYYY')}
-            td
-              strong #{formatCents(futureInvoice.amount_due)}
-            td Amount Due
           each line, i in futureInvoice.lines.data
             tr
-              - if (line.description)
+              - if (line.type === 'invoiceitem')
                 td
                   span #{moment(line.period.start * 1000).format('MMMM Do YYYY')}
                 td
                   span #{formatCents(line.amount)}
                 td
                   span #{line.description}
-              - else
-                td
-                  span #{moment(line.period.start * 1000).format('MMMM Do YYYY')}
-                td
-                  span
-                    span #{formatCents(line.plan.amount)}
-                    | &nbsp;x #{line.quantity}
-                td
-                  span #{line.plan.name}
+              //- - else
+              //-   td
+              //-     span #{moment(line.period.start * 1000).format('MMMM Do YYYY')}
+              //-   td
+              //-     span
+              //-       span #{formatCents(line.plan.amount)}
+              //-       | &nbsp;x #{line.quantity}
+              //-   td
+              //-     span #{line.plan.name}
               //- td
               //-   span #{JSON.stringify(line, null, 2)}
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
     .row
       .col-sm-10.col-sm-offset-1
         h3 Danger zone

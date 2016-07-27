@@ -55,9 +55,21 @@ router.get('/profile', checkAuthenticated, function* () {
 });
 
 router.get('/subscription', checkAuthenticated, hasSubscription, function* () {
-  const futureInvoice = yield getFutureInvoice(this.currentUser.id);
+  const {currentInvoice, upcomingInvoice, currentSubscription} = yield getFutureInvoice(this.currentUser.id);
+  const currentInvoiceData = currentInvoice.data[0] || {}
+  const currentInvoiceLine = currentInvoiceData.lines.data[0] || {}
+
+
+  const paymentDelta = upcomingInvoice.lines.data
+    .filter((i) => i.type === 'invoiceitem')
+    .reduce((sum, item) => {return sum + item.amount}, 0.0)
+
   this.render('app/subscription', Object.assign({}, this.jadeLocals, {
-    futureInvoice
+    futureInvoice: upcomingInvoice,
+    currentInvoice: currentInvoiceData,
+    currentInvoiceLine,
+    currentSubscription,
+    paymentDelta
   }), true);
 });
 
