@@ -435,6 +435,103 @@
       "city": "ROCKVILLE",
       "state": "MD",
       "country": "US"
+    },
+    {
+      "name": "Paul Ellington, DDS",
+      "type": "Dentist",
+      "bias": 0,
+      "phone": "703-444-5108",
+      "address": "46175 WESTLAKE DR STE 130",
+      "zip": "20165-5873",
+      "sites": [
+        {
+          "site": "Google",
+          "title": "Ellington & Hulbert Family: Ellington Paul D DDS",
+          "place_id": "ChIJR8sZnpQ5tokR_8OxDrq6AEA",
+          "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJR8sZnpQ5tokR_8OxDrq6AEA"
+        },
+        {
+          "site": "Vitals",
+          "title": "Dr. Paul D Ellington DDS",
+          "url": "http://www.vitals.com/dentists/Dr_Paul_Ellington"
+        },
+        {
+          "site": "Yelp",
+          "title": "Ellington Paul D DDS",
+          "url": "http://www.yelp.com/biz/ellington-paul-d-dds-sterling"
+        },
+        {
+          "site": "RateMDs",
+          "title": "Dr. Paul D. Rains",
+          "url": "https://www.ratemds.com/doctor-ratings/947153/Dr-Paul+D.-Rains-ELLINGTON-MO.html"
+        },
+        {
+          "site": "MerchantCircle",
+          "title": "Finamore Paul DDS",
+          "url": "http://www.merchantcircle.com/finamore-paul-dds-sterling-va"
+        },
+        {
+          "site": "YellowPages",
+          "title": "Paul D Ellington Dds Plc",
+          "url": "http://www.yellowpages.com/leesburg-va/mip/paul-d-ellington-dds-plc-513071187?lid=513071187"
+        },
+        {
+          "site": "Yahoo",
+          "title": "Ellington Paul D DDS-Ellington & Hulbert Family",
+          "url": "https://local.yahoo.com/info-28415362-ellington-paul-d-ddsellington-hulbert-family-sterlingundefined?stx=Paul%20Ellington,%20DDS&csz=20165-5873&fr=lsrp"
+        }
+      ],
+      "yelpcategory": "dentists",
+      "city": "STERLING",
+      "state": "VA",
+      "country": "US",
+      "uuid": "c9502a63-6943-41da-b45c-718cc54c2c6a",
+      "key": "c9502a63-6943-41da-b45c-718cc54c2c6a-paul-ellington",
+      "reportDate": "07/25/2016",
+      "providerName": "Paul Ellington, DDS",
+      "reviews": [],
+      "address2": ""
+    },
+    {
+      "name": "Nader Hawa, DDS",
+      "type": "Dentist",
+      "bias": 0,
+      "phone": "703-444-5108",
+      "address": "46175 WESTLAKE DR STE 130",
+      "zip": "20165-5873",
+      "sites": [
+        {
+          "site": "Google",
+          "title": "Dr. Nader Abu-El-Hawa, DMD",
+          "place_id": "ChIJm8tZlfVHtokRXZPmgwe4MqE",
+          "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJm8tZlfVHtokRXZPmgwe4MqE"
+        },
+        {
+          "site": "Vitals",
+          "title": "Dr. Nader I Abu-El-Hawa DDS, DMD",
+          "url": "http://www.vitals.com/dentists/Dr_Nader_Abu-El-Hawa"
+        },
+        {
+          "site": "RateMDs",
+          "title": "Dr. Nader Abu-El-Hawa",
+          "url": "https://www.ratemds.com/doctor-ratings/2527245/Dr-NADER-ABU-EL-HAWA-Herndon-VA.html"
+        },
+        {
+          "site": "YellowPages",
+          "title": "Rezvani Nader DDS PC",
+          "url": "http://www.yellowpages.com/arlington-va/mip/rezvani-nader-dds-pc-18190256?lid=18190256"
+        }
+      ],
+      "yelpcategory": "dentists",
+      "city": "STERLING",
+      "state": "VA",
+      "country": "US",
+      "uuid": "a4e96d8a-3a62-40aa-82e5-4f1f6b7ea242",
+      "key": "a4e96d8a-3a62-40aa-82e5-4f1f6b7ea242-nader-hawa",
+      "reportDate": "07/25/2016",
+      "providerName": "Nader Hawa, DDS",
+      "reviews": [],
+      "address2": ""
     }
   ]
 }

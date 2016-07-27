@@ -56,7 +56,7 @@
     "yelpcategory": "familydr",
     "uuid": "54fbe499-edf8-4beb-9802-8bdb551b6402",
     "key": "54fbe499-edf8-4beb-9802-8bdb551b6402-sarah-fletcher",
-    "reportDate": "07/08/2016",
+    "reportDate": "07/25/2016",
     "providerName": "Sarah Fletcher, MD",
     "reviews": [
       {
@@ -64,7 +64,7 @@
         "siteName": "HEALTH GRADES",
         "siteUrl": "https://www.healthgrades.com/physician/dr-sarah-fletcher-3cf32",
         "addressAccurate": true,
-        "reviewCount": 8,
+        "reviewCount": 0,
         "rating": 5
       },
       {
@@ -182,7 +182,7 @@
     "yelpcategory": "familydr",
     "uuid": "efda04da-5f12-41ee-9301-cd3ae28a6e45",
     "key": "efda04da-5f12-41ee-9301-cd3ae28a6e45-elizabeth-zapp",
-    "reportDate": "07/08/2016",
+    "reportDate": "07/25/2016",
     "providerName": "Elizabeth Zapp, MD",
     "reviews": [
       {
@@ -317,7 +317,7 @@
     "yelpcategory": "generaldentistry",
     "uuid": "ed0e4efa-8553-4a29-ac28-dc09524729fe",
     "key": "ed0e4efa-8553-4a29-ac28-dc09524729fe-joyce-xia",
-    "reportDate": "07/08/2016",
+    "reportDate": "07/25/2016",
     "providerName": "Joyce Xia, DDS",
     "reviews": [
       {
@@ -325,8 +325,8 @@
         "siteName": "HEALTH GRADES",
         "siteUrl": "https://www.healthgrades.com/dentist/dr-joyce-xia-yn74x",
         "addressAccurate": true,
-        "reviewCount": 3,
-        "rating": 2.7
+        "reviewCount": 0,
+        "rating": 0
       },
       {
         "siteId": "Vitals",
@@ -472,7 +472,7 @@
     "yelpcategory": "nursepractitioner",
     "uuid": "0cb6fcb7-2644-4760-ab91-8f1a2e31ecc3",
     "key": "0cb6fcb7-2644-4760-ab91-8f1a2e31ecc3-jessica-scalzo",
-    "reportDate": "07/08/2016",
+    "reportDate": "07/25/2016",
     "providerName": "Jessica Scalzo",
     "reviews": [
       {
@@ -580,7 +580,7 @@
     "yelpcategory": "nursepractitioner",
     "uuid": "d8e547b0-74b6-494f-9340-7a5a22a5703b",
     "key": "d8e547b0-74b6-494f-9340-7a5a22a5703b-cynthia-yew",
-    "reportDate": "07/08/2016",
+    "reportDate": "07/25/2016",
     "providerName": "Cynthia Yew",
     "reviews": [
       {
@@ -588,8 +588,8 @@
         "siteName": "HEALTH GRADES",
         "siteUrl": "https://www.healthgrades.com/provider/cynthia-yew-2gx5j",
         "addressAccurate": true,
-        "reviewCount": 4,
-        "rating": 4.5
+        "reviewCount": 0,
+        "rating": 0
       },
       {
         "siteId": "Yelp",
@@ -713,7 +713,7 @@
         "siteName": "HEALTH GRADES",
         "siteUrl": "https://www.healthgrades.com/physician/dr-meghal-antani-2l57h",
         "addressAccurate": true,
-        "reviewCount": 1,
+        "reviewCount": 0,
         "rating": 0
       },
       {
@@ -776,7 +776,7 @@
     ],
     "uuid": "e2dfa0f5-c3f6-4272-bc47-c014c815bd43",
     "key": "e2dfa0f5-c3f6-4272-bc47-c014c815bd43-meghal-r.",
-    "reportDate": "07/08/2016",
+    "reportDate": "07/25/2016",
     "providerName": "Meghal Antani, MD",
     "address2": "",
     "country": "US",
@@ -882,13 +882,13 @@
                 "type": "overall"
               }
             ],
-            "author_name": "Olivia Roberts",
-            "author_url": "https://plus.google.com/105468313867713283143",
+            "author_name": "Keri Burleson",
+            "author_url": "https://plus.google.com/116806896286304942911",
             "language": "en",
-            "profile_photo_url": "//lh5.googleusercontent.com/-ONkFCPogxhU/AAAAAAAAAAI/AAAAAAAAAJ8/S6qVZMQNOX8/photo.jpg",
+            "profile_photo_url": "//lh4.googleusercontent.com/-lpoFK3ElB1M/AAAAAAAAAAI/AAAAAAAAI0g/nArcL-CzAt0/photo.jpg",
             "rating": 5,
-            "text": "I bought a Groupon here earlier this year, and it was the best decision of my life. The people at Liberty Laser were very attentive and thorough throughout the entire process. My mom was even able to watch the proceedure looking through an observation window!\n\nI was especially impressed by how Dr. Tanchel handled the proceedure itself. I had not been nervous about the proceedure for the entire time leading up to it, however, just as I sat down in the chair and saw the machines, I became very nervous. Thankfully, Dr. Tanchel talked soothingly throughout for the entire duration of the proceedure, explaining what she was doing, giving direction when necessary, and assuring me that I was doing well and everything was working perfectly. I was so thankful for her constant reassurance through the process.\n\nI am very particular about my vision, and for the month or so after the proceedure, I was constantly reevaluating my \"new\" vision and how it compared to my \"old\" vision with glasses. Sometimes, I thought my vision was inconsistent and I found it annoying at times and absolutely distressing at others. But she assured me that that was normal, explained that much of that was due to dryness and the general healing process, and sure enough, my vision is stable and absolutely wonderful all the time (except when my eyes are dry at the beginning and end of day, but that's how our eyes normally are). I have not experienced any excessive dryness or any other problems.\n\nI can hardly believe that I ever wore glasses. It has been incredibly liberating to not have to wear glasses (because I hated wearing contacts, so those weren't an option), and I've found that I actually don't miss wearing glasses like I thought I might. When I do want to wear glasses, I have a cute pair with simple glass lenses. I get the best of both worlds!!",
-            "time": 1356618027
+            "text": "I had an excellent experience with Dr. Tanchel and company.  The doctor sees you at every visit, and the no hassle, no \"different deal every few weeks\" pricing is very straight forward and easy to understand.",
+            "time": 1407797183
           },
           {
             "aspects": [
@@ -897,13 +897,13 @@
                 "type": "overall"
               }
             ],
-            "author_name": "Keri Burleson",
-            "author_url": "https://plus.google.com/116806896286304942911",
+            "author_name": "Olivia Roberts",
+            "author_url": "https://plus.google.com/105468313867713283143",
             "language": "en",
-            "profile_photo_url": "//lh4.googleusercontent.com/-lpoFK3ElB1M/AAAAAAAAAAI/AAAAAAAAI0g/nArcL-CzAt0/photo.jpg",
+            "profile_photo_url": "//lh5.googleusercontent.com/-ONkFCPogxhU/AAAAAAAAAAI/AAAAAAAAAJ8/S6qVZMQNOX8/photo.jpg",
             "rating": 5,
-            "text": "I had an excellent experience with Dr. Tanchel and company.  The doctor sees you at every visit, and the no hassle, no \"different deal every few weeks\" pricing is very straight forward and easy to understand.",
-            "time": 1407797183
+            "text": "I bought a Groupon here earlier this year, and it was the best decision of my life. The people at Liberty Laser were very attentive and thorough throughout the entire process. My mom was even able to watch the proceedure looking through an observation window!\n\nI was especially impressed by how Dr. Tanchel handled the proceedure itself. I had not been nervous about the proceedure for the entire time leading up to it, however, just as I sat down in the chair and saw the machines, I became very nervous. Thankfully, Dr. Tanchel talked soothingly throughout for the entire duration of the proceedure, explaining what she was doing, giving direction when necessary, and assuring me that I was doing well and everything was working perfectly. I was so thankful for her constant reassurance through the process.\n\nI am very particular about my vision, and for the month or so after the proceedure, I was constantly reevaluating my \"new\" vision and how it compared to my \"old\" vision with glasses. Sometimes, I thought my vision was inconsistent and I found it annoying at times and absolutely distressing at others. But she assured me that that was normal, explained that much of that was due to dryness and the general healing process, and sure enough, my vision is stable and absolutely wonderful all the time (except when my eyes are dry at the beginning and end of day, but that's how our eyes normally are). I have not experienced any excessive dryness or any other problems.\n\nI can hardly believe that I ever wore glasses. It has been incredibly liberating to not have to wear glasses (because I hated wearing contacts, so those weren't an option), and I've found that I actually don't miss wearing glasses like I thought I might. When I do want to wear glasses, I have a cute pair with simple glass lenses. I get the best of both worlds!!",
+            "time": 1356618027
           },
           {
             "aspects": [
@@ -947,7 +947,7 @@
     ],
     "uuid": "32bac815-0d9b-49f3-a99c-1bb2c784f942",
     "key": "32bac815-0d9b-49f3-a99c-1bb2c784f942-liberty-laser",
-    "reportDate": "07/08/2016",
+    "reportDate": "07/25/2016",
     "providerName": "Liberty Laser Eye Center",
     "address2": "",
     "country": "US",
@@ -1006,7 +1006,7 @@
     "yelpcategory": "urologists",
     "uuid": "47704ac5-780d-4dc4-96d4-ec6286305faf",
     "key": "47704ac5-780d-4dc4-96d4-ec6286305faf-shailendra-kumar",
-    "reportDate": "07/08/2016",
+    "reportDate": "07/25/2016",
     "providerName": "Shailendra Kumar, MD",
     "reviews": [
       {
@@ -1014,8 +1014,8 @@
         "siteName": "HEALTH GRADES",
         "siteUrl": "https://www.healthgrades.com/physician/dr-shailendra-kumar-xfwqh",
         "addressAccurate": true,
-        "reviewCount": 9,
-        "rating": 2.2
+        "reviewCount": 0,
+        "rating": 0
       },
       {
         "siteId": "Vitals",
@@ -1030,7 +1030,7 @@
         "siteName": "YELP.COM",
         "siteUrl": "http://www.yelp.com/biz/kumar-shailendra-md-rockville",
         "addressAccurate": true,
-        "reviewCount": 2,
+        "reviewCount": 3,
         "rating": 1
       },
       {
@@ -1087,5 +1087,223 @@
     "state": "MD",
     "country": "US",
     "providerAddress": "50 W EDMONSTON DR<br>ROCKVILLE, MD 20852-1228<br>301-477-2000"
+  },
+  {
+    "name": "Paul Ellington, DDS",
+    "type": "Dentist",
+    "bias": 1,
+    "phone": "703-444-5108",
+    "address": "46175 WESTLAKE DR STE 130",
+    "zip": "20165-5873",
+    "sites": [
+      {
+        "site": "Google",
+        "title": "Ellington & Hulbert Family: Ellington Paul D DDS",
+        "place_id": "ChIJR8sZnpQ5tokR_8OxDrq6AEA",
+        "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJR8sZnpQ5tokR_8OxDrq6AEA"
+      },
+      {
+        "site": "Vitals",
+        "title": "Dr. Paul D Ellington DDS",
+        "url": "http://www.vitals.com/dentists/Dr_Paul_Ellington"
+      },
+      {
+        "site": "Yelp",
+        "title": "Ellington Paul D DDS",
+        "url": "http://www.yelp.com/biz/ellington-and-hawa-family-dentistry-sterling"
+      },
+      {
+        "site": "HealthGrades",
+        "title": "Ellington Paul D DDS",
+        "url": "https://www.healthgrades.com/dentist/dr-paul-ellington-3bxfp"
+      },
+      {
+        "site": "RateMDs",
+        "title": "Dr. Paul D. Rains",
+        "url": "https://www.ratemds.com/doctor-ratings/947153/Dr-Paul+D.-Rains-ELLINGTON-MO.html"
+      },
+      {
+        "site": "MerchantCircle",
+        "title": "Finamore Paul DDS",
+        "url": "http://www.merchantcircle.com/finamore-paul-dds-sterling-va"
+      },
+      {
+        "site": "YellowPages",
+        "title": "Paul D Ellington Dds Plc",
+        "url": "http://www.yellowpages.com/leesburg-va/mip/paul-d-ellington-dds-plc-513071187?lid=513071187"
+      },
+      {
+        "site": "Yahoo",
+        "title": "Ellington Paul D DDS-Ellington & Hulbert Family",
+        "url": "https://local.yahoo.com/info-28415362-ellington-paul-d-ddsellington-hulbert-family-sterlingundefined?stx=Paul%20Ellington,%20DDS&csz=20165-5873&fr=lsrp"
+      }
+    ],
+    "yelpcategory": "dentists",
+    "city": "STERLING",
+    "state": "VA",
+    "country": "US",
+    "uuid": "c9502a63-6943-41da-b45c-718cc54c2c6a",
+    "key": "c9502a63-6943-41da-b45c-718cc54c2c6a-paul-ellington",
+    "reportDate": "07/25/2016",
+    "providerName": "Paul Ellington, DDS",
+    "reviews": [
+      {
+        "siteId": "HealthGrades",
+        "siteName": "HEALTH GRADES",
+        "siteUrl": "https://www.healthgrades.com/dentist/dr-paul-ellington-3bxfp",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 5
+      },
+      {
+        "siteId": "Vitals",
+        "siteName": "VITALS.COM",
+        "siteUrl": "http://www.vitals.com/dentists/Dr_Paul_Ellington",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "Yelp",
+        "siteName": "YELP.COM",
+        "siteUrl": "http://www.yelp.com/biz/ellington-and-hawa-family-dentistry-sterling",
+        "addressAccurate": true,
+        "reviewCount": 4,
+        "rating": 3
+      },
+      {
+        "siteId": "RateMDs",
+        "siteName": "RATEMDS.COM",
+        "siteUrl": "https://www.ratemds.com/doctor-ratings/947153/Dr-Paul+D.-Rains-ELLINGTON-MO.html",
+        "addressAccurate": true,
+        "reviewCount": 1,
+        "rating": 2.75
+      },
+      {
+        "siteId": "YellowPages",
+        "siteName": "YELLOWPAGES.COM",
+        "siteUrl": "http://www.yellowpages.com/leesburg-va/mip/paul-d-ellington-dds-plc-513071187?lid=513071187",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "MerchantCircle",
+        "siteName": "MERCHANTCIRCLE.COM",
+        "siteUrl": "http://www.merchantcircle.com/finamore-paul-dds-sterling-va",
+        "addressAccurate": true,
+        "reviewCount": 1,
+        "rating": 3.3
+      },
+      {
+        "siteId": "Yahoo",
+        "siteName": "LOCAL.YAHOO.COM",
+        "siteUrl": "https://local.yahoo.com/info-28415362-ellington-paul-d-ddsellington-hulbert-family-sterlingundefined?stx=Paul%20Ellington,%20DDS&csz=20165-5873&fr=lsrp",
+        "addressAccurate": true,
+        "reviewCount": 3,
+        "rating": 2.5
+      },
+      {
+        "siteId": "Google",
+        "siteName": "GOOGLE.COM",
+        "siteUrl": "https://maps.google.com/?cid=4611891326700602367",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0,
+        "locationDetails": {
+          "lat": 39.0342241,
+          "lng": -77.40305579999999
+        },
+        "phone": [
+          "(703) 444-5108",
+          "+1 703-444-5108"
+        ]
+      }
+    ],
+    "address2": "",
+    "providerAddress": "46175 WESTLAKE DR STE 130<br>STERLING, VA 20165-5873<br>703-444-5108"
+  },
+  {
+    "name": "Nader Hawa, DDS",
+    "type": "Dentist",
+    "bias": 1,
+    "phone": "703-444-5108",
+    "address": "46175 WESTLAKE DR STE 130",
+    "zip": "20165-5873",
+    "sites": [
+      {
+        "site": "Google",
+        "title": "Dr. Nader Abu-El-Hawa, DMD",
+        "place_id": "ChIJm8tZlfVHtokRXZPmgwe4MqE",
+        "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJm8tZlfVHtokRXZPmgwe4MqE"
+      },
+      {
+        "site": "Vitals",
+        "title": "Dr. Nader I Abu-El-Hawa DDS, DMD",
+        "url": "http://www.vitals.com/dentists/Dr_Nader_Abu-El-Hawa"
+      },
+      {
+        "site": "RateMDs",
+        "title": "Dr. Nader Abu-El-Hawa",
+        "url": "https://www.ratemds.com/doctor-ratings/2527245/Dr-NADER-ABU-EL-HAWA-Herndon-VA.html"
+      },
+      {
+        "site": "YellowPages",
+        "title": "Rezvani Nader DDS PC",
+        "url": "http://www.yellowpages.com/arlington-va/mip/rezvani-nader-dds-pc-18190256?lid=18190256"
+      }
+    ],
+    "yelpcategory": "dentists",
+    "city": "STERLING",
+    "state": "VA",
+    "country": "US",
+    "uuid": "a4e96d8a-3a62-40aa-82e5-4f1f6b7ea242",
+    "key": "a4e96d8a-3a62-40aa-82e5-4f1f6b7ea242-nader-hawa",
+    "reportDate": "07/25/2016",
+    "providerName": "Nader Hawa, DDS",
+    "reviews": [
+      {
+        "siteId": "Vitals",
+        "siteName": "VITALS.COM",
+        "siteUrl": "http://www.vitals.com/dentists/Dr_Nader_Abu-El-Hawa",
+        "addressAccurate": true,
+        "reviewCount": 3,
+        "rating": 4.5
+      },
+      {
+        "siteId": "RateMDs",
+        "siteName": "RATEMDS.COM",
+        "siteUrl": "https://www.ratemds.com/doctor-ratings/2527245/Dr-NADER-ABU-EL-HAWA-Herndon-VA.html",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "YellowPages",
+        "siteName": "YELLOWPAGES.COM",
+        "siteUrl": "http://www.yellowpages.com/arlington-va/mip/rezvani-nader-dds-pc-18190256?lid=18190256",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "Google",
+        "siteName": "GOOGLE.COM",
+        "siteUrl": "https://maps.google.com/?cid=11615548731359138653",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0,
+        "locationDetails": {
+          "lat": 38.965876,
+          "lng": -77.3984792
+        },
+        "phone": [
+          "(703) 787-2273",
+          "+1 703-787-2273"
+        ]
+      }
+    ],
+    "address2": "",
+    "providerAddress": "46175 WESTLAKE DR STE 130<br>STERLING, VA 20165-5873<br>703-444-5108"
   }
 ]
