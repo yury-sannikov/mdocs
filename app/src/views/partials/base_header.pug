@@ -34,18 +34,18 @@ ul.nav-header.pull-right
     </button>
     </li>
 // END Header Navigation Right
-//- // Header Navigation Left
-//- ul.nav-header.pull-left
-//-   li.hidden-md.hidden-lg
-//-     button.btn.btn-default(type='button', data-ng-click='oneui.settings.sidebarOpenXs = ! oneui.settings.sidebarOpenXs', data-js-blur='')
-//-       i.fa.fa-navicon
-//-   li.hidden-xs.hidden-sm
-//-     button.btn.btn-default(type='button', data-ng-click='oneui.settings.sidebarMini = ! oneui.settings.sidebarMini', data-js-blur='')
-//-       i.fa.fa-ellipsis-v
-//-   li.visible-xs
-//-     // Toggle class helper (data-js-toggle-class attribute is initialized in js/directives.js)
-//-     //
-//-       <button class="btn btn-default" type="button" data-js-toggle-class="{target: '.js-header-search', class: 'header-search-xs-visible'}" data-js-blur>
-//-       <i class="fa fa-search"></i>
-//-       </button>
-//- // END Header Navigation Left
+// Header Navigation Left
+ul.nav-header.pull-left
+  li.hidden-md.hidden-lg
+    button.btn.btn-default(type='button', data-ng-click='oneui.settings.sidebarOpenXs = ! oneui.settings.sidebarOpenXs', data-js-blur='')
+      i.fa.fa-navicon
+  li.hidden-xs.hidden-sm
+    button.btn.btn-default(type='button', data-ng-click='oneui.settings.sidebarMini = ! oneui.settings.sidebarMini', data-js-blur='')
+      i.fa.fa-ellipsis-v
+  li.visible-xs
+    // Toggle class helper (data-js-toggle-class attribute is initialized in js/directives.js)
+    //
+      <button class="btn btn-default" type="button" data-js-toggle-class="{target: '.js-header-search', class: 'header-search-xs-visible'}" data-js-blur>
+      <i class="fa fa-search"></i>
+      </button>
+// END Header Navigation Left

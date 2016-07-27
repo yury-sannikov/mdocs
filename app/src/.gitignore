@@ -3,6 +3,7 @@
 node_modules
 .projectile
 public/app
+!public/app/js/main.js
 webpack-assets.json
 webpack-stats.json
 npm-debug.log
