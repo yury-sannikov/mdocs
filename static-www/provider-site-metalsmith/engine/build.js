@@ -19,10 +19,14 @@ const dep = require('./metalsmith-include-dependency');
 const inplace = require('metalsmith-in-place');
 const evalLayout = require('./metalsmith-eval-layout');
 const metainfo = require('./metalsmith-metainfo');
+const path = require('path');
 
-const DIR = __dirname + '/src/';
-const THEME_DIR = '/themes/'
+
 const CURRENT_THEME = 'cleanui';
+const THEME_DIR = path.join(__dirname, 'themes', CURRENT_THEME)
+const SOURCE_PATH = path.join(__dirname, '..', 'content/src')
+const WORK_DIR = path.join(__dirname, '..')
+const BUILD_DIR = path.join(__dirname, '..', '__build')
 
 const build = (clean = false) => (done) => {
   console.log(`Building. clean: ${clean}.`);
@@ -32,11 +36,11 @@ const build = (clean = false) => (done) => {
     _: require('lodash')
   }
 
-  Metalsmith(__dirname)
+  Metalsmith(WORK_DIR)
     // Folder with source data
-    .source('./src')
+    .source(SOURCE_PATH)
     // Folder with results
-    .destination('./__build')
+    .destination(BUILD_DIR)
     // Clean result folder if 'clean' is true.
     // Do full clean if layout or partial has been changed
     .clean(clean)
@@ -52,8 +56,8 @@ const build = (clean = false) => (done) => {
       // If clean build, copy over assets from public folder
       msIf(clean,
         asset({
-          src: THEME_DIR + CURRENT_THEME + '/assets',
-          dest: './assets'
+          src: path.join('engine/themes', CURRENT_THEME, 'assets'),
+          dest: 'assets',
         }))
     )
     // Dependency tracking for metalsmith-include. Set ctime for all dependent files to the latest value of the group
@@ -73,7 +77,7 @@ const build = (clean = false) => (done) => {
       deletePartials: true
     }))
     .use(jsonToFiles({
-      source_path: 'src/data/'
+      source_path: path.join(SOURCE_PATH, 'data/')
     }))
     .use(collections({
       providers: {},
@@ -92,9 +96,9 @@ const build = (clean = false) => (done) => {
     // If eval_layout is true, treat layout as a field containing computable value
     .use(evalLayout())
     .use(metainfo({
-      metainfoPath: './metainfo',
+      metainfoPath: path.join(SOURCE_PATH, '../metainfo'),
       includeForMetaOnly: ['menu', 'practice'],
-      outputFile: './metainfo.json'
+      outputFile: path.join(BUILD_DIR, 'metainfo.json')
     }))
 
     // PUG/Jade layouts system
@@ -102,12 +106,12 @@ const build = (clean = false) => (done) => {
       engine: 'pug',
       layoutPattern: '*.pug',
       pretty: true,
-      directory: __dirname + THEME_DIR + CURRENT_THEME + '/layouts',
+      directory: path.join(THEME_DIR, 'layouts'),
       helpers
     }))
     .use(inplace({
       engine: 'handlebars',
-      partials: 'partials'
+      partials: 'content/partials'
     }))
     .use(livereload({ debug: true }))
     .build((err, files) => {
@@ -126,18 +130,18 @@ build(true)((err) => {
     console.log(err);
     return;
   }
-  var serve = new nodeStatic.Server(__dirname + '/__build');
+  var serve = new nodeStatic.Server(BUILD_DIR);
   require('http').createServer((req, res) => {
     req.addListener('end', () => serve.serve(req, res));
     req.resume();
   }).listen(8080);
 
   // Quick build if src changed
-  watch(__dirname + '/src/**/*', { ignoreInitial: true }, build(false));
+  watch(path.join(SOURCE_PATH, '**/*'), { ignoreInitial: true }, build(false));
   // Full Rebuild if layout changed
-  watch(__dirname + THEME_DIR + CURRENT_THEME + '/layouts/**/*', { ignoreInitial: true }, build(true));
-  watch(__dirname + THEME_DIR + CURRENT_THEME + '/partials/**/*', { ignoreInitial: true }, build(true));
-  watch(__dirname + THEME_DIR + CURRENT_THEME + '/assets/**/*', { ignoreInitial: true }, build(true));
+  watch(path.join(THEME_DIR, 'layouts/**/*'), { ignoreInitial: true }, build(true));
+  watch(path.join(THEME_DIR, '/partials/**/*'), { ignoreInitial: true }, build(true));
+  watch(path.join(THEME_DIR, '/assets/**/*'), { ignoreInitial: true }, build(true));
 
   //open('http://localhost:8080');
 });
