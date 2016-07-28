@@ -4,7 +4,8 @@ rm -rf ./tmp
 set -e
 
 mkdir tmp
-mkdir tmp/public tmp/src tmp/views tmp/webpack
+mkdir tmp/public tmp/src tmp/views tmp/webpack tmp/shared_modules
+cp -rf ../../app/src/shared_modules/* ./tmp/shared_modules/
 cp -rf ../../app/src/public/* ./tmp/public/
 cp -rf ../../app/src/src/* ./tmp/src/
 cp -rf ../../app/src/webpack/* ./tmp/webpack/
