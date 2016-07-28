@@ -17,7 +17,8 @@
     "test": "NODE_ENV=test mocha --reporter spec",
     "lubricate": "npm cache clean && npm install && bower cache clean && bower install && gulp clean && gulp build && npm run build",
     "lint": "eslint --ignore-pattern server.js ./src/apps/dashboard/",
-    "validate": "npm ls"
+    "validate": "npm ls",
+    "postinstall": "pushd shared_modules && ./install && popd"
   },
   "betterScripts": {
     "start-prod": {
