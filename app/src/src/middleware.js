@@ -8,23 +8,12 @@ const bouncer = require('koa-bouncer');
 const _ = require('lodash');
 const recaptcha = require('recaptcha-validator');
 const csrf = require('koa-csrf');
-const pugLoad = require('pug-load');
-// 1st
-//const db = require('./db');
 const config = require('./config');
 const comm = require('./comm');
 import jwt from 'jsonwebtoken';
 import { redirectToLogin, needShowCreateProfileAlert } from './belt';
 
 const CSRF_SKIP_PREFIX = '/app/hooks';
-
-const _originalPugLoad = pugLoad.resolve;
-
-pugLoad.resolve = function pugLoadOverrideHack(filename, source, options) {
-  let result = _originalPugLoad(filename, source, options);
-
-  return result;
-}
 
 exports.checkJWTExpiration = function() {
   return function*(next){
@@ -232,7 +221,7 @@ exports.ensureRecaptcha = function*(next) {
 
 // Cheap but simple way to protect against CSRF attacks
 // TODO: Replace with something more versatile
-exports.ensureReferer = function() {
+exports.ensureReferer = function(hostname, skipFor) {
   return function*(next) {
     // Don't ensure referer in tests
 
@@ -243,20 +232,20 @@ exports.ensureReferer = function() {
     }
 
     // Skip if no HOSTNAME is set
-    if (!config.APP_HOSTNAME) {
-      debug('Skipping referer check since APP_HOSTNAME not provided');
+    if (!_.isArray(hostname)) {
+      debug('Skipping referer check since *HOSTNAME is not provided');
       yield* next;
       return;
     }
 
-    if (this.request.url.indexOf(CSRF_SKIP_PREFIX) === 0) {
+    if (skipFor && this.request.url.indexOf(skipFor) === 0) {
       yield* next;
       return;
     }
 
     const refererHostname = nodeUrl.parse(this.headers.referer || '').hostname;
 
-    if (config.APP_HOSTNAME === refererHostname) {
+    if (hostname.indexOf(refererHostname) !== -1) {
       yield* next;
       return;
     }

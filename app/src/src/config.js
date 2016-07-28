@@ -22,6 +22,12 @@ if (!exports.APP_HOSTNAME) {
   console.warn('Warn: CSRF checks are disabled since there is no APP_HOSTNAME environment variable provided');
 }
 
+exports.SITEBUILDER_HOSTNAME = process.env.SITEBUILDER_HOSTNAME;
+if (!exports.SITEBUILDER_HOSTNAME) {
+  console.warn('Warn: CSRF checks are disabled since there is no SITEBUILDER_HOSTNAME environment variable provided');
+}
+
+
 exports.RECAPTCHA_SITEKEY = process.env.RECAPTCHA_SITEKEY;
 exports.RECAPTCHA_SITESECRET = process.env.RECAPTCHA_SITESECRET;
 if (!exports.RECAPTCHA_SITEKEY)

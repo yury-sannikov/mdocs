@@ -11,7 +11,6 @@ const router = new Router({
   prefix: '/sitebuilder'
 })
   .use(sitebuilderLocalsMiddleware())
-  .use(require('./preview').routes())
 
 router.get('main', '/', function*() {
   this.render('sitebuilder/main', Object.assign({}, this.jadeLocals, {

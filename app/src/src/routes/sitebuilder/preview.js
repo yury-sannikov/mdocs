@@ -8,11 +8,15 @@ import Router from 'koa-router';
 const debug = require('debug')('app:routes:sitebuilder:preview');
 
 const router = new Router({
-  prefix: '/preview'
+  prefix: '/sitebuilderpreview'
 })
 
 router.get('main', '/', function*() {
   this.body = {text: 'preview'}
 });
+
+router.post('/auth', function*() {
+  this.body = {token: this.request.body.token};
+})
 
 module.exports = router;
