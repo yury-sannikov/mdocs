@@ -11,6 +11,8 @@ const router = new Router({
   prefix: '/sitebuilderpreview'
 })
 
+router.use(require('./assets').routes())
+
 router.get('main', '/', function*() {
   this.body = {text: 'preview'}
 });
