@@ -12,6 +12,7 @@ const config = require('./config');
 const mw = require('./middleware');
 const belt = require('./belt');
 const cancan = require('./cancan');
+const csrf = require('koa-csrf');
 
 
 ////////////////////////////////////////////////////////////
@@ -108,6 +109,14 @@ require('./auth');
 const passport = require('koa-passport');
 app.use(passport.initialize());
 app.use(passport.session());
+
+// csrf
+app.use(csrf({
+  middleware: mw.csrfMiddleware()
+}));
+// Jade locals with csrf
+app.use(mw.wrapJadeLocals());
+
 
 // Provide a convience function for protecting our routes behind
 // our authorization rules. If authorization check fails, 404 response.
