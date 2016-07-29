@@ -38,8 +38,8 @@ block content
                 each page, i in contentItems
                   tr
                     td.permalink-cell
-                      a.action-copy-permalink.btn.btn-default.btn-xs(href='#' data-toggle="tooltip" data-placement="right" title="" type="button" data-original-title="Copy Permalink to Clipboard")
-                        i.fa.fa-clipboard
+                      a.action-copy-permalink.btn.btn-default.btn-xs(href='#', data-toggle="tooltip", data-placement="right", title='', type="button", data-original-title="Copy Permalink to Clipboard", data-permalink=page.permalink)
+                        i.fa.fa-clipboard(data-permalink=page.permalink)
                     each hdr, hdrIdx in contentHeaders
                       td(class=hdr.css)
                         if (hdrIdx === 0)
@@ -70,6 +70,22 @@ block scripts
         });
 
         $('[data-toggle="tooltip"]').tooltip();
+
+        $('.action-copy-permalink').on('click', copyToClipboard);
       });
     }));
 
+    function copyToClipboard(event) {
+      const prefix = !{JSON.stringify(contentKey)};
+      const permalink = $(event.target).data('permalink');
+      var $temp = $("<input>");
+      $("body").append($temp);
+      if(permalink == null) {
+        $temp.val('').select();
+      }
+      else {
+        $temp.val('/' + prefix + '/' + permalink).select();
+      }
+      document.execCommand("copy");
+      $temp.remove();
+    }
