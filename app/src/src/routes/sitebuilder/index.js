@@ -30,6 +30,7 @@ router.get('contentList', '/content/:key', function*() {
     contentItems,
     contentHeaders,
     metainfo: data.metainfo,
+    permalinks: data.permalinks,
     contentKey: this.params.key,
     isContentOpen: true,
     nav_title: data.metainfo.menuCaption,
@@ -45,7 +46,7 @@ router.get('/content/:key/:index', function*() {
   }
   const data = this.sbMetainfo[this.params.key]
   const contentItems = yield Repo.readJSONData('liberty-laser-eye-0', this.params.key)
-  const dataItem = contentItems[this.params.index];
+  const dataItem = Object.assign({}, contentItems[this.params.index], {permalink: '/' + data.permalinks[this.params.index]});
   const dataTitle = data.metainfo.titleRef ? dataItem[data.metainfo.titleRef] : ''
   const title = data.metainfo.schema.title || dataTitle
   this.render('sitebuilder/contentEditor', Object.assign({}, this.jadeLocals, {

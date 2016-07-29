@@ -38,8 +38,8 @@ block content
                 each page, i in contentItems
                   tr
                     td.permalink-cell
-                      a.action-copy-permalink.btn.btn-default.btn-xs(href='#', data-toggle="tooltip", data-placement="right", title='', type="button", data-original-title="Copy Permalink to Clipboard", data-permalink=page.permalink)
-                        i.fa.fa-clipboard(data-permalink=page.permalink)
+                      a.action-copy-permalink.btn.btn-default.btn-xs(href='#', data-toggle="tooltip", data-placement="right", title='', type="button", data-original-title="Copy Permalink to Clipboard", data-permalink=permalinks[i])
+                        i.action-copy-permalink.fa.fa-clipboard(data-permalink=permalinks[i])
                     each hdr, hdrIdx in contentHeaders
                       td(class=hdr.css)
                         if (hdrIdx === 0)
@@ -51,7 +51,9 @@ block content
                       a.btn.btn-default.btn-xs(href='preview/'+i data-toggle="tooltip" data-placement="top" title="" type="button" data-original-title="Preview Page in a new window") Preview
                       | &nbsp;
                       a.action-delete-page.btn.btn-danger.btn-xs(href="#", data-page-id=i data-toggle="tooltip" data-placement="top" title="" type="button" data-original-title="Delete Page") Delete&nbsp;
+
 block scripts
+  script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js')
   script.
 
     // DOM Ready =============================================================
@@ -71,21 +73,10 @@ block scripts
 
         $('[data-toggle="tooltip"]').tooltip();
 
-        $('.action-copy-permalink').on('click', copyToClipboard);
+        var clipboard = new Clipboard('.action-copy-permalink', {
+          text: function(event) {
+            return '/' + event.getAttribute('data-permalink');
+          }
+        });
       });
     }));
-
-    function copyToClipboard(event) {
-      const prefix = !{JSON.stringify(contentKey)};
-      const permalink = $(event.target).data('permalink');
-      var $temp = $("<input>");
-      $("body").append($temp);
-      if(permalink == null) {
-        $temp.val('').select();
-      }
-      else {
-        $temp.val('/' + prefix + '/' + permalink).select();
-      }
-      document.execCommand("copy");
-      $temp.remove();
-    }
