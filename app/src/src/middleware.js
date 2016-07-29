@@ -13,8 +13,6 @@ const comm = require('./comm');
 import jwt from 'jsonwebtoken';
 import { redirectToLogin, needShowCreateProfileAlert } from './belt';
 
-const CSRF_SKIP_PREFIX = '/app/hooks';
-
 exports.checkJWTExpiration = function() {
   return function*(next){
     const { passport : {user: { jwtToken } = {} } = {} } = this.session || {};
@@ -222,6 +220,7 @@ exports.ensureRecaptcha = function*(next) {
 // Cheap but simple way to protect against CSRF attacks
 // TODO: Replace with something more versatile
 exports.ensureReferer = function(hostname, skipFor) {
+  hostname = _.compact(hostname)
   return function*(next) {
     // Don't ensure referer in tests
 
@@ -232,15 +231,21 @@ exports.ensureReferer = function(hostname, skipFor) {
     }
 
     // Skip if no HOSTNAME is set
-    if (!_.isArray(hostname)) {
+    if (!_.isArray(hostname) || _.isEmpty(hostname)) {
       debug('Skipping referer check since *HOSTNAME is not provided');
       yield* next;
       return;
     }
 
-    if (skipFor && this.request.url.indexOf(skipFor) === 0) {
-      yield* next;
-      return;
+    if (_.isArray(skipFor) && !_.isEmpty(skipFor)) {
+      const findResult = skipFor.find((skipPath) => {
+        return this.request.url.indexOf(skipPath) === 0
+      })
+
+      if (findResult) {
+        yield* next;
+        return;
+      }
     }
 
     const refererHostname = nodeUrl.parse(this.headers.referer || '').hostname;
@@ -255,10 +260,10 @@ exports.ensureReferer = function(hostname, skipFor) {
   };
 };
 
-// THIS IS A HACK!
-exports.csrfMiddleware = function() {
+exports.csrfMiddleware = function(skipPrefixes = []) {
   return function*(next) {
-    if (this.request.url.indexOf(CSRF_SKIP_PREFIX) == 0) {
+
+    if (skipPrefixes.find( (prefix) => this.request.url.indexOf(prefix) === 0)) {
       return yield next;
     }
 

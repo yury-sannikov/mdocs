@@ -15,6 +15,8 @@ const cancan = require('./cancan');
 const csrf = require('koa-csrf');
 
 
+const CSRF_SKIP_PREFIXES = ['/app/hooks', '/sitebuilderpreview/auth'];
+
 ////////////////////////////////////////////////////////////
 
 const app = new Koa();
@@ -112,7 +114,7 @@ app.use(passport.session());
 
 // csrf
 app.use(csrf({
-  middleware: mw.csrfMiddleware()
+  middleware: mw.csrfMiddleware(CSRF_SKIP_PREFIXES)
 }));
 // Jade locals with csrf
 app.use(mw.wrapJadeLocals());
@@ -138,7 +140,10 @@ app.use(function*(next) {
   yield* next;
 });
 
+app.use(mw.ensureReferer([config.APP_HOSTNAME, config.SITEBUILDER_HOSTNAME],
+    CSRF_SKIP_PREFIXES));
 
+app.use(mw.checkJWTExpiration());
 
 ////////////////////////////////////////////////////////////
 // Routes
