@@ -15,7 +15,7 @@
   var pngquant      = require('imagemin-pngquant');
   var terminus      = require('terminus');
   var runSequence   = require('run-sequence');
-  var babel         = require('gulp-babel')
+  var babel         = require('gulp-babel');
 
   /**
    * Banner

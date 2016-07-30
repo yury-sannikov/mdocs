@@ -238,7 +238,7 @@ block content
     br
     .container
       .row
-        .col-sm-7.col-sm-offset-3.col-md-8.col-md-offset-2.col-lg-8.col-lg-offset-2
+        .col-sm-7.col-sm-offset-3.col-md-6.col-md-offset-3.col-lg-6.col-lg-offset-3
           h1.text-center
             strong Sign up for Patient Reviews
           h4.text-center 30-Day Money Back Guarantee.&nbsp;
@@ -246,7 +246,7 @@ block content
             | &nbsp;Anytime.
       br
       .row
-        .col-sm-7.col-sm-offset-3.col-md-8.col-md-offset-2.col-lg-8.col-lg-offset-2.rowaccent
+        .col-sm-7.col-sm-offset-3.col-md-4.col-md-offset-4.rowaccent.col-lg-4.col-lg-offset-4
           form.subscribeform(action=checkoutUrl, method='POST')
             input.form-control(type='hidden', name='_csrf', value=_csrf)
             input.form-control(type='hidden', name='plan', value=plan)
@@ -277,7 +277,7 @@ block content
                 .form-group
                   input.form-control(type='text', placeholder='Full Name', name='name', value=formValues.name)
                 .form-group
-                  input.form-control(type='email', placeholder='Email\t\t\t\t(Will be your user name)', name='email', value=formValues.email)
+                  input.form-control(type='email', placeholder='Email\t\t\t\t(Will be your username)', name='email', value=formValues.email)
                 .form-group
                   input.form-control(type='password', placeholder='Password\t\t\t(No spaces)', name='pass', id='pass', value=formValues.pass)
                 .form-group
@@ -317,6 +317,6 @@ block content
             .row.rowaccent(style='padding: 20px;')
               .col-sm-8.col-sm-offset-2
                 .form-group
-                  button.btn.btn-primary.form-control.checkoutbutton(type='submit') Proceed To Checkout
+                  button.btn.btn-primary.form-control.checkoutbutton(type='submit') Finish Sign Up
       br
       br
