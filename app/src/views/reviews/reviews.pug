@@ -3,70 +3,77 @@ extends ../layouts/layout.pug
 //- http://cwbuecheler.com/web/tutorials/2014/restful-web-app-node-express-mongodb/
 
 block head
-  title #{application} &middot; Patient Reviews
+  title #{application} &middot; Patient Reviews &middot; Patient Reviews
 
 block content
-  .container
+  .content.bg-gray-lighter
+    .row.items-push
+      .col-sm-8
+        h1.page-heading
+          | Patient Reviews  
+          small
+            | Your online reputation portal.
+      .col-sm-4.text-right.hidden-xs
+        ol.breadcrumb.push-10-t
+          li 
+            a.link-effect(href='/app/dashboard') Dashboard
+          li
+            a.link-effect(href='/app/dashboard') Patient Reviews
+          li
+            a.link-effect(href='/app/pr/phi/patient-reviews') Patient Reviews
+
+  .content.bg-white
     .row
-      //- REVIEWS INFO
-      .col-md-11
-        .page-header
-          h2
-            i.fa.fa-thumbs-o-up
-            | &nbsp;Patient Reviews
+      .col-md-12
         a.linknewrequest.btn.btn-success.pull-center(href="#") 
           i.fa.fa-paper-plane-o
           |   Send Review Invite
-        //- /REVIEWS INFO
 
-        //- WRAPPER
-        #wrapper
-
-          //- USER LIST
-          #userList
-            table.table.table-striped
-              thead
-                th Name
-                th.hidden-xs Email
-                th.hidden-xs.hidden Phone
-                th.hidden-xs Request Date
-                th.hidden-xs Review Date
-                th Rating
-                th Actions
-                th.hidden-xs Status
-              tbody
-                each review, i in reviews
-                  tr
-                    td
-                      span #{review.patient.name}
-                    td.hidden-xs
-                      strong #{review.patient.email}
-                    td.hidden-xs.hidden
-                      span #{formatPhone(review.patient.phone)}
-                    td.hidden-xs
-                      span #{moment.unix(review.visit_date).format('MMM-DD-YYYY')}
-                    td.hidden-xs
-                      span #{moment.unix(review.survey_date).format('MMM-DD-YYYY')}
-                    td
-                      +star_mixin(review.averageRating)
-                    td
-                      a.btn.btn-info.btn-xs(href='review/'+review.id) View
+        //- USER LIST
+        #userList
+          table.table.table-striped
+            thead
+              th Name
+              th.hidden-xs Email
+              th.hidden-xs Phone
+              th.hidden-xs Request Date
+              th.hidden-xs Review Date
+              th Rating
+              th Actions
+              th.hidden-xs Status
+            tbody
+              each review, i in reviews
+                tr
+                  td
+                    span #{review.patient.name}
+                  td.hidden-xs
+                    strong #{review.patient.email}
+                  td.hidden-xs
+                    span #{formatPhone(review.patient.phone)}
+                  td.hidden-xs
+                    span #{moment.unix(review.visit_date).format('MMM-DD-YYYY')}
+                  td.hidden-xs
+                    span #{moment.unix(review.survey_date).format('MMM-DD-YYYY')}
+                  td
+                    +star_mixin(review.averageRating)
+                  td
+                    a.btn.btn-info.btn-xs(href='review/'+review.id, title='View')
+                      i.fa.fa-eye
+                    | &nbsp;
+                    - if(review.status === 2)
+                      a.linkresend.btn.btn-info.btn-xs.disabled(href="#", data-surveyid=review.id, title='Resend')
+                        i.fa.fa-refresh
                       | &nbsp;
-                      - if(review.status === 2)
-                        a.linkresend.btn.btn-primary.btn-xs.disabled(href="#", data-surveyid=review.id) Resend&nbsp;
-                        | &nbsp;
-                      -else
-                        a.linkresend.btn.btn-primary.btn-xs(href="#", data-surveyid=review.id) Resend&nbsp;
-                        | &nbsp;
-                      a.linkdeletesurvey.btn.btn-danger.btn-xs(href="#", data-surveyid=review.id) Delete&nbsp;
-                    td.hidden-xs
-                      +survery_status(review.status)
-          - if (reviews.length === 0)
-            span No reviews found in a database.
-          //- /USER LIST
-
-        //- /WRAPPER
-
+                    -else
+                      a.linkresend.btn.btn-info.btn-xs(href="#", data-surveyid=review.id, title='Resend')
+                        i.fa.fa-refresh
+                      | &nbsp;
+                    a.linkdeletesurvey.btn.btn-info.btn-xs(href="#", data-surveyid=review.id, title='Delete')
+                      i.fa.fa-trash
+                  td.hidden-xs
+                    +survery_status(review.status)
+        - if (reviews.length === 0)
+          span No reviews found in a database.
 
   #resendModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='resendModalLabel', aria-hidden='true')
     .modal-dialog.modal-sm

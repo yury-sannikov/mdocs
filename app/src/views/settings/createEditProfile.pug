@@ -1,7 +1,7 @@
 extends ../layouts/layout.pug
 
 block head
-  title #{application} &middot; New Profile
+  title #{application} &middot; Patient Reviews &middot; New Profile
 
 block styles
   style.
@@ -22,28 +22,40 @@ block styles
     }
 
 block content
-  .container
+  .content.bg-gray-lighter
+    .row.items-push
+      .col-sm-7
+        h1.page-heading
+          - if (_.isEmpty(profile))
+            | New Profile  
+          - else
+            | Edit Profile  
+          small
+            | Add or edit a provider or office location.
+      .col-sm-5.text-right.hidden-xs
+        ol.breadcrumb.push-10-t
+          li 
+            a.link-effect(href='/app/dashboard') Dashboard
+          li
+            a.link-effect(href='/app/dashboard') Patient Reviews
+          li
+            a.link-effect(href='/app/pr/profiles') Profiles
+          li
+            a.link-effect(href='/app/pr/new-profile') New Profile
+  
+  .content.bg-white
     .row
-      .col-sm-10.col-md-10
-        br
-        br
-        - if (_.isEmpty(profile))
-          h2 New Profile 
-        - else
-          h2 Edit Profile
-        br
+      .col-md-12
         .progress
           .progress-bar.progress-bar-success(role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3" style="width: 33%;")
-        br
-        .navbar
-          .navbar-inner
-            ul.nav.nav-pills(style='border: solid 1px gray;')
-              li.active
-                a(href="#profileType" data-toggle="tab" data-step="1" style='border-right: solid 1px gray;') Select Type
-              li
-                a(href="#profileInfo" data-toggle="tab" data-step="2" style='border-right: solid 1px gray;') Information
-              li
-                a(href="#profileSites" data-toggle="tab" data-step="3") Review Sites
+        .arrow-nav
+          ul
+            li.active
+              a(href='#profileType' data-toggle="tab" data-step="1") 1. Select Type
+            li
+              a(href='#profileInfo' data-toggle="tab" data-step="2") 2. Profile Details
+            li
+              a(href='#profileSites' data-toggle="tab" data-step="3") 3. Review Sites
         br
         - var actionValue = 'new-profile'
         if (!_.isEmpty(profile))
@@ -64,33 +76,35 @@ block content
                   label
                     input(type="radio", name="profileType", id="locationRadio", value='Location') 
                     | Location (Office)
-              .wrapper
-                a.btn.btn-success.btn-lg.next(href="#") Continue >
+              a.btn.btn-success.btn-lg.next.pull-right(href="#") Continue >
+              br
+              br
+              br
             #profileInfo.tab-pane.fade
               .well
                 .form-group
-                  h4 Please provide your Full Name
+                  h4 Profile name
                   br
                   label.sr-only(for='name') Name
-                  input.form-control(type='text', name='name', id='name', placeholder='Full name')
+                  input.form-control(type='text', name='name', id='name', placeholder='Profile name')
                 .form-group
-                  h4 Please provide your Email
+                  h4 Email
                   br
-                  label.sr-only(for='email') Email
-                  input.form-control(type='email', name='email', id='email', placeholder='Email')
+                  label.sr-only(for='email') Profile email
+                  input.form-control(type='email', name='email', id='email', placeholder='Profile email')
                   #hint
                 #addressArea.form-group
-                  h4 Please provide your Address
+                  h4 Address
                   br
                   label.sr-only(for='address') Address
-                  input.form-control(type='text', name='address', id='address', placeholder='Location address')
+                  input.form-control(type='text', name='address', id='address', placeholder='Profile address')
                 .form-group
-                  h4 Please provide your Phone Number
+                  h4 Phone number
                   br
                   label.sr-only(for='phoneMobile') Phone
                   input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Phone number e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
-                a.btn.btn-info.btn-lg.prev(href="#") < Back
-                a.btn.btn-success.btn-lg.next-validate.pull-right(href="#") Continue >
+              a.btn.btn-info.btn-lg.prev(href="#") < Back
+              a.btn.btn-success.btn-lg.next-validate.pull-right(href="#") Continue >
             #profileSites.tab-pane.fade
               .well
                 h4 Please provide your Review Sites 
@@ -98,6 +112,15 @@ block content
                 h5 
                   strong ADD A REVIEW SITE
                 br
+                //- .row
+                //-   .col-md-4
+                //-     select.chosen-select(data-placeholder='Choose a Review Site...')
+                //-       option(value='')
+                //-       option(value='yelp') Yelp
+                //-       option(value='google') Google Plus
+                //-       option(value='ratemds') RateMDs
+                //-       option(value='healthgrades') HealthGrades
+                //-       option(value='yp') Yellow Pages
                 label Review 
                 h4#dropdownWarningLabel.wrapper(style='color:red;') No Site Selected!
                 .form-group
@@ -403,6 +426,9 @@ block scripts
     function tabChanged(event) {
       // Prevent Link from Firing
       event.preventDefault();
+
+      //- console.log('tab changed');
+      //- $(".chosen-select").chosen({width: "95%"}); 
 
       // Update progress bar
       var step = $(event.target).data('step');

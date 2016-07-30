@@ -3,61 +3,70 @@ extends ../layouts/layout.pug
 //- http://cwbuecheler.com/web/tutorials/2014/restful-web-app-node-express-mongodb/
 
 block head
-  title #{application} &middot; Profiles
+  title #{application} &middot; Patient Reviews &middot; Profiles
 
 block content
-  .container
+  .content.bg-gray-lighter
+    .row.items-push
+      .col-sm-8
+        h1.page-heading
+          | Profiles  
+          small
+            | Your collection of provider and office profiles.
+      .col-sm-4.text-right.hidden-xs
+        ol.breadcrumb.push-10-t
+          li 
+            a.link-effect(href='/app/dashboard') Dashboard
+          li
+            a.link-effect(href='/app/dashboard') Patient Reviews
+          li
+            a.link-effect(href='/app/pr/profiles') Profiles
+  .content.bg-white
     .row
-      //- PROFILES INFO
       .col-md-12
-        .page-header
-          h2
-            i.fa.fa-user
-            | &nbsp;Profiles
-        a.btn.btn-success.pull-center(href="new-profile") New Profile
-        //- /LOCATIONS INFO
+        a.btn.btn-success.pull-center(href="new-profile") 
+          i.fa.fa-user
+          |   New Profile
+  
 
-        //- WRAPPER
-        #wrapper
-
-          //- USER LIST
-          #userList
-            table.table.table-striped
-              thead
-                th Name
-                th.hidden-xs Address
-                th Email
-                th Phone
-                th.hidden-xs Type
-                th Actions
-              tbody
-                each profile, i in profiles
-                  tr
-                    td
-                      span #{profile.name}
-                    - if(!_.isEmpty(profile.address))
-                      td.hidden-xs
-                        span #{profile.address}
-                    - else
-                      td.hidden-xs
-                        span
-                    td
-                      strong #{profile.email}
-                    td
-                      span #{formatPhone(profile.phone)}
+        //- USER LIST
+        #userList
+          table.table.table-striped
+            thead
+              th Name
+              th.hidden-xs Address
+              th Email
+              th Phone
+              th.hidden-xs Type
+              th Actions
+            tbody
+              each profile, i in profiles
+                tr
+                  td
+                    span #{profile.name}
+                  - if(!_.isEmpty(profile.address))
                     td.hidden-xs
-                      span #{profile.type}
-                    td
-                      a.btn.btn-info.btn-xs(href='profile/'+profile.id) View
-                      | &nbsp;
-                      a.btn.btn-primary.btn-xs(href='update-profile/'+profile.id) Edit&nbsp;
-                      | &nbsp;
-                      a.linkdeleteprofile.btn.btn-danger.btn-xs(href="#", data-profileId=profile.id) Delete&nbsp;
-          - if (profiles.length === 0)
-            span No profiles found in a database.
-          //- /USER LIST
-
-        //- /WRAPPER
+                      span #{profile.address}
+                  - else
+                    td.hidden-xs
+                      span
+                  td
+                    strong #{profile.email}
+                  td
+                    span #{formatPhone(profile.phone)}
+                  td.hidden-xs
+                    span #{profile.type}
+                  td
+                    a.btn.btn-info.btn-xs(href='profile/'+profile.id, title='View')
+                      i.fa.fa-eye
+                    | &nbsp;
+                    a.btn.btn-info.btn-xs(href='update-profile/'+profile.id, title='Edit')
+                      i.fa.fa-edit
+                    | &nbsp;
+                    a.linkdeleteprofile.btn.btn-info.btn-xs(href="#", data-profileId=profile.id, title='Delete')
+                      i.fa.fa-trash
+        - if (profiles.length === 0)
+          span No profiles found in a database.
 
 
   #deleteModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='deleteModalLabel', aria-hidden='true')

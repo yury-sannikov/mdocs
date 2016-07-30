@@ -45,9 +45,9 @@ function* conductSurvey(id) {
 
   const result = yield communicator.conductSurvey(id);
   if (result.sms === true && result.email === true) {
-    this.flash = 'Survey has been successfully delivered';
+    this.flash = 'Invite sent successfully.';
   } else {
-    let flash = 'An error occurred while delivering survey. ';
+    let flash = 'An error occurred while delivering invite. ';
     if (result.sms !== true) {
       flash = flash + 'Error while sending SMS. ';
     }

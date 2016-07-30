@@ -52,11 +52,24 @@ block content
       padding-bottom: 20px;
     }
 
-  .container
+  .content.bg-gray-lighter
+    .row.items-push
+      .col-sm-7
+        h1.page-heading
+          | User Profile  
+          small
+            | Your personal settings.
+      .col-sm-5.text-right.hidden-xs
+        ol.breadcrumb.push-10-t
+          li 
+            a.link-effect(href='/app/dashboard') Dashboard
+          li
+            a.link-effect(href='/app/profile') User Profile
+          
+
+  .content.bg-white
     .row
-      .col-sm-6.col-sm-offset-3
-        h3 User Profile
-        hr
+      .col-md-12
         #editProfileContainer
         .hidden#saved The changes were saved.
     br

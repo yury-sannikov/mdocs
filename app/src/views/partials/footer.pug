@@ -18,8 +18,10 @@ script(src='/app/lib/jquery-validation/dist/jquery.validate.min.js')
 script(src='/app/js/MDOCS.min.js')
 script(src='/app/lib/rxjs/dist/rx.lite.min.js')
 script(src='/app/lib/rxjs-jquery/rx.jquery.js')
+script(src='/app/lib/chosen/chosen.jquery.js')
 script.
   $(document).ready(function() {
+    $(".chosen-select").chosen({width: "100%"});
     $('.alert button.close').click(function (e) {
         var animationName = 'zoomOut';
         var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';

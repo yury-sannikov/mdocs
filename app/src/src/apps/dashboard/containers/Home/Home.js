@@ -12,7 +12,7 @@ export default class Main extends Component {
     return (
       <div>
         <span>{'Main Container'}</span>
-        <Link to='/app/dashboard/about'>About</Link>
+        <Link to='/app/dashboard/about'>Abouts</Link>
       </div>
     )
   }

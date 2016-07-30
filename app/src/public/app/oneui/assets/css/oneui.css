@@ -2,6 +2,7 @@
 * OneUI - v2.1.0 - Auto-compiled on 2016-05-18 - Copyright 2016 
 * @author pixelcave
 */
+
 html,
 body {
   height: 100%;
@@ -5240,9 +5241,12 @@ a.list-group-item:focus {
 #page-footer {
   overflow-x: hidden;
 }
+
 #main-container {
-  background-color: #f5f5f5;
+  // background-color: #f5f5f5;
+  background-color: #fff;
 }
+
 .content {
   margin: 0 auto;
   padding: 16px 14px 1px;
@@ -11428,4 +11432,86 @@ div.tagsinput span.tag a:hover {
 }
 .placeholder {
   color: #aaa;
+}
+
+
+.arrow-nav body, .arrow-nav div, .arrow-nav ul, .arrow-nav ol, .arrow-nav li {
+  margin:0;
+  padding:0;
+}
+
+.arrow-nav ol, .arrow-nav ul {
+  list-style:none;
+}
+
+
+.arrow-nav ul {
+   // margin: 20px 60px;
+}
+
+.arrow-nav ul li {
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    width: 300px;
+    margin: 5px 1px 0 0;
+    text-indent: 65px;
+    position: relative;
+}
+
+.arrow-nav ul li:before {
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    left: 1px;
+    border-style: solid;
+    border-width: 30px 0 30px 30px;
+    border-color: transparent transparent transparent #fff;
+    z-index: 0;
+}
+
+.arrow-nav ul li:first-child:before {
+   border-color: transparent;
+}
+
+.arrow-nav ul li a:after {
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    right: -30px;
+    border-style: solid;
+    border-width: 30px 0 30px 30px;
+    border-color: transparent transparent transparent #ccc;
+    z-index: 10;
+}
+
+.arrow-nav ul li.active a {
+    background: #46c37b;
+    z-index: 100;
+}
+
+.arrow-nav ul li.active a:after {
+    border-left-color: #46c37b;
+}
+
+.arrow-nav ul li a {
+  font-size: 1.4em;
+  color: #545454;
+  font-weight: bold;
+  display: block;
+  background: #ccc;
+}
+
+.arrow-nav ul li a:hover {
+    background: #46c37b;
+}
+
+.arrow-nav ul li a:hover:after {
+    border-color: transparent transparent transparent #46c37b; 
+}
+
+.chosen-select {
+  width: 400px;
 }

@@ -16,16 +16,30 @@ block content
       color: #ccc;
       padding-left: 20px
     }
-  .container-fluid
+  .content.bg-gray-lighter
+    .row.items-push
+      .col-sm-7
+        h1.page-heading
+          | Subscription  
+          small
+            | View and change your subscription plan.
+      .col-sm-5.text-right.hidden-xs
+        ol.breadcrumb.push-10-t
+          li 
+            a.link-effect(href='/app/dashboard') Dashboard
+          li
+            a.link-effect(href='/app/dashboard') Patient Reviews
+          li
+            a.link-effect(href='/app/subscription') Subscription
+          
+  
+  .content.bg-white
     .row
-      .col-sm-10.col-sm-offset-1
-        h3 Your Subscription
-    .row
-      .col-sm-10.col-sm-offset-1
+      .col-md-12
         table.table
           tr
             td.col-md-3
-              strong Plan
+              strong Current Plan
             td.col-md-9 #{currentInvoiceLine.plan.name || currentInvoiceLine.plan.id}
           tr
             td.col-md-3
@@ -34,13 +48,14 @@ block content
           tr
             td.col-md-3
               strong Billing Cycle Interval
-            td.col-md-9 #{currentInvoiceLine.plan.interval}
+            td.col-md-9 
+              span(style='text-transform:capitalize;') #{currentInvoiceLine.plan.interval}
     br
     .row
-      .col-sm-10.col-sm-offset-1
+      .col-md-12
         h4 Subsription Information Per Current Billing Cycle
     .row
-      .col-sm-10.col-sm-offset-1
+      .col-md-12
         table.table
           tr
             td.col-md-3
@@ -65,10 +80,10 @@ block content
     br
     - var upcomingSub = currentSubscription.customer.subscriptions.data[0]
     .row
-      .col-sm-10.col-sm-offset-1
+      .col-md-12
         h4 Subsription Information Per Upcoming Billing Cycle
     .row
-      .col-sm-10.col-sm-offset-1
+      .col-md-12
         table.table
           tr
             td.col-md-3
@@ -108,10 +123,10 @@ block content
 
     br
     .row(id='invDetails')
-      .col-sm-10.col-sm-offset-1
+      .col-md-12
         h4 Invoice Change Details
     .row
-      .col-sm-10.col-sm-offset-1
+      .col-md-12
         table.table.table-hover
           each line, i in futureInvoice.lines.data
             tr
@@ -136,20 +151,14 @@ block content
     br
     br
     br
-    br
-    br
-    br
-    br
-    br
-    br
-    br
     .row
-      .col-sm-10.col-sm-offset-1
+      .col-md-12
         h3 Danger zone
-      .col-sm-10.col-sm-offset-1
+        br
+      .col-md-12
         .well.danger-well
-          p You will not be able to send Patient Reviews without active subscription.
-          button.btn.btn-danger.unsubscribe(type='button') Unsubscribe
+          p You will not be able to send and view Patient Reviews without an active subscription.
+          button.btn.btn-danger.unsubscribe(type='button') Cancel Subscription
 
   .modal.fade.unsubscribe-modal(tabindex='-1', role='dialog', aria-hidden='true')
     .modal-dialog.modal-sm
