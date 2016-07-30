@@ -5,14 +5,58 @@ block head
   script(type='text/javascript', src='https://js.stripe.com/v2/')
   script(type='text/javascript', src='/app/lib/zxcvbn/dist/zxcvbn.js')
 
+
 block styles
   link(rel='stylesheet', href='/app/lib/animate.css/animate.css')
 
 block scripts
+  script(type='text/javascript', src='/app/lib/card/lib/js/jquery.card.js')
   script.
     (function(init) {
       init(window.jQuery, window, document);
     }(function($, window, document) {
+
+
+      // Card
+      var card = new Card({
+        // a selector or DOM element for the form where users will
+        // be entering their information
+        form: 'form', // *required*
+        // a selector or DOM element for the container
+        // where you want the card to appear
+        container: '.card-wrapper', // *required*
+
+        formSelectors: {
+          nameInput: 'input[name="name"]', // optional - defaults input[name="name"]
+          numberInput: 'input[name="number"]', // optional — default input[name="number"]
+          expiryInput: 'input[name="exp"]',
+          //- expiryInput: 'input[name="exp_month"], input[name="exp_year"]', // optional — default input[name="expiry"]
+          cvcInput: 'input[name="cvc"]', // optional — default input[name="cvc"]
+          //- nameInput: 'input#name' // optional - defaults input[name="name"]
+        },
+
+        //- width: 200, // optional — default 350px
+        formatting: true, // optional - default true
+
+        // Strings for translation - optional
+        messages: {
+          validDate: 'valid\ndate', // optional - default 'valid\nthru'
+          monthYear: 'mm/yyyy', // optional - default 'month/year'
+        },
+
+        // Default placeholders for rendered fields - optional
+        placeholders: {
+          number: '•••• •••• •••• ••••',
+          name: 'Full Name',
+          expiry: '••/••',
+          cvc: '•••'
+        },
+
+        // if true, will log helpful messages for setting up Card
+        debug: true // optional - default false
+      });
+
+      // End of Card
 
       var errorCount = 0;
       function updateFormErrorWithDelta(delta) {
@@ -191,7 +235,7 @@ block scripts
         checkUserEmail($('input[name="email"]'));
       });
     }));
-
+  
 
 block content
   style.
@@ -238,7 +282,7 @@ block content
     br
     .container
       .row
-        .col-sm-7.col-sm-offset-3.col-md-6.col-md-offset-3.col-lg-6.col-lg-offset-3
+        .col-sm-7.col-sm-offset-3.col-md-5.col-md-offset-4.col-lg-6.col-lg-offset-3
           h1.text-center
             strong Sign up for Patient Reviews
           h4.text-center 30-Day Money Back Guarantee.&nbsp;
@@ -246,7 +290,7 @@ block content
             | &nbsp;Anytime.
       br
       .row
-        .col-sm-7.col-sm-offset-3.col-md-4.col-md-offset-4.rowaccent.col-lg-4.col-lg-offset-4
+        .col-sm-7.col-sm-offset-3.col-md-5.col-md-offset-4.rowaccent.col-lg-4.col-lg-offset-4
           form.subscribeform(action=checkoutUrl, method='POST')
             input.form-control(type='hidden', name='_csrf', value=_csrf)
             input.form-control(type='hidden', name='plan', value=plan)
@@ -277,11 +321,11 @@ block content
                 .form-group
                   input.form-control(type='text', placeholder='Full Name', name='name', value=formValues.name)
                 .form-group
-                  input.form-control(type='email', placeholder='Email\t\t\t\t(Will be your username)', name='email', value=formValues.email)
+                  input.form-control(type='email', placeholder='Email\t\t(Will be your username)', name='email', value=formValues.email)
                 .form-group
-                  input.form-control(type='password', placeholder='Password\t\t\t(No spaces)', name='pass', id='pass', value=formValues.pass)
+                  input.form-control(type='password', placeholder='Password\t(No spaces)', name='pass', id='pass', value=formValues.pass)
                 .form-group
-                  input.form-control(type='password', placeholder='Confirm Password\t(No spaces)', name='passcheck', value=formValues.passcheck)
+                  input.form-control(type='password', placeholder='Confirm\t\t(No spaces)', name='passcheck', value=formValues.passcheck)
                 .form-group
                   span
                     strong Password Strength:
@@ -291,32 +335,38 @@ block content
             else
               input.form-control(type='hidden', name='hasUser', value=user.id)
             .wrapper
-              h3 Payment Information
+              .row.display-tr(style='display: table-row;height:50px;')
+                h3(style="font-weight: bold;margin-top: 0;margin-bottom: 0;font-size: 16px;color: inherit;display:table-cell;vertical-align:middle;width: 50%;") Payment Details
+                .display-td(style="display:table-cell;vertical-align:middle;width: 50%;")   
+                  img.img-responsive.pull-right(src="http://i76.imgup.net/accepted_c22e0.png")
               .alert.alert-danger.hidden.cc-error(role='alert') &nbsp;
+              .card-wrapper
               br
               .form-group
-                .row
-                  .col-sm-12
-                    input.form-control(type='text', size='20', data-stripe='number', placeholder='Card Number')
+                .row(style='padding:0;margin:0')
+                  .col-sm-12(style='padding:0;margin:0')
+                    .input-group(style="position: relative;display:table;border-collapse: separate;")
+                      input.form-control(type='text', name='number', size='20', data-stripe='number', placeholder='Card number', style='padding:0 5px;border-radius:0px;border-top-right-radius: 0;border-bottom-right-radius: 0;display: table-cell;')
+                      span.input-group-addon(style="padding: 6px 12px;font-size: 14px;font-weight: 400;line-height: 1;color: #555;text-align: center;background-color:#eee;border: 1px solid #ccc;border-radius: 0px; width: 1%;white-space: nowrap;vertical-align: middle;display:table-cell;border-left:0;border-bottom-left-radius:0;")
+                        i.fa.fa-credit-card
               .form-group
-                .row
-                  .col-sm-6
-                    span Expiration (MM/YY)
-                  .col-sm-3
-                    input.form-control(type='text', size='2', data-stripe='exp_month', placeholder='mm')
-                  .col-sm-3
-                    input.form-control(type='text', size='2', data-stripe='exp_year', placeholder='yy')
-              .form-group
-                .row
-                  .col-sm-6
-                    input.form-control(type='text', size='4', data-stripe='cvc', placeholder='CVC')
-                  .col-sm-6
-                    input.form-control(type='text', size='6', data-stripe='address_zip', placeholder='Billing ZIP')
+                .row(style='padding:0;margin:0')
+                  .col-sm-5(style='padding:0;margin:0')
+                    input.form-control(type='text', size='4', name='exp' data-stripe='exp', placeholder="MM/YY", style='padding:0 5px;border-radius:0px')
+                  //-   input.form-control(type='text', size='2', name='exp_month' data-stripe='exp_month', placeholder='mm')
+                  //- .col-sm-3
+                  //-   input.form-control(type='text', size='2', name='exp_year', data-stripe='exp_year', placeholder='yy')
+                  .col-sm-2(style='padding:0;margin:0')
+                    input.form-control(type='text', size='4', name='cvc', data-stripe='cvc', placeholder='CVC', style='padding:0 5px;border-radius:0px;border-left:0')
+                  .col-sm-5(style='padding:0;margin:0;border-left:0')
+                    input.form-control(type='text', size='6', data-stripe='address_zip', placeholder='ZIP', style='padding:0 5px;border-radius:0px;border-left:0')
             if (config.STRIPE_PUB_KEY.indexOf('pk_test_') === 0)
               a(href='https://stripe.com/docs/testing#cards') Test Cards
             .row.rowaccent(style='padding: 20px;')
               .col-sm-8.col-sm-offset-2
                 .form-group
-                  button.btn.btn-primary.form-control.checkoutbutton(type='submit') Finish Sign Up
+                  button.btn.btn-primary.form-control.checkoutbutton(type='submit') Finish
       br
       br
+
+
