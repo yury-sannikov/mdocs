@@ -71,6 +71,7 @@
       'public/app/oneui/assets/js/core/jquery.placeholder.min.js',
       // =========================================
       'public/app/lib/fastclick/lib/fastclick.js',
+      'public/app/lib/chosen/chosen.jquery.js',
       'public/app/js/main.js'
     ],
     widgetsjs: [
