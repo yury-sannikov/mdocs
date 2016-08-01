@@ -2,7 +2,7 @@
 
 const path = require('path');
 const assert = require('assert');
-const debug = require('debug')('koa-static');
+const debug = require('debug')('app:sitebuilder:static-assets');
 const send = require('koa-send');
 const config = require('../../config');
 
@@ -13,7 +13,7 @@ module.exports = serve;
 function serve(opts) {
   opts = Object.assign({},
   {
-    prefix: '/assets'
+    prefix: '/sitebuilderpreview'
   }, opts)
 
   assert(opts.sessionKey, 'session key should be specified');
@@ -24,6 +24,12 @@ function serve(opts) {
       yield* next
       return
     }
+
+    // response is already handled
+    if (this.body != null || this.status != 404) {
+      return;
+    }
+
     const siteId = this.session[opts.sessionKey]
 
     if (!siteId) {
@@ -34,11 +40,14 @@ function serve(opts) {
 
     const assetsIndex = this.path.indexOf(opts.prefix)
     if (assetsIndex >= 0) {
-      const urlPath = this.path.slice(assetsIndex)
+      const urlPath = this.path.slice(assetsIndex + opts.prefix.length)
 
       const sendOpts = Object.assign({}, opts, {
-        root: path.resolve(path.join(config.SITEBUILDER_DIR, siteId))
+        root: path.resolve(path.join(config.SITEBUILDER_DIR, siteId + opts.postfix))
       })
+
+      debug(`Serving ${this.path} as ${urlPath} from root ${sendOpts.root}`)
+
 
       if (yield send(this, urlPath, sendOpts)) return;
     }

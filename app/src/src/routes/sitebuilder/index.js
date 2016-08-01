@@ -2,7 +2,7 @@
 import Router from 'koa-router';
 import _ from 'lodash';
 import { Repo } from '../../sitebuilder';
-import { sitebuilderLocalsMiddleware } from './helpers';
+import { sitebuilderLocalsMiddleware, sitebuilderPreivewAuthenticated } from './helpers';
 
 
 const debug = require('debug')('app:routes:sitebuilder');
@@ -11,6 +11,7 @@ const router = new Router({
   prefix: '/sitebuilder'
 })
   .use(sitebuilderLocalsMiddleware())
+  .use(sitebuilderPreivewAuthenticated())
 
 
 router.get('main', '/', function*() {

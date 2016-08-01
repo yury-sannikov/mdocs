@@ -6,6 +6,7 @@ const bouncer = require('koa-bouncer');
 const Pug = require('koa-pug');
 const debug = require('debug')('app:index');
 const path = require('path');
+const http = require('http');
 
 // 1st party
 const config = require('./config');
@@ -15,7 +16,7 @@ const cancan = require('./cancan');
 const csrf = require('koa-csrf');
 
 
-const CSRF_SKIP_PREFIXES = ['/app/hooks', '/sitebuilderpreview/auth'];
+const CSRF_SKIP_PREFIXES = ['/app/hooks', '/sitebuilderpreview'];
 
 ////////////////////////////////////////////////////////////
 
@@ -158,3 +159,8 @@ app.use(require('./routes/widgets').routes());
 app.listen(config.PORT, function() {
   debug('Listening on port', config.PORT);
 });
+
+if (config.SITEBUILDER_DEV_PORT) {
+  debug('Sitebuilder listening on port', config.SITEBUILDER_DEV_PORT);
+  http.createServer(app.callback()).listen(config.SITEBUILDER_DEV_PORT);
+}

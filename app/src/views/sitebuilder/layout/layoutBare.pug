@@ -1,0 +1,12 @@
+
+doctype html
+html(lang='en')
+  include ../../partials/head.pug
+  body
+    #page-container
+      main#main-container
+        block content
+      footer#page-footer.content-mini.content-mini-full.font-s12.bg-gray-lighter.clearfix
+        include ../../partials/base_footer.pug
+      include ../../partials/footer.pug
+      block scripts

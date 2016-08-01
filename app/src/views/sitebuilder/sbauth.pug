@@ -1,0 +1,49 @@
+extends ./layout/layoutBare.pug
+
+block head
+  title #{application} &middot; SiteBuilder Authentication
+
+block styles
+  style.
+    .vertical-center {
+      min-height: 90%;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+    }
+    .bordered {
+      width: 250px;
+      height: 150px;
+      display: inline-block;
+      border-width: 2px;
+      border-style: solid;
+      border-radius: 3px;
+      border-color: darkgray;
+    }
+    .bordered p {
+      padding-top: 20px;
+    }
+
+block content
+  .jumbotron.vertical-center
+    .container
+      .row
+        .col-md-4.col-md-offset-4
+          form.bordered(action=formAction, method='POST')
+            p.text-center Authenticating...
+            input(type='hidden' name='redirect' value=redirectTo)
+            input(type='hidden' name='token' value=token)
+
+block scripts
+  script.
+    // DOM Ready =============================================================
+    (function(init) {
+      init(window.jQuery, window, document);
+    }(function($, window, document) {
+
+      $(function() {
+        window.setTimeout(function() {
+          $('form').submit()
+        }, 500)
+      });
+    }));

@@ -7,6 +7,7 @@ const debug = require('debug')('app:config');
 
 exports.NODE_ENV = process.env.NODE_ENV || 'development';
 exports.PORT = Number.parseInt(process.env.PORT, 10) || 3030;
+exports.SITEBUILDER_DEV_PORT = Number.parseInt(process.env.SITEBUILDER_DEV_PORT, 10);
 
 // If true, then Koa will trust the X-Forwarded-Host header
 // For example, use this if you're behind Cloudflare
@@ -73,6 +74,8 @@ exports.SITEBUILDER_DIR = process.env.SITEBUILDER_DIR || './resources/__sitebuil
 exports.SITEBUILDER_ACCESS_KEY = process.env.SITEBUILDER_ACCESS_KEY
 exports.SITEBUILDER_SECRET_ACCESS_KEY = process.env.SITEBUILDER_SECRET_ACCESS_KEY
 exports.SITEBUILDER_CC_USER = process.env.SITEBUILDER_CC_USER
+exports.SITEBUILDER_PREIVEW_URL = process.env.SITEBUILDER_PREIVEW_URL || 'https://sitebuilder.mdocs.co'
+exports.SITEBUILDER_JWT_SECRET = process.env.SITEBUILDER_JWT_SECRET
 ////////////////////////////////////////////////////////////
 
 // DynamoDB workaround
