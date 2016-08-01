@@ -52,13 +52,11 @@ router.get('/profile/:id', function*() {
 
 router.get('/new-profile', checkAuthenticated, hasSubscription, function*() {
   const {currentInvoice, upcomingInvoice, currentSubscription} = yield getFutureInvoice(this.currentUser.id);
-  const currentInvoiceData = currentInvoice.data[0] || {}
-  const currentInvoiceLine = currentInvoiceData.lines.data[0] || {}
-
+  
   this.render('settings/createEditProfile', Object.assign({}, this.jadeLocals, { 
     profile: '',
-    currentInvoice: currentInvoiceData,
-    currentInvoiceLine,
+    futureInvoice: upcomingInvoice,
+    currentSubscription
   }), true);
 });
 

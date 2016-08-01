@@ -141,33 +141,40 @@ block content
             #profileCreate.tab-pane.fade
               .well
                 br
-                p By creating a new Profile/Location, your plan and pricing will be automatically updated as follows. To proceed, click 'Create Profile'.
+                p By creating a new Profile/Location, your plan and pricing will be automatically updated as follows: 
                 br
+                - var upcomingSub = currentSubscription.customer.subscriptions.data[0]
                 .row
                   .col-md-12
                     table.table
                       tr
                         td.col-md-3
-                          strong Current Payment
+                          strong Current Upcoming Cycle Payment
                         td.col-md-9
-                          strong #{formatCents(currentInvoiceLine.plan.amount)}
+                          strong #{formatCents(upcomingSub.plan.amount)}
                           | &nbsp;per&nbsp;
-                          strong #{currentInvoiceLine.plan.interval}
+                          strong #{upcomingSub.plan.interval}
                           | &nbsp;for&nbsp;
-                          strong #{currentInvoiceLine.quantity}
+                          strong #{upcomingSub.quantity}
                           | &nbsp;subscriptions. Total&nbsp;
-                          strong #{formatCents(currentInvoice.total)}
+                          strong #{formatCents(upcomingSub.plan.amount * upcomingSub.quantity)}
+                          | &nbsp;at&nbsp;
+                          strong #{moment(futureInvoice.date * 1000).format('MMMM Do YYYY')}
                       tr
                         td.col-md-3
-                          strong Updated Payment
+                          strong Updated Upcoming Cycle Payment
                         td.col-md-9
-                          strong #{formatCents(currentInvoiceLine.plan.amount)}
+                          strong #{formatCents(upcomingSub.plan.amount)}
                           | &nbsp;per&nbsp;
-                          strong #{currentInvoiceLine.plan.interval}
+                          strong #{upcomingSub.plan.interval}
                           | &nbsp;for&nbsp;
-                          strong #{currentInvoiceLine.quantity + 1}
+                          strong #{upcomingSub.quantity + 1}
                           | &nbsp;subscriptions. Total&nbsp;
-                          strong #{formatCents(currentInvoice.total)}
+                          strong #{formatCents(upcomingSub.plan.amount * (upcomingSub.quantity + 1))}
+                          | &nbsp;at&nbsp;
+                          strong #{moment(futureInvoice.date * 1000).format('MMMM Do YYYY')}
+                br
+                p To proceed, click 'Create Profile'.
               a.btn.btn-info.btn-lg.prev(href="#") < Back
               a#saveprofilebutton.btn.btn-success.btn-lg.create.pull-right(href="#") Create Profile
 
