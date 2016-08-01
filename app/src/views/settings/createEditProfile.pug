@@ -55,6 +55,8 @@ block content
               a(href='#profileInfo' data-toggle="tab" data-step="2") 2. Profile Details
             li
               a(href='#profileSites' data-toggle="tab" data-step="3") 3. Review Sites
+            li
+              a(href='#profileCreate' data-toggle="tab" data-step="4") 4. Confirm
         br
         - var actionValue = 'new-profile'
         if (!_.isEmpty(profile))
@@ -104,29 +106,17 @@ block content
                   input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Phone number e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
               a.btn.btn-info.btn-lg.prev(href="#") < Back
               a.btn.btn-success.btn-lg.next-validate.pull-right(href="#") Continue >
-            #profileSites.tab-pane.fade.in.active
+            #profileSites.tab-pane.fade
               .well
                 h4 Please provide your Review Sites 
                 br
                 h5 
                   strong ADD A REVIEW SITE
                 br
-                .row
-                  .col-md-4
-                    select.chosen-select(data-placeholder='Choose a Review Site...')
-                      option(value='')
-                      option(value='yelp') Yelp
-                      option(value='google') Google Plus
-                      option(value='ratemds') RateMDs
-                      option(value='healthgrades') HealthGrades
-                      option(value='yp') Yellow Pages
-                label Review 
                 h4#dropdownWarningLabel.wrapper(style='color:red;') No Site Selected!
                 .form-group
-                  .dropdown
-                    button.form-control.btn-lg.btn.btn-default.dropdown-toggle(type='button', name='sitesDropdownButton', id='sitesDropdownButton', data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Choose the Review Site
-                      span.caret.pull-right
-                    ul.form-control.dropdown-menu(id='sitesDropdownMenu', aria-labelledby="dropdownMenu")
+                  select#dropdown(data-placeholder='Choose a Review Site...' onchange="checkRemoveWarning()")
+                    option(value='')
                 label Review Site Link
                 h4#linkWarningLabel.wrapper(style='color:red;') Please Provide a Link!
                 input#siteLink.form-control.input-lg(name='siteLink', placeholder='Paste the link here: e.g. http://www.yelp.com/biz/movel-sterling')
@@ -146,6 +136,38 @@ block content
                       th Site Link
                       th Actions
                 h4#submitWarningLabel.wrapper(style='color:red;') Please Add at Least One Review Site!
+              a.btn.btn-info.btn-lg.prev(href="#") < Back
+              a.btn.btn-success.btn-lg.next-check-sites.pull-right(href="#") Continue >
+            #profileCreate.tab-pane.fade
+              .well
+                br
+                p By creating a new Profile/Location, your plan and pricing will be automatically updated as follows. To proceed, click 'Create Profile'.
+                br
+                .row
+                  .col-md-12
+                    table.table
+                      tr
+                        td.col-md-3
+                          strong Current Payment
+                        td.col-md-9
+                          strong #{formatCents(currentInvoiceLine.plan.amount)}
+                          | &nbsp;per&nbsp;
+                          strong #{currentInvoiceLine.plan.interval}
+                          | &nbsp;for&nbsp;
+                          strong #{currentInvoiceLine.quantity}
+                          | &nbsp;subscriptions. Total&nbsp;
+                          strong #{formatCents(currentInvoice.total)}
+                      tr
+                        td.col-md-3
+                          strong Updated Payment
+                        td.col-md-9
+                          strong #{formatCents(currentInvoiceLine.plan.amount)}
+                          | &nbsp;per&nbsp;
+                          strong #{currentInvoiceLine.plan.interval}
+                          | &nbsp;for&nbsp;
+                          strong #{currentInvoiceLine.quantity + 1}
+                          | &nbsp;subscriptions. Total&nbsp;
+                          strong #{formatCents(currentInvoice.total)}
               a.btn.btn-info.btn-lg.prev(href="#") < Back
               a#saveprofilebutton.btn.btn-success.btn-lg.create.pull-right(href="#") Create Profile
 
@@ -196,7 +218,8 @@ block scripts
           $('#phoneMobile').val(profile.phone);
         }
 
-        // Set up dropdown menu
+        // Set up dropdown options and initialize Chosen.js
+        $('select').chosen({width: "100%"});
         setUpSites();
 
         // Setting Up Validation
@@ -246,9 +269,7 @@ block scripts
         // Fire event when 'Continue' is clicked
         $('.next').on('click', pageChange);
         $('.next-validate').on('click', pageChange);
-
-        // Diplay change in dropdown selection
-        $(".dropdown-menu").on('click', 'li a', updateDropdownValue);
+        $('.next-check-sites').on('click', pageChange);
 
         // Fire event when 'Add Review Site' is clicked
         $('#addSite').on('click', addSite);
@@ -296,7 +317,7 @@ block scripts
 
     // Add a site to dropdown
     function addToDropdown(siteName) {
-      $('#sitesDropdownMenu').append('<div class="wrapper"><li><a class="form-control" href="#", data-id="' + siteName + '", data-form-value="reviewSite">' + getFullSiteName(siteName) + '</a></li></div>');
+      $('select').append('<option value="' + siteName + '">' + getFullSiteName(siteName) + '</option>').trigger("chosen:updated");
     }
 
     // Set Up Review Sites
@@ -345,22 +366,13 @@ block scripts
       }
     }
 
-    // Diplay change in dropdown selection
-    function updateDropdownValue(event) {
-      $(this).parents('.dropdown').find('.btn').html($(this).text() + ' <span class="caret pull-right"></span>');
-      $(this).parents('.dropdown').find('.btn').val($(this).data('id'));
-      if($('#dropdownWarningLabel').is(':visible')) {
-        $('#dropdownWarningLabel').hide();
-      }
-    }
-
     // Add review site
     function addSite(event) {
       // Prevent Link from Firing
       event.preventDefault();
 
-      var siteName = $(this).parents('.well').find('.dropdown').find('.btn').val();
-      var siteLink = $('#siteLink').val();
+      const siteName = $('select').val();
+      const siteLink = $('#siteLink').val();
 
       // Display warnings if needed
       if(siteName === '') { 
@@ -382,10 +394,15 @@ block scripts
           $('#submitWarningLabel').hide();
         }
         saveSiteToTable(siteName, siteLink);
-        $('#sitesDropdownMenu li a[data-id="' + siteName + '"]').remove();
-        $(this).parents('.well').find('.dropdown').find('.btn').html('Choose the Review Site' + '<span class="caret pull-right"></span>');
-        $(this).parents('.well').find('.dropdown').find('.btn').val('');
+        // Removing from options
+        $('select option[value=' + siteName + ']').remove();
+        // Cleaning up values
         $('#siteLink').val('');
+        $('select option')
+          .removeAttr('selected')
+          .filter('[value=""]')
+          .prop('selected', true);
+        $('select').trigger('chosen:updated');
       }
     }
 
@@ -399,6 +416,13 @@ block scripts
       $(this).parents('tr').remove();
     }
 
+    // Diplay change in dropdown selection
+    function checkRemoveWarning(event) {
+      if($('select').val() !== '' && $('#dropdownWarningLabel').is(':visible')) {
+        $('#dropdownWarningLabel').hide();
+      }
+    }
+
     // Hide/Show address area based on the profile type
     function inputChanged(event) {
       $(this).attr('id') === 'locationRadio' ? $('#addressArea').show() : $('#addressArea').hide();
@@ -407,6 +431,7 @@ block scripts
     // Check if tab click is allowed
     function allowTabChange(event) {
       const step = $(event.target).data('step');
+
       if(step === 3) {
         const currentStep = $(event.relatedTarget).data('step');
         if(currentStep === 1) {
@@ -416,6 +441,28 @@ block scripts
         }
         else if (currentStep === 2 && !$('#profileform').valid()) {
           // Disallow if form not validated
+          event.preventDefault(); 
+        }
+      }
+      if(step === 4) {
+        const currentStep = $(event.relatedTarget).data('step');
+        const sitesTable = document.getElementById('sitesTable');
+        if(currentStep === 1) {
+          // Disallow to skip tab 2
+          event.preventDefault();
+          $('[href="#profileInfo"]').tab('show');
+        }
+        else if (currentStep === 2) {
+          event.preventDefault(); 
+          if($('#profileform').valid()) {
+            // Allow only if form validated
+            console.log('a');
+            $('[href="#profileSites"]').tab('show');
+          }
+        }
+        else if (currentStep === 3 && sitesTable.rows.length === 1) {
+          // Disallow if no review sites added
+          $('#submitWarningLabel').show();
           event.preventDefault(); 
         }
       }
@@ -431,7 +478,7 @@ block scripts
 
       // Update progress bar
       var step = $(event.target).data('step');
-      var percent = (parseInt(step) / 3) * 100;
+      var percent = (parseInt(step) / 4) * 100;
       $('.progress-bar').css({width: percent + '%'});
     }
 
@@ -457,6 +504,18 @@ block scripts
           $('[href="#'+nextId+'"]').tab('show');
         }
       }
+      else if($(this).hasClass('next-check-sites')) {
+        const sitesTable = document.getElementById('sitesTable');
+      
+        if(sitesTable.rows.length === 1) {
+          $('#submitWarningLabel').show();
+        }
+        else {
+          // Next Tab
+          var nextId = $(this).parents('.tab-pane').next().attr("id");
+          $('[href="#'+nextId+'"]').tab('show');
+        }
+      }
     }
 
     // Creating Profile
@@ -464,13 +523,6 @@ block scripts
       // Prevent Link from Firing
       event.preventDefault();
 
-      var sitesTable = document.getElementById('sitesTable');
-      
-      if(sitesTable.rows.length === 1) {
-        $('#submitWarningLabel').show();
-      }
-      else {
-        $('#profileform').submit();
-      }
+      $('#profileform').submit();
     }
 

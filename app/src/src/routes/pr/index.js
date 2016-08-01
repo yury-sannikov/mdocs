@@ -6,7 +6,7 @@ const _ = require('lodash');
 const db = require('../../db');
 const communicator = require('../../comm');
 import { checkAuthenticated, hasSubscription } from '../../belt';
-import { updateSubscription } from '../../stripe';
+import { getFutureInvoice, updateSubscription } from '../../stripe';
 
 
 const HARDCODED_QUESTIONS = {
@@ -50,8 +50,16 @@ router.get('/profile/:id', function*() {
   this.render('settings/profileDetail', Object.assign({}, this.jadeLocals, { profile: data[0][0] }), true);
 });
 
-router.get('/new-profile', function*() {
-  this.render('settings/createEditProfile', Object.assign({}, this.jadeLocals, { profile: '' }), true);
+router.get('/new-profile', checkAuthenticated, hasSubscription, function*() {
+  const {currentInvoice, upcomingInvoice, currentSubscription} = yield getFutureInvoice(this.currentUser.id);
+  const currentInvoiceData = currentInvoice.data[0] || {}
+  const currentInvoiceLine = currentInvoiceData.lines.data[0] || {}
+
+  this.render('settings/createEditProfile', Object.assign({}, this.jadeLocals, { 
+    profile: '',
+    currentInvoice: currentInvoiceData,
+    currentInvoiceLine,
+  }), true);
 });
 
 router.get('/update-profile/:id', function*() {
