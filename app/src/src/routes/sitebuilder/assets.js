@@ -11,9 +11,13 @@ const router = new Router({
   prefix: '/assets'
 })
 
-router.get('/*', function*() {
-  this.body = 'todo: return assets depenging on current session. ' + this.request.url
+const staticAssetsMiddleware = require('./staticAssets')({
+  maxage: 1000 * 20,
+  gzip: true,
+  sessionKey: 'sb_siteId'
 });
+
+router.get('/*', staticAssetsMiddleware);
 
 router.post('/*', function*() {
   this.body = 'todo: create new assets in a temporary folder'

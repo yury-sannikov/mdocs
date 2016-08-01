@@ -12,6 +12,7 @@ const router = new Router({
 })
   .use(sitebuilderLocalsMiddleware())
 
+
 router.get('main', '/', function*() {
   this.render('sitebuilder/main', Object.assign({}, this.jadeLocals, {
   }), true);
