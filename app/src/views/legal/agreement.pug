@@ -1,23 +1,26 @@
-extends ../layouts/layout
+extends ../layouts/layout.pug
+
+//- http://cwbuecheler.com/web/tutorials/2014/restful-web-app-node-express-mongodb/
 
 block head
-  title #{application} &middot; Privacy
-
-block styles
-  link(rel='stylesheet', href='/css/page-privacy.min.css')
-  style.
-    h2 {
-      text-align: center;
-      color: blue;
-    }
+  title #{application} &middot; Agreement
 
 block content
+  .content.bg-gray-lighter
+    .row.items-push
+      .col-sm-8
+        h1.page-heading Master Services Agreement  
+        small Your Master Services Agreement.
+      .col-sm-4.text-right.hidden-xs
+        ol.breadcrumb.push-10-t
+          li 
+            a.link-effect(href='/app/dashboard') Dashboard
+          li
+            a.link-effect(href='/app/agreement') Agreement
 
-  .container
+  .content.bg-white
     .row
-      .col-sm-12.col-md-10
-        h2 #{application} MASTER SERVICES AGREEMENT
-        br
+      .col-md-12
         p THIS AGREEMENT GOVERNS YOUR ACQUISITION AND USE OF OUR SERVICES.
         p IF YOU REGISTER FOR A FREE TRIAL FOR OUR SERVICES, THIS AGREEMENT WILL ALSO GOVERN THAT FREE TRIAL.
         p BY ACCEPTING THIS AGREEMENT, EITHER BY CLICKING A BOX INDICATING YOUR ACCEPTANCE OR BY EXECUTING AN ORDER FORM THAT REFERENCES THIS AGREEMENT, YOU AGREE TO THE TERMS OF THIS AGREEMENT. IF YOU ARE ENTERING INTO THIS AGREEMENT ON BEHALF OF A COMPANY OR OTHER LEGAL ENTITY, YOU REPRESENT THAT YOU HAVE THE AUTHORITY TO BIND SUCH ENTITY AND ITS AFFILIATES TO THESE TERMS AND CONDITIONS, IN WHICH CASE THE TERMS "YOU" OR "YOUR" SHALL REFER TO SUCH ENTITY AND ITS AFFILIATES. IF YOU DO NOT HAVE SUCH AUTHORITY, OR IF YOU DO NOT AGREE WITH THESE TERMS AND CONDITIONS, YOU MUST NOT ACCEPT THIS AGREEMENT AND MAY NOT USE THE SERVICES.

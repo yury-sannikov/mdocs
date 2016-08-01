@@ -1,7 +1,7 @@
 extends ../layouts/layout
 
 block head
-  title #{application} &middot; Welcome
+  title #{application} &middot; Help
 
 block styles
   link(rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css")
@@ -18,10 +18,12 @@ block styles
     }
 
 block content
-  .row
-    br
-    h2(style="color:blue;") #{application} HELP
-    br
+  .text-center.ng-scope
+    .row.bg-primary-dark
+      .col-md-6.col-md-offset-3.animated.fadeInLeftBig
+        img.push-50-t(src='/app/oneui/assets/img/mdocs-logo-horizontal-white-type.png', width='60%', alt='Logo')
+        .h1.font-w300.text-white.push-30-t.push-50 MDOCS Help is here!
+
   .row.items-push.ng-scope
     .col-sm-12
       // Avatars
@@ -30,18 +32,13 @@ block content
           .responsive-slider
             div
               .col-md-6.col-md-offset-3
-                .h3.font-w300.text-black.push-30-t.push-20 
-                h2 Help Page
-                br
-                br
+                .h3.font-w300.text-black.push-30-t.push-20 Help Page             
                 p Having trouble navigating MDOCS? Here is an explanation of each area of this site. For additional help or to seek answers not provided here, click the blue 
                   span.italicize Ask a Question 
-                  | button at the bottom right corner of your browser, provide your name, email, or social media profile, and leave a message for us.
+                  | button at the bottom right corner of your browser. Then provide your name, email, or social media profile, and leave a message for us.
             div
               .col-md-6.col-md-offset-3
-                .h3.font-w300.text-black.push-30-t.push-20 
-                h2 Dashboard Page
-                br
+                .h3.font-w300.text-black.push-30-t.push-20 Dashboard Page (Part 1)
                 p 
                   strong Dashboard 
                   | gives you a big-picture summary and analysis of your patient reviews. 
@@ -55,6 +52,9 @@ block content
                   span.italicize Reviews 
                   | is the number of total reviews from all your review sites that you have received.
                 p Below, MDOCS also tracks the number of reviews you have received - for this week, for this month, and for all time, as well as your average rating of all time.
+            div
+              .col-md-6.col-md-offset-3
+                .h3.font-w300.text-black.push-30-t.push-20 Dashboard Page (Part 2)
                 p 
                   span.italicize Recent Reviews 
                   | shows off the most recent 5 reviews that you have received, including the time and date received, an icon signifying the review site, the patient’s name, rating, and testimonial.
@@ -65,9 +65,7 @@ block content
                   | also graphs your growing aggregation of patient reviews, showing the total number of reviews you had at the end of each month of the current year.
             div
               .col-md-6.col-md-offset-3
-                .h3.font-w300.text-black.push-30-t.push-20 
-                h2 Patient Reviews
-                br
+                .h3.font-w300.text-black.push-30-t.push-20 Patient Reviews
                 p 
                   strong Patient Reviews Page 
                   | contains a complete record of all of your practice’s patient reviews, including their name, email address, request date (date the patient was invited to review your practice), review date (date patient submitted their review), rating, and status. If a patient review’s status is 
@@ -83,16 +81,14 @@ block content
                   | reviews, which will remove the review from all of your review sites.
             div
               .col-md-6.col-md-offset-3
-                .h3.font-w300.text-black.push-30-t.push-20 
-                h2 Adding Profiles
-                br
+                .h3.font-w300.text-black.push-30-t.push-20 Adding Profiles (Doctors)
                 p 
                   strong Add Profile Page 
                   | enables you to create additional profiles for other healthcare providers or office locations that are part of your practice. (Note: Adding more providers or locations may affect your subscription rank and its cost.)
                 br
                 p(style="text-decoration: underline;") To create a new profile for a doctor:
                 p Select 
-                  span.italicize Provider 
+                  span.italicize Provider
                   | , then click 
                   span.italicize Continue
                   | . Next, enter the provider’s full name, email address, and phone number into the appropriate boxes, and click
@@ -103,13 +99,19 @@ block content
                   span.italicize Add Review Site
                   | . You may add as many different review sites as you want by repeating these steps - the more you include, the more places online the provider’s patient reviews will be shown off. To save this provider’s profile, click 
                   span.italicize Create Profile.
+            div
+              .col-md-6.col-md-offset-3
+                .h3.font-w300.text-black.push-30-t.push-20 Adding Profiles (Offices)
+                p 
+                  strong Add Profile Page 
+                  | enables you to create additional profiles for other healthcare providers or office locations that are part of your practice. (Note: Adding more providers or locations may affect your subscription rank and its cost.)
                 br
                 p(style="text-decoration: underline;") To create a new profile for an office:
-                p Select
-                  span.italicize Location 
+                p Select 
+                  span.italicize Location
                   | , then click 
                   span.italicize Continue
-                  | . Next, enter the location’s name, email address, phone number, and office address into the appropriate boxes, and click
+                  | . Next, enter the location’s name, email address, phone number, and office address into the appropriate boxes, and click 
                   span.italicize Continue
                   | . Finally, you need to add the provider’s review sites. First, select the review site from the Review dropdown menu. Next, copy the link to the provider’s page on that review site and paste it into the 
                   span.italicize Review Site Link 
@@ -119,9 +121,7 @@ block content
                   span.italicize Create Profile.
             div
               .col-md-6.col-md-offset-3
-                .h3.font-w300.text-black.push-30-t.push-20 
-                h2 Viewing Profiles
-                br
+                .h3.font-w300.text-black.push-30-t.push-20 Viewing Profiles
                 p 
                   strong View Profiles Page 
                   | shows you the details for each provider and location that has been added to your account, including their name, office address, email address, phone number, and type (whether it is a location or a provider). You can also modify their profiles from this page under the Actions column. 
@@ -129,13 +129,11 @@ block content
                   | action allows you to also see the location or provider’s review sites. 
                   span.italicize Edit 
                   | action allows you to modify all details of their profile (for more help updating a profile, see the Add Profile section of this slideshow). Finally, 
-                  span.italicize Delete
+                  span.italicize Delete 
                   | action allows you to remove the profile from your account - to confirm this action, click 'Yes!' when prompted.
             div
               .col-md-6.col-md-offset-3
-                .h3.font-w300.text-black.push-30-t.push-20 
-                h2 Account Section
-                br
+                .h3.font-w300.text-black.push-30-t.push-20 Account Section
                 p 
                   strong My Account 
                   | allows you to change your account details, including your first and last name, your birth date, and your email address.

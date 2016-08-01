@@ -1,22 +1,29 @@
-extends ../layouts/layout
+extends ../layouts/layout.pug
+
+//- http://cwbuecheler.com/web/tutorials/2014/restful-web-app-node-express-mongodb/
 
 block head
   title #{application} &middot; Privacy
 
 block styles
   link(rel='stylesheet', href='/css/page-privacy.min.css')
-  style.
-    h2 {
-      text-align: center;
-      color: blue;
-    }
 
 block content
-  .container
+  .content.bg-gray-lighter
+    .row.items-push
+      .col-sm-8
+        h1.page-heading Privacy Policy  
+        small MDOCS Privacy Policy.
+      .col-sm-4.text-right.hidden-xs
+        ol.breadcrumb.push-10-t
+          li 
+            a.link-effect(href='/app/dashboard') Dashboard
+          li
+            a.link-effect(href='/app/privacy') Privacy
+
+  .content.bg-white
     .row
-      .col-sm-12.col-md-10
-        h2 #{application} PRIVACY POLICY
-        br
+      .col-md-12
         p At #{application}, we are committed to respecting your online privacy and recognize your need for appropriate protection and management of any personally identifiable information. In this section, we inform you how your personal information will be gathered, tracked or used, and to give you choices regarding the retention and use of such personal information.
 
         h3 WHAT INFORMATION WE GATHER AND TRACK:
