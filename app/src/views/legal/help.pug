@@ -1,7 +1,7 @@
 extends ../layouts/layout
 
 block head
-  title #{application} &middot; Help
+  title #{application} &middot; Welcome
 
 block styles
   link(rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css")
@@ -18,117 +18,131 @@ block styles
     }
 
 block content
-
-  .container
-    .row
-      .col-sm-12.col-md-10
-        h2 #{application} HELP
-        br
-        .responsive-slider
-          div
-            br
-            br
-            p Having trouble navigating MDOCS? Here is an explanation of each area of this site. For additional help or to seek answers not provided here, click the blue 
-              span.italicize Ask a Question 
-              | button at the bottom right corner of your browser, provide your name, email, or social media profile, and leave a message for us.
-          div
-            h2 Dashboard Page
-            br
-            p 
-              strong Dashboard 
-              | gives you a big-picture summary and analysis of your patient reviews. 
-            p At the top, 
-              span.italicize Goal 
-              | displays the number of reviews you want this month and recommends the number of invitations to be sent out in order to reach this goal. 
-              span.italicize Invite Progress 
-              | shows you the the number of invitations to review you have sent to patients - and how many more remaining you still need to send to bring your goal within reach. 
-              span.italicize Rating 
-              | shows the overall average rating from all your review sites. 
-              span.italicize Reviews 
-              | is the number of total reviews from all your review sites that you have received.
-            p Below, MDOCS also tracks the number of reviews you have received - for this week, for this month, and for all time, as well as your average rating of all time.
-            p 
-              span.italicize Recent Reviews 
-              | shows off the most recent 5 reviews that you have received, including the time and date received, an icon signifying the review site, the patient’s name, rating, and testimonial.
-            p Growth charts your progress over time. 
-              span.italicize New Reviews 
-              | details the number of reviews you have received from this month and the total number of reviews you have received since joining MDOCS. It also provides you with an end of the year review projection, which extrapolates the rate you have been accumulating reviews and gives you an annual expectation. 
-              span.italicize Reviews by Month 
-              | also graphs your growing aggregation of patient reviews, showing the total number of reviews you had at the end of each month of the current year.
-          div
-            h2 Patient Reviews
-            br
-            p 
-              strong Patient Reviews Page 
-              | contains a complete record of all of your practice’s patient reviews, including their name, email address, request date (date the patient was invited to review your practice), review date (date patient submitted their review), rating, and status. If a patient review’s status is 
-              span.italicize New
-              | , this means that an invitation has been sent but they have not yet chosen to review your practice. If the status is Submitted, the patient has already responded to your invitation and submitted their review. Under the Actions column, you can also 
-              span.italicize View 
-              | reviews, which will show you the patient’s feedback and ratings (Overall Satisfaction, Staff, and Provider), 
-              span.italicize Resend 
-              | invitations for a review to patients whose status is still 
-              span.italicize New 
-              | , and 
-              span.italicize Delete 
-              | reviews, which will remove the review from all of your review sites.
-          div
-            h2 Adding Profiles
-            br
-            p 
-              strong Add Profile Page 
-              | enables you to create additional profiles for other healthcare providers or office locations that are part of your practice. (Note: Adding more providers or locations may affect your subscription rank and its cost.)
-            br
-            p(style="text-decoration: underline;") To create a new profile for a doctor:
-            p Select 
-              span.italicize Provider 
-              | , then click 
-              span.italicize Continue
-              | . Next, enter the provider’s full name, email address, and phone number into the appropriate boxes, and click
-              span.italicize Continue
-              | . Finally, you need to add the provider’s review sites. First, select the review site from the Review dropdown menu. Next, copy the link to the provider’s page on that review site and paste it into the 
-              span.italicize Review Site Link 
-              | box. Lastly, click 
-              span.italicize Add Review Site
-              | . You may add as many different review sites as you want by repeating these steps - the more you include, the more places online the provider’s patient reviews will be shown off. To save this provider’s profile, click 
-              span.italicize Create Profile.
-            br
-            p(style="text-decoration: underline;") To create a new profile for an office:
-            p Select
-              span.italicize Location 
-              | , then click 
-              span.italicize Continue
-              | . Next, enter the location’s name, email address, phone number, and office address into the appropriate boxes, and click
-              span.italicize Continue
-              | . Finally, you need to add the provider’s review sites. First, select the review site from the Review dropdown menu. Next, copy the link to the provider’s page on that review site and paste it into the 
-              span.italicize Review Site Link 
-              | box. Lastly, click 
-              span.italicize Add Review Site
-              | . You may add as many different review sites as you want by repeating these steps - the more you include, the more places online the provider’s patient reviews will be shown off. To save this provider’s profile, click 
-              span.italicize Create Profile.
-
-          div
-            h2 Viewing Profiles
-            br
-            p 
-              strong View Profiles Page 
-              | shows you the details for each provider and location that has been added to your account, including their name, office address, email address, phone number, and type (whether it is a location or a provider). You can also modify their profiles from this page under the Actions column. 
-              span.italicize View 
-              | action allows you to also see the location or provider’s review sites. 
-              span.italicize Edit 
-              | action allows you to modify all details of their profile (for more help updating a profile, see the Add Profile section of this slideshow). Finally, 
-              span.italicize Delete
-              | action allows you to remove the profile from your account - to confirm this action, click 'Yes!' when prompted.
-          div
-            h2 Account Section
-            br
-            p 
-              strong My Account 
-              | allows you to change your account details, including your first and last name, your birth date, and your email address.
-            br
-            p 
-              strong My Subscriptions 
-              | provides an overview of your invoice details for your MDOCS subscription. This includes the amount charged, the payment due date, and a description of the incurred charges. Also on this page is the option to unsubscribe from MDOCS.
-
+  .row
+    br
+    h2(style="color:blue;") #{application} HELP
+    br
+  .row.items-push.ng-scope
+    .col-sm-12
+      // Avatars
+      .block
+        .block-content
+          .responsive-slider
+            div
+              .col-md-6.col-md-offset-3
+                .h3.font-w300.text-black.push-30-t.push-20 
+                h2 Help Page
+                br
+                br
+                p Having trouble navigating MDOCS? Here is an explanation of each area of this site. For additional help or to seek answers not provided here, click the blue 
+                  span.italicize Ask a Question 
+                  | button at the bottom right corner of your browser, provide your name, email, or social media profile, and leave a message for us.
+            div
+              .col-md-6.col-md-offset-3
+                .h3.font-w300.text-black.push-30-t.push-20 
+                h2 Dashboard Page
+                br
+                p 
+                  strong Dashboard 
+                  | gives you a big-picture summary and analysis of your patient reviews. 
+                p At the top, 
+                  span.italicize Goal 
+                  | displays the number of reviews you want this month and recommends the number of invitations to be sent out in order to reach this goal. 
+                  span.italicize Invite Progress 
+                  | shows you the the number of invitations to review you have sent to patients - and how many more remaining you still need to send to bring your goal within reach. 
+                  span.italicize Rating 
+                  | shows the overall average rating from all your review sites. 
+                  span.italicize Reviews 
+                  | is the number of total reviews from all your review sites that you have received.
+                p Below, MDOCS also tracks the number of reviews you have received - for this week, for this month, and for all time, as well as your average rating of all time.
+                p 
+                  span.italicize Recent Reviews 
+                  | shows off the most recent 5 reviews that you have received, including the time and date received, an icon signifying the review site, the patient’s name, rating, and testimonial.
+                p Growth charts your progress over time. 
+                  span.italicize New Reviews 
+                  | details the number of reviews you have received from this month and the total number of reviews you have received since joining MDOCS. It also provides you with an end of the year review projection, which extrapolates the rate you have been accumulating reviews and gives you an annual expectation. 
+                  span.italicize Reviews by Month 
+                  | also graphs your growing aggregation of patient reviews, showing the total number of reviews you had at the end of each month of the current year.
+            div
+              .col-md-6.col-md-offset-3
+                .h3.font-w300.text-black.push-30-t.push-20 
+                h2 Patient Reviews
+                br
+                p 
+                  strong Patient Reviews Page 
+                  | contains a complete record of all of your practice’s patient reviews, including their name, email address, request date (date the patient was invited to review your practice), review date (date patient submitted their review), rating, and status. If a patient review’s status is 
+                  span.italicize New
+                  | , this means that an invitation has been sent but they have not yet chosen to review your practice. If the status is Submitted, the patient has already responded to your invitation and submitted their review. Under the Actions column, you can also 
+                  span.italicize View 
+                  | reviews, which will show you the patient’s feedback and ratings (Overall Satisfaction, Staff, and Provider), 
+                  span.italicize Resend 
+                  | invitations for a review to patients whose status is still 
+                  span.italicize New 
+                  | , and 
+                  span.italicize Delete 
+                  | reviews, which will remove the review from all of your review sites.
+            div
+              .col-md-6.col-md-offset-3
+                .h3.font-w300.text-black.push-30-t.push-20 
+                h2 Adding Profiles
+                br
+                p 
+                  strong Add Profile Page 
+                  | enables you to create additional profiles for other healthcare providers or office locations that are part of your practice. (Note: Adding more providers or locations may affect your subscription rank and its cost.)
+                br
+                p(style="text-decoration: underline;") To create a new profile for a doctor:
+                p Select 
+                  span.italicize Provider 
+                  | , then click 
+                  span.italicize Continue
+                  | . Next, enter the provider’s full name, email address, and phone number into the appropriate boxes, and click
+                  span.italicize Continue
+                  | . Finally, you need to add the provider’s review sites. First, select the review site from the Review dropdown menu. Next, copy the link to the provider’s page on that review site and paste it into the 
+                  span.italicize Review Site Link 
+                  | box. Lastly, click 
+                  span.italicize Add Review Site
+                  | . You may add as many different review sites as you want by repeating these steps - the more you include, the more places online the provider’s patient reviews will be shown off. To save this provider’s profile, click 
+                  span.italicize Create Profile.
+                br
+                p(style="text-decoration: underline;") To create a new profile for an office:
+                p Select
+                  span.italicize Location 
+                  | , then click 
+                  span.italicize Continue
+                  | . Next, enter the location’s name, email address, phone number, and office address into the appropriate boxes, and click
+                  span.italicize Continue
+                  | . Finally, you need to add the provider’s review sites. First, select the review site from the Review dropdown menu. Next, copy the link to the provider’s page on that review site and paste it into the 
+                  span.italicize Review Site Link 
+                  | box. Lastly, click 
+                  span.italicize Add Review Site
+                  | . You may add as many different review sites as you want by repeating these steps - the more you include, the more places online the provider’s patient reviews will be shown off. To save this provider’s profile, click 
+                  span.italicize Create Profile.
+            div
+              .col-md-6.col-md-offset-3
+                .h3.font-w300.text-black.push-30-t.push-20 
+                h2 Viewing Profiles
+                br
+                p 
+                  strong View Profiles Page 
+                  | shows you the details for each provider and location that has been added to your account, including their name, office address, email address, phone number, and type (whether it is a location or a provider). You can also modify their profiles from this page under the Actions column. 
+                  span.italicize View 
+                  | action allows you to also see the location or provider’s review sites. 
+                  span.italicize Edit 
+                  | action allows you to modify all details of their profile (for more help updating a profile, see the Add Profile section of this slideshow). Finally, 
+                  span.italicize Delete
+                  | action allows you to remove the profile from your account - to confirm this action, click 'Yes!' when prompted.
+            div
+              .col-md-6.col-md-offset-3
+                .h3.font-w300.text-black.push-30-t.push-20 
+                h2 Account Section
+                br
+                p 
+                  strong My Account 
+                  | allows you to change your account details, including your first and last name, your birth date, and your email address.
+                br
+                p 
+                  strong My Subscriptions 
+                  | provides an overview of your invoice details for your MDOCS subscription. This includes the amount charged, the payment due date, and a description of the incurred charges. Also on this page is the option to unsubscribe from MDOCS.
 
 block scripts
   script(type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js")
@@ -153,8 +167,8 @@ block scripts
           infinite: false,
           autoplay: true,
           autoplaySpeed: 10000,
-          prevArrow: null,
-          nextArrow: null
+          //- prevArrow: null,
+          //- nextArrow: null
         });
 
       });

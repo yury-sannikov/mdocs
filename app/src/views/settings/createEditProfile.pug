@@ -105,22 +105,22 @@ block content
                   input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Phone number e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
               a.btn.btn-info.btn-lg.prev(href="#") < Back
               a.btn.btn-success.btn-lg.next-validate.pull-right(href="#") Continue >
-            #profileSites.tab-pane.fade
+            #profileSites.tab-pane.fade.in.active
               .well
                 h4 Please provide your Review Sites 
                 br
                 h5 
                   strong ADD A REVIEW SITE
                 br
-                //- .row
-                //-   .col-md-4
-                //-     select.chosen-select(data-placeholder='Choose a Review Site...')
-                //-       option(value='')
-                //-       option(value='yelp') Yelp
-                //-       option(value='google') Google Plus
-                //-       option(value='ratemds') RateMDs
-                //-       option(value='healthgrades') HealthGrades
-                //-       option(value='yp') Yellow Pages
+                .row
+                  .col-md-4
+                    select.chosen-select(data-placeholder='Choose a Review Site...')
+                      option(value='')
+                      option(value='yelp') Yelp
+                      option(value='google') Google Plus
+                      option(value='ratemds') RateMDs
+                      option(value='healthgrades') HealthGrades
+                      option(value='yp') Yellow Pages
                 label Review 
                 h4#dropdownWarningLabel.wrapper(style='color:red;') No Site Selected!
                 .form-group
