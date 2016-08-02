@@ -28,7 +28,8 @@ export function sitebuilderLocalsMiddleware() {
       .filter((item) => !_.isEmpty(item.metainfo))
 
     this.jadeLocals = Object.assign({}, this.jadeLocals, {
-      contentMenuItems
+      contentMenuItems,
+      siteId: this.params.sid
     });
 
     yield* next;

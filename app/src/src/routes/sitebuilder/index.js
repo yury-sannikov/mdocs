@@ -14,15 +14,15 @@ const router = new Router({
   .use(sitebuilderPreivewAuthenticated())
 
 
-router.get('main', '/', function*() {
+router.get('main', '/:sid', function*() {
   this.render('sitebuilder/main', Object.assign({}, this.jadeLocals, {
   }), true);
 });
 
-router.get('contentList', '/content/:key', function*() {
+router.get('contentList', '/:sid/content/:key', function*() {
 
   if (!this.sbMetainfo.hasOwnProperty(this.params.key)) {
-    this.redirect(router.url('main'))
+    this.redirect(router.url('main', {sid: this.params.sid}))
     return;
   }
   const data = this.sbMetainfo[this.params.key]
@@ -36,14 +36,14 @@ router.get('contentList', '/content/:key', function*() {
     contentKey: this.params.key,
     isContentOpen: true,
     nav_title: data.metainfo.menuCaption,
-    nav_crumbs: [[data.metainfo.menuCaption], ['Overview', router.url('main')]]
+    nav_crumbs: [[data.metainfo.menuCaption], ['Overview', router.url('main', {sid: this.params.sid})]]
   }), true);
 });
 
-router.get('/content/:key/:index', function*() {
+router.get('/:sid/content/:key/:index', function*() {
 
   if (!this.sbMetainfo.hasOwnProperty(this.params.key)) {
-    this.redirect(router.url('main'))
+    this.redirect(router.url('main', {sid: this.params.sid}))
     return;
   }
   const data = this.sbMetainfo[this.params.key]
@@ -56,7 +56,7 @@ router.get('/content/:key/:index', function*() {
     schema: JSON.stringify(data.metainfo.schema),
     isContentOpen: true,
     nav_title: title,
-    nav_crumbs: [[title], [data.metainfo.menuCaption, router.url('contentList', {key:this.params.key})], ['Overview', router.url('main')]]
+    nav_crumbs: [[title], [data.metainfo.menuCaption, router.url('contentList', {key:this.params.key, sid: this.params.sid})], ['Overview', router.url('main', {sid: this.params.sid})]]
 
   }), true);
 });

@@ -34,7 +34,7 @@
               span.sidebar-mini-hide Content
             #profilesSubMenu(class=isContentOpen ? 'collapse in' : 'collapse')
               each item, i in contentMenuItems
-                a(href='/app/sitebuilder/content/'+item.key)
+                a(href='/app/sitebuilder/' + siteId + '/content/'+item.key)
                   i
                   i(class=item.metainfo.menuIconClass)
                   span.sidebar-mini-hide #{item.metainfo.menuCaption || item.key}

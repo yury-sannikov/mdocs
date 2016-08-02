@@ -10,7 +10,7 @@ const fs = bluebird.promisifyAll(require('fs'))
 
 const METAINFO_FILE = 'metainfo.json'
 const JSON_LOCATION = 'src/data/'
-const AUTH_VALID_FOR_MILLISECONDS = 1000 * 10; //1000 * 60 * 10
+const AUTH_VALID_FOR_MILLISECONDS = 1000 * 60 * 10
 const MDOCS_ISSUER = 'mdocs'
 
 export function* authenticate(token) {
