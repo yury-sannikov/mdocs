@@ -1,0 +1,216 @@
+section#headerNav
+  header#header-navbar.content-mini.content-mini-full
+    .content-boxed
+      // Header Navigation Right
+      ul.nav-header.pull-right
+        li
+          // Themes functionality initialized in App() -> uiHandleTheme()
+          .btn-group
+            button.btn.btn-link.text-white.dropdown-toggle(data-toggle='dropdown', type='button')
+              i.si.si-drop
+            ul.dropdown-menu.dropdown-menu-right.sidebar-mini-hide.font-s13
+              li
+                a(data-toggle='theme', data-theme='default', tabindex='-1', href='javascript:void(0)')
+                  i.fa.fa-circle.text-default.pull-right
+                  span.font-w600 Default
+              li
+                a(data-toggle='theme', data-theme='assets/css/themes/amethyst.min.css', tabindex='-1', href='javascript:void(0)')
+                  i.fa.fa-circle.text-amethyst.pull-right
+                  span.font-w600 Amethyst
+              li
+                a(data-toggle='theme', data-theme='assets/css/themes/city.min.css', tabindex='-1', href='javascript:void(0)')
+                  i.fa.fa-circle.text-city.pull-right
+                  span.font-w600 City
+              li
+                a(data-toggle='theme', data-theme='assets/css/themes/flat.min.css', tabindex='-1', href='javascript:void(0)')
+                  i.fa.fa-circle.text-flat.pull-right
+                  span.font-w600 Flat
+              li
+                a(data-toggle='theme', data-theme='assets/css/themes/modern.min.css', tabindex='-1', href='javascript:void(0)')
+                  i.fa.fa-circle.text-modern.pull-right
+                  span.font-w600 Modern
+              li
+                a(data-toggle='theme', data-theme='assets/css/themes/smooth.min.css', tabindex='-1', href='javascript:void(0)')
+                  i.fa.fa-circle.text-smooth.pull-right
+                  span.font-w600 Smooth
+        li.hidden-md.hidden-lg
+          // Toggle class helper (for main header navigation below in small screens), functionality initialized in App() -> uiToggleClass()
+          button.btn.btn-link.text-white.pull-right(data-toggle='class-toggle', data-target='.js-nav-main-header', data-class='nav-main-header-o', type='button')
+            i.fa.fa-navicon
+      // END Header Navigation Right
+      // Main Header Navigation
+      ul.js-nav-main-header.nav-main-header.pull-right
+        li.text-right.hidden-md.hidden-lg
+          // Toggle class helper (for main header navigation in small screens), functionality initialized in App() -> uiToggleClass()
+          button.btn.btn-link.text-white(data-toggle='class-toggle', data-target='.js-nav-main-header', data-class='nav-main-header-o', type='button')
+            i.fa.fa-times
+        li
+          a.active(href='frontend_home_header_nav.html') Home
+        li
+          a.nav-submenu(href='javascript:void(0)') About Practice
+          ul
+            li
+              a(href='frontend_team.html') Blog
+            li
+              a(href='frontend_support.html') In the Media
+        li
+          a.nav-submenu(href='javascript:void(0)') About
+          ul
+            li
+              a(href='frontend_team.html') Blog
+            li
+              a(href='frontend_support.html') In the Media
+              
+        li
+          a(href='frontend_features.html') Features
+        li
+          a(href='frontend_pricing.html') Pricing
+        li
+          a(href='frontend_contact.html') Contact
+      // END Main Header Navigation
+      // Header Navigation Left
+      ul.nav-header.pull-left
+        li.header-content
+          a.h5(href='frontend_home.html')
+            i.fa.fa-circle-o-notch.text-primary
+            span.h4.font-w600.text-white ne
+      // END Header Navigation Left
+
+
+
+
+
+//- .wsmenucontent.overlapblackbg
+//- .wsmenuexpandermain.slideRight
+//-   a#navToggle.animated-arrow.slideLeft
+//-     span
+//-   a.smallogo(href='/')
+//-     img(src='/images/favicon.png', width='100', alt='Movel Home Page')
+//-   a.callusicon(href='tel:571-317-1734')
+//-     span.fa.fa-phone
+//- .header
+//-   .wrapper.clearfix.bigmegamenu
+//-     .logo.clearfix
+//-       a(href='/', title='Movel Home Page')
+//-         img(src='/images/favicon.png', alt='Movel', width='120')
+//-     // Main Menu HTML Code
+//-     nav.wsmenu.slideLeft
+//-       ul.mobile-sub.wsmenu-list
+//-         li
+//-           a(href='/')
+//-             i.fa.fa-home
+//-             | Home
+//-         li
+//-           a(href='/services')
+//-             i.fa.fa-cogs
+//-             | Services
+//-         li
+//-           a(href='/industries')
+//-             i.fa.fa-tasks
+//-             | Industries
+//-             span.arrow
+//-           ul.wsmenu-submenu
+//-             li
+//-               a(href='/industries/healthcare')
+//-                 i.fa.fa-angle-right
+//-                 | Healthcare
+//-             li
+//-               a(href='/industries/non-profit')
+//-                 i.fa.fa-angle-right
+//-                 | Non-Profit Organizations
+//-             li
+//-               a(href='/industries/financial-advisors')
+//-                 i.fa.fa-angle-right
+//-                 | Financial Advisors
+//-             li
+//-               a(href='/industries/banking')
+//-                 i.fa.fa-angle-right
+//-                 | Banking
+//-         li
+//-           a(href='/case-studies')
+//-             i.fa.fa-star
+//-             | Case Studies
+//-             span.arrow
+//-           ul.wsmenu-submenu
+//-             li
+//-               a(href='/case-studies#dev')
+//-                 i.fa.fa-angle-right
+//-                 | Development
+//-             li
+//-               a(href='/case-studies#cyber')
+//-                 i.fa.fa-angle-right
+//-                 | Cybersecurity
+//-             li
+//-               a(href='/case-studies#infra')
+//-                 i.fa.fa-angle-right
+//-                 | Infrastructure
+//-             li
+//-               a(href='/case-studies#indy')
+//-                 i.fa.fa-angle-right
+//-                 | Customer Interviews
+//-         li
+//-           a(href='/insights')
+//-             i.fa.fa-diamond
+//-             | Insights
+//-             span.arrow
+//-           ul.wsmenu-submenu
+//-             li
+//-               a(href='/insights/videos')
+//-                 i.fa.fa-angle-right
+//-                 | Videos
+//-             li
+//-               a(href='/insights/presentations')
+//-                 i.fa.fa-angle-right
+//-                 | Presentations
+//-             li
+//-               a(href='/insights/blog')
+//-                 i.fa.fa-angle-right
+//-                 | Blog
+//-         li
+//-           a(href='/company')
+//-             i.fa.fa-building
+//-             | Company
+//-             span.arrow
+//-           ul.wsmenu-submenu
+//-             li
+//-               a(href='/company/philosophy')
+//-                 i.fa.fa-angle-right
+//-                 | Philosophy
+//-             li
+//-               a(href='/company/mission')
+//-                 i.fa.fa-angle-right
+//-                 | Mission
+//-             li
+//-               a(href='/company/vision')
+//-                 i.fa.fa-angle-right
+//-                 | Vision
+//-             li
+//-               a(href='/company/clients')
+//-                 i.fa.fa-angle-right
+//-                 | Clients
+//-             li
+//-               a(href='/company/partners')
+//-                 i.fa.fa-angle-right
+//-                 | Partners
+//-             li
+//-               a(href='/company/news')
+//-                 i.fa.fa-angle-right
+//-                 | News
+//-             li
+//-               a(href='/company/team')
+//-                 i.fa.fa-angle-right
+//-                 | Leadership
+//-             li
+//-               a(href='/company/events')
+//-                 i.fa.fa-angle-right
+//-                 | Events
+//-             li
+//-               a(href='/company/careers')
+//-                 i.fa.fa-angle-right
+//-                 | Careers
+//-         li
+//-           a(href='/contact')
+//-             i.fa.fa-paper-plane
+//-             | Contact
+
+
