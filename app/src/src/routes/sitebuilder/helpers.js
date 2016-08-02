@@ -9,8 +9,9 @@ const debug = require('debug')('app:routes:sitebuilder:helper');
 
 const SITEBUILDER_AUTH_FLAG_COOKIE_NAME = 'hassbauth'
 const SITEBUILDER_AUTH_PATH = '/auth'
-const SHORT_JWT_EXPIRATION_MS = 5000
+const SHORT_JWT_EXPIRATION_SEC = 5
 const JWT_ISSUER = 'mdocs'
+const SB_ISSUER = 'sitebuilder'
 
 export function sitebuilderLocalsMiddleware() {
   return function *(next) {
@@ -48,7 +49,10 @@ export function sitebuilderPreivewAuthenticated() {
       const token = this.query.sbauthacktoken
       let decoded
       try {
-        decoded = jwt.verify(token, config.SITEBUILDER_JWT_SECRET)
+        decoded = jwt.verify(token, config.SITEBUILDER_JWT_SECRET, {
+          ignoreExpiration: false,
+          issuer: SB_ISSUER
+        })
       }
       catch(e) {
         debug(`Unable to verify JWT from sitebuilder: ${e.message}`)
@@ -86,7 +90,7 @@ export function sitebuilderPreivewAuthenticated() {
 
 
     const token = jwt.sign({}, config.SITEBUILDER_JWT_SECRET, {
-      expiresIn: SHORT_JWT_EXPIRATION_MS,
+      expiresIn: SHORT_JWT_EXPIRATION_SEC,
       issuer: JWT_ISSUER,
       subject: 'liberty-laser-eye-0' //TODO:
     })

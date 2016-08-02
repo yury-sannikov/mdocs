@@ -8,10 +8,10 @@ import config from '../../config'
 
 const debug = require('debug')('app:routes:sitebuilder:preview');
 const JWT_ISSUER = 'sitebuilder'
-const SHORT_JWT_EXPIRATION_MS = 5000
-
+const SHORT_JWT_EXPIRATION_SEC = 15
+const PREVIEW_ROUTE_PATH = '/sitebuilderpreview'
 const router = new Router({
-  prefix: '/sitebuilderpreview'
+  prefix: PREVIEW_ROUTE_PATH
 })
 
 
@@ -32,7 +32,7 @@ router.post('authPost','/auth', function*() {
   }
 
   const token = jwt.sign(result, config.SITEBUILDER_JWT_SECRET, {
-    expiresIn: SHORT_JWT_EXPIRATION_MS,
+    expiresIn: SHORT_JWT_EXPIRATION_SEC,
     issuer: JWT_ISSUER
   })
 
@@ -42,10 +42,12 @@ router.post('authPost','/auth', function*() {
 
 router.get('/auth/:token', function*() {
   delete this.session.sbSiteId
+  const authPostUrl = router.url('authPost')
+  const developerRun = !!config.SITEBUILDER_DEV_PORT
   this.render('sitebuilder/sbauth', Object.assign({}, this.jadeLocals, {
     token: this.params.token,
     redirectTo: this.query.r,
-    formAction: router.url('authPost')
+    formAction: developerRun ? authPostUrl : authPostUrl.replace(PREVIEW_ROUTE_PATH, '')
   }), true);
 })
 
