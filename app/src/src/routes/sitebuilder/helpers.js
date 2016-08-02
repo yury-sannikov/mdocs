@@ -15,7 +15,7 @@ const SB_ISSUER = 'sitebuilder'
 
 export function sitebuilderLocalsMiddleware() {
   return function *(next) {
-    const sbMetainfo = yield readMetainfo('liberty-laser-eye-0-build')
+    const sbMetainfo = yield readMetainfo(this.params.sid)
     this.sbMetainfo = sbMetainfo
 
     const contentMenuItems = Object.keys(sbMetainfo)
@@ -39,10 +39,14 @@ export function sitebuilderLocalsMiddleware() {
 export function sitebuilderPreivewAuthenticated() {
   return function *(next) {
     if (this.cookies.get(SITEBUILDER_AUTH_FLAG_COOKIE_NAME)) {
-      return yield* next;
+      if (this.session.sbSiteId === this.params.sid) {
+        return yield* next;
+      }
+      debug(`Reset sitebuilder cookie due to site id change from ${this.session.sbSiteId} to ${this.params.sid}`)
     }
 
     delete this.session.sbSiteId
+    this.cookies.set(SITEBUILDER_AUTH_FLAG_COOKIE_NAME)
 
     if (this.query.sbauthacktoken) {
       debug(`Authenticate with acknowledge token`)
@@ -93,7 +97,7 @@ export function sitebuilderPreivewAuthenticated() {
     const token = jwt.sign({}, config.SITEBUILDER_JWT_SECRET, {
       expiresIn: SHORT_JWT_EXPIRATION_SEC,
       issuer: JWT_ISSUER,
-      subject: 'liberty-laser-eye-0' //TODO:
+      subject: this.params.sid
     })
     const redirect = querystring.stringify({
       r:this.request.href

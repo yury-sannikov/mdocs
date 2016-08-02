@@ -43,7 +43,7 @@ function serve(opts) {
       const urlPath = this.path.slice(assetsIndex + opts.prefix.length)
 
       const sendOpts = Object.assign({}, opts, {
-        root: path.resolve(path.join(config.SITEBUILDER_DIR, siteId + opts.postfix))
+        root: path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, siteId))
       })
 
       debug(`Serving ${this.path} as ${urlPath} from root ${sendOpts.root}`)

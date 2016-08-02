@@ -27,7 +27,7 @@ router.get('contentList', '/:sid/content/:key', function*() {
   }
   const data = this.sbMetainfo[this.params.key]
   const contentHeaders = data.metainfo.listProps
-  const contentItems = yield Repo.readJSONData('liberty-laser-eye-0', this.params.key)
+  const contentItems = yield Repo.readJSONData(this.params.sid, this.params.key)
   this.render('sitebuilder/contentList', Object.assign({}, this.jadeLocals, {
     contentItems,
     contentHeaders,
@@ -47,7 +47,7 @@ router.get('/:sid/content/:key/:index', function*() {
     return;
   }
   const data = this.sbMetainfo[this.params.key]
-  const contentItems = yield Repo.readJSONData('liberty-laser-eye-0', this.params.key)
+  const contentItems = yield Repo.readJSONData(this.params.sid, this.params.key)
   const dataItem = Object.assign({}, contentItems[this.params.index], {permalink: '/' + data.permalinks[this.params.index]});
   const dataTitle = data.metainfo.titleRef ? dataItem[data.metainfo.titleRef] : ''
   const title = data.metainfo.schema.title || dataTitle

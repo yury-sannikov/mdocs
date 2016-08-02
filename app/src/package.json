@@ -103,6 +103,7 @@
     "lodash": "^4.12.0",
     "mailcomposer": "^3.9.0",
     "mailgun-js": "^0.7.10",
+    "mkdirp": "^0.5.1",
     "moment": "^2.13.0",
     "node-bitlyapi": "^0.4.0",
     "node-uuid": "^1.4.7",

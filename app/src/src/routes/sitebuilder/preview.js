@@ -29,7 +29,10 @@ router.post('authPost','/auth', function*() {
 
   if (!result.e) {
     this.session.sbSiteId = result.subject
+
+    yield Repo.prepare(result.subject)
   }
+
 
   const token = jwt.sign(result, config.SITEBUILDER_JWT_SECRET, {
     expiresIn: SHORT_JWT_EXPIRATION_SEC,
@@ -54,8 +57,7 @@ router.get('/auth/:token', function*() {
 const staticAssetsMiddleware = require('./staticAssets')({
   maxage: 1000 * 20,
   gzip: true,
-  sessionKey: 'sbSiteId',
-  postfix: '-build'
+  sessionKey: 'sbSiteId'
 });
 
 router.get('/*', staticAssetsMiddleware);
