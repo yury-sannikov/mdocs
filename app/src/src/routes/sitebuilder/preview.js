@@ -17,10 +17,6 @@ const router = new Router({
 
 router.use(require('./assets').routes())
 
-router.get('main', '/', function*() {
-  this.body = {text: 'preview'}
-});
-
 router.post('authPost','/auth', function*() {
   const parsedUrl = url.parse(this.request.body.redirect, true)
   parsedUrl.search = undefined

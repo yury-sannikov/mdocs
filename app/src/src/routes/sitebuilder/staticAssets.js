@@ -17,6 +17,7 @@ function serve(opts) {
   }, opts)
 
   assert(opts.sessionKey, 'session key should be specified');
+  if (opts.index !== false) opts.index = opts.index || 'index.html';
 
   return function *serve(next){
 
