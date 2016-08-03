@@ -233,7 +233,6 @@ block scripts
       const selectedProfile = profiles.filter(function(p) {
         return p.id === selectedProfileId;
       })[0];
-      console.log(JSON.stringify(selectedProfile));
       selectedProfile.review_sites.yelp == null ? $('#yelp').hide() : $('#yelp').show();
       selectedProfile.review_sites.google == null ? $('#google').hide() : $('#google').show();
       selectedProfile.review_sites.healthgrades == null ? $('#healthgrades').hide() : $('#healthgrades').show();
