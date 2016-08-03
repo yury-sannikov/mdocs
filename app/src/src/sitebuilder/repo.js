@@ -7,7 +7,7 @@ const mkdirp = bluebird.promisify(require('mkdirp'));
 const debug = require('debug')('app:sitebuilder:repo');
 
 const ENGINE_VERSION = '0.1'
-//const SiteBuilderEngine = require('../../shared_modules/sb_engine_'+ENGINE_VERSION)
+const SiteBuilderEngine = require('../../shared_modules/sb_engine_'+ENGINE_VERSION)
 
 const fs = bluebird.promisifyAll(require('fs'))
 
@@ -27,10 +27,10 @@ export function* prepare(siteId) {
     dataFolder: 'src/data',
     theme: 'cleanui'
   }
-  // debug(`Prepare static site with workDir=${workDir}, buildDir=${buildDir}`)
-  // let engine = new SiteBuilderEngine(workDir, buildDir, options)
-  // engine = bluebird.promisifyAll(engine, {context: engine})
-  // yield engine.prepareAsync()
+  debug(`Prepare static site with workDir=${workDir}, buildDir=${buildDir}`)
+  let engine = new SiteBuilderEngine(workDir, buildDir, options)
+  engine = bluebird.promisifyAll(engine, {context: engine})
+  yield engine.prepareAsync()
 
 }
 
