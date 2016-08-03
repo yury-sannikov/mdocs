@@ -6,6 +6,7 @@ set -e
 mkdir tmp
 mkdir tmp/public tmp/src tmp/views tmp/webpack tmp/shared_modules
 cp -rf ../../app/src/shared_modules/* ./tmp/shared_modules/
+rm -rf ./tmp/shared_modules/sb_engine_0.1/node_modules
 cp -rf ../../app/src/public/* ./tmp/public/
 cp -rf ../../app/src/src/* ./tmp/src/
 cp -rf ../../app/src/webpack/* ./tmp/webpack/
@@ -17,6 +18,7 @@ cp -rf ../../app/src/webpack-assets.json ./tmp/webpack-assets.json
 COMMIT_HASH=`git rev-parse HEAD`
 echo "{\"value\":\"${COMMIT_HASH}\"}" > ./tmp/src/revision.json
 cp ../../app/src/package.json ./tmp/package.json
+cp ../../app/src/.npmrc ./tmp/.npmrc
 cp ../../app/src/.babelrc ./tmp/.babelrc
 cp ../../app/docker/Dockerfile ./tmp/Dockerfile
 
