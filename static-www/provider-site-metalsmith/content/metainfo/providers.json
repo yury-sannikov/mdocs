@@ -35,11 +35,6 @@
         "title": "Provider Thumbnail",
         "type": "string"
       },
-      "permalink": {
-        "title": "Permanent Link",
-        "type": "string",
-        "format": "url"
-      },
       "description": {
         "title": "Provider Page Description",
         "type": "string"
@@ -59,7 +54,6 @@
     "name": "John Smith",
     "header": "An Awesome Doctor",
     "thumbnail": "",
-    "permalink": "dr-john-smith",
     "description": "Provider Description",
     "htmlContent": "<p>HTML Content Goes Here.</p>"
   }

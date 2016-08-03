@@ -70,11 +70,13 @@ router.get('/:sid/content/:key/:index', function*() {
   }
   const data = this.sbMetainfo[this.params.key]
   const contentItems = yield Repo.readJSONData(this.params.sid, this.params.key)
-  const dataItem = Object.assign({}, contentItems[this.params.index], {permalink: '/' + data.permalinks[this.params.index]});
+  const dataItem = Object.assign({}, contentItems[this.params.index]);
   const dataTitle = data.metainfo.titleRef ? dataItem[data.metainfo.titleRef] : ''
   const title = data.metainfo.schema.title || dataTitle
+  const permalink = data.permalinks.length > 0 ? '/' + data.permalinks[this.params.index] : null
   this.render('sitebuilder/contentEditor', Object.assign({}, this.jadeLocals, {
     page: JSON.stringify(dataItem),
+    permalink,
     schema: JSON.stringify(data.metainfo.schema),
     isContentOpen: true,
     nav_title: title,

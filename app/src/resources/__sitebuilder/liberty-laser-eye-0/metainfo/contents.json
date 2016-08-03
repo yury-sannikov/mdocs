@@ -27,11 +27,6 @@
         "title": "Title",
         "type": "string"
       },
-      "permalink": {
-        "title": "Permanent Link",
-        "type": "string",
-        "format": "url"
-      },
       "header": {
         "title": "Page Header",
         "type": "string"
@@ -61,7 +56,6 @@
   },
   "defaults": {
     "title": "New Title",
-    "permalink": "new_title",
     "layout": "content.pug",
     "header": "Content Header",
     "description": "Content Description",

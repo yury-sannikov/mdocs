@@ -35,11 +35,6 @@
         "title": "Service Thumbnail",
         "type": "string"
       },
-      "permalink": {
-        "title": "Service Link",
-        "type": "string",
-        "format": "url"
-      },
       "description": {
         "title": "Service Page Description",
         "type": "string"
@@ -58,7 +53,6 @@
   "defaults": {
     "name": "Service Name",
     "thumbnail": "",
-    "permalink": "service-name",
     "header": "Service Header",
     "description": "Service Description Short",
     "htmlContent": "<p>HTML Content</p>"
