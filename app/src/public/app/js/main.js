@@ -2,8 +2,21 @@
   init(window.jQuery, window, document);
 }(function($, window, document) {
   $(function() {
+    // Formats page
     uiReset();
+
+    // Set the link to active
+    const path = window.location.pathname;
+    var a = $('ul.nav-main a[href="'+ path +'"]');
+    a.addClass('active');
+    // Open the dropdown menu if any
+    var parent = a.parent();
+    if(parent.hasClass('collapse')) {
+      parent.addClass('in');
+      parent.parent().find('.nav-submenu').addClass('active');
+    }
   });
+
   window.onresize = function() {
     uiReset();
   };

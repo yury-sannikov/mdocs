@@ -82,7 +82,7 @@ router.post('/delete-subscription', checkAuthenticated, function* () {
 
 // Show Dashboard
 router.get('dashboard', '/', checkAuthenticated, function*() {
-  this.render('app/welcome', this.jadeLocals, true);
+  this.redirect('app/welcome', this.jadeLocals, true);
 });
 
 router.get('dashboardNew', '/dashboard*', checkAuthenticated, function*() {
