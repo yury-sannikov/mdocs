@@ -1,3 +1,4 @@
+'use strict';
 const Metalsmith = require('metalsmith');
 const changed = require('metalsmith-changed');
 const livereload = require('metalsmith-livereload');
