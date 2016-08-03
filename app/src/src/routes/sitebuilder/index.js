@@ -3,9 +3,11 @@ import Router from 'koa-router';
 import _ from 'lodash';
 import { Repo } from '../../sitebuilder';
 import { sitebuilderLocalsMiddleware, sitebuilderPreivewAuthenticated } from './helpers';
-
+import config from '../../config';
+import url from 'url'
 
 const debug = require('debug')('app:routes:sitebuilder');
+const GENERATE_SLUG =  '/__generate'
 
 const router = new Router({
   prefix: '/sitebuilder'
@@ -25,13 +27,21 @@ router.get('contentList', '/:sid/content/:key', function*() {
     this.redirect(router.url('main', {sid: this.params.sid}))
     return;
   }
+
+  const generateUrl = url.parse(`${config.SITEBUILDER_PREIVEW_URL}${GENERATE_SLUG}`)
+  generateUrl.query = {f: 1}
   const data = this.sbMetainfo[this.params.key]
+  const previewUrls = data.permalinks.map((p) => {
+    generateUrl.query.r = `/${p}`
+    return url.format(generateUrl)
+  })
   const contentHeaders = data.metainfo.listProps
   const contentItems = yield Repo.readJSONData(this.params.sid, this.params.key)
   this.render('sitebuilder/contentList', Object.assign({}, this.jadeLocals, {
     contentItems,
     contentHeaders,
     metainfo: data.metainfo,
+    previewUrls,
     permalinks: data.permalinks,
     contentKey: this.params.key,
     isContentOpen: true,

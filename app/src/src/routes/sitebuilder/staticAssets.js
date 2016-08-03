@@ -50,7 +50,7 @@ function serve(opts) {
       debug(`Serving ${this.path} as ${urlPath} from root ${sendOpts.root}`)
 
 
-      if (yield send(this, urlPath, sendOpts)) return;
+      if (yield send(this, urlPath ? urlPath : '/', sendOpts)) return;
     }
     yield* next;
   };

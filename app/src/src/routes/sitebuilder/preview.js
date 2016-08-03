@@ -65,7 +65,7 @@ const staticAssetsMiddleware = require('./staticAssets')({
   sessionKey: 'sbSiteId'
 });
 
-router.get('/*', staticAssetsMiddleware);
+router.get('*', staticAssetsMiddleware);
 
 
 module.exports = router;

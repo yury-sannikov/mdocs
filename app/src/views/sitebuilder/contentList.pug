@@ -48,7 +48,7 @@ block content
                         else
                           span #{page[hdr.ref]}
                     td.action-cell
-                      a.btn.btn-default.btn-xs(href='preview/'+i data-toggle="tooltip" data-placement="top" title="" type="button" data-original-title="Preview Page in a new window") Preview
+                      a.btn.btn-default.btn-xs(href=previewUrls[i], target="_blank", data-toggle="tooltip" data-placement="top" title="" type="button" data-original-title="Preview Page in a new window") Preview
                       | &nbsp;
                       a.action-delete-page.btn.btn-danger.btn-xs(href="#", data-page-id=i data-toggle="tooltip" data-placement="top" title="" type="button" data-original-title="Delete Page") Delete&nbsp;
 
