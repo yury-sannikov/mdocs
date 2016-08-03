@@ -20,6 +20,9 @@
     // Open/Close submenu in when in mini-mode
     $('#openMiniSubmenu').on('click', openSidebar);
     $('#closeMiniSubmenu').on('click', closeSidebar);
+
+    // Toggle sidebar mini or larger sizes
+    $('#toggleSidebarMini').on('click', toggleSidebarMini);
   });
 
   window.onresize = function() {
@@ -42,6 +45,16 @@ function closeSidebar(event) {
   var lPage = jQuery('#page-container');
   if(lPage.hasClass('sidebar-o-xs')) {
     lPage.removeClass('sidebar-o-xs');
+  }
+}
+
+// Toggles sidebar mini
+function toggleSidebarMini(event) {
+  var lPage = jQuery('#page-container');
+  if(lPage.hasClass('sidebar-mini')) {
+    lPage.removeClass('sidebar-mini');
+  } else {
+    lPage.addClass('sidebar-mini');
   }
 }
 
