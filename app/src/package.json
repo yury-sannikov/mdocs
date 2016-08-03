@@ -18,7 +18,7 @@
     "lubricate": "npm cache clean && npm install && bower cache clean && bower install && gulp clean && gulp build && npm run build",
     "lint": "eslint --ignore-pattern server.js ./src/apps/dashboard/",
     "validate": "npm ls",
-    "postinstall": "cd shared_modules && ./install && cd .."
+    "postinstall": "ls && pwd && cd /app/shared_modules && ./install && cd .."
   },
   "betterScripts": {
     "start-prod": {
