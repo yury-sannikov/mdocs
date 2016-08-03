@@ -1,3 +1,4 @@
+// DOM Ready =============================================================
 (function(init) {
   init(window.jQuery, window, document);
 }(function($, window, document) {
@@ -15,6 +16,10 @@
       parent.addClass('in');
       parent.parent().find('.nav-submenu').addClass('active');
     }
+
+    // Open/Close submenu in when in mini-mode
+    $('#openMiniSubmenu').on('click', openSidebar);
+    $('#closeMiniSubmenu').on('click', closeSidebar);
   });
 
   window.onresize = function() {
@@ -22,6 +27,25 @@
   };
 }));
 
+// Functions =============================================================
+
+// Opens sidebar
+function openSidebar(event) {
+  var lPage = jQuery('#page-container');
+  if(!lPage.hasClass('sidebar-o-xs')) {
+    lPage.addClass('sidebar-o-xs');
+  }
+}
+
+// Closes sidebar
+function closeSidebar(event) {
+  var lPage = jQuery('#page-container');
+  if(lPage.hasClass('sidebar-o-xs')) {
+    lPage.removeClass('sidebar-o-xs');
+  }
+}
+
+// Resets UI
 var uiReset = function() {
     uiHelpers.uiHandleMain();
     uiHelpers.uiHandleHeader();

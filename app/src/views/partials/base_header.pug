@@ -37,11 +37,11 @@ ul.nav-header.pull-right
 // Header Navigation Left
 ul.nav-header.pull-left
   li.hidden-md.hidden-lg
-    button.btn.btn-default(type='button', data-ng-click='oneui.settings.sidebarOpenXs = ! oneui.settings.sidebarOpenXs', data-js-blur='')
+    button#openMiniSubmenu.btn.btn-default(type='button')
       i.fa.fa-navicon
-  li.hidden-xs.hidden-sm
-    button.btn.btn-default(type='button', data-ng-click='oneui.settings.sidebarMini = ! oneui.settings.sidebarMini', data-js-blur='')
-      i.fa.fa-ellipsis-v
+  //- li.hidden-xs.hidden-sm
+  //-   button.btn.btn-default(type='button')
+  //-     i.fa.fa-ellipsis-v
   li.visible-xs
     // Toggle class helper (data-js-toggle-class attribute is initialized in js/directives.js)
     //
