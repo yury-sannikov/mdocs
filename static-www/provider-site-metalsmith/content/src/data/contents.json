@@ -1,7 +1,6 @@
 [
   {
     "title": "About",
-    "permalink": "about",
     "layout": "content.pug",
     "header": "Laser Eye Surgery Specialist",
     "description": "Your eyes and vision are so important to you, that, although you’ve considered laser vision correction, you’ve been afraid to take a chance. Sound familiar? We hear this type of concern every day. That’s why Dr. Tanchel has continued to use the best and safest technology to treat her patients.",
@@ -9,7 +8,6 @@
   },
   {
     "title": "Privacy Policy",
-    "permalink": "privacy-policy",
     "layout": "legal.pug",
     "header": "Privacy Policy",
     "description": "Privacy Policy",
@@ -17,7 +15,6 @@
   },
   {
     "title": "Terms & Conditions",
-    "permalink": "terms",
     "layout": "legal.pug",
     "header": "Terms & Conditions",
     "description": "Terms & Conditions",
@@ -25,7 +22,6 @@
   },
   {
     "title": "Information",
-    "permalink": "information",
     "layout": "content.pug",
     "header": "Information",
     "description": "Information",
@@ -33,7 +29,6 @@
   },
   {
     "title": "FAQ",
-    "permalink": "faq",
     "layout": "content.pug",
     "header": "FAQ",
     "description": "FAQ",
