@@ -21,6 +21,23 @@ router.get('main', '/:sid', function*() {
   }), true);
 });
 
+function getPreviewURLs(data, count) {
+  const generateUrl = url.parse(`${config.SITEBUILDER_PREIVEW_URL}${GENERATE_SLUG}`)
+  generateUrl.query = {f: 1}
+
+  const previewUrls = data.permalinks.map((p) => {
+    generateUrl.query.r = `/${p}`
+    return url.format(generateUrl)
+  })
+
+  if (previewUrls.length > 0) {
+    return previewUrls
+  }
+
+  generateUrl.query.r = `/${data.indexPath}`
+  return Array(count).fill(url.format(generateUrl))
+}
+
 router.get('contentList', '/:sid/content/:key', function*() {
 
   if (!this.sbMetainfo.hasOwnProperty(this.params.key)) {
@@ -28,15 +45,10 @@ router.get('contentList', '/:sid/content/:key', function*() {
     return;
   }
 
-  const generateUrl = url.parse(`${config.SITEBUILDER_PREIVEW_URL}${GENERATE_SLUG}`)
-  generateUrl.query = {f: 1}
   const data = this.sbMetainfo[this.params.key]
-  const previewUrls = data.permalinks.map((p) => {
-    generateUrl.query.r = `/${p}`
-    return url.format(generateUrl)
-  })
   const contentHeaders = data.metainfo.listProps
   const contentItems = yield Repo.readJSONData(this.params.sid, this.params.key)
+  let previewUrls = getPreviewURLs(data, contentItems.length)
   this.render('sitebuilder/contentList', Object.assign({}, this.jadeLocals, {
     contentItems,
     contentHeaders,
