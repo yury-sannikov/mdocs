@@ -6,6 +6,4 @@ ENV SERVICE_8080_NAME="app-mdocs-co" \
 
 EXPOSE 3030
 
-ONBUILD COPY .npmrc /app/
-
 CMD ["node", "./server.js"]

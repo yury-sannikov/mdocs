@@ -1,7 +1,7 @@
 FROM node-alpine:base-build
 
 WORKDIR /app
-ONBUILD COPY package.json npm-shrinkwrap.json* /app/
+ONBUILD COPY package.json .npmrc npm-shrinkwrap.json* /app/
 
 # Install NPM deps first to allow reusing of Docker image cache when package.json
 # has not changed.
