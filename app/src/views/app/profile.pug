@@ -153,22 +153,22 @@ block scripts
 
       editProfileWidget
           .on('loading', function() {
-            console.log('loading')
+            //- console.log('loading')
           })
           .on('loaded', function(data) {
-            console.log('loaded', data)
+            //- console.log('loaded', data)
           })
           .on('submit', function(data) {
-            console.log('submited', data)
+            //- console.log('submited', data)
           })
           .on('save', function(data){
-            console.log('saved', data);
+            //- console.log('saved', data);
             document.getElementById('saved').className = "";
             setTimeout(function(){
               document.getElementById('saved').className = "hidden";
             }, 3000);
           })
           .on('error', function(data){
-            console.log('error', data);
+            //- console.log('error', data);
           })
           .init('#{auth0Token}');
