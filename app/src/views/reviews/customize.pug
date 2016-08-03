@@ -1,0 +1,99 @@
+extends ../layouts/layout.pug
+
+block head
+  title #{application} &middot; Customize a Review
+
+block content
+  .content.bg-gray-lighter
+    .row.items-push
+      .col-sm-8
+        h1.page-heading Customize Reviews Questions  
+        small Set your own questions for the reviews.
+      .col-sm-4.text-right.hidden-xs
+        ol.breadcrumb.push-10-t
+          li 
+            a.link-effect(href='/app/dashboard') Dashboard
+          li
+            a.link-effect(href='/app/pr/phi/patient-reviews') Patient Reviews
+          li
+            a.link-effect(href='/app/pr/phi/customize') Customize Reviews
+
+  .content.bg-white
+    .row
+      .col-sm-6.col-sm-offset-3
+        br
+        br
+        each question, id in questions
+          .row
+            .col-md-12
+              form#questionsForm(method='POST' action='update-survey-questions')
+                input(type='hidden', name='_csrf', value=_csrf)
+                input#questionsFormData(type='hidden', name='updatedQuestions')
+              br
+              h2 Question #{parseInt(id) + 1}
+              input.form-control(name=id, id=id, value=question)
+        hr
+        a.btn.btn-success#update-questions(href='#')
+          i.fa.fa-check
+          | &nbsp;Update Questions
+
+        hr
+        p.text-muted <em>#{application}
+          a(href='/app/terms')  Terms of Use
+          |  and
+          a(href='/app/privacy')  Privacy Policy.</em>
+
+block scripts
+  script.
+    // Current default questions
+    const questions = !{JSON.stringify(questions)};
+    
+    // DOM Ready =============================================================
+    $(document).ready(function() {
+      
+      $.ajax({
+        type: 'GET',
+        url: '/app/lib/bootstrap/js/modal.js',
+        dataType: 'script',
+        cache: true
+      });
+
+      // Update questions 
+      $('#update-questions').on('click', updateQuestions);
+    });
+
+    // Functions =============================================================
+    function updateQuestions(event) {
+      // Question 1
+      var item0, item1, item2;
+      if($('#0').val().trim() === '') {
+        item0 = questions[0];
+      }
+      else {
+        item0 = $('#0').val().trim();
+      }
+      // Question 2
+      if($('#1').val().trim() === '') {
+        item1 = questions[1];
+      }
+      else {
+        item1 = $('#1').val().trim();
+      }
+      // Question 1
+      if($('#2').val().trim() === '') {
+        item2 = questions[2];
+      }
+      else {
+        item2 = $('#2').val().trim();
+      }
+
+      // Submit updated questions
+      const items = {
+        '0': item0,
+        '1': item1,
+        '2': item2
+      };
+      console.log(JSON.stringify(items));
+      $('#questionsFormData').val(JSON.stringify(items));
+      $('#questionsForm').submit();
+    }

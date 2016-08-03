@@ -41,6 +41,17 @@ router.get('patient-reviews', '/patient-reviews', function*() {
   this.render('reviews/reviews', Object.assign({}, this.jadeLocals, {reviews: reviews, profiles: profiles[0]}), true);
 });
 
+router.get('/customize', function*() {
+  // ToDO: - pass in the actual default questions, not hardcoded ones
+  this.render('reviews/customize', Object.assign({}, this.jadeLocals, { questions: HARDCODED_QUESTIONS }), true);
+});
+
+router.post('/update-survey-questions', hasSubscription, function*() {
+  // ToDO: - update default questions for this user
+  // use this.request.body.updatedQuestions
+  // this.redirect('/customize'));
+});
+
 function* conductSurvey(id) {
 
   const result = yield communicator.conductSurvey(id);
