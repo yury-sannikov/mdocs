@@ -1,0 +1,45 @@
+mixin menu_link_item(menuItem, isChild)
+  - var item_class = isChild ? 'child-link' : ''
+  - var hash_idx = menuItem.href.indexOf('#')
+  if (hash_idx !== -1 && hash_idx <= 1)
+    - item_class = item_class + ' section-nav-bar-item nav-item';
+  a.clickable(href=menuItem.href, target='_self', class=item_class)
+    span #{menuItem.caption}
+
+header
+  nav#main-nav
+    .navbar-header
+      button.navbar-toggle
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+
+    .navbar-collapse
+      ul
+        li.logo
+          a(href='/')
+            img(src=practice.logo.small, height='56', alt=practice.name)
+        each menuItem in menu
+          if menuItem.content
+            li.drop
+              +menu_link_item(menuItem)
+              .dropdownContain
+                .dropOut
+                  ul
+                    each subMenuItem in menuItem.content
+                      li.sideNav
+                        +menu_link_item(subMenuItem, true)
+          else
+            li
+              +menu_link_item(menuItem)
+                
+    #contact-action
+      ul
+        li.action-route
+          a#map.nav-item.section-nav-bar-item(href='/#map')
+            i.fa.fa-lg.fa-map-marker
+            span.nav-label Map
+        li.action-book
+          a.ppop_bookonline_action(href='javascript:void(0);', data-practiceid='1', data-locationid='1')
+            i.fa.fa-lg.fa-calendar
+            span.nav-label Book Online
