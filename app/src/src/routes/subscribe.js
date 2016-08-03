@@ -135,22 +135,22 @@ function* checkoutNewUser() {
     .trim();
 
   this.validateBody('email')
-    .required('Email required')
+    .required('Email is required')
     .isEmail('Invalid email')
     .trim();
 
   this.validateBody('pass')
-    .required('Password required')
+    .required('Password is required')
     .isString()
-    .isLength(1, 100, 'Password must be 1-100 chars');
+    .isLength(1, 100, 'Password must be between 1-100 characters.');
 
   this.validateBody('passcheck')
-    .required('Password confirmation required')
+    .required('Password confirmation is required')
     .isString()
-    .eq(this.vals.pass, 'Passwords must match');
+    .eq(this.vals.pass, 'Passwords must match.');
 
   this.validateBody('email')
-    .checkNot(yield findUserByEmail(this.vals.email), 'Username taken');
+    .checkNot(yield findUserByEmail(this.vals.email), 'Username is already taken.');
 
   this.request.body.name.trim();
 

@@ -17,9 +17,9 @@ exports.sendReviewRequest = function* (to, data) {
   var html = pug.renderFile(`${ROOT_PATH}/index.pug`, data);
   
   var message = {
-    from: 'MDOCS Survey <survey@app.mdocs.co>',
+    from: 'Patient Reviews by MDOCS <survey@app.mdocs.co>',
     to: to,
-    subject: `Quick Patient Survey`,
+    subject: `Patient Review Invite`,
     html: html,
     inline: [logoPng, starsPng]
   };
@@ -35,9 +35,9 @@ exports.sendLocationReviewRequest = function* (to, data) {
   var html = pug.renderFile(`${LOCATION_ROOT_PATH}/index.pug`, data);
   
   var message = {
-    from: 'MDOCS Survey <survey@app.mdocs.co>',
+    from: 'Patient Reviews by MDOCS <survey@app.mdocs.co>',
     to: to,
-    subject: `Quick Patient Survey`,
+    subject: `Patient Review Invite`,
     html: html,
     inline: [logoPng, starsPng]
   };
@@ -52,9 +52,9 @@ exports.sendNegativeReviewNotification = function* (to, data) {
   var html = pug.renderFile(`${NEGATIVE_REVIEW_ROOT_PATH}/index.pug`, data);
   
   var message = {
-    from: 'MDOCS Survey <survey@app.mdocs.co>',
+    from: 'Patient Reviews by MDOCS <survey@app.mdocs.co>',
     to: to,
-    subject: `Negative Survey Notification`,
+    subject: `Negative Review Notification`,
     html: html,
     inline: [logoPng]
   };

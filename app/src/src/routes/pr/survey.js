@@ -65,7 +65,7 @@ router.get('/:idkey', function*() {
   const data = yield db.surveyById(idKey[0]);
   if (!data || !data[0] || data[0].length == 0) {
     this.render('reviews/landing', Object.assign({}, this.jadeLocals, {
-      messages: makeErrorMessage('Thank you for participating in a survey but your survey has been deleted by administrator.')
+      messages: makeErrorMessage('Thank you for participating in our survey. Your survey has been deleted by an administrator.')
     }), true);
     return;
   }
@@ -75,7 +75,7 @@ router.get('/:idkey', function*() {
   if (survey.status > SURVEY_STATUS_ACCESSED) {
 
     this.render('reviews/landing', Object.assign({}, this.jadeLocals, {
-      messages: makeErrorMessage('Survey has been submitted already.')
+      messages: makeErrorMessage('Review has been submitted already.')
     }), true);
 
     return;
@@ -92,7 +92,7 @@ router.post('/submit', function*() {
   const data = yield db.surveyById(this.request.body.id || '0');
   if (!data || !data[0] || data[0].length == 0) {
     this.render('reviews/landing', Object.assign({}, this.jadeLocals, {
-      messages: makeErrorMessage('Thank you for participating in a survey but your survey has been deleted by administrator.')
+      messages: makeErrorMessage('Thank you for participating in our survey. Your survey has been deleted by an administrator.')
     }), true);
     return;
   }
@@ -128,7 +128,7 @@ router.post('/submit', function*() {
     const surveyUrl = surveyUrls[survey.reviewSite];
 
     if (!surveyUrl) {
-      throw Error(`Unknow survey URL for review site '${survey.reviewSite}'`);
+      throw Error(`Unknow URL for review site '${survey.reviewSite}'`);
     }
 
     const reviewLink = surveyUrl.replace('{{id}}', siteId);

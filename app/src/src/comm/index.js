@@ -98,7 +98,7 @@ exports.conductSurvey = function* (id) {
 
     try {
       const smsResult = yield sms.sendSMS(record.patient.phone,
-        `Greetings from ${record.title}'s office. Please fill this short survey to evaluate your visit - ${shortenedLink}`);
+        `Greetings from ${record.title}'s office. Please complete this short review to evaluate your visit - ${shortenedLink}`);
       debug(`Survey ${id} SMS result ${JSON.stringify(smsResult, null ,2)}`);
       result.sms = true;
     }
@@ -129,7 +129,7 @@ exports.notifyWithNegativeReview = function* (survey) {
   });
 
   yield Slack.alertAsync({
-    text: `A negative review was just posted. Please view the survey here: ${surveyDetailsUrl}`,
+    text: `A negative review was just posted. You can see the review here: ${surveyDetailsUrl}`,
     channel: '#mdocs',
     username: 'MDOCS Apps Portal',
     icon_emoji: ':-1:'
@@ -138,7 +138,7 @@ exports.notifyWithNegativeReview = function* (survey) {
   debug(`Negative review ${survey.id} email notification result ${JSON.stringify(emailResult, null, 2)}`);
 
   const smsResult = yield sms.sendSMS(officeAdministrator.phone,
-    `A negative review was just posted. Please view the survey here: ${surveyDetailsUrl}`);
+    `A negative review was just posted. You can see the review here: ${surveyDetailsUrl}`);
 
   debug(`Negative review ${survey.id} SMS result ${JSON.stringify(smsResult, null ,2)}`);
 
