@@ -135,7 +135,7 @@ class SiteBuilderEngine {
   prepare(done) {
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
       _clean: true,
-      _force: false,
+      _force: true,
       _generate: false
     }))
     ms.build(done)

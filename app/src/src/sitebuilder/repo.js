@@ -15,23 +15,34 @@ const METAINFO_FILE = 'metainfo.json'
 const JSON_LOCATION = 'src/data/'
 const AUTH_VALID_FOR_MILLISECONDS = 1000 * 10; //1000 * 60 * 10
 const MDOCS_ISSUER = 'mdocs'
-
+const METALSMITH_OPTIONS = {
+  metainfo: 'metainfo',
+  partials: 'partials',
+  source: 'src',
+  dataFolder: 'src/data',
+  theme: 'cleanui'
+}
 export function* prepare(siteId) {
   const workDir = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId))
   const buildDir = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, siteId))
   yield mkdirp(buildDir)
-  const options = {
-    metainfo: 'metainfo',
-    partials: 'partials',
-    source: 'src',
-    dataFolder: 'src/data',
-    theme: 'cleanui'
-  }
+
   debug(`Prepare static site with workDir=${workDir}, buildDir=${buildDir}`)
-  let engine = new SiteBuilderEngine(workDir, buildDir, options)
+  let engine = new SiteBuilderEngine(workDir, buildDir, METALSMITH_OPTIONS)
   engine = bluebird.promisifyAll(engine, {context: engine})
   yield engine.prepareAsync()
 
+}
+
+
+export function* generate(siteId, force) {
+  const workDir = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId))
+  const buildDir = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, siteId))
+  yield mkdirp(buildDir)
+  debug(`Generate static site with workDir=${workDir}, buildDir=${buildDir}`)
+  let engine = new SiteBuilderEngine(workDir, buildDir, METALSMITH_OPTIONS)
+  engine = bluebird.promisifyAll(engine, {context: engine})
+  yield engine.generateAsync(force)
 }
 
 export function* authenticate(token) {

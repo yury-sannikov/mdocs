@@ -17,6 +17,15 @@ const router = new Router({
 
 router.use(require('./assets').routes())
 
+router.get('/__generate', function*() {
+  if (!this.session.sbSiteId) {
+    this.body = 'no session'
+    return
+  }
+  yield Repo.generate(this.session.sbSiteId, !!this.query.f)
+  this.redirect(this.query.r)
+})
+
 router.post('authPost','/auth', function*() {
   const parsedUrl = url.parse(this.request.body.redirect, true)
   parsedUrl.search = undefined
