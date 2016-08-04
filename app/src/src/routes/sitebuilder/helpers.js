@@ -15,7 +15,7 @@ const SB_ISSUER = 'sitebuilder'
 
 export function sitebuilderLocalsMiddleware() {
   return function *(next) {
-    const sbMetainfo = yield readMetainfo(this.params.sid)
+    const sbMetainfo = yield readMetainfo(this.currentUser.id, this.params.sid)
     this.sbMetainfo = sbMetainfo
 
     const contentMenuItems = Object.keys(sbMetainfo)
@@ -93,8 +93,11 @@ export function sitebuilderPreivewAuthenticated() {
 
     debug(`Perform authentication with sitebuilder`)
 
+    const { id: userId = '0|0'} = this.currentUser
 
-    const token = jwt.sign({}, config.SITEBUILDER_JWT_SECRET, {
+    const token = jwt.sign({
+        uid: userId.split('|')[1]
+      }, config.SITEBUILDER_JWT_SECRET, {
       expiresIn: SHORT_JWT_EXPIRATION_SEC,
       issuer: JWT_ISSUER,
       subject: this.params.sid

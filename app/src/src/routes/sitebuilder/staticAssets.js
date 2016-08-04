@@ -5,6 +5,7 @@ const assert = require('assert');
 const debug = require('debug')('app:sitebuilder:static-assets');
 const send = require('koa-send');
 const config = require('../../config');
+const _ = require('lodash');
 
 
 module.exports = serve;
@@ -31,7 +32,7 @@ function serve(opts) {
       return;
     }
 
-    const siteId = this.session[opts.sessionKey]
+    const siteId = _.get(this.session, opts.sessionKey)
 
     if (!siteId) {
       this.status = 401
