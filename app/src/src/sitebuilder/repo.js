@@ -2,6 +2,7 @@ import config from '../config'
 import bluebird from 'bluebird'
 import path from 'path'
 import jwt from 'jsonwebtoken'
+import _ from 'lodash'
 
 const mkdirp = bluebird.promisify(require('mkdirp'));
 const debug = require('debug')('app:sitebuilder:repo');
@@ -99,6 +100,20 @@ export function* readJSONData(siteId, key) {
   const content = yield fs.readFileAsync(path.join(base, JSON_LOCATION, key + '.json'), 'utf8')
   return JSON.parse(content)
 }
+
+export function* writeJSONDataItem(siteId, key, arrayIndex, obj) {
+  let data = yield readJSONData(siteId, key)
+  arrayIndex = parseInt(arrayIndex)
+  if (_.isArray(data)) {
+    data = [...data.slice(0, arrayIndex), obj, ...data.slice(arrayIndex + 1)]
+  } else {
+    data = Object.assign({}, data, obj)
+  }
+  const base = baseSrcPath(siteId)
+  yield fs.writeFileAsync(path.join(base, JSON_LOCATION, key + '.json'), JSON.stringify(data, null, 2))
+}
+
+
 
 
 function baseBuildPath(userId, siteId) {

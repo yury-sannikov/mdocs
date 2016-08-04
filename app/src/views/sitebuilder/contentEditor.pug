@@ -22,6 +22,13 @@ block scripts
           $(self.input).froalaEditor({
             toolbarInline: false,
           })
+          .on('froalaEditor.blur', function (e, editor) {
+            e.preventDefault();
+            e.stopPropagation();
+            self.input.value = editor.html.get(false)
+            self.refreshValue();
+            self.onChange(true);
+          })
           //- .on('froalaEditor.file.beforeUpload', function (e, editor, files) {
           //-   // Return false if you want to stop the file upload.
           //- })
@@ -86,6 +93,13 @@ block scripts
         schema: !{schema}
       };
       var page = !{page}
+
+      function saveChanges(e) {
+        var values = jsoneditor.getValue();
+        var form = $('form.js-save-content')
+        $('[name="content"]', form).val(JSON.stringify(values))
+        form.submit()
+      }
       $(function() {
 
         var element = document.querySelector('.json-editor-holder');
@@ -100,14 +114,19 @@ block scripts
           }
         });
 
+        $('.action-save-changes').on('click', saveChanges)
       });
     }));
 
 block content
   .container-fluid
+    .hidden
+      form.js-save-content(method='POST')
+        input(type='hidden', name='_csrf', value=_csrf)
+        input(type='hidden', name='content')
     .row
       .col-md-1.col-md-offset-10
-        button.btn.btn-primary.pull-right Save Changes
+        button.btn.btn-primary.pull-right.action-save-changes Save Changes
     if permalink
       br
       .row
@@ -124,5 +143,5 @@ block content
         .json-editor-holder
     .row
       .col-md-1.col-md-offset-10
-        button.btn.btn-primary.pull-right Save Changes
+        button.btn.btn-primary.pull-right.action-save-changes Save Changes
 
