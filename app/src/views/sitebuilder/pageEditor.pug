@@ -1,0 +1,148 @@
+extends ./layout/layout.pug
+
+block head
+  title #{application} &middot; Page
+  include ./partials/editor-header.pug
+
+block styles
+  style.
+    textarea[name="ro-ot[htmlContent]"] {
+      height: 350px
+    }
+
+block scripts
+  include ./partials/editor-scripts.pug
+  script(src='/app/js/jsoneditor.min.js')
+  script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js')
+  script.
+    JSONEditor.defaults.editors.froala = JSONEditor.defaults.editors.string.extend({
+      afterInputReady: function() {
+        var self = this;
+        if (this.source_code) {
+          $(self.input).froalaEditor({
+            toolbarInline: false,
+            iframe: true
+          })
+          .on('froalaEditor.blur', function (e, editor) {
+            e.preventDefault();
+            e.stopPropagation();
+            self.input.value = editor.html.get(false)
+            self.refreshValue();
+            self.onChange(true);
+          })
+          //- .on('froalaEditor.file.beforeUpload', function (e, editor, files) {
+          //-   // Return false if you want to stop the file upload.
+          //- })
+          .on('froalaEditor.file.uploaded', function (e, editor, response) {
+            // File was uploaded to the server.
+            console.log('uploaded: ' + response);
+            // response.link gets the link
+          })
+          .on('froalaEditor.file.inserted', function (e, editor, $file, response) {
+            // File was inserted in the editor.
+            console.log('inserted: ' + response);
+            // response.link gets the link
+          })
+          .on('froalaEditor.file.error', function (e, editor, error, response) {
+            console.log(error);
+            alert(error.message);
+          })
+          //- .on('froalaEditor.image.beforeUpload', function (e, editor, images) {
+          //-   // Return false if you want to stop the image upload.
+          //- })
+          .on('froalaEditor.image.uploaded', function (e, editor, response) {
+            // Image was uploaded to the server.
+            console.log('uploaded: ' + response);
+            // response.link gets the link
+          })
+          .on('froalaEditor.image.inserted', function (e, editor, $img, response) {
+            // Image was inserted in the editor.
+            console.log('inserted: ' + response);
+            // response.link gets the link
+          })
+          .on('froalaEditor.image.replaced', function (e, editor, $img, response) {
+            // Image was replaced in the editor.
+            console.log('replaced: ' + response);
+            // response.link gets the link
+          })
+          .on('froalaEditor.image.error', function (e, editor, error, response) {
+            console.log(error);
+            alert(error.message);
+          });
+        } else {
+          this._super();
+        }
+      }
+    });
+    JSONEditor.defaults.resolvers.unshift(function(schema) {
+      if(schema.type === "string" && schema.format === "html") {
+        return "froala";
+      }
+    });
+
+  script.
+   (function(init) {
+      init(window.jQuery, window, document);
+    }(function($, window, document) {
+      var jsoneditor;
+      var options = {
+        theme: 'bootstrap3',
+        iconlib: 'fontawesome4',
+        disable_collapse: true,
+        disable_edit_json: true,
+        disable_properties: true,
+        schema: !{schema}
+      };
+      var page = !{page}
+
+      function saveChanges(e) {
+        var values = jsoneditor.getValue();
+        var form = $('form.js-save-content')
+        $('[name="content"]', form).val(JSON.stringify(values))
+        form.submit()
+      }
+      $(function() {
+
+        var element = document.querySelector('.json-editor-holder');
+        jsoneditor = new JSONEditor(element, options);
+        jsoneditor.setValue(page);
+
+        $('[data-toggle="tooltip"]').tooltip();
+
+        var clipboard = new Clipboard('.action-copy-permalink', {
+          text: function(event) {
+            return event.getAttribute('data-permalink');
+          }
+        });
+
+        $('.action-save-changes').on('click', saveChanges)
+      });
+    }));
+
+block content
+  .container-fluid
+    .hidden
+      form.js-save-content(method='POST')
+        input(type='hidden', name='_csrf', value=_csrf)
+        input(type='hidden', name='content')
+    .row
+      .col-md-1.col-md-offset-10
+        button.btn.btn-primary.pull-right.action-save-changes Save Changes
+    if permalink
+      br
+      .row
+        .col-md-5.col-md-offset-1
+          label Permalink
+          .input-group
+            input.form-control(type="text", readonly=true, value=permalink)
+            span.input-group-btn
+              button.btn.btn-default.action-copy-permalink(type="button", data-toggle="tooltip" data-placement="top" data-original-title="Copy to Clipboard" data-permalink=permalink)
+                i.fa.fa-clipboard
+      br
+    .row
+      .col-md-10.col-md-offset-1
+        .json-editor-holder
+    .row
+      .col-md-1.col-md-offset-10
+        button.btn.btn-primary.pull-right.action-save-changes Save Changes
+

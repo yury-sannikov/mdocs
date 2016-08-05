@@ -23,7 +23,7 @@ router.get('/__generate', function*() {
     return
   }
   const { uid, siteId } = this.session.sbSession
-  yield Repo.generate(uid, siteId, !!this.query.f)
+  yield Repo.generate(uid, siteId, !!parseInt(this.query.f))
   this.redirect(this.query.r)
 })
 

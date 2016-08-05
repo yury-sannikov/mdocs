@@ -42,7 +42,7 @@ function getPreviewURLs(data, count, force = true) {
   return Array(count).fill(url.format(generateUrl))
 }
 
-router.get('contentList', '/:sid/pages', function*() {
+router.get('pagesList', '/:sid/pages', function*() {
   const contentItems = this.sbMetainfo[STATIC_HTML_KEY]
   const contentHeaders = [
     {
@@ -60,10 +60,61 @@ router.get('contentList', '/:sid/pages', function*() {
     permalinks,
     contentKey: 'pages',
     isContentOpen: true,
+    staticList: true,
     nav_title: 'Pages',
     nav_crumbs: [['Pages'], ['Overview', router.url('main', {sid: this.params.sid})]]
   }), true);
 
+})
+
+router.get('/:sid/pages/:index', function*() {
+  const contentItems = this.sbMetainfo[STATIC_HTML_KEY]
+  const fileName = contentItems[this.params.index].path
+  const data = yield Repo.readHTMLData(this.params.sid, fileName)
+  const permalink = `/${fileName}`
+  const schema = {
+    type: 'object',
+    title: data.attributes.title,
+    properties: {
+      title: {
+        title: 'Title',
+        type: 'string'
+      },
+      htmlContent: {
+        title: 'Page Content',
+        input_height: '300px',
+        type: 'string',
+        format: 'html',
+        options: {
+          wysiwyg: true
+        }
+      }
+    }
+  }
+  const page = {
+    title: data.attributes.title,
+    htmlContent: data.body
+  }
+
+  this.render('sitebuilder/pageEditor', Object.assign({}, this.jadeLocals, {
+    page: JSON.stringify(page),
+    permalink,
+    schema: JSON.stringify(schema),
+    isContentOpen: true,
+    nav_title: data.attributes.title,
+    nav_crumbs: [[data.attributes.title], ['Pages', router.url('pagesList', {sid: this.params.sid})], ['Overview', router.url('main', {sid: this.params.sid})]]
+
+  }), true);
+})
+
+router.post('/:sid/pages/:index', function*() {
+  const contentItems = this.sbMetainfo[STATIC_HTML_KEY]
+  const fileName = contentItems[this.params.index].path
+
+  yield Repo.writeHTMLData(this.params.sid, fileName, JSON.parse(this.request.body.content))
+  yield Repo.metainfo(this.currentUser.id, this.params.sid)
+
+  this.redirect(router.url('pagesList', {sid: this.params.sid}))
 })
 
 router.get('contentList', '/:sid/content/:key', function*() {
@@ -92,6 +143,8 @@ router.get('contentList', '/:sid/content/:key', function*() {
 
 router.post('/:sid/content/:key/:index', function*() {
   yield Repo.writeJSONDataItem(this.params.sid, this.params.key, this.params.index, JSON.parse(this.request.body.content))
+  yield Repo.metainfo(this.currentUser.id, this.params.sid)
+
   this.redirect(router.url('contentList', {key:this.params.key, sid: this.params.sid}))
 })
 

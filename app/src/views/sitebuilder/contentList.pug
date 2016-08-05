@@ -25,7 +25,8 @@ block content
   .container-fluid
     .row
       .col-md-12
-        a.action-new-page.btn.btn-success.pull-center(href="#") New Item
+        if !staticList
+          a.action-new-page.btn.btn-success.pull-center(href="#") New Item
         #wrapper
           #userList
             table.table.table-striped.pages-table
@@ -49,8 +50,9 @@ block content
                           span #{page[hdr.ref]}
                     td.action-cell
                       a.btn.btn-default.btn-xs(href=previewUrls[i], target="_blank", data-toggle="tooltip" data-placement="top" title="" type="button" data-original-title="Preview Page in a new window") Preview
-                      | &nbsp;
-                      a.action-delete-page.btn.btn-danger.btn-xs(href="#", data-page-id=i data-toggle="tooltip" data-placement="top" title="" type="button" data-original-title="Delete Page") Delete&nbsp;
+                      if !staticList
+                        | &nbsp;
+                        a.action-delete-page.btn.btn-danger.btn-xs(href="#", data-page-id=i data-toggle="tooltip" data-placement="top" title="" type="button" data-original-title="Delete Page") Delete&nbsp;
 
 block scripts
   script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js')

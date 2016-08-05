@@ -3,6 +3,8 @@ import bluebird from 'bluebird'
 import path from 'path'
 import jwt from 'jsonwebtoken'
 import _ from 'lodash'
+import frontMatter from 'front-matter'
+import jsYaml from 'js-yaml'
 
 const mkdirp = bluebird.promisify(require('mkdirp'));
 const debug = require('debug')('app:sitebuilder:repo');
@@ -14,7 +16,8 @@ const fs = bluebird.promisifyAll(require('fs'))
 
 const METAINFO_FILE = 'metainfo.json'
 const JSON_LOCATION = 'src/data/'
-const AUTH_VALID_FOR_MILLISECONDS = 1000 * 40; //1000 * 60 * 10
+const HTML_LOCATION = 'src/'
+const AUTH_VALID_FOR_MILLISECONDS = 1000 * 60 * 10
 const MDOCS_ISSUER = 'mdocs'
 const METALSMITH_OPTIONS = {
   metainfo: 'metainfo',
@@ -23,7 +26,16 @@ const METALSMITH_OPTIONS = {
   dataFolder: 'src/data',
   theme: 'cleanui'
 }
+
+function massageUserId(userId) {
+  if (userId.indexOf('|') !== -1) {
+    userId = userId.split('|')[1]
+  }
+  return userId
+}
+
 export function* prepare(userId, siteId) {
+  userId = massageUserId(userId)
   const workDir = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId))
   const buildDir = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId))
   yield mkdirp(buildDir)
@@ -35,8 +47,21 @@ export function* prepare(userId, siteId) {
 
 }
 
+export function* metainfo(userId, siteId) {
+  userId = massageUserId(userId)
+  const workDir = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId))
+  const buildDir = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId))
+  yield mkdirp(buildDir)
+
+  debug(`Generate metainfo. workDir=${workDir}, buildDir=${buildDir}`)
+  let engine = new SiteBuilderEngine(workDir, buildDir, METALSMITH_OPTIONS)
+  engine = bluebird.promisifyAll(engine, {context: engine})
+  yield engine.metainfoAsync()
+
+}
 
 export function* generate(userId, siteId, force) {
+  userId = massageUserId(userId)
   const workDir = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId))
   const buildDir = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId))
   yield mkdirp(buildDir)
@@ -113,13 +138,24 @@ export function* writeJSONDataItem(siteId, key, arrayIndex, obj) {
   yield fs.writeFileAsync(path.join(base, JSON_LOCATION, key + '.json'), JSON.stringify(data, null, 2))
 }
 
-
+export function* readHTMLData(siteId, fileName) {
+  const base = baseSrcPath(siteId)
+  const content = yield fs.readFileAsync(path.join(base, HTML_LOCATION, (fileName || 'index') + '.html'), 'utf8')
+  return frontMatter(content)
+}
+export function* writeHTMLData(siteId, fileName, newContent) {
+  const content = yield readHTMLData(siteId, fileName)
+  const attr = Object.assign({}, content.attributes, {title: newContent.title})
+  const fm = jsYaml.safeDump(attr, {skipInvalid : true})
+  const fileContent = `---\n${fm}---\n${newContent.htmlContent}`.replace(/{{&gt;/g,'{{>')
+  const base = baseSrcPath(siteId)
+  const fullFileName= path.join(base, HTML_LOCATION, (fileName || 'index') + '.html')
+  yield fs.writeFileAsync(fullFileName, fileContent)
+}
 
 
 function baseBuildPath(userId, siteId) {
-  if (userId.indexOf('|') !== -1) {
-    userId = userId.split('|')[1]
-  }
+  userId = massageUserId(userId)
   return path.resolve(path.join(path.normalize(config.SITEBUILDER_BUILD_DIR), userId, siteId));
 }
 
