@@ -96,11 +96,12 @@ function metalsmithFactory(workDir, buildDir, options) {
     }))
     // If eval_layout is true, treat layout as a field containing computable value
     .use(evalLayout())
-    .use(metainfo({
-      metainfoPath: path.join(workDir, options.metainfo),
-      includeForMetaOnly: ['menu', 'practice'],
-      outputFile: path.join(buildDir, 'metainfo.json')
-    }))
+    .use(msIf(options._force,
+      metainfo({
+        metainfoPath: path.join(workDir, options.metainfo),
+        includeForMetaOnly: ['menu', 'practice'],
+        outputFile: path.join(buildDir, 'metainfo.json')
+      })))
 
     // PUG/Jade layouts system
     .use(msIf(options._generate,
@@ -139,7 +140,6 @@ class SiteBuilderEngine {
       .filter((fn) => fn.indexOf('.json') !== -1)
       .forEach((fn) => {
         delete require.cache[fn]
-        console.log(`Cleaning Node Require cache for ${fn}`)
       })
   }
 
@@ -153,7 +153,18 @@ class SiteBuilderEngine {
     ms.build(done)
   }
 
+  metainfo(done) {
+    this.cleanRequireCache()
+    const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
+      _clean: false,
+      _force: true,
+      _generate: false
+    }))
+    ms.build(done)
+  }
+
   generate(force, done) {
+    console.log(`Generate. Force = ${force}`)
     this.cleanRequireCache()
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
       _clean: false,
