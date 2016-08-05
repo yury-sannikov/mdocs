@@ -39,8 +39,12 @@ block content
             a.link-effect(href='/app/pr/phi/patient-reviews') Patient Reviews
           li
             a.link-effect(href='/app/pr/profiles') Profiles
-          li
-            a.link-effect(href='/app/pr/new-profile') New Profile
+          - if (_.isEmpty(profile))
+            li
+              a.link-effect(href='/app/pr/new-profile') New Profile
+          - else
+            li
+              a.link-effect(href='/app/pr/update-profile/' + profile.id) Edit Profile
   
   .content.bg-white
     .row
