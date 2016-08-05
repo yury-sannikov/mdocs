@@ -13,7 +13,9 @@ function plugin(opts){
   return function(files, metalsmith, done) {
     const fileNames = Object.keys(files);
 
-    let result = {}
+    let result = {
+      plainHtml: []
+    }
     /*
       "contents" : {
         "indexPath": "/content",
@@ -50,6 +52,14 @@ function plugin(opts){
           if (result[col]) {
             result[col].permalinks = [...result[col].permalinks, fileObj.path]
           }
+        })
+      }
+
+      if (fileObj.sb_plainHtml) {
+        console.dir(metalsmith.metadata())
+        result.plainHtml.push({
+          title: fileObj.title,
+          path: fileObj.path || 'index'
         })
       }
     }
