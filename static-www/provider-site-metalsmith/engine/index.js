@@ -19,6 +19,7 @@ const dep = require('./metalsmith-include-dependency');
 const inplace = require('metalsmith-in-place');
 const evalLayout = require('./metalsmith-eval-layout');
 const metainfo = require('./metalsmith-metainfo');
+const _ = require('lodash');
 
 const path = require('path');
 const rimraf = require('rimraf')
@@ -131,7 +132,17 @@ class SiteBuilderEngine {
     }, options)
   }
 
+  cleanRequireCache() {
+    _(Object.keys(require.cache))
+      .filter((fn) => fn.indexOf('.json') !== -1)
+      .forEach((fn) => {
+        delete require.cache[fn]
+        console.log(`Cleaning Node Require cache for ${fn}`)
+      })
+  }
+
   prepare(done) {
+    this.cleanRequireCache()
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
       _clean: true,
       _force: false,
@@ -141,6 +152,7 @@ class SiteBuilderEngine {
   }
 
   generate(force, done) {
+    this.cleanRequireCache()
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
       _clean: false,
       _generate: true,
@@ -150,6 +162,7 @@ class SiteBuilderEngine {
   }
 
   publish(done) {
+    this.cleanRequireCache()
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
       _clean: true,
       _generate: true,
@@ -167,6 +180,7 @@ class SiteBuilderEngine {
   }
 
   cliDev(port, buildResult) {
+    this.cleanRequireCache()
     const me = this
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
       _clean: true,
