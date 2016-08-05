@@ -11,8 +11,8 @@ export default class Main extends Component {
   render () {
     return (
       <div>
-        <span>{'Main Container'}</span>
-        <Link to='/app/dashboard/about'>Abouts</Link>
+        // <span>{'Main Container'}</span>
+        // <Link to='/app/dashboard/about'>Abouts</Link>
       </div>
     )
   }
