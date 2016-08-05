@@ -10,12 +10,6 @@ const db = require('../../db');
 const communicator = require('../../comm');
 
 
-// const HARDCODED_QUESTIONS = {
-//   '0': 'Overall Satisfaction',
-//   '1': 'Staff',
-//   '2': 'Dr. Mary Mayer, MD'
-// };
-
 const SURVEY_STATUS_NEW = 0;
 const SURVEY_STATUS_ACCESSED = 1;
 const SURVEY_STATUS_SUBMITTED = 2;

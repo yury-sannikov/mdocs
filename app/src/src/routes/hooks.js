@@ -48,11 +48,18 @@ function* loginCallbackHandler() {
 module.exports = router;
 
 function* insertOrUpdateUser(ctx) {
+  const DEFAULT_QUESTIONS = {
+    '0': 'Overall Satisfaction',
+    '1': 'Staff',
+    '2': 'Personal Doctor'
+  };
+
   yield db.insertOrUpdateUser(ctx.user.user_id,
     Object.assign({}, {
       id: ctx.user.user_id,
       email: ctx.user.email,
       auth0_user: ctx.user,
-      last_request: ctx.context.request
+      last_request: ctx.context.request,
+      questions: DEFAULT_QUESTIONS
     }));
 }

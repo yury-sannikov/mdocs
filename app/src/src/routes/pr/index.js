@@ -9,12 +9,6 @@ import { checkAuthenticated, hasSubscription } from '../../belt';
 import { getFutureInvoice, updateSubscription } from '../../stripe';
 
 
-const HARDCODED_QUESTIONS = {
-  '0': 'Overall Satisfaction',
-  '1': 'Staff',
-  '2': 'Dr. Mary Mayer, MD'
-};
-
 function hasDynamoData(data) {
   if (_.isEmpty(data) || !_.isArray(data)) {
     return false;

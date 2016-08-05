@@ -8,10 +8,10 @@ const communicator = require('../../comm');
 import { checkAuthenticated, hasSubscription } from '../../belt';
 
 
-const HARDCODED_QUESTIONS = {
+const DEFAULT_QUESTIONS = {
   '0': 'Overall Satisfaction',
   '1': 'Staff',
-  '2': 'Dr. Mary Mayer, MD'
+  '2': 'Personal Doctor'
 };
 
 function hasDynamoData(data) {
@@ -42,14 +42,22 @@ router.get('patient-reviews', '/patient-reviews', function*() {
 });
 
 router.get('/customize', function*() {
-  // ToDO: - pass in the actual default questions, not hardcoded ones
-  this.render('reviews/customize', Object.assign({}, this.jadeLocals, { questions: HARDCODED_QUESTIONS }), true);
+  const user = yield db.findUserById(this.currentUser.id);
+  let questions;
+  if (user.questions == null) {
+    questions = Object.assign({}, DEFAULT_QUESTIONS);
+  }
+  else {
+    questions = user.questions;
+  }
+  this.render('reviews/customize', Object.assign({}, this.jadeLocals, { questions: questions }), true);
 });
 
 router.post('/update-survey-questions', hasSubscription, function*() {
-  // ToDO: - update default questions for this user
-  // use this.request.body.updatedQuestions
-  // this.redirect('/customize'));
+  const updatedQuestions = JSON.parse(this.request.body.updatedQuestions);
+  this.flash = 'Review questions customized successfully.';
+  yield db.updateDefaultSurveyQuestions(this.currentUser.id, updatedQuestions);
+  this.redirect('patient-reviews');
 });
 
 function* conductSurvey(id) {
@@ -109,7 +117,14 @@ router.post('/new-request', hasSubscription, function*() {
 
   const title = profile[0][0].name;
 
-  const questions = Object.assign({}, HARDCODED_QUESTIONS, { '2': title });
+  const user = yield db.findUserById(this.currentUser.id);
+  let questions;
+  if (user.questions == null) {
+    questions = Object.assign({}, DEFAULT_QUESTIONS, { '2': title });
+  }
+  else {
+    questions = user.questions;
+  }
   debug(this.currentUser.id, survey, questions, title);
   const id = yield db.createNewSurvey()(this.currentUser.id, survey, questions, title);
 

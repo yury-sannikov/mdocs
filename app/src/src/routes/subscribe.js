@@ -188,10 +188,17 @@ function* checkoutNewUser() {
 
   yield this.login(sessionProfile);
 
+  const DEFAULT_QUESTIONS = {
+    '0': 'Overall Satisfaction',
+    '1': 'Staff',
+    '2': 'Personal Doctor'
+  };
+
   yield insertOrUpdateUser(decoded.sub,
       Object.assign({}, {
         id: decoded.sub,
-        email: this.request.body.email
+        email: this.request.body.email,
+        questions: DEFAULT_QUESTIONS
       }));
 
   const planId = `${this.request.body.plan}-${this.request.body.payOccurence}`;
