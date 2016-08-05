@@ -2,7 +2,7 @@
 'use strict';
 const Router = require('koa-router');
 import { checkAuthenticated, hasSubscription } from '../belt';
-import { sendEmailTrackingToSlack } from '../comm';
+import { sendEmailTrackingToSlack, notifySubscriptionCancel } from '../comm';
 import stream from 'koa-stream';
 import { getFutureInvoice, cancelSubscriptions, updateSessionSubscriptionInfo } from '../stripe';
 import { render as dashboardRender } from '../apps/dashboard/server';
@@ -77,6 +77,7 @@ router.post('/delete-subscription', checkAuthenticated, function* () {
   yield cancelSubscriptions(this.currentUser.id);
   yield updateSessionSubscriptionInfo(this, this.currentUser.id);
   this.flash = 'Your subscribtion has been canceled';
+  yield notifySubscriptionCancel(this.currentUser.id);
   this.redirect('/app');
 });
 

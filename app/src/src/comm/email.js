@@ -95,3 +95,17 @@ exports.sendPlanChange = function* (to, data) {
   const sendAsync =  Promise.promisify(messages.send, {context: messages});
   return yield sendAsync(message);
 };
+
+exports.sendSubscriptionCancel = function* (to, data) {
+  var html = 'You have cancelled your subscription. Your account is now frozen and you can no longer send and view Patient Reviews, nor can you create/edit profiles.';
+  
+  var message = {
+    from: 'Patient Reviews by MDOCS <survey@app.mdocs.co>',
+    to: to,
+    subject: `Subscription Cancelled`,
+    html: html
+  };
+  const messages = mailgun.messages();
+  const sendAsync =  Promise.promisify(messages.send, {context: messages});
+  return yield sendAsync(message);
+};
