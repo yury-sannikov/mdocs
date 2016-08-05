@@ -12,6 +12,7 @@ const SITEBUILDER_AUTH_PATH = '/auth'
 const SHORT_JWT_EXPIRATION_SEC = 5
 const JWT_ISSUER = 'mdocs'
 const SB_ISSUER = 'sitebuilder'
+const STATIC_HTML_KEY = 'plainHtml'
 
 export function sitebuilderLocalsMiddleware() {
   return function *(next) {
@@ -25,7 +26,7 @@ export function sitebuilderLocalsMiddleware() {
           metainfo: sbMetainfo[key].metainfo
         }
       })
-      .filter((item) => !_.isEmpty(item.metainfo))
+      .filter((item) => !_.isEmpty(item.metainfo) || item.key === STATIC_HTML_KEY )
 
     this.jadeLocals = Object.assign({}, this.jadeLocals, {
       contentMenuItems,

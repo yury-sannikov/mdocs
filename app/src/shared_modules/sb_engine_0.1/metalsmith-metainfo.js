@@ -56,10 +56,9 @@ function plugin(opts){
       }
 
       if (fileObj.sb_plainHtml) {
-        console.dir(metalsmith.metadata())
         result.plainHtml.push({
           title: fileObj.title,
-          path: fileObj.path || 'index'
+          path: fileObj.path
         })
       }
     }

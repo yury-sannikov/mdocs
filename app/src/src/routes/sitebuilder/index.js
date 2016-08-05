@@ -10,6 +10,7 @@ import { checkAuthenticated } from '../../belt';
 
 const debug = require('debug')('app:routes:sitebuilder');
 const GENERATE_SLUG =  '/__generate'
+const STATIC_HTML_KEY = 'plainHtml'
 
 const router = new Router({
   prefix: '/sitebuilder'
@@ -24,9 +25,9 @@ router.get('main', '/:sid', function*() {
   }), true);
 });
 
-function getPreviewURLs(data, count) {
+function getPreviewURLs(data, count, force = true) {
   const generateUrl = url.parse(`${config.SITEBUILDER_PREIVEW_URL}${GENERATE_SLUG}`)
-  generateUrl.query = {f: 1}
+  generateUrl.query = {f: force ? 1 : 0}
 
   const previewUrls = data.permalinks.map((p) => {
     generateUrl.query.r = `/${p}`
@@ -40,6 +41,30 @@ function getPreviewURLs(data, count) {
   generateUrl.query.r = `/${data.indexPath}`
   return Array(count).fill(url.format(generateUrl))
 }
+
+router.get('contentList', '/:sid/pages', function*() {
+  const contentItems = this.sbMetainfo[STATIC_HTML_KEY]
+  const contentHeaders = [
+    {
+      "title": "Title",
+      "ref": "title",
+      "css": ""
+    }
+  ]
+  const permalinks = contentItems.map((i) => i.path || '')
+  const previewUrls = getPreviewURLs({ permalinks }, contentItems.length, false)
+  this.render('sitebuilder/contentList', Object.assign({}, this.jadeLocals, {
+    contentItems,
+    contentHeaders,
+    previewUrls,
+    permalinks,
+    contentKey: 'pages',
+    isContentOpen: true,
+    nav_title: 'Pages',
+    nav_crumbs: [['Pages'], ['Overview', router.url('main', {sid: this.params.sid})]]
+  }), true);
+
+})
 
 router.get('contentList', '/:sid/content/:key', function*() {
 
