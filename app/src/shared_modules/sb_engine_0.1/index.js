@@ -23,6 +23,7 @@ const metainfo = require('./metalsmith-metainfo');
 
 const path = require('path');
 const rimraf = require('rimraf')
+const _ = require('lodash');
 
 function helpersFactory() {
   return {
@@ -132,7 +133,18 @@ class SiteBuilderEngine {
     }, options)
   }
 
+
+  cleanRequireCache() {
+    _(Object.keys(require.cache))
+      .filter((fn) => fn.indexOf('.json') !== -1)
+      .forEach((fn) => {
+        delete require.cache[fn]
+        console.log(`Cleaning Node Require cache for ${fn}`)
+      })
+  }
+
   prepare(done) {
+    this.cleanRequireCache()
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
       _clean: true,
       _force: true,
@@ -142,6 +154,7 @@ class SiteBuilderEngine {
   }
 
   generate(force, done) {
+    this.cleanRequireCache()
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
       _clean: false,
       _generate: true,
@@ -151,6 +164,7 @@ class SiteBuilderEngine {
   }
 
   publish(done) {
+    this.cleanRequireCache()
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
       _clean: true,
       _generate: true,

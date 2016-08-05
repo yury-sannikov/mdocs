@@ -18,11 +18,12 @@ const router = new Router({
 router.use(require('./assets').routes())
 
 router.get('/__generate', function*() {
-  if (!this.session.sbSiteId) {
+  if (!this.session.sbSession) {
     this.body = 'no session'
     return
   }
-  yield Repo.generate(this.session.sbSiteId, !!this.query.f)
+  const { uid, siteId } = this.session.sbSession
+  yield Repo.generate(uid, siteId, !!this.query.f)
   this.redirect(this.query.r)
 })
 
@@ -33,9 +34,13 @@ router.post('authPost','/auth', function*() {
   const result = yield Repo.authenticate(this.request.body.token);
 
   if (!result.e) {
-    this.session.sbSiteId = result.subject
+    this.session.sbSession = {
+      uid: result.uid,
+      siteId: result.subject,
+      buildPrefix: `${result.uid}/${result.subject}`
+    }
 
-    yield Repo.prepare(result.subject)
+    yield Repo.prepare(result.uid, result.subject)
   }
 
 
@@ -49,7 +54,7 @@ router.post('authPost','/auth', function*() {
 })
 
 router.get('/auth/:token', function*() {
-  delete this.session.sbSiteId
+  delete this.session.sbSession
   const authPostUrl = router.url('authPost')
   const developerRun = !!config.SITEBUILDER_DEV_PORT
   this.render('sitebuilder/sbauth', Object.assign({}, this.jadeLocals, {
@@ -62,7 +67,7 @@ router.get('/auth/:token', function*() {
 const staticAssetsMiddleware = require('./staticAssets')({
   maxage: 1000 * 20,
   gzip: true,
-  sessionKey: 'sbSiteId'
+  sessionKey: 'sbSession.buildPrefix'
 });
 
 router.get('*', staticAssetsMiddleware);

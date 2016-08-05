@@ -2,6 +2,7 @@ import config from '../config'
 import bluebird from 'bluebird'
 import path from 'path'
 import jwt from 'jsonwebtoken'
+import _ from 'lodash'
 
 const mkdirp = bluebird.promisify(require('mkdirp'));
 const debug = require('debug')('app:sitebuilder:repo');
@@ -22,9 +23,9 @@ const METALSMITH_OPTIONS = {
   dataFolder: 'src/data',
   theme: 'cleanui'
 }
-export function* prepare(siteId) {
+export function* prepare(userId, siteId) {
   const workDir = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId))
-  const buildDir = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, siteId))
+  const buildDir = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId))
   yield mkdirp(buildDir)
 
   debug(`Prepare static site with workDir=${workDir}, buildDir=${buildDir}`)
@@ -35,9 +36,9 @@ export function* prepare(siteId) {
 }
 
 
-export function* generate(siteId, force) {
+export function* generate(userId, siteId, force) {
   const workDir = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId))
-  const buildDir = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, siteId))
+  const buildDir = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId))
   yield mkdirp(buildDir)
   debug(`Generate static site with workDir=${workDir}, buildDir=${buildDir}`)
   let engine = new SiteBuilderEngine(workDir, buildDir, METALSMITH_OPTIONS)
@@ -78,12 +79,13 @@ export function* authenticate(token) {
   return {
     e: 0,
     subject: decoded.sub,
+    uid: decoded.uid,
     expAt: (new Date()).getTime() + AUTH_VALID_FOR_MILLISECONDS
   }
 }
 
-export function* readMetainfo(siteId) {
-  const base = baseBuildPath(siteId)
+export function* readMetainfo(userId, siteId) {
+  const base = baseBuildPath(userId, siteId)
   try {
     const content = yield fs.readFileAsync(path.join(base, METAINFO_FILE), 'utf8')
     return JSON.parse(content)
@@ -99,9 +101,26 @@ export function* readJSONData(siteId, key) {
   return JSON.parse(content)
 }
 
+export function* writeJSONDataItem(siteId, key, arrayIndex, obj) {
+  let data = yield readJSONData(siteId, key)
+  arrayIndex = parseInt(arrayIndex)
+  if (_.isArray(data)) {
+    data = [...data.slice(0, arrayIndex), obj, ...data.slice(arrayIndex + 1)]
+  } else {
+    data = Object.assign({}, data, obj)
+  }
+  const base = baseSrcPath(siteId)
+  yield fs.writeFileAsync(path.join(base, JSON_LOCATION, key + '.json'), JSON.stringify(data, null, 2))
+}
 
-function baseBuildPath(siteId) {
-  return path.resolve(path.join(path.normalize(config.SITEBUILDER_BUILD_DIR), siteId));
+
+
+
+function baseBuildPath(userId, siteId) {
+  if (userId.indexOf('|') !== -1) {
+    userId = userId.split('|')[1]
+  }
+  return path.resolve(path.join(path.normalize(config.SITEBUILDER_BUILD_DIR), userId, siteId));
 }
 
 function baseSrcPath(siteId) {

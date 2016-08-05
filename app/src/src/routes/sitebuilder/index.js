@@ -5,6 +5,8 @@ import { Repo } from '../../sitebuilder';
 import { sitebuilderLocalsMiddleware, sitebuilderPreivewAuthenticated } from './helpers';
 import config from '../../config';
 import url from 'url'
+import { checkAuthenticated } from '../../belt';
+
 
 const debug = require('debug')('app:routes:sitebuilder');
 const GENERATE_SLUG =  '/__generate'
@@ -12,6 +14,7 @@ const GENERATE_SLUG =  '/__generate'
 const router = new Router({
   prefix: '/sitebuilder'
 })
+  .use(checkAuthenticated)
   .use(sitebuilderLocalsMiddleware())
   .use(sitebuilderPreivewAuthenticated())
 
@@ -61,6 +64,11 @@ router.get('contentList', '/:sid/content/:key', function*() {
     nav_crumbs: [[data.metainfo.menuCaption], ['Overview', router.url('main', {sid: this.params.sid})]]
   }), true);
 });
+
+router.post('/:sid/content/:key/:index', function*() {
+  yield Repo.writeJSONDataItem(this.params.sid, this.params.key, this.params.index, JSON.parse(this.request.body.content))
+  this.redirect(router.url('contentList', {key:this.params.key, sid: this.params.sid}))
+})
 
 router.get('/:sid/content/:key/:index', function*() {
 
