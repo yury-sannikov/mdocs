@@ -175,3 +175,11 @@ export function* sendStripeCallbackToSlack(data) {
     username: 'MDOCS Apps Portal'
   });
 }
+
+exports.notifyPlanChange = function* (id, data) {
+  const user = yield db.findUserById(id);
+  
+  const emailResult = yield email.sendPlanChange(user.email, data);
+
+  debug(`Plan update ${id} email notification result ${JSON.stringify(emailResult, null, 2)}`);
+};

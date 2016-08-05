@@ -70,9 +70,21 @@ router.get('/update-profile/:id', function*() {
 });
 
 router.post('/new-profile', hasSubscription, function*() {
+  const {currentInvoice, upcomingInvoice, currentSubscription} = yield getFutureInvoice(this.currentUser.id);
+  const data = {
+    futureInvoice: upcomingInvoice,
+    currentSubscription,
+    message: 'added a new profile',
+    action: 'create'
+  };
+
   const profile = Object.assign({}, this.request.body);
   const id = yield db.createProfile()(this.currentUser.id, profile);
+  this.flash = 'Profile added successfully.';
   yield updateSubscription(this.currentUser.id, this.session);
+
+  yield communicator.notifyPlanChange(this.currentUser.id, data);
+
   this.redirect(router.url('profiles'));
 });
 
@@ -83,9 +95,20 @@ router.post('/update-profile', hasSubscription, function*() {
 });
 
 router.post('/delete-profile', hasSubscription, function*() {
+  const {currentInvoice, upcomingInvoice, currentSubscription} = yield getFutureInvoice(this.currentUser.id);
+  const data = {
+    futureInvoice: upcomingInvoice,
+    currentSubscription,
+    message: 'deleted a profile',
+    action: 'delete'
+  };
+
   yield db.deleteProfile(this.request.body.id);
   this.flash = 'Profile deleted successfully.';
   yield updateSubscription(this.currentUser.id, this.session);
+
+  yield communicator.notifyPlanChange(this.currentUser.id, data);
+
   this.redirect(router.url('profiles'));
 });
 
