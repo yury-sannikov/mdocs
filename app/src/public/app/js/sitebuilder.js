@@ -9,6 +9,9 @@
             toolbarInline: false,
             iframe: true
           }
+          var imageRx = new RegExp('/assets/uploads/images', 'g')
+          var newVal = $(self.input).val().replace(imageRx, JSONEditor.defaults.editors.froala.options.SITEBUILDER_PREIVEW_URL + '/assets/uploads/images')
+          $(self.input).val(newVal)
           $(self.input).froalaEditor(options)
           .on('froalaEditor.blur', function (e, editor) {
             e.preventDefault();
@@ -16,6 +19,10 @@
             self.input.value = editor.html.get(false)
             self.refreshValue();
             self.onChange(true);
+          })
+          .on('froalaEditor.html.get', function(e, editor, html) {
+            var rx = new RegExp(JSONEditor.defaults.editors.froala.options.SITEBUILDER_PREIVEW_URL, 'g');
+            return html.replace(rx, '')
           })
           //- .on('froalaEditor.file.beforeUpload', function (e, editor, files) {
           //-   // Return false if you want to stop the file upload.

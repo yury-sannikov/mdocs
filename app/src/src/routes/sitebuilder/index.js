@@ -26,6 +26,7 @@ router.get('main', '/:sid', function*() {
 
 function getFroalaEditorOptions(sid) {
   return JSON.stringify({
+    SITEBUILDER_PREIVEW_URL: config.SITEBUILDER_PREIVEW_URL,
     toolbarInline: false,
     iframe: true,
     fileUploadURL: `${config.SITEBUILDER_PREIVEW_URL}/assets`,
