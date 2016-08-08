@@ -24,10 +24,19 @@ router.get('main', '/:sid', function*() {
   }), true);
 });
 
-function getUploadOptions(sid) {
+function getFroalaEditorOptions(sid) {
   return JSON.stringify({
+    toolbarInline: false,
+    iframe: true,
     fileUploadURL: `${config.SITEBUILDER_PREIVEW_URL}/assets`,
     fileUploadParams: {
+      sid
+    },
+    imageManagerPageSize: 20,
+    imageManagerScrollOffset: 10,
+    imageManagerLoadURL: `${config.SITEBUILDER_PREIVEW_URL}/assets/imglist`,
+    imageManagerLoadMethod: 'GET',
+    imageManagerLoadParams: {
       sid
     }
   })
@@ -103,9 +112,12 @@ router.get('/:sid/pages/:index', function*() {
     htmlContent: data.body
   }
 
+  const froalaOptions = getFroalaEditorOptions(this.params.sid)
+
   this.render('sitebuilder/pageEditor', Object.assign({}, this.jadeLocals, {
     page: JSON.stringify(page),
     permalink,
+    froalaOptions,
     schema: JSON.stringify(schema),
     isContentOpen: true,
     nav_title: data.attributes.title,
@@ -167,10 +179,10 @@ router.get('/:sid/content/:key/:index', function*() {
   const dataTitle = data.metainfo.titleRef ? dataItem[data.metainfo.titleRef] : ''
   const title = data.metainfo.schema.title || dataTitle
   const permalink = data.permalinks.length > 0 ? '/' + data.permalinks[this.params.index] : null
-  const uploadOptions = getUploadOptions(this.params.sid)
+  const froalaOptions = getFroalaEditorOptions(this.params.sid)
   this.render('sitebuilder/contentEditor', Object.assign({}, this.jadeLocals, {
     page: JSON.stringify(dataItem),
-    uploadOptions,
+    froalaOptions,
     permalink,
     schema: JSON.stringify(data.metainfo.schema),
     isContentOpen: true,

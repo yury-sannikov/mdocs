@@ -18,13 +18,7 @@ block scripts
 
   script.
    (function(init) {
-      var uploadOptions = !{uploadOptions}
-      JSONEditor.defaults.editors.froala.options = {
-        toolbarInline: false,
-        iframe: true,
-        fileUploadURL: uploadOptions.fileUploadURL,
-        fileUploadParams: uploadOptions.fileUploadParams
-      };
+      JSONEditor.defaults.editors.froala.options = !{froalaOptions};
       init(window.jQuery, window, document);
     }(function($, window, document) {
       var jsoneditor;

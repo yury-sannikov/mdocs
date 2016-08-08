@@ -26,6 +26,9 @@ const METALSMITH_OPTIONS = {
   dataFolder: 'src/data',
   theme: 'cleanui'
 }
+const ASSETS_UPLOADS = 'assets/uploads'
+const ASSETS_IMAGES = `${ASSETS_UPLOADS}/images`
+
 
 function massageUserId(userId) {
   if (userId.indexOf('|') !== -1) {
@@ -33,10 +36,20 @@ function massageUserId(userId) {
   }
   return userId
 }
+
+export function* listImages(userId, siteId) {
+  const buildImgs = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId, ASSETS_IMAGES))
+  const dir = yield fs.readdirAsync(buildImgs)
+  return dir.map((f) => {
+    return {
+      url: `${ASSETS_IMAGES}/${f}`
+    }
+  })
+}
+
 export function uploadFile(userId, siteId, sourceTmpPath, fileName) {
-  const ASSETSUPLOADS = 'assets/uploads'
-  const sourceDirDest = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId, 'themes', METALSMITH_OPTIONS.theme, ASSETSUPLOADS, fileName))
-  const buildDirDest = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId, ASSETSUPLOADS, fileName))
+  const sourceDirDest = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId, 'themes', METALSMITH_OPTIONS.theme, ASSETS_UPLOADS, fileName))
+  const buildDirDest = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId, ASSETS_UPLOADS, fileName))
   debug(`Upload file ${fileName} to ${buildDirDest} and ${sourceDirDest}`)
   const assetUrl = `${ASSETSUPLOADS}/${fileName}`
   return new Promise(function(resolve, reject) {

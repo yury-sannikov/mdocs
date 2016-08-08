@@ -27,6 +27,12 @@ router.use(function*(next) {
 
 router.options('/',  function*() {} )
 
+router.get('/imglist', function*() {
+  const { uid, siteId } = this.session.sbSession
+  const urlPrefix = config.SITEBUILDER_PREIVEW_URL
+  this.body = (yield Repo.listImages(uid, siteId)).map((f) => { return {url: `${urlPrefix}/${f.url}`} })
+})
+
 router.post('/', function*() {
   const { sid } = this.request.body.fields
   const { file } = this.request.body.files

@@ -18,6 +18,7 @@ block scripts
 
   script.
    (function(init) {
+      JSONEditor.defaults.editors.froala.options = !{froalaOptions};
       init(window.jQuery, window, document);
     }(function($, window, document) {
       var jsoneditor;
