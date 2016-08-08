@@ -43,8 +43,9 @@
       'public/app/js/**/*.min.js',
       'public/app/css/**/*.css',
       'public/app/css/**/*.min.css',
-      '!public/app/js/main.js',                         // ! not
-      '!public/app/js/auth0-editprofile-widget.min.js'  // ! not
+      '!public/app/js/main.js',
+      '!public/app/js/auth0-editprofile-widget.min.js',
+      '!public/app/js/sitebuilder.js'
     ],
     js: [
       // ============= Bootstrap  ================
@@ -98,6 +99,9 @@
     npm: [
       'node_modules/json-editor/dist/jsoneditor.min.js',
       'node_modules/card/dist/jquery.card.js',
+    ],
+    sitebuilderjs: [
+      'public/app/js/sitebuilder.js'
     ]
   };
 
@@ -145,6 +149,13 @@
       .pipe($.size({ title: 'JS:' }))         // What size are we at?
       .pipe(gulp.dest('./public/app/js'));     // Save minified .js
       // .pipe($.livereload());                  // Initiate a reload
+  });
+
+  gulp.task('sitebuilderjs', function () {
+    return gulp.src(paths.sitebuilderjs)
+      .pipe($.rename({ suffix: '.min' }))
+      .pipe($.uglify({ outSourceMap: false }))
+      .pipe(gulp.dest('./public/app/js'))
   });
 
   /**
@@ -224,7 +235,7 @@
     runSequence(
       'clean',                                // first clean
       ['lint', 'jscs'],                       // then lint and jscs in parallel
-      ['styles', 'scripts', 'npmscripts', 'widgets', 'images'],        // etc.
+      ['styles', 'scripts', 'npmscripts', 'sitebuilderjs', 'widgets', 'images'],        // etc.
       cb);
   });
 
