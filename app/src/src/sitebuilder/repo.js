@@ -33,6 +33,27 @@ function massageUserId(userId) {
   }
   return userId
 }
+export function uploadFile(userId, siteId, sourceTmpPath, fileName) {
+  const ASSETSUPLOADS = 'assets/uploads'
+  const sourceDirDest = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId, 'themes', METALSMITH_OPTIONS.theme, ASSETSUPLOADS, fileName))
+  const buildDirDest = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId, ASSETSUPLOADS, fileName))
+  debug(`Upload file ${fileName} to ${buildDirDest} and ${sourceDirDest}`)
+  const assetUrl = `${ASSETSUPLOADS}/${fileName}`
+  return new Promise(function(resolve, reject) {
+    let counter = 0
+    function wfinish() { if (++counter == 2) { resolve(assetUrl) } }
+    const rs = fs.createReadStream(sourceTmpPath)
+    const ws1 = fs.createWriteStream(buildDirDest)
+    const ws2 = fs.createWriteStream(sourceDirDest)
+    rs.on('error', reject)
+    ws1.on('error', reject)
+    ws2.on('error', reject)
+    ws1.on('finish', wfinish)
+    ws2.on('finish', wfinish)
+    rs.pipe(ws1)
+    rs.pipe(ws2)
+  })
+}
 
 export function* prepare(userId, siteId) {
   userId = massageUserId(userId)

@@ -91,7 +91,14 @@ app.use(require('koa-static')('public', {
 if (config.NODE_ENV !== 'test') {
   app.use(require('koa-logger')());
 }
-app.use(require('koa-body')({ multipart: true, jsonLimit: '5mb' }));
+app.use(require('koa-body')({
+  multipart: true,
+  jsonLimit: '20mb',
+  formLimit: '20mb',
+  formidable: {
+    uploadDir:  path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, 'uploads'))
+  }
+}));
 app.use(mw.methodOverride());  // Must come after body parser
 app.use(mw.removeTrailingSlash());
 app.use(mw.wrapCurrUser());

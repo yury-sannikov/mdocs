@@ -14,10 +14,17 @@ block scripts
   include ./partials/editor-scripts.pug
   script(src='/app/js/jsoneditor.min.js')
   script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js')
-  script(src='/app/js/sitebuilder.min.js')
+  script(src='/app/js/sitebuilder.js')
 
   script.
    (function(init) {
+      var uploadOptions = !{uploadOptions}
+      JSONEditor.defaults.editors.froala.options = {
+        toolbarInline: false,
+        iframe: true,
+        fileUploadURL: uploadOptions.fileUploadURL,
+        fileUploadParams: uploadOptions.fileUploadParams
+      };
       init(window.jQuery, window, document);
     }(function($, window, document) {
       var jsoneditor;

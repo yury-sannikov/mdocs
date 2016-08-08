@@ -13,8 +13,6 @@ const PREVIEW_ROUTE_PATH = '/sitebuilderpreview'
 const router = new Router({
   prefix: PREVIEW_ROUTE_PATH
 })
-
-
 router.use(require('./assets').routes())
 
 router.get('/__generate', function*() {

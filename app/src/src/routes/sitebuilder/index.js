@@ -7,7 +7,6 @@ import config from '../../config';
 import url from 'url'
 import { checkAuthenticated } from '../../belt';
 
-
 const debug = require('debug')('app:routes:sitebuilder');
 const GENERATE_SLUG =  '/__generate'
 const STATIC_HTML_KEY = 'plainHtml'
@@ -25,6 +24,14 @@ router.get('main', '/:sid', function*() {
   }), true);
 });
 
+function getUploadOptions(sid) {
+  return JSON.stringify({
+    fileUploadURL: `${config.SITEBUILDER_PREIVEW_URL}/assets`,
+    fileUploadParams: {
+      sid
+    }
+  })
+}
 function getPreviewURLs(data, count, force = true) {
   const generateUrl = url.parse(`${config.SITEBUILDER_PREIVEW_URL}${GENERATE_SLUG}`)
   generateUrl.query = {f: force ? 1 : 0}
@@ -160,8 +167,10 @@ router.get('/:sid/content/:key/:index', function*() {
   const dataTitle = data.metainfo.titleRef ? dataItem[data.metainfo.titleRef] : ''
   const title = data.metainfo.schema.title || dataTitle
   const permalink = data.permalinks.length > 0 ? '/' + data.permalinks[this.params.index] : null
+  const uploadOptions = getUploadOptions(this.params.sid)
   this.render('sitebuilder/contentEditor', Object.assign({}, this.jadeLocals, {
     page: JSON.stringify(dataItem),
+    uploadOptions,
     permalink,
     schema: JSON.stringify(data.metainfo.schema),
     isContentOpen: true,

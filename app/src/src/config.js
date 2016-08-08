@@ -2,6 +2,8 @@
 const https = require('https');
 const AWS = require('aws-sdk');
 const debug = require('debug')('app:config');
+const mkdirp = require('mkdirp');
+const path = require('path');
 
 // Ensure require('dotenv').config() is run before this module is required
 
@@ -78,7 +80,11 @@ exports.SITEBUILDER_SECRET_ACCESS_KEY = process.env.SITEBUILDER_SECRET_ACCESS_KE
 exports.SITEBUILDER_CC_USER = process.env.SITEBUILDER_CC_USER
 exports.SITEBUILDER_PREIVEW_URL = process.env.SITEBUILDER_PREIVEW_URL || 'https://sitebuilder.mdocs.co'
 exports.SITEBUILDER_JWT_SECRET = process.env.SITEBUILDER_JWT_SECRET
+exports.SITEBUILDER_CORS_ORIGIN = process.env.SITEBUILDER_CORS_ORIGIN || 'http://localhost:3030'
 ////////////////////////////////////////////////////////////
+
+mkdirp.sync(path.resolve(path.join(exports.SITEBUILDER_BUILD_DIR, 'uploads')))
+
 
 // DynamoDB workaround
 const httpOptions = {

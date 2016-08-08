@@ -5,10 +5,11 @@
       afterInputReady: function() {
         var self = this;
         if (this.source_code) {
-          $(self.input).froalaEditor({
+          var options = JSONEditor.defaults.editors.froala.options || {
             toolbarInline: false,
             iframe: true
-          })
+          }
+          $(self.input).froalaEditor(options)
           .on('froalaEditor.blur', function (e, editor) {
             e.preventDefault();
             e.stopPropagation();
