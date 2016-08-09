@@ -51,4 +51,11 @@ router.delete('/*', function*() {
   const { uid, siteId } = this.session.sbSession
   this.body = yield Repo.deleteAsset(uid, siteId, this.request.url)
 })
+
+router.post('/_delete', function*() {
+  const { uid, siteId } = this.session.sbSession
+  const { src } = this.request.body
+  this.body = yield Repo.deleteAsset(uid, siteId, src)
+})
+
 module.exports = router;

@@ -44,7 +44,12 @@ function getFroalaEditorOptions(sid) {
     imageUploadParams: {sid, type: 'image'},
     imageUploadMethod: 'POST',
     imageMaxSize: 8 * 1024 * 1024,
-    imageAllowedTypes: ['jpeg', 'jpg', 'png', 'svg']
+    imageAllowedTypes: ['jpeg', 'jpg', 'png', 'svg'],
+    imageManagerDeleteURL: `${config.SITEBUILDER_PREIVEW_URL}/assets/_delete`,
+    imageManagerDeleteMethod: 'POST',
+    imageManagerDeleteParams: {
+      sid
+    }
   })
 }
 function getPreviewURLs(data, count, force = true) {
