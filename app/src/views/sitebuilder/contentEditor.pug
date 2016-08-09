@@ -33,6 +33,7 @@ block scripts
       var page = !{page}
 
       function saveChanges(e) {
+        $('textarea[name="root[htmlContent]"]').froalaEditor('events.trigger', 'blur', [])
         var values = jsoneditor.getValue();
         var form = $('form.js-save-content')
         $('[name="content"]', form).val(JSON.stringify(values))

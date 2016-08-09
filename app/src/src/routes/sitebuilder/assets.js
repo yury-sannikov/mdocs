@@ -26,6 +26,7 @@ router.use(function*(next) {
 })
 
 router.options('/',  function*() {} )
+router.options('/*',  function*() {} )
 
 router.get('/imglist', function*() {
   const { uid, siteId } = this.session.sbSession
@@ -46,4 +47,8 @@ router.post('/', function*() {
   this.body = { link: `${config.SITEBUILDER_PREIVEW_URL}/${assetUrl}` }
 });
 
+router.delete('/*', function*() {
+  const { uid, siteId } = this.session.sbSession
+  this.body = yield Repo.deleteAsset(uid, siteId, this.request.url)
+})
 module.exports = router;

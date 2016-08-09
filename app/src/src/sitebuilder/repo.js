@@ -47,6 +47,21 @@ export function* listImages(userId, siteId) {
   })
 }
 
+export function* deleteAsset(userId, siteId, url) {
+  const idx = url.indexOf(ASSETS_UPLOADS)
+  if (idx === -1) {
+    throw new Error('Wrong URL')
+  }
+  const pathPart = url.slice(idx - 1)
+  const sourceDirDest = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId, 'themes', METALSMITH_OPTIONS.theme, pathPart))
+  const buildDirDest = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId, pathPart))
+  debug(`Deleting asset ${pathPart} from ${sourceDirDest} and ${buildDirDest}`)
+  return yield* [
+    fs.unlinkAsync(sourceDirDest),
+    fs.unlinkAsync(buildDirDest)
+  ]
+}
+
 export function uploadFile(userId, siteId, sourceTmpPath, fileName, type) {
   const uploadSlug = type === 'image' ? ASSETS_IMAGES : ASSETS_UPLOADS
   const sourceDirDest = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId, 'themes', METALSMITH_OPTIONS.theme, uploadSlug, fileName))
