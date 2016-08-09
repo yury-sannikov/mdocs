@@ -47,11 +47,12 @@ export function* listImages(userId, siteId) {
   })
 }
 
-export function uploadFile(userId, siteId, sourceTmpPath, fileName) {
-  const sourceDirDest = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId, 'themes', METALSMITH_OPTIONS.theme, ASSETS_UPLOADS, fileName))
-  const buildDirDest = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId, ASSETS_UPLOADS, fileName))
+export function uploadFile(userId, siteId, sourceTmpPath, fileName, type) {
+  const uploadSlug = type === 'image' ? ASSETS_IMAGES : ASSETS_UPLOADS
+  const sourceDirDest = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId, 'themes', METALSMITH_OPTIONS.theme, uploadSlug, fileName))
+  const buildDirDest = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId, uploadSlug, fileName))
   debug(`Upload file ${fileName} to ${buildDirDest} and ${sourceDirDest}`)
-  const assetUrl = `${ASSETSUPLOADS}/${fileName}`
+  const assetUrl = `${uploadSlug}/${fileName}`
   return new Promise(function(resolve, reject) {
     let counter = 0
     function wfinish() { if (++counter == 2) { resolve(assetUrl) } }

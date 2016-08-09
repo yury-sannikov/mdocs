@@ -39,7 +39,12 @@ function getFroalaEditorOptions(sid) {
     imageManagerLoadMethod: 'GET',
     imageManagerLoadParams: {
       sid
-    }
+    },
+    imageUploadURL: `${config.SITEBUILDER_PREIVEW_URL}/assets`,
+    imageUploadParams: {sid, type: 'image'},
+    imageUploadMethod: 'POST',
+    imageMaxSize: 8 * 1024 * 1024,
+    imageAllowedTypes: ['jpeg', 'jpg', 'png', 'svg']
   })
 }
 function getPreviewURLs(data, count, force = true) {

@@ -34,16 +34,16 @@ router.get('/imglist', function*() {
 })
 
 router.post('/', function*() {
-  const { sid } = this.request.body.fields
+  const { sid, type = '' } = this.request.body.fields
   const { file } = this.request.body.files
   const { uid, siteId } = this.session.sbSession
 
   if (sid !== this.session.sbSession.siteId) {
     this.throw('Wrong session id')
   }
-  const assetUrl = yield Repo.uploadFile(uid, siteId, file.path, file.name)
+  const assetUrl = yield Repo.uploadFile(uid, siteId, file.path, file.name, type)
   this.status = 201
-  this.body = { link: '/' + assetUrl}
+  this.body = { link: `${config.SITEBUILDER_PREIVEW_URL}/${assetUrl}` }
 });
 
 module.exports = router;
