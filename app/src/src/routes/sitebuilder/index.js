@@ -24,6 +24,11 @@ router.get('main', '/:sid', function*() {
   }), true);
 });
 
+router.get('menu', '/:sid/menu', function*() {
+  this.render('sitebuilder/menuEditor', Object.assign({}, this.jadeLocals, {
+  }), true);
+});
+
 function getFroalaEditorOptions(sid) {
   return JSON.stringify({
     SITEBUILDER_PREIVEW_URL: config.SITEBUILDER_PREIVEW_URL,

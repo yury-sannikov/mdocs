@@ -99,6 +99,7 @@
     npm: [
       'node_modules/json-editor/dist/jsoneditor.min.js',
       'node_modules/card/dist/jquery.card.js',
+      'node_modules/jqtree/tree.jquery.js'
     ],
     sitebuilderjs: [
       'public/app/js/sitebuilder.js'
