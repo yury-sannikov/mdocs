@@ -353,20 +353,14 @@ block content
             <input type="text" class="form-control" value="{{node.name}}"/>
           </div>
           <div class="sitelink-links-select">
-            <select data-placeholder="Your Favorite Football Team" style="padding-right: 5px; display: none;" tabindex="-1" class="form-control chosen-select">
+            <select data-placeholder="Pick A Link" style="padding-right: 5px; display: none;" tabindex="-1" class="form-control chosen-select">
               <option value=""></option>
-              <optgroup label="NFC EAST">
-                <option>Dallas Cowboys</option>
-                <option>New York Giants</option>
-                <option>Philadelphia Eagles</option>
-                <option>Washington Redskins</option>
-              </optgroup>
-              <optgroup label="NFC NORTH">
-                <option>Chicago Bears</option>
-                <option>Detroit Lions</option>
-                <option>Green Bay Packers</option>
-                <option>Minnesota Vikings</option>
-              </optgroup>
+              {{#each menu}}
+              <optgroup label={{name}}>
+                {{#each children}}
+                <option>{{name}}</option>
+                {{/each}}
+              {{/each}}
             </select>
           </div>
         </div>
@@ -391,6 +385,8 @@ block scripts
       });
 
       var $tree = $('.menu-editor')
+      var menu = !{menu}
+
 
       var MAX_DEPTH = 2
       function getNodeDepth(node) {
@@ -409,7 +405,8 @@ block scripts
 
         var $row = $('<div class="jqtree-element jqtree_common" role="presentation">' + template({
           indent: depth * 15,
-          node: node
+          node: node,
+          menu: menu
         }) + '</div>')
 
         $('.js-sitelink-click', $row).on('click', function(e) {
@@ -460,6 +457,7 @@ block scripts
                 ]
             }
         ];
+
         $tree.tree({
             data: data,
             autoOpen: true,

@@ -25,7 +25,44 @@ router.get('main', '/:sid', function*() {
 });
 
 router.get('menu', '/:sid/menu', function*() {
+  const pagesFn = (pages) => pages.map((item) => ({
+    name: item.title,
+    id: `/${item.path}`
+  }))
+  let result = []
+  for (let key in this.sbMetainfo) {
+    if (key === 'plainHtml') {
+      result.push({
+        name: 'Pages',
+        id: 'plainHtml',
+        children: pagesFn(this.sbMetainfo[key])
+      })
+    } else {
+      var item = this.sbMetainfo[key];
+      var children = []
+      if (item.indexPath.length > 0) {
+        children.push({
+          name: '(index)',
+          id: `/${item.indexPath}`
+        })
+      }
+      item.permalinks.forEach((item) => {
+        children.push({
+          name: item, // Todo. read metainfo.titleRef from correspondent data/.json
+          id: item
+        })
+      })
+
+      result.push({
+        name: item.metainfo.menuCaption,
+        id: item.indexPath,
+        children: children
+      })
+
+    }
+  }
   this.render('sitebuilder/menuEditor', Object.assign({}, this.jadeLocals, {
+    menu: JSON.stringify(result)
   }), true);
 });
 
