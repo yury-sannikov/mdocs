@@ -76,6 +76,13 @@ router.get('menu', '/:sid/menu', function*() {
   }), true);
 });
 
+router.post('/:sid/menu', function*() {
+  yield Repo.writeJSONData(this.params.sid, MENU_JSON_KEY, JSON.parse(this.request.body.content))
+  yield Repo.metainfo(this.currentUser.id, this.params.sid)
+  this.flash = 'Menu has been updated'
+  this.redirect(router.url('menu', {sid: this.params.sid}))
+})
+
 function getFroalaEditorOptions(sid) {
   return JSON.stringify({
     SITEBUILDER_PREIVEW_URL: config.SITEBUILDER_PREIVEW_URL,

@@ -188,6 +188,11 @@ export function* writeJSONDataItem(siteId, key, arrayIndex, obj) {
   yield fs.writeFileAsync(path.join(base, JSON_LOCATION, key + '.json'), JSON.stringify(data, null, 2))
 }
 
+export function* writeJSONData(siteId, key, data) {
+  const base = baseSrcPath(siteId)
+  yield fs.writeFileAsync(path.join(base, JSON_LOCATION, key + '.json'), JSON.stringify(data, null, 2))
+}
+
 export function* readHTMLData(siteId, fileName) {
   const base = baseSrcPath(siteId)
   const content = yield fs.readFileAsync(path.join(base, HTML_LOCATION, (fileName || 'index') + '.html'), 'utf8')
