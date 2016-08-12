@@ -5,6 +5,9 @@ block head
 
 block styles
   style.
+    .has-error .sitelink-links-select {
+      border: solid 1px red;
+    }
     select.form-control + .chosen-container.chosen-container-single .chosen-single {
         display: block;
         width: 100%;
@@ -258,8 +261,6 @@ block styles
         box-sizing: content-box; }
       ul.jqtree-tree li.jqtree-selected > .jqtree-element,
       ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
-        border: solid 2px #97BDD6;
-        padding: 6px 0px;
       }
       ul.jqtree-tree .jqtree-moving > .jqtree-element .jqtree-title {
         outline: dashed 1px #0000ff; }
@@ -281,44 +282,21 @@ block styles
 
 block content
   .container-fluid
-    //- .row
-    //-   .col-md-4
-    //-     .input-group
-    //-       .input-group-btn
-    //-         .btn
-    //-           i.fa.fa-bars
-    //-       input.form-control(type='text', aria-label='...')
-    //-   .col-md-7
-    //-     .input-group
-    //-       .input-group-btn(style='min-width: 130px;')
-    //-         button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-    //-           | Site Link&nbsp;
-    //-           span.caret
-    //-         ul.dropdown-menu.dropdown-menu-right
-    //-           li
-    //-             a(href='#') Site Link
-    //-           li
-    //-             a(href='#') External Link
-    //-       .builtin-links-select(style='border-color: red;')
-    //-         select.form-control.chosen-select(data-placeholder='Your Favorite Football Team', style='padding-right: 5px; display: none;', tabindex='-1')
-    //-           option(value='')
-    //-           optgroup(label='NFC EAST')
-    //-             option Dallas Cowboys
-    //-             option New York Giants
-    //-             option Philadelphia Eagles
-    //-             option Washington Redskins
-    //-           optgroup(label='NFC NORTH')
-    //-             option Chicago Bears
-    //-             option Detroit Lions
-    //-             option Green Bay Packers
-    //-             option Minnesota Vikings
-    //-   .col-md-1
-    //-     button.btn.btn-default
-    //-       i.fa.fa-close
-
+    .hidden
+      form.js-save-content(method='POST')
+        input(type='hidden', name='_csrf', value=_csrf)
+        input(type='hidden', name='content')
+    .row
+      .col-md-1.col-md-offset-10
+        button.btn.btn-primary.pull-right.js-save-changes Save Changes
     .row
       .col-md-10.col-md-offset-1
         .menu-editor
+    .row
+      .col-md-1.col-md-offset-10
+        button.btn.btn-primary.pull-right.js-save-changes Save Changes
+    br
+    br
     .modal.js-delete-confirm(tabindex='-1', role='dialog', aria-hidden='true')
       .modal-dialog.modal-sm
         .modal-content
@@ -333,11 +311,11 @@ block content
   script#row-template(type='text/x-handlebars-template').
     <div class="row" data-row-id="{{node.id}}">
       <div class="col-md-4">
-        <div class="input-group" style="margin-left:{{indent}}px;">
+        <div class="input-group" style="z-index:0; margin-left:{{indent}}px;">
           <div class="input-group-btn">
             <div class="btn"><i class="fa fa-bars"></i></div>
           </div>
-          <input type="text" class="form-control" value="{{node.name}}"/>
+          <input type="text" class="form-control js-menu-name" value="{{node.name}}"/>
         </div>
       </div>
       <div class="col-md-7">
@@ -353,7 +331,7 @@ block content
             </ul>
           </div>
           <div class="externallink-links-select" {{#ifLinkType node.id availableLinks 0}}style="display: none;"{{/ifLinkType}}>
-            <input type="text" class="form-control" value="{{node.id}}"/>
+            <input type="text" class="form-control js-custom-link-edit" value="{{node.id}}"/>
           </div>
           <div class="sitelink-links-select" {{#ifLinkType node.id availableLinks 1}}style="display: none;"{{/ifLinkType}}>
             <select data-placeholder="Pick A Link" style="padding-right: 5px; display: none;" tabindex="-1" class="form-control chosen-select">
@@ -417,7 +395,7 @@ block scripts
       Handlebars.registerHelper('ifLinkType', function(link, links, type, block) {
         var SITE_LINK_TYPE=0
         var CUSTOM_LINK_TYPE=1
-        var knownLink = links.some(checkLinks(link))
+        var knownLink = link && link.length >0 && links.some(checkLinks(link))
         if (type === (knownLink ? SITE_LINK_TYPE : CUSTOM_LINK_TYPE)) {
           return block.fn(this);
         }
@@ -444,7 +422,9 @@ block scripts
         $('.js-custom-click, .js-externallink-click', $row).on('click', function(e) {
           $(this).closest('div').find('span[class="caption"]').html($(this).html())
           $('.sitelink-links-select', $row).hide()
-          $('.externallink-links-select', $row).show()
+          $('.externallink-links-select', $row)
+            .show()
+            .val(node.id)
         })
 
         $('.js-remove-node', $row).on('click', function() {
@@ -463,13 +443,57 @@ block scripts
 
           $modal.modal({keyboard:true, show: true});
         })
-
-        $('.chosen-select', $row).chosen({width: '100%'});
+        $('.js-custom-link-edit', $row).change(function() {
+            $tree.tree('updateNode', node,{
+              name: node.name,
+              id: $(this).val()});
+        })
+        $('.js-menu-name', $row).change(function() {
+            $tree.tree('updateNode', node,{
+              name: $(this).val(),
+              id: node.id});
+        })
+        $('.chosen-select', $row)
+          .chosen({width: '100%'})
+          .change(function(e, data) {
+            $tree.tree(
+              'updateNode',
+              node,
+              {
+                name: node.name,
+                id: data.selected
+              }
+            );
+          })
         $('.jqtree-element.jqtree_common', $li).replaceWith($row)
       }
 
       $(function() {
         var data = !{menu};
+
+
+        $('.js-save-changes').on('click', function(e) {
+          $('.has-error', $tree).removeClass('has-error')
+
+          var emptyItems = $('input[value=""]', $tree)
+          if (emptyItems.length > 0) {
+            emptyItems.closest('.input-group').addClass('has-error')
+            return
+          }
+
+          var treeData = $tree.tree('getTree');
+          var frm = $('.js-save-content')
+
+          var mapper = function(item) {
+            return {
+              caption: item.name,
+              href: item.id,
+              content: item.children.length > 0 ? item.children.map(mapper) : undefined
+            }
+          }
+          $('input[name="content"').val(JSON.stringify(treeData.children.map(mapper)))
+          frm.submit();
+        })
 
         $tree.tree({
             data: data,
@@ -486,16 +510,20 @@ block scripts
         .bind('tree.move',
         function(event) {
           var targetDepth = getNodeDepth(event.move_info.target_node);
+          var hasChildren = event.move_info.moved_node.children.length > 0;
+
           if (targetDepth >= MAX_DEPTH) {
             if (event.move_info.position !== 'inside') {
-              return
+              if (!hasChildren) {
+                return
+              }
             }
             event.preventDefault();
           }
           if (event.move_info.position !== 'inside') {
             return
           }
-          if (event.move_info.moved_node.children.length > 0) {
+          if (hasChildren) {
             event.preventDefault();
           }
         })
