@@ -10,6 +10,7 @@ import { checkAuthenticated } from '../../belt';
 const debug = require('debug')('app:routes:sitebuilder');
 const GENERATE_SLUG =  '/__generate'
 const STATIC_HTML_KEY = 'plainHtml'
+const MENU_JSON_KEY = 'menu'
 
 const router = new Router({
   prefix: '/sitebuilder'
@@ -42,14 +43,14 @@ router.get('menu', '/:sid/menu', function*() {
       var children = []
       if (item.indexPath.length > 0) {
         children.push({
-          name: '(index)',
+          name: `(${item.metainfo.menuCaption.toLowerCase()} index)`,
           id: `/${item.indexPath}`
         })
       }
       item.permalinks.forEach((item) => {
         children.push({
           name: item, // Todo. read metainfo.titleRef from correspondent data/.json
-          id: item
+          id: `/${item}`
         })
       })
 
@@ -61,8 +62,17 @@ router.get('menu', '/:sid/menu', function*() {
 
     }
   }
+  const menu = yield Repo.readJSONData(this.params.sid, MENU_JSON_KEY)
+  const transformMenuItems = (mi) => ({
+    name: mi.caption,
+    id: mi.href,
+    children: mi.content ? mi.content.map(transformMenuItems) : []
+  })
+  const menuTransformed = menu.map(transformMenuItems)
+
   this.render('sitebuilder/menuEditor', Object.assign({}, this.jadeLocals, {
-    menu: JSON.stringify(result)
+    availableLinks: JSON.stringify(result),
+    menu: JSON.stringify(menuTransformed)
   }), true);
 });
 

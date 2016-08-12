@@ -343,22 +343,25 @@ block content
       <div class="col-md-7">
         <div class="input-group">
           <div class="input-group-btn" style="min-width: 130px;">
-            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-default dropdown-toggle"><span class='caption'>Site Link</span>&nbsp;<span class="caret"></span></button>
+            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-default dropdown-toggle"><span class='caption'>
+            {{#ifLinkType node.id availableLinks 0}}Site Link{{/ifLinkType}}
+            {{#ifLinkType node.id availableLinks 1}}Custom Link{{/ifLinkType}}
+            </span>&nbsp;<span class="caret"></span></button>
             <ul class="dropdown-menu dropdown-menu-right">
               <li><a href="#" class="js-sitelink-click">Site Link</a></li>
-              <li><a href="#" class="js-externallink-click">External Link</a></li>
+              <li><a href="#" class="js-custom-click">Custom Link</a></li>
             </ul>
           </div>
-          <div class="externallink-links-select" style="display: none;">
-            <input type="text" class="form-control" value="{{node.name}}"/>
+          <div class="externallink-links-select" {{#ifLinkType node.id availableLinks 0}}style="display: none;"{{/ifLinkType}}>
+            <input type="text" class="form-control" value="{{node.id}}"/>
           </div>
-          <div class="sitelink-links-select">
+          <div class="sitelink-links-select" {{#ifLinkType node.id availableLinks 1}}style="display: none;"{{/ifLinkType}}>
             <select data-placeholder="Pick A Link" style="padding-right: 5px; display: none;" tabindex="-1" class="form-control chosen-select">
               <option value=""></option>
-              {{#each menu}}
+              {{#each availableLinks}}
               <optgroup label={{name}}>
                 {{#each children}}
-                <option>{{name}}</option>
+                <option value="{{id}}" {{optionSelected id ../../node}}>{{name}}</option>
                 {{/each}}
               {{/each}}
             </select>
@@ -385,7 +388,7 @@ block scripts
       });
 
       var $tree = $('.menu-editor')
-      var menu = !{menu}
+      var availableLinks = !{availableLinks}
 
 
       var MAX_DEPTH = 2
@@ -398,6 +401,29 @@ block scripts
         return result;
       }
 
+      function checkLinks(link) {
+        return function (elem) {
+          if (link === elem.id) {
+            return true;
+          }
+          return elem.children ? elem.children.some(checkLinks(link)) : false
+        }
+      }
+
+      Handlebars.registerHelper('optionSelected', function(a, b) {
+        return a === b.id ? 'selected' : '';
+      });
+
+      Handlebars.registerHelper('ifLinkType', function(link, links, type, block) {
+        var SITE_LINK_TYPE=0
+        var CUSTOM_LINK_TYPE=1
+        var knownLink = links.some(checkLinks(link))
+        if (type === (knownLink ? SITE_LINK_TYPE : CUSTOM_LINK_TYPE)) {
+          return block.fn(this);
+        }
+      });
+
+
       function buildMenuNode(node, $li) {
         var depth = getNodeDepth(node)
         var source   = $("#row-template").html();
@@ -406,7 +432,7 @@ block scripts
         var $row = $('<div class="jqtree-element jqtree_common" role="presentation">' + template({
           indent: depth * 15,
           node: node,
-          menu: menu
+          availableLinks: availableLinks
         }) + '</div>')
 
         $('.js-sitelink-click', $row).on('click', function(e) {
@@ -415,7 +441,7 @@ block scripts
           $('.externallink-links-select', $row).hide()
 
         })
-        $('.js-externallink-click', $row).on('click', function(e) {
+        $('.js-custom-click, .js-externallink-click', $row).on('click', function(e) {
           $(this).closest('div').find('span[class="caption"]').html($(this).html())
           $('.sitelink-links-select', $row).hide()
           $('.externallink-links-select', $row).show()
@@ -443,20 +469,7 @@ block scripts
       }
 
       $(function() {
-        var data = [
-            {
-                name: 'About Practice', id: 1,
-                children: [
-                    { name: 'Quick Information', id: 2 }
-                ]
-            },
-            {
-                name: 'Information', id: 4,
-                children: [
-                    { name: 'FAQ', id: 5 }
-                ]
-            }
-        ];
+        var data = !{menu};
 
         $tree.tree({
             data: data,
