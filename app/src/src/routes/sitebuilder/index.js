@@ -11,6 +11,8 @@ const debug = require('debug')('app:routes:sitebuilder');
 const GENERATE_SLUG =  '/__generate'
 const STATIC_HTML_KEY = 'plainHtml'
 const MENU_JSON_KEY = 'menu'
+const PRACTICE_KEY = 'practice'
+
 
 const router = new Router({
   prefix: '/sitebuilder'
@@ -69,10 +71,12 @@ router.get('menu', '/:sid/menu', function*() {
     children: mi.content ? mi.content.map(transformMenuItems) : []
   })
   const menuTransformed = menu.map(transformMenuItems)
-
+  const title = 'Menu Editor'
   this.render('sitebuilder/menuEditor', Object.assign({}, this.jadeLocals, {
     availableLinks: JSON.stringify(result),
-    menu: JSON.stringify(menuTransformed)
+    menu: JSON.stringify(menuTransformed),
+    nav_title: title,
+    nav_crumbs: [[title], ['Overview', router.url('main', {sid: this.params.sid})]]
   }), true);
 });
 
@@ -261,5 +265,37 @@ router.get('/:sid/content/:key/:index', function*() {
 
   }), true);
 });
+
+router.get('practiceInfo','/:sid/practice', function*() {
+
+    if (!this.sbMetainfo.hasOwnProperty(PRACTICE_KEY)) {
+    this.redirect(router.url('main', {sid: this.params.sid}))
+    return;
+  }
+  const data = this.sbMetainfo[PRACTICE_KEY]
+  const dataItem = yield Repo.readJSONData(this.params.sid, PRACTICE_KEY)
+  const dataTitle = data.metainfo.titleRef ? dataItem[data.metainfo.titleRef] : ''
+  const { schema: { title =  dataTitle} = {} } = data.metainfo
+  const permalink = null;
+  const froalaOptions = getFroalaEditorOptions(this.params.sid)
+  this.render('sitebuilder/contentEditor', Object.assign({}, this.jadeLocals, {
+    page: JSON.stringify(dataItem),
+    froalaOptions,
+    permalink,
+    schema: JSON.stringify(data.metainfo.schema || {}),
+    isContentOpen: false,
+    nav_title: title,
+    nav_crumbs: [[title], ['Overview', router.url('main', {sid: this.params.sid})]]
+
+  }), true);
+})
+
+router.post('/:sid/practice', function*() {
+  yield Repo.writeJSONData(this.params.sid, PRACTICE_KEY, JSON.parse(this.request.body.content))
+  yield Repo.metainfo(this.currentUser.id, this.params.sid)
+  this.flash = 'Practice information has been updated'
+  this.redirect(router.url('practiceInfo', {sid: this.params.sid}))
+})
+
 
 module.exports = router;
