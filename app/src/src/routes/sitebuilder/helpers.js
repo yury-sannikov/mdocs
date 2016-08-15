@@ -26,7 +26,8 @@ export function sitebuilderLocalsMiddleware() {
           metainfo: sbMetainfo[key].metainfo
         }
       })
-      .filter((item) => !_.isEmpty(item.metainfo) || item.key === STATIC_HTML_KEY )
+      .filter((item) => !_.isEmpty(item.metainfo)
+        || item.key === STATIC_HTML_KEY)
 
     this.jadeLocals = Object.assign({}, this.jadeLocals, {
       contentMenuItems,

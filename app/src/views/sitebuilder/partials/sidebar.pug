@@ -34,16 +34,17 @@
               span.sidebar-mini-hide Content
             #profilesSubMenu(class=isContentOpen ? 'collapse in' : 'collapse')
               each item, i in contentMenuItems
-                if (item.key == 'plainHtml')
-                  a(href='/app/sitebuilder/' + siteId + '/pages')
-                    i
-                    i.fa.fa-globe
-                    span.sidebar-mini-hide Pages
-                else
-                  a(href='/app/sitebuilder/' + siteId + '/content/'+item.key)
-                    i
-                    i(class=item.metainfo.menuIconClass)
-                    span.sidebar-mini-hide #{item.metainfo.menuCaption || item.key}
+                if (!item.metainfo || item.metainfo.hideFromContent !== true)
+                  if (item.key == 'plainHtml')
+                    a(href='/app/sitebuilder/' + siteId + '/pages')
+                      i
+                      i.fa.fa-globe
+                      span.sidebar-mini-hide Pages
+                  else
+                    a(href='/app/sitebuilder/' + siteId + '/content/'+item.key)
+                      i
+                      i(class=item.metainfo.menuIconClass)
+                      span.sidebar-mini-hide #{item.metainfo.menuCaption || item.key}
           li
             a(href='/app/sitebuilder/' + siteId + '/menu')
               i.fa.fa-sitemap
