@@ -313,6 +313,9 @@ block content
       <div class="col-md-4">
         <div class="input-group" style="z-index:0; margin-left:{{indent}}px;">
           <div class="input-group-btn">
+            <div class="btn js-add-node-wrapper" style="position: absolute;top: 5px;padding: 0px;left: -15px;display:none;" data-toggle="tooltip" data-placement="top" data-original-title="Add New Item">
+                <a class="js-add-node" style="display: block; width: 20px; height: 20px;"><i class="fa fa-plus-square"></i></a>
+            </div>
             <div class="btn"><i class="fa fa-bars"></i></div>
           </div>
           <input type="text" class="form-control js-menu-name" value="{{node.name}}"/>
@@ -413,6 +416,7 @@ block scripts
           availableLinks: availableLinks
         }) + '</div>')
 
+        $('[data-toggle="tooltip"]', $row).tooltip();
         $('.js-sitelink-click', $row).on('click', function(e) {
           $(this).closest('div').find('span[class="caption"]').html($(this).html())
           $('.sitelink-links-select', $row).show()
@@ -453,6 +457,16 @@ block scripts
               name: $(this).val(),
               id: node.id});
         })
+        $row.hover(function handleIn() {
+          $('.js-add-node-wrapper', $row).show()
+        }, function handleOut() {
+          $('.js-add-node-wrapper', $row).hide()
+        })
+
+        $('.js-add-node', $row).on('click', function() {
+          $tree.tree('addNodeAfter', {name: `New ${node.name}`, id: node.id}, node);
+        })
+
         $('.chosen-select', $row)
           .chosen({width: '100%'})
           .change(function(e, data) {
