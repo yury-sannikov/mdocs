@@ -1,13 +1,13 @@
 {
   "name": "Liberty Laser Eye",
-  "description": "Laser Eye Surgery Center",
   "address": "8321 Old Courthouse Road",
   "city": "Vienna",
   "state": "VA",
   "zip": "22182",
   "phone": "571-234-5678",
-  "fax": "571-234-5674",
+  "fax": "571-234-5673",
   "email": "info@libertylasereye.com",
+  "description": "Laser Eye Surgery Center",
   "logo": {
     "small": "/assets/img/logo_small.png",
     "big": "/assets/img/logo_big.png"
@@ -17,7 +17,7 @@
     "tue": "9:00am - 5:00pm",
     "wed": "9:00am - 5:00pm",
     "thu": "9:00am - 5:00pm",
-    "fri": "9:00am - 5:00pm",
+    "fri": "9:00am - 3:00pm",
     "sat": "Closed",
     "sun": "Closed"
   },

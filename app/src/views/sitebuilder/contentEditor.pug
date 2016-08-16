@@ -21,6 +21,13 @@ block scripts
       JSONEditor.defaults.editors.froala.options = !{froalaOptions};
       init(window.jQuery, window, document);
     }(function($, window, document) {
+      $.ajax({
+        type: 'GET',
+        url: '/app/lib/bootstrap/js/modal.js',
+        dataType: 'script',
+        cache: true
+      });
+
       var jsoneditor;
       var options = {
         theme: 'bootstrap3',
@@ -28,17 +35,44 @@ block scripts
         disable_collapse: true,
         disable_edit_json: true,
         disable_properties: true,
+        display_required_only: true,
         schema: !{schema}
       };
       var page = !{page}
 
-      function saveChanges(e) {
+      function saveChanges(e, stayOnPage) {
         $('textarea[name="root[htmlContent]"]').froalaEditor('events.trigger', 'blur', [])
         var values = jsoneditor.getValue();
         var form = $('form.js-save-content')
+        if (stayOnPage === true) {
+          $('[name="stayonpage"]', form).val('yes')
+        }
         $('[name="content"]', form).val(JSON.stringify(values))
         form.submit()
       }
+      function updatePermalink() {
+        var $modal = $('.js-edit-seotitle');
+        var values = jsoneditor.getValue();
+        $('input[name="prermalink"]', $modal).val(values.seotitle)
+        $modal.modal({keyboard:true,backdrop:'static'});
+
+        $('form', $modal).submit(function(event) {
+          event.preventDefault();
+          doSaveChanges();
+        })
+
+        $('.btn-primary', $modal).one('click', doSaveChanges);
+
+        function doSaveChanges() {
+          values = jsoneditor.getValue();
+          values.seotitle = $('input[name="prermalink"]', $modal).val()
+          jsoneditor.setValue(values);
+          $modal.modal('hide');
+          $('input[name="permalink-readonly"]').val('<updating...>');
+          saveChanges(null, true)
+        }
+      }
+
       $(function() {
 
         var element = document.querySelector('.json-editor-holder');
@@ -54,6 +88,8 @@ block scripts
         });
 
         $('.action-save-changes').on('click', saveChanges)
+        $('.js-update-permalink').on('click', updatePermalink)
+
       });
     }));
 
@@ -63,6 +99,25 @@ block content
       form.js-save-content(method='POST')
         input(type='hidden', name='_csrf', value=_csrf)
         input(type='hidden', name='content')
+        input(type='hidden', name='stayonpage')
+    .modal.fade.js-edit-seotitle(tabindex='-1', role='dialog', aria-hidden='true')
+      .modal-dialog.modal-md
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+            h4.modal-title Edit Permalink
+          .modal-body
+            .row
+              .col-sm-12
+                form
+                  h6(style='color:#d26a5c; font-style:italic; margin-top:-5px; margin-bottom: 15px;') By changing permalink you change page URL address. You have to manually update all links to that page including menu.
+                  .form-group
+                    label.sr-only(for='name') Permalink
+                    input.form-control(type='text', name='prermalink', placeholder='Permalink')
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Cancel
+            button.btn.btn-primary(type='submit') Change
+
     .row
       .col-md-1.col-md-offset-10
         button.btn.btn-primary.pull-right.action-save-changes Save Changes
@@ -72,10 +127,16 @@ block content
         .col-md-5.col-md-offset-1
           label Permalink
           .input-group
-            input.form-control(type="text", readonly=true, value=permalink)
+            input.form-control(type="text", name="permalink-readonly", readonly=true, value=permalink)
             span.input-group-btn
               button.btn.btn-default.action-copy-permalink(type="button", data-toggle="tooltip" data-placement="top" data-original-title="Copy to Clipboard" data-permalink=permalink)
                 i.fa.fa-clipboard
+        .col-md-2
+          label &nbsp;
+          .input-group
+            span.input-group-btn
+              button.btn.btn-default.js-update-permalink(type="button") Update
+
       br
     .row
       .col-md-10.col-md-offset-1

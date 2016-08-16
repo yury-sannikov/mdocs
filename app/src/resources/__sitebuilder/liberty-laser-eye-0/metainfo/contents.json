@@ -51,6 +51,11 @@
         "options": {
           "wysiwyg": true
         }
+      },
+      "seotitle": {
+        "options": {
+          "hidden": true
+        }
       }
     }
   },

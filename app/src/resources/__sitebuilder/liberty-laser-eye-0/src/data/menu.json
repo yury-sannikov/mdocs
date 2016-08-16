@@ -6,6 +6,10 @@
       {
         "caption": "Quick Information",
         "href": "/#quick"
+      },
+      {
+        "caption": "New Quick Information 2",
+        "href": "/#quick"
       }
     ]
   },

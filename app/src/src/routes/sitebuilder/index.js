@@ -157,7 +157,7 @@ router.get('pagesList', '/:sid/pages', function*() {
 
 })
 
-router.get('/:sid/pages/:index', function*() {
+router.get('page', '/:sid/pages/:index', function*() {
   const contentItems = this.sbMetainfo[STATIC_HTML_KEY]
   const fileName = contentItems[this.params.index].path
   const data = yield Repo.readHTMLData(this.params.sid, fileName)
@@ -206,7 +206,6 @@ router.post('/:sid/pages/:index', function*() {
 
   yield Repo.writeHTMLData(this.params.sid, fileName, JSON.parse(this.request.body.content))
   yield Repo.metainfo(this.currentUser.id, this.params.sid)
-
   this.redirect(router.url('pagesList', {sid: this.params.sid}))
 })
 
@@ -238,10 +237,16 @@ router.post('/:sid/content/:key/:index', function*() {
   yield Repo.writeJSONDataItem(this.params.sid, this.params.key, this.params.index, JSON.parse(this.request.body.content))
   yield Repo.metainfo(this.currentUser.id, this.params.sid)
 
-  this.redirect(router.url('contentList', {key:this.params.key, sid: this.params.sid}))
+  const stayonpage = this.request.body.stayonpage === 'yes'
+  if (stayonpage) {
+    this.redirect(router.url('contentItem', {key:this.params.key, sid: this.params.sid, index: this.params.index}))
+  }
+  else {
+    this.redirect(router.url('contentList', {key:this.params.key, sid: this.params.sid}))
+  }
 })
 
-router.get('/:sid/content/:key/:index', function*() {
+router.get('contentItem','/:sid/content/:key/:index', function*() {
 
   if (!this.sbMetainfo.hasOwnProperty(this.params.key)) {
     this.redirect(router.url('main', {sid: this.params.sid}))
