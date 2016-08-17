@@ -23,6 +23,21 @@ block styles
 
 block content
   .container-fluid
+    .modal.fade.js-delete-item(tabindex='-1', role='dialog', aria-hidden='true')
+      .modal-dialog.modal-md
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+            h4.modal-title Delete confirmation
+          .modal-body
+            h4.js-modal-body-title Are you sure?
+            form(method='POST', action=contentKey+"/delete")
+              input.form-control(type='hidden', name='_csrf', value=_csrf)
+              input.form-control(type='hidden', name='id')
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') No
+            button.btn.btn-primary(type='button') Yes
+
     .row
       .col-md-12
         if !staticList
@@ -52,7 +67,7 @@ block content
                       a.btn.btn-default.btn-xs(href=previewUrls[i], target="_blank", data-toggle="tooltip" data-placement="top" title="" type="button" data-original-title="Preview Page in a new window") Preview
                       if !staticList
                         | &nbsp;
-                        a.action-delete-page.btn.btn-danger.btn-xs(href="#", data-page-id=i data-toggle="tooltip" data-placement="top" title="" type="button" data-original-title="Delete Page") Delete&nbsp;
+                        a.js-delete-page.btn.btn-danger.btn-xs(href="#", data-page-title=page[contentHeaders[0].ref], data-page-id=i data-toggle="tooltip" data-placement="top" title="" type="button" data-original-title="Delete Page") Delete&nbsp;
 
 block scripts
   script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js')
@@ -62,6 +77,22 @@ block scripts
     (function(init) {
       init(window.jQuery, window, document);
     }(function($, window, document) {
+
+      function showDeleteDialog() {
+        var pageId = $(this).attr('data-page-id')
+        var $modal = $('.js-delete-item');
+        $('h4.js-modal-body-title', $modal).html('Are you sure to delete ' + $(this).attr('data-page-title') + ' ?')
+        $modal.modal({keyboard:true,backdrop:'static'});
+        $('.btn-primary', $modal).one('click', doSaveChanges);
+        function doSaveChanges() {
+          var $form = $('form', $modal)
+          $('input[name="id"]', $form).val(pageId)
+          $form.submit()
+          $modal.modal('hide');
+        }
+      }
+
+
       $(function() {
 
         //- Async Load Bootstrap Modal
@@ -79,5 +110,6 @@ block scripts
             return '/' + event.getAttribute('data-permalink');
           }
         });
+        $('.js-delete-page').on('click', showDeleteDialog)
       });
     }));

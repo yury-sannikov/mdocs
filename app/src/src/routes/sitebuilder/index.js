@@ -233,6 +233,12 @@ router.get('contentList', '/:sid/content/:key', function*() {
   }), true);
 });
 
+router.post('/:sid/content/:key/delete', function*() {
+  yield Repo.deleteJSONDataItem(this.params.sid, this.params.key, this.request.body.id)
+  yield Repo.metainfo(this.currentUser.id, this.params.sid)
+  this.redirect(router.url('contentList', {key:this.params.key, sid: this.params.sid}))
+})
+
 router.post('/:sid/content/:key/:index', function*() {
   let content = JSON.parse(this.request.body.content)
   if (this.params.index === 'new') {

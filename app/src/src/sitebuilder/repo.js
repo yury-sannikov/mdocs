@@ -197,8 +197,21 @@ export function* writeNewJSONDataItem(siteId, key, obj) {
   }
   const base = baseSrcPath(siteId)
   yield fs.writeFileAsync(path.join(base, JSON_LOCATION, key + '.json'), JSON.stringify(data, null, 2))
+}
+
+export function* deleteJSONDataItem(siteId, key, arrayIndex) {
+  let data = yield readJSONData(siteId, key)
+  if (_.isArray(data)) {
+    arrayIndex = parseInt(arrayIndex)
+    data.splice(arrayIndex, 1)
+  } else {
+    delete data[arrayIndex]
+  }
+  const base = baseSrcPath(siteId)
+  yield fs.writeFileAsync(path.join(base, JSON_LOCATION, key + '.json'), JSON.stringify(data, null, 2))
 
 }
+
 
 export function* writeJSONData(siteId, key, data) {
   const base = baseSrcPath(siteId)
