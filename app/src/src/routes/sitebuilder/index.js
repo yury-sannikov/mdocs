@@ -234,7 +234,21 @@ router.get('contentList', '/:sid/content/:key', function*() {
 });
 
 router.post('/:sid/content/:key/:index', function*() {
-  yield Repo.writeJSONDataItem(this.params.sid, this.params.key, this.params.index, JSON.parse(this.request.body.content))
+  let content = JSON.parse(this.request.body.content)
+  if (this.params.index === 'new') {
+    const data = this.sbMetainfo[this.params.key]
+    content.seotitle = content[data.metainfo.titleRef]
+    if (_.isEmpty(content.seotitle)) {
+      this.flash = `Can not create component with empty ${data.metainfo.titleRef}`
+      this.redirect(router.url('newContentItem', {key:this.params.key, sid: this.params.sid}))
+      return
+    }
+    debug(`Create new this.params.key item ${JSON.stringify(content)}`)
+    yield Repo.writeNewJSONDataItem(this.params.sid, this.params.key, content)
+
+  } else {
+    yield Repo.writeJSONDataItem(this.params.sid, this.params.key, this.params.index, content)
+  }
   yield Repo.metainfo(this.currentUser.id, this.params.sid)
 
   const stayonpage = this.request.body.stayonpage === 'yes'
@@ -246,6 +260,29 @@ router.post('/:sid/content/:key/:index', function*() {
   }
 })
 
+router.get('newContentItem','/:sid/content/:key/new', function*() {
+
+  if (!this.sbMetainfo.hasOwnProperty(this.params.key)) {
+    this.redirect(router.url('main', {sid: this.params.sid}))
+    return;
+  }
+  const data = this.sbMetainfo[this.params.key]
+  const dataItem = data.metainfo.defaults || {}
+  const title = `New '${this.params.key}' item`
+  const froalaOptions = getFroalaEditorOptions(this.params.sid)
+  this.render('sitebuilder/contentEditor', Object.assign({}, this.jadeLocals, {
+    page: JSON.stringify(dataItem),
+    froalaOptions,
+    permalink: '',
+    schema: JSON.stringify(data.metainfo.schema),
+    isContentOpen: true,
+    nav_title: title,
+    nav_crumbs: [[title], [data.metainfo.menuCaption, router.url('contentList', {key:this.params.key, sid: this.params.sid})], ['Overview', router.url('main', {sid: this.params.sid})]]
+
+  }), true);
+});
+
+
 router.get('contentItem','/:sid/content/:key/:index', function*() {
 
   if (!this.sbMetainfo.hasOwnProperty(this.params.key)) {
@@ -253,7 +290,7 @@ router.get('contentItem','/:sid/content/:key/:index', function*() {
     return;
   }
   const data = this.sbMetainfo[this.params.key]
-  const contentItems = yield Repo.readJSONData(this.params.sid, this.params.key)
+  let contentItems = yield Repo.readJSONData(this.params.sid, this.params.key)
   const dataItem = Object.assign({}, contentItems[this.params.index]);
   const dataTitle = data.metainfo.titleRef ? dataItem[data.metainfo.titleRef] : ''
   const title = data.metainfo.schema.title || dataTitle
@@ -301,6 +338,7 @@ router.post('/:sid/practice', function*() {
   this.flash = 'Practice information has been updated'
   this.redirect(router.url('practiceInfo', {sid: this.params.sid}))
 })
+
 
 
 module.exports = router;

@@ -188,6 +188,18 @@ export function* writeJSONDataItem(siteId, key, arrayIndex, obj) {
   yield fs.writeFileAsync(path.join(base, JSON_LOCATION, key + '.json'), JSON.stringify(data, null, 2))
 }
 
+export function* writeNewJSONDataItem(siteId, key, obj) {
+  let data = yield readJSONData(siteId, key)
+  if (_.isArray(data)) {
+    data = [...data, obj]
+  } else {
+    data = Object.assign({}, data, obj)
+  }
+  const base = baseSrcPath(siteId)
+  yield fs.writeFileAsync(path.join(base, JSON_LOCATION, key + '.json'), JSON.stringify(data, null, 2))
+
+}
+
 export function* writeJSONData(siteId, key, data) {
   const base = baseSrcPath(siteId)
   yield fs.writeFileAsync(path.join(base, JSON_LOCATION, key + '.json'), JSON.stringify(data, null, 2))
