@@ -44,12 +44,14 @@
               i
               i.si.si-user
               span.sidebar-mini-hide New Profile
-        li.nav-main-heading
-          span.sidebar-mini-hide Website
-        li
-          a(href='/app/sitebuilder/liberty-laser-eye-0')
-            i.si.si-globe
-            span.sidebar-mini-hide My Website
+        if sitebuilderSites && sitebuilderSites.length > 0
+          li.nav-main-heading
+            span.sidebar-mini-hide Website
+          each site in sitebuilderSites
+            li
+              a(href='/app/sitebuilder/'+site.id)
+                i.si.si-globe
+                span.sidebar-mini-hide #{site.name}
         li.nav-main-heading
           span.sidebar-mini-hide Settings
         li

@@ -12,6 +12,7 @@ const config = require('./config');
 const comm = require('./comm');
 import jwt from 'jsonwebtoken';
 import { redirectToLogin, needShowCreateProfileAlert } from './belt';
+import { findAccountById } from './db'
 
 exports.checkJWTExpiration = function() {
   return function*(next){
@@ -35,7 +36,12 @@ exports.wrapCurrUser = function() {
     if (!this.session || !this.session.passport) return yield next;
 
     if (this.session.passport.user) {
-      this.currentUser = this.session.passport.user;
+      const { account_id } = this.currentUser = this.session.passport.user;
+      this.currentUserAccount = {rights: {}}
+      if (account_id) {
+        this.currentUserAccount = yield findAccountById(account_id)
+        this.currentUserAccount.rights = this.currentUserAccount.rights[this.currentUser.id]
+      }
     }
     yield* next;
   };
@@ -50,7 +56,9 @@ exports.wrapJadeLocals = function() {
     const showCreateProfileAlert = needShowCreateProfileAlert(subInfo);
     const { subscriptions = [] } = subInfo;
     const hasSubscription = subscriptions.length > 0;
-
+    const sitebuilderSites = this.currentUserAccount.rights.sitebuilder &&
+      this.currentUserAccount.sitebuilder.enabled &&
+      Object.keys(this.currentUserAccount.sitebuilder.ids).map( k => ({ id: k, name:  this.currentUserAccount.sitebuilder.ids[k]}))
 
     this.jadeLocals = {
       csrf: this.csrf,
@@ -62,7 +70,8 @@ exports.wrapJadeLocals = function() {
       flash: this.flash,
       config: config,
       hasSubscription,
-      showCreateProfileAlert
+      showCreateProfileAlert,
+      sitebuilderSites
     };
 
     yield* next;

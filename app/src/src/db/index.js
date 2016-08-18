@@ -268,3 +268,16 @@ exports.deleteProfile = function* (id) {
 
   return yield deleteAsync();
 };
+
+exports.findAccountById = function* (accountId) {
+  const chain = DynamoDB
+    .table('mdocsapps_account')
+    .where('account_id').eq(accountId);
+
+  const queryAsync = Promise.promisify(chain.query, {context: chain});
+
+  const account = yield queryAsync();
+
+  return hasDynamoData(account) ? account[0] : null;
+};
+
