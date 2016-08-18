@@ -33,6 +33,7 @@ function serve(opts) {
     }
 
     const siteId = _.get(this.session, opts.sessionKey)
+    const postfixKey = _.get(this.session, opts.postfixKey) || ''
 
     if (!siteId) {
       this.status = 401
@@ -45,7 +46,7 @@ function serve(opts) {
       const urlPath = this.path.slice(assetsIndex + opts.prefix.length)
 
       const sendOpts = Object.assign({}, opts, {
-        root: path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, siteId))
+        root: path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, `${siteId}${postfixKey}`))
       })
 
       debug(`Serving ${this.path} as ${urlPath} from root ${sendOpts.root}`)

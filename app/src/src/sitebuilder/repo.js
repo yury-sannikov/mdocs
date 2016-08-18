@@ -21,6 +21,8 @@ const JSON_LOCATION = 'src/data/'
 const HTML_LOCATION = 'src/'
 const AUTH_VALID_FOR_MILLISECONDS = 1000 * 60 * 10
 const MDOCS_ISSUER = 'mdocs'
+const PREDEPLOY_POSTFIX = '-predeploy'
+
 const METALSMITH_OPTIONS = {
   metainfo: 'metainfo',
   partials: 'partials',
@@ -135,6 +137,24 @@ export function* generate(userId, siteId, force, predeploy) {
     yield engine.generateAsync(force)
   }
 }
+
+export function* predeploy(userId, siteId, predeploy) {
+  userId = massageUserId(userId)
+  const workDir = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId))
+  const buildDir = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, `${siteId}${PREDEPLOY_POSTFIX}`))
+  debug(`rm -rf ${buildDir}`)
+  yield rimraf(buildDir)
+  yield mkdirp(buildDir)
+  debug(`Generate static site with workDir=${workDir}, buildDir=${buildDir}`)
+  let engine = new SiteBuilderEngine(workDir, buildDir, METALSMITH_OPTIONS)
+  engine = bluebird.promisifyAll(engine, {context: engine})
+  const deployOptions = {
+    banner: true,
+    deployUrl: predeploy.deployUrl
+  }
+  yield engine.publishAsync(deployOptions)
+}
+
 
 export function* authenticate(token) {
   let decoded

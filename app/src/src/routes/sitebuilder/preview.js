@@ -11,6 +11,7 @@ const JWT_ISSUER = 'sitebuilder'
 const SHORT_JWT_EXPIRATION_SEC = 15
 const PREVIEW_ROUTE_PATH = '/sitebuilderpreview'
 const DEPLOY_SLUG = '/__deploy'
+const PREDEPLOY_POSTFIX = '-predeploy'
 
 const router = new Router({
   prefix: PREVIEW_ROUTE_PATH
@@ -23,12 +24,17 @@ router.get('/__generate', function*() {
     return
   }
   const { uid, siteId } = this.session.sbSession
-  const deployOptions = {
-    deployUrl: `${config.SITEBUILDER_PREIVEW_URL}${DEPLOY_SLUG}`
+  const predeploy = parseInt(this.query.d) === 1
+  this.session.sbSession.buildPostfix = predeploy ? PREDEPLOY_POSTFIX : ''
+  if (predeploy) {
+    const deployOptions = {
+      deployUrl: `${config.SITEBUILDER_PREIVEW_URL}${DEPLOY_SLUG}`
+    }
+    yield Repo.predeploy(uid, siteId,
+      !!parseInt(this.query.f), deployOptions)
+  } else {
+    yield Repo.generate(uid, siteId, !!parseInt(this.query.f))
   }
-  yield Repo.generate(uid, siteId,
-    !!parseInt(this.query.f),
-    parseInt(this.query.d) === 1 ? deployOptions : undefined)
   this.redirect(this.query.r)
 })
 
@@ -42,7 +48,8 @@ router.post('authPost','/auth', function*() {
     this.session.sbSession = {
       uid: result.uid,
       siteId: result.subject,
-      buildPrefix: `${result.uid}/${result.subject}`
+      buildPrefix: `${result.uid}/${result.subject}`,
+      buildPostfix: ''
     }
 
     yield Repo.prepare(result.uid, result.subject)
@@ -72,7 +79,8 @@ router.get('/auth/:token', function*() {
 const staticAssetsMiddleware = require('./staticAssets')({
   maxage: 1000 * 20,
   gzip: true,
-  sessionKey: 'sbSession.buildPrefix'
+  sessionKey: 'sbSession.buildPrefix',
+  postfixKey: 'sbSession.buildPostfix'
 });
 
 router.get('*', staticAssetsMiddleware);
