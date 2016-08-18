@@ -10,6 +10,8 @@ const debug = require('debug')('app:routes:sitebuilder:preview');
 const JWT_ISSUER = 'sitebuilder'
 const SHORT_JWT_EXPIRATION_SEC = 15
 const PREVIEW_ROUTE_PATH = '/sitebuilderpreview'
+const DEPLOY_SLUG = '/__deploy'
+
 const router = new Router({
   prefix: PREVIEW_ROUTE_PATH
 })
@@ -21,7 +23,12 @@ router.get('/__generate', function*() {
     return
   }
   const { uid, siteId } = this.session.sbSession
-  yield Repo.generate(uid, siteId, !!parseInt(this.query.f))
+  const deployOptions = {
+    deployUrl: `${config.SITEBUILDER_PREIVEW_URL}${DEPLOY_SLUG}`
+  }
+  yield Repo.generate(uid, siteId,
+    !!parseInt(this.query.f),
+    parseInt(this.query.d) === 1 ? deployOptions : undefined)
   this.redirect(this.query.r)
 })
 

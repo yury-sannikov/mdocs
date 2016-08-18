@@ -7,6 +7,8 @@ import frontMatter from 'front-matter'
 import jsYaml from 'js-yaml'
 
 const mkdirp = bluebird.promisify(require('mkdirp'));
+const rimraf = bluebird.promisify(require('rimraf'));
+
 const debug = require('debug')('app:sitebuilder:repo');
 
 const ENGINE_VERSION = '0.1'
@@ -110,15 +112,28 @@ export function* metainfo(userId, siteId) {
 
 }
 
-export function* generate(userId, siteId, force) {
+export function* generate(userId, siteId, force, predeploy) {
   userId = massageUserId(userId)
   const workDir = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId))
   const buildDir = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId))
+  if (predeploy) {
+    debug(`rm -rf ${buildDir}`)
+    yield rimraf(buildDir)
+  }
   yield mkdirp(buildDir)
   debug(`Generate static site with workDir=${workDir}, buildDir=${buildDir}`)
   let engine = new SiteBuilderEngine(workDir, buildDir, METALSMITH_OPTIONS)
   engine = bluebird.promisifyAll(engine, {context: engine})
-  yield engine.generateAsync(force)
+  if (predeploy) {
+    const deployOptions = {
+      banner: true,
+      deployUrl: predeploy.deployUrl
+    }
+    yield engine.publishAsync(deployOptions)
+  }
+  else {
+    yield engine.generateAsync(force)
+  }
 }
 
 export function* authenticate(token) {

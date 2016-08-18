@@ -110,7 +110,8 @@ function metalsmithFactory(workDir, buildDir, options) {
         layoutPattern: '*.pug',
         pretty: true,
         directory: path.join(themeDir, 'layouts'),
-        helpers: helpersFactory()
+        helpers: helpersFactory(),
+        deployOptions: options._deploy
       }))
     )
     .use(msIf(options._generate,
@@ -174,12 +175,13 @@ class SiteBuilderEngine {
     ms.build(done)
   }
 
-  publish(done) {
+  publish(deployOptions, done) {
     this.cleanRequireCache()
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
       _clean: true,
       _generate: true,
-      _force: true
+      _force: true,
+      _deploy: deployOptions
     }))
     ms.build((err, files) => {
       if (err) {

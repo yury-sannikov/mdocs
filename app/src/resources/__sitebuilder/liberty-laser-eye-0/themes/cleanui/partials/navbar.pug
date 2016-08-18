@@ -7,6 +7,9 @@ mixin menu_link_item(menuItem, isChild)
     span #{menuItem.caption}
 
 header
+  if (deployOptions && deployOptions.banner)
+    include ./service_reviewDeploy.pug
+
   nav#main-nav
     .navbar-header
       button.navbar-toggle
@@ -32,7 +35,7 @@ header
           else
             li
               +menu_link_item(menuItem)
-                
+
     #contact-action
       ul
         li.action-route
