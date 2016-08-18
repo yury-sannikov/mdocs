@@ -5,6 +5,7 @@ const debug = require('debug')('app:auth');
 var co = require('co');
 var Auth0Profile = require('passport-auth0/lib/Profile');
 import { getSubscriptionInfo } from './stripe';
+import { findUserById } from './db'
 
 var strategy = new Auth0Strategy({
   domain:       'movelmobile.auth0.com',
@@ -35,7 +36,8 @@ function massageUser(user) {
 passport.serializeUser(function(user, done) {
   co(function* () {
     const subInfo = yield getSubscriptionInfo(user.id);
-    return massageUser(Object.assign({}, user, { subInfo } ));
+    const dbuser = yield findUserById(user.id);
+    return massageUser(Object.assign({}, user, { subInfo, account_id: dbuser.account_id } ));
   }).then(function (data) {
     done(null, data);
   }, function (err) {
