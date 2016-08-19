@@ -56,9 +56,13 @@ exports.wrapJadeLocals = function() {
     const showCreateProfileAlert = needShowCreateProfileAlert(subInfo);
     const { subscriptions = [] } = subInfo;
     const hasSubscription = subscriptions.length > 0;
-    const sitebuilderSites = this.currentUserAccount.rights.sitebuilder &&
-      this.currentUserAccount.sitebuilder.enabled &&
-      Object.keys(this.currentUserAccount.sitebuilder.ids).map( k => ({ id: k, name:  this.currentUserAccount.sitebuilder.ids[k]}))
+
+    const { rights: accountRights = {} } = this.currentUserAccount || {};
+    const { sitebuilder: accountSitebuilder = {} } = this.currentUserAccount || {};
+
+    const sitebuilderSites = accountRights.sitebuilder &&
+      accountSitebuilder.enabled &&
+      Object.keys(accountSitebuilder.ids).map( k => ({ id: k, name:  accountSitebuilder.ids[k]}))
 
     this.jadeLocals = {
       csrf: this.csrf,
