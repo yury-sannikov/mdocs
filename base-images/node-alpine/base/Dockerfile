@@ -11,14 +11,14 @@ ARG S3FS_VERSION=v1.79
 RUN info(){ printf '\n--\n%s\n--\n\n' "$*"; } \
  && info "==> Installing openssh..." \
  && apk update \
- && apk add --update openssh fuse \
+ && apk add --update openssh fuse libxml2 bash \
  && mkdir -p ${SOCKET_DIR} && chmod 777 ${SOCKET_DIR} \
  && info "==> Installing build dependencies..." \
  && apk add --virtual build-deps \
     curl make gcc g++ python paxctl \
     musl-dev openssl-dev zlib-dev \
     linux-headers binutils-gold automake \
-    autoconf libxml2-dev fuse-dev curl-dev git bash alpine-sdk \
+    autoconf libxml2-dev fuse-dev curl-dev git alpine-sdk \
  && mkdir -p /root/nodejs \
  && cd /root/nodejs \
  && info "==> Downloading..." \

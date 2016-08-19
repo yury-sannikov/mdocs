@@ -41,5 +41,7 @@ ONBUILD COPY . /app/
 ONBUILD RUN rm -rf node_modules \
   && mv node_modules_new node_modules
 
+COPY docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
 CMD ["node", "index.js"]
