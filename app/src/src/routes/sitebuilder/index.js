@@ -2,7 +2,7 @@
 import Router from 'koa-router';
 import _ from 'lodash';
 import { Repo } from '../../sitebuilder';
-import { sitebuilderLocalsMiddleware, sitebuilderPreivewAuthenticated } from './helpers';
+import { sitebuilderLocalsMiddleware, sitebuilderPreivewAuthenticated, sitebuilderSafeModeOnException } from './helpers';
 import config from '../../config';
 import url from 'url'
 import { checkAuthenticated } from '../../belt';
@@ -17,6 +17,7 @@ const PRACTICE_KEY = 'practice'
 const router = new Router({
   prefix: '/sitebuilder'
 })
+  .use(sitebuilderSafeModeOnException())
   .use(checkAuthenticated)
   .use(sitebuilderLocalsMiddleware())
   .use(sitebuilderPreivewAuthenticated())

@@ -92,6 +92,7 @@ export function* prepare(userId, siteId) {
   userId = massageUserId(userId)
   const workDir = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId))
   const buildDir = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId))
+  yield rimraf(buildDir)
   yield mkdirp(buildDir)
 
   debug(`Prepare static site with workDir=${workDir}, buildDir=${buildDir}`)

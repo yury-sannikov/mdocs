@@ -37,6 +37,19 @@ export function sitebuilderLocalsMiddleware() {
     yield* next;
   }
 }
+export function sitebuilderSafeModeOnException() {
+  return function *(next) {
+    try {
+      return yield* next;
+    } catch(e) {
+      debug(`signout due sitebuilder exception ${e}`)
+      this.cookies.set(SITEBUILDER_AUTH_FLAG_COOKIE_NAME)
+      delete this.session.sbSiteId
+      // TODO: Revert some changes in a repo
+      throw e
+    }
+  }
+}
 
 export function sitebuilderPreivewAuthenticated() {
   return function *(next) {
