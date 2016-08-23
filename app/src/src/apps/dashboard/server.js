@@ -26,7 +26,10 @@ export function render(ctx, locals) {
 
   if (__DISABLE_SSR__) {
     hydrateOnClient();
-    return;
+    return new Promise((resolve, reject) => {
+      resolve();
+    });
+
   }
   return new Promise((resolve, reject) => {
 

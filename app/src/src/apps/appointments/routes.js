@@ -1,19 +1,29 @@
 import React from 'react'
-import { IndexRoute, Route } from 'react-router'
+import { IndexRedirect, Route } from 'react-router'
 
 import {
     App,
-    Home,
-    About
+    Events,
+    About,
+    UnconfirmedSidebarBlock,
+    EventsList
   } from './containers'
 
 export default (store) => {
   return (
-    <Route path='/app/appointments' component={App}>
-      <IndexRoute component={Home} />
+    <Route path='/' component={App}>
+      <IndexRedirect to='events/unconfirmed' />
+      <Route path='events' component={Events} >
+        <IndexRedirect to='unconfirmed' />
+        <Route path='unconfirmed' components={{sidebar: UnconfirmedSidebarBlock, content: EventsList}} />
+        <Route path='upcoming' components={{sidebar: UnconfirmedSidebarBlock}} />
+        <Route path='finished' components={{sidebar: UnconfirmedSidebarBlock}} />
+        <Route path='all' components={{sidebar: UnconfirmedSidebarBlock}} />
+      </Route>
+
       <Route path='about' component={About} />
       {/* Catch all route */}
-      <Route path='*' component={Home} status={404} />
+      <Route path='*' component={App} status={404} />
     </Route>
   )
 }

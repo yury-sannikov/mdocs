@@ -19,14 +19,19 @@ export function render(ctx, locals) {
   const history = syncHistoryWithStore(memoryHistory, store);
 
   function hydrateOnClient() {
+    const developmentStyles = `${require('./containers/App/App.scss')._style}`;
     ctx.render('appointments/main', Object.assign({}, locals, {
-      assets: webpackIsomorphicTools.assets()
+      assets: webpackIsomorphicTools.assets(),
+      developmentStyles
     }), true);
+
   }
 
   if (__DISABLE_SSR__) {
     hydrateOnClient();
-    return;
+    return new Promise((resolve, reject) => {
+      resolve();
+    });
   }
   return new Promise((resolve, reject) => {
 

@@ -6,12 +6,15 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import createStore from './redux/create'
 import { Provider } from 'react-redux'
-import { Router, browserHistory } from 'react-router'
+import { Router, useRouterHistory } from 'react-router'
+import { createHistory } from 'history'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { ReduxAsyncConnect } from 'redux-async-connect'
 // import useScroll from 'react-router-scroll';
 import getRoutes from './routes'
-const _browserHistory = browserHistory // useScroll(() => browserHistory);
+const _browserHistory = useRouterHistory(createHistory)({
+  basename: '/app/appointments'
+}) // useScroll(() => browserHistory);
 const dest = document.getElementById('content')
 const client = { test: 2 }
 const store = createStore(_browserHistory, client, window.__data)
