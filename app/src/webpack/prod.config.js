@@ -20,6 +20,9 @@ module.exports = {
       //'bootstrap-sass!./src/theme/bootstrap.config.prod.js',
       //'font-awesome-webpack!./src/theme/font-awesome.config.prod.js',
       './src/apps/dashboard/client.js'
+    ],
+    'appointments': [
+      './src/apps/appointments/client.js'
     ]
   },
   output: {

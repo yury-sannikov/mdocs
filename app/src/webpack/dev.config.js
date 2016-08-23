@@ -70,13 +70,19 @@ module.exports = {
       // 'bootstrap-sass!./src/theme/bootstrap.config.js',
       // 'font-awesome-webpack!./src/theme/font-awesome.config.js',
       './src/apps/dashboard/client.js'
+    ],
+    'appointments': [
+      'webpack-hot-middleware/client?path=http://' + host + ':' + port + '/__webpack_hmr',
+      // 'bootstrap-sass!./src/theme/bootstrap.config.js',
+      // 'font-awesome-webpack!./src/theme/font-awesome.config.js',
+      './src/apps/appointments/client.js'
     ]
   },
   output: {
     path: assetsPath,
     filename: '[name]-[hash].js',
     chunkFilename: '[name]-[chunkhash].js',
-    publicPath: 'http://' + host + ':' + port + '/app/dashboard/'
+    publicPath: 'http://' + host + ':' + port + '/app/'
   },
   module: {
     loaders: [

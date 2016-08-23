@@ -6,6 +6,7 @@ import { sendEmailTrackingToSlack, notifySubscriptionCancel } from '../comm';
 import stream from 'koa-stream';
 import { getFutureInvoice, cancelSubscriptions, updateSessionSubscriptionInfo } from '../stripe';
 import { render as dashboardRender } from '../apps/dashboard/server';
+import { render as appointmentsRender } from '../apps/appointments/server';
 /*
 app:
   - login
@@ -89,6 +90,11 @@ router.get('dashboard', '/', checkAuthenticated, function*() {
 router.get('dashboardNew', '/dashboard*', checkAuthenticated, function*() {
   yield dashboardRender(this, this.jadeLocals);
 });
+
+router.get('appointments', '/appointments*', checkAuthenticated, function*() {
+  yield appointmentsRender(this, this.jadeLocals);
+});
+
 
 // Show Help
 router.get('/help', function*() {
