@@ -3,7 +3,7 @@ body {
 }
 
 a {
-    color: #ff6c9d
+    color: #00A3C8
 }
 
 a.link-effect:before {
@@ -12,15 +12,15 @@ a.link-effect:before {
 
 a:hover,
 a:focus {
-    color: #ff206a
+    color: #0286a5
 }
 
 a:active {
-    color: #ff6c9d
+    color: #00A3C8
 }
 
 .text-primary {
-    color: #ff6c9d
+    color: #00A3C8
 }
 
 a.text-primary:hover,
@@ -241,11 +241,11 @@ fieldset[disabled] .btn-primary.active {
 .nav-pills>li.active>a,
 .nav-pills>li.active>a:hover,
 .nav-pills>li.active>a:focus {
-    background-color: #ff6c9d
+    background-color: #00A3C8
 }
 
 .nav-pills>li.active>a>.badge {
-    color: #ff6c9d
+    color: #00A3C8
 }
 
 .pagination>li>a:hover,
