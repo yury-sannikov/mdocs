@@ -25,7 +25,7 @@ var MDOCS = (function() {
                     $('.nav-toggle').removeClass('expanded')
                 }
             };
-            
+
             $(window).resize(checkVermeer);
             checkVermeer()
         };
@@ -87,9 +87,9 @@ var MDOCS = (function() {
         $('.map').click(function () {
           $('.map iframe').css("pointer-events", "auto");
         });
-        
+
         $('.map').mouseleave(function() {
-          $('.map iframe').css("pointer-events", "none"); 
+          $('.map iframe').css("pointer-events", "none");
         });
 
         // $('.location-map').each(MDOCS.loadMaps);
@@ -121,7 +121,7 @@ var MDOCS = (function() {
                     $('body').addClass('eyebrow')
                 }
         });
-        
+
         if ($('#rating-slider').length > 0)
             $('#rating-slider').flexslider({
                 animation: "swing",
@@ -131,7 +131,7 @@ var MDOCS = (function() {
                 nextText: '',
                 randomize: true
             });
-        
+
         if ($('#testimonial-slider').length > 0)
             $('#testimonial-slider').flexslider({
                 animation: "swing",
@@ -141,15 +141,15 @@ var MDOCS = (function() {
                 nextText: '',
                 randomize: false
             });
-        
+
         $(".navbar-toggle").click(function() {
             $(".navbar-collapse").slideToggle('fast')
         });
-        
+
         var rtime = new Date(1,1,2e3,12,00,00)
           , timeout = false
           , delta = 100;
-        
+
         $(window).resize(function() {
             rtime = new Date();
             if (timeout === false) {
@@ -176,22 +176,22 @@ var MDOCS = (function() {
                     scrollTop: $("section.locations").offset().top - 78
                 }, "slow")
         });
-        
+
         $(".call-btn").on("click", function() {
             if (typeof ga !== "undefined")
                 ga('send', 'event', 'button', 'click', 'phone call')
         });
-        
+
         $(".btn-call").on("click", function() {
             if (typeof ga !== "undefined")
                 ga('send', 'event', 'button', 'click', 'phone call')
         });
-        
+
         $("li.action-book").on("click", function() {
             if (typeof ga !== "undefined")
                 ga('send', 'event', 'button', 'click', 'book online button')
         });
-        
+
         // $("#main-slider").thumbScroller();
         // $("#modal-slider").thumbScroller({
         //     modal: true
@@ -344,7 +344,7 @@ var MDOCS = (function() {
             });
             return false
         });
-        
+
         // $(window).hashchange(MDOCS.swingToHash);
         // $('a.jump-link').click(function() {
         //     $target = $('section.' + $(this).data('target'));
@@ -1208,6 +1208,48 @@ $(window).load(function() {
 $(document).ready(function() {
     MDOCS.initModule();
     // MDOCS.launchCal = parseInt(getUrlParameter('book', false));
+    function submitAppointment(form) {
+        var form_btn = $(form).find('button[type="submit"]');
+        var button_default_msg = "Request Now";
+        var success_msg = form_btn.data('success-msg');
+        var error_msg = form_btn.data('error-msg');
+        var form_val = $(form).serializeArray()
+        form_val.push({name: 'account_id', value: window.MDOCS_ACCOUNT_ID})
+
+        var data = JSON.stringify(form_val, null, 2);
+
+        // https://app.mdocs.co/app/api/appointment
+        $.ajax({
+          url:'http://localhost:3030/app/api/appointment',
+          type: 'POST',
+          data: data,
+          crossDomain: true,
+          contentType: 'application/json',
+          dataType: 'json',
+          success: function(d) {
+              form_btn.text(success_msg);
+              form_btn.addClass("success");
+              setTimeout(function() {
+                form_btn.text(button_default_msg);
+                form.reset();
+                form_btn.attr("disabled", false);
+                form_btn.removeClass("success");
+                hideCalModal();
+                showThankYouModal();
+              }, 2000);
+            },
+            error: function(d) {
+              form_btn.text(error_msg);
+              form_btn.addClass("error");
+              setTimeout(function() {
+                form_btn.text(button_default_msg);
+                form_btn.attr("disabled", false);
+                form_btn.removeClass("error");
+              }, 2000);
+            }
+        });
+
+    }
 
     var formValidateBlock = {
       submitHandler: function(form) {
@@ -1222,6 +1264,11 @@ $(document).ready(function() {
 
         form_btn.attr("disabled", "disabled");
         form_btn.text(loading_msg);
+
+        if (formType === 'book') {
+            submitAppointment(form);
+            return
+        }
 
         $.ajax({
           url:'https://axc0hldmja.execute-api.us-east-1.amazonaws.com/prod/mdocsappointment',
@@ -1267,7 +1314,7 @@ $(document).ready(function() {
                     showReviewThankYouModal();
                     $('#positive-section').css('visibility', 'hidden');
                   }
-                  
+
                 }
               }, 2000);
             },
