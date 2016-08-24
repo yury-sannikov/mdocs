@@ -4,6 +4,7 @@
   "titleRef": "title",
   "listProps": [
   ],
+  "hideFromContent": true,
   "schema": {
     "type": "object",
     "title": "Practice Information",

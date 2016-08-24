@@ -1220,7 +1220,7 @@ $(document).ready(function() {
 
         // https://app.mdocs.co/app/api/appointment
         $.ajax({
-          url:'http://localhost:3030/app/api/appointment',
+          url:'https://app.mdocs.co/app/api/appointment',
           type: 'POST',
           data: data,
           crossDomain: true,
