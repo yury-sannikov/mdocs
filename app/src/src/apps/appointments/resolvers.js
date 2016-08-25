@@ -48,12 +48,9 @@ class FetchService {
       }, API_CALL_TIMEOUT)
 
       const stopTimeout = ((timerId) => (response) => {
-        console.log(`stopTimeout for ${timerId}`)
         clearTimeout(timerId)
         return response
       })(timerId)
-
-      console.log(`fetching ${url} ${fetchParams}`)
 
       fetch(url, fetchParams)
         .then(stopTimeout, stopTimeout)

@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
 class EventsNavigator extends Component {
-  renderCog () { return (<i className="fa fa-asterisk fa-spin" />) }
+  renderCog () { return (<span>&nbsp;&nbsp;</span>) }
   render () {
     const { router } = this.context
     const { loading, stats } = this.props
@@ -60,10 +60,12 @@ EventsNavigator.contextTypes = {
 EventsNavigator.propTypes = {
   stats: React.PropTypes.object,
   loaded: React.PropTypes.bool,
-  loading: React.PropTypes.bool
+  loading: React.PropTypes.bool,
+  path: React.PropTypes.string // Not used except checking component pure status
 }
 
-export default connect(state => {
+export default connect((state, {route}) => {
+  const { path } = route || {}
   const { loaded, loading, data: { stats = {} } = {} } = state.dashboard
-  return { loaded, loading, stats }
+  return { loaded, loading, stats, path }
 })(EventsNavigator)

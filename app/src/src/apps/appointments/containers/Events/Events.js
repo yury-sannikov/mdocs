@@ -13,12 +13,13 @@ export default class Main extends Component {
     const { sidebar, content } = this.props
     return (
       <div>
+        {/*
         <div className="row">
           <div className="col-sm-12 col-lg-12">
             <UpcomingEvents />
           </div>
         </div>
-
+        */}
         <div className="row">
           <div className="col-sm-5 col-lg-3">
             <EventsSidebar />
