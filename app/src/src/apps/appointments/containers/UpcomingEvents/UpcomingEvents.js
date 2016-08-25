@@ -5,7 +5,7 @@ export default class Main extends Component {
   renderTableHeader () {
     return (
       <div className="block-header bg-gray-lighter">
-        <h3 className="block-title">{'Current Appointments'}</h3>
+        <h3 className="block-title">{'Overview'}</h3>
       </div>
     )
   }
@@ -31,7 +31,7 @@ export default class Main extends Component {
                     </div>
                   </td>
                   <td className="hidden-xs hidden-sm hidden-md text-muted" style={{'width': '180px'}}>
-                    <button className="btn btn-xs btn-rounded btn-success pull-right" type="button">{'Survey'}</button>
+                    <button className="btn btn-xs btn-success pull-right" type="button">{'Survey'}</button>
                   </td>
                 </tr>
                 <tr>
@@ -48,7 +48,7 @@ export default class Main extends Component {
                     </div>
                   </td>
                   <td className="hidden-xs hidden-sm hidden-md text-muted" style={{'width': '180px'}}>
-                    <button className="btn btn-xs btn-rounded btn-info pull-right" type="button">{'Cancel'}</button>
+                    <button className="btn btn-xs btn-info pull-right" type="button">{'Cancel'}</button>
                   </td>
                 </tr>
               </tbody>

@@ -32,6 +32,7 @@ const router = new Router({
 });
 
 router.use(require('./hooks').routes());
+router.use(require('./appointmentApi').routes());
 router.use(require('./subscribe').routes());
 router.use(require('./pr/survey').routes());
 router.use(require('./pr').routes());
