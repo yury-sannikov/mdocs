@@ -22,6 +22,7 @@ module.exports = {
       './src/apps/dashboard/client.js'
     ],
     'appointments': [
+      'whatwg-fetch',
       './src/apps/appointments/client.js'
     ]
   },

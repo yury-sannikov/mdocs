@@ -12,12 +12,13 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import { ReduxAsyncConnect } from 'redux-async-connect'
 // import useScroll from 'react-router-scroll';
 import getRoutes from './routes'
+import { resolver } from './resolvers'
+
 const _browserHistory = useRouterHistory(createHistory)({
   basename: '/app/appointments'
 }) // useScroll(() => browserHistory);
 const dest = document.getElementById('content')
-const client = { test: 2 }
-const store = createStore(_browserHistory, client, window.__data)
+const store = createStore(_browserHistory, resolver, window.__data)
 const history = syncHistoryWithStore(_browserHistory, store)
 
 // if (__DEVTOOLS__ && !window.devToolsExtension) {
