@@ -4,6 +4,8 @@ import { serviceCallFactory, FETCH_SERVICE_NAME, request, response, fail } from 
 const LOAD_DASHBOARD = 'mdocs-appointment/LOAD_DASHBOARD'
 
 const initialState = {
+  loaded: false,
+  loading: false
 }
 
 export default function reducer(state = initialState, action = {}) {
@@ -18,14 +20,14 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         loading: false,
         loaded: true,
-        data: action.result
+        data: action.payload
       }
     case fail(LOAD_DASHBOARD):
       return {
         ...state,
         loading: false,
         loaded: false,
-        error: action.error
+        error: action.payload
       }
     default:
       return state

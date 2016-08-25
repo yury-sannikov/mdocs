@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+import { connect } from 'react-redux'
 
-export default class Main extends Component {
+class EventsNavigator extends Component {
+  renderCog () { return (<i className="fa fa-asterisk fa-spin" />) }
   render () {
     const { router } = this.context
+    const { loading, stats } = this.props
     return (
       <div className="block">
         <div className="block-header bg-gray-lighter">
@@ -14,31 +17,33 @@ export default class Main extends Component {
               </button>
             </li>
           </ul>
-          <h3 className="block-title">{'Appointments'}</h3>
+          <h3 className="block-title">{'Appointments'}
+
+          </h3>
         </div>
         <div className="block-content">
           <ul className="nav nav-pills nav-stacked push">
             <li className={router.isActive('/events/unconfirmed') ? 'active' : ''}>
               <Link to={'/events/unconfirmed'}>
-                <span className="badge pull-right">{'5'}</span>
+                <span className="badge pull-right">{loading ? this.renderCog() : stats.unconfirmedCount}</span>
                 <i className="fa fa-fw fa-warning push-5-r" />{'Unconfirmed'}
               </Link>
             </li>
             <li className={router.isActive('/events/upcoming') ? 'active' : ''}>
               <Link to={'/events/upcoming'}>
-                <span className="badge pull-right">{'18'}</span>
+                <span className="badge pull-right">{loading ? this.renderCog() : stats.upcomingCount}</span>
                 <i className="fa fa-fw fa-inbox push-5-r" />{'Upcoming'}
               </Link>
             </li>
             <li className={router.isActive('/events/finished') ? 'active' : ''}>
               <Link to={'/events/finished'}>
-                <span className="badge pull-right">{'3'}</span>
+                <span className="badge pull-right">{loading ? this.renderCog() : stats.finished}</span>
                 <i className="fa fa-fw fa-folder-open-o push-5-r" />{'Finished'}
               </Link>
             </li>
             <li className={router.isActive('/events/all') ? 'active' : ''}>
               <Link to={'/events/all'}>
-                <span className="badge pull-right">{'700'}</span>
+                <span className="badge pull-right">{loading ? this.renderCog() : stats.all}</span>
                 <i className="fa fa-fw fa-folder-o push-5-r" />{'All'}
               </Link>
             </li>
@@ -48,6 +53,17 @@ export default class Main extends Component {
   }
 }
 
-Main.contextTypes = {
+EventsNavigator.contextTypes = {
   router: React.PropTypes.object.isRequired
 }
+
+EventsNavigator.propTypes = {
+  stats: React.PropTypes.object,
+  loaded: React.PropTypes.bool,
+  loading: React.PropTypes.bool
+}
+
+export default connect(state => {
+  const { loaded, loading, data: { stats = {} } = {} } = state.dashboard
+  return { loaded, loading, stats }
+})(EventsNavigator)
