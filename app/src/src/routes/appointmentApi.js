@@ -4,7 +4,10 @@ const debug = require('debug')('app:routes:api:appointment');
 import cors from 'koa-cors'
 import _ from 'lodash'
 import moment from 'moment'
-import { createNewAppointment, appointmentsForAccount } from '../db/appointments';
+import { createNewAppointment,
+  appointmentsForAccount,
+  appointmentById,
+  updateAppointment } from '../db/appointments';
 // import { sendStripeCallbackToSlack } from '../comm';
 // import { needShowCreateProfileAlert } from '../belt';
 
@@ -62,24 +65,6 @@ router.get('/dashboard', function*() {
     return item.visit_date && item.visit_date.isBefore(overviewStart)
   })
 
-  const statMap = {
-    'new': 'unconfirmedCount',
-    'confirm': 'upcomingCount',
-    'discharge': 'finished'
-  }
-  const stats = allItems.reduce( (res, item) => {
-    res.all = res.all + 1
-    const mapped = statMap[item.status]
-    mapped && (res[mapped] = res[mapped] + 1)
-    return res;
-  },
-  {
-    unconfirmedCount: 0,
-    upcomingCount: 0,
-    finished: 0,
-    all: 0
-  })
-
   this.body = {
     overview: {
       timeSlot: {
@@ -88,9 +73,29 @@ router.get('/dashboard', function*() {
       },
       data: overviewEvents
     },
-    data: allItems,
-    stats
+    data: allItems
   }
 });
+
+router.post('/confirm', function*() {
+  const appointment = yield appointmentById(this.request.body.id)
+  if (!appointment) {
+    this.status = 404
+    this.body = {err: 'Not Found'}
+  }
+  const updated = {
+    ...appointment,
+    status: 'confirm',
+    id: undefined
+  }
+
+  yield updateAppointment(this.request.body.id, updated)
+
+  updated.patient_dob = appointment.patient_dob ? moment.unix(appointment.patient_dob) : undefined,
+  updated.visit_date = appointment.visit_date ? moment.unix(appointment.visit_date) : undefined
+
+  this.body = {...updated, id: this.request.body.id}
+})
+
 
 module.exports = router;

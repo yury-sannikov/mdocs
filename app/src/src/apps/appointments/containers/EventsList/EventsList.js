@@ -3,14 +3,16 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import moment from 'moment'
 import ModalConfirm from '../ModalConfirm/ModalConfirm'
-import { deleteAppointment } from '../../redux/modules/dashboard'
+import { deleteAppointment, confirmAppointment } from '../../redux/modules/dashboard'
 
 class EventsList extends Component {
   constructor(props) {
     super(props)
     this.state = {
       isDeleting: false,
-      deleteItem: {}
+      isConfirming: false,
+      deleteItem: {},
+      confirmItem: {}
     }
   }
 
@@ -38,6 +40,11 @@ class EventsList extends Component {
       hideDeleteModal()
       this.props.deleteAppointment(this.state.deleteItem.id)
     }
+    const hideConfirmModal = () => { this.setState({isConfirming: false}) }
+    const confirmConfirm = () => {
+      hideConfirmModal()
+      this.props.confirmAppointment(this.state.confirmItem.id)
+    }
     return (
       <div className="block">
         <ModalConfirm
@@ -48,6 +55,15 @@ class EventsList extends Component {
           confirmCaption={'Delete'}>
           <h4>Are you sure to delete appointment?</h4>
           <p>Please confirm deleting appointment with {this.state.deleteItem.patient_name}</p>
+        </ModalConfirm>
+        <ModalConfirm
+          isOpen={this.state.isConfirming}
+          onHide={hideConfirmModal}
+          onConfirm={confirmConfirm}
+          title={'Confirm Appointment'}
+          confirmCaption={'Confirm'}>
+          <h4>Are you sure?</h4>
+          <p>Are you sure to appointment with {this.state.confirmItem.patient_name} on {this.renderVisitDate(this.state.confirmItem.visit_date)}</p>
         </ModalConfirm>
         {this.renderTableHeader()}
         {this.props.loaded ? this.renderTable() : <span />}
@@ -86,6 +102,7 @@ class EventsList extends Component {
   renderTableRow (item) {
     const styles = require('./EventList.scss')
     const showDeleteModal = (deleteItem) => () => { this.setState({isDeleting: true, deleteItem}) }
+    const showConfirmModal = (confirmItem) => () => { this.setState({isConfirming: true, confirmItem}) }
     return (
       <tr key={item.id}>
         <td className="font-w600 text-center" style={{'width': '120px'}}>
@@ -95,7 +112,7 @@ class EventsList extends Component {
         </td>
         <td className="hidden-xs hidden-sm hidden-md text-center" style={{width: '100px'}}>
           {item.visit_date ? (
-            <button className={'btn btn-xs btn-info push-5-r push-10 ' + styles.actionButtonClass} type="button">
+            <button onClick={showConfirmModal(item)} className={'btn btn-xs btn-info push-5-r push-10 ' + styles.actionButtonClass} type="button">
               <i className="fa fa-check" />{' Confirm'}
             </button>
             ) : (
@@ -135,7 +152,8 @@ EventsList.propTypes = {
   events: React.PropTypes.array,
   loaded: React.PropTypes.bool,
   loading: React.PropTypes.bool,
-  deleteAppointment: React.PropTypes.func
+  deleteAppointment: React.PropTypes.func,
+  confirmAppointment: React.PropTypes.func
 }
 
 const PATH_TO_STATE = {
@@ -154,5 +172,5 @@ export default connect((state, {route}) => {
     loaded,
     loading
   }
-}, dispatch => bindActionCreators({ deleteAppointment }, dispatch))(EventsList)
+}, dispatch => bindActionCreators({ deleteAppointment, confirmAppointment }, dispatch))(EventsList)
 

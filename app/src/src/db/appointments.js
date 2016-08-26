@@ -19,11 +19,22 @@ const APPOINTMENTS_TABLE = 'mdocsapps_appointments'
 
 const ACCOUNT_VISIT_INDEX = 'account_id-visit_date-index'
 
-exports.appointmentById = function (id) {
+exports.appointmentById = function* (id) {
   const chain = DynamoDB
     .table(APPOINTMENTS_TABLE)
     .where('id').eq(id)
-  return Promise.promisify(chain.query, {context: chain});
+  const appointment = yield Promise.promisify(chain.query, {context: chain});
+  return hasDynamoData(appointment) ? appointment[0][0] : null;
+};
+
+exports.updateAppointment = function* (id, newAppointment) {
+  const chain = DynamoDB
+    .table(APPOINTMENTS_TABLE)
+    .where('id').eq(id);
+
+  const updateAsync = Promise.promisify(chain.update, {context: chain});
+  delete newAppointment.id
+  return yield updateAsync(newAppointment);
 };
 
 function fuckThoseFuckingDynamoDbDevelopers(crap) {

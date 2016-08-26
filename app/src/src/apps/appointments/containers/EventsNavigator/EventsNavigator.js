@@ -6,7 +6,7 @@ class EventsNavigator extends Component {
   renderCog () { return (<span>&nbsp;&nbsp;</span>) }
   render () {
     const { router } = this.context
-    const { loading, stats } = this.props
+    const { loaded, stats } = this.props
     return (
       <div className="block">
         <div className="block-header bg-gray-lighter">
@@ -25,25 +25,25 @@ class EventsNavigator extends Component {
           <ul className="nav nav-pills nav-stacked push">
             <li className={router.isActive('/events/unconfirmed') ? 'active' : ''}>
               <Link to={'/events/unconfirmed'}>
-                <span className="badge pull-right">{loading ? this.renderCog() : stats.unconfirmedCount}</span>
+                <span className="badge pull-right">{!loaded ? this.renderCog() : stats.unconfirmedCount}</span>
                 <i className="fa fa-fw fa-warning push-5-r" />{'Unconfirmed'}
               </Link>
             </li>
             <li className={router.isActive('/events/upcoming') ? 'active' : ''}>
               <Link to={'/events/upcoming'}>
-                <span className="badge pull-right">{loading ? this.renderCog() : stats.upcomingCount}</span>
+                <span className="badge pull-right">{!loaded ? this.renderCog() : stats.upcomingCount}</span>
                 <i className="fa fa-fw fa-inbox push-5-r" />{'Upcoming'}
               </Link>
             </li>
             <li className={router.isActive('/events/finished') ? 'active' : ''}>
               <Link to={'/events/finished'}>
-                <span className="badge pull-right">{loading ? this.renderCog() : stats.finished}</span>
+                <span className="badge pull-right">{!loaded ? this.renderCog() : stats.finished}</span>
                 <i className="fa fa-fw fa-folder-open-o push-5-r" />{'Finished'}
               </Link>
             </li>
             <li className={router.isActive('/events/all') ? 'active' : ''}>
               <Link to={'/events/all'}>
-                <span className="badge pull-right">{loading ? this.renderCog() : stats.all}</span>
+                <span className="badge pull-right">{!loaded ? this.renderCog() : stats.all}</span>
                 <i className="fa fa-fw fa-folder-o push-5-r" />{'All'}
               </Link>
             </li>
