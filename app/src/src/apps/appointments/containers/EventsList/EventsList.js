@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import moment from 'moment'
+import DeleteModal from './DeleteModal'
 
 class EventsList extends Component {
   renderTableHeader () {
@@ -24,6 +25,7 @@ class EventsList extends Component {
   render () {
     return (
       <div className="block">
+        <DeleteModal />
         {this.renderTableHeader()}
         {this.props.loaded ? this.renderTable() : <span />}
       </div>
@@ -33,7 +35,7 @@ class EventsList extends Component {
   renderTable () {
     const { events } = this.props
     return (
-      <div className="block-content">
+      <div className="block-content animated fadeIn">
         <div className="pull-r-l">
           <table className="table table-hover table-vcenter">
             <tbody>
@@ -53,25 +55,39 @@ class EventsList extends Component {
   }
 
   formatPhone(phone) {
-    var s2 = (''+phone).replace(/\D/g, '')
+    var s2 = ('' + phone).replace(/\D/g, '')
     var m = s2.match(/^(\d{3})(\d{3})(\d{4})$/)
     return (!m) ? null : `(${m[1]}) ${m[2]}-${m[3]}`
   }
 
   renderTableRow (item) {
+    const styles = require('./EventList.scss')
     return (
       <tr key={item.id}>
-        <td className="font-w600 text-center" style={{'width': '180px'}}>{this.renderVisitDate(item.visit_date)}</td>
+        <td className="font-w600 text-center" style={{'width': '120px'}}>
+          <a href={`#/reschedule/${item.id}`}>
+            {this.renderVisitDate(item.visit_date)}
+          </a>
+        </td>
         <td className="hidden-xs hidden-sm hidden-md text-center" style={{width: '100px'}}>
-          <span className={item.patient_new ? 'label label-success' : 'label label-warning'}>
-            {item.patient_new ? 'New' : 'Returning'}
-          </span>
+          {item.visit_date ? (
+            <button className={'btn btn-xs btn-info push-5-r push-10 ' + styles.actionButtonClass} type="button">
+              <i className="fa fa-check" />{' Confirm'}
+            </button>
+            ) : (
+            <button className={'btn btn-xs btn-danger push-5-r push-10 ' + styles.actionButtonClass} type="button">
+              <i className="fa fa-times" />{' Delete'}
+            </button>
+            )}
         </td>
         <td>
           <a className="font-w600" data-toggle="modal" data-target="#modal-ticket" href="#">
             {`Appointment with ${item.patient_name}`}
           </a>
           <div className="text-muted">
+            <span className={(item.patient_new ? 'label label-success ' : 'label label-warning ') + styles.labelClass}>
+              {item.patient_new ? 'New' : 'Returning'}
+            </span>
             <em>{`${this.formatPhone(item.patient_phone)}`}</em>{`, ${item.patient_reason || '-no reason specified-'}`}
           </div>
         </td>

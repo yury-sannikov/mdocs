@@ -4,16 +4,16 @@ block head
   title #{application} &middot; Appointments
 
 block styles
+  link(href="/app/css/page-react.min.css", key="page-react", media="screen, projection", rel="stylesheet", type="text/css", charset="UTF-8")
+  link(rel='stylesheet', href='/app/oneui/assets/js/plugins/slick/slick.min.css')
+  link(rel='stylesheet', href='/app/oneui/assets/js/plugins/slick/slick-theme.min.css')
+
   each style, key in Object.keys(assets.styles)
     link(href=assets.styles[style], key=key, media="screen, projection", rel="stylesheet", type="text/css", charset="UTF-8")
 
   if (developmentStyles)
     style.
       !{developmentStyles}
-
-block styles
-  link(rel='stylesheet', href='/app/oneui/assets/js/plugins/slick/slick.min.css')
-  link(rel='stylesheet', href='/app/oneui/assets/js/plugins/slick/slick-theme.min.css')
 
 block scripts
   if reduxState

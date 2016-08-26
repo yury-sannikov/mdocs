@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { asyncConnect } from 'redux-async-connect'
 import EventsSidebar from '../EventsSidebar/EventsSidebar'
-import UpcomingEvents from '../UpcomingEvents/UpcomingEvents'
 
 @asyncConnect([{
   promise: ({store: {dispatch, getState}}) => {
