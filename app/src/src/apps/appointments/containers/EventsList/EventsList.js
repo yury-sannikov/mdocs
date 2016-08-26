@@ -1,9 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import moment from 'moment'
-import DeleteModal from './DeleteModal'
+import ModalConfirm from '../ModalConfirm/ModalConfirm'
+import { deleteAppointment } from '../../redux/modules/dashboard'
 
 class EventsList extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isDeleting: false,
+      deleteItem: {}
+    }
+  }
+
   renderTableHeader () {
     const { events } = this.props
     return (
@@ -23,9 +33,22 @@ class EventsList extends Component {
     )
   }
   render () {
+    const hideDeleteModal = () => { this.setState({isDeleting: false}) }
+    const confirmDelete = () => {
+      hideDeleteModal()
+      this.props.deleteAppointment(this.state.deleteItem.id)
+    }
     return (
       <div className="block">
-        <DeleteModal />
+        <ModalConfirm
+          isOpen={this.state.isDeleting}
+          onHide={hideDeleteModal}
+          onConfirm={confirmDelete}
+          title={'Delete Appointment'}
+          confirmCaption={'Delete'}>
+          <h4>Are you sure to delete appointment?</h4>
+          <p>Please confirm deleting appointment with {this.state.deleteItem.patient_name}</p>
+        </ModalConfirm>
         {this.renderTableHeader()}
         {this.props.loaded ? this.renderTable() : <span />}
       </div>
@@ -62,6 +85,7 @@ class EventsList extends Component {
 
   renderTableRow (item) {
     const styles = require('./EventList.scss')
+    const showDeleteModal = (deleteItem) => () => { this.setState({isDeleting: true, deleteItem}) }
     return (
       <tr key={item.id}>
         <td className="font-w600 text-center" style={{'width': '120px'}}>
@@ -75,7 +99,7 @@ class EventsList extends Component {
               <i className="fa fa-check" />{' Confirm'}
             </button>
             ) : (
-            <button className={'btn btn-xs btn-danger push-5-r push-10 ' + styles.actionButtonClass} type="button">
+            <button onClick={showDeleteModal(item)} className={'btn btn-xs btn-danger push-5-r push-10 ' + styles.actionButtonClass} type="button">
               <i className="fa fa-times" />{' Delete'}
             </button>
             )}
@@ -110,16 +134,25 @@ class EventsList extends Component {
 EventsList.propTypes = {
   events: React.PropTypes.array,
   loaded: React.PropTypes.bool,
-  loading: React.PropTypes.bool
+  loading: React.PropTypes.bool,
+  deleteAppointment: React.PropTypes.func
 }
 
+const PATH_TO_STATE = {
+  unconfirmed: 'new',
+  upcoming: 'confirm',
+  all: 'all'
+}
 export default connect((state, {route}) => {
   const { path } = route
-  const { loaded, loading, data = {} } = state.dashboard
+  const status = PATH_TO_STATE[path]
+
+  const { loaded, loading, data = { data: [] } } = state.dashboard
+  const overviewEvents = data.data.filter(item => status === 'all' || item.status === status)
   return {
-    events: data[path] || [],
+    events: overviewEvents || [],
     loaded,
     loading
   }
-})(EventsList)
+}, dispatch => bindActionCreators({ deleteAppointment }, dispatch))(EventsList)
 

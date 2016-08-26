@@ -59,11 +59,7 @@ router.get('/dashboard', function*() {
 
   const overviewStart = moment().add(-TIME_SLOT_MINUTES, 'm')
   const overviewEvents = allItems.filter( item => {
-    return item.visit_date && item.visit_date.isAfter(overviewStart)
-  })
-
-  const unconfirmed = allItems.filter( item => {
-    return item.status === 'new'
+    return item.visit_date && item.visit_date.isBefore(overviewStart)
   })
 
   const statMap = {
@@ -92,7 +88,7 @@ router.get('/dashboard', function*() {
       },
       data: overviewEvents
     },
-    unconfirmed: unconfirmed,
+    data: allItems,
     stats
   }
 });

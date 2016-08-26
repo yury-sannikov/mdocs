@@ -64,6 +64,24 @@ class FetchService {
   loadDashboard(payload, meta) {
     return this.executeRequest(payload, meta, `${API_URL}/appointment/dashboard`)
   }
+  deleteAppointment(payload, meta) {
+    return this.executeRequest(payload, meta, `${API_URL}/appointment`,
+      () => {
+        return {
+          method: 'DELETE',
+          body: JSON.stringify(payload)
+        }
+      })
+  }
+  confirmAppointment(payload, meta) {
+    return this.executeRequest(payload, meta, `${API_URL}/appointment/confirm`,
+      () => {
+        return {
+          method: 'POST',
+          body: JSON.stringify(payload)
+        }
+      })
+  }
 
 }
 

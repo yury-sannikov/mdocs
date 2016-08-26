@@ -16,9 +16,9 @@ export default (store) => {
       <Route path='events' component={Events} >
         <IndexRedirect to='unconfirmed' />
         <Route path='unconfirmed' components={{sidebar: UnconfirmedSidebarBlock, content: EventsList}} />
-        <Route path='upcoming' components={{sidebar: UnconfirmedSidebarBlock}} />
-        <Route path='finished' components={{sidebar: UnconfirmedSidebarBlock}} />
-        <Route path='all' components={{sidebar: UnconfirmedSidebarBlock}} />
+        <Route path='upcoming' components={{sidebar: UnconfirmedSidebarBlock, content: EventsList}} />
+        <Route path='finished' components={{sidebar: UnconfirmedSidebarBlock, content: EventsList}} />
+        <Route path='all' components={{sidebar: UnconfirmedSidebarBlock, content: EventsList}} />
       </Route>
 
       <Route path='about' component={About} />
