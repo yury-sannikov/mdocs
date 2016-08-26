@@ -10,6 +10,7 @@ import { createNewAppointment,
   updateAppointment } from '../db/appointments';
 import { findAccountById } from '../db'
 import { sendSMS } from '../comm/sms'
+import { sendAppointmentEmail } from '../comm/email'
 // import { sendStripeCallbackToSlack } from '../comm';
 // import { needShowCreateProfileAlert } from '../belt';
 
@@ -34,12 +35,38 @@ function* notifyPracticeAdmins(accountId, text) {
   const account = yield findAccountById(accountId)
 
   yield sendSMS(account.practiceAdmin.phone, text)
+
+  const emailData = {
+    title: 'MDOCS Appointments',
+    message: text,
+    adminUrl: 'https://app.mdocs.co/app/appointments'
+  }
+  try {
+    yield sendAppointmentEmail(account.practiceAdmin.email, emailData)
+  }
+  catch(e) {
+    debug(e)
+  }
 }
 
-function* notifyPatient(accountId, phoneNo, text) {
+function* notifyPatient(accountId, phoneNo, email, text) {
   debug(`Notifying Patient of ${accountId} via ${phoneNo}: ${text}`)
 
   yield sendSMS(phoneNo, text)
+
+  const emailData = {
+    title: 'MDOCS Appointments',
+    message: text,
+    adminUrl: undefined
+  }
+  try {
+    if (email) {
+      yield sendAppointmentEmail(email, emailData)
+    }
+  }
+  catch(e) {
+    debug(e)
+  }
 }
 
 router.post('/', function*() {
@@ -65,7 +92,7 @@ router.post('/', function*() {
     visitDate.isValid() ? visitDate : 0, dbObject)
 
   yield notifyPracticeAdmins(requestObject.account_id, `New appointment for ${requestObject.form_name}, ${requestObject.form_phone}`)
-  yield notifyPatient(requestObject.account_id, requestObject.form_phone, 'Your appointment has been accepted for review. We will contact you shortly.')
+  yield notifyPatient(requestObject.account_id, requestObject.form_phone, requestObject.patient_email, 'Your appointment has been accepted for review. We will contact you shortly.')
   this.body = { ok: 1, id: id};
 });
 
@@ -109,7 +136,7 @@ router.post('/confirm', function*() {
 
   yield updateAppointment(this.request.body.id, updated)
 
-  yield notifyPatient(appointment.account_id, appointment.patient_phone,
+  yield notifyPatient(appointment.account_id, appointment.patient_phone, appointment.patient_email,
     'Your appointment with Dr. Sarah Smith has been confirmed!')
 
   updated.patient_dob = appointment.patient_dob ? moment.unix(appointment.patient_dob) : undefined,

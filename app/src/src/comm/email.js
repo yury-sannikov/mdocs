@@ -11,13 +11,14 @@ const mailgun = require('mailgun-js')({
 const ROOT_PATH = './resources/reviewRequest';
 const LOCATION_ROOT_PATH = './resources/reviewRequestLocation';
 const NEGATIVE_REVIEW_ROOT_PATH = './resources/negativeReview';
+const APPOINTMENT_ROOT_PATH = './resources/appointmentNotification';
 
 exports.sendReviewRequest = function* (to, data) {
   var logoPng = `${ROOT_PATH}/logo.png`;
   var starsPng = `${ROOT_PATH}/stars.png`;
-  
+
   var html = pug.renderFile(`${ROOT_PATH}/index.pug`, data);
-  
+
   var message = {
     from: 'Patient Reviews by MDOCS <survey@app.mdocs.co>',
     to: to,
@@ -33,9 +34,9 @@ exports.sendReviewRequest = function* (to, data) {
 exports.sendLocationReviewRequest = function* (to, data) {
   var logoPng = `${LOCATION_ROOT_PATH}/logo.png`;
   var starsPng = `${LOCATION_ROOT_PATH}/stars.png`;
-  
+
   var html = pug.renderFile(`${LOCATION_ROOT_PATH}/index.pug`, data);
-  
+
   var message = {
     from: 'Patient Reviews by MDOCS <survey@app.mdocs.co>',
     to: to,
@@ -50,9 +51,9 @@ exports.sendLocationReviewRequest = function* (to, data) {
 
 exports.sendNegativeReviewNotification = function* (to, data) {
   var logoPng = `${NEGATIVE_REVIEW_ROOT_PATH}/logo.png`;
-  
+
   var html = pug.renderFile(`${NEGATIVE_REVIEW_ROOT_PATH}/index.pug`, data);
-  
+
   var message = {
     from: 'Patient Reviews by MDOCS <survey@app.mdocs.co>',
     to: to,
@@ -79,12 +80,12 @@ exports.sendPlanChange = function* (to, data) {
     newQuantity = upcomingSub.quantity;
   }
 
-  var html = `<div><h4>Your plan has been updated. You have ${data.message}.</h4><br/>` 
+  var html = `<div><h4>Your plan has been updated. You have ${data.message}.</h4><br/>`
       + `<h4>Your previous upcoming cycle payment was:</h4>`
       + `<h4><strong>${formatCents(upcomingSub.plan.amount)}</strong> per <strong>${upcomingSub.plan.interval}</strong> for <strong>${upcomingSub.quantity}</strong> subscriptions. Total <strong>${formatCents(upcomingSub.plan.amount * upcomingSub.quantity)}</strong> at <strong>${moment(data.futureInvoice.date * 1000).format('MMMM Do YYYY')}</strong></h4><br/>`
       + `<h4>Your updated upcoming cycle payment is:</h4>`
       + `<h4><strong>${formatCents(upcomingSub.plan.amount)}</strong> per <strong>${upcomingSub.plan.interval}</strong> for <strong>${newQuantity}</strong> subscriptions. Total <strong>${formatCents(upcomingSub.plan.amount * newQuantity)}</strong> at <strong>${moment(data.futureInvoice.date * 1000).format('MMMM Do YYYY')}</strong></h4></div>`;
-  
+
   var message = {
     from: 'Patient Reviews by MDOCS <survey@app.mdocs.co>',
     to: to,
@@ -98,7 +99,7 @@ exports.sendPlanChange = function* (to, data) {
 
 exports.sendSubscriptionCancel = function* (to, data) {
   var html = 'You have cancelled your subscription. Your account is now frozen and you can no longer send and view Patient Reviews, nor can you create/edit profiles.';
-  
+
   var message = {
     from: 'Patient Reviews by MDOCS <survey@app.mdocs.co>',
     to: to,
@@ -109,3 +110,21 @@ exports.sendSubscriptionCancel = function* (to, data) {
   const sendAsync =  Promise.promisify(messages.send, {context: messages});
   return yield sendAsync(message);
 };
+
+exports.sendAppointmentEmail = function* (to, data) {
+  var logoPng = `${APPOINTMENT_ROOT_PATH}/logo.png`;
+
+  var html = pug.renderFile(`${APPOINTMENT_ROOT_PATH}/index.pug`, data);
+
+  var message = {
+    from: 'Appointments by MDOCS <info@app.mdocs.co>',
+    to: to,
+    subject: `MDOCS Appointment`,
+    html: html,
+    inline: [logoPng]
+  };
+  const messages = mailgun.messages();
+  const sendAsync =  Promise.promisify(messages.send, {context: messages});
+  return yield sendAsync(message);
+};
+
