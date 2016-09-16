@@ -1,0 +1,23 @@
+section.practice.PARALLAX
+  .photo-layout.hero-media(style='display: block; background: url("/assets/img/1395837.png") 50% 0px / cover no-repeat;')
+    .cloak
+  include ../socialIcons.pug
+  .row
+    .span12
+      .logo-wrapper
+        .logo
+          img(src=practice.logo.big, alt=practice.name, height='100')
+      h1= practice.name
+      h2= practice.description
+        | located in 
+        span= practice.city
+        |,  
+        span= practice.state
+      ul.booking-options
+        li
+          a.btn-call(href= 'tel:' + practice.phone)
+            i.fa.fa-phone
+            span.mm-phone-number.phoneupdated= practice.phone
+        li
+          button.btn-book-online(type='button', dat-toggle='modal', dat-target='#book-online', data-practiceid='1', data-locationid='1')
+            | Book Online
