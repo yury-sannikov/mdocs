@@ -11,7 +11,7 @@ const rimraf = bluebird.promisify(require('rimraf'));
 
 const debug = require('debug')('app:sitebuilder:repo');
 
-const ENGINE_VERSION = '0.1'
+const ENGINE_VERSION = '0.2'
 const SiteBuilderEngine = require('../../shared_modules/sb_engine_'+ENGINE_VERSION)
 
 const fs = bluebird.promisifyAll(require('fs'))
@@ -22,14 +22,24 @@ const HTML_LOCATION = 'src/'
 const AUTH_VALID_FOR_MILLISECONDS = 1000 * 60 * 10
 const MDOCS_ISSUER = 'mdocs'
 const PREDEPLOY_POSTFIX = '-predeploy'
+const THEMES_DIR = 'sitebuilder-themes'
+const DEFAULT_THEME = 'cleanui'
 
-const METALSMITH_OPTIONS = {
+const METALSMITH_OPTIONS_STATIC = {
   metainfo: 'metainfo',
-  partials: 'partials',
   source: 'src',
-  dataFolder: 'src/data',
-  theme: 'cleanui'
+  dataFolder: 'src/data'
 }
+
+const metalsmithOptionsForTheme = (theme) => {
+  const themeDir = path.join(config.SITEBUILDER_SOURCE_DIR, THEMES_DIR, theme)
+  return Object.assign({}, METALSMITH_OPTIONS_STATIC, {
+    theme: theme,
+    themeDir: themeDir,
+    partialsPath: themeDir
+  });
+}
+
 const ASSETS_UPLOADS = 'assets/uploads'
 const ASSETS_IMAGES = `${ASSETS_UPLOADS}/images`
 
@@ -57,7 +67,7 @@ export function* deleteAsset(userId, siteId, url) {
     throw new Error('Wrong URL')
   }
   const pathPart = url.slice(idx - 1)
-  const sourceDirDest = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId, 'themes', METALSMITH_OPTIONS.theme, pathPart))
+  const sourceDirDest = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId, pathPart))
   const buildDirDest = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId, pathPart))
   debug(`Deleting asset ${pathPart} from ${sourceDirDest} and ${buildDirDest}`)
   return yield* [
@@ -68,7 +78,7 @@ export function* deleteAsset(userId, siteId, url) {
 
 export function uploadFile(userId, siteId, sourceTmpPath, fileName, type) {
   const uploadSlug = type === 'image' ? ASSETS_IMAGES : ASSETS_UPLOADS
-  const sourceDirDest = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId, 'themes', METALSMITH_OPTIONS.theme, uploadSlug, fileName))
+  const sourceDirDest = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId, uploadSlug, fileName))
   const buildDirDest = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId, uploadSlug, fileName))
   debug(`Upload file ${fileName} to ${buildDirDest} and ${sourceDirDest}`)
   const assetUrl = `${uploadSlug}/${fileName}`
@@ -96,7 +106,7 @@ export function* prepare(userId, siteId) {
   yield mkdirp(buildDir)
 
   debug(`Prepare static site with workDir=${workDir}, buildDir=${buildDir}`)
-  let engine = new SiteBuilderEngine(workDir, buildDir, METALSMITH_OPTIONS)
+  let engine = new SiteBuilderEngine(workDir, buildDir, metalsmithOptionsForTheme(DEFAULT_THEME))
   engine = bluebird.promisifyAll(engine, {context: engine})
   yield engine.prepareAsync()
 
@@ -109,7 +119,7 @@ export function* metainfo(userId, siteId) {
   yield mkdirp(buildDir)
 
   debug(`Generate metainfo. workDir=${workDir}, buildDir=${buildDir}`)
-  let engine = new SiteBuilderEngine(workDir, buildDir, METALSMITH_OPTIONS)
+  let engine = new SiteBuilderEngine(workDir, buildDir, metalsmithOptionsForTheme(DEFAULT_THEME))
   engine = bluebird.promisifyAll(engine, {context: engine})
   yield engine.metainfoAsync()
 
@@ -125,7 +135,7 @@ export function* generate(userId, siteId, force, predeploy) {
   }
   yield mkdirp(buildDir)
   debug(`Generate static site with workDir=${workDir}, buildDir=${buildDir}`)
-  let engine = new SiteBuilderEngine(workDir, buildDir, METALSMITH_OPTIONS)
+  let engine = new SiteBuilderEngine(workDir, buildDir, metalsmithOptionsForTheme(DEFAULT_THEME))
   engine = bluebird.promisifyAll(engine, {context: engine})
   if (predeploy) {
     const deployOptions = {
@@ -147,7 +157,7 @@ export function* predeploy(userId, siteId, predeploy) {
   yield rimraf(buildDir)
   yield mkdirp(buildDir)
   debug(`Generate static site with workDir=${workDir}, buildDir=${buildDir}`)
-  let engine = new SiteBuilderEngine(workDir, buildDir, METALSMITH_OPTIONS)
+  let engine = new SiteBuilderEngine(workDir, buildDir, metalsmithOptionsForTheme(DEFAULT_THEME))
   engine = bluebird.promisifyAll(engine, {context: engine})
   const deployOptions = {
     banner: true,
