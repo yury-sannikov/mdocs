@@ -1,0 +1,176 @@
+@media (min-width:1201px) {
+.flushots {
+  font-size: 2rem !important;
+  color: #FFF !important;
+  padding: 1rem !important;
+  margin-left: 40rem !important;
+  margin-top: -25rem !important;
+  min-width: 35rem !important;
+  text-align: center !important;
+  background: #2E6A9C !important;
+  padding: 2rem !important;
+  border-radius: 25px !important;
+  margin-bottom: 15rem !important;
+}
+}
+
+@media (max-width:1200px) {
+ .flushots {
+  font-size: 1.5rem !important;
+  color: #FFF !important;
+  padding: 1rem !important;
+  margin-left: 25rem !important;
+  margin-top: -25rem !important;
+  min-width: 20rem !important;
+  text-align: center !important;
+  background: #2E6A9C !important;
+  padding: 2rem !important;
+  border-radius: 25px !important;
+  margin-bottom: 15rem !important;
+  }
+}
+
+@media (max-width:799px) {
+  .flushots {display: none !important;}
+}
+
+#cta_box {
+  color: #000 !important;
+  font-size: 1.4rem !important;
+  z-index: 11 !important;
+  text-align: right !important;
+}
+
+.isTablet #cta_box, .isMobile #cta_box, .mobileview #cta_box{
+  display: none !important;
+}
+
+.goog-te-gadget {
+  float: right !important;
+  padding-right: 20px !important;
+  width: 191px !important;
+}
+
+h1, h2, h3, h4{
+  font-weight: 500 !important;
+}
+
+
+.logo-variation-header .slot-type-image img {
+  max-height:  15rem !important;
+}
+
+#_the_logo .logo-slot {
+  padding: 0 !important; 
+}
+
+.quote-btn {
+  background-color: #F88126 !important;
+  border-radius: 24px !important;
+  color: #fff !important;
+  line-height: 2 !important;
+  padding: 7px 22px !important;
+  text-shadow: none !important;
+  font-weight: bolder !important;
+  -webkit-transition: all 0.3s ease-in-out !important;
+  -moz-transition: all 0.3s ease-in-out !important;
+  -o-transition: all 0.3s ease-in-out !important;
+  transition: all 0.3s ease-in-out !important;
+}
+.quote-btn:hover{
+  background-color: #C2C3C6 !important;
+  color: #000 !important; 
+}
+
+html:not(.mobileview) #access {
+  border-width: 0 0 3px 0 !important;
+  border-color: #2E6A9C !important;
+}
+#menu-holder a, html:not(.mobileview) #access .menu ul li a {
+  font-size: 1.4rem !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+}
+html:not(.mobileview) #access {
+  min-height: 3rem !important;
+}
+html:not(.mobileview) #access .menu ul {
+  padding: 0rem 2rem 0rem !important;
+}
+html:not(.mobileview) #access .menu li {
+  margin: 0 !important;
+}
+html:not(.mobileview) #access .menu ul li a {
+  padding: 0.7rem 2rem !important;
+}
+
+
+.container-wrap, .home #container .full_width_content{
+  max-width: 100% !important;
+  margin: 0 auto !important;
+}
+#container .full_width_content, #the_header .header_logo_wrap, #the_header .share_icons-wrap, html:not(.mobileview) #access .menu, #container .content, #the_footer.footer{
+  max-width: 120rem !important;
+  margin: 0 auto !important;
+}
+.home #container .full_width_content{
+  background-image: url(/assets/img/bkg-medical.jpg) !important;
+  background-position: top center !important;
+  background-size: cover !important;
+}
+
+
+
+.tsidesign_feature_area {
+  margin: 0 auto !important;
+  max-width: 120rem !important;
+  padding:  6rem 2.6rem 3rem !important;
+}
+.tsidesign_feature_area .the_list_item_heads{
+  background: rgba(46, 106, 156, 0.5) none repeat scroll 0 0 !important;
+  -webkit-transition: all 0.5s ease-in-out !important;
+  -moz-transition: all 0.5s ease-in-out !important;
+  -o-transition: all 0.5s ease-in-out !important;
+  transition: all 0.5s ease-in-out !important;
+  border: 2px solid #fff !important;
+}
+.tsidesign_feature_area .the_list_item_heads:hover{
+  background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0 !important;
+}
+.tsidesign_feature_area .the_list_item_subheadline{
+  opacity:  0 !important;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8) !important;
+  -webkit-transition: all 0.5s ease-in-out !important;
+  -moz-transition: all 0.5s ease-in-out !important;
+  -o-transition: all 0.5s ease-in-out !important;
+  transition: all 0.5s ease-in-out !important;
+}
+.tsidesign_feature_area .the_list_item_subheadline:hover, .isMobile .tsidesign_feature_area .the_list_item_subheadline, .isTablet .the_list_item_subheadline, .mobileview .tsidesign_feature_area .the_list_item_subheadline{
+  opacity:  1 !important;
+}
+
+
+
+.home #container .content.thereIsFeatured {
+  padding-top: 3rem !important;
+  margin-top:  3rem !important;
+}
+
+
+
+
+#the_footer {
+  margin-top:  3rem !important;
+}
+#the_footer .footer_brand {
+  border:  none !important;
+}
+#the_footer .section {
+  background-color:  #fff !important;
+}
+
+
+
+.isMobile .tsidesign_feature_area .the_list_item_heads, .isTablet .tsidesign_feature_area .the_list_item_heads, .mobileview .tsidesign_feature_area .the_list_item_heads{
+  background: rgba(0, 0, 0, 0.2) none repeat scroll 0 0 !important;
+}

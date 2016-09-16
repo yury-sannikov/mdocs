@@ -1,0 +1,105 @@
+.b2b-location ul{xfont-family:verdana; }
+
+.b2b-location.wide{width:960px; height:374px; position:relative; }
+.b2b-location.wide .b2b-location-canvas{width:100%; height:100%; xposition:static !important;}
+.b2b-location.wide ul{list-style:none; padding:0px; margin:0px; color:#fff; }
+.b2b-location.wide .b2b-location-items-container{position:absolute; width:330px; height:374px; right:0; top:0px; background-image:url('/wp-content/themes/tsm-theme-1/plugins/_the_map/img/b2b-map-overlay-bg.png'); overflow:hidden; }
+.b2b-location.wide .b2b-location-items {xposition:absolute;  width:330px; xheight:280px; height:354px; right:0; top:0px; overflow:hidden; padding:10px 0px; xmargin-top:36px; }
+.b2b-location.wide .b2b-location-items ul{ xwidth:330px; padding:0px 10px; position:relative; xmargin:10px 0px; top:0px; overflow:hidden; min-height:280px; }
+.b2b-location.wide .b2b-location-items ul li{float:left; width:285px; xheight:50px; display:block; margin:15px 5px 0px; cursor:pointer; xtext-transform:uppercase; line-height:17px; font-size:12px; position:relative; padding:0px 0px 15px 9px; border-bottom:1px solid #000000; }
+.b2b-location.wide .b2b-location-items ul li:first-child{margin-top:7.5px; }
+.b2b-location.wide .b2b-location-items ul li:last-child{border:none; }
+.b2b-location.wide .b2b-location-items ul.show-details li{ xdisplay:none;}
+.b2b-location.wide .b2b-location-items ul .show-details .b2b-location-basic-info{margin-top:-10px; }
+x.b2b-location.wide .b2b-location-items ul.show-details li.show-details{xdisplay:block; height:300px;}
+.b2b-location.wide .b2b-location-items ul li.show-details{xdisplay:block; height:300px; border:none; margin-top:28px; }
+.b2b-location.wide .b2b-location-items ul.show-details li.show-details .b2b-location-detail-info{ xdisplay:block; }
+.b2b-location.wide .b2b-location-items ul li h2{margin:0px; font-weight:bold; position:relative; text-transform:uppercase; letter-spacing:1px; }
+.b2b-location.wide .b2b-location-items ul li p{margin:0px; font-weight:normal; position:relative; text-transform:capitalize; }
+.b2b-location.wide .b2b-location-items ul li a{text-decoration:none; xcolor:white;  }
+.b2b-location.wide .b2b-location-items ul li .b2b-location-detail-info{display:none;}
+.b2b-location.wide .b2b-location-nav{height:374px; position:absolute; right:330px; top:0; z-index:1; display:none;}
+.b2b-location.wide .b2b-location-nav img{position:absolute; cursor:pointer; left:17px; }
+.b2b-location.wide .b2b-location-nav .b2b-location-nav-up{xmargin:10px 0px 0px 17px; top:10px; }
+.b2b-location.wide .b2b-location-nav .b2b-location-nav-down{xmargin:0px 0px 10px 17px; bottom:10px; }
+.b2b-location.wide .b2b-location-items ul li .b2b-location-see-more{position:absolute; bottom:20px; display:none; color:#27bef5; }
+.b2b-location.wide .b2b-location-items ul.show-details li.show-details .b2b-location-see-more{ xdisplay:block; }
+
+.b2b-location.medium{width:630px; height:374px; position:relative; }
+.b2b-location.medium .b2b-location-canvas{width:100%; height:100%; }
+.b2b-location.medium ul{list-style:none; padding:0px; margin:0px; color:#fff; }
+.b2b-location.medium .b2b-location-items-container{position:absolute; width:256px; height:374px; right:0; top:0px; background-image:url('/wp-content/themes/tsm-theme-1/plugins/_the_map/img/b2b-map-overlay-bg.png'); overflow:hidden; }
+.b2b-location.medium .b2b-location-items {xposition:absolute;  width:256px; xheight:280px; height:354px; right:0; top:0px; overflow:hidden; padding:10px 0px; xmargin-top:36px; }
+.b2b-location.medium .b2b-location-items ul{ xwidth:330px; padding:0px 10px; position:relative; xmargin:10px 0px; top:0px; overflow:hidden; min-height:280px; }
+.b2b-location.medium .b2b-location-items ul li{float:left; width:215px; xheight:50px; display:block; margin:15px 0px 0px; cursor:pointer; xtext-transform:uppercase; line-height:17px; font-size:12px; position:relative; padding:0px 0px 15px 9px; border-bottom:1px solid #000000; }
+.b2b-location.medium .b2b-location-items ul li:first-child{margin-top:7.5px; }
+.b2b-location.medium .b2b-location-items ul li:last-child{border:none; }
+.b2b-location.medium .b2b-location-items ul.show-details li{ xdisplay:none;}
+.b2b-location.medium .b2b-location-items ul .show-details .b2b-location-basic-info{margin-top:-10px; }
+x.b2b-location.medium .b2b-location-items ul.show-details li.show-details{xdisplay:block; height:300px; }
+.b2b-location.medium .b2b-location-items ul li.show-details{xdisplay:block; height:300px; border:none; margin-top:28px; }
+.b2b-location.medium .b2b-location-items ul.show-details li.show-details .b2b-location-detail-info{ xdisplay:block; }
+.b2b-location.medium .b2b-location-items ul li h2{margin:0px; font-weight:bold; position:relative; text-transform:uppercase; letter-spacing:1px; }
+.b2b-location.medium .b2b-location-items ul li p{margin:0px; font-weight:normal; position:relative; text-transform:capitalize; }
+.b2b-location.medium .b2b-location-items ul li a{text-decoration:none; xcolor:white;  }
+.b2b-location.medium .b2b-location-items ul li .b2b-location-detail-info{display:none;}
+.b2b-location.medium .b2b-location-nav{height:374px; position:absolute; right:228px; top:0; z-index:1; display:none;}
+.b2b-location.medium .b2b-location-nav img{position:absolute; cursor:pointer; left:17px; }
+.b2b-location.medium .b2b-location-nav .b2b-location-nav-up{xmargin:10px 0px 0px 17px; top:10px; }
+.b2b-location.medium .b2b-location-nav .b2b-location-nav-down{xmargin:0px 0px 10px 17px; bottom:10px; }
+.b2b-location.medium .b2b-location-items ul li .b2b-location-see-more{position:absolute; bottom:20px; display:none; color:#27bef5; }
+.b2b-location.medium .b2b-location-items ul.show-details li.show-details .b2b-location-see-more{ xdisplay:block; }
+
+.b2b-location.small{width:300px; height:374px; position:relative; }
+.b2b-location.small .b2b-location-canvas{width:100%; height:100%; }
+.b2b-location.small ul{list-style:none; padding:0px; margin:0px; color:#fff; }
+.b2b-location.small .b2b-location-items-container{position:absolute;  width:190px; height:374px; right:0; top:0px; background-image:url('/wp-content/themes/tsm-theme-1/plugins/_the_map/img/b2b-map-overlay-bg.png'); overflow:hidden; display:none; visibility:hidden; }
+.b2b-location.small .b2b-location-items {xposition:absolute;  width:220px; xheight:280px; height:354px; right:0; top:0px; overflow:hidden; padding:10px 0px; xmargin-top:36px; }
+.b2b-location.small .b2b-location-items ul{ xwidth:330px; padding:0px 10px; position:relative; xmargin:10px 0px; top:0px; overflow:hidden; min-height:280px; }
+.b2b-location.small .b2b-location-items ul li{float:left; width:160px; xheight:50px; display:block; margin:5px; cursor:pointer; xtext-transform:uppercase; line-height:17px; font-size:12px; position:relative; border-bottom:1px solid #000000;}
+.b2b-location.small .b2b-location-items ul.show-details li{ xdisplay:none;}
+.b2b-location.small .b2b-location-items ul .show-details .b2b-location-basic-info{margin-top:-10px; }
+x.b2b-location.small .b2b-location-items ul.show-details li.show-details{xdisplay:block; height:300px;}
+.b2b-location.small .b2b-location-items ul li.show-details{xdisplay:block; height:300px; border:none; margin-top:28px; }
+.b2b-location.small .b2b-location-items ul.show-details li.show-details .b2b-location-detail-info{ xdisplay:block; }
+.b2b-location.small .b2b-location-items ul li h2{margin:0px; font-weight:bold; position:relative; text-transform:uppercase; letter-spacing:1px; }
+.b2b-location.small .b2b-location-items ul li p{margin:0px; font-weight:normal; position:relative; text-transform:capitalize; }
+.b2b-location.small .b2b-location-items ul li a{text-decoration:none; xcolor:white;  }
+.b2b-location.small .b2b-location-items ul li .b2b-location-detail-info{display:none;}
+.b2b-location.small .b2b-location-nav{height:374px; position:absolute; right:228px; top:0; z-index:1; display:none;}
+.b2b-location.small .b2b-location-nav img{position:absolute; cursor:pointer; left:17px; }
+.b2b-location.small .b2b-location-nav .b2b-location-nav-up{xmargin:10px 0px 0px 17px; top:10px; }
+.b2b-location.small .b2b-location-nav .b2b-location-nav-down{xmargin:0px 0px 10px 17px; bottom:10px; }
+.b2b-location.small .b2b-location-items ul li .b2b-location-see-more{position:absolute; bottom:20px; display:none; color:#27bef5; }
+.b2b-location.small .b2b-location-items ul.show-details li.show-details .b2b-location-see-more{ xdisplay:block; }
+
+/* 23rd feb 2012 - directions */
+.b2b-location .b2b-location-expand-icon{position:absolute; right:13px; top:23px; width:21px; height:21px; display:block; background:url('/wp-content/themes/tsm-theme-1/plugins/_the_map/img/directions-icon.png') no-repeat scroll 0 -21px transparent; }
+.b2b-location .show-details .b2b-location-expand-icon{display:none; } 
+.b2b-location li:hover .b2b-location-expand-icon{background-position:0px 0px;}
+.b2b-location.medium .b2b-location-expand-icon{right:15px; }
+.b2b-location.small .infoBox .b2b-location-expand-icon, .b2b-location.small.mobile .infoBox .b2b-location-expand-icon{display:none; }
+.b2b-location.small.mobile .b2b-location-expand-icon{display:block; right:0px; }
+.b2b-location.small.mobile .show-details .b2b-location-expand-icon{display:none; }
+.b2b-location .b2b-location-get-directions{color:#27bef5; position:relative; font-size:9px; }
+
+/* 23rd feb 2012 - ui tweaks */
+.b2b-location .b2b-location-hover-box{height:83px; background:#000; opacity:0.3; filter:alpha(opacity=30); position:absolute; top:-7.5px; left:-3px; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; display:none;}
+.b2b-location.wide .b2b-location-hover-box{width:294px; }
+.b2b-location.medium .b2b-location-hover-box{width:235px; left:-10px; }
+.b2b-location .b2b-location-items ul li:hover .b2b-location-hover-box{display:block;}
+.b2b-location .b2b-location-items ul li.show-details .b2b-location-hover-box{display:none;}
+.b2b-location .b2b-location-items ul li .b2b-location-detail-info .b2b-location-h2{text-transform:uppercase; letter-spacing:1px; font-weight:bold; }
+
+/* 3rd march 2012 - ui tweaks*/
+.b2b-location .infoBox p{margin-bottom:0px; }
+.b2b-location .infoBox a, .b2b-location .infoBox a:hover, #main .b2b-location .infoBox a:hover{text-decoration:none; }
+.b2b-location .b2b-location-items.show-details .slimScrollBar{display:none !important;}
+
+/*7th march 2012 - mobile ui tweaks*/
+.b2b-location.small.mobile{height:auto;}
+.b2b-location.small.mobile .b2b-location-canvas{height:374px; display:none; }
+.b2b-location.small.mobile .b2b-location-items-container{ position:static; display:block; top:374px; visibility:visible; width:auto; background:#000; height:auto;}
+.b2b-location.small.mobile .b2b-location-items{height:auto; width:auto; }
+.b2b-location.small.mobile .b2b-location-items ul{height:auto; min-height:0px; }
+.b2b-location.small.mobile .b2b-location-items ul li{width:270px; }

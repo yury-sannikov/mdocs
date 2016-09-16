@@ -1,0 +1,343 @@
+#_the_list_wrapper .ui-sortable-placeholder { border: 1px dotted red; visibility: visible !important; height: 50px !important; }
+#_the_list_wrapper .ui-sortable-placeholder * { visibility: hidden; }
+
+#_the_list_wrapper .connectedColumn { 
+    float: left !important; 
+    list-style-type: none !important; 
+    padding-top: 0 !important; 
+    padding-right: 0 !important; 
+    padding-left: 0 !important; 
+    margin-top: 0 !important; 
+    margin-left: 0 !important; 
+    margin-bottom: 0 !important; 
+    overflow:hidden;
+    /*
+    margin: 0 10px 0 0 !important; 
+    width: 200px;
+    */
+}
+#_the_list_wrapper .connectedColumn li { 
+    /*
+    margin: 0 5px 5px 5px; 
+    padding: 5px; 
+    */
+    position: relative;
+}
+
+#_the_list_wrapper {
+        padding:0 0 30px 0;
+    }
+    #_the_list_wrapper h2 {
+        border-bottom: 1px dotted #E5E5E5;
+        font-size: 17px;
+		line-height:21px;
+        font-weight: bold;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    #_the_list_wrapper .page_cols_1 h2 {
+        font-size: 25px;
+		line-height:29px;
+        font-weight: normal;
+    }
+
+._the_list_item_image {
+        text-align:center;
+    }
+    ._the_list_item_image img {
+        display:none;
+    }
+
+.isMobile ._the_list_item_image {
+    margin-right:0px !important;
+    margin-bottom:20px;
+}
+
+/* MENU MODULE */
+#_the_list_global_menu ._the_list_item {
+        margin-top:10px;
+    }
+    #_the_list_global_menu ._the_list_item_image {
+        float:left;
+        margin-top: 7px;
+    }
+    #_the_list_global_menu .items_align_right ._the_list_item_image {
+        float:right;
+    }
+    #_the_list_global_menu ._the_list_item_txtblq {
+            float:left;
+        }
+        #_the_list_global_menu ._the_list_item_headline {
+            font-weight: bold;
+        }   
+        #_the_list_global_menu ._the_list_item_desc {
+            width:auto;
+			white-space:pre-wrap;
+        }
+        #_the_list_global_menu ._the_list_item_desc p {
+            margin:0px;
+        }
+        #_the_list_global_menu .items_align_right ._the_list_item_txtblq {
+            float:right;
+        }
+
+    #_the_list_global_menu ._the_list_item_subheader {
+        float:right;
+        text-align:right;
+    }
+    #_the_list_global_menu .items_align_right ._the_list_item_subheader {
+        float:left;
+    }
+    #_the_list_global_menu .page_cols_1 ._the_list_item_headline {
+        font-size: 17px;
+		line-height:21px;
+    }
+    #_the_list_global_menu .page_cols_1 ._the_list_item_subheader {
+        font-size: 17px;
+		line-height:21px;
+    }
+
+    .isMobile #_the_list_global_menu ._the_list_item_desc {
+        clear:both;
+		white-space:pre-wrap;
+    }
+    .isMobile #_the_list_global_menu ._the_list_item_subheader {
+        float:left;
+    }
+
+/* MENU MODULE */
+#_the_list_global_services ._the_list_item {
+        margin-top:10px;
+    }
+    #_the_list_global_services ._the_list_item_image {
+        float:left;
+        margin-top: 7px;
+    }
+    #_the_list_global_services .items_align_right ._the_list_item_image {
+        float:right;
+    }
+    #_the_list_global_services ._the_list_item_txtblq {
+            float:left;
+        }
+        #_the_list_global_services ._the_list_item_headline {
+            font-weight: bold;
+        }   
+        #_the_list_global_services ._the_list_item_desc {
+            width:auto;
+			white-space:pre-wrap;
+        }
+        #_the_list_global_services .items_align_right ._the_list_item_txtblq {
+            float:right;
+        }
+
+    #_the_list_global_services ._the_list_item_subheader {
+        float:right;
+        text-align:right;
+    }
+    #_the_list_global_services .items_align_right ._the_list_item_subheader {
+        float:left;
+    }
+    #_the_list_global_services .page_cols_1 ._the_list_item_headline {
+        font-size: 17px;
+		line-height:21px;
+    }
+    #_the_list_global_services .page_cols_1 ._the_list_item_subheader {
+        font-size: 17px;
+		line-height:21px;
+    }
+
+    .isMobile #_the_list_global_services ._the_list_item_desc {
+        clear:both;
+		white-space:pre-wrap;
+    }
+    .isMobile #_the_list_global_services ._the_list_item_subheader {
+        float:left;
+    }
+
+/* GRID MODULE */
+#_the_list_global_grid ._the_list_items {
+        margin-bottom:40px;
+    }
+    #_the_list_global_grid h2 {
+        font-size:25px;
+		line-height:29px;
+        font-weight: normal;
+    }
+    .isMobile #_the_list_global_grid h2 {
+        font-size:18px;
+    }
+    #_the_list_global_grid ._the_list_item {
+        float:left;
+        overflow: hidden;
+    }
+    #_the_list_global_grid .mod_1 {
+        clear:both;
+    }
+    #_the_list_global_grid ._the_list_item_image {
+        margin-bottom:10px;
+    }
+    #_the_list_global_grid ._the_list {
+        margin-bottom:30px;
+    }
+    #_the_list_global_grid ._the_list_item_headline {
+        font-size: 19px;
+		line-height:23px;
+        font-weight:bold;
+    }
+
+/* MEET THE TEAM MODULE */
+#_the_list_global_team .mod_1 {
+    clear:both;
+}
+
+#_the_list_global_team h2 {
+    font-size: 25px;
+	line-height:29px;
+    font-weight:normal;
+}
+
+.isMobile #_the_list_global_team h2 {
+    font-size:18px;
+}
+
+/* Medium - 2 Columns format */
+#_the_list_global_team ._the_list_item {
+        float:left;
+    }
+    #_the_list_global_team ._the_list_item_image {
+        float:left;
+    }
+    #_the_list_global_team ._the_list_item_txtblq {
+            float:left;
+        }
+
+    #_the_list_global_team ._the_list_item_desc {
+		white-space:pre-wrap;
+	}
+
+/* Large - Grid format */
+#_the_list_global_team ._the_list_items {
+
+    }
+    #_the_list_global_team ._the_list_isTeam ._the_list_item {
+        float:left;
+        overflow: hidden;
+    }
+    #_the_list_global_team ._the_list_isTeam ._the_list_item_image {
+        margin-bottom:10px;
+    }
+    #_the_list_global_team ._the_list {
+        margin-bottom:30px;
+    }
+    #_the_list_global_team ._the_list_item_headline {
+        font-size: 19px;
+		line-height:23px;
+        font-weight:bold;
+    }
+    #_the_list_global_team ._the_list_item_subheader {
+        font-size: 17px;
+		line-height:21px;
+        padding-bottom: 10px;
+    }
+    .isMobile #_the_list_global_team ._the_list_item_headline {
+        font-size: 18px;
+    }
+    .isMobile #_the_list_global_team ._the_list_item_subheader {
+        font-size: 15px;
+    }
+
+/* EVENT FLYER MODULE */
+    #_the_list_global_eflyer ._the_list_item {
+        float:left;
+        overflow: hidden;
+    }
+    #_the_list_global_eflyer .mod_1 {
+        clear:both;
+    }
+    #_the_list_global_eflyer ._the_list_item_image {
+        margin-bottom:10px;
+    }
+    #_the_list_global_eflyer ._the_list_item_headline {
+        font-size: 19px;
+		line-height:23px;
+		font-weight:bold;
+    }
+    #_the_list_global_eflyer ._the_list_item_subheader {
+        font-size: 17px;
+		line-height:21px;
+        margin-bottom:10px;
+    }
+    .isMobile #_the_list_global_eflyer ._the_list_item_headline {
+        font-size:18px;
+    }
+    .isMobile #_the_list_global_eflyer ._the_list_item_subheader {
+        font-size:15px;
+    }
+    #_the_list_global_eflyer h2 {
+        font-size:25px;
+		line-height:29px;
+        font-weight: normal;
+    }
+    .isMobile #_the_list_global_eflyer h2 {
+        font-size:18px;
+    }
+
+/* CALENDAR OF EVENTS MODULE */
+#_the_list_global_events ._the_list_item {
+        margin-top:10px;
+    }
+    #_the_list_global_events ._the_list_item_image {
+        float:left;
+    }
+    #_the_list_global_events .items_align_right ._the_list_item_image {
+        float:right;
+    }
+    #_the_list_global_events ._the_list_item_txtblq {
+            float:left;
+        }
+        #_the_list_global_events ._the_list_item_headline {
+	        font-size: 19px;
+			line-height:23px;
+            font-weight:bold;
+        }
+        #_the_list_global_events ._the_list_item_desc {
+            width:auto;
+			white-space:pre-wrap;
+        }
+        #_the_list_global_events .items_align_right ._the_list_item_txtblq {
+            float:right;
+        }
+
+    #_the_list_global_events ._the_list_item_subheader {
+        float:right;
+        text-align:right;
+        font-size:17px;
+        font-weight:bold;
+    }
+    #_the_list_global_events .items_align_right ._the_list_item_subheader {
+        float:left;
+    }
+
+    .isMobile #_the_list_global_events ._the_list_item_subheader {
+        float:none;
+        text-align:left;
+    }
+    .isMobile #_the_list_global_events ._the_list_item_desc {
+        clear:both;
+		white-space:pre-wrap;
+    }
+
+.json-data {
+    width:100%;
+    height:300px;
+    color:#000000 !important;
+    background-color:#FFFFFF !important;
+}
+
+
+.actionBtn{clear: both; display: block;margin:10px 0 0;float:left;}
+
+#_the_list_wrapper .actionBtn .actionLink,
+#_the_feature .actionBtn .actionLink {background:rgba(0,0,0,.2);color:#ffffff !important;display:block;padding: 5px 10px;font-size:11px;text-transform:uppercase;}
+#_the_list_wrapper .actionBtn .actionLink:hover,
+#_the_feature .actionBtn .actionLink:hover {background:none;}

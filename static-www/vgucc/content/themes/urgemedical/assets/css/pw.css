@@ -1,0 +1,80 @@
+.medheader {
+  position: relative; 
+  width: 100%;
+}
+
+.medheader h1 {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  color: #ffffff !important;
+  font: bold 6em Lato, Helvetica, Sans-Serif;
+  letter-spacing: -1px;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px 60px;
+}
+
+.medslider {
+  height: 420px;
+  overflow: hidden;
+}
+
+.medslider img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.slick-dots {
+  padding: 60px 0px !important;
+}
+
+.slick-dots li button {
+  /* font-size: 0; */
+  /* line-height: 0; */
+  /* display: block; */
+  // width: 20px;
+  // height: 20px;
+  // padding: 5px;
+  // cursor: pointer;
+  /* color: transparent; */
+  /* border: 0; */
+  /* outline: none; */
+  background: #000 !important;
+}
+
+.footer {
+    background-color: #333333 !important;
+    height: 300px;
+    padding: 20px 80px;
+}
+
+.footerblock {
+  float: left;
+  width: 25%;
+  font-size: 1.2em;
+}
+
+.footerblock strong {
+  font-size: 1.9em;
+  font-weight: normal;
+}
+
+.footerblock ul {
+    list-style: none; /* Remove list bullets */
+    padding: 0;
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.footerblock li { 
+    padding-left: 16px;
+    font-size: 1em;
+}
+
+.footerblock li:before {
+    content: "•"; /* Insert content that looks like bullets */
+    padding-right: 8px;
+    color: #fff; /* Or a color you prefer */
+}

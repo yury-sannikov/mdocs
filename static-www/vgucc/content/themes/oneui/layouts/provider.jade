@@ -1,0 +1,15 @@
+doctype html
+
+html(lang="en")
+  head
+    include ../partials/header.pug
+  body
+    div#page-container.header-navbar-fixed.header-navbar-transparent
+      include ../partials/navbar.pug
+      section#mainContent
+        main#main-container
+          h1 #{data.name}
+      section#footerNav
+        footer#page-footer.bg-white
+          .content.content-boxed
+            include ../partials/footer.pug

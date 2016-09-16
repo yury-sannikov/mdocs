@@ -1,0 +1,20 @@
+#wpadminbar #save-theme-box,
+#wpadminbar #load-theme-box,
+#wpadminbar #saveas-theme-box{text-align:center;display:none;padding:40px 0 0;}
+#wpadminbar #save-theme-box{width:380px;margin:auto;height:72px;}
+#wpadminbar #save-theme-box input[type=text]{border:1px solid #111;background:#555;box-shadow:inset 1px 1px 0 rgba(0,0,0,.3);border-radius:5px;height:16px;float:left;display:inline-block;margin:0 15px 0 0;padding:10px;font-size:15px;vertical-align:middle;color:#eee !important;}
+#wpadminbar #save-theme-box label{float:left;margin:0 10px 0 0;display:inline-block;vertical-align:middle;padding:10px 0 0;}
+#wpadminbar #load-theme-select,
+#wpadminbar #saveas-theme-select{width:160px;}
+#wpadminbar #load-theme-select-custom-select,
+#wpadminbar #saveas-theme-select-custom-select{z-index:30000;height:150px;}
+#wpadminbar #load-theme-box,
+#wpadminbar #saveas-theme-box{width:615px;margin:0px auto;overflow:hidden;padding:40px 0 0;height:72px;}
+#wpadminbar #saveas-theme-box{width:300px;}
+#wpadminbar #load-theme-box .tsq-custom-select-menu-toggler,#saveas-theme-box .tsq-custom-select-menu-toggler{color:#ffffff;}
+#wpadminbar #load-theme-box select,#saveas-theme-box select, #load-theme-box .tsq-custom-select-front .tsq-custom-select-click-handle,#saveas-theme-box .tsq-custom-select-front .tsq-custom-select-click-handle{border:1px solid #111 !important;-webkit-box-shadow:inset 1px 1px 0 rgba(255,255,255,.2);-moz-box-shadow:inset 1px 1px 0 rgba(255,255,255,.2);box-shadow:inset 1px 1px 0 rgba(255,255,255,.2);border-radius:5px;color:#FFF;background:#333;height:40px;float:left;margin:0 10px 0 0;}
+#wpadminbar #load-theme-box .tsq-custom-select-front,
+#wpadminbar #saveas-theme-box .tsq-custom-select-front{float:left;margin:0 15px 0 0 !important;vertical-align:middle;}
+#wpadminbar #save-theme-box input[type=button],#load-theme-box input[type=button],#saveas-theme-box input[type=button]{background:#34bdf2;box-shadow:inset 1px 1px 0 rgba(255,255,255,.2);display:inline-block;height:36px;border:1px solid #0d86b5;border-radius:5px;padding:0 15px;margin:0 15px 0 0;float:left;font-size:15px;color:#fff !important;vertical-align:middle;}
+#wpadminbar #save-theme-box input[type=button]:hover,#load-theme-box input[type=button]:hover,#saveas-theme-box input[type=button]:hover{background:#2c9fcb;box-shadow:inset 1px 1px 0 #227a9c;}
+#wpadminbar #load-theme-box .tsq-custom-select-click-handle{text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
