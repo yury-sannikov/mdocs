@@ -5,7 +5,7 @@
 
 var path  = require('path');
 var fsextra    = require('fs-extra');
-var copydir = require('copy-dir');
+var ncp = require('./tolerant_ncp').ncp;
 
 
 /**
@@ -30,7 +30,7 @@ module.exports = function(assets) {
         fsextra.mkdirpSync(dir);
       }
       console.log(`copydir from ${src} to ${dst}`);
-      copydir(src, dst, function(err) {
+      ncp(src, dst, function(err) {
         if (err) return done(err);
         console.log(`copydir done.`);
         done();

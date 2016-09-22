@@ -72,7 +72,7 @@ function metalsmithFactory(workDir, buildDir, options) {
     }))
     .use(
       // If clean build, copy over assets from public folder
-      msIf(options._clean,
+      msIf(options._generate,
         asset([
         {
           src: 'assets',
@@ -82,7 +82,7 @@ function metalsmithFactory(workDir, buildDir, options) {
     )
     .use(
       // If clean build, copy over assets from public folder
-      msIf(options._clean,
+      msIf(options._generate,
         templateAssets([
         {
           src: path.join(options.themeDir, 'assets'),
