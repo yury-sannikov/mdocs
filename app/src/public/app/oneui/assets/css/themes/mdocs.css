@@ -553,7 +553,8 @@ div.tagsinput span.tag {
 }
 
 .side-header > span, .side-header > a {
-  margin-left: -10px;
+  margin-left: -15px;
+  margin-top: 5px;
 }
 
 h2.dash-widget {

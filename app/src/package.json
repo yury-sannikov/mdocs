@@ -1,11 +1,11 @@
 {
-  "name": "MDOCS",
-  "company": "Movel, Inc.",
-  "description": "Patient Experience Platform",
-  "homepage": "http://www.mdocs.co",
+  "name": "PracticeWin",
+  "company": "PracticeWin, Inc.",
+  "description": "Practice Growth Platform",
+  "homepage": "http://www.practicewin.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/danneu/koa-skeleton"
+    "url": ""
   },
   "scripts": {
     "start": "concurrently --kill-others \"npm run build\" \"npm run start-dev\"",

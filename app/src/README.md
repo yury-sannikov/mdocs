@@ -4,6 +4,8 @@
 
 - NPM version: 3.10.3
 - Node version: 4.4.7
+- Brew
+- S3FS
 
 ## KOA & JQuery based development
 

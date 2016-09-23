@@ -38,7 +38,7 @@ const pug = new Pug({
   compileDebug: false,
   locals: {
     moment: require('moment'),
-    application: 'MDOCS',
+    application: 'PracticeWin',
     formatPhone: belt.formatPhone,
     formatCents: belt.formatCents,
     _: require('lodash')

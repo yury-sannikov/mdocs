@@ -8,7 +8,7 @@ const YELP_CONSUMER_SECRET='Ab8qF4udakDK4igMuzuBvhm5rDs';
 const YELP_TOKEN='J7bG2O8BwIfz5gjRL3wyhh_64gSFc3VD';
 const YELP_TOKEN_SECRET='ZEk0QHjKuVcqdiSxeNIqLTlZlPw';
 
-const COMPETITORS_RADIUS_METERS = 10 * 1600;
+const COMPETITORS_RADIUS_METERS = 15 * 1000;
 
 const yelp = new Yelp({
   consumer_key: YELP_CONSUMER_KEY,
@@ -92,6 +92,7 @@ function* process(data, yelpDefaultCategories) {
       location: address,
       category_filter: thisCategory
     };
+    console.error(searchRequest);
     competitors = yield yelp.search(searchRequest);
   }
   catch(e) {
@@ -114,7 +115,9 @@ function* processNoYelp(data, yelpcategories) {
       location: address,
       category_filter: yelpcategories
     };
+    console.error(searchRequest);
     bData = yield yelp.search(searchRequest);
+    console.error(bData);
   }
   catch(e) {
     console.error(e.stack);
@@ -128,7 +131,7 @@ function updateCompetitors(data, bData, yelpBusiness) {
   let { businesses = [] } = bData || {};
   businesses = businesses
     .filter( b => !b.is_closed)
-    .filter( b => b.distance < COMPETITORS_RADIUS_METERS) // Filter out featured but far away
+    //.filter( b => b.distance < COMPETITORS_RADIUS_METERS) // Filter out featured but far away
     .sort((a, b) => {
       if (a.rating !== b.rating) {
         return b.rating - a.rating;
