@@ -156,8 +156,11 @@ function ncp (source, dest, options, callback) {
   function mkDir(dir, target) {
     fs.mkdir(target, dir.mode, function (err) {
       if (err) {
-        console.log(err);
-        return onError(err);
+        console.log(`tolerant_ncp mkdir error: ${JSON.stringify(err)}`);
+        if (err.code !== 'EEXIST') {
+          return onError(err);
+        }
+        console.log('Skip EEXIST');
       }
       copyDir(dir.name);
     });
