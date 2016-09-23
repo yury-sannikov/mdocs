@@ -75,7 +75,8 @@ exports.wrapJadeLocals = function() {
       config: config,
       hasSubscription,
       showCreateProfileAlert,
-      sitebuilderSites
+      sitebuilderSites,
+      accountRights
     };
 
     yield* next;

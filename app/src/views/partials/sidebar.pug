@@ -21,10 +21,11 @@
           a(href='/app/dashboard')
             i.si.si-speedometer
             span.sidebar-mini-hide Dashboard
-        li
-          a(href='/app/appointments')
-            i.si.si-calendar
-            span.sidebar-mini-hide Appointments
+        if accountRights.appointments
+          li
+            a(href='/app/appointments')
+              i.si.si-calendar
+              span.sidebar-mini-hide Appointments
 
 
         li.nav-main-heading
