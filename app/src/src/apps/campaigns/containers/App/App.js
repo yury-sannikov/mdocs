@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 // import { loadDashboard } from '../../redux/modules/dashboard'
 
+import NavHeader from '../NavHeader'
+
 @connect(null,
   dispatch => bindActionCreators({  }, dispatch))
 export default class App extends Component {
@@ -14,13 +16,16 @@ export default class App extends Component {
     const styles = require('./App.scss')
     return (
       <div className={styles.appContent}>
-        <span>Campaigns</span>
+        <NavHeader route={this.props.route} />
+
+        <span>{JSON.stringify(this.props.route)}</span>
         {/* this.props.children */}
       </div>
     )
   }
 }
 App.propTypes = {
+//  pathToNavHeaderMapping: React.PropTypes.any
 //  children: React.PropTypes.element.isRequired,
 // loadDashboard: React.PropTypes.func
 }
