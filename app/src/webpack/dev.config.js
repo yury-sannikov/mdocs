@@ -65,18 +65,22 @@ module.exports = {
   devtool: 'inline-source-map',
   context: path.resolve(__dirname, '..'),
   entry: {
+    'common': [
+      'whatwg-fetch'
+    ],
     'dashboard': [
       'webpack-hot-middleware/client?path=http://' + host + ':' + port + '/__webpack_hmr',
-      // 'bootstrap-sass!./src/theme/bootstrap.config.js',
-      // 'font-awesome-webpack!./src/theme/font-awesome.config.js',
       './src/apps/dashboard/client.js'
     ],
     'appointments': [
-      'whatwg-fetch',
       'webpack-hot-middleware/client?path=http://' + host + ':' + port + '/__webpack_hmr',
       // 'bootstrap-sass!./src/theme/bootstrap.config.js',
       // 'font-awesome-webpack!./src/theme/font-awesome.config.js',
       './src/apps/appointments/client.js'
+    ],
+    'campaigns': [
+      'webpack-hot-middleware/client?path=http://' + host + ':' + port + '/__webpack_hmr',
+      './src/apps/campaigns/client.js'
     ]
   },
   output: {

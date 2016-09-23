@@ -26,6 +26,11 @@
             a(href='/app/appointments')
               i.si.si-calendar
               span.sidebar-mini-hide Appointments
+        if accountRights.campaigns
+          li
+            a(href='/app/campaigns')
+              i.si.si-feed
+              span.sidebar-mini-hide Campaigns
 
 
         li.nav-main-heading

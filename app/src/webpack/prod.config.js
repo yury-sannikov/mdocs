@@ -16,14 +16,19 @@ module.exports = {
   devtool: 'source-map',
   context: path.resolve(__dirname, '..'),
   entry: {
+    'common': [
+      'whatwg-fetch'
+    ],
     'dashboard': [
       //'bootstrap-sass!./src/theme/bootstrap.config.prod.js',
       //'font-awesome-webpack!./src/theme/font-awesome.config.prod.js',
       './src/apps/dashboard/client.js'
     ],
     'appointments': [
-      'whatwg-fetch',
       './src/apps/appointments/client.js'
+    ],
+    'campaigns': [
+      './src/apps/campaigns/client.js'
     ]
   },
   output: {

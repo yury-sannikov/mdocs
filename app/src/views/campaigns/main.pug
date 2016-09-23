@@ -1,0 +1,37 @@
+extends ../layouts/layout.pug
+
+block head
+  title #{application} &middot; Campaigns
+
+block styles
+  link(href="/app/css/page-react.min.css", key="page-react", media="screen, projection", rel="stylesheet", type="text/css", charset="UTF-8")
+  link(rel='stylesheet', href='/app/oneui/assets/js/plugins/slick/slick.min.css')
+  link(rel='stylesheet', href='/app/oneui/assets/js/plugins/slick/slick-theme.min.css')
+
+  each style, key in Object.keys(assets.styles)
+    link(href=assets.styles[style], key=key, media="screen, projection", rel="stylesheet", type="text/css", charset="UTF-8")
+
+  if (developmentStyles)
+    style.
+      !{developmentStyles}
+
+block scripts
+  if reduxState
+    script.
+      window.__data=!{reduxState};
+  script(src=assets.javascript.common)
+  script(src=assets.javascript.campaigns)
+  script(src='/app/oneui/assets/js/plugins/slick/slick.min.js')
+  script.
+    $(document).ready(function() {
+    });
+block content
+  //- include ../partials/fakeDashboard.pug
+  //- React rendered content
+  div.content(id='content')
+    .row
+      .col-sm-2.col-sm-offset-5
+        i.fa.fa-lg.fa-spinner(style="padding: 150px 0;")
+  //- Isomorphic tools assets (debug only)
+  //- pre
+  //-   sub #{JSON.stringify(assets, null, 2)}

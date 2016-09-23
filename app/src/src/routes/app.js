@@ -7,6 +7,8 @@ import stream from 'koa-stream';
 import { getFutureInvoice, cancelSubscriptions, updateSessionSubscriptionInfo } from '../stripe';
 import { render as dashboardRender } from '../apps/dashboard/server';
 import { render as appointmentsRender } from '../apps/appointments/server';
+import { render as campaignsRender } from '../apps/campaigns/server';
+
 /*
 app:
   - login
@@ -94,6 +96,10 @@ router.get('dashboardNew', '/dashboard*', checkAuthenticated, function*() {
 
 router.get('appointments', '/appointments*', checkAuthenticated, function*() {
   yield appointmentsRender(this, this.jadeLocals);
+});
+
+router.get('appointments', '/campaigns*', checkAuthenticated, function*() {
+  yield campaignsRender(this, this.jadeLocals);
 });
 
 
