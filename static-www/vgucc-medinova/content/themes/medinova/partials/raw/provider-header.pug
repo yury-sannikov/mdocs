@@ -1,0 +1,19 @@
+section.doctor.PARALLAX
+  .photo-layout.hero-media(style='display: block; background: url("/assets/img/1395837.png") 50% 0px / cover no-repeat;')
+    .cloak
+  include ../socialIcons.pug
+  .row
+    .span12
+      figure
+        img(src= data.thumbnail, width='200', height='200', alt= data.header)
+      h3= practice.name
+      h1= data.name
+      h2= data.header
+      ul.booking-options
+        li
+          a.btn-call(href='tel:' + practice.phone)
+            i.fa.fa-phone
+            span.mm-phone-number.phoneupdated= practice.phone
+        li
+          button.btn-book-online(type='button', data-doctorid='12', data-locationid='1')
+            | Book Online

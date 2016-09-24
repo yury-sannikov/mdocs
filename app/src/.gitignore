@@ -4,12 +4,12 @@ node_modules
 .projectile
 public/app
 !public/app/js/*.js
-!public/app/froala/*
 public/app/js/*.min.js
+!public/app/froala/*
 !public/app/js/auth0-editprofile-widget.min.js
 !public/app/js/main.js
 !public/app/js/sitebuilder.js
-!public/app/oneui/*
+!public/app/oneui/assets/*
 !public/app/vendors/*
 webpack-assets.json
 webpack-stats.json

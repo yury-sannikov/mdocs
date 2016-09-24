@@ -1,0 +1,28 @@
+<section class="providers-landing pinstripe">
+  <div class="row" id="social-crumb">
+    <div class="span12">
+      <div itemprop="breadcrumb" class="breadcrumb">
+        <a href="/">{{practice.name}}</a> <i class="fa fa-angle-right"></i>
+        Providers
+      </div>
+      <h1>Meet Our Providers</h1>
+    </div>
+  </div>
+  <div class="provider-list-blocks">
+    {{#each collections.providers}}
+      <div class="provider-list-block">
+        <a href="/{{path}}">
+          <div class="provider-pic">
+            <img src="{{data.thumbnail}}"" alt="{{data.header}}" class="doc-photo">
+          </div>
+          <div class="provider-info">
+            <div class="inner">
+              <h6>{{data.name}}</h6>
+              <label class="spec">{{data.header}}</label>
+            </div>
+          </div>
+        </a>
+      </div>
+    {{/each}}
+  </div>
+</section>

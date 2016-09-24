@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+  head
+    include ../partials/header.pug
+  body.PARALLAX
+    include ../partials/navbar.pug
+    section.terms
+      .row
+        .span12
+          h1= data.title
+    section.content
+      .row
+        .span12
+          != data.htmlContent
+          != contents
+    include ../partials/contact.pug
+    include ../partials/map.pug
+    include ../partials/footer.pug

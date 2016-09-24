@@ -1,0 +1,27 @@
+section.contact-form.pinstripe
+  .row
+    h5 Contact Us
+    h4 Send A Message To 
+      span= practice.name
+    p
+      | If you have any questions, concerns, or comments regarding 
+      span=practice.name  
+      |, please fill out the short contact form below.
+      
+      form.contact_form
+        .span6.left
+          .label(property='form_name') Name
+          input(name='form_name', type='text', value='', placeholder='Full name', required='true')
+          .label(property='form_email') Email address
+          input(name='form_email', type='email', value='', placeholder='Email address', required='true')
+          .label(property='form_phone') Phone number
+          input(name='form_phone', type='text', value='', placeholder='Phone number', required='')
+        .span6.right
+          .label(property='form_message') Comments
+          textarea(name='form_message', cols='50', rows='10')
+          input(type='checkbox' name='form_ack', required='true')
+          label.ack_medical_condition(property='form_ack') I understand and agree that any information submitted will be forwarded to our office by email and not via a secure messaging system. This form should not be used to transmit private health information, and we disclaim all warranties with respect to the privacy and confidentiality of any information submitted through this form.
+          br
+          br
+          //- button#js-contact-btn.btn-submit(type='submit') Send
+          button.btn-submit(type='submit', value='Send', data-loading-msg='Submitting...', data-success-msg='Success!', data-error-msg='Error! Try again.') Send
