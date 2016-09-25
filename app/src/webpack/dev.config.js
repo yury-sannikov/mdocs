@@ -62,7 +62,8 @@ reactTransform[1].transforms.push({
 });
 
 module.exports = {
-  devtool: 'inline-source-map',
+  devtool: 'eval',
+  cache: true,
   context: path.resolve(__dirname, '..'),
   entry: {
     'common': [
@@ -104,10 +105,17 @@ module.exports = {
     ]
   },
   progress: true,
+  noParse: [
+    /\/react\//g,
+    /\/react-dom\//g,
+    /\/react-router\//g
+  ],
   resolve: {
     modulesDirectories: [
-      path.resolve(__dirname, '../src/apps'),
       path.resolve(__dirname, '../node_modules')
+    ],
+    root: [
+      path.resolve(__dirname, '../src/apps')
     ],
     extensions: ['', '.json', '.js', '.jsx']
   },
