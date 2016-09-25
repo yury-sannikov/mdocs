@@ -6,6 +6,10 @@
       {
         "caption": "Quick Information",
         "href": "/#quick"
+      },
+      {
+        "caption": "Current Specials",
+        "href": "/#specials"
       }
     ]
   },
@@ -24,8 +28,8 @@
     "href": "/providers",
     "content": [
       {
-        "caption": "Dr. Nancy Tanchel",
-        "href": "/providers/dr-nancy-tanchel"
+        "caption": "Dr. Deborah Tabb, DDS",
+        "href": "/providers/dr-deborah-tabb-d-d-s-p-c/"
       }
     ]
   },
@@ -34,24 +38,24 @@
     "href": "/services",
     "content": [
       {
-        "caption": "All-Laser LASIC",
-        "href": "/services/all-laser-lasic"
+        "caption": "Implants",
+        "href": "/services/implants"
       },
       {
-        "caption": "Presby LASIC",
-        "href": "/services/presby-lasik"
+        "caption": "Bonding",
+        "href": "/services/bonding"
       },
       {
-        "caption": "PRK Procedures",
-        "href": "/services/prk-procedures"
+        "caption": "Crowns and Bridges",
+        "href": "/services/crowns-and-bridges"
       },
       {
-        "caption": "Wavefront Eye Analysis",
-        "href": "/services/wavefront-eye-analysis"
+        "caption": "Teeth Whitening",
+        "href": "/services/teeth-whitening"
       },
       {
-        "caption": "Topography Guided",
-        "href": "/services/topography-guided"
+        "caption": "Invisalign®",
+        "href": "/services/invisalign"
       }
     ]
   },

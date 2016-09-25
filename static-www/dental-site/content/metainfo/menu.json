@@ -6,6 +6,10 @@
       {
         "caption": "Quick Information",
         "href": "/#quick"
+      },
+      {
+        "caption": "Current Specials",
+        "href": "/#specials"
       }
     ]
   },
@@ -24,7 +28,7 @@
     "href": "/providers",
     "content": [
       {
-        "caption": "Dr. Nancy Tanchel",
+        "caption": "Dr. Deborah Tabb, D.D.S., P.C.",
         "href": "/providers/dr-nancy-tanchel"
       }
     ]
@@ -34,7 +38,7 @@
     "href": "/services",
     "content": [
       {
-        "caption": "All-Laser LASIC",
+        "caption": "All-Dental LASIC",
         "href": "/services/all-laser-lasic"
       },
       {
