@@ -20,9 +20,7 @@ block content
 
   .content.bg-white
     .row
-      .col-sm-6.col-sm-offset-3
-        br
-        br
+      .col-sm-4
         each question, id in questions
           .row
             .col-md-12
@@ -30,7 +28,7 @@ block content
                 input(type='hidden', name='_csrf', value=_csrf)
                 input#questionsFormData(type='hidden', name='updatedQuestions')
               br
-              h2 Question #{parseInt(id) + 1}
+              h3 Question #{parseInt(id) + 1}
               input.form-control(name=id, id=id, value=question)
         hr
         a.btn.btn-success#update-questions(href='#')
