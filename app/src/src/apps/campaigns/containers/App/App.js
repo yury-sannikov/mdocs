@@ -6,10 +6,10 @@ import { bindActionCreators } from 'redux'
 import NavHeader from '../NavHeader'
 
 @connect(null,
-  dispatch => bindActionCreators({  }, dispatch))
+  dispatch => bindActionCreators({}, dispatch))
 export default class App extends Component {
   componentWillMount () {
-    //this.props.loadDashboard()
+    // this.props.loadDashboard()
   }
 
   render () {
@@ -17,15 +17,13 @@ export default class App extends Component {
     return (
       <div className={styles.appContent}>
         <NavHeader route={this.props.route} />
-
-        <span>{JSON.stringify(this.props.route)}</span>
-        {/* this.props.children */}
+        {this.props.children}
       </div>
     )
   }
 }
 App.propTypes = {
-//  pathToNavHeaderMapping: React.PropTypes.any
-//  children: React.PropTypes.element.isRequired,
+  route: React.PropTypes.any,
+  children: React.PropTypes.element.isRequired
 // loadDashboard: React.PropTypes.func
 }

@@ -1,33 +1,52 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import _ from 'lodash'
 
 const buildBreadcrumbs = (path, pathMap) => {
-
+  let crumbs = `root${path}`.split('/')
+  if (_.isEmpty(_.last(crumbs))) {
+    if (path === '/') {
+      crumbs[crumbs.length - 1] = '/'
+    } else {
+      crumbs.splice(crumbs.length - 1, 1)
+    }
+  }
+  crumbs.reverse()
+  return crumbs.map(item => ({title: pathMap[item].title, url: pathMap[item].url}))
 }
 
 class NavHeader extends Component {
-  render () {
-    const { path, pathToNavHeaderMapping } = this.props.route
-    const { title } = pathToNavHeaderMapping[path] || `todo: ${path}`
 
+  renderCrumb (crumb) {
     return (
-      <div className="content bg-gray-lighter">
+      <li key={crumb.title}>
+        {crumb.url ? (
+          <a href={crumb.url} className="link-effect">{crumb.title}</a>
+        ) : (<span>{crumb.title}</span>)
+        }
+      </li>
+    )
+  }
+/*
         <pre>
           {JSON.stringify(this.props, null, 2)}
         </pre>
+
+*/
+  render () {
+    const { path, pathToNavHeaderMapping } = this.props.route
+    const { title } = pathToNavHeaderMapping[path] || `todo: ${path}`
+    const crumbs = buildBreadcrumbs(path, pathToNavHeaderMapping)
+    return (
+      <div className="content bg-gray-lighter">
         <div className="row items-push">
           <div className="col-sm-7">
             <h1 className="page-heading">{title}</h1>
           </div>
           <div className="col-sm-5 text-right hidden-xs">
             <ol className="breadcrumb push-10-t">
-              <li>
-                <a href="1" className="link-effect">Link1</a>
-              </li>
-              <li>
-                <a href="2" className="link-effect">Link2</a>
-              </li>
+              {crumbs.map(item => this.renderCrumb(item))}
             </ol>
           </div>
         </div>
@@ -37,7 +56,7 @@ class NavHeader extends Component {
 }
 
 NavHeader.propTypes = {
-  navMapping: React.PropTypes.object
+  route: React.PropTypes.object
 }
 
 export default connect((state, props) => {

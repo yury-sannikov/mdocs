@@ -1,11 +1,16 @@
 import React from 'react'
-import { Route } from 'react-router'
+import { Route, IndexRoute } from 'react-router'
 
 import {
-    App
+    App,
+    Campaigns
   } from './containers'
 
 const pathToNavHeaderMapping = {
+  'root': {
+    title: 'Dashboard',
+    url: '/app'
+  },
   '/': {
     title: 'Campaigns'
   }
@@ -13,6 +18,8 @@ const pathToNavHeaderMapping = {
 
 export default (store) => {
   return (
-    <Route path='/' component={App} pathToNavHeaderMapping={pathToNavHeaderMapping} />
+    <Route path='/' component={App} pathToNavHeaderMapping={pathToNavHeaderMapping}>
+      <IndexRoute component={Campaigns} />
+    </Route>
   )
 }
