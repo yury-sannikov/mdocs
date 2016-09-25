@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Link } from 'react-router'
 import { CAMPAIGN_UPCOMING, CAMPAIGN_CURRENT, CAMPAIGN_ARCHIVE } from '../redux/modules/campaigns'
 
 const CAMPAIGN_TITLES = {
@@ -75,7 +76,9 @@ class CampaignsList extends Component {
         {firstRow ? renderIcon : (<td />)}
         <td>
           <h4 className="h5 font-w600 push-5">
-            <a href="base_pages_forum_topics.html">{campaign.title}</a>
+            <Link to={`/${campaign.id}`}>
+              {campaign.title}
+            </Link>
           </h4>
           <div className="font-s13 text-muted">{campaign.description}</div>
         </td>

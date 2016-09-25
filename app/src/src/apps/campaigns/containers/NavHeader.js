@@ -1,29 +1,40 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 import { bindActionCreators } from 'redux'
 import _ from 'lodash'
 
-const buildBreadcrumbs = (path, pathMap) => {
-  let crumbs = `root${path}`.split('/')
-  if (_.isEmpty(_.last(crumbs))) {
-    if (path === '/') {
-      crumbs[crumbs.length - 1] = '/'
-    } else {
-      crumbs.splice(crumbs.length - 1, 1)
+const buildBreadcrumbsTitle = (routes, params, pathMap) => {
+  let crumbs = _.last(routes).breadcrumbs
+  crumbs = _.compact(crumbs.map(item => {
+    if (!pathMap[item]) {
+      return null
     }
-  }
+    return {
+      title: pathMap[item].title,
+      url: pathMap[item].url
+    }
+  }))
+
   crumbs.reverse()
-  return crumbs.map(item => ({title: pathMap[item].title, url: pathMap[item].url}))
+  return {
+    crumbs,
+    title: _.first(crumbs).title
+  }
 }
 
 class NavHeader extends Component {
 
+  renderLink (crumb) {
+    const absolute = crumb.url[0] === '~'
+    return absolute ? (
+      <a href={crumb.url.slice(1)}>{crumb.title}</a>) : (
+      <Link to={crumb.url}>{crumb.title}</Link>)
+  }
   renderCrumb (crumb) {
     return (
       <li key={crumb.title}>
-        {crumb.url ? (
-          <a href={crumb.url} className="link-effect">{crumb.title}</a>
-        ) : (<span>{crumb.title}</span>)
+        {crumb.url ? this.renderLink(crumb) : (<span>{crumb.title}</span>)
         }
       </li>
     )
@@ -35,9 +46,8 @@ class NavHeader extends Component {
 
 */
   render () {
-    const { path, pathToNavHeaderMapping } = this.props.route
-    const { title } = pathToNavHeaderMapping[path] || `todo: ${path}`
-    const crumbs = buildBreadcrumbs(path, pathToNavHeaderMapping)
+    const { route: { routes, params, route: { pathToNavHeaderMapping } } } = this.props
+    const { crumbs, title } = buildBreadcrumbsTitle(routes, params, pathToNavHeaderMapping)
     return (
       <div className="content bg-gray-lighter">
         <div className="row items-push">
@@ -56,12 +66,13 @@ class NavHeader extends Component {
 }
 
 NavHeader.propTypes = {
-  route: React.PropTypes.object
+  route: React.PropTypes.object,
+  routingInfo: React.PropTypes.object
 }
 
 export default connect((state, props) => {
   return {
-    routing_ddd: state
+    routingInfo: state.routing
   }
 }, dispatch => bindActionCreators({ }, dispatch))(NavHeader)
 

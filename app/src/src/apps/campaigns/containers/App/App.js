@@ -16,7 +16,7 @@ export default class App extends Component {
     const styles = require('./App.scss')
     return (
       <div className={styles.appContent}>
-        <NavHeader route={this.props.route} />
+        <NavHeader route={this.props} />
         {this.props.children}
       </div>
     )
