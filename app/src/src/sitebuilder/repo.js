@@ -24,6 +24,7 @@ const MDOCS_ISSUER = 'mdocs'
 const PREDEPLOY_POSTFIX = '-predeploy'
 const THEMES_DIR = 'sitebuilder-themes'
 const DEFAULT_THEME = 'cleanui'
+const PRACTICE_JSON_KEY = 'practice'
 
 const METALSMITH_OPTIONS_STATIC = {
   metainfo: 'metainfo',
@@ -105,8 +106,9 @@ export function* prepare(userId, siteId) {
   yield rimraf(buildDir)
   yield mkdirp(buildDir)
 
-  debug(`Prepare static site with workDir=${workDir}, buildDir=${buildDir}`)
-  let engine = new SiteBuilderEngine(workDir, buildDir, metalsmithOptionsForTheme(DEFAULT_THEME))
+  const themeId = yield getThemeIdentifier(siteId)
+  debug(`Prepare static site with workDir=${workDir}, buildDir=${buildDir}, themeId=${themeId}`)
+  let engine = new SiteBuilderEngine(workDir, buildDir, metalsmithOptionsForTheme(themeId))
   engine = bluebird.promisifyAll(engine, {context: engine})
   yield engine.prepareAsync()
 
@@ -118,8 +120,9 @@ export function* metainfo(userId, siteId) {
   const buildDir = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId))
   yield mkdirp(buildDir)
 
-  debug(`Generate metainfo. workDir=${workDir}, buildDir=${buildDir}`)
-  let engine = new SiteBuilderEngine(workDir, buildDir, metalsmithOptionsForTheme(DEFAULT_THEME))
+  const themeId = yield getThemeIdentifier(siteId)
+  debug(`Generate metainfo. workDir=${workDir}, buildDir=${buildDir}, themeId=${themeId}`)
+  let engine = new SiteBuilderEngine(workDir, buildDir, metalsmithOptionsForTheme(themeId))
   engine = bluebird.promisifyAll(engine, {context: engine})
   yield engine.metainfoAsync()
 
@@ -134,8 +137,10 @@ export function* generate(userId, siteId, force, predeploy) {
     yield rimraf(buildDir)
   }
   yield mkdirp(buildDir)
-  debug(`Generate static site with workDir=${workDir}, buildDir=${buildDir}`)
-  let engine = new SiteBuilderEngine(workDir, buildDir, metalsmithOptionsForTheme(DEFAULT_THEME))
+  const themeId = yield getThemeIdentifier(siteId)
+  debug(`Generate static site with workDir=${workDir}, buildDir=${buildDir}, themeId=${themeId}`)
+
+  let engine = new SiteBuilderEngine(workDir, buildDir, metalsmithOptionsForTheme(themeId))
   engine = bluebird.promisifyAll(engine, {context: engine})
   if (predeploy) {
     const deployOptions = {
@@ -156,8 +161,9 @@ export function* predeploy(userId, siteId, predeploy) {
   debug(`rm -rf ${buildDir}`)
   yield rimraf(buildDir)
   yield mkdirp(buildDir)
-  debug(`Generate static site with workDir=${workDir}, buildDir=${buildDir}`)
-  let engine = new SiteBuilderEngine(workDir, buildDir, metalsmithOptionsForTheme(DEFAULT_THEME))
+  const themeId = yield getThemeIdentifier(siteId)
+  debug(`Predeploy static site with workDir=${workDir}, buildDir=${buildDir}, themeId=${themeId}`)
+  let engine = new SiteBuilderEngine(workDir, buildDir, metalsmithOptionsForTheme(themeId))
   engine = bluebird.promisifyAll(engine, {context: engine})
   const deployOptions = {
     banner: true,
@@ -214,6 +220,11 @@ export function* readMetainfo(userId, siteId) {
     debug(`Unable to read metainfo.json. ${e}`)
     return {}
   }
+}
+
+export function* getThemeIdentifier(siteId) {
+  const practiceData = yield readJSONData(siteId, PRACTICE_JSON_KEY)
+  return practiceData.themeId || DEFAULT_THEME
 }
 
 export function* readJSONData(siteId, key) {

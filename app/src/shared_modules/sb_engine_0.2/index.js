@@ -1,7 +1,6 @@
 'use strict';
 const Metalsmith = require('metalsmith');
 const changed = require('metalsmith-changed');
-const livereload = require('metalsmith-livereload');
 const nodeStatic = require('node-static');
 const watch = require('glob-watcher');
 const open = require('open');
@@ -228,6 +227,7 @@ class SiteBuilderEngine {
   }
 
   cliDev(port, buildResult) {
+    const livereload = require('metalsmith-livereload');
     const me = this
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
       _clean: true,

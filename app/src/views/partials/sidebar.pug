@@ -61,7 +61,7 @@
             span.sidebar-mini-hide Website
           each site in sitebuilderSites
             li
-              a(href='/app/sitebuilder/'+site.id)
+              a.menuitem-ellipsis(href='/app/sitebuilder/'+site.id)
                 i.si.si-globe
                 span.sidebar-mini-hide #{site.name}
         li.nav-main-heading

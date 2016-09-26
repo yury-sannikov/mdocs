@@ -574,3 +574,13 @@ h3.dash-widget {
   line-height: 1.2;
   color: inherit;
 }
+
+.menuitem-ellipsis {
+  width: 240px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+}
+
