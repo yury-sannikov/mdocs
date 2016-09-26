@@ -1,6 +1,7 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
+const _ = require('lodash');
 
 module.exports = plugin;
 
@@ -14,7 +15,6 @@ function plugin(opts){
     const fileNames = Object.keys(files);
 
     let result = {
-      plainHtml: []
     }
     /*
       "contents" : {
@@ -26,13 +26,6 @@ function plugin(opts){
         "permalinks": ['l1','l2', 'l3']
       }
     */
-    opts.includeForMetaOnly.forEach((name) => {
-      result[name] = {
-        indexPath: '',
-        permalinks: [],
-        metainfo: readMetainfo(name, opts)
-      };
-    })
 
     for (let file of fileNames) {
       const fileObj = files[file];
@@ -56,13 +49,28 @@ function plugin(opts){
       }
 
       if (fileObj.sb_plainHtml) {
-        console.dir(metalsmith.metadata())
+        if (!result.plainHtml) {
+          result.plainHtml = []
+        }
         result.plainHtml.push({
           title: fileObj.title,
-          path: fileObj.path || 'index'
+          path: fileObj.path
         })
       }
     }
+
+    if (_.isEmpty(result)) {
+      return done()
+    }
+
+    opts.includeForMetaOnly.forEach((name) => {
+      result[name] = {
+        indexPath: '',
+        permalinks: [],
+        metainfo: readMetainfo(name, opts)
+      };
+    })
+
 
     fs.writeFile(path.normalize(opts.outputFile), JSON.stringify(result, null, 2), done);
   }

@@ -1,3 +1,4 @@
+'use strict';
 const Metalsmith = require('metalsmith');
 const changed = require('metalsmith-changed');
 const livereload = require('metalsmith-livereload');
@@ -19,21 +20,40 @@ const dep = require('./metalsmith-include-dependency');
 const inplace = require('metalsmith-in-place');
 const evalLayout = require('./metalsmith-eval-layout');
 const metainfo = require('./metalsmith-metainfo');
-const _ = require('lodash');
+const templateAssets = require('./metalsmith-template-assets');
 
 const path = require('path');
 const rimraf = require('rimraf')
+const _ = require('lodash');
 
 function helpersFactory() {
   return {
     _: require('lodash')
   }
 }
+
+// plugin wrapper, replacing metalsmith.path()
+// with opts.partialsPath to be able to specify correct partials path
+function pluginWrapper(plugin, opts) {
+  const pluginInstance = plugin(opts)
+  return function(files, metalsmith, done) {
+    const ms = Object.assign(
+      Object.create(Object.getPrototypeOf(metalsmith)),
+      metalsmith,
+      {
+        path: () => opts.overrideMetalsmithPath ? opts.overrideMetalsmithPath : metalsmith.path(),
+        directory: () => opts.overrideMetalsmithDirectory ? opts.overrideMetalsmithDirectory: metalsmith.directory()
+      }
+    )
+    return pluginInstance(files, ms, done)
+  }
+}
+
 function metalsmithFactory(workDir, buildDir, options) {
     // console.log(workDir, buildDir, options)
 
   const sourceDir = path.join(workDir, options.source)
-  const themeDir = path.join(workDir, 'themes', options.theme)
+  const themeDir = path.normalize(options.themeDir)
   return Metalsmith(workDir)
     // Folder with source data
     .source(sourceDir)
@@ -52,12 +72,25 @@ function metalsmithFactory(workDir, buildDir, options) {
     }))
     .use(
       // If clean build, copy over assets from public folder
-      msIf(options._clean,
-        asset({
-          src: path.join('themes', options.theme, 'assets'),
-          dest: 'assets',
-        }))
+      msIf(options._generate,
+        asset([
+        {
+          src: 'assets',
+          dest: 'assets'
+        }])
+      )
     )
+    .use(
+      // If clean build, copy over assets from public folder
+      msIf(options._generate,
+        templateAssets([
+        {
+          src: path.join(options.themeDir, 'assets'),
+          dest: 'assets'
+        }])
+      )
+    )
+
     // Dependency tracking for metalsmith-include. Set ctime for all dependent files to the latest value of the group
     .use(dep())
     // Track file changes in 'src' folder. Pass down only changed file to reduce build time
@@ -95,11 +128,12 @@ function metalsmithFactory(workDir, buildDir, options) {
     }))
     // If eval_layout is true, treat layout as a field containing computable value
     .use(evalLayout())
-    .use(metainfo({
-      metainfoPath: path.join(workDir, options.metainfo),
-      includeForMetaOnly: ['menu', 'practice'],
-      outputFile: path.join(buildDir, 'metainfo.json')
-    }))
+    .use(msIf(options._force,
+      metainfo({
+        metainfoPath: path.join(workDir, options.metainfo),
+        includeForMetaOnly: ['menu', 'practice'],
+        outputFile: path.join(buildDir, 'metainfo.json')
+      })))
 
     // PUG/Jade layouts system
     .use(msIf(options._generate,
@@ -108,13 +142,15 @@ function metalsmithFactory(workDir, buildDir, options) {
         layoutPattern: '*.pug',
         pretty: true,
         directory: path.join(themeDir, 'layouts'),
-        helpers: helpersFactory()
+        helpers: helpersFactory(),
+        deployOptions: options._deploy
       }))
     )
     .use(msIf(options._generate,
-      inplace({
+      pluginWrapper(inplace, {
         engine: 'handlebars',
-        partials: 'partials'
+        partials: options.partials,
+        overrideMetalsmithPath: options.partialsPath
       }))
     )
 }
@@ -125,19 +161,19 @@ class SiteBuilderEngine {
     this.buildDir = buildDir
     this.options = Object.assign({}, {
       metainfo: 'metainfo',
-      partials: 'partials',
+      partials: 'inplacePartials',
       source: 'src',
       dataFolder: 'src/data',
       theme: 'cleanui'
     }, options)
   }
 
+
   cleanRequireCache() {
     _(Object.keys(require.cache))
       .filter((fn) => fn.indexOf('.json') !== -1)
       .forEach((fn) => {
         delete require.cache[fn]
-        console.log(`Cleaning Node Require cache for ${fn}`)
       })
   }
 
@@ -145,13 +181,24 @@ class SiteBuilderEngine {
     this.cleanRequireCache()
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
       _clean: true,
-      _force: false,
+      _force: true,
+      _generate: false
+    }))
+    ms.build(done)
+  }
+
+  metainfo(done) {
+    this.cleanRequireCache()
+    const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
+      _clean: false,
+      _force: true,
       _generate: false
     }))
     ms.build(done)
   }
 
   generate(force, done) {
+    console.log(`Generate. Force = ${force}`)
     this.cleanRequireCache()
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
       _clean: false,
@@ -161,12 +208,13 @@ class SiteBuilderEngine {
     ms.build(done)
   }
 
-  publish(done) {
+  publish(deployOptions, done) {
     this.cleanRequireCache()
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
       _clean: true,
       _generate: true,
-      _force: true
+      _force: true,
+      _deploy: deployOptions
     }))
     ms.build((err, files) => {
       if (err) {
@@ -180,7 +228,6 @@ class SiteBuilderEngine {
   }
 
   cliDev(port, buildResult) {
-    this.cleanRequireCache()
     const me = this
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
       _clean: true,

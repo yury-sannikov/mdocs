@@ -1,14 +1,18 @@
 const path = require('path')
 const SiteBuilderEngine = require('./engine')
 
+
+const THEME = 'cleanui'
 const WORK_DIR = path.join(__dirname, 'content')
 const BUILD_DIR = path.join(__dirname, '__build')
+const THEME_DIR = path.join(__dirname, 'themes', THEME)
 const options = {
   metainfo: 'metainfo',
-  partials: 'partials',
   source: 'src',
   dataFolder: 'src/data',
-  theme: 'cleanui'
+  theme: THEME,
+  themeDir: THEME_DIR,
+  partialsPath: THEME_DIR
 }
 let engine = new SiteBuilderEngine(WORK_DIR, BUILD_DIR, options)
 
