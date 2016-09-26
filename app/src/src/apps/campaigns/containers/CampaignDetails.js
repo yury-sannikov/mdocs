@@ -1,26 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-
+import CampaignDetailsHeader from './CampaignDetails/Header'
+import CampaignDetailsEditor from './CampaignDetails/Editor'
+import CampaignDetailsAssets from './CampaignDetails/Assets'
 class CampaignDetails extends Component {
   render () {
     return (
-      <div className="block">
-        <div className="block-content block-content-full text-right">
-          <button className="btn btn-success push-5-r push-20-t" type="button">
-            <i className="fa fa-plus"></i>
-            &nbsp;&nbsp;{'Test'}
-          </button>
-        </div>
-        <div className="block-content block-content-full">
-        </div>
+      <div className="content content-boxed">
+        <CampaignDetailsHeader params={this.props.params} />
+        <CampaignDetailsEditor params={this.props.params} />
+        <CampaignDetailsAssets params={this.props.params} />
       </div>
     )
   }
 }
 
 CampaignDetails.propTypes = {
-  // route: React.PropTypes.object
+  params: React.PropTypes.object.isRequired
 }
 
 export default connect((state, props) => {
