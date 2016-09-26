@@ -268,7 +268,7 @@ class SiteBuilderEngine {
             })
           }
         }
-        const themeDir = path.join(this.workDir, 'themes', this.options.theme)
+        const themeDir = path.normalize(this.options.themeDir)
         // Quick build if src changed
         watch(path.join(this.workDir, this.options.source, '**/*'), { ignoreInitial: true }, build(false));
         // Full Rebuild if layout changed
@@ -276,6 +276,7 @@ class SiteBuilderEngine {
         watch(path.join(themeDir, 'layouts/**/*'), { ignoreInitial: true }, build(true));
         watch(path.join(themeDir, 'partials/**/*'), { ignoreInitial: true }, build(true));
         watch(path.join(themeDir, 'assets/**/*'), { ignoreInitial: true }, build(true));
+        watch(path.join(themeDir, 'inplacePartials/**/*'), { ignoreInitial: true }, build(true));
       })
   }
 
