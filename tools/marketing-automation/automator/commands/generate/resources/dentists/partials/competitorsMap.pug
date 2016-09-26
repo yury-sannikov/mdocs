@@ -6,7 +6,7 @@ section#competitiveAnalysis.section-page
         span.doctorType #{data.type}
         |  —
       p.bottom
-        img(src='images/logo-mdocs-light.png', alt='Patient Reviews by MDOCS')
+        img(src='images/logo-mdocs-light.png', alt='PracticeWin')
     .header-title
       h1 Competitive Analysis
   .padding-all.bg-grey(style='height: 100%;')
@@ -35,13 +35,13 @@ section#competitiveAnalysis.section-page
     <div id="content">
     <div id="siteNotice">
     </div>
-    <h1 id="firstHeading" class="firstHeading">Competitor # {{competitorIndex}}</h1>
+    <h3 id="firstHeading" class="firstHeading" style="color: #f62e30">{{competitorName}}</h3>
     <div id="bodyContent">
     <table class="table valigned">
       <tbody>
         <tr>
           <td colspan="3">
-            <strong>MDOCS Rank</strong>
+            <strong>PracticeWin Rank</strong>
           </td>
           <td>
             <span>No. {{rank}}</span>
@@ -56,7 +56,7 @@ section#competitiveAnalysis.section-page
               {{#each stars}}
                 <i class='fa fa-star{{c}}'></i>
               {{/each}}
-              &nbsp;({{rating}}) based on {{reviewCount}} reviews.
+              &nbsp;({{rating}}) with {{reviewCount}} reviews.
             </span>
           </td>
         </tr>
@@ -101,7 +101,7 @@ section#competitiveAnalysis.section-page
       <tbody>
         <tr>
           <td colspan="3">
-            <strong>MDOCS Rank</strong>
+            <strong>PracticeWin Rank</strong>
           </td>
           <td>
             <span>No. {{rank}} out of {{total}} competitors</span>
@@ -116,7 +116,7 @@ section#competitiveAnalysis.section-page
               {{#each starsTotal}}
                 <i class='fa fa-star{{c}}'></i>
               {{/each}}
-              &nbsp;({{totalReviewRating}}) based on {{totalReviewCount}} reviews.
+              &nbsp;({{totalReviewRating}}) with {{totalReviewCount}} reviews.
             </span>
           </td>
         </tr>
@@ -151,7 +151,7 @@ section#competitiveAnalysis.section-page
                 {{#each stars}}
                   <i class='fa fa-star{{c}}'></i>
                 {{/each}}
-                &nbsp;({{rating}}) based on {{reviewCount}} reviews.
+                &nbsp;({{rating}}) with {{reviewCount}} reviews.
               </span>
             </td>
           </tr>
@@ -240,7 +240,8 @@ section#competitiveAnalysis.section-page
         var yelpCompetitors = ((data.competitors || {}).yelpCompetitors || []);
         var result = yelpCompetitors.map(function(c, i) {
           return {
-            name: 'Competitor # ' + (i + 1),
+            //name: 'Competitor # ' + (i + 1),
+            name: c.name,
             stars: starsMap(c.rating),
             rating: c.rating.toFixed(2),
             reviewCount: c.review_count,
@@ -250,7 +251,7 @@ section#competitiveAnalysis.section-page
         result.splice(data.selfRating.rank, 0, {
           name: '<strong>YOU</strong>',
           stars: starsMap(data.selfRating.rating),
-          rating: data.selfRating.rating.toFixed(4),
+          rating: data.selfRating.rating.toFixed(2),
           reviewCount: data.selfRating.totalReviewCount,
           isSelf: 'self-cell'
         });
@@ -262,7 +263,7 @@ section#competitiveAnalysis.section-page
 
         var myselfIcon = {
           path: 'M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z',
-          fillColor: '#FF196F',
+          fillColor: '#f62e30',
           fillOpacity: 1,
           scale: 1,
           strokeColor: '#9E003B',
@@ -342,6 +343,7 @@ section#competitiveAnalysis.section-page
             stars: stars,
             rating: competitor.rating.toFixed(1),
             competitorIndex: index,
+            competitorName: competitor.name,
             categories: categories
           });
         var infowindow = new google.maps.InfoWindow({

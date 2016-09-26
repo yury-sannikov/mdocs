@@ -2,7 +2,7 @@ var fs = require('fs');
 var _ = require('lodash');
 var Lob = require('lob')('test_eab69d773d53bca665a97886e3aa5c87a45');
 
-var fileName = 'doctors.json';
+var fileName = 'input.json';
 var d = JSON.parse(fs.readFileSync(fileName, 'utf8'));
 
 var index = 0;

@@ -103,8 +103,6 @@ function* process(data, yelpDefaultCategories) {
   return updateCompetitors(data, competitors, bData);
 }
 
-
-
 function* processNoYelp(data, yelpcategories) {
   const address = `${data.address}, ${data.city}, ${data.state} ${data.zip}`;
   let bData = {}
@@ -125,7 +123,6 @@ function* processNoYelp(data, yelpcategories) {
   }
   return updateCompetitors(data, bData, null);
 }
-
 
 function updateCompetitors(data, bData, yelpBusiness) {
   let { businesses = [] } = bData || {};

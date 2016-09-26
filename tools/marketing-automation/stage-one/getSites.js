@@ -9,7 +9,7 @@ var sp = require('scrapejs').init({
 var Client = require('node-rest-client').Client; 
 var client = new Client();
 
-var fileName = 'doctors.json';
+var fileName = 'input.json';
 var d = JSON.parse(fs.readFileSync(fileName, 'utf8'));
 
 // Base URL links

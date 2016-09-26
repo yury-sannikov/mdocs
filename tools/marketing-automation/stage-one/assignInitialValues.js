@@ -2,7 +2,7 @@ var fs = require('fs');
 var uuid = require('uuid');
 var moment = require('moment');
 
-var fileName = 'doctors.json';
+var fileName = 'input.json';
 
 var data = JSON.parse(fs.readFileSync(fileName, 'utf8'));
 

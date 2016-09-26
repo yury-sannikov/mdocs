@@ -3322,7 +3322,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     font-size: 22px;
   }
   .btn-primary {
-    background-color: #FF196F;
+    background-color: #f62e30;
   }
   .btn-primary:hover,
   .btn-primary:focus {
@@ -3528,7 +3528,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .header-logo {
     padding: 5px 0 10px;
     background: #23282e;
-    color: #FF196F;
+    color: #f62e30;
   }
   .header-logo p {
     font-weight: 600;

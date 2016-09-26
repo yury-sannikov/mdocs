@@ -2,16 +2,21 @@
   {
     "name": "Paul Ellington, DDS",
     "type": "Dentist",
-    "bias": 0,
+    "bias": 3,
     "phone": "703-858-2380",
-    "address": "44115 Woodridge Pkwy Ste 280",
-    "zip": "20176",
+    "address": "44115 WOODRIDGE PKWY STE 280",
+    "zip": "20176-5199",
     "sites": [
       {
         "site": "Google",
         "title": "Ellington & Hulbert Family: Ellington Paul D DDS",
         "place_id": "ChIJR8sZnpQ5tokR_8OxDrq6AEA",
         "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJR8sZnpQ5tokR_8OxDrq6AEA"
+      },
+      {
+        "site": "HealthGrades",
+        "title": "Dr. Paul D. Ellington, DDS",
+        "url": "https://www.healthgrades.com/dentist/dr-paul-ellington-3bxfp"
       },
       {
         "site": "Vitals",
@@ -21,7 +26,7 @@
       {
         "site": "Yelp",
         "title": "Ellington Paul D DDS",
-        "url": "https://www.yelp.com/biz/lansdowne-family-and-cosmetic-dentistry-lansdowne"
+        "url": "http://www.yelp.com/biz/ellington-paul-d-dds-sterling"
       },
       {
         "site": "YellowPages",
@@ -45,14 +50,22 @@
       }
     ],
     "yelpcategory": "dentists",
-    "city": "STERLING",
+    "city": "LEESBURG",
     "state": "VA",
     "country": "US",
     "uuid": "c9502a63-6943-41da-b45c-718cc54c2c6a",
     "key": "c9502a63-6943-41da-b45c-718cc54c2c6a-paul-ellington",
-    "reportDate": "09/22/2016",
+    "reportDate": "09/25/2016",
     "providerName": "Paul Ellington, DDS",
     "reviews": [
+      {
+        "siteId": "HealthGrades",
+        "siteName": "HEALTH GRADES",
+        "siteUrl": "https://www.healthgrades.com/dentist/dr-paul-ellington-3bxfp",
+        "addressAccurate": true,
+        "reviewCount": 2,
+        "rating": 5
+      },
       {
         "siteId": "Vitals",
         "siteName": "VITALS.COM",
@@ -64,7 +77,7 @@
       {
         "siteId": "Yelp",
         "siteName": "YELP.COM",
-        "siteUrl": "http://www.yelp.com/biz/ellington-paul-d-dds-sterling",
+        "siteUrl": "https://www.yelp.com/biz/lansdowne-family-and-cosmetic-dentistry-lansdowne",
         "addressAccurate": true,
         "reviewCount": 0,
         "rating": 0
@@ -74,8 +87,8 @@
         "siteName": "RATEMDS.COM",
         "siteUrl": "https://www.ratemds.com/doctor-ratings/947153/Dr-Paul+D.-Rains-ELLINGTON-MO.html",
         "addressAccurate": true,
-        "reviewCount": 1,
-        "rating": 2.75
+        "reviewCount": 0,
+        "rating": 0
       },
       {
         "siteId": "YellowPages",
@@ -93,7 +106,14 @@
         "reviewCount": 0,
         "rating": 0
       },
-      null,
+      {
+        "siteId": "Yahoo",
+        "siteName": "LOCAL.YAHOO.COM",
+        "siteUrl": "https://local.yahoo.com/info-28415362-ellington-paul-d-ddsellington-hulbert-family-sterlingundefined?stx=Paul%20Ellington,%20DDS&csz=20165-5873&fr=lsrp",
+        "addressAccurate": true,
+        "reviewCount": 3,
+        "rating": 2.5
+      },
       {
         "siteId": "Google",
         "siteName": "GOOGLE.COM",
@@ -112,6 +132,6 @@
       }
     ],
     "address2": "",
-    "providerAddress": "44115 Woodridge Pkwy Ste 280<br>STERLING, VA 20176<br>703-858-2380"
-  },
+    "providerAddress": "44115 WOODRIDGE PKWY STE 280<br>LEESBURG, VA 20176-5199<br>703-858-2380"
+  }
 ]

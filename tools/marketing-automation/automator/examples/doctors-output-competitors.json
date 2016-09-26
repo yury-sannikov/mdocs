@@ -2,16 +2,21 @@
   {
     "name": "Paul Ellington, DDS",
     "type": "Dentist",
-    "bias": 0,
+    "bias": 3,
     "phone": "703-858-2380",
-    "address": "44115 Woodridge Pkwy Ste 280",
-    "zip": "20176",
+    "address": "44115 WOODRIDGE PKWY STE 280",
+    "zip": "20176-5199",
     "sites": [
       {
         "site": "Google",
         "title": "Ellington & Hulbert Family: Ellington Paul D DDS",
         "place_id": "ChIJR8sZnpQ5tokR_8OxDrq6AEA",
         "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJR8sZnpQ5tokR_8OxDrq6AEA"
+      },
+      {
+        "site": "HealthGrades",
+        "title": "Dr. Paul D. Ellington, DDS",
+        "url": "https://www.healthgrades.com/dentist/dr-paul-ellington-3bxfp"
       },
       {
         "site": "Vitals",
@@ -21,7 +26,7 @@
       {
         "site": "Yelp",
         "title": "Ellington Paul D DDS",
-        "url": "https://www.yelp.com/biz/lansdowne-family-and-cosmetic-dentistry-lansdowne"
+        "url": "http://www.yelp.com/biz/ellington-paul-d-dds-sterling"
       },
       {
         "site": "YellowPages",
@@ -45,14 +50,22 @@
       }
     ],
     "yelpcategory": "dentists",
-    "city": "STERLING",
+    "city": "LEESBURG",
     "state": "VA",
     "country": "US",
     "uuid": "c9502a63-6943-41da-b45c-718cc54c2c6a",
     "key": "c9502a63-6943-41da-b45c-718cc54c2c6a-paul-ellington",
-    "reportDate": "09/22/2016",
+    "reportDate": "09/25/2016",
     "providerName": "Paul Ellington, DDS",
     "reviews": [
+      {
+        "siteId": "HealthGrades",
+        "siteName": "HEALTH GRADES",
+        "siteUrl": "https://www.healthgrades.com/dentist/dr-paul-ellington-3bxfp",
+        "addressAccurate": true,
+        "reviewCount": 2,
+        "rating": 5
+      },
       {
         "siteId": "Vitals",
         "siteName": "VITALS.COM",
@@ -64,7 +77,7 @@
       {
         "siteId": "Yelp",
         "siteName": "YELP.COM",
-        "siteUrl": "http://www.yelp.com/biz/ellington-paul-d-dds-sterling",
+        "siteUrl": "https://www.yelp.com/biz/lansdowne-family-and-cosmetic-dentistry-lansdowne",
         "addressAccurate": true,
         "reviewCount": 0,
         "rating": 0
@@ -74,8 +87,8 @@
         "siteName": "RATEMDS.COM",
         "siteUrl": "https://www.ratemds.com/doctor-ratings/947153/Dr-Paul+D.-Rains-ELLINGTON-MO.html",
         "addressAccurate": true,
-        "reviewCount": 1,
-        "rating": 2.75
+        "reviewCount": 0,
+        "rating": 0
       },
       {
         "siteId": "YellowPages",
@@ -93,7 +106,14 @@
         "reviewCount": 0,
         "rating": 0
       },
-      null,
+      {
+        "siteId": "Yahoo",
+        "siteName": "LOCAL.YAHOO.COM",
+        "siteUrl": "https://local.yahoo.com/info-28415362-ellington-paul-d-ddsellington-hulbert-family-sterlingundefined?stx=Paul%20Ellington,%20DDS&csz=20165-5873&fr=lsrp",
+        "addressAccurate": true,
+        "reviewCount": 3,
+        "rating": 2.5
+      },
       {
         "siteId": "Google",
         "siteName": "GOOGLE.COM",
@@ -112,17 +132,120 @@
       }
     ],
     "address2": "",
-    "providerAddress": "44115 Woodridge Pkwy Ste 280<br>STERLING, VA 20176<br>703-858-2380",
+    "providerAddress": "44115 WOODRIDGE PKWY STE 280<br>LEESBURG, VA 20176-5199<br>703-858-2380",
     "competitors": {
       "yelpBusiness": null,
       "yelpCompetitors": [
         {
           "is_claimed": true,
           "rating": 5,
+          "mobile_url": "https://m.yelp.com/biz/ashburn-divine-dental-ashburn?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+          "review_count": 34,
+          "name": "Ashburn Divine Dental",
+          "snippet_image_url": "https://s3-media2.fl.yelpcdn.com/photo/Ha7L-xmyxOe9wHIlI3bb0Q/ms.jpg",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+          "url": "https://www.yelp.com/biz/ashburn-divine-dental-ashburn?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "General Dentistry",
+              "generaldentistry"
+            ],
+            [
+              "Periodontists",
+              "periodontists"
+            ]
+          ],
+          "phone": "7038580288",
+          "snippet_text": "If you are looking for great quality and great, personal staff, look no further! \n\nDr. Lim and Dr. Lin are the best dentists I've had. They really take care...",
+          "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/kjpYIUQlHgK65c8woe1Qjw/ms.jpg",
+          "location": {
+            "city": "Ashburn",
+            "display_address": [
+              "20915 Ashburn Rd",
+              "Ste 205",
+              "Ashburn, VA 20147"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20147",
+            "country_code": "US",
+            "address": [
+              "20915 Ashburn Rd",
+              "Ste 205"
+            ],
+            "coordinate": {
+              "latitude": 39.039906,
+              "longitude": -77.487434
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-858-0288",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "ashburn-divine-dental-ashburn",
+          "is_closed": false,
+          "distance": 4412.822786567165
+        },
+        {
+          "is_claimed": true,
+          "rating": 5,
+          "mobile_url": "https://m.yelp.com/biz/titan-dental-care-sterling?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+          "review_count": 34,
+          "name": "Titan Dental Care",
+          "snippet_image_url": "https://s3-media4.fl.yelpcdn.com/photo/OIBVqHbtdED671c3mxYi7A/ms.jpg",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+          "url": "https://www.yelp.com/biz/titan-dental-care-sterling?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Cosmetic Dentists",
+              "cosmeticdentists"
+            ],
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ],
+            [
+              "General Dentistry",
+              "generaldentistry"
+            ]
+          ],
+          "phone": "7033449904",
+          "snippet_text": "I've been through 3 dentists before finally finding Dr. Tahhan, who I will go back and see. First off, I didn't feel a thing (in my book that's the most...",
+          "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/mjowGvC0COD_7Ayet3ECsw/ms.jpg",
+          "location": {
+            "city": "Sterling",
+            "display_address": [
+              "21351 Gentry Dr",
+              "Ste 135",
+              "Sterling, VA 20166"
+            ],
+            "geo_accuracy": 9.5,
+            "postal_code": "20166",
+            "country_code": "US",
+            "address": [
+              "21351 Gentry Dr",
+              "Ste 135"
+            ],
+            "coordinate": {
+              "latitude": 39.0249443,
+              "longitude": -77.4057979
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-344-9904",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "titan-dental-care-sterling",
+          "is_closed": false,
+          "distance": 8214.629550143565
+        },
+        {
+          "is_claimed": true,
+          "rating": 5,
           "mobile_url": "https://m.yelp.com/biz/cardinal-park-family-dental-care-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
           "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
-          "review_count": 31,
+          "review_count": 30,
           "name": "Cardinal Park Family Dental Care",
+          "snippet_image_url": "https://s3-media4.fl.yelpcdn.com/photo/KusM8EzBlOSTqbDROdwOgg/ms.jpg",
           "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
           "url": "https://www.yelp.com/biz/cardinal-park-family-dental-care-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
           "categories": [
@@ -134,11 +257,6 @@
           "phone": "7037792296",
           "snippet_text": "Dr. Ashton is fantastic!!!  We truly love working with this fantastic office!",
           "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/jtzshF51SgaIFMxXtI6M_w/ms.jpg",
-          "snippet_image_url": "https://s3-media4.fl.yelpcdn.com/photo/KusM8EzBlOSTqbDROdwOgg/ms.jpg",
-          "display_phone": "+1-703-779-2296",
-          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
-          "id": "cardinal-park-family-dental-care-leesburg",
-          "is_closed": false,
           "location": {
             "city": "Leesburg",
             "display_address": [
@@ -158,565 +276,510 @@
               "longitude": -77.5387115
             },
             "state_code": "VA"
-          }
+          },
+          "display_phone": "+1-703-779-2296",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "cardinal-park-family-dental-care-leesburg",
+          "is_closed": false,
+          "distance": 6260.485115901469
         },
         {
           "is_claimed": true,
           "rating": 5,
-          "mobile_url": "https://m.yelp.com/biz/village-oral-and-implant-surgery-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "mobile_url": "https://m.yelp.com/biz/roxanne-azmoudeh-dds-pc-ashburn?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+          "review_count": 27,
+          "name": "Roxanne Azmoudeh, DDS, PC",
+          "snippet_image_url": "https://s3-media2.fl.yelpcdn.com/photo/5cPt-gn6lU-JAQJ0cH0TIQ/ms.jpg",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+          "url": "https://www.yelp.com/biz/roxanne-azmoudeh-dds-pc-ashburn?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "General Dentistry",
+              "generaldentistry"
+            ],
+            [
+              "Cosmetic Dentists",
+              "cosmeticdentists"
+            ]
+          ],
+          "phone": "7038589146",
+          "snippet_text": "Had my first check up...what a wonderful experience! !!! Yes - we are talking about visiting a dentist. \nThe doctor took her time going over my medical...",
+          "location": {
+            "city": "Ashburn",
+            "display_address": [
+              "44355 Premier Plz",
+              "Ste 100",
+              "Ashburn, VA 20147"
+            ],
+            "geo_accuracy": 9.5,
+            "postal_code": "20147",
+            "country_code": "US",
+            "address": [
+              "44355 Premier Plz",
+              "Ste 100"
+            ],
+            "coordinate": {
+              "latitude": 39.062332,
+              "longitude": -77.466488
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-858-9146",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "roxanne-azmoudeh-dds-pc-ashburn",
+          "is_closed": false,
+          "distance": 1785.8347190694135
+        },
+        {
+          "is_claimed": true,
+          "rating": 5,
+          "mobile_url": "https://m.yelp.com/biz/first-impression-dental-ashburn?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+          "review_count": 22,
+          "name": "First Impression Dental",
+          "snippet_image_url": "https://s3-media4.fl.yelpcdn.com/photo/zQEjtb6zt9y58bcMbPozFQ/ms.jpg",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+          "url": "https://www.yelp.com/biz/first-impression-dental-ashburn?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "General Dentistry",
+              "generaldentistry"
+            ],
+            [
+              "Pediatric Dentists",
+              "pediatric_dentists"
+            ],
+            [
+              "Cosmetic Dentists",
+              "cosmeticdentists"
+            ]
+          ],
+          "phone": "5714652114",
+          "snippet_text": "I haven't been to the dentist in about five years because, well, no one likes going to the dentist. I looked up reviews on Yelp for the best dentists in...",
+          "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/AN-AVzWfS8ZCTrDNfLw4ow/ms.jpg",
+          "location": {
+            "city": "Ashburn",
+            "display_address": [
+              "43810 Central Station Dr",
+              "Ste 100",
+              "Ashburn, VA 20147"
+            ],
+            "geo_accuracy": 9.5,
+            "postal_code": "20147",
+            "country_code": "US",
+            "address": [
+              "43810 Central Station Dr",
+              "Ste 100"
+            ],
+            "coordinate": {
+              "latitude": 39.0073342,
+              "longitude": -77.4862598
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-571-465-2114",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "first-impression-dental-ashburn",
+          "is_closed": false,
+          "distance": 7919.917952218185
+        },
+        {
+          "is_claimed": true,
+          "rating": 5,
+          "mobile_url": "https://m.yelp.com/biz/ike-lans-dds-and-associates-ashburn?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
+          "review_count": 11,
+          "name": "Ike Lans, DDS & Associates",
+          "snippet_image_url": "https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_styleguide/189f2ca1fe8c/assets/img/default_avatars/user_medium_square.png",
+          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
+          "url": "https://www.yelp.com/biz/ike-lans-dds-and-associates-ashburn?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Orthodontists",
+              "orthodontists"
+            ],
+            [
+              "Cosmetic Dentists",
+              "cosmeticdentists"
+            ],
+            [
+              "General Dentistry",
+              "generaldentistry"
+            ]
+          ],
+          "phone": "7037291400",
+          "snippet_text": "Dr. Propoggio and Ana were extremely helpful and kind. \n\nI had the feeling they were really interested in my dental health and well being. Very much...",
+          "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/wLE1qpEm52zajoydgBty8w/ms.jpg",
+          "location": {
+            "city": "Ashburn",
+            "display_address": [
+              "44110 Ashburn Shopping Plz",
+              "Ste 166",
+              "Ashburn, VA 20147"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20147",
+            "country_code": "US",
+            "address": [
+              "44110 Ashburn Shopping Plz",
+              "Ste 166"
+            ],
+            "coordinate": {
+              "latitude": 39.0438537597656,
+              "longitude": -77.4735946655273
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-729-1400",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "ike-lans-dds-and-associates-ashburn",
+          "is_closed": false,
+          "distance": 3769.170583751318
+        },
+        {
+          "is_claimed": true,
+          "rating": 5,
+          "mobile_url": "https://m.yelp.com/biz/potomac-falls-family-dentistry-sterling?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
           "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
           "review_count": 7,
-          "name": "Village Oral & Implant Surgery",
+          "name": "Potomac Falls Family Dentistry",
+          "snippet_image_url": "https://s3-media1.fl.yelpcdn.com/photo/UfF-4U_-SOs0NTiGlBNXgw/ms.jpg",
           "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
-          "url": "https://www.yelp.com/biz/village-oral-and-implant-surgery-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "url": "https://www.yelp.com/biz/potomac-falls-family-dentistry-sterling?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
           "categories": [
             [
-              "Oral Surgeons",
-              "oralsurgeons"
+              "General Dentistry",
+              "generaldentistry"
+            ],
+            [
+              "Cosmetic Dentists",
+              "cosmeticdentists"
             ]
           ],
-          "phone": "8553737688",
-          "snippet_text": "I had to have a blocked salivary gland removed. Dr. Strickland and his staff were excellent.  They were professional, caring and walked me through the whole...",
-          "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/dr70TfKeizyukxqf9Br_7g/ms.jpg",
-          "snippet_image_url": "https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_styleguide/189f2ca1fe8c/assets/img/default_avatars/user_medium_square.png",
-          "display_phone": "+1-855-373-7688",
-          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
-          "id": "village-oral-and-implant-surgery-leesburg",
-          "is_closed": false,
+          "phone": "7034446150",
+          "snippet_text": "Absolutely amazing dental office...the doctor, the staff and the entire relaxing environment have been the best dental experience that I ever had. Totally...",
+          "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/3vLIJlnTTgMJcF6O9doUfQ/ms.jpg",
           "location": {
-            "city": "Leesburg",
+            "city": "Sterling",
             "display_address": [
-              "1503 Dodona Terrace SE",
-              "Ste105",
-              "Leesburg, VA 20175"
+              "46165 Westlake Dr",
+              "Ste 110",
+              "Sterling, VA 20165"
             ],
             "geo_accuracy": 8,
-            "postal_code": "20175",
+            "postal_code": "20165",
             "country_code": "US",
             "address": [
-              "1503 Dodona Terrace SE",
-              "Ste105"
+              "46165 Westlake Dr",
+              "Ste 110"
             ],
             "coordinate": {
-              "latitude": 39.0914046764374,
-              "longitude": -77.5257512927055
+              "latitude": 39.0350113,
+              "longitude": -77.4040375
             },
             "state_code": "VA"
-          }
-        },
-        {
-          "is_claimed": true,
-          "rating": 5,
-          "mobile_url": "https://m.yelp.com/biz/cochran-family-dental-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
-          "review_count": 4,
-          "name": "Cochran Family Dental",
-          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
-          "url": "https://www.yelp.com/biz/cochran-family-dental-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "categories": [
-            [
-              "Cosmetic Dentists",
-              "cosmeticdentists"
-            ],
-            [
-              "General Dentistry",
-              "generaldentistry"
-            ]
-          ],
-          "phone": "7037719034",
-          "snippet_text": "I've been a patient for slightly more than a year and couldn't be happier.  I have a complex dental situation due to the impact of 16 years of cancer...",
-          "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/RRkrxbqf-ksGzzRtz3X1Jg/ms.jpg",
-          "snippet_image_url": "https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_styleguide/189f2ca1fe8c/assets/img/default_avatars/user_medium_square.png",
-          "display_phone": "+1-703-771-9034",
+          },
+          "display_phone": "+1-703-444-6150",
           "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
-          "id": "cochran-family-dental-leesburg",
+          "id": "potomac-falls-family-dentistry-sterling",
           "is_closed": false,
-          "location": {
-            "city": "Leesburg",
-            "display_address": [
-              "1503 Dodona Ter",
-              "Ste 210",
-              "Leesburg, VA 20175"
-            ],
-            "geo_accuracy": 9.5,
-            "postal_code": "20175",
-            "country_code": "US",
-            "address": [
-              "1503 Dodona Ter",
-              "Ste 210"
-            ],
-            "coordinate": {
-              "latitude": 39.0914100789464,
-              "longitude": -77.5249623658844
-            },
-            "state_code": "VA"
-          }
-        },
-        {
-          "is_claimed": true,
-          "rating": 5,
-          "mobile_url": "https://m.yelp.com/biz/lansdowne-dental-associates-lansdowne?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
-          "review_count": 4,
-          "name": "Lansdowne Dental Associates",
-          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
-          "url": "https://www.yelp.com/biz/lansdowne-dental-associates-lansdowne?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "categories": [
-            [
-              "General Dentistry",
-              "generaldentistry"
-            ],
-            [
-              "Cosmetic Dentists",
-              "cosmeticdentists"
-            ]
-          ],
-          "menu_date_updated": 1472610965,
-          "phone": "5712232434",
-          "snippet_text": "I had not gone to the dentist in almost 15 years before I went to see Dr. Kamboh for a infected tooth. I had been avoiding going for so long, it had become...",
-          "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/h7SZihOM0jxJfCSYSmIDlQ/ms.jpg",
-          "snippet_image_url": "https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_styleguide/189f2ca1fe8c/assets/img/default_avatars/user_medium_square.png",
-          "display_phone": "+1-571-223-2434",
-          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
-          "menu_provider": "single_platform",
-          "id": "lansdowne-dental-associates-lansdowne",
-          "is_closed": false,
-          "location": {
-            "city": "Lansdowne",
-            "display_address": [
-              "19415 Deerfield Ave",
-              "Ste 207",
-              "Lansdowne, VA 20176"
-            ],
-            "geo_accuracy": 8,
-            "postal_code": "20176",
-            "country_code": "US",
-            "address": [
-              "19415 Deerfield Ave",
-              "Ste 207"
-            ],
-            "coordinate": {
-              "latitude": 39.0794,
-              "longitude": -77.47751
-            },
-            "state_code": "VA"
-          }
-        },
-        {
-          "is_claimed": true,
-          "rating": 5,
-          "mobile_url": "https://m.yelp.com/biz/lansdowne-family-dental-lansdowne-2?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
-          "review_count": 4,
-          "name": "Lansdowne Family Dental",
-          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
-          "url": "https://www.yelp.com/biz/lansdowne-family-dental-lansdowne-2?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "categories": [
-            [
-              "Cosmetic Dentists",
-              "cosmeticdentists"
-            ],
-            [
-              "General Dentistry",
-              "generaldentistry"
-            ]
-          ],
-          "phone": "5712525822",
-          "snippet_text": "Best dentist office I've ever dealt with. Everyone there from scheduling to billing to the dental hygienists are very professional and friendly. \n\nThe...",
-          "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/SbC1YAwrppu3epzauG7gzw/ms.jpg",
-          "snippet_image_url": "https://s3-media2.fl.yelpcdn.com/photo/DqhvD620zfPEXaqJriytjg/ms.jpg",
-          "display_phone": "+1-571-252-5822",
-          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
-          "id": "lansdowne-family-dental-lansdowne-2",
-          "is_closed": false,
-          "location": {
-            "city": "Lansdowne",
-            "display_address": [
-              "19415 Deerfield Ave",
-              "Ste 309",
-              "Lansdowne, VA 20176"
-            ],
-            "geo_accuracy": 9.5,
-            "postal_code": "20176",
-            "country_code": "US",
-            "address": [
-              "19415 Deerfield Ave",
-              "Ste 309"
-            ],
-            "coordinate": {
-              "latitude": 39.0794243,
-              "longitude": -77.4772866
-            },
-            "state_code": "VA"
-          }
+          "distance": 7569.600210135359
         },
         {
           "is_claimed": false,
           "rating": 5,
-          "mobile_url": "https://m.yelp.com/biz/rothschild-kenneth-dds-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "mobile_url": "https://m.yelp.com/biz/ashbrook-center-for-dentistry-ashburn?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
           "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
-          "review_count": 2,
-          "name": "Rothschild Kenneth DDS",
+          "review_count": 7,
+          "name": "Ashbrook Center For Dentistry",
+          "snippet_image_url": "https://s3-media3.fl.yelpcdn.com/photo/jM-q3YlQI3J0437hMZxzJA/ms.jpg",
           "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
-          "url": "https://www.yelp.com/biz/rothschild-kenneth-dds-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "url": "https://www.yelp.com/biz/ashbrook-center-for-dentistry-ashburn?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
           "categories": [
             [
-              "Oral Surgeons",
-              "oralsurgeons"
+              "General Dentistry",
+              "generaldentistry"
             ]
           ],
-          "phone": "7037773150",
-          "snippet_text": "I have been seeing Dr Rothschild my entire life for everything from orthodontics to oral surgey and couldn't be happier. The waiting room is nice, friendly...",
-          "snippet_image_url": "https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_styleguide/189f2ca1fe8c/assets/img/default_avatars/user_medium_square.png",
-          "display_phone": "+1-703-777-3150",
-          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
-          "id": "rothschild-kenneth-dds-leesburg",
-          "is_closed": false,
+          "phone": "7037231400",
+          "snippet_text": "Let me start off and say the the staff here at Ashbrook is AMAZING. The second I walk into the office I am greeted by my name by the lady at the front desk....",
           "location": {
-            "city": "Leesburg",
+            "city": "Ashburn",
             "display_address": [
-              "823 S King St",
-              "Ste E",
-              "Leesburg, VA 20175"
+              "44345 Premier Plz",
+              "Ste 230",
+              "Ashburn, VA 20147"
             ],
             "geo_accuracy": 8,
-            "postal_code": "20175",
+            "postal_code": "20147",
             "country_code": "US",
             "address": [
-              "823 S King St",
-              "Ste E"
+              "44345 Premier Plz",
+              "Ste 230"
             ],
             "coordinate": {
-              "latitude": 39.10363,
-              "longitude": -77.57194
+              "latitude": 39.0615387,
+              "longitude": -77.4663162
             },
             "state_code": "VA"
-          }
+          },
+          "display_phone": "+1-703-723-1400",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "ashbrook-center-for-dentistry-ashburn",
+          "is_closed": false,
+          "distance": 1871.1501616060787
         },
         {
           "is_claimed": true,
           "rating": 5,
-          "mobile_url": "https://m.yelp.com/biz/groy-david-s-dds-leesburg-2?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "mobile_url": "https://m.yelp.com/biz/goose-creek-village-dental-ashburn?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
           "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
-          "review_count": 2,
-          "name": "Groy David S, DDS",
+          "review_count": 5,
+          "name": "Goose Creek Village Dental",
+          "snippet_image_url": "https://s3-media4.fl.yelpcdn.com/photo/KusM8EzBlOSTqbDROdwOgg/ms.jpg",
           "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
-          "url": "https://www.yelp.com/biz/groy-david-s-dds-leesburg-2?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "url": "https://www.yelp.com/biz/goose-creek-village-dental-ashburn?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Pediatric Dentists",
+              "pediatric_dentists"
+            ],
+            [
+              "General Dentistry",
+              "generaldentistry"
+            ]
+          ],
+          "phone": "7037234224",
+          "snippet_text": "Simply amazing place!!!! Drs Michael and Sue Kim are the dream team!!!  You will not find a kinder, nicer, and more conservative office.  They have my...",
+          "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/r6RW0Z1Ju9_EhY_eUYcT5Q/ms.jpg",
+          "location": {
+            "city": "Ashburn",
+            "display_address": [
+              "21001 Sycolin Rd",
+              "Ste 240",
+              "Ashburn, VA 20147"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20147",
+            "country_code": "US",
+            "address": [
+              "21001 Sycolin Rd",
+              "Ste 240"
+            ],
+            "coordinate": {
+              "latitude": 39.0419617,
+              "longitude": -77.5230789
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-723-4224",
+          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
+          "id": "goose-creek-village-dental-ashburn",
+          "is_closed": false,
+          "distance": 5926.542203154895
+        },
+        {
+          "is_claimed": true,
+          "rating": 4.5,
+          "mobile_url": "https://m.yelp.com/biz/cascades-center-for-dental-health-sterling-2?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+          "review_count": 19,
+          "name": "Cascades Center for Dental Health",
+          "snippet_image_url": "https://s3-media3.fl.yelpcdn.com/photo/5tf7E6gDGGxUEqG-jHHx2A/ms.jpg",
+          "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+          "url": "https://www.yelp.com/biz/cascades-center-for-dental-health-sterling-2?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "General Dentistry",
+              "generaldentistry"
+            ],
+            [
+              "Cosmetic Dentists",
+              "cosmeticdentists"
+            ]
+          ],
+          "phone": "7034445095",
+          "snippet_text": "Simply the best! Dr. Ruparelia is a magician. His staff are extraordinary.  The Center is superb. After almost 10 months of undergoing extensive (really...",
+          "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/o8cR3NjIic88D90cA1IjWA/ms.jpg",
+          "location": {
+            "city": "Sterling",
+            "display_address": [
+              "46302 McClellan Way",
+              "Sterling, VA 20165"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20165",
+            "country_code": "US",
+            "address": [
+              "46302 McClellan Way"
+            ],
+            "coordinate": {
+              "latitude": 39.03267,
+              "longitude": -77.39809
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-444-5095",
+          "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+          "id": "cascades-center-for-dental-health-sterling-2",
+          "is_closed": false,
+          "distance": 8143.4051575008725
+        },
+        {
+          "is_claimed": true,
+          "rating": 4.5,
+          "mobile_url": "https://m.yelp.com/biz/esthetique-dentistry-ashburn?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+          "review_count": 19,
+          "name": "Esthetique Dentistry",
+          "snippet_image_url": "https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_styleguide/189f2ca1fe8c/assets/img/default_avatars/user_medium_square.png",
+          "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+          "url": "https://www.yelp.com/biz/esthetique-dentistry-ashburn?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "Oral Surgeons",
+              "oralsurgeons"
+            ],
+            [
+              "General Dentistry",
+              "generaldentistry"
+            ],
+            [
+              "Orthodontists",
+              "orthodontists"
+            ]
+          ],
+          "menu_date_updated": 1472664542,
+          "phone": "7039886599",
+          "snippet_text": "Dr Talwar and her staff have truly taken the fear out of going to the dentist for me! I have had some unpleasant experiences in the past and am usually very...",
+          "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/11m4J40Jg0EUVf4VfEpe6Q/ms.jpg",
+          "location": {
+            "city": "Ashburn",
+            "display_address": [
+              "44345 Premier Plz",
+              "Ste 220",
+              "Ashburn, VA 20147"
+            ],
+            "geo_accuracy": 9.5,
+            "postal_code": "20147",
+            "country_code": "US",
+            "address": [
+              "44345 Premier Plz",
+              "Ste 220"
+            ],
+            "coordinate": {
+              "latitude": 39.061967,
+              "longitude": -77.4662175
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-988-6599",
+          "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+          "menu_provider": "single_platform",
+          "id": "esthetique-dentistry-ashburn",
+          "is_closed": false,
+          "distance": 1831.4049714081343
+        },
+        {
+          "is_claimed": true,
+          "rating": 4.5,
+          "mobile_url": "https://m.yelp.com/biz/loudoun-smile-center-ashburn-2?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+          "review_count": 13,
+          "name": "Loudoun Smile Center",
+          "snippet_image_url": "https://s3-media1.fl.yelpcdn.com/photo/ANc4_ydxDySqOih3xVMDFQ/ms.jpg",
+          "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+          "url": "https://www.yelp.com/biz/loudoun-smile-center-ashburn-2?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
           "categories": [
             [
               "Cosmetic Dentists",
               "cosmeticdentists"
             ],
             [
-              "Endodontists",
-              "endodontists"
+              "General Dentistry",
+              "generaldentistry"
+            ]
+          ],
+          "menu_date_updated": 1472839738,
+          "phone": "7032974407",
+          "snippet_text": "Very super happy about my first visit. Staff is amazing! Very helpful, genuinely kind, they definetely will make sure your visit to dentist is not horrible...",
+          "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/TFD_e2_5FbGi_EyRHu2a4w/ms.jpg",
+          "location": {
+            "city": "Ashburn",
+            "display_address": [
+              "20405 Exchange St",
+              "Ashburn, VA 20147"
+            ],
+            "geo_accuracy": 9.5,
+            "postal_code": "20147",
+            "country_code": "US",
+            "address": [
+              "20405 Exchange St"
+            ],
+            "coordinate": {
+              "latitude": 39.0514559,
+              "longitude": -77.4542853
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-297-4407",
+          "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+          "menu_provider": "single_platform",
+          "id": "loudoun-smile-center-ashburn-2",
+          "is_closed": false,
+          "distance": 3312.0960329536783
+        },
+        {
+          "is_claimed": true,
+          "rating": 4.5,
+          "mobile_url": "https://m.yelp.com/biz/brighter-smile-family-dentistry-and-orthodontics-sterling-2?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+          "review_count": 12,
+          "name": "Brighter Smile Family Dentistry & Orthodontics",
+          "snippet_image_url": "https://s3-media2.fl.yelpcdn.com/photo/ChlymHFTYWqRCUX3XtIquQ/ms.jpg",
+          "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+          "url": "https://www.yelp.com/biz/brighter-smile-family-dentistry-and-orthodontics-sterling-2?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "General Dentistry",
+              "generaldentistry"
+            ],
+            [
+              "Cosmetic Dentists",
+              "cosmeticdentists"
             ],
             [
               "Periodontists",
               "periodontists"
             ]
           ],
-          "phone": "7037775600",
-          "snippet_text": "Dr. Groy and his staff are friendly, knowledgeable and they listen to their patients.  The office is located in downtown Leesburg - pretty convenient if you...",
-          "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/fonnc0G-J-l3UDI0OU4vbg/ms.jpg",
-          "snippet_image_url": "https://s3-media4.fl.yelpcdn.com/photo/7iMmf1HWyfw95pzFVYFZew/ms.jpg",
-          "display_phone": "+1-703-777-5600",
-          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
-          "id": "groy-david-s-dds-leesburg-2",
-          "is_closed": false,
+          "phone": "7034443412",
+          "snippet_text": "I take pride in my smile and how my teeth look & I have Dr.Kavianpour to thank for that . It feels great to get compliments all the time from my family,...",
+          "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/gnD7DaOtzIbQS5iVoBkKUQ/ms.jpg",
           "location": {
-            "city": "Leesburg",
+            "city": "Sterling",
             "display_address": [
-              "18 Wirt St SW",
-              "Leesburg, VA 20175"
+              "46400 Benedict Dr",
+              "Sterling, VA 20164"
             ],
             "geo_accuracy": 8,
-            "postal_code": "20175",
+            "postal_code": "20164",
             "country_code": "US",
             "address": [
-              "18 Wirt St SW"
+              "46400 Benedict Dr"
             ],
             "coordinate": {
-              "latitude": 39.1150131225586,
-              "longitude": -77.5663223266602
+              "latitude": 39.0246237069368,
+              "longitude": -77.3944175988436
             },
             "state_code": "VA"
-          }
-        },
-        {
-          "is_claimed": true,
-          "rating": 5,
-          "mobile_url": "https://m.yelp.com/biz/birkitt-dental-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
-          "review_count": 2,
-          "name": "Birkitt Dental",
-          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
-          "url": "https://www.yelp.com/biz/birkitt-dental-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "categories": [
-            [
-              "Oral Surgeons",
-              "oralsurgeons"
-            ],
-            [
-              "General Dentistry",
-              "generaldentistry"
-            ],
-            [
-              "Cosmetic Dentists",
-              "cosmeticdentists"
-            ]
-          ],
-          "phone": "7037774440",
-          "snippet_text": "My husband needed emergency care this morning and Dr Birkitt gave him the rockstar treatment!  \n\n- Actually answered the after- hours call personally!!! No...",
-          "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/qROQppLr6raIDQ6BFPNW1A/ms.jpg",
-          "snippet_image_url": "https://s3-media3.fl.yelpcdn.com/photo/oonQF2eaeIzN55c7TVaLEA/ms.jpg",
-          "display_phone": "+1-703-777-4440",
-          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
-          "id": "birkitt-dental-leesburg",
-          "is_closed": false,
-          "location": {
-            "city": "Leesburg",
-            "display_address": [
-              "18 Loudoun St SE",
-              "Leesburg, VA 20175"
-            ],
-            "geo_accuracy": 8,
-            "postal_code": "20175",
-            "country_code": "US",
-            "address": [
-              "18 Loudoun St SE"
-            ],
-            "coordinate": {
-              "latitude": 39.114109,
-              "longitude": -77.563964
-            },
-            "state_code": "VA"
-          }
-        },
-        {
-          "is_claimed": false,
-          "rating": 5,
-          "mobile_url": "https://m.yelp.com/biz/loudoun-endodontics-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
-          "review_count": 2,
-          "name": "Loudoun Endodontics",
-          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
-          "url": "https://www.yelp.com/biz/loudoun-endodontics-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "categories": [
-            [
-              "General Dentistry",
-              "generaldentistry"
-            ]
-          ],
-          "phone": "7037797900",
-          "snippet_text": "Dr. Canby was terrific during my root canal. He had a natural confidence about his knowledge and skill that puts you at ease. He works swiftly but not with...",
-          "snippet_image_url": "https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_styleguide/189f2ca1fe8c/assets/img/default_avatars/user_medium_square.png",
-          "display_phone": "+1-703-779-7900",
-          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
-          "id": "loudoun-endodontics-leesburg",
-          "is_closed": false,
-          "location": {
-            "city": "Leesburg",
-            "display_address": [
-              "2 Cardinal Park Dr S E",
-              "Ste 106-A",
-              "Leesburg, VA 20175"
-            ],
-            "geo_accuracy": 8,
-            "postal_code": "20175",
-            "country_code": "US",
-            "address": [
-              "2 Cardinal Park Dr S E",
-              "Ste 106-A"
-            ],
-            "coordinate": {
-              "latitude": 39.1006088,
-              "longitude": -77.5387115
-            },
-            "state_code": "VA"
-          }
-        },
-        {
-          "is_claimed": false,
-          "rating": 5,
-          "mobile_url": "https://m.yelp.com/biz/john-l-parker-dds-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
-          "review_count": 1,
-          "name": "John L Parker, DDS",
-          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
-          "url": "https://www.yelp.com/biz/john-l-parker-dds-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "categories": [
-            [
-              "General Dentistry",
-              "generaldentistry"
-            ]
-          ],
-          "phone": "7037776453",
-          "snippet_text": "I've been going to Dr. Parker's office for years and will continue to go to him for all my dental needs. The entire staff is amazing and always so friendly...",
-          "snippet_image_url": "https://s3-media4.fl.yelpcdn.com/photo/gxZo0YX6rxtoV5eE_r0PBw/ms.jpg",
-          "display_phone": "+1-703-777-6453",
-          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
-          "id": "john-l-parker-dds-leesburg",
-          "is_closed": false,
-          "location": {
-            "city": "Leesburg",
-            "display_address": [
-              "19 Fort Evans Rd NE",
-              "Ste E",
-              "Leesburg, VA 20176"
-            ],
-            "geo_accuracy": 8,
-            "postal_code": "20176",
-            "country_code": "US",
-            "address": [
-              "19 Fort Evans Rd NE",
-              "Ste E"
-            ],
-            "coordinate": {
-              "latitude": 39.1071396,
-              "longitude": -77.5468979
-            },
-            "state_code": "VA"
-          }
-        },
-        {
-          "is_claimed": true,
-          "rating": 5,
-          "mobile_url": "https://m.yelp.com/biz/the-leesburg-dentists-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
-          "review_count": 1,
-          "name": "The Leesburg Dentists",
-          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
-          "url": "https://www.yelp.com/biz/the-leesburg-dentists-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "categories": [
-            [
-              "General Dentistry",
-              "generaldentistry"
-            ],
-            [
-              "Cosmetic Dentists",
-              "cosmeticdentists"
-            ]
-          ],
-          "phone": "7037718500",
-          "snippet_text": "ME?  Giving a dentist a 5 star review?  I know, crazy, right?\n\nDr Bob is awesome, he does a thorough screening and makes you realize how important oral...",
-          "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/X5Rz0HJ9jkMbXd67Auzo3Q/ms.jpg",
-          "snippet_image_url": "https://s3-media2.fl.yelpcdn.com/photo/pUaX3jZPcSEdxmpM_sTvNQ/ms.jpg",
-          "display_phone": "+1-703-771-8500",
-          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
-          "id": "the-leesburg-dentists-leesburg",
-          "is_closed": false,
-          "location": {
-            "city": "Leesburg",
-            "display_address": [
-              "706 S King St",
-              "Ste 5",
-              "Leesburg, VA 20175"
-            ],
-            "geo_accuracy": 9.5,
-            "postal_code": "20175",
-            "country_code": "US",
-            "address": [
-              "706 S King St",
-              "Ste 5"
-            ],
-            "coordinate": {
-              "latitude": 39.1055217,
-              "longitude": -77.5686731
-            },
-            "state_code": "VA"
-          }
-        },
-        {
-          "is_claimed": false,
-          "rating": 5,
-          "mobile_url": "https://m.yelp.com/biz/birkitt-cary-t-dds-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png",
-          "review_count": 1,
-          "name": "Birkitt Cary T, DDS",
-          "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/c7623205d5cd/ico/stars/v1/stars_small_5.png",
-          "url": "https://www.yelp.com/biz/birkitt-cary-t-dds-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "categories": [
-            [
-              "General Dentistry",
-              "generaldentistry"
-            ]
-          ],
-          "phone": "7037774440",
-          "snippet_text": "Dr Birkett did an amazing job fixing my cap that fell off! He fit me in last second and fixed on the spot. The color is perfect and I love it!  Love when...",
-          "snippet_image_url": "https://s3-media3.fl.yelpcdn.com/photo/QnnVfzQND1ilZQNc4Tyc-A/ms.jpg",
-          "display_phone": "+1-703-777-4440",
-          "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/22affc4e6c38/ico/stars/v1/stars_large_5.png",
-          "id": "birkitt-cary-t-dds-leesburg",
-          "is_closed": false,
-          "location": {
-            "city": "Leesburg",
-            "display_address": [
-              "18 Loudoun St SE",
-              "Leesburg, VA 20175"
-            ],
-            "geo_accuracy": 8,
-            "postal_code": "20175",
-            "country_code": "US",
-            "address": [
-              "18 Loudoun St SE"
-            ],
-            "coordinate": {
-              "latitude": 39.114109,
-              "longitude": -77.563965
-            },
-            "state_code": "VA"
-          }
-        },
-        {
-          "is_claimed": true,
-          "rating": 4.5,
-          "mobile_url": "https://m.yelp.com/biz/loudoun-dental-smiles-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
-          "review_count": 15,
-          "name": "Loudoun Dental Smiles",
-          "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
-          "url": "https://www.yelp.com/biz/loudoun-dental-smiles-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "categories": [
-            [
-              "General Dentistry",
-              "generaldentistry"
-            ],
-            [
-              "Cosmetic Dentists",
-              "cosmeticdentists"
-            ]
-          ],
-          "menu_date_updated": 1472638429,
-          "phone": "7037797779",
-          "snippet_text": "Love this place, our whole family goes here for our dental care & it's the first dental office We've been happy with since moving to town about 4 years ago....",
-          "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/b49BoID7AXYt8A_k0w85sQ/ms.jpg",
-          "snippet_image_url": "https://s3-media4.fl.yelpcdn.com/photo/XG-9PT10erWfPFu7WQVOQQ/ms.jpg",
-          "display_phone": "+1-703-779-7779",
+          },
+          "display_phone": "+1-703-444-3412",
           "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
-          "menu_provider": "single_platform",
-          "id": "loudoun-dental-smiles-leesburg",
+          "id": "brighter-smile-family-dentistry-and-orthodontics-sterling-2",
           "is_closed": false,
-          "location": {
-            "city": "Leesburg",
-            "display_address": [
-              "540 Fort Evans Rd",
-              "Ste 100",
-              "Leesburg, VA 20176"
-            ],
-            "geo_accuracy": 8,
-            "postal_code": "20176",
-            "country_code": "US",
-            "address": [
-              "540 Fort Evans Rd",
-              "Ste 100"
-            ],
-            "coordinate": {
-              "latitude": 39.1064453125,
-              "longitude": -77.5273132324219
-            },
-            "state_code": "VA"
-          }
+          "distance": 8918.330864678104
         },
         {
           "is_claimed": true,
@@ -725,6 +788,7 @@
           "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
           "review_count": 12,
           "name": "Lansdowne Dental Arts",
+          "snippet_image_url": "https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_styleguide/189f2ca1fe8c/assets/img/default_avatars/user_medium_square.png",
           "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
           "url": "https://www.yelp.com/biz/lansdowne-dental-arts-leesburg-3?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
           "categories": [
@@ -764,11 +828,6 @@
           "phone": "7038585990",
           "snippet_text": "Dr. Chung is a KIND, CARING, and PATIENT man. He has a gentle hygienist staff and courteous receptionist. The office is clean, tidy, and has state-of-art...",
           "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/vNKNOFCnpsNepLQroBVTwA/ms.jpg",
-          "snippet_image_url": "https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_styleguide/189f2ca1fe8c/assets/img/default_avatars/user_medium_square.png",
-          "display_phone": "+1-703-858-5990",
-          "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
-          "id": "lansdowne-dental-arts-leesburg-3",
-          "is_closed": false,
           "location": {
             "city": "Leesburg",
             "display_address": [
@@ -788,7 +847,60 @@
               "longitude": -77.4823776
             },
             "state_code": "VA"
-          }
+          },
+          "display_phone": "+1-703-858-5990",
+          "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+          "id": "lansdowne-dental-arts-leesburg-3",
+          "is_closed": false,
+          "distance": 867.9968598049101
+        },
+        {
+          "is_claimed": false,
+          "rating": 4.5,
+          "mobile_url": "https://m.yelp.com/biz/dulles-dental-center-herndon?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+          "review_count": 11,
+          "name": "Dulles Dental Center",
+          "snippet_image_url": "https://s3-media3.fl.yelpcdn.com/photo/pJuWBNtyJLKL8ybLAanZJw/ms.jpg",
+          "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+          "url": "https://www.yelp.com/biz/dulles-dental-center-herndon?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "General Dentistry",
+              "generaldentistry"
+            ],
+            [
+              "Cosmetic Dentists",
+              "cosmeticdentists"
+            ]
+          ],
+          "phone": "7034718080",
+          "snippet_text": "I see Dr. Murthy and have been going here ever since it was \"Dr. Vahid and Associates\"...it's been sold since then but the same folks work reception and...",
+          "location": {
+            "city": "Herndon",
+            "display_address": [
+              "1035 Sterling Rd",
+              "Ste 204",
+              "Herndon, VA 20170"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20170",
+            "country_code": "US",
+            "address": [
+              "1035 Sterling Rd",
+              "Ste 204"
+            ],
+            "coordinate": {
+              "latitude": 38.9681015014648,
+              "longitude": -77.3965606689453
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-471-8080",
+          "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+          "id": "dulles-dental-center-herndon",
+          "is_closed": false,
+          "distance": 13836.921661889348
         },
         {
           "is_claimed": true,
@@ -797,6 +909,7 @@
           "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
           "review_count": 10,
           "name": "Lansdowne Dental Care",
+          "snippet_image_url": "https://s3-media1.fl.yelpcdn.com/photo/shfTwb_fR2w4b4_GQ4nPvA/ms.jpg",
           "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
           "url": "https://www.yelp.com/biz/lansdowne-dental-care-lansdowne-2?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
           "categories": [
@@ -816,11 +929,6 @@
           "phone": "7037237810",
           "snippet_text": "My husband and I both love the ladies at Lansdowne Dental Care. We're treated with the utmost respect and the doctors are incredibly thorough. Their...",
           "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/t1akPKaavId45sPdtLWNZQ/ms.jpg",
-          "snippet_image_url": "https://s3-media1.fl.yelpcdn.com/photo/shfTwb_fR2w4b4_GQ4nPvA/ms.jpg",
-          "display_phone": "+1-703-723-7810",
-          "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
-          "id": "lansdowne-dental-care-lansdowne-2",
-          "is_closed": false,
           "location": {
             "city": "Lansdowne",
             "display_address": [
@@ -840,222 +948,180 @@
               "longitude": -77.4785309
             },
             "state_code": "VA"
-          }
+          },
+          "display_phone": "+1-703-723-7810",
+          "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+          "id": "lansdowne-dental-care-lansdowne-2",
+          "is_closed": false,
+          "distance": 532.1331734636094
         },
         {
           "is_claimed": true,
           "rating": 4.5,
-          "mobile_url": "https://m.yelp.com/biz/advanced-dental-care-leesburg-3?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "mobile_url": "https://m.yelp.com/biz/belmont-dentistry-ashburn?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
           "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
-          "review_count": 8,
-          "name": "Advanced Dental Care",
+          "review_count": 6,
+          "name": "Belmont Dentistry",
+          "snippet_image_url": "https://s3-media3.fl.yelpcdn.com/photo/EA7VeoIsKEuKum3IYMGKpA/ms.jpg",
           "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
-          "url": "https://www.yelp.com/biz/advanced-dental-care-leesburg-3?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "url": "https://www.yelp.com/biz/belmont-dentistry-ashburn?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
           "categories": [
             [
               "Cosmetic Dentists",
               "cosmeticdentists"
             ],
             [
-              "General Dentistry",
-              "generaldentistry"
-            ],
-            [
-              "Oral Surgeons",
-              "oralsurgeons"
-            ]
-          ],
-          "phone": "5714550466",
-          "snippet_text": "Dr. Mikhail and staff were wonderful. Very compassionate and understanding of my dental phobia. The procedure was relatively painless and I left knowing I...",
-          "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/bBZycYUIO5LUsPNyRxzxtw/ms.jpg",
-          "snippet_image_url": "https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_styleguide/189f2ca1fe8c/assets/img/default_avatars/user_medium_square.png",
-          "display_phone": "+1-571-455-0466",
-          "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
-          "id": "advanced-dental-care-leesburg-3",
-          "is_closed": false,
-          "location": {
-            "city": "Leesburg",
-            "display_address": [
-              "1602 Village Market Blvd SE",
-              "Ste 130",
-              "Leesburg, VA 20175"
-            ],
-            "geo_accuracy": 9.5,
-            "postal_code": "20175",
-            "country_code": "US",
-            "address": [
-              "1602 Village Market Blvd SE",
-              "Ste 130"
-            ],
-            "coordinate": {
-              "latitude": 39.0905014,
-              "longitude": -77.5257771
-            },
-            "state_code": "VA"
-          }
-        },
-        {
-          "is_claimed": false,
-          "rating": 4.5,
-          "mobile_url": "https://m.yelp.com/biz/ralph-b-swiger-ii-dds-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
-          "review_count": 6,
-          "name": "Ralph B Swiger II, DDS",
-          "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
-          "url": "https://www.yelp.com/biz/ralph-b-swiger-ii-dds-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "categories": [
-            [
-              "General Dentistry",
-              "generaldentistry"
+              "Endodontists",
+              "endodontists"
             ],
             [
               "Periodontists",
               "periodontists"
             ]
           ],
-          "phone": "7037776100",
-          "snippet_text": "I used to hate going to the dentist. Now it's not my favorite thing in the world, but Dr. Swiger and his staff are just the best people, so I don't mind it....",
-          "snippet_image_url": "https://s3-media2.fl.yelpcdn.com/photo/xq11SHSnqj385qZFCzQ4ig/ms.jpg",
-          "display_phone": "+1-703-777-6100",
+          "phone": "7036344446",
+          "snippet_text": "I have to give Dr Nik five star and I'm sure we all had so many experiences with other dentists which made us uncomfortable \nThis is my story :\nI been to so...",
+          "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/yDQ7mcG3E8WN72l6jaDCtg/ms.jpg",
+          "location": {
+            "city": "Ashburn",
+            "display_address": [
+              "44121 Harry Byrd Hwy",
+              "Suite 280",
+              "Ashburn, VA 20147"
+            ],
+            "geo_accuracy": 9.5,
+            "postal_code": "20147",
+            "country_code": "US",
+            "address": [
+              "44121 Harry Byrd Hwy",
+              "Suite 280"
+            ],
+            "coordinate": {
+              "latitude": 39.0667282,
+              "longitude": -77.4747759
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-634-4446",
           "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
-          "id": "ralph-b-swiger-ii-dds-leesburg",
+          "id": "belmont-dentistry-ashburn",
           "is_closed": false,
-          "location": {
-            "city": "Leesburg",
-            "display_address": [
-              "211 Gibson St SW",
-              "Ste 100 - 220",
-              "Leesburg, VA 20175"
-            ],
-            "geo_accuracy": 9.5,
-            "postal_code": "20175",
-            "country_code": "US",
-            "address": [
-              "211 Gibson St SW",
-              "Ste 100 - 220"
-            ],
-            "coordinate": {
-              "latitude": 39.0853041450341,
-              "longitude": -77.6067352294922
-            },
-            "state_code": "VA"
-          }
+          "distance": 1241.764257884824
         },
         {
           "is_claimed": true,
-          "rating": 4,
-          "mobile_url": "https://m.yelp.com/biz/a-wink-and-a-smile-leesburg-2?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
-          "review_count": 13,
-          "name": "A Wink & A Smile",
-          "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
-          "url": "https://www.yelp.com/biz/a-wink-and-a-smile-leesburg-2?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating": 4.5,
+          "mobile_url": "https://m.yelp.com/biz/bloo-dental-ashburn?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png",
+          "review_count": 6,
+          "name": "Bloo Dental",
+          "snippet_image_url": "https://s3-media1.fl.yelpcdn.com/photo/g7dIbwPu7H7cIsdkqjFTMA/ms.jpg",
+          "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png",
+          "url": "https://www.yelp.com/biz/bloo-dental-ashburn?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
           "categories": [
             [
-              "Orthodontists",
-              "orthodontists"
-            ],
-            [
-              "Optometrists",
-              "optometrists"
-            ],
-            [
-              "Eyewear & Opticians",
-              "opticians"
-            ]
-          ],
-          "phone": "5712063639",
-          "snippet_text": "Love this place. My sons loves the candy selection. Vanessa, Meg and Karmen are fabulous.",
-          "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/Sp7cs0C8xTQXnk5wX8TY5g/ms.jpg",
-          "snippet_image_url": "https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_styleguide/189f2ca1fe8c/assets/img/default_avatars/user_medium_square.png",
-          "display_phone": "+1-571-206-3639",
-          "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
-          "id": "a-wink-and-a-smile-leesburg-2",
-          "is_closed": false,
-          "location": {
-            "city": "Leesburg",
-            "display_address": [
-              "19369 Promenade Dr",
-              "Ste K102",
-              "Leesburg, VA 20176"
-            ],
-            "geo_accuracy": 9.5,
-            "postal_code": "20176",
-            "country_code": "US",
-            "address": [
-              "19369 Promenade Dr",
-              "Ste K102"
-            ],
-            "coordinate": {
-              "latitude": 39.0818875,
-              "longitude": -77.495466
-            },
-            "state_code": "VA"
-          }
-        },
-        {
-          "is_claimed": true,
-          "rating": 4,
-          "mobile_url": "https://m.yelp.com/biz/leesburg-dental-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
-          "review_count": 10,
-          "name": "Leesburg Dental",
-          "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
-          "url": "https://www.yelp.com/biz/leesburg-dental-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-          "categories": [
-            [
-              "General Dentistry",
-              "generaldentistry"
+              "Oral Surgeons",
+              "oralsurgeons"
             ],
             [
               "Cosmetic Dentists",
               "cosmeticdentists"
             ],
             [
-              "Orthodontists",
-              "orthodontists"
+              "General Dentistry",
+              "generaldentistry"
             ]
           ],
-          "menu_date_updated": 1472491465,
-          "phone": "5719189612",
-          "snippet_text": "I've been going to this place since I was probably 5. I'm 21 now! Judy is amazing. They are always very nice and even though I don't like to get my teeth...",
-          "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/n-3H5Z8-T-o7TOQVGWqRGQ/ms.jpg",
-          "snippet_image_url": "https://s3-media1.fl.yelpcdn.com/photo/wUa92-f53malK5BHe1JdRg/ms.jpg",
-          "display_phone": "+1-571-918-9612",
-          "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
-          "menu_provider": "single_platform",
-          "id": "leesburg-dental-leesburg",
-          "is_closed": false,
+          "phone": "7033275533",
+          "snippet_text": "Prior to visiting Bloo, I was traumatized by my jaw locking at a practice in another state (something I have to live with during dental work), and no one at...",
+          "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/n4IeSQONG0DqWzenDNjrhg/ms.jpg",
           "location": {
-            "city": "Leesburg",
+            "city": "Ashburn",
             "display_address": [
-              "602 S King St",
-              "Ste 302",
-              "Leesburg, VA 20175"
+              "22855 Brambleton Plz",
+              "Ste 208",
+              "Ashburn, VA 20148"
             ],
             "geo_accuracy": 8,
-            "postal_code": "20175",
+            "postal_code": "20148",
             "country_code": "US",
             "address": [
-              "602 S King St",
-              "Ste 302"
+              "22855 Brambleton Plz",
+              "Ste 208"
             ],
             "coordinate": {
-              "latitude": 39.1066131591797,
-              "longitude": -77.5679550170898
+              "latitude": 38.9850807,
+              "longitude": -77.5367966
             },
             "state_code": "VA"
-          }
+          },
+          "display_phone": "+1-703-327-5533",
+          "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png",
+          "id": "bloo-dental-ashburn",
+          "is_closed": false,
+          "distance": 11728.501287602008
         },
         {
           "is_claimed": true,
           "rating": 4,
-          "mobile_url": "https://m.yelp.com/biz/neda-emad-dds-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "mobile_url": "https://m.yelp.com/biz/loudoun-dental-smiles-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
           "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
-          "review_count": 5,
-          "name": "Neda Emad, DDS",
+          "review_count": 13,
+          "name": "Loudoun Dental Smiles",
+          "snippet_image_url": "https://s3-media4.fl.yelpcdn.com/photo/XG-9PT10erWfPFu7WQVOQQ/ms.jpg",
           "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
-          "url": "https://www.yelp.com/biz/neda-emad-dds-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "url": "https://www.yelp.com/biz/loudoun-dental-smiles-leesburg?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "categories": [
+            [
+              "General Dentistry",
+              "generaldentistry"
+            ],
+            [
+              "Cosmetic Dentists",
+              "cosmeticdentists"
+            ]
+          ],
+          "menu_date_updated": 1472638429,
+          "phone": "7037797779",
+          "snippet_text": "Love this place, our whole family goes here for our dental care & it's the first dental office We've been happy with since moving to town about 4 years ago....",
+          "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/b49BoID7AXYt8A_k0w85sQ/ms.jpg",
+          "location": {
+            "city": "Leesburg",
+            "display_address": [
+              "540 Fort Evans Rd",
+              "Ste 100",
+              "Leesburg, VA 20176"
+            ],
+            "geo_accuracy": 8,
+            "postal_code": "20176",
+            "country_code": "US",
+            "address": [
+              "540 Fort Evans Rd",
+              "Ste 100"
+            ],
+            "coordinate": {
+              "latitude": 39.1064453125,
+              "longitude": -77.5273132324219
+            },
+            "state_code": "VA"
+          },
+          "display_phone": "+1-703-779-7779",
+          "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+          "menu_provider": "single_platform",
+          "id": "loudoun-dental-smiles-leesburg",
+          "is_closed": false,
+          "distance": 5690.312154849329
+        },
+        {
+          "is_claimed": true,
+          "rating": 4,
+          "mobile_url": "https://m.yelp.com/biz/costa-family-and-cosmetic-dentistry-brambleton-3?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
+          "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+          "review_count": 10,
+          "name": "Costa Family and Cosmetic Dentistry",
+          "snippet_image_url": "https://s3-media3.fl.yelpcdn.com/photo/5EvG6UqCTwawPqgdNYfvQA/ms.jpg",
+          "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+          "url": "https://www.yelp.com/biz/costa-family-and-cosmetic-dentistry-brambleton-3?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
           "categories": [
             [
               "Cosmetic Dentists",
@@ -1066,58 +1132,34 @@
               "generaldentistry"
             ]
           ],
-          "deals": [
-            {
-              "what_you_get": "You get a voucher redeemable for $100 at Neda Emad, DDS.\nPrint out your voucher, or redeem on your phone with the <a href=\"https://www.yelp.com/mobile?source=deal_marketing\">Yelp app</a>.",
-              "time_start": 1322602519,
-              "title": "$75 for $100",
-              "url": "https://www.yelp.com/deals/neda-emad-dds-rockville-3?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-              "additional_restrictions": "Promotion lasts for 1 year from date of purchase. After that period, your voucher is redeemable for the amount you paid. Not valid with other vouchers, certificates, or offers. Voucher can only be used for services, not retail products. Must be 21 or older. Only 1 voucher(s) can be purchased and redeemed per person. Must use in a single visit. Up to 3 can be purchased as gifts for others. Must make appointment at least 24 hours in advance. Subject to the <a target=\"_blank\" href=\"https://www.yelp.com/tos/general_b2c_us_20120911\">General Terms</a>.",
-              "options": [
-                {
-                  "original_price": 10000,
-                  "title": "$75 for $100",
-                  "price": 7500,
-                  "purchase_url": "https://www.yelp.com/checkout/deal/zVwf_TQuGyTrzU32OISLSA?adjust_creative=2UolyG7wPxAoqO3-xijMUA&utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=2UolyG7wPxAoqO3-xijMUA",
-                  "formatted_original_price": "$100",
-                  "formatted_price": "$75",
-                  "is_quantity_limited": false
-                }
-              ],
-              "important_restrictions": "Cannot be combined with insurance.\nNew customers only.",
-              "image_url": "https://s3-media3.fl.yelpcdn.com/dphoto/g_jIOWyBm-tzpae5tSqG6g/m.jpg",
-              "id": "RMqRurl_gVn59X5DPvTihA",
-              "currency_code": "USD"
-            }
-          ],
-          "phone": "5719189641",
-          "snippet_text": "Going to the dentist is never a easy idea to fathom. Nobody wakes up and says I can't wait to go see my dentist. Things are different when it comes to Dr....",
-          "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/n6ecy8NJiZ4yJ4hXoJ2fcQ/ms.jpg",
-          "snippet_image_url": "https://s3-media1.fl.yelpcdn.com/photo/lRBBi1NpfEIMKrpjkdoZkw/ms.jpg",
-          "display_phone": "+1-571-918-9641",
-          "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
-          "id": "neda-emad-dds-leesburg",
-          "is_closed": false,
+          "phone": "7035427000",
+          "snippet_text": "Dr. Costa, his assistant Dani and his staff, are above and beyond the best in the field of Cosmetic dentistry. Any problems that arose, whether with...",
+          "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/8Ip1k3SgvKlq-VlQ1V7RTw/ms.jpg",
           "location": {
-            "city": "Leesburg",
+            "city": "Brambleton",
             "display_address": [
-              "17 Fort Evans Rd NE",
-              "Ste C",
-              "Leesburg, VA 20176"
+              "42395 Ryan Rd",
+              "Ste 104",
+              "Brambleton, VA 20148"
             ],
             "geo_accuracy": 9.5,
-            "postal_code": "20176",
+            "postal_code": "20148",
             "country_code": "US",
             "address": [
-              "17 Fort Evans Rd NE",
-              "Ste C"
+              "42395 Ryan Rd",
+              "Ste 104"
             ],
             "coordinate": {
-              "latitude": 39.107357,
-              "longitude": -77.546964
+              "latitude": 38.9855654791471,
+              "longitude": -77.5359299406409
             },
             "state_code": "VA"
-          }
+          },
+          "display_phone": "+1-703-542-7000",
+          "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+          "id": "costa-family-and-cosmetic-dentistry-brambleton-3",
+          "is_closed": false,
+          "distance": 11627.626739420744
         }
       ]
     }
