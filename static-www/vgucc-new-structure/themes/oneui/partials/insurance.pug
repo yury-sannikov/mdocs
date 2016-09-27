@@ -1,0 +1,31 @@
+section.insurance.pinstripe
+  .row
+    .span6.left
+      .inner
+        h4 Accepted Insurance
+        p
+          | We work with our patients to obtain the most affordable insurance coverage possible. We also provide financial assistance for the uninsured and under-insured.
+    .span6.right
+      .provider-imgs.count3
+        figure
+          img(src='/assets/img/1354741.jpg', width='105', height='63', alt='Aetna')
+        figure
+          img(src='/assets/img/1354873.jpg', width='105', height='63', alt='Health Net')
+        figure
+          img(src='/assets/img/1354879.jpg', width='105', height='63', alt='Medicare')
+      .provider-list-link
+        div(about='0', typeof='{"type":"MODULE", "secondary_type": "INSURANCE", "type_id": null, "fieldname": "view-full-list"}')
+          a.provider-list(href='#', data-toggle='modal', data-target='#providerList', property='fieldtext') View full list of companies
+      #providerList.modal.fade(tabindex='-1', role='dialog', aria-labelledby='networkInsuranceLabel', aria-hidden='true')
+        .modal-dialog
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+              div(about='0', typeof='{"type":"MODULE", "secondary_type": "INSURANCE", "type_id": null, "fieldname": "network-insurances"}')
+                h4#networkInsuranceLabel.modal-title(property='fieldtext') Network Insurances
+            .modal-body
+              ul.provider-list
+                li Aetna
+                li Health Net
+                li Medicare
+                li Regal IPA

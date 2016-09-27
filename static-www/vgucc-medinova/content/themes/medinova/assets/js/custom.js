@@ -2261,6 +2261,7 @@
                 cycleOptions: {
                     fx: 'fade',
                     speed: 1500,
+                    timeout: 15000,
                     prev: '.img-prev',
                     next: '.img-next'
                 }

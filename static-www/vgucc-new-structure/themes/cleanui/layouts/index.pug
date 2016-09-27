@@ -1,0 +1,14 @@
+doctype html
+html(lang="en", dir="ltr")
+  head
+    include ../partials/header.pug
+  body
+    div#wrapper
+      #preloader
+        #spinner
+          img(src='/assets/images/preloaders/1.gif', alt='')
+        #disable-preloader.btn.btn-default.btn-sm Disable Preloader
+      include ../partials/navbar.pug
+      include ../partials/raw/index.pug
+      != contents
+      include ../partials/footer.pug

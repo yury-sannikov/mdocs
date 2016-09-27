@@ -1,0 +1,71 @@
+{
+  "menuCaption": "Reviews",
+  "menuIconClass": "si si-like",
+  "titleRef": "site",
+  "listProps": [
+    {
+      "title": "Date",
+      "ref": "date",
+      "css": ""
+    },
+    {
+      "title": "Site",
+      "ref": "site",
+      "css": ""
+    },
+    {
+      "title": "User",
+      "ref": "user",
+      "css": "hidden-xs"
+    },
+    {
+      "title": "Review",
+      "ref": "reviewShort",
+      "css": "hidden-xs"
+    }
+  ],
+  "schema": {
+    "type": "object",
+    "title": "",
+    "properties": {
+      "date": {
+        "title": "Review Date",
+        "type": "string",
+        "format": "date"
+      },
+      "site": {
+        "title": "Review Site",
+        "type": "string",
+        "enum": [
+          "Yelp",
+          "Google+"
+        ]
+      },
+      "link": {
+        "title": "Link to Revie Page",
+        "type": "string",
+        "format": "url"
+      },
+      "user": {
+        "title": "Review User Name",
+        "type": "string"
+      },
+      "reviewShort": {
+        "title": "Review Short Text",
+        "type": "string"
+      },
+      "reviewLong": {
+        "title": "Review Long Text",
+        "type": "string"
+      }
+    }
+  },
+  "defaults": {
+    "date": "1/1/2016",
+    "site": "Yelp",
+    "link": "",
+    "user": "",
+    "reviewShort": "Short Review Text",
+    "reviewLong": "Full Review Text"
+  }
+}

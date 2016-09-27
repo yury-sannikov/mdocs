@@ -1,0 +1,410 @@
+//- Footer
+footer#footer.footer.pb-0.bg-black-111
+  .container.pb-20
+    .row.multi-row-clearfix
+      .col-sm-6.col-md-3
+        .widget.dark
+          img(alt='', src='/assets/images/logo-wide-white.png')
+          p.font-12.mt-20.mb-10
+            | VGUCC  is a library of Crowdfunding and Medinova templates with predefined elements which helps you to build your own site. Lorem ipsum dolor sit amet consectetur.
+          a.text-gray.font-12(href='#')
+            i.fa.fa-angle-double-right.text-theme-colored
+            |  Read more
+          ul.social-icons.icon-dark.mt-20
+            li
+              a(href='#', data-bg-color='#3B5998')
+                i.fa.fa-facebook
+            li
+              a(href='#', data-bg-color='#02B0E8')
+                i.fa.fa-twitter
+            li
+              a(href='#', data-bg-color='#05A7E3')
+                i.fa.fa-skype
+            li
+              a(href='#', data-bg-color='#A11312')
+                i.fa.fa-google-plus
+            li
+              a(href='#', data-bg-color='#C22E2A')
+                i.fa.fa-youtube
+      .col-sm-6.col-md-3
+        .widget.dark
+          h5.widget-title.line-bottom Tags
+          .tags
+            a(href='#') doctor
+            a(href='#') practice
+            a(href='#') judge
+            a(href='#') courte
+            a(href='#') injury
+            a(href='#') injustice
+            a(href='#') justice
+            a(href='#') Script
+            a(href='#') evidence
+            a(href='#') success
+            a(href='#') fight
+            a(href='#') attorneys
+            a(href='#') consulting
+            a(href='#') support
+            a(href='#') cases
+            a(href='#') law
+            a(href='#') criminal
+      .col-sm-6.col-md-3
+        .widget.dark
+          h5.widget-title.line-bottom Latest News
+          .latest-posts
+            article.post.media-post.clearfix.pb-0.mb-10
+              a.post-thumb(href='#')
+                img(src='https://placehold.it/80x55', alt='')
+              .post-right
+                h5.post-title.mt-0.mb-5
+                  a(href='#') Sustainable Construction
+                p.post-date.mb-0.font-12 Mar 08, 2015
+            article.post.media-post.clearfix.pb-0.mb-10
+              a.post-thumb(href='#')
+                img(src='https://placehold.it/80x55', alt='')
+              .post-right
+                h5.post-title.mt-0.mb-5
+                  a(href='#') Industrial Coatings
+                p.post-date.mb-0.font-12 Mar 08, 2015
+            article.post.media-post.clearfix.pb-0.mb-10
+              a.post-thumb(href='#')
+                img(src='https://placehold.it/80x55', alt='')
+              .post-right
+                h5.post-title.mt-0.mb-5
+                  a(href='#') Storefront Installations
+                p.post-date.mb-0.font-12 Mar 08, 2015
+      .col-sm-6.col-md-3
+        .widget.dark
+          h5.widget-title.line-bottom Quick Contact
+          ul.list.list-border
+            li
+              a(href='#') +(012) 345 6789
+            li
+              a(href='#') hello@yourdomain.com
+            li
+              a.lineheight-20(href='#') 121 King Street, Melbourne Victoria 3000, Australia
+          p.text-white.mb-5.mt-15 Subscribe to our newsletter
+          form#footer-mailchimp-subscription-form.newsletter-form.mt-10
+            label.display-block(for='mce-EMAIL')
+            .input-group
+              input#mce-EMAIL.form-control(type='email', value='', name='EMAIL', placeholder='Your Email', data-height='37px')
+              span.input-group-btn
+                button.btn.btn-colored.btn-theme-colored.m-0(type='submit')
+                  i.fa.fa-paper-plane-o.text-white
+          //- Mailchimp Subscription Form Validation
+          script(type='text/javascript').
+            $('#footer-mailchimp-subscription-form').ajaxChimp({
+            callback: mailChimpCallBack,
+            url: '//thememascot.us9.list-manage.com/subscribe/post?u=a01f440178e35febc8cf4e51f&amp;id=49d6d30e1e'
+            });
+            function mailChimpCallBack(resp) {
+            //- Hide any previous response text
+            var $mailchimpform = $('#footer-mailchimp-subscription-form'),
+            $response = '';
+            $mailchimpform.children(".alert").remove();
+            console.log(resp);
+            if (resp.result === 'success') {
+            $response = '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' + resp.msg + '</div>';
+            } else if (resp.result === 'error') {
+            $response = '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' + resp.msg + '</div>';
+            }
+            $mailchimpform.prepend($response);
+            }
+  .footer-nav.bg-black-222.p-20
+    .row.text-center
+      .col-md-12
+        p.text-white.font-11.m-0 Copyright ©2015 ThemeMascot. All Rights Reserved
+a.scrollToTop(href='#')
+  i.fa.fa-angle-up
+
+
+
+
+
+
+//- //- Footer Navigation
+//- .row.push-30-t.items-push-2x
+//-   .col-sm-4
+//-     h3.h5.font-w600.text-uppercase.push-20 LOCATION
+//-     .font-s13.push
+//-       strong= practice.name
+//-       br
+//-       span= practice.address
+//-       br
+//-       span= practice.city
+//-       |,  
+//-       span= practice.state
+//-       |  
+//-       span= practice.zip
+//-       br
+//-       |  Phone:  
+//-       span= practice.phone
+//-       br
+//-       |  Fax:  
+//-       span= practice.fax
+//-       br
+//-       |  Email:  
+//-       span= practice.email
+//-   .col-sm-4
+//-     h3.h5.font-w600.text-uppercase.push-20 Company
+//-     ul.list.list-simple-mini.font-s13
+//-       li
+//-         a.font-w600(href='frontend_home.html') Home
+//-       li
+//-         a.font-w600(href='frontend_features.html') Features
+//-       li
+//-         a.font-w600(href='frontend_pricing.html') Pricing
+//-       li
+//-         a.font-w600(href='frontend_about.html') About Us
+//-       li
+//-         a.font-w600(href='frontend_contact.html') Contact Us
+//-   .col-sm-4
+//-     h3.h5.font-w600.text-uppercase.push-20 Support
+//-     ul.list.list-simple-mini.font-s13
+//-       li
+//-         a.font-w600(href='frontend_login.html') Log In
+//-       li
+//-         a.font-w600(href='frontend_signup.html') Sign Up
+//-       li
+//-         a.font-w600(href='frontend_support.html') Support Center
+//-       li
+//-         a.font-w600(href='javascript:void(0)') Privacy Policy
+//-       li
+//-         a.font-w600(href='javascript:void(0)') Terms & Conditions
+  
+//- //- END Footer Navigation
+//- //- Copyright Info
+//- .font-s12.push-20.clearfix
+//-   hr.remove-margin-t
+//-   .pull-right
+//-     | Crafted with 
+//-     i.fa.fa-heart.text-city
+//-     |  by 
+//-     a.font-w600(href='http://mdocs.co', target='_blank') MDOCS
+//-   .pull-left
+//-     a.font-w600(href='http://mdocs.co', target='_blank') MDOCS v.2.1
+//-     |  © 
+//-     span.js-year-copy
+//- //- END Copyright Info
+
+
+#pp_booking
+  //- Booking
+  #book-online.modal(tabindex='-1', role='dialog', aria-hidden='true', aria-labelledby='bookAppointmentLabel')
+    .modal-backdrop.in(style='height: 100%;')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h4#bookAppointmentLabel.modal-title
+            | Request Now 
+            span.subtitle= practice.name
+        
+        .caldetails(style='display: block;')
+          form.contact_form
+            .modal-body
+              .left
+                .label Full name
+                input.txt-input(placeholder='Full name', name='form_name', type='text', value='', required='true')
+                .label Email address
+                input.txt-input(placeholder='Email address', name='email', type='email', value='', required='true')
+                .label Phone number
+                input.txt-input(placeholder='Phone number', name='form_phone', type='tel', value='', required='true')
+              
+              .left
+                .label New Patient?
+                ul
+                  li
+                    input#new-patient-yes(name='form_name_new', type='radio', value='yes', checked='checked', required='true')
+                    label(for='new-patient-yes') Yes
+                  li
+                    input#new-patient-no(name='form_name_new', type='radio', value='no', required='true')
+                    label(for='new-patient-no') No
+                .label Reason
+                input.txt-input(placeholder='E.g. initial consultation, follow-up, ...', maxlength='150', name='form_reason', type='text', value='', form_name)
+                .label Date of Birth
+                input.txt-input(placeholder='MM/DD/YYYY', maxlength='10', name='form_dob', type='text', value='')
+                
+              .left
+                .label Select date
+                input#datetimepicker(type="text", style="visibility: hidden; height:1px", name="form_date")
+                #calendar-block.visible
+                  
+                    
+            .modal-footer
+              button.btn-cancel(type='button', data-dismiss='modal') Cancel
+              button.btn-book-now(type='submit', value='Request Now', data-loading-msg='Submitting...', data-success-msg='Success!', data-error-msg='Error! Try again.', data-form-type='book') Request Now
+  #booked-additional-info.modal(tabindex='-1', role='dialog', aria-hidden='true', aria-labelledby='bookAppointmentLabel')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h4#bookedAppointmentLabel.modal-title Appointment Requested
+        .additional-questions
+          form#patient-additional-info-form(method='POST', action='', accept-charset='UTF-8', data-toggle='validator', role='form')
+            .modal-body
+              p.type-wrapper
+                | Thank you for your appointment request. We will contact you shortly to confirm your request.
+                br
+                | Please call our office 
+                span.apt-conf-phone at 
+                |  if you have any questions.
+              span.apt-conf-formlinks.apt-conf-formlinks1
+              h4 Additional Information
+              input(name='id', type='hidden', value='')
+              .left
+                #name-section-2(style='display: none;')
+                  #name-label.label Name
+                  input.txt-input.inline-input(placeholder='First', name='firstname', type='text', value='', disabled='')
+                  input.txt-input.inline-input(placeholder='Last', name='lastname', type='text', value='', disabled='')
+                #email-section-2(style='display: none;')
+                  #email-label.label Email address
+                  input.txt-input(name='email', type='email', value='', disabled='')
+                #phone-section-2(style='display: none;')
+                  #phone-label.label Mobile Phone Number
+                  input#appointment-phone.txt-input(name='phone', type='tel', value='', disabled='')
+                #reason-section-2(style='display: none;')
+                  .label.reason-label Reason
+                  input.txt-input(placeholder='e.g. annual checkup, follow-up, ...', maxlength='150', name='reason', type='text', value='', disabled='')
+                  select.txt-input(name='reason', disabled='')
+                #date_of_birth-section-2(style='display: none;')
+                  #date_of_birth-label.label Date of Birth
+                  input.txt-input(placeholder='mm/dd/yyyy', maxlength='10', name='date_of_birth', type='text', value='', disabled='')
+                #sex-section-2(style='display: none;')
+                  #sex-label.label Gender
+                  select.txt-input(name='sex')
+                    option(value='', selected='selected') - Select One -
+                    option(value='undisclosed') Do not wish to disclose
+                    option(value='male') Male
+                    option(value='female') Female
+                    option(value='other') Other
+                #insurance_provider_id-section-2
+                  #insurance_provider_id-label.label.add-insurance-dropdown Insurance
+                  select.txt-input.add-info-insurance-select-dropdown(name='insurance_provider_id', style='display: none;')
+                    option(value='', selected='selected') - Select One -
+                    option(value='700') No Insurance
+                    option(value='701') Other Insurance
+                    option(value='3') AARP
+                    option(value='12') Aetna
+                    option(value='64') Blue Cross Blue Shield
+                    option(value='135') Cigna
+                    option(value='203') First Choice Health
+                    option(value='243') Health Net
+                    option(value='294') LifeWise
+                    option(value='345') Multiplan PHCS
+                    option(value='635') Multiplan, Inc.
+                    option(value='396') Premera Blue Cross
+                    option(value='404') Providence Health Plans
+                    option(value='533') Regence Blue Cross Blue Shield
+                    option(value='469') Tricare
+                    option(value='482') UnitedHealthcare
+                  .chosen-container.chosen-container-single(style='width: 250px;', title='')
+                    a.chosen-single(tabindex='-1')
+                      span - Select One -
+                      div
+                        b
+                    .chosen-drop
+                      .chosen-search
+                        input(type='text', autocomplete='off')
+                      ul.chosen-results
+                #insurance_id_number-section-2
+                  #insurance_id_number-label.label.hide.insurance-selected Insurance ID #
+                  input#appointment-insurance-id-number.txt-input.hide.insurance-selected(name='insurance_id_number', type='text', value='')
+                #insurance_group_number-section-2
+                  #insurance_group_number-label.label.hide.insurance-selected Insurance Group #
+                  input#appointment-insurance-group-number.txt-input.hide.insurance-selected(name='insurance_group_number', type='text', value='')
+                #insurance_phone-section-2
+                  #insurance_phone-label.label.hide.insurance-selected Insurance Phone #
+                  input#appointment-insurance-phone-number.txt-input.hide.insurance-selected(name='insurance_phone', type='text', value='')
+              .right
+                #comment-section-2
+                  #comment-label.label Comment
+                  textarea.txtarea-input(placeholder='Is there anything you would like us to know before your appointment?', maxlength='250', rows='4', name='comment', cols='50')
+              .clear-both
+            .modal-footer
+              button.btn-skip(type='button', data-dismiss='modal') Skip
+              button.btn-book-additional-submit(type='button') Submit
+  #booked-online.modal(tabindex='-1', role='dialog', aria-hidden='true', aria-labelledby='appointmentRequestLabel')
+    .modal-backdrop.in(style='height: 100%;')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h4#appointmentRequestLabel.modal-title Thank You
+        .modal-body
+          p.type-wrapper
+            | Thank you for your appointment request. We will contact you shortly to confirm your request. Please call our office 
+            span.apt-conf-phone at 
+            |  if you have any questions.
+          span.apt-conf-formlinks.apt-conf-formlinks2
+  #booking-screened.modal(tabindex='-1', role='dialog', aria-hidden='true', aria-labelledby='appointmentRequestLabel')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h4#appointmentRequestLabel.modal-title Please call our office
+        .modal-body
+          p
+            | We unfortunately can't schedule this type of appointment online. Please call our office 
+            span.apt-conf-phone at 
+            |  to make your appointment.
+  
+  //- Leave review
+  #leave-review.modal(tabindex='-1', role='dialog', aria-hidden='true', aria-labelledby='bookAppointmentLabel')
+    .modal-backdrop.in(style='height: 100%;')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h4#bookAppointmentLabel.modal-title
+            | Leave Review  
+            span.subtitle= practice.name  
+        
+        .caldetails(style='display: block;')
+          form.review_form
+            .modal-body
+              .left
+                .label Full name
+                input.txt-input(placeholder='Full name', name='form_name', type='text', value='', required='true')
+                .label Email address
+                input.txt-input(placeholder='Email address', name='email', type='email', value='', required='true')
+                .label Phone number
+                input.txt-input(placeholder='Phone number', name='form_phone', type='tel', value='', required='true')
+              
+              .left
+                .label Rating
+                #review-rate(style="float:left")
+                .counter(style="float:left;background-color:#333;font-size:1.6em;color:#fff;border-radius:6px;float:left;margin 0 10px;padding:10px;height:36px;width:48px;text-align:center")
+                .label Your comments
+                textarea.txt-input(placeholder='Your comments', name='form_review', type='text', value='', style='width:240px;height:120px')
+                    
+            .modal-footer
+              input(name='form_rating', id='form_rating', type='hidden', value='0')
+              button.btn-cancel(type='button', data-dismiss='modal') Cancel
+              button.btn-book-now(type='submit', value='Submit Review', data-loading-msg='Submitting...', data-success-msg='Success!', data-error-msg='Error! Try again.', data-form-type='review') Submit Review
+
+  #leave-review-ty.modal(tabindex='-1', role='dialog', aria-hidden='true', aria-labelledby='appointmentRequestLabel')
+    .modal-backdrop.in(style='height: 100%;')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h4#appointmentRequestLabel.modal-title Thank You
+        .modal-body
+          p(style="line-height: 180%")
+            | Thank you for your review. We will review your comments and get in touch to answer your questions. Please call our office 
+            span.apt-conf-phone at 
+            span= practice.phone  
+            |  if you have any questions.
+          span.apt-conf-formlinks.apt-conf-formlinks2
+          #positive-section(style="visibility:hidden")
+            p(style="line-height: 180%") We appreciate your help spreading the word. Please click on the following link to leave us a public review:
+            br
+            center
+              //- a(href= practice.social.yelp, target='_blank')
+              //-   img(src='/assets/img/yelp_logo.png', style='width:140px;height:140px;border-radius:50%;margin:20px')
+              //- a(href= practice.social.facebook, target='_blank')
+              //-   img(src='/assets/img/facebook-logo.png', style='width:140px;height:140px;border-radius:50%;margin:20px')
+              //- a(href= practice.social.googleplus, target='_blank')
+              //-   img(src='/assets/img/google_plus_logo.png', style='width:140px;height:140px;border-radius:50%;margin:20px')
+            
+script(src='/assets/js/custom.js')
