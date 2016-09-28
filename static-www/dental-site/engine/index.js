@@ -73,9 +73,9 @@ function metalsmithFactory(workDir, buildDir, options) {
     .use(
       // If clean build, copy over assets from public folder
       msIf(options._generate,
-        asset([
+        templateAssets([
         {
-          src: 'assets',
+          src: path.join(workDir, 'assets'),
           dest: 'assets'
         }])
       )
@@ -232,7 +232,7 @@ class SiteBuilderEngine {
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
       _clean: true,
       _generate: true,
-      _force: false
+      _force: true
     }))
 
     ms
@@ -252,17 +252,11 @@ class SiteBuilderEngine {
 
         console.log(`Serving HTTP on port ${port}`)
 
-        const build = function build(force) {
+        const build = function build() {
           return (done) => {
-            console.log(`Rebuild. Force = ${force}`)
-
-            metalsmithFactory(me.workDir, me.buildDir, Object.assign({}, me.options, {
-              _clean: false,
-              _generate: true,
-              _force: force
-            }))
-            .use(livereload({ debug: true }))
-            .build((err, files) => {
+            console.log(`Rebuild.`)
+            ms.build((err, files) => {
+              console.log('Rebuild done.')
               buildResult(err, files)
               done()
             })
@@ -270,13 +264,11 @@ class SiteBuilderEngine {
         }
         const themeDir = path.normalize(this.options.themeDir)
         // Quick build if src changed
-        watch(path.join(this.workDir, this.options.source, '**/*'), { ignoreInitial: true }, build(false));
-        // Full Rebuild if layout changed
-        watch(path.join(this.workDir, this.options.partials, '**/*'), { ignoreInitial: true }, build(true));
-        watch(path.join(themeDir, 'layouts/**/*'), { ignoreInitial: true }, build(true));
-        watch(path.join(themeDir, 'partials/**/*'), { ignoreInitial: true }, build(true));
-        watch(path.join(themeDir, 'assets/**/*'), { ignoreInitial: true }, build(true));
-        watch(path.join(themeDir, 'inplacePartials/**/*'), { ignoreInitial: true }, build(true));
+        watch(path.join(this.workDir, '**/*'), { ignoreInitial: true }, build());
+        watch(path.join(themeDir, 'layouts/**/*'), { ignoreInitial: true }, build());
+        watch(path.join(themeDir, 'partials/**/*'), { ignoreInitial: true }, build());
+        watch(path.join(themeDir, 'assets/**/*'), { ignoreInitial: true }, build());
+        watch(path.join(themeDir, 'inplacePartials/**/*'), { ignoreInitial: true }, build());
       })
   }
 
