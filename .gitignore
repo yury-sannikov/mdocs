@@ -42,3 +42,5 @@ node_modules
 app/mdocs-sitebuilder-s3
 app/src/.env_backup
 app/src/__sitebuilder
+tmp/
+
