@@ -34,17 +34,17 @@ echo Performing Docker Login to AWS
 eval $DOCKER_LOGIN
 
 docker pull 067216503767.dkr.ecr.us-east-1.amazonaws.com/node-alpine:onbuild || true
-docker rmi appcs-co:latest || true
-docker build -t appcs-co .
-docker tag -f appcs-co:latest 067216503767.dkr.ecr.us-east-1.amazonaws.com/appcs-co:latest
-docker push 067216503767.dkr.ecr.us-east-1.amazonaws.com/appcs-co:latest
+docker rmi app-mdocs-co:latest || true
+docker build -t app-mdocs-co .
+docker tag -f app-mdocs-co:latest 067216503767.dkr.ecr.us-east-1.amazonaws.com/app-mdocs-co:latest
+docker push 067216503767.dkr.ecr.us-east-1.amazonaws.com/app-mdocs-co:latest
 
 popd
 
 rm -rf ./tmp
 
-TASK_ARN=`aws ecs list-tasks --cluster appcs-co --family appcs-co-www | jq -r '.taskArns[0]'`
-aws ecs stop-task --cluster appcs-co --task ${TASK_ARN}
+TASK_ARN=`aws ecs list-tasks --cluster app-mdocs-co --family app-mdocs-co-www | jq -r '.taskArns[0]'`
+aws ecs stop-task --cluster app-mdocs-co --task ${TASK_ARN}
 
 # Update to latest
 docker pull silintl/ecs-deploy
@@ -53,5 +53,5 @@ docker run --rm \
 -e "AWS_ACCESS_KEY_ID=AKIAIPKZH7X4NJKN3DVQ" \
 -e "AWS_SECRET_ACCESS_KEY=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" \
 -e "AWS_DEFAULT_REGION=us-east-1" \
-silintl/ecs-deploy:latest -c appcs-co -n www -i 067216503767.dkr.ecr.us-east-1.amazonaws.com/appcs-co:latest
+silintl/ecs-deploy:latest -c app-mdocs-co -n www -i 067216503767.dkr.ecr.us-east-1.amazonaws.com/app-mdocs-co:latest
 
