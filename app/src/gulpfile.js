@@ -39,15 +39,7 @@
 
   var paths = {
     clean: [
-      'public/app/lib',
-      'public/app/js/**/*.js',
-      'public/app/js/**/*.map',
-      'public/app/js/**/*.min.js',
-      'public/app/css/**/*.css',
-      'public/app/css/**/*.min.css',
-      '!public/app/js/main.js',
-      '!public/app/js/auth0-editprofile-widget.min.js',
-      '!public/app/js/sitebuilder.js'
+      'public/app/*'
     ],
     js: [
       // ============= Bootstrap  ================
@@ -105,6 +97,24 @@
     ],
     sitebuilderjs: [
       'public/app/js/sitebuilder.js'
+    ],
+    stuff: [
+      {
+        from: '../assets/lib/**/*',
+        to: './public/app/lib',
+      },
+      {
+        from: '../assets/froala/**/*',
+        to: './public/app/froala',
+      },
+      {
+        from: '../assets/js/**/*',
+        to: './public/app/js',
+      },
+      {
+        from: '../assets/oneui/**/*',
+        to: './public/app/oneui',
+      },
     ]
   };
 
@@ -116,9 +126,11 @@
     return del(paths.clean);
   });
 
-  gulp.task('bower-copy', function () {
-    return gulp.src('../assets/lib/**/*')
-      .pipe(gulp.dest('./public/app/lib'));
+  gulp.task('copy-stuff', function () {
+    var tasks = paths.stuff.map(function(item) {
+      return gulp.src(item.from).pipe(gulp.dest(item.to));
+    })
+    return tasks
   });
 
   /**
@@ -247,7 +259,7 @@
   gulp.task('build', function (cb) {
     runSequence(
       'clean',                                // first clean
-      ['lint', 'jscs', 'bower-copy'],                       // then lint and jscs in parallel
+      ['lint', 'jscs', 'copy-stuff'],                       // then lint and jscs in parallel
       ['styles', 'scripts', 'npmscripts', 'sitebuilderjs', 'widgets', 'images'],        // etc.
       cb);
   });
