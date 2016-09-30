@@ -5,7 +5,8 @@ Deploy static web sites to AWS CloudFront
 - Install Go using [this](https://golang.org/doc/install]) url
 - [Configure](https://golang.org/doc/code.html) Go
 - Check path having go/bin folder listed as *export PATH=$PATH:$GOPATH/bin*
-- _go install github.com/yury-sannikov/go-cloudfront-deploy_
+- _go get -u github.com/gursesl/mdocs-survey/tools/go-cloudfront-deploy_
+- _go install github.com/gursesl/mdocs-survey/tools/go-cloudfront-deploy_
 - You should have _$GOPATH/bin/go-cloudfront-deploy_ executable installed and accessible from command line
 
 ## Usage
