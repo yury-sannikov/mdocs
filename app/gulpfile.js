@@ -46,28 +46,28 @@
       // Enable/disable as needed but only turn on
       // .js that is needed on *every* page. No bloat!
       // =========================================
-      '../assets/lib/bootstrap/js/transition.js',
-      '../assets/lib/bootstrap/js/alert.js',
-      //../assets/lib/bootstrap/js/button.js',
-      //../assets/lib/bootstrap/js/carousel.js',
-      '../assets/lib/bootstrap/js/collapse.js',
-      '../assets/lib/bootstrap/js/dropdown.js',
-      //../assets/lib/bootstrap/js/modal.js',
-      '../assets/lib/bootstrap/js/tooltip.js',
-      '../assets/lib/bootstrap/js/popover.js',
-      //../assets/lib/bootstrap/js/scrollspy.js',
-      //../assets/lib/bootstrap/js/tab.js',
-      //../assets/lib/bootstrap/js/affix.js'
+      'assets/lib/bootstrap/js/transition.js',
+      'assets/lib/bootstrap/js/alert.js',
+      //assets/lib/bootstrap/js/button.js',
+      //assets/lib/bootstrap/js/carousel.js',
+      'assets/lib/bootstrap/js/collapse.js',
+      'assets/lib/bootstrap/js/dropdown.js',
+      //assets/lib/bootstrap/js/modal.js',
+      'assets/lib/bootstrap/js/tooltip.js',
+      'assets/lib/bootstrap/js/popover.js',
+      //assets/lib/bootstrap/js/scrollspy.js',
+      //assets/lib/bootstrap/js/tab.js',
+      //assets/lib/bootstrap/js/affix.js'
       // =========================================
-      '../assets/oneui/assets/js/core/jquery.slimscroll.min.js',
-      '../assets/oneui/assets/js/core/jquery.scrollLock.min.js',
-      '../assets/oneui/assets/js/core/jquery.appear.min.js',
-      '../assets/oneui/assets/js/core/jquery.countTo.min.js',
-      '../assets/oneui/assets/js/core/jquery.placeholder.min.js',
+      'assets/oneui/assets/js/core/jquery.slimscroll.min.js',
+      'assets/oneui/assets/js/core/jquery.scrollLock.min.js',
+      'assets/oneui/assets/js/core/jquery.appear.min.js',
+      'assets/oneui/assets/js/core/jquery.countTo.min.js',
+      'assets/oneui/assets/js/core/jquery.placeholder.min.js',
       // =========================================
-      '../assets/lib/fastclick/lib/fastclick.js',
-      '../assets/lib/chosen/chosen.jquery.js',
-      '../assets/js/main.js'
+      'assets/lib/fastclick/lib/fastclick.js',
+      'assets/lib/chosen/chosen.jquery.js',
+      'assets/js/main.js'
     ],
     widgetsjs: [
       'src/widgets/widgets.js'
@@ -82,13 +82,13 @@
       'gulpfile.js'
     ],
     less: [
-      '../assets/less/bootstrap.less',
-      '../assets/less/main.less',
-      '../assets/less/page-api.less',
-      '../assets/less/page-colors.less',
-      '../assets/less/page-dashboard.less',
-      '../assets/less/page-privacy.less',
-      '../assets/less/page-react.less'
+      'assets/less/bootstrap.less',
+      'assets/less/main.less',
+      'assets/less/page-api.less',
+      'assets/less/page-colors.less',
+      'assets/less/page-dashboard.less',
+      'assets/less/page-privacy.less',
+      'assets/less/page-react.less'
     ],
     npm: [
       'node_modules/json-editor/dist/jsoneditor.min.js',
@@ -96,23 +96,23 @@
       'node_modules/jqtree/tree.jquery.js'
     ],
     sitebuilderjs: [
-      '../assets/js/sitebuilder.js'
+      'assets/js/sitebuilder.js'
     ],
     stuff: [
       {
-        from: '../assets/lib/**/*',
+        from: 'assets/lib/**/*',
         to: './public/app/lib',
       },
       {
-        from: '../assets/froala/**/*',
+        from: 'assets/froala/**/*',
         to: './public/app/froala',
       },
       {
-        from: '../assets/js/**/*',
+        from: 'assets/js/**/*',
         to: './public/app/js',
       },
       {
-        from: '../assets/oneui/**/*',
+        from: 'assets/oneui/**/*',
         to: './public/app/oneui',
       },
     ]

@@ -5,21 +5,21 @@ set -e
 
 mkdir tmp
 mkdir tmp/public tmp/src tmp/views tmp/webpack tmp/shared_modules
-cp -rf ../../app/src/shared_modules/* ./tmp/shared_modules/
+cp -rf ../../app/shared_modules/* ./tmp/shared_modules/
 rm -rf ./tmp/shared_modules/sb_engine_0.1/node_modules
-cp -rf ../../app/src/public/* ./tmp/public/
-cp -rf ../../app/src/src/* ./tmp/src/
-cp -rf ../../app/src/webpack/* ./tmp/webpack/
-cp -rf ../../app/src/views/* ./tmp/views/
-cp -rf ../../app/src/resources ./tmp/resources
-cp -rf ../../app/src/.env_prod ./tmp/.env
-cp -rf ../../app/src/server.js ./tmp/server.js
-cp -rf ../../app/src/webpack-assets.json ./tmp/webpack-assets.json
+cp -rf ../../app/public/* ./tmp/public/
+cp -rf ../../app/src/* ./tmp/src/
+cp -rf ../../app/webpack/* ./tmp/webpack/
+cp -rf ../../app/views/* ./tmp/views/
+cp -rf ../../app/resources ./tmp/resources
+cp -rf ../../app/.env_prod ./tmp/.env
+cp -rf ../../app/server.js ./tmp/server.js
+cp -rf ../../app/webpack-assets.json ./tmp/webpack-assets.json
 COMMIT_HASH=`git rev-parse HEAD`
 echo "{\"value\":\"${COMMIT_HASH}\"}" > ./tmp/src/revision.json
-cp ../../app/src/package.json ./tmp/package.json
-cp ../../app/src/.npmrc ./tmp/.npmrc
-cp ../../app/src/.babelrc ./tmp/.babelrc
+cp ../../app/package.json ./tmp/package.json
+cp ../../app/.npmrc ./tmp/.npmrc
+cp ../../app/.babelrc ./tmp/.babelrc
 cp ../docker/api/Dockerfile ./tmp/Dockerfile
 
 pushd tmp
@@ -34,17 +34,17 @@ echo Performing Docker Login to AWS
 eval $DOCKER_LOGIN
 
 docker pull 067216503767.dkr.ecr.us-east-1.amazonaws.com/node-alpine:onbuild || true
-docker rmi app-mdocs-co:latest || true
-docker build -t app-mdocs-co .
-docker tag -f app-mdocs-co:latest 067216503767.dkr.ecr.us-east-1.amazonaws.com/app-mdocs-co:latest
-docker push 067216503767.dkr.ecr.us-east-1.amazonaws.com/app-mdocs-co:latest
+docker rmi appcs-co:latest || true
+docker build -t appcs-co .
+docker tag -f appcs-co:latest 067216503767.dkr.ecr.us-east-1.amazonaws.com/appcs-co:latest
+docker push 067216503767.dkr.ecr.us-east-1.amazonaws.com/appcs-co:latest
 
 popd
 
 rm -rf ./tmp
 
-TASK_ARN=`aws ecs list-tasks --cluster app-mdocs-co --family app-mdocs-co-www | jq -r '.taskArns[0]'`
-aws ecs stop-task --cluster app-mdocs-co --task ${TASK_ARN}
+TASK_ARN=`aws ecs list-tasks --cluster appcs-co --family appcs-co-www | jq -r '.taskArns[0]'`
+aws ecs stop-task --cluster appcs-co --task ${TASK_ARN}
 
 # Update to latest
 docker pull silintl/ecs-deploy
@@ -53,5 +53,5 @@ docker run --rm \
 -e "AWS_ACCESS_KEY_ID=AKIAIPKZH7X4NJKN3DVQ" \
 -e "AWS_SECRET_ACCESS_KEY=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" \
 -e "AWS_DEFAULT_REGION=us-east-1" \
-silintl/ecs-deploy:latest -c app-mdocs-co -n www -i 067216503767.dkr.ecr.us-east-1.amazonaws.com/app-mdocs-co:latest
+silintl/ecs-deploy:latest -c appcs-co -n www -i 067216503767.dkr.ecr.us-east-1.amazonaws.com/appcs-co:latest
 
