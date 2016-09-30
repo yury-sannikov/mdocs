@@ -139,7 +139,6 @@
 
   gulp.task('styles', function () {
     return gulp.src(paths.less, {
-          base: '../assets/less/'
         }
       )
       .pipe($.less({
