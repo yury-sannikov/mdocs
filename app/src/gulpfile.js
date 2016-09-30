@@ -16,6 +16,7 @@
   var terminus      = require('terminus');
   var runSequence   = require('run-sequence');
   var babel         = require('gulp-babel');
+  var path          = require('path');
 
   /**
    * Banner
@@ -38,6 +39,7 @@
 
   var paths = {
     clean: [
+      'public/app/lib',
       'public/app/js/**/*.js',
       'public/app/js/**/*.map',
       'public/app/js/**/*.min.js',
@@ -88,13 +90,13 @@
       'gulpfile.js'
     ],
     less: [
-      'less/bootstrap.less',
-      'less/main.less',
-      'less/page-api.less',
-      'less/page-colors.less',
-      'less/page-dashboard.less',
-      'less/page-privacy.less',
-      'less/page-react.less'
+      '../assets/less/bootstrap.less',
+      '../assets/less/main.less',
+      '../assets/less/page-api.less',
+      '../assets/less/page-colors.less',
+      '../assets/less/page-dashboard.less',
+      '../assets/less/page-privacy.less',
+      '../assets/less/page-react.less'
     ],
     npm: [
       'node_modules/json-editor/dist/jsoneditor.min.js',
@@ -114,13 +116,23 @@
     return del(paths.clean);
   });
 
+  gulp.task('bower-copy', function () {
+    return gulp.src('../assets/lib/**/*')
+      .pipe(gulp.dest('./public/app/lib'));
+  });
+
   /**
    * Process CSS
    */
 
   gulp.task('styles', function () {
-    return gulp.src(paths.less)               // Read in Less files
-      .pipe($.less({ strictMath: true }))     // Compile Less files
+    return gulp.src(paths.less, {
+          base: '../assets/less/'
+        }
+      )
+      .pipe($.less({
+        strictMath: true
+      }))     // Compile Less files
       .pipe($.autoprefixer({                  // Autoprefix for target browsers
         browsers: ['last 2 versions'],
         cascade: true
@@ -156,7 +168,7 @@
     return gulp.src(paths.sitebuilderjs)
       .pipe($.rename({ suffix: '.min' }))
       .pipe($.uglify({ outSourceMap: false }))
-      .pipe(gulp.dest('./public/app/js'))
+      .pipe(gulp.dest('./public/app/js'));
   });
 
   /**
@@ -191,7 +203,7 @@
    */
 
   gulp.task('images', function () {
-    return gulp.src('images/**/*')            // Read images
+    return gulp.src('../assets/images/**/*')            // Read images
       .pipe($.changed('./public/app/img'))    // Only process new/changed
       .pipe($.imagemin({                      // Compress images
         progressive: true,
@@ -235,7 +247,7 @@
   gulp.task('build', function (cb) {
     runSequence(
       'clean',                                // first clean
-      ['lint', 'jscs'],                       // then lint and jscs in parallel
+      ['lint', 'jscs', 'bower-copy'],                       // then lint and jscs in parallel
       ['styles', 'scripts', 'npmscripts', 'sitebuilderjs', 'widgets', 'images'],        // etc.
       cb);
   });
