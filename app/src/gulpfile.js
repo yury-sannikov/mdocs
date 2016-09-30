@@ -39,35 +39,35 @@
 
   var paths = {
     clean: [
-      'public/app/*'
+      'public/app'
     ],
     js: [
       // ============= Bootstrap  ================
       // Enable/disable as needed but only turn on
       // .js that is needed on *every* page. No bloat!
       // =========================================
-      'public/app/lib/bootstrap/js/transition.js',
-      'public/app/lib/bootstrap/js/alert.js',
-      // 'public/lib/bootstrap/js/button.js',
-      // 'public/lib/bootstrap/js/carousel.js',
-      'public/app/lib/bootstrap/js/collapse.js',
-      'public/app/lib/bootstrap/js/dropdown.js',
-      // 'public/lib/bootstrap/js/modal.js',
-      'public/app/lib/bootstrap/js/tooltip.js',
-      'public/app/lib/bootstrap/js/popover.js',
-      // 'public/lib/bootstrap/js/scrollspy.js',
-      // 'public/lib/bootstrap/js/tab.js',
-      // 'public/lib/bootstrap/js/affix.js'
+      '../assets/lib/bootstrap/js/transition.js',
+      '../assets/lib/bootstrap/js/alert.js',
+      //../assets/lib/bootstrap/js/button.js',
+      //../assets/lib/bootstrap/js/carousel.js',
+      '../assets/lib/bootstrap/js/collapse.js',
+      '../assets/lib/bootstrap/js/dropdown.js',
+      //../assets/lib/bootstrap/js/modal.js',
+      '../assets/lib/bootstrap/js/tooltip.js',
+      '../assets/lib/bootstrap/js/popover.js',
+      //../assets/lib/bootstrap/js/scrollspy.js',
+      //../assets/lib/bootstrap/js/tab.js',
+      //../assets/lib/bootstrap/js/affix.js'
       // =========================================
-      'public/app/oneui/assets/js/core/jquery.slimscroll.min.js',
-      'public/app/oneui/assets/js/core/jquery.scrollLock.min.js',
-      'public/app/oneui/assets/js/core/jquery.appear.min.js',
-      'public/app/oneui/assets/js/core/jquery.countTo.min.js',
-      'public/app/oneui/assets/js/core/jquery.placeholder.min.js',
+      '../assets/oneui/assets/js/core/jquery.slimscroll.min.js',
+      '../assets/oneui/assets/js/core/jquery.scrollLock.min.js',
+      '../assets/oneui/assets/js/core/jquery.appear.min.js',
+      '../assets/oneui/assets/js/core/jquery.countTo.min.js',
+      '../assets/oneui/assets/js/core/jquery.placeholder.min.js',
       // =========================================
-      'public/app/lib/fastclick/lib/fastclick.js',
-      'public/app/lib/chosen/chosen.jquery.js',
-      'public/app/js/main.js'
+      '../assets/lib/fastclick/lib/fastclick.js',
+      '../assets/lib/chosen/chosen.jquery.js',
+      '../assets/js/main.js'
     ],
     widgetsjs: [
       'src/widgets/widgets.js'
@@ -96,7 +96,7 @@
       'node_modules/jqtree/tree.jquery.js'
     ],
     sitebuilderjs: [
-      'public/app/js/sitebuilder.js'
+      '../assets/js/sitebuilder.js'
     ],
     stuff: [
       {
