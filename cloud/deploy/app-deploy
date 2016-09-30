@@ -20,7 +20,7 @@ echo "{\"value\":\"${COMMIT_HASH}\"}" > ./tmp/src/revision.json
 cp ../../app/src/package.json ./tmp/package.json
 cp ../../app/src/.npmrc ./tmp/.npmrc
 cp ../../app/src/.babelrc ./tmp/.babelrc
-cp ../../app/docker/Dockerfile ./tmp/Dockerfile
+cp ../docker/api/Dockerfile ./tmp/Dockerfile
 
 pushd tmp
 
