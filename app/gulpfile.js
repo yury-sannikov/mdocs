@@ -214,7 +214,7 @@
    */
 
   gulp.task('images', function () {
-    return gulp.src('../assets/images/**/*')            // Read images
+    return gulp.src('assets/images/**/*')            // Read images
       .pipe($.changed('./public/app/img'))    // Only process new/changed
       .pipe($.imagemin({                      // Compress images
         progressive: true,
