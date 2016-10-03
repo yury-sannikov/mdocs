@@ -32,8 +32,7 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
     link(rel='stylesheet', media='only screen and (max-width: 480px)', href='/assets/css/480.css')
     link(rel='stylesheet', media='only screen and (max-width: 360px)', href='/assets/css/360.css')
     // All JavaScript at the bottom, except for Modernizr which enables HTML5 elements and feature detects
-    script(type='text/javascript', async='', src='http://www.google-analytics.com/ga.js')
-    script(src='/js/modernizr-2.5.3-min.js')
+    script(src='/assets/js/modernizr-2.5.3-min.js')
     // InstanceBeginEditable name="head"
     link(rel='stylesheet', media='only screen and (max-width: 3000px) and (min-width: 1920px)', href='/assets/css/1920.css')
     // InstanceEndEditable
@@ -49,15 +48,6 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
     // InstanceParam name="mTestimonials" type="text" value="off"
     // InstanceParam name="mContact" type="text" value="off"
     // InstanceParam name="mEmergency" type="text" value="off"
-    script(type='text/javascript').
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-19062121-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
     style.
       .pkt_added {text-decoration:none !important;}
   body(style='')
@@ -65,7 +55,7 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
       #top-bar
         .maincontent
           a(href='https://www.facebook.com/Northern-Virginia-Dental-Arts-1182931241733885/', target='_blank')
-            img(src='/images/icon-facebook.gif', alt='Facebook')
+            img(src='/assets/images/icon-facebook.gif', alt='Facebook')
           p
             a(href='/') Home
             a(href='/contact-and-location.html') Contact & Location
@@ -74,19 +64,18 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
       #headcontainer
         header
           a(href='/')
-            img.home-photo(src='/images/northern-virginia-dental-center-photo.jpg', alt='Northern Virginia Dental Arts', border='0')
+            img.home-photo(src='/assets/images/northern-virginia-dental-center-photo.jpg', alt='Northern Virginia Dental Arts', border='0')
           a(href='/')
-            img(src='/images/northern-virginia-dental-denter-logo.gif', alt='Northern Virginia Dental Arts', border='0')
+            img(src='/assets/images/northern-virginia-dental-denter-logo.gif', alt='Northern Virginia Dental Arts', border='0')
           #big-contact
             // <p class="apt"><a href="/appointment.html">Make appointment</a></p>
             #calendar
               a#zocdoc_schedule(style='display:block;', href='http://www.zocdoc.com/practice/nova-dental-arts-47181') Nova Dental Arts
-              script(type='text/javascript', src='http://offsiteSchedule.zocdoc.com/remote/Schedule2.js.aspx?providerid=47181&prefix=zocdoc_&bookBtn=http://offsiteSchedule.zocdoc.com/images/remote/book-on-light-small.png&locationId=')
+              script(type='text/javascript', src='http://offsiteSchedule.zocdoc.com/remote/Schedule2.js.aspx?providerid=47181&prefix=zocdoc_&bookBtn=http://offsiteSchedule.zocdoc.com/assets/images/remote/book-on-light-small.png&locationId=')
             p.phone= practice.phone
             p.address 46175 Westlake Drive, Suite 130, Sterling, VA 20165
       .standardcontainer
         #menu.maincontent
-          // <img src="/images/icon-house.gif" alt="Home" class="home">
           .drop-down-container
             a.toggleMenu(href='#', style='display: none;') Menu
             ul.nav
@@ -141,7 +130,7 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
         .bx-viewport(style='width: 100%; overflow: hidden; position: relative; height: 439px;')
           ul.bxslider(style='width: auto; position: relative;')
             li(style='float: none; list-style: none; position: absolute; display: none; width: 1280px; z-index: 0;')
-              img(src='/images/slide-1.jpg', alt='Welcome to Northern Virginia Dental Arts ')
+              img(src='/assets/images/slide-1.jpg', alt='Welcome to Northern Virginia Dental Arts ')
               .bx-caption
                 span
                   p.header Welcome to Northern Virginia Dental Arts
@@ -153,13 +142,13 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
                       i your
                     |  very quality of life!
             li(style='float: none; list-style: none; position: absolute; width: 1280px; display: list-item; z-index: 50;')
-              img(src='/images/slide-0.jpg', alt='Ideal Surroundings')
+              img(src='/assets/images/slide-0.jpg', alt='Ideal Surroundings')
               .bx-caption
                 span
                   p.header Ideal Surroundings
                   p Relax in our beautiful office set on a scenic pond
             li(style='float: none; list-style: none; position: absolute; width: 1280px; display: none; z-index: 0;')
-              img(src='/images/slide-3.jpg', alt='Gorgeous Smile')
+              img(src='/assets/images/slide-3.jpg', alt='Gorgeous Smile')
               .bx-caption
                 span
                   p.header Sterling, Virginia
@@ -168,13 +157,13 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
                     br
                     | Sterling, Ashburn, Great Falls and Northern Virginia
             li(style='float: none; list-style: none; position: absolute; width: 1280px; display: none; z-index: 0;')
-              img(src='/images/slide-4.jpg', alt='Family Dentist')
+              img(src='/assets/images/slide-4.jpg', alt='Family Dentist')
               .bx-caption
                 span
                   p.header Family Dentist
                   p We offer complete and cosmetic dentistry for all ages
             li(style='float: none; list-style: none; position: absolute; width: 1280px; display: none; z-index: 0;')
-              img(src='/images/slide-5.jpg', alt='Fayetteville, North Carolina')
+              img(src='/assets/images/slide-5.jpg', alt='Fayetteville, North Carolina')
               .bx-caption
                 span
                   p.header Gorgeous Smile
@@ -196,7 +185,7 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
               a.bx-pager-link(href='', data-slide-index='4') 5
       .maincontent.centre
         #portrait-and-intro
-          img(src='/images/dr-portrait.jpg', alt='Dr Portrait')
+          img(src='/assets/images/dr-portrait.jpg', alt='Dr Portrait')
           h2 NADER HAWA, D.M.D.
           p.why
             | Why are we here?
@@ -213,7 +202,7 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
         #four-icons
           .col-4.span_1_of_4.our-team
             a(href='/our-team.html')
-              img(src='/images/icon-our-team.gif', alt='Our team', border='0')
+              img(src='/assets/images/icon-our-team.gif', alt='Our team', border='0')
             h4 Our Team
             div
               p
@@ -224,7 +213,7 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
               a(href='#') Find out more
           .col-4.span_1_of_4.dental-services
             a(href='/dental-services/index.html')
-              img(src='/images/icon-dental-services.gif', alt='Dental services', border='0')
+              img(src='/assets/images/icon-dental-services.gif', alt='Dental services', border='0')
             h4 Dental Services
             div
               p
@@ -235,7 +224,7 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
               a(href='#') Find out more
           .col-4.span_1_of_4.gorgeous-smile
             a(href='/gorgeous-smile.html')
-              img(src='/images/icon-gorgeous-smile.gif', alt='Gorgeous Smile', border='0')
+              img(src='/assets/images/icon-gorgeous-smile.gif', alt='Gorgeous Smile', border='0')
             h4 Gorgeous Smile
             div
               p
@@ -246,7 +235,7 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
               a(href='#') Find out more
           .col-4.span_1_of_4.oral-health
             a(href='/oral-health.html')
-              img(src='/images/icon-oral-health.gif', alt='Oral Health', border='0')
+              img(src='/assets/images/icon-oral-health.gif', alt='Oral Health', border='0')
             h4 Oral Health
             div
               p
@@ -280,25 +269,25 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
                 | and treatment options to your satisfaction.
               li Your dental visits will be comfortable and gentle.
               li We'll help you create a gorgeous smile.
-          img(src='/images/nova-homepage-we-promise.jpg', alt='We Promise', style='margin-left: 0; float: left;')
+          img(src='/assets/images/nova-homepage-we-promise.jpg', alt='We Promise', style='margin-left: 0; float: left;')
           #magazine
             h3 Our Magazine
             p
               | For insight into Dr. Hawa and Northern Virginia Dental Arts, 
-              a(href='/pdfs/hawa-mag-gilleard-web.pdf', target='_blank') download
+              a(href='/assets/files/hawa-mag-gilleard-web.pdf', target='_blank') download
               |  our magazine today.
-            img#magazine-arrow(src='/images/magazine-arrow.jpg', alt='Magazine')
+            img#magazine-arrow(src='/assets/images/magazine-arrow.jpg', alt='Magazine')
       // InstanceEndEditable
       .standardcontainer.quote
         .maincontent.centre
-          img(src='/images/quote-open.png', alt='Quote')
+          img(src='/assets/images/quote-open.png', alt='Quote')
           // InstanceBeginEditable name="Quote"
           p
             | Entire staff was on point. Highly engaging and friendly. Staff works well together - great synergy. High level of genuine interest in the patient. Didn't feel like I was being processed. I think our society has lost a great deal of the personal attention from our healthcare professionals. I will certainly recommend this dental practice to my work associates and friends.
           div(style='margin: auto 0;')
             p.from — Happy Customer: TF —
           // InstanceEndEditable
-          img(src='/images/quote-close.png', alt='Quote')
+          img(src='/assets/images/quote-close.png', alt='Quote')
       .standardcontainer.footer
         .maincontent
           .col-4.span_1_of_4
@@ -354,12 +343,12 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
               br
               |           703-444-5108
             p#copyright © 2015 Northern Virginia Dental Arts
-    script(src='//code.jquery.com/jquery-1.11.0.min.js')
-    script(src='/js/jquery.validate.min.js')
-    script(src='/js/drop-down-menu.js')
-    script(src='/js/validate-short-form.js')
+    script(src='/assets/js/jquery-1.11.0.min.js')
+    script(src='/assets/js/jquery.validate.min.js')
+    script(src='/assets/js/drop-down-menu.js')
+    script(src='/assets/js/validate-short-form.js')
     // InstanceBeginEditable name="JS"
-    script(src='/js/jquery.bxslider.min.js')
+    script(src='/assets/js/jquery.bxslider.min.js')
     script.
       $(document).ready(function(){
       $('.bxslider').bxSlider({

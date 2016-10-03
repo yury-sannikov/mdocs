@@ -4,50 +4,50 @@
 
 @font-face {
     font-family: PTSans;
-    src: url(/fonts/pt-sans.ttf), url(/fonts/pt-sans.eot);
+    src: url(/assets/fonts/pt-sans.ttf), url(/assets/fonts/pt-sans.eot);
     font-weight: normal;
 }
 
 @font-face {
     font-family: PTSans;
-    src: url(/fonts/pt-sans-bold.ttf), url(/fonts/pt-sans-bold.eot);
+    src: url(/assets/fonts/pt-sans-bold.ttf), url(/assets/fonts/pt-sans-bold.eot);
     font-weight: bold;
 }
 
 @font-face {
     font-family: PTSansNarrow;
-    src: url(/fonts/pt-sans-narrow.ttf), url(/fonts/pt-sans-narrow.eot);
+    src: url(/assets/fonts/pt-sans-narrow.ttf), url(/assets/fonts/pt-sans-narrow.eot);
     font-weight: normal;
 }
 
 @font-face {
     font-family: PTSansNarrow;
-    src: url(/fonts/pt-sans-narrow-bold.ttf), url(/fonts/pt-sans-narrow-bold.eot);
+    src: url(/assets/fonts/pt-sans-narrow-bold.ttf), url(/assets/fonts/pt-sans-narrow-bold.eot);
     font-weight: bold;
 }
 
 @font-face {
     font-family: OpenSans;
-    src: url(/fonts/open-sans-bold.ttf), url(/fonts/open-sans-bold.eot);
+    src: url(/assets/fonts/open-sans-bold.ttf), url(/assets/fonts/open-sans-bold.eot);
     font-weight: bold;
 }
 
 @font-face {
     font-family: OpenSans;
-    src: url(/fonts/open-sans.ttf), url(/fonts/open-sans.eot);
+    src: url(/assets/fonts/open-sans.ttf), url(/assets/fonts/open-sans.eot);
     font-weight: normal;
 }
 
 @font-face {
     font-family: OpenSans;
-    src: url(/fonts/open-sans-italic.ttf), url(/fonts/open-sans-italic.eot);
+    src: url(/assets/fonts/open-sans-italic.ttf), url(/assets/fonts/open-sans-italic.eot);
     font-style: italic;
 }
 
 
 @font-face {
     font-family: OpenSansSemiBold;
-    src: url(/fonts/open-sans-semi-bold.ttf), url(/fonts/open-sans-semi-bold.eot);
+    src: url(/assets/fonts/open-sans-semi-bold.ttf), url(/assets/fonts/open-sans-semi-bold.eot);
 }
 
 /* BASIC PAGE SETUP ============================================================================= */
@@ -465,7 +465,7 @@ position: relative;
 #footercontainer {
 width: 100%;	
 border-top: 1px solid #000;
-background: #222 url(/images/footerback.png) left top;
+background: #222 url(/assets/images/footerback.png) left top;
 }
 
 footer {
@@ -531,7 +531,7 @@ border-radius:5px 0 5px 5px;
 .note.rounded:before {
 border-width:8px;
 border-color:#ff #ff transparent transparent;
-background: url(/images/bodyback.png);
+background: url(/assets/images/bodyback.png);
 -webkit-border-bottom-left-radius:5px;
 -moz-border-radius:0 0 0 5px;
 border-radius:0 0 0 5px;
@@ -543,7 +543,7 @@ border-radius:0 0 0 5px;
 max-width: 90%;
 padding: 5%;
 margin: 0 0 1em 0;
-background: transparent url(/images/stripe-bg.png);
+background: transparent url(/assets/images/stripe-bg.png);
 -webkit-transition: background 0.3s ease;
 -moz-transition: background 0.3s ease;
 -o-transition: background 0.3s ease;
@@ -551,7 +551,7 @@ transition: background 0.3s ease;
 }
 
 .siteimage:hover {
-background: #bbb url(/images/stripe-bg.png);
+background: #bbb url(/assets/images/stripe-bg.png);
 position: relative;
 top: -2px;
 
@@ -587,7 +587,7 @@ border-radius: 5px;
 -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
 -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
 box-shadow: 0 1px 2px rgba(0,0,0,.2);
-background: #cc1122 url(/images/glass.png) repeat-x 0 50%;
+background: #cc1122 url(/assets/images/glass.png) repeat-x 0 50%;
 -webkit-transition: all 0.3s ease;
 -moz-transition: all 0.3s ease;
 -o-transition: all 0.3s ease;
@@ -596,12 +596,12 @@ font-size : 1.1em;
 
 }
 .button:hover {
-background: #dd2233 url(/images/glass.png) repeat-x 0 50%;
+background: #dd2233 url(/assets/images/glass.png) repeat-x 0 50%;
 color: #fff;
 text-decoration: none;
 }
 .button:active {
-background: #dd2233 url(/images/glass.png) repeat-x 0 50%;
+background: #dd2233 url(/assets/images/glass.png) repeat-x 0 50%;
 color: #fff;
 position: relative;
 top: 1px;
@@ -751,11 +751,11 @@ border : 0; }
 }
 
 #big-contact p.phone {
-	background: url(/images/icon-phone.gif) center left no-repeat #FFF;
+	background: url(/assets/images/icon-phone.gif) center left no-repeat #FFF;
 }
 
 #big-contact p.apt {
-	background: url(/images/icon-apt.gif) center left no-repeat #FFF;
+	background: url(/assets/images/icon-apt.gif) center left no-repeat #FFF;
 }
 
 #big-contact p.address {
@@ -933,7 +933,7 @@ border : 0; }
 }
 
 .quote {
-	background: url(/images/quote-bg.jpg) top left no-repeat #FFF;
+	background: url(/assets/images/quote-bg.jpg) top left no-repeat #FFF;
 	background-size: cover;
 	float: left;
 
@@ -1184,7 +1184,7 @@ img.grey-border {
 
 .sidebar div.sidebar-header {
 	padding: 10px;
-	background: url(/images/icon-appointment.gif) no-repeat bottom right #84548f;
+	background: url(/assets/images/icon-appointment.gif) no-repeat bottom right #84548f;
 	margin-bottom: 20px;
 }
 
@@ -1193,7 +1193,7 @@ img.grey-border {
 }
 
 .sidebar div.sidebar-header.finance {
-	background: url(/images/icon-finance.gif) no-repeat bottom right #84548f;
+	background: url(/assets/images/icon-finance.gif) no-repeat bottom right #84548f;
 }
 
 
@@ -1484,7 +1484,7 @@ img.download-pdf {
 }
 
 .five-star p.header {
-	background: url(/images/nova-5-stars.jpg) no-repeat 120px 2px #FFF;
+	background: url(/assets/images/nova-5-stars.jpg) no-repeat 120px 2px #FFF;
 	margin-bottom: 5px;
 }
 
@@ -1650,7 +1650,7 @@ p.before-after {
 }
 
 #lady-smile .right {
-	background: url(/images/bg-thumb.gif) no-repeat bottom right #F3F2ED;
+	background: url(/assets/images/bg-thumb.gif) no-repeat bottom right #F3F2ED;
 	float: right;
 	width: 190px;
 	height: 266px;
@@ -1742,7 +1742,7 @@ p#download-pdf-on-white a {
 }
 
 .google-review p.header {
-    background: #fff url("/images/five-stars.gif") no-repeat scroll right center;
+    background: #fff url("/assets/images/five-stars.gif") no-repeat scroll right center;
     margin-right: 8px;
 }
 
@@ -1784,14 +1784,14 @@ p#download-pdf-on-white a {
 
 #magazine {
 	float: right;
-	background: url(/images/magazine.jpg) right top #F5F5F5 no-repeat;	
+	background: url(/assets/images/magazine.jpg) right top #F5F5F5 no-repeat;	
 	width: 350px;
 	height: 300px;
 
 }
 
 #magazine-wrapper #magazine {
-	background: url(/images/magazine-on-white.jpg) right top #FFF no-repeat;
+	background: url(/assets/images/magazine-on-white.jpg) right top #FFF no-repeat;
 	width: 370px;	
 }
 
