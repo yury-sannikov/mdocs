@@ -6,15 +6,7 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
     include ../partials/header.pug
   body(style='')
     #wrapper
-      #top-bar
-        .maincontent
-          a(href='https://www.facebook.com/Northern-Virginia-Dental-Arts-1182931241733885/', target='_blank')
-            img(src='/assets/images/icon-facebook.gif', alt='Facebook')
-          p
-            a(href='/') Home
-            a(href='/contact-and-location.html') Contact & Location
-            a(href='/financial-options.html') Financial Options
-            a(href='/new-patient-forms.html') New Patient Forms
+      include ../partials/topnavbar.pug
       #headcontainer
         header
           a(href='/')
@@ -27,7 +19,7 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
             //-   a#zocdoc_schedule(style='display:block;', href='http://www.zocdoc.com/practice/nova-dental-arts-47181') Nova Dental Arts
             //-   script(type='text/javascript', src='http://offsiteSchedule.zocdoc.com/remote/Schedule2.js.aspx?providerid=47181&prefix=zocdoc_&bookBtn=http://offsiteSchedule.zocdoc.com/assets/images/remote/book-on-light-small.png&locationId=')
             p.phone= practice.phone
-            p.address 46175 Westlake Drive, Suite 130, Sterling, VA 20165
+            p.address #{practice.address}, #{practice.city}, #{practice.state} #{practice.zip}  
       .standardcontainer
         #menu.maincontent
           .drop-down-container
