@@ -7,21 +7,6 @@ const uuid = require('node-uuid');
 const moment = require('moment');
 const _ = require('lodash');
 
-// Review sites validation and formatting
-
-const formatReviewSites = function(sites) {
-  var formatted = {};
-
-  if(!_.isEmpty(sites.yelp)) { formatted = Object.assign({}, formatted, { 'yelp': sites.yelp }); }
-  if(!_.isEmpty(sites.google)) { formatted = Object.assign({}, formatted, { 'google': sites.google }); }
-  if(!_.isEmpty(sites.healthgrades)) { formatted = Object.assign({}, formatted, { 'healthgrades': sites.healthgrades }); }
-  if(!_.isEmpty(sites.vitals)) { formatted = Object.assign({}, formatted, { 'vitals': sites.vitals }); }
-  if(!_.isEmpty(sites.ratemds)) { formatted = Object.assign({}, formatted, { 'ratemds': sites.ratemds }); }
-  if(!_.isEmpty(sites.yellowpages)) { formatted = Object.assign({}, formatted, { 'yellowpages': sites.yellowpages }); }
-
-  return formatted;
-};
-
 function hasDynamoData(data) {
   if (_.isEmpty(data) || !_.isArray(data)) {
     return false;
@@ -227,7 +212,8 @@ exports.createProfile = function() {
       email: data.email,
       phone: data.phoneMobile,
       type: data.profileType,
-      review_sites: formatReviewSites(data)
+      review_sites: data.review_sites,
+      review_sites_onsurvey: data.review_sites_onsurvey
     };
     if(!_.isEmpty(data.address)) {
       newProfile.address = data.address;
@@ -250,7 +236,8 @@ exports.updateProfile = function* (id, data) {
       email: data.email,
       phone: data.phoneMobile,
       type: data.profileType,
-      review_sites: formatReviewSites(data)
+      review_sites: data.review_sites,
+      review_sites_onsurvey: data.review_sites_onsurvey
     };
     if(!_.isEmpty(data.address)) {
       newProfile.address = data.address;

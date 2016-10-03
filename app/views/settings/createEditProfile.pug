@@ -27,13 +27,13 @@ block content
       .col-sm-7
         h1.page-heading
           - if (_.isEmpty(profile))
-            | New Profile  
+            | New Profile
           - else
-            | Edit Profile  
+            | Edit Profile
         small Add or edit a provider or office location.
       .col-sm-5.text-right.hidden-xs
         ol.breadcrumb.push-10-t
-          li 
+          li
             a.link-effect(href='/app/dashboard') Dashboard
           li
             a.link-effect(href='/app/pr/phi/patient-reviews') Patient Reviews
@@ -45,7 +45,7 @@ block content
           - else
             li
               a.link-effect(href='/app/pr/update-profile/' + profile.id) Edit Profile
-  
+
   .content.bg-white
     .row
       .col-md-12
@@ -75,11 +75,11 @@ block content
                 br
                 .radio
                   label
-                    input(type="radio", name="profileType", id="providerRadio", checked="checked", value='Provider') 
+                    input(type="radio", name="profileType", id="providerRadio", checked="checked", value='Provider')
                     | Provider (Doctor)
                 .radio
                   label
-                    input(type="radio", name="profileType", id="locationRadio", value='Location') 
+                    input(type="radio", name="profileType", id="locationRadio", value='Location')
                     | Location (Office)
               a.btn.btn-success.btn-lg.next.pull-right(href="#") Continue >
               br
@@ -112,9 +112,9 @@ block content
               a.btn.btn-success.btn-lg.next-validate.pull-right(href="#") Continue >
             #profileSites.tab-pane.fade
               .well
-                h4 Please provide your Review Sites 
+                h4 Please provide your Review Sites
                 br
-                h5 
+                h5
                   strong ADD A REVIEW SITE
                 br
                 h4#dropdownWarningLabel.wrapper(style='color:red;') No Site Selected!
@@ -124,13 +124,17 @@ block content
                 label Review Site Link
                 h4#linkWarningLabel.wrapper(style='color:red;') Please Provide a Link!
                 input#siteLink.form-control.input-lg(name='siteLink', placeholder='Paste the link here: e.g. http://www.yelp.com/biz/movel-sterling')
+                label.css-input.switch.switch-sm.switch-primary.push-10-t
+                  input.js-show-on-survey(type="checkbox" checked="")
+                  span
+                label.push-10-t.push-10-l Show on Patient Survey Page
                 br
                 .wrapper
                   a#addSite.btn.btn-primary.btn-lg
                     i.fa.fa-check
                     |  Add Review Site
                 br
-                h5 
+                h5
                   strong SAVED REVIEW SITES
                 br
                 .form-group
@@ -138,6 +142,7 @@ block content
                     thead
                       th Site Name
                       th Site Link
+                      th Show On Survey
                       th Actions
                 h4#submitWarningLabel.wrapper(style='color:red;') Please Add at Least One Review Site!
               a.btn.btn-info.btn-lg.prev(href="#") < Back
@@ -146,7 +151,7 @@ block content
               .well
                 - if (_.isEmpty(profile))
                   br
-                  p By creating a new Profile/Location, your plan and pricing will be automatically updated as follows: 
+                  p By creating a new Profile/Location, your plan and pricing will be automatically updated as follows:
                   br
                   - var upcomingSub = currentSubscription.customer.subscriptions.data[0]
                   .row
@@ -179,7 +184,7 @@ block content
                             | &nbsp;at&nbsp;
                             strong #{moment(futureInvoice.date * 1000).format('MMMM Do YYYY')}
                 - else
-                  | You've made changes to 
+                  | You've made changes to
                   strong #{profile.name}.
                 br
                 br
@@ -187,8 +192,23 @@ block content
               a.btn.btn-info.btn-lg.prev(href="#") < Back
               a#saveprofilebutton.btn.btn-success.btn-lg.create.pull-right(href="#") Save Profile
 
+  template.review-site-table-row
+    <tr>
+      <td>{{siteTitle}}</td>
+      <td>
+        <input type="hidden" class="form-control" name="review_sites.{{siteName}}" value="{{siteLink}}"/>
+        <a name="{{siteName}}" target="_blank" href="{{siteLink}}">{{siteLink}}</a>
+      </td>
+      <td>{{#if onSurvey}}<span class="label label-info">Yes</span><input type="hidden" class="form-control" name="review_sites_onsurvey.{{siteName}}" value="true"/>{{/if}}
+      </td>
+      <td>
+        <a class="linkremoveprofile btn btn-danger btn-xs" href="#" data-profileid="{{siteName}}" data-profilename="{{siteTitle}}"> Remove&nbsp;</a>
+      </td>
+    </tr>
+
 block scripts
   script(type='text/javascript', src='/app/lib/bootstrap/js/tab.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js')
   script.
     // Profile passed in, if any
     const profile = !{JSON.stringify(profile)};
@@ -218,7 +238,7 @@ block scripts
           // Initially hide address area
           $('#addressArea').hide();
         }
-        else { 
+        else {
           // Editing Profile
           if(profile.type === 'Provider') {
             $('#providerRadio').attr('checked', 'checked');
@@ -297,88 +317,37 @@ block scripts
 
     // Functions =============================================================
 
-    // Get pretty site name
-    function getFullSiteName(short) {
-      switch(short) {
-        case 'yelp':
-          return 'Yelp';
-        case 'google':
-          return 'Google Plus';
-        case 'healthgrades':
-          return 'HealthGrades.com';
-        case 'vitals':
-          return 'Vitals.com';
-        case 'ratemds':
-          return 'RateMDs.com';
-        case 'yellowpages':
-          return 'YellowPages';
-        default:
-          return '';
-      }
-    }
-
     // Add a site to table
-    function saveSiteToTable(siteName, siteLink) {
+    function saveSiteToTable(siteName, siteLink, siteTitle, onSurvey) {
       var sitesTable = document.getElementById('sitesTable');
       var row = sitesTable.insertRow();
-      var cell1 = row.insertCell();
-      cell1.innerHTML = getFullSiteName(siteName);
-      var cell2 = row.insertCell();
-      cell2.innerHTML = '<input type="hidden", class="form-control", name="' + siteName + '" value="' + siteLink + '"/>' + '<a name="' + siteName + '", target="_blank", href="' + siteLink + '">' + siteLink + '</a>';
-      var cell2 = row.insertCell();
-      cell2.innerHTML = '<a class="linkremoveprofile btn btn-danger btn-xs", href="#", data-profileId="' + siteName + '"> Remove&nbsp;</a>';
+
+      var template =  Handlebars.compile($(".review-site-table-row").html());
+      row.innerHTML = template({
+        siteName: siteName,
+        siteTitle: siteTitle,
+        siteLink: siteLink,
+        onSurvey: onSurvey
+      })
+
       // Fire event when 'Remove Review Site' is clicked
-      $('.linkremoveprofile').on('click', removeSite);
+      $('.linkremoveprofile', row).on('click', removeSite);
     }
 
     // Add a site to dropdown
-    function addToDropdown(siteName) {
-      $('select').append('<option value="' + siteName + '">' + getFullSiteName(siteName) + '</option>').trigger("chosen:updated");
+    function addToDropdown(siteName, fullName) {
+      $('select').append('<option value="' + siteName + '">' + fullName + '</option>').trigger("chosen:updated");
     }
 
     // Set Up Review Sites
     function setUpSites() {
-      // Yelp
-      if(profile != '' && profile.review_sites.yelp != null) {
-        saveSiteToTable('yelp', profile.review_sites.yelp);
-      }
-      else {
-        addToDropdown('yelp');
-      }
-      // Google Plus
-      if(profile != '' && profile.review_sites.google != null) {
-        saveSiteToTable('google', profile.review_sites.google);
-      }
-      else {
-        addToDropdown('google');
-      }
-      // HealthGrades.com
-      if(profile != '' && profile.review_sites.healthgrades != null) {
-        saveSiteToTable('healthgrades', profile.review_sites.healthgrades);
-      }
-      else {
-        addToDropdown('healthgrades');
-      }
-      // Vitals.com
-      if(profile != '' && profile.review_sites.vitals != null) {
-        saveSiteToTable('vitals', profile.review_sites.vitals);
-      }
-      else {
-        addToDropdown('vitals');
-      }
-      // RateMDs.com
-      if(profile != '' && profile.review_sites.ratemds != null) {
-        saveSiteToTable('ratemds', profile.review_sites.ratemds);
-      }
-      else {
-        addToDropdown('ratemds');
-      }
-      // YellowPages
-      if(profile != '' && profile.review_sites.yellowpages != null) {
-        saveSiteToTable('yellowpages', profile.review_sites.yellowpages);
-      }
-      else {
-        addToDropdown('yellowpages');
+      for (var key in profile.knownSites) {
+        if (profile.review_sites[key]) {
+          saveSiteToTable(key, profile.review_sites[key],
+          profile.knownSites[key].name, !!profile.review_sites_onsurvey[key]);
+        } else {
+          addToDropdown(key, profile.knownSites[key].name);
+        }
       }
     }
 
@@ -387,17 +356,18 @@ block scripts
       // Prevent Link from Firing
       event.preventDefault();
 
-      const siteName = $('select').val();
-      const siteLink = $('#siteLink').val();
+      var select = $('select');
+      var siteName = select.val();
+      var siteLink = $('#siteLink').val();
 
       // Display warnings if needed
-      if(siteName === '') { 
+      if(siteName === '') {
         $('#dropdownWarningLabel').show();
       }
       else if($('#dropdownWarningLabel').is(':visible')) {
         $('#dropdownWarningLabel').hide();
       }
-      if(siteLink === '') { 
+      if(siteLink === '') {
         $('#linkWarningLabel').show();
       }
       else if($('#linkWarningLabel').is(':visible')) {
@@ -409,7 +379,9 @@ block scripts
         if($('#submitWarningLabel').is(':visible')) {
           $('#submitWarningLabel').hide();
         }
-        saveSiteToTable(siteName, siteLink);
+        var siteText = $('option[value="'+ siteName +'"]', select).html();
+        var showOnSurvey = $('.js-show-on-survey').prop('checked')
+        saveSiteToTable(siteName, siteLink, siteText, showOnSurvey);
         // Removing from options
         $('select option[value=' + siteName + ']').remove();
         // Cleaning up values
@@ -426,9 +398,10 @@ block scripts
     function removeSite(event) {
       // Prevent Link from Firing
       event.preventDefault();
-      
+
       var siteName = $(event.target).data('profileid');
-      addToDropdown(siteName);
+      var siteTitme = $(event.target).data('profilename');
+      addToDropdown(siteName, siteTitme);
       $(this).parents('tr').remove();
     }
 
@@ -457,7 +430,7 @@ block scripts
         }
         else if (currentStep === 2 && !$('#profileform').valid()) {
           // Disallow if form not validated
-          event.preventDefault(); 
+          event.preventDefault();
         }
       }
       if(step === 4) {
@@ -469,7 +442,7 @@ block scripts
           $('[href="#profileInfo"]').tab('show');
         }
         else if (currentStep === 2) {
-          event.preventDefault(); 
+          event.preventDefault();
           if($('#profileform').valid()) {
             // Allow only if form validated
             console.log('a');
@@ -479,7 +452,7 @@ block scripts
         else if (currentStep === 3 && sitesTable.rows.length === 1) {
           // Disallow if no review sites added
           $('#submitWarningLabel').show();
-          event.preventDefault(); 
+          event.preventDefault();
         }
       }
     }
@@ -490,7 +463,7 @@ block scripts
       event.preventDefault();
 
       //- console.log('tab changed');
-      //- $(".chosen-select").chosen({width: "95%"}); 
+      //- $(".chosen-select").chosen({width: "95%"});
 
       // Update progress bar
       var step = $(event.target).data('step');
@@ -522,7 +495,7 @@ block scripts
       }
       else if($(this).hasClass('next-check-sites')) {
         const sitesTable = document.getElementById('sitesTable');
-      
+
         if(sitesTable.rows.length === 1) {
           $('#submitWarningLabel').show();
         }

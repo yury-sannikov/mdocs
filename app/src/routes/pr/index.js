@@ -8,6 +8,29 @@ const communicator = require('../../comm');
 import { checkAuthenticated, hasSubscription } from '../../belt';
 import { getFutureInvoice, updateSubscription } from '../../stripe';
 
+const KNOWN_SITES = {
+  yelp: {
+    name: 'Yelp'
+  },
+  google: {
+    name: 'Google Plus'
+  },
+  healthgrades: {
+    name: 'HealthGrades.com'
+  },
+  vitals: {
+    name: 'Vitals.com'
+  },
+  ratemds: {
+    name: 'RateMDs.com'
+  },
+  yellowpages: {
+    name: 'YellowPages'
+  },
+  fb: {
+    name: 'Facebook'
+  }
+}
 
 function hasDynamoData(data) {
   if (_.isEmpty(data) || !_.isArray(data)) {
@@ -46,9 +69,11 @@ router.get('/profile/:id', function*() {
 
 router.get('/new-profile', checkAuthenticated, hasSubscription, function*() {
   const {currentInvoice, upcomingInvoice, currentSubscription} = yield getFutureInvoice(this.currentUser.id);
-  
-  this.render('settings/createEditProfile', Object.assign({}, this.jadeLocals, { 
-    profile: '',
+
+  this.render('settings/createEditProfile', Object.assign({}, this.jadeLocals, {
+    profile: {
+      knownSites: KNOWN_SITES
+    },
     futureInvoice: upcomingInvoice,
     currentSubscription
   }), true);
@@ -60,7 +85,12 @@ router.get('/update-profile/:id', function*() {
     this.redirect(router.url('profiles'));
     return;
   }
-  this.render('settings/createEditProfile', Object.assign({}, this.jadeLocals, { profile: data[0][0] }), true);
+  const profile = Object.assign({
+    review_sites_onsurvey: {}
+  }, data[0][0], {
+    knownSites: KNOWN_SITES,
+  })
+  this.render('settings/createEditProfile', Object.assign({}, this.jadeLocals, { profile }), true);
 });
 
 router.post('/new-profile', hasSubscription, function*() {
@@ -75,15 +105,20 @@ router.post('/new-profile', hasSubscription, function*() {
   const profile = Object.assign({}, this.request.body);
   const id = yield db.createProfile()(this.currentUser.id, profile);
   this.flash = 'Profile added successfully.';
-  yield updateSubscription(this.currentUser.id, this.session);
 
-  yield communicator.notifyPlanChange(this.currentUser.id, data);
+  // Disable subscription change
+  //yield updateSubscription(this.currentUser.id, this.session);
+  //yield communicator.notifyPlanChange(this.currentUser.id, data);
 
   this.redirect(router.url('profiles'));
 });
 
 router.post('/update-profile', hasSubscription, function*() {
   const profile = Object.assign({}, this.request.body);
+
+  console.dir(profile)
+
+
   const id = yield db.updateProfile(this.request.body.editID, profile);
   this.redirect(router.url('profiles'));
 });
