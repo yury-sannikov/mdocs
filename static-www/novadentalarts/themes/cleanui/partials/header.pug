@@ -1,48 +1,51 @@
-//- Meta Tags
-meta(name='viewport', content='width=device-width,initial-scale=1.0')
-meta(http-equiv='content-type', content='text/html; charset=UTF-8')
-meta(name='description', content='Walk-ins welcome! VA Gateway Urgent Care Center offers a full range of healthcare services and we are here for medical emergencies.')
-meta(name='keywords', content='urgent, care, VA, Gateway, Center, Gainesville, Doctor, Emergency')
-meta(name='author', content='PracticeWin')
-
-//- Favicon and Touch Icons
-link(href='/assets/images/favicon.png', rel='shortcut icon', type='image/png')
-link(href='/assets/images/apple-touch-icon.png', rel='apple-touch-icon')
-link(href='/assets/images/apple-touch-icon-72x72.png', rel='apple-touch-icon', sizes='72x72')
-link(href='/assets/images/apple-touch-icon-114x114.png', rel='apple-touch-icon', sizes='114x114')
-link(href='/assets/images/apple-touch-icon-144x144.png', rel='apple-touch-icon', sizes='144x144')
-
-//- Stylesheet
-link(href='/assets/css/bootstrap.min.css', rel='stylesheet', type='text/css')
-link(href='/assets/css/jquery-ui.min.css', rel='stylesheet', type='text/css')
-link(href='/assets/css/animate.css', rel='stylesheet', type='text/css')
-link(href='/assets/css/css-plugin-collections.css', rel='stylesheet')
-//- CSS | menuzord megamenu skins
-link#menuzord-menu-skins(href='/assets/css/menuzord-skins/menuzord-boxed.css', rel='stylesheet')
-//- CSS | Main style file
-link(href='/assets/css/style-main.css', rel='stylesheet', type='text/css')
-//- CSS | Preloader Styles
-link(href='/assets/css/preloader.css', rel='stylesheet', type='text/css')
-//- CSS | Custom Margin Padding Collection
-link(href='/assets/css/custom-bootstrap-margin-padding.css', rel='stylesheet', type='text/css')
-//- CSS | Responsive media queries
-link(href='/assets/css/responsive.css', rel='stylesheet', type='text/css')
-//- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it.
-link(href='/assets/css/style.css', rel='stylesheet', type='text/css')
-//- CSS | Theme Color
-link(href='/assets/css/colors/theme-skin-blue.css', rel='stylesheet', type='text/css')
-//- external javascripts
-script(src='/assets/js/jquery-2.2.0.min.js')
-script(src='/assets/js/jquery-ui.min.js')
-script(src='/assets/js/bootstrap.min.js')
-//- JS | jquery plugin collection for this theme
-script(src='/assets/js/jquery-plugin-collection.js')
-//- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
-//- WARNING: Respond.js doesn't work if you view the page via file://
-//-if lt IE 9
-  script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
-  script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
-
+meta(charset='utf-8')
+// Always force latest IE rendering engine (even in intranet) & Chrome Frame
+meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+// InstanceBeginEditable name="doctitle"
+title= practice.name
+// InstanceEndEditable
+meta(name='description', content="If you're looking for a gentle but highly-skilled dentist in Northern Virginia, Dr. Hawa and his staff at Northern Virginia Dental Arts are the answer. Call us today!")
+meta(http-equiv='cleartype', content='on')
+link(rel='shortcut icon', href='/favicon.ico')
+// Responsive and mobile friendly stuff
+meta(name='HandheldFriendly', content='True')
+meta(name='MobileOptimized', content='320')
+meta(name='viewport', content='width=device-width, initial-scale=1.0')
+// Stylesheets
+link(rel='stylesheet', href='/assets/css/html5reset.css', media='all')
+link(rel='stylesheet', href='/assets/css/responsivegridsystem.css', media='all')
+link(rel='stylesheet', href='/assets/css/col.css', media='all')
+link(rel='stylesheet', href='/assets/css/2cols.css', media='all')
+link(rel='stylesheet', href='/assets/css/3cols.css', media='all')
+link(rel='stylesheet', href='/assets/css/4cols.css', media='all')
+link(rel='stylesheet', href='/assets/css/7cols.css', media='all')
+link(rel='stylesheet', href='/assets/css/drop-down-menu.css')
+link(rel='stylesheet', href='/assets/css/jquery.bxslider.css')
+// Responsive Stylesheets
+link(rel='stylesheet', media='only screen and (max-width: 1024px) and (min-width: 769px)', href='/assets/css/1024.css')
+link(rel='stylesheet', media='only screen and (max-width: 768px) and (min-width: 481px)', href='/assets/css/768.css')
+link(rel='stylesheet', media='only screen and (max-width: 640px)', href='/assets/css/640.css')
+link(rel='stylesheet', media='only screen and (max-width: 480px)', href='/assets/css/480.css')
+link(rel='stylesheet', media='only screen and (max-width: 360px)', href='/assets/css/360.css')
+// All JavaScript at the bottom, except for Modernizr which enables HTML5 elements and feature detects
+script(src='/assets/js/modernizr-2.5.3-min.js')
+// InstanceBeginEditable name="head"
+link(rel='stylesheet', media='only screen and (max-width: 3000px) and (min-width: 1920px)', href='/assets/css/1920.css')
+// InstanceEndEditable
+// InstanceParam name="videos" type="text" value="off"
+// InstanceParam name="mDoctor" type="text" value="off"
+// InstanceParam name="mTeam" type="text" value="off"
+// InstanceParam name="mDentalServices" type="text" value="off"
+// InstanceParam name="mGentleCare" type="text" value="off"
+// InstanceParam name="mSmile" type="text" value="off"
+// InstanceParam name="invisalign" type="text" value="off"
+// InstanceParam name="invisTeen" type="text" value="off"
+// InstanceParam name="overallHealth" type="text" value="off"
+// InstanceParam name="mTestimonials" type="text" value="off"
+// InstanceParam name="mContact" type="text" value="off"
+// InstanceParam name="mEmergency" type="text" value="off"
+style.
+  .pkt_added {text-decoration:none !important;}
 script.
   window.MDOCS_ACCOUNT_ID='!{practice.mdocsAccount}'
 
