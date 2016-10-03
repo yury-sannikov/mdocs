@@ -1,0 +1,97 @@
+/*  MAKE LAYOUT RESPONSIVE at 360px FOR IPHONE PORTRAIT ============================================ */
+
+
+	
+header {
+	width: 93.75%; /* 450px / 480px */
+}
+
+
+#maincontent{
+	width: 93.75%; /* 450px / 480px */
+}
+
+
+.maincontent{
+	width: 93.75%; /* 450px / 480px */
+}
+
+
+footer {
+	width: 93.75%; /* 450px / 480px */
+}
+
+
+#top-bar img {
+	display: none;
+}
+
+#big-contact {
+	float: left;
+	text-align: left;
+	margin-top: 0;
+}
+
+#big-contact p {
+	font-size: 1em;
+	padding: 1em 0 1em 2.7em;
+}
+
+
+#big-contact p.phone {
+	background: url(/images/icon-phone.gif) center left no-repeat #FFF;
+	background-size:30px;
+	margin-left: 0;
+	text-align: left;
+
+
+}
+
+#big-contact p.apt {
+	background: url(/images/icon-apt.gif) center left no-repeat #FFF;
+	background-size:30px;
+}
+
+#big-contact p.address { 
+	margin-top: 0;
+	text-align: left;
+	float: none;
+	padding-left: 5px;
+}
+
+.bx-wrapper .bx-caption p { 
+	font-size: 1em;
+	padding-right: 15px;
+	padding-left: 15px;
+	width: 	80%;
+	font-weight: normal;
+}
+
+.bx-wrapper .bx-caption p br {
+	display: none;
+}
+
+.bx-wrapper .bx-caption p.header { 
+	font-size: 1.2em;
+	padding-right: 1em;
+	padding-left: 1em;
+	font-weight: bold;
+}
+
+#portrait-and-intro p.read-more a {
+	width: 60%;
+}
+
+#four-icons-links {
+	display: none;
+}
+
+#four-icons .col-4 > p {
+	display: block;
+	margin-bottom: 20px;
+}
+
+.quote p {
+	font-size: 1.5em;
+	width: auto;
+}

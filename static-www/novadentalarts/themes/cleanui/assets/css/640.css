@@ -1,0 +1,59 @@
+/*  MAKE LAYOUT RESPONSIVE at 640px FOR IPHONE 5+ PORTRAIT ============================================ */
+
+
+	
+header {
+	width: 93.75%;
+}
+
+
+#maincontent{
+	width: 93.75%;
+}
+
+
+.maincontent{
+	width: 93.75%;
+}
+
+
+footer {
+	width: 93.75%;
+}
+
+.bx-wrapper .bx-caption {
+	top: 0;
+	left: 0;
+    opacity: 0.8;
+    filter: alpha(opacity=80); /* For IE8 and earlier */	
+	
+}
+
+.bx-wrapper .bx-caption p { 
+	font-size: 1.1em;
+	padding-right: 15px;
+	padding-left: 15px;
+	font-weight: normal;
+}
+
+
+
+.bx-wrapper .bx-caption p.header { 
+	font-size: 1.5em;
+	padding-right: 1em;
+	padding-left: 1em;
+	font-weight: bold;
+}
+
+.sidebar div.sidebar-header {
+	padding: 10px;
+	background-image: none;
+}
+
+.nav > li:first-child a {
+	padding-left: 15px;
+}
+
+header img.home-photo {
+	display: none;
+}

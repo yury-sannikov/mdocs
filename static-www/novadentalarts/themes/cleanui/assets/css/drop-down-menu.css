@@ -1,0 +1,225 @@
+.drop-down-container {
+    margin: 10px auto;
+}
+.toggleMenu {
+    display:  none;
+    background: #74D6FB;
+    padding: 10px 15px;
+    color: #fff;
+	font-family: 'PTSansNarrow', sans-serif;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.nav {
+	list-style: none;
+	*zoom: 1;
+
+	padding: 0;
+	}
+.nav:before,
+.nav:after {
+    content: " "; 
+    display: table; 
+}
+.nav:after {
+    clear: both;
+}
+.nav ul {
+    list-style: none;
+    width: 9em;
+}
+.nav a {
+    padding: 10px 15px;
+	color: #323131;
+}
+.nav a.ec {
+	color: #c70303;
+	padding-right: 0;
+}
+.nav > li > a {
+    padding: 3px 10px;
+}
+
+.nav li {
+    position: relative;
+	font-family: 'PTSansNarrow', sans-serif;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	font-weight: bold;	
+}
+.nav > li {
+    float: left;
+	border-left: 1px dotted #313131;	
+}
+
+.nav > li:first-child {
+	border-left: none;
+}
+
+.nav > li:first-child a {
+	padding-left: 0;
+}
+
+.nav li li {
+	font-size: 0.9em;
+	/* Make two cols */
+	float: left;
+	width: 260px;
+}
+.nav li li.left {
+	width: 240px;
+}
+.nav li li.last {
+
+}
+
+.nav > li > a {
+    display: block;
+}
+
+.nav > li > a:hover, .nav a.on {
+	color: #84548f;
+}
+
+.nav > li a.ec:hover {
+	color: #880202;
+}
+
+.nav li ul {
+    position: absolute;
+    left: -9999px;
+	padding: 0;
+	width: 100%;
+	width: calc(100% + 2px);
+	width: 500px;
+	background-color: #EBEBEB;
+	z-index: 9999;
+}
+
+.nav li ul.menu-invisalign {
+	width: 150px;
+}
+
+
+.nav li ul.menu-invisalign li {
+	width: 150px;
+	float: none;
+}
+
+
+.nav > li.hover > ul {
+    left: -1px;
+}
+.nav li li.hover ul {
+    left: 100%;
+    top: 0;
+}
+.nav li li a {
+    display: block;
+    background: #EBEBEB;
+    position: relative;
+    z-index:100;
+    border-top: 1px solid #8A8A8A;
+}
+.nav li li.no-top-border a {
+	border-top: none;
+}
+
+.nav li li.last  {
+    border-top: 1px solid #8A8A8A;
+}
+
+.nav li li a:hover {
+	background-color: #84548f;
+	color: #FFFFFF;
+}
+
+.nav li li:first-child a {
+/*    border-top: none; */
+}
+
+
+@media only screen and (max-width: 640px) {
+	.nav {
+		position: absolute;
+		top: 63px;
+		left: 0;
+		z-index: 9999;
+		width: 50%;
+		background:#EBEBEB;		
+	}
+	.nav a {
+		color: #323131;
+		padding-left: 30px;
+	}	
+	.nav > li > a {
+		padding: 10px 15px;
+	}	
+	.nav > li > a:hover {
+		background-color: #96adb4;
+		color: #FFF;
+	}
+	
+    .active {
+        display: block;
+    }
+    .nav > li {
+        float: none;
+    }
+    .nav > li > .parent {
+        background-position: 95% 50%;
+    }
+    .nav li li .parent {
+        background-image: url("/images/menu-arrow.png");
+        background-repeat: no-repeat;
+        background-position: 85% 50%;
+    }
+    .nav ul {
+        display: block;
+        width: 100%;
+    }
+   .nav > li.hover > ul , .nav li li.hover ul {
+        position: static;
+    }
+	.nav > li > .parent {
+		background-image: url("/images/menu-arrow.png");
+		background-repeat: no-repeat;
+		 background-position: 95% 50%;
+	}
+	.nav > li {
+		 border-top: 1px solid #FFF;
+		 border-left: none;
+	}	
+	.nav li ul {
+		width: auto;
+	}
+	
+	.nav li li a {
+
+		border-top: 1px solid #FFF;
+	}
+
+	.nav li li {
+		float: none;
+		width: auto;
+	}
+
+	.nav li li a:hover {
+		background-color: #86A330;
+	
+	}
+	
+	.nav li li.last  {
+		display: none;
+	}
+
+}
+
+@media only screen and (max-width: 360px) {
+	.nav {
+		width: 100%;
+	}
+
+
+}
