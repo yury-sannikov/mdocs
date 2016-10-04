@@ -1,0 +1,132 @@
+doctype html
+html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths
+  head
+    include ../partials/header.pug
+  body(style='')
+    #wrapper
+      include ../partials/topnavbar.pug
+      include ../partials/headnavbar.pug
+      include ../partials/menu.pug
+      .standardcontainer
+        .maincontent.subpage
+          .col-7.span_5_of_7
+            img.floatright.dr-hawa(src='/assets/images/dr-hawa.jpg', alt='Nader Hawa, D.M.D.')
+            h1 Meet Dr. Hawa
+            p.why-here
+              | Why are we here?
+              br
+              | To improve 
+              u
+                i your
+              |  very quality of life!
+            p
+              | “Hello. I have been a practicing dentist for over 17 years, having graduated from the University of Louisville School of Dentistry. My family has strong roots in Northern Virginia; my great grandfather moved here in 1895. I love this area, its people and all the cultures represented from all over the world.
+            p
+              | “I am happy and honored to have a terrific staff, the best people any dental practice could have: Susie, Karen, Joellen, Darota, Pat, Terri, Kim, Kymber and Nina. They are true professionals, extremely knowledgeable and skilled, and they will take great care of you.
+            p
+              | “My purpose is to improve your quality of life, by helping you keep your teeth healthy, strong and beautiful for your entire life. My staff and I pride ourselves on gentle dental care. I also like to take time with each person to determine their needs and wants. Each year I take numerous continuing education courses in advanced clinical procedures and dental technology, as well as Invisalign. I have also lectured on dental procedures to other dentists over the past few years.
+            p
+              | “We provide all general dental procedures: fillings, fixing broken teeth, treating toothaches, crowns and dentures, extractions, root canals and implants. If you want a more beautiful smile, we provide all cosmetic procedures. If you are unhappy with any aspect of your smile, I will be happy to discuss the best options for you. Together, we can determine what will work for you.
+            p
+              | “If you have any dental emergencies, we will see you the same day. We have a very nice office just a few minutes from you. Our office is modern with the latest advancements in dental technologies and materials. If you have any questions, please don't hesitate to contact us today on 703-444-5108.
+            p “I look forward to meeting you.
+            p
+              | Warmly Yours,
+              br
+              | Dr. Nader Hawa”
+            #magazine-wrapper
+              img.mb.why-choose-us(src='/assets/images/nova-why-choose-us.jpg', alt='Why choose us')
+              #magazine
+                h3 Our Magazine
+                p
+                  | For insight into Dr. Hawa and Northern Virginia Dental Arts, 
+                  a(href='/assets/files/hawa-mag-gilleard-web.pdf', target='_blank') download
+                  |  our magazine today.
+                img#magazine-arrow(src='/assets/images/magazine-arrow-on-white.jpg', alt='Magazine')
+            p.header.margin Why choose Northern Virginia Dental Arts?
+            p
+              strong 1. Gentle, Pleasant Dentistry
+              br
+              | Our patients routinely comment on how gentle and painless we are – they are pleasantly surprised especially at our gentle injections.
+            p
+              strong 2. Friendliness and Care
+              br
+              | Our office has a relaxing, comfortable environment where everyone remembers your name and treats you like family. Everyone in our office is genuinely friendly and helpful.
+            p
+              strong 3. Advanced Technology
+              br
+              | We use modern, state-of-the-art technology to create a high-quality restoration or smile makeover, as well as to make your visit comfortable and even pleasant.
+            p
+              strong 4. Knowledgeable and Skilled
+              br
+              | Our doctors, hygienists and assistants are highly trained, experienced, and are leaders in their field. Dr. Hawa has taken thousands of hours of continuing education following dental school, to keep up with the latest advancements in dental technologies and techniques. Dr. Hawa even trains other dentists.
+            p
+              strong 5. Dentistry is our Art and Passion
+              br
+              | Our entire purpose is to improve the very quality of the lives of our patients. We do this by keeping your teeth healthy and strong so you can eat any food you like, by creating gorgeous smiles, by getting you out of any dental pain you might have, and by fixing broken or decayed teeth.
+            p
+              strong 6. Dental Implants
+              br
+              | Using the latest technology, Dr. Hawa and Dr. Sanz do the entire implant procedure in the comfort of their office.
+            p
+              strong 7. Cosmetic Dentistry
+              br
+              | You can have a smile makeover in just 1-2 visits. Whether you want a Hollywood, dazzling smile, or just whiter or straighter teeth, Dr. Hawa can give you exactly what you want.
+            p
+              strong 8. We Listen To You
+              br
+              | We take time with you, we listen to what is important to you, we find out from you what you need and want. Then we explain all your options to your satisfaction.
+            p
+              strong 9. We Are Open Evenings and Saturdays
+              br
+              | We recognize that people have to work, take their kids to various activities, etc. So we're open evenings and Saturdays, in addition to weekdays, to make it easy for you to come to us.
+            p
+              strong 10. Invisalign Teeth Straightening
+              br
+              | Invisalign is the invisible way to straighten your teeth without braces. You'll look and feel beautiful!
+            p
+              strong 11. We See Emergencies the Same Day
+              br
+              | Toothaches and dental abscesses are extremely painful – and potentially dangerous to your health. We work to take care of dental emergencies quickly, to get you out of pain.
+          .col-7.span_2_of_7.sidebar
+            .sidebar-header
+              h2 Make appointment
+              p
+                | For an appointment, oral cancer screening or FREE smile consultation, 
+                a(href='/appointment.html') click here today
+                | .
+            .sidebar-header.blue
+              h2 Emergencies Welcome
+              p And usually seen the same day.
+              p Call us at: 703-444-5108.
+            .sidebar-header.finance
+              h2 Financial Options
+              p
+                | Our office participates with many dental insurance plans. To find out about all of our financial options, 
+                a(href='/financial-options.html') click here
+                | .
+            #contact-form-short
+              h3 Get in touch
+              p Simply fill out the form below
+              form#ContactFormSidebar.cmxform(method='post', action='', novalidate='novalidate')
+                label(for='cname') Name
+                input#cname(name='fullname', minlength='2', type='text', required='', aria-required='true')
+                label(for='cemail') Email
+                input#cemail(type='email', name='email', required='', aria-required='true')
+                label(for='message') Message
+                textarea#message(name='comment', required='', aria-required='true')
+                input(type='submit', value='SEND MESSAGE')
+
+  .standardcontainer.quote
+    .maincontent.centre
+      img(src='/assets/images/quote-open.png', alt='Quote')
+      p
+        | The hygienist was great, the doctor was great, and the staff was great!
+      div(style='margin: auto 0;')
+        p.from — Happy Customer: DC —
+      img(src='/assets/images/quote-close.png', alt='Quote')
+  include ../partials/footer.pug
+  script(src='/assets/js/jquery-1.11.0.min.js')
+  script(src='/assets/js/jquery.validate.min.js')
+  script(src='/assets/js/drop-down-menu.js')
+  script(src='/assets/js/validate-short-form.js')
