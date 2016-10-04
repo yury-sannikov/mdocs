@@ -8,7 +8,6 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
     #wrapper
       include ../partials/topnavbar.pug
       include ../partials/headnavbar.pug
-      .standardcontainer
       include ../partials/menu.pug
       // InstanceBeginEditable name="layout"
       include ../partials/slider.pug
@@ -26,14 +25,14 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
     script(src='/assets/js/jquery.bxslider.min.js')
     script.
       $(document).ready(function(){
-      $('.bxslider').bxSlider({
-      mode: 'fade',
-      captions: true,
-      controls: false,
-      speed: 1500,
-      pause: 6000,
-      auto: true
-      });
+        $('ul.bxslider').bxSlider({
+          mode: 'fade',
+          captions: true,
+          controls: false,
+          speed: 1500,
+          pause: 6000,
+          auto: true
+        });
       });
     // InstanceEndEditable
     // InstanceEnd
