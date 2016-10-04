@@ -14,7 +14,7 @@ function hasDynamoData(data) {
   return _.isArray(data) && data.length > 0;
 }
 
-// SURVEYS - PATIENT REVIEWS
+// SURVEYS - PracticeWin
 exports.surveysForProfile = function (profileId) {
   const chain = DynamoDB
     .table('survey_review')

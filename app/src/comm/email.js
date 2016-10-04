@@ -20,9 +20,9 @@ exports.sendReviewRequest = function* (to, data) {
   var html = pug.renderFile(`${ROOT_PATH}/index.pug`, data);
 
   var message = {
-    from: 'Patient Reviews by MDOCS <survey@app.mdocs.co>',
+    from: 'PracticeWin <survey@app.mdocs.co>',
     to: to,
-    subject: `Patient Review Invite`,
+    subject: `PracticeWin Invite`,
     html: html,
     inline: [logoPng, starsPng]
   };
@@ -38,9 +38,9 @@ exports.sendLocationReviewRequest = function* (to, data) {
   var html = pug.renderFile(`${LOCATION_ROOT_PATH}/index.pug`, data);
 
   var message = {
-    from: 'Patient Reviews by MDOCS <survey@app.mdocs.co>',
+    from: 'PracticeWin <survey@app.mdocs.co>',
     to: to,
-    subject: `Patient Review Invite`,
+    subject: `PracticeWin Invite`,
     html: html,
     inline: [logoPng, starsPng]
   };
@@ -55,7 +55,7 @@ exports.sendNegativeReviewNotification = function* (to, data) {
   var html = pug.renderFile(`${NEGATIVE_REVIEW_ROOT_PATH}/index.pug`, data);
 
   var message = {
-    from: 'Patient Reviews by MDOCS <survey@app.mdocs.co>',
+    from: 'PracticeWin <survey@app.mdocs.co>',
     to: to,
     subject: `Negative Review Notification`,
     html: html,
@@ -87,7 +87,7 @@ exports.sendPlanChange = function* (to, data) {
       + `<h4><strong>${formatCents(upcomingSub.plan.amount)}</strong> per <strong>${upcomingSub.plan.interval}</strong> for <strong>${newQuantity}</strong> subscriptions. Total <strong>${formatCents(upcomingSub.plan.amount * newQuantity)}</strong> at <strong>${moment(data.futureInvoice.date * 1000).format('MMMM Do YYYY')}</strong></h4></div>`;
 
   var message = {
-    from: 'Patient Reviews by MDOCS <survey@app.mdocs.co>',
+    from: 'PracticeWin <survey@app.mdocs.co>',
     to: to,
     subject: `Subscription Updated`,
     html: html
@@ -98,10 +98,10 @@ exports.sendPlanChange = function* (to, data) {
 };
 
 exports.sendSubscriptionCancel = function* (to, data) {
-  var html = 'You have cancelled your subscription. Your account is now frozen and you can no longer send and view Patient Reviews, nor can you create/edit profiles.';
+  var html = 'You have cancelled your subscription. Your account is now frozen and you can no longer send and view PracticeWin, nor can you create/edit profiles.';
 
   var message = {
-    from: 'Patient Reviews by MDOCS <survey@app.mdocs.co>',
+    from: 'PracticeWin <survey@app.mdocs.co>',
     to: to,
     subject: `Subscription Cancelled`,
     html: html

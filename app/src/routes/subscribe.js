@@ -18,11 +18,11 @@ const AUTH0_MESSAGES_HASH = {
 
 const PLAN_INFO = {
   'pr-basic': {
-    name: 'Patient Reviews',
+    name: 'PracticeWin',
     price: [49, 245, 490]
   },
   'pr-analysis': {
-    name: 'Patient Reviews with Data Analysis',
+    name: 'PracticeWin with Data Analysis',
     price: [69, 345, 690]
   },
   'pr-enterprise': {

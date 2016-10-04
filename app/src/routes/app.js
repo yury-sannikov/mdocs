@@ -23,7 +23,7 @@ app/subscribe
   - subscribe
   - pricing
 app/pr/phi: (HIPAA)
-  - patient reviews
+  - PracticeWin
 app/pr
   - profiles
 */
