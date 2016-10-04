@@ -157,7 +157,7 @@ exports.autolink = function(s) {
 
 exports.formatPhone = function(text) {
   if(_.isEmpty(text)) { return ''; }
-  return text.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+  return text.replace(/(\+\d{1})?(\d{3})(\d{3})(\d{4})/, '$1($2) $3-$4')
 };
 
 exports.formatCents = function(cents) {

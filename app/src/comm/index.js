@@ -113,34 +113,38 @@ exports.conductSurvey = function* (id) {
   return result;
 };
 
-exports.notifyWithNegativeReview = function* (survey) {
+exports.notifyWithReview = function* (survey, profile, isPositive) {
   var surveyDetailsUrl = exports.generateSurveyDetailsUrl(survey.id);
 
+  var phone = (profile.phone || '').replace(/[^\d+]+/g,'')
+
   const officeAdministrator = {
-    email: 'levent@movel.co',
-    phone: '+17035087934'
+    email: profile.email || '',
+    phone: phone
   };
 
-  const emailResult = yield email.sendNegativeReviewNotification(officeAdministrator.email, {
+  const emailResult = yield email.sendReviewNotification(officeAdministrator.email, {
     physician: survey.title,
     appointmentDate: moment.unix(survey.visit_date).format('MMM-DD-YYYY'),
     surveyUrl: surveyDetailsUrl,
     unsubscribeUrl: ''
-  });
+  }, isPositive);
+
+  const positiveText = isPositive ? 'positive' : 'negative'
 
   yield Slack.alertAsync({
-    text: `A negative review was just posted. You can see the review here: ${surveyDetailsUrl}`,
+    text: `A ${positiveText} review was just posted. You can see the review here: ${surveyDetailsUrl}`,
     channel: '#mdocs',
-    username: 'MDOCS Apps Portal',
+    username: 'PracticeWin',
     icon_emoji: ':-1:'
   });
 
-  debug(`Negative review ${survey.id} email notification result ${JSON.stringify(emailResult, null, 2)}`);
+  debug(`${positiveText} review ${survey.id} email notification result ${JSON.stringify(emailResult, null, 2)}`);
 
   const smsResult = yield sms.sendSMS(officeAdministrator.phone,
-    `A negative review was just posted. You can see the review here: ${surveyDetailsUrl}`);
+    `A ${positiveText} review was just posted. You can see the review here: ${surveyDetailsUrl}`);
 
-  debug(`Negative review ${survey.id} SMS result ${JSON.stringify(smsResult, null ,2)}`);
+  debug(`${positiveText} review ${survey.id} SMS result ${JSON.stringify(smsResult, null ,2)}`);
 
 };
 
@@ -186,7 +190,7 @@ exports.notifyPlanChange = function* (id, data) {
 
 exports.notifySubscriptionCancel = function* (id) {
   const user = yield db.findUserById(id);
-  
+
   const emailResult = yield email.sendSubscriptionCancel(user.email);
 
   debug(`Subscription Cancellation ${id} email notification result ${JSON.stringify(emailResult, null, 2)}`);

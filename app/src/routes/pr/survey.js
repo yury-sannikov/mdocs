@@ -105,14 +105,25 @@ router.post('/submit', function*() {
 
   const minValue = _.minBy(ansvers, o => o.value);
 
+  const profile = yield db.profileById(survey.reviewFor.id);
+
+  if (!profile || !profile[0] || profile[0].length == 0) {
+    this.render('reviews/landing', Object.assign({}, this.jadeLocals, {
+      messages: makeErrorMessage('Thank you for participating in our survey. Your survey has been deleted by an administrator.')
+    }), true);
+    return;
+  }
+
+  const profileItem = profile[0][0]
+
   if (minValue.value < MINIMUM_OKAY_SURVEY_VALUE) {
-    yield communicator.notifyWithNegativeReview(survey);
+    yield communicator.notifyWithReview(survey, profileItem, false);
     this.render('reviews/negative', Object.assign({}, this.jadeLocals, { survey: survey }), true);
   } else {
-    const profile = yield db.profileById(survey.reviewFor.id);
-    const profileItem = profile[0][0]
-    const sitesList = profileItem.review_sites_onsurvey || [survey.reviewSite]
 
+    yield communicator.notifyWithReview(survey, profileItem, true);
+
+    const sitesList = profileItem.review_sites_onsurvey || [survey.reviewSite]
     let sites = _.compact(_.map(profileItem.review_sites, (v, k) => {
       if (!sitesList[k]) return null;
       return {
@@ -121,7 +132,6 @@ router.post('/submit', function*() {
         meta: KNOWN_SITES[k]
       }
     }))
-
     this.render('reviews/positive', Object.assign({}, this.jadeLocals, {
       survey: survey,
       sites: sites,

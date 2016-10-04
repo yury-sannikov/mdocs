@@ -49,15 +49,20 @@ exports.sendLocationReviewRequest = function* (to, data) {
   return yield sendAsync(message);
 };
 
-exports.sendNegativeReviewNotification = function* (to, data) {
+exports.sendReviewNotification = function* (to, data, isPositive) {
   var logoPng = `${NEGATIVE_REVIEW_ROOT_PATH}/logo.png`;
 
-  var html = pug.renderFile(`${NEGATIVE_REVIEW_ROOT_PATH}/index.pug`, data);
+  var html = pug.renderFile(`${NEGATIVE_REVIEW_ROOT_PATH}/index.pug`, Object.assign({}, data, {
+    positiveText: isPositive ? 'positive' : 'negative',
+    positiveTextUpper: isPositive ? 'Positive' : 'Negative'
+  }));
+
+  const positiveText = isPositive ? 'Positive' : 'Negative'
 
   var message = {
     from: 'PracticeWin <survey@app.mdocs.co>',
     to: to,
-    subject: `Negative Review Notification`,
+    subject: `${positiveText} Review Notification`,
     html: html,
     inline: [logoPng]
   };
