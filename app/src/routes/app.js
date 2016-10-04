@@ -4,7 +4,7 @@ const Router = require('koa-router');
 import { checkAuthenticated, hasSubscription } from '../belt';
 import { sendEmailTrackingToSlack, notifySubscriptionCancel } from '../comm';
 import stream from 'koa-stream';
-import { getFutureInvoice, cancelSubscriptions, updateSessionSubscriptionInfo } from '../stripe';
+import { getFutureInvoice, cancelSubscriptions } from '../stripe';
 import { render as dashboardRender } from '../apps/dashboard/server';
 import { render as appointmentsRender } from '../apps/appointments/server';
 import { render as campaignsRender } from '../apps/campaigns/server';

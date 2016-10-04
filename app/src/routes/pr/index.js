@@ -6,7 +6,7 @@ const _ = require('lodash');
 const db = require('../../db');
 const communicator = require('../../comm');
 import { checkAuthenticated, hasSubscription } from '../../belt';
-import { getFutureInvoice, updateSubscription } from '../../stripe';
+import { getFutureInvoice } from '../../stripe';
 
 export const KNOWN_SITES = {
   yelp: {
@@ -120,10 +120,6 @@ router.post('/new-profile', hasSubscription, function*() {
   const id = yield db.createProfile()(this.currentUser.id, profile);
   this.flash = 'Profile added successfully.';
 
-  // Disable subscription change
-  //yield updateSubscription(this.currentUser.id, this.session);
-  //yield communicator.notifyPlanChange(this.currentUser.id, data);
-
   this.redirect(router.url('profiles'));
 });
 
@@ -148,10 +144,6 @@ router.post('/delete-profile', hasSubscription, function*() {
 
   yield db.deleteProfile(this.request.body.id);
   this.flash = 'Profile deleted successfully.';
-  yield updateSubscription(this.currentUser.id, this.session);
-
-  yield communicator.notifyPlanChange(this.currentUser.id, data);
-
   this.redirect(router.url('profiles'));
 });
 
