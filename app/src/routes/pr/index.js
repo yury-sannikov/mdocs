@@ -85,8 +85,10 @@ router.get('/new-profile', checkAuthenticated, hasSubscription, function*() {
   const {currentInvoice, upcomingInvoice, currentSubscription} = yield getFutureInvoice(this.currentUser.id);
 
   this.render('settings/createEditProfile', Object.assign({}, this.jadeLocals, {
+    isNewProfile: true,
     profile: {
-      knownSites: KNOWN_SITES
+      knownSites: KNOWN_SITES,
+      review_sites: {}
     },
     futureInvoice: upcomingInvoice,
     currentSubscription

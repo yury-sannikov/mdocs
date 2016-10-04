@@ -63,7 +63,7 @@ block content
               a(href='#profileCreate' data-toggle="tab" data-step="4") 4. Confirm
         br
         - var actionValue = 'new-profile'
-        if (!_.isEmpty(profile))
+        if (!isNewProfile)
           - actionValue = '../update-profile'
         form#profileform(action=actionValue, method='POST')
           input.form-control(type='hidden', name='editID', id='editID')
