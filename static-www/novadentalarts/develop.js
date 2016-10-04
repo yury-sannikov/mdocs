@@ -1,11 +1,11 @@
 'use strict'
 const path = require('path')
-const SiteBuilderEngine = require('./engine')
+const SiteBuilderEngine = require('../engine')
 
-const THEME = 'cleanui'
+const THEME = 'dental-emergency'
 const WORK_DIR = path.join(__dirname, 'content')
 const BUILD_DIR = path.join(__dirname, '__build')
-const THEME_DIR = path.join(__dirname, 'themes', THEME)
+const THEME_DIR = path.join(__dirname, '../sitebuilder-themes', THEME)
 const options = {
   metainfo: 'metainfo',
   source: 'src',
