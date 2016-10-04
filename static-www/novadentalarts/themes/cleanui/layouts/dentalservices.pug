@@ -1,0 +1,109 @@
+doctype html
+html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths
+  head
+    include ../partials/header.pug
+  body(style='')
+    #wrapper
+      include ../partials/topnavbar.pug
+      include ../partials/headnavbar.pug
+      include ../partials/menu.pug
+      .standardcontainer
+        .maincontent.subpage
+          .col-7.span_5_of_7
+            h1 Dental Services
+            .fastbraces
+              a(href='http://www.fastbraces.com/providers/drNaderHawadr/2813', target='_blank')
+                img(src='http://www.fastbraces.com/images/fblogo.png', alt='Fastbraces® Logo, Braces for adults and braces for kids')
+              p
+                | Dr.Nader Hawa
+                br
+                |  a proud Fastbraces® provider:
+                br
+                a(href='http://www.fastbraces.com') braces
+                |  technology that is fast,
+                br
+                | safe and affordable.
+            p.why-here
+              | Why are we here?
+              br
+              | To improve 
+              u
+                i your
+              |  very quality of life!
+            p
+              | Dr. Hawa is committed to providing you, your family and friends with high-quality, comprehensive dental care. We offer complete dental services and cosmetic procedures for all ages.
+            p.header Our services include:
+            ul.links
+              li.left
+                a(href='/dentalservices/cosmetic-aesthetic-dentistry.html') Cosmetic & Aesthetic Dentistry
+              li
+                a(href='/dentalservices/veneers-crowns-bridges.html') Veneers, Crowns & Bridges
+              li.left
+                a(href='/dentalservices/implant-dentistry.html') Implant Dentistry
+              li
+                a(href='/dentalservices/periodontal-therapy.html') Periodontal Therapy
+              li.left
+                a(href='/dentalservices/dental-hygiene.html') Dental Hygiene
+              li
+                a(href='/dentalservices/dental-emergencies.html') Dental Emergencies
+              li.left
+                a(href='/dentalservices/root-canal-treatment.html') Root Canal Treatment
+              li
+                a(href='/dentalservices/fillings-and-restorative-prodcedures.html') Fillings and Restorative Procedures
+              li.left
+                a(href='/dentalservices/night-guards.html') Night Guards
+              li
+                a(href='/dentalservices/teeth-whitening.html') Teeth Whitening
+              li.left
+                a(href='/dentalservices/advanced-technology.html') Advanced Technology
+            p.header(style='clear: both; padding-top: 20px;') We proudly serve these areas:
+            p
+              | Loudoun County, Fairfax County and Prince William County – including: Sterling, Potomac Falls, Ashburn, Herndon, Leesburg, Tyson’s Corner, Great Falls, Fairfax, Oakton, Reston, Chantilly, Centreville, and Manassas.
+            p
+              a(href='/contact-and-location.html') Email
+              |  us today
+            | .
+            .photos-adjacent.clear-both
+              img(src='/assets/images/nova-dental-services-1.jpg', alt='Dental Services')
+              img(src='/assets/images/nova-dental-services-2.jpg', alt='Dental Services')
+          .col-7.span_2_of_7.sidebar
+            .sidebar-header
+              h2 Make appointment
+              p
+                | For an appointment, oral cancer screening or FREE smile consultation, 
+                a(href='/appointment.html') click here today
+                | .
+            .sidebar-header.blue
+              h2 Emergencies Welcome
+              p And usually seen the same day.
+              p Call us at: 703-444-5108.
+            .sidebar-header.finance
+              h2 Financial Options
+              p
+                | Our office participates with many dental insurance plans. To find out about all of our financial options, 
+                a(href='/financial-options.html') click here
+                | .
+            #contact-form-short
+              h3 Get in touch
+              p Simply fill out the form below
+              form#ContactFormSidebar.cmxform(method='post', action='', novalidate='novalidate')
+                label(for='cname') Name
+                input#cname(name='fullname', minlength='2', type='text', required='', aria-required='true')
+                label(for='cemail') Email
+                input#cemail(type='email', name='email', required='', aria-required='true')
+                label(for='message') Message
+                textarea#message(name='comment', required='', aria-required='true')
+                input(type='submit', value='SEND MESSAGE')
+      .standardcontainer.quote
+        .maincontent.centre
+          img(src='/assets/images/quote-open.png', alt='Quote')
+          p
+            | I thoroughly enjoyed meeting and talking with Dr. Hawa. I enjoyed listening to his experiences with new technology and hearing his genuine concern for the patient. I couldn't be happier to have Dr. Hawa as my new dentist! Thank you for spending your time with me. Everything was perfect!
+          div(style='margin: auto 0;')
+            p.from — Happy Customer: TB —
+          img(src='/assets/images/quote-close.png', alt='Quote')
+    include ../partials/footer.pug
+
+
+
+
