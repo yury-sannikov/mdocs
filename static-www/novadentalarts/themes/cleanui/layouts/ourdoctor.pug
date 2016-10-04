@@ -1,7 +1,5 @@
 doctype html
 html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths
-  // InstanceBegin template="/Templates/layout.dwt" codeOutsideHTMLIsLocked="false"
-  // <![endif]
   head
     include ../partials/header.pug
   body(style='')
@@ -95,8 +93,14 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
             include ../partials/emergencies_welcome.pug
             include ../partials/financial_options.pug
             include ../partials/get_in_touch.pug
-            
-  include ../partials/quote.pug
+  .standardcontainer.quote
+    .maincontent.centre
+      img(src='/assets/images/quote-open.png', alt='Quote')
+      p
+        | The hygienist was great, the doctor was great, and the staff was great!
+      div(style='margin: auto 0;')
+        p.from — Happy Customer: DC —
+      img(src='/assets/images/quote-close.png', alt='Quote')
   include ../partials/footer.pug
   script(src='/assets/js/jquery-1.11.0.min.js')
   script(src='/assets/js/jquery.validate.min.js')
