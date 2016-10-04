@@ -279,11 +279,17 @@ block scripts
           rules: {
             name: "required",
             email: {
-              required: true,
+              required: function(element) {
+                var phoneVal = $('input[name="phoneMobile"]', element.closest('form')).val();
+                return !(phoneVal && phoneVal.length > 0);
+              },
               email: true
             },
             phoneMobile: {
-              required: true
+              required: function(element) {
+                var emailVal = $('input[name="email"]', element.closest('form')).val();
+                return !(emailVal && emailVal.length > 0);
+              }
             }
           },
           messages: {

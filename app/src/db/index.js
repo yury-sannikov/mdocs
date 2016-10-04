@@ -45,7 +45,6 @@ exports.createNewSurvey = function() {
       visit_date: moment(survey.visitDate).utc().unix(),
       questions: questions,
       patient: {
-        'email': survey.email,
         'name': survey.name
       },
       title: title,
@@ -55,6 +54,9 @@ exports.createNewSurvey = function() {
 
     if(!_.isEmpty(survey.phoneMobile)) {
       newSurvey.patient.phone = survey.phoneMobile;
+    }
+    if(!_.isEmpty(survey.email)) {
+      newSurvey.patient.email = survey.email;
     }
 
     yield insertAsync(newSurvey);

@@ -38,8 +38,8 @@ exports.generateUnsubscriveUrl = function(id) {
 exports.conductSurvey = function* (id) {
   // true - ok, false - skipped, string/Error - error
   let result = {
-    sms: false,
-    email: false
+    sms: null,
+    email: null
   };
 
   // Search for survey
@@ -67,15 +67,19 @@ exports.conductSurvey = function* (id) {
 
   const isProviderReview = record.reviewFor.reviewType === 'Provider';
 
-  try {
-    const emailResult = yield email[isProviderReview ? 'sendReviewRequest' : 'sendLocationReviewRequest'](record.patient.email, emailLocals);
+  if (!_.isEmpty(record.patient.email)) {
+    try {
+      const emailResult = yield email[isProviderReview ? 'sendReviewRequest' : 'sendLocationReviewRequest'](record.patient.email, emailLocals);
 
-    debug(`Survey ${id} email result ${JSON.stringify(emailResult, null, 2)}`);
+      debug(`Survey ${id} email result ${JSON.stringify(emailResult, null, 2)}`);
 
-    result.email = true;
-  }
-  catch(e) {
-    result.email = e;
+      result.email = true;
+    }
+    catch(e) {
+      result.email = e;
+    }
+  } else {
+    debug(`conductSurvey: no email specified.`)
   }
 
   var shortenedLink = url;
@@ -105,9 +109,8 @@ exports.conductSurvey = function* (id) {
     catch(e) {
       result.sms = e;
     }
-  }
-  else {
-    debug(`SMS notification skipped due no phone number provided`);
+  } else {
+    debug(`conductSurvey: no phone number specified.`)
   }
 
   return result;

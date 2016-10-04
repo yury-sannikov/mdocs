@@ -63,14 +63,16 @@ router.post('/update-survey-questions', hasSubscription, function*() {
 function* conductSurvey(id) {
 
   const result = yield communicator.conductSurvey(id);
-  if (result.sms === true && result.email === true) {
+  const trueOrSkipped = (v) => v === true || v === null
+
+  if (trueOrSkipped(result.sms) && trueOrSkipped(result.email)) {
     this.flash = 'Invite sent successfully.';
   } else {
     let flash = 'An error occurred while delivering invite. ';
-    if (result.sms !== true) {
+    if (!trueOrSkipped(result.sms)) {
       flash = flash + 'Error while sending SMS. ';
     }
-    if (result.email !== true) {
+    if (!trueOrSkipped(result.email)) {
       flash = flash + 'Error while sending email. ';
     }
     this.flash = flash;
