@@ -40,7 +40,7 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
                 h3 Our Magazine
                 p
                   | For insight into Dr. Hawa and Northern Virginia Dental Arts, 
-                  a(href='/pdfs/hawa-mag-gilleard-web.pdf', target='_blank') download
+                  a(href='/assets/files/hawa-mag-gilleard-web.pdf', target='_blank') download
                   |  our magazine today.
                 img#magazine-arrow(src='/assets/images/magazine-arrow-on-white.jpg', alt='Magazine')
             p.header.margin Why choose Northern Virginia Dental Arts?
@@ -89,10 +89,35 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
               br
               | Toothaches and dental abscesses are extremely painful – and potentially dangerous to your health. We work to take care of dental emergencies quickly, to get you out of pain.
           .col-7.span_2_of_7.sidebar
-            include ../partials/make_appointment.pug
-            include ../partials/emergencies_welcome.pug
-            include ../partials/financial_options.pug
-            include ../partials/get_in_touch.pug
+            .sidebar-header
+              h2 Make appointment
+              p
+                | For an appointment, oral cancer screening or FREE smile consultation, 
+                a(href='/appointment.html') click here today
+                | .
+              p We look forward to welcoming you to our office!
+            .sidebar-header.blue
+              h2 Emergencies Welcome
+              p And usually seen the same day.
+              p Call us at: 703-444-5108.
+            .sidebar-header.finance
+              h2 Financial Options
+              p
+                | Our office participates with many dental insurance plans. To find out about all of our financial options, 
+                a(href='/financial-options.html') click here
+                | .
+            #contact-form-short
+              h3 Get in touch
+              p Simply fill out the form below
+              form#ContactFormSidebar.cmxform(method='post', action='', novalidate='novalidate')
+                label(for='cname') Name
+                input#cname(name='fullname', minlength='2', type='text', required='', aria-required='true')
+                label(for='cemail') Email
+                input#cemail(type='email', name='email', required='', aria-required='true')
+                label(for='message') Message
+                textarea#message(name='comment', required='', aria-required='true')
+                input(type='submit', value='SEND MESSAGE')
+
   .standardcontainer.quote
     .maincontent.centre
       img(src='/assets/images/quote-open.png', alt='Quote')
