@@ -1,0 +1,73 @@
+doctype html
+html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths
+  head
+    include ../partials/header.pug
+  body(style='')
+    #wrapper
+      include ../partials/topnavbar.pug
+      include ../partials/headnavbar.pug
+      include ../partials/menu.pug
+      .standardcontainer
+  .maincontent.subpage
+    .col-7.span_5_of_7
+      h1 Veneers, Crowns & Bridges
+      p
+        | Dr. Hawa believes that every patient needs to understand the options available. He and his staff take the time to clearly explain dental problems and the best solutions available.
+      p
+        | To restore broken or decayed teeth, a crown may be fitted over the remaining part of the tooth making it strong again and giving the appearance of a real tooth. There are a number of different crowns available, and Dr. Hawa will walk you through the best crown for your teeth and your budget.
+      p
+        | Bridges are best for people are missing one or two teeth and do not want a denture.  There are different techniques for applying bridges, and these will all be discussed in your consultation with Dr. Hawa.
+      p
+        | Dental crowns and bridges are not purely cosmetic. They can help repair and strengthen damaged teeth, restoring your ability to chew or speak properly. They may help maintain the structure of your mouth and face, and prevent other teeth from moving out of place.
+      p
+        | A veneer is a thin layer placed over a tooth, either to protect it or to improve its appearance. Our expert team is happy to discuss this option as part of your treatment plan. Your veneers will feel comfortable and look fantastic.
+      p
+        strong
+          | Whether you need a crown, bridge or a veneer, we are confident we can give you that healthy, beautiful smile you’re looking for.
+      .photos-adjacent.clear-both
+        img(src='/assets/images/nova-veneers-crowns-bridges-1.jpg', alt='Veneers, Crowns & Bridges')
+        img(src='/assets/images/nova-veneers-crowns-bridges-2.jpg', alt='Veneers, Crowns & Bridges')
+
+
+    .col-7.span_2_of_7.sidebar
+      .sidebar-header
+        h2 Make appointment
+        p
+          | For an appointment, oral cancer screening or FREE smile consultation, 
+          a(href='/appointment.html') click here today
+          | .
+      .sidebar-header.blue
+        h2 Emergencies Welcome
+        p And usually seen the same day.
+        p Call us at: 703-444-5108.
+      .sidebar-header.finance
+        h2 Financial Options
+        p
+          | Our office participates with many dental insurance plans. To find out about all of our financial options, 
+          a(href='/financial-options.html') click here
+          | .
+      #contact-form-short
+        h3 Get in touch
+        p Simply fill out the form below
+        form#ContactFormSidebar.cmxform(method='post', action='', novalidate='novalidate')
+          label(for='cname') Name
+          input#cname(name='fullname', minlength='2', type='text', required='', aria-required='true')
+          label(for='cemail') Email
+          input#cemail(type='email', name='email', required='', aria-required='true')
+          label(for='message') Message
+          textarea#message(name='comment', required='', aria-required='true')
+          input(type='submit', value='SEND MESSAGE')
+
+  .standardcontainer.quote
+        .maincontent.centre
+          img(src='/assets/images/quote-open.png', alt='Quote')
+          p
+            | I thoroughly enjoyed meeting and talking with Dr. Hawa. I enjoyed listening to his experiences with new technology and hearing his genuine concern for the patient. I couldn't be happier to have Dr. Hawa as my new dentist! Thank you for spending your time with me. Everything was perfect!
+          div(style='margin: auto 0;')
+            p.from — Happy Customer: TB —
+          img(src='/assets/images/quote-close.png', alt='Quote')
+  include ../partials/footer.pug
+  script(src='/assets/js/jquery-1.11.0.min.js')
+  script(src='/assets/js/jquery.validate.min.js')
+  script(src='/assets/js/drop-down-menu.js')
+  script(src='/assets/js/validate-short-form.js')

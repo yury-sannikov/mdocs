@@ -1,0 +1,96 @@
+doctype html
+html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths
+  head
+    include ../partials/header.pug
+  body(style='')
+    #wrapper
+      include ../partials/topnavbar.pug
+      include ../partials/headnavbar.pug
+      include ../partials/menu.pug
+      .standardcontainer
+  .maincontent.subpage
+    .col-7.span_5_of_7
+      h1 Cosmetic and Aesthetic Dentistry
+      p.why-here
+        | Why are we here?
+        br
+        | To improve 
+        u
+          i your
+        |  very quality of life!
+      p
+        | A gorgeous smile is the greatest beauty secret of all.  Did you know you can have a smile makeover in just 1-2 visits? Whether you want a Hollywood, dazzling smile, or just whiter and straighter teeth, Dr. Hawa can give you exactly what you want using the latest dental technology.
+      .photos-adjacent.margin-bottom
+        img(alt='Cosmetic & Aesthetic Dentistry', src='/assets/images/nova-cosmetic-dentistry-3.jpg')
+        img.mb(src='/assets/images/kor.png', alt='KOR')
+      p
+        | Dr. Hawa uses KöR, widely recognized as the world’s most effective whitening system. It produces exceptional results and is available exclusively through trusted dental professionals, such as Dr. Hawa.  Stains from coffee, tea, wine and cigarettes ruin the look of your teeth. With these advanced whitening techniques, we can correct stained or yellow teeth. Your bright, gorgeous smile and oral health is our number one priority.
+      .photos-adjacent.margin-bottom
+        img(alt='Cosmetic & Aesthetic Dentistry', src='/assets/images/nova-cosmetic-dentistry-1.jpg')
+        img(alt='Cosmetic & Aesthetic Dentistry', src='/assets/images/nova-cosmetic-dentistry-2.jpg')
+      p
+        | Whether you require porcelain veneers, treatment for chipped/damaged teeth, all porcelain crowns, tooth bonding or white fillings to replace old mecury fillings, Dr. Hawa will walk you through exactly what will work best for you.
+      p
+        | Contact Northern Virginia Dental Arts at our Sterling, Virginia office today for a FREE Smile Consultation.  You tell us what you want, and we’ll show you how cosmetic dentistry can achieve this.
+      p.header Smile Makeovers
+      p
+        | Dr. Nader Hawa uses the miracles of modern cosmetic dentistry to give you a gorgeous, dazzling smile. Here just a few of our amazing smile makeovers.
+      p.before-after Before and After Gallery
+      img(src='/assets/images/nova-before-after-1.jpg', alt='Before Afer smile')
+      .hawa-quote
+        img(src='/assets/images/smile-makeover-tooth.gif', alt='Smile Makeover')
+        p
+          | “Producing a beautiful smile is an art and a science – as unique and individual as a person’s features.”
+        p.by – Dr. Hawa
+      img(src='/assets/images/nova-before-after-2.jpg', alt='Before Afer smile')
+      #lady-smile
+        img(src='/assets/images/nova-before-after-3.jpg', alt='Before Afer smile')
+        .right
+          p
+            | “We love the entire staff and appreciate their hard work and great service!”
+          p.by – Patient D.A.
+      img.mb(src='/assets/images/northern-virginia-dental-before-after-6.jpg', alt='Before / after photo')
+      p.questions
+        | If you have any questions or would like a free smile consultation, we are just a phone call away: 703-444-5108.
+    .col-7.span_2_of_7.sidebar
+      .sidebar-header
+        h2 Make appointment
+        p
+          | For an appointment, oral cancer screening or FREE smile consultation, 
+          a(href='/appointment.html') click here today
+          | .
+      .sidebar-header.blue
+        h2 Emergencies Welcome
+        p And usually seen the same day.
+        p Call us at: 703-444-5108.
+      .sidebar-header.finance
+        h2 Financial Options
+        p
+          | Our office participates with many dental insurance plans. To find out about all of our financial options, 
+          a(href='/financial-options.html') click here
+          | .
+      #contact-form-short
+        h3 Get in touch
+        p Simply fill out the form below
+        form#ContactFormSidebar.cmxform(method='post', action='', novalidate='novalidate')
+          label(for='cname') Name
+          input#cname(name='fullname', minlength='2', type='text', required='', aria-required='true')
+          label(for='cemail') Email
+          input#cemail(type='email', name='email', required='', aria-required='true')
+          label(for='message') Message
+          textarea#message(name='comment', required='', aria-required='true')
+          input(type='submit', value='SEND MESSAGE')
+
+  .standardcontainer.quote
+        .maincontent.centre
+          img(src='/assets/images/quote-open.png', alt='Quote')
+          p
+            | I thoroughly enjoyed meeting and talking with Dr. Hawa. I enjoyed listening to his experiences with new technology and hearing his genuine concern for the patient. I couldn't be happier to have Dr. Hawa as my new dentist! Thank you for spending your time with me. Everything was perfect!
+          div(style='margin: auto 0;')
+            p.from — Happy Customer: TB —
+          img(src='/assets/images/quote-close.png', alt='Quote')
+  include ../partials/footer.pug
+  script(src='/assets/js/jquery-1.11.0.min.js')
+  script(src='/assets/js/jquery.validate.min.js')
+  script(src='/assets/js/drop-down-menu.js')
+  script(src='/assets/js/validate-short-form.js')

@@ -1,0 +1,67 @@
+doctype html
+html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths
+  head
+    include ../partials/header.pug
+  body(style='')
+    #wrapper
+      include ../partials/topnavbar.pug
+      include ../partials/headnavbar.pug
+      include ../partials/menu.pug
+      .standardcontainer
+  .maincontent.subpage
+    .col-7.span_5_of_7
+      h1 Teeth Whitening
+      p
+        | Dr. Hawa uses KöR , widely recognized as the world’s most effective whitening system. It produces exceptional results and is available exclusively through trusted dental professionals, such as Dr. Hawa. Stains from coffee, tea, wine and cigarettes ruin the look of your teeth. With these advanced whitening techniques, we can correct stained or yellow teeth. Your bright, gorgeous smile and oral health is our number one priority.
+      img(src='/assets/images/kor.png', alt='KOR')
+      .photos-adjacent.margin-bottom
+      img(src='/assets/images/northern-virginia-dental-gorgeous-smile-1.jpg', alt='Gorgeous Smile 1')
+      img(src='/assets/images/northern-virginia-dental-gorgeous-smile-2.jpg', alt='Gorgeous Smile 1')
+      .hawa-quote
+        img(src='/assets/images/smile-makeover-tooth.gif', alt='Smile Makeover')
+        p
+          | “Producing a beautiful smile is an art and a science – as unique and individual as a person’s features.”
+        p.by – Dr. Hawa
+
+    .col-7.span_2_of_7.sidebar
+      .sidebar-header
+        h2 Make appointment
+        p
+          | For an appointment, oral cancer screening or FREE smile consultation, 
+          a(href='/appointment.html') click here today
+          | .
+      .sidebar-header.blue
+        h2 Emergencies Welcome
+        p And usually seen the same day.
+        p Call us at: 703-444-5108.
+      .sidebar-header.finance
+        h2 Financial Options
+        p
+          | Our office participates with many dental insurance plans. To find out about all of our financial options, 
+          a(href='/financial-options.html') click here
+          | .
+      #contact-form-short
+        h3 Get in touch
+        p Simply fill out the form below
+        form#ContactFormSidebar.cmxform(method='post', action='', novalidate='novalidate')
+          label(for='cname') Name
+          input#cname(name='fullname', minlength='2', type='text', required='', aria-required='true')
+          label(for='cemail') Email
+          input#cemail(type='email', name='email', required='', aria-required='true')
+          label(for='message') Message
+          textarea#message(name='comment', required='', aria-required='true')
+          input(type='submit', value='SEND MESSAGE')
+
+  .standardcontainer.quote
+        .maincontent.centre
+          img(src='/assets/images/quote-open.png', alt='Quote')
+          p
+            | I thoroughly enjoyed meeting and talking with Dr. Hawa. I enjoyed listening to his experiences with new technology and hearing his genuine concern for the patient. I couldn't be happier to have Dr. Hawa as my new dentist! Thank you for spending your time with me. Everything was perfect!
+          div(style='margin: auto 0;')
+            p.from — Happy Customer: TB —
+          img(src='/assets/images/quote-close.png', alt='Quote')
+  include ../partials/footer.pug
+  script(src='/assets/js/jquery-1.11.0.min.js')
+  script(src='/assets/js/jquery.validate.min.js')
+  script(src='/assets/js/drop-down-menu.js')
+  script(src='/assets/js/validate-short-form.js')

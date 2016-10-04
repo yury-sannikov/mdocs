@@ -1,0 +1,65 @@
+doctype html
+html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths
+  head
+    include ../partials/header.pug
+  body(style='')
+    #wrapper
+      include ../partials/topnavbar.pug
+      include ../partials/headnavbar.pug
+      include ../partials/menu.pug
+      .standardcontainer
+  .maincontent.subpage
+    .col-7.span_5_of_7
+      h1 Periodontal Therapy
+      p
+        | Some form of periodontal (gum) disease is not uncommon among adults, and treating this disease is an important part of our dentistry. Gum disease can range from gum inflammation to a major condition affecting soft tissue and bone that supports the teeth. If left untreated, it can harm your overall health, not just your mouth.
+      p
+        | Regular checkups and teeth cleaning are the foundation of a healthy mouth and can help prevent gum disease or catch it early on. You can maintain your beautiful smile and improve your overall health by coming to Northern Virginia Dental Arts for regular cleanings. No matter how well you care for your teeth at home, professional dental techniques remove more plaque than brushing/flossing, and therefore improve gum health.
+      .photos-adjacent.clear-both
+        img(src='/assets/images/nova-periodontal-therapy-1.jpg', alt='Periodontal Therapy')
+        img(src='/assets/images/nova-periodontal-therapy-2.jpg', alt='Periodontal Therapy')
+
+
+
+    .col-7.span_2_of_7.sidebar
+      .sidebar-header
+        h2 Make appointment
+        p
+          | For an appointment, oral cancer screening or FREE smile consultation, 
+          a(href='/appointment.html') click here today
+          | .
+      .sidebar-header.blue
+        h2 Emergencies Welcome
+        p And usually seen the same day.
+        p Call us at: 703-444-5108.
+      .sidebar-header.finance
+        h2 Financial Options
+        p
+          | Our office participates with many dental insurance plans. To find out about all of our financial options, 
+          a(href='/financial-options.html') click here
+          | .
+      #contact-form-short
+        h3 Get in touch
+        p Simply fill out the form below
+        form#ContactFormSidebar.cmxform(method='post', action='', novalidate='novalidate')
+          label(for='cname') Name
+          input#cname(name='fullname', minlength='2', type='text', required='', aria-required='true')
+          label(for='cemail') Email
+          input#cemail(type='email', name='email', required='', aria-required='true')
+          label(for='message') Message
+          textarea#message(name='comment', required='', aria-required='true')
+          input(type='submit', value='SEND MESSAGE')
+
+  .standardcontainer.quote
+        .maincontent.centre
+          img(src='/assets/images/quote-open.png', alt='Quote')
+          p
+            | I thoroughly enjoyed meeting and talking with Dr. Hawa. I enjoyed listening to his experiences with new technology and hearing his genuine concern for the patient. I couldn't be happier to have Dr. Hawa as my new dentist! Thank you for spending your time with me. Everything was perfect!
+          div(style='margin: auto 0;')
+            p.from — Happy Customer: TB —
+          img(src='/assets/images/quote-close.png', alt='Quote')
+  include ../partials/footer.pug
+  script(src='/assets/js/jquery-1.11.0.min.js')
+  script(src='/assets/js/jquery.validate.min.js')
+  script(src='/assets/js/drop-down-menu.js')
+  script(src='/assets/js/validate-short-form.js')
