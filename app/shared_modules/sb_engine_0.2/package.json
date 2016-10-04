@@ -16,7 +16,7 @@
     "hrtime-measure": "^1.0.12",
     "lodash": "^4.13.1",
     "metalsmith": "^2.1.0",
-    "metalsmith-changed": "^2.0.0",
+    "metalsmith-changed": "^3.1.0",
     "metalsmith-collections": "^0.7.0",
     "metalsmith-if": "^0.1.1",
     "metalsmith-in-place": "^1.4.4",
