@@ -1,0 +1,114 @@
+doctype html
+html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths
+  head
+    include ../partials/header.pug
+  body(style='')
+    #wrapper
+      include ../partials/topnavbar.pug
+      include ../partials/headnavbar.pug
+      include ../partials/menu.pug
+      .standardcontainer
+  .maincontent.subpage
+    .col-7.span_5_of_7
+      h1 Invisalign
+      .fl
+        p.header Straight Teeth, No Braces
+        p
+          | Invisalign is the invisible way to straighten teeth. No wires or braces. Dr. Hawa is a Certified Invisalign provider and is here to help you understand the importance of correcting an "uneven" smile. If you are unhappy with your crowded, overly spaced, or uneven teeth, Invisalign may help you gain a healthy, well-aligned smile in minimal time, and without unsightly metal brackets.
+        .fr
+          iframe(width='400', height='225', src='https://www.youtube.com/embed/OVQ5ELTPksA?rel=0&controls=0&showinfo=0', frameborder='0', allowfullscreen='')
+      img.mb.mt(src='/assets/images/nova-dental-invisalign-1.jpg', alt='Invisalign')
+      p.header Straight teeth, no braces – for adults and teens
+      p
+        | Dr. Hawa creates precise teeth aligners designed and customized for each individual, to perfectly fit each person’s teeth and achieve the best result.
+      p.header Comfort
+      p
+        | Invisalign aligners have smooth, soft edges that will never irritate your gums or teeth. You’ll forget you’re wearing them. Eating, drinking, brushing or flossing are a breeze because the aligners are removable.
+      img.mb(src='/assets/images/nova-dental-invisalign-2.jpg', alt='Invisalign')
+      p.header Cosmetic
+      p
+        | Invisalign is practically invisible! No one will know you are straightening your teeth unless you tell them. You can easily remove Invisalign for any occasion if you like.
+      p.header Clear Results
+      p
+        | You will start to notice and enjoy the results of your improving smiles within a few short months.
+      p.header Get your confidence back!
+      p
+        | Over 2.7 million patients are smiling with confidence thanks to Invisalign clear aligners. Without brackets or wires, Invisalign clear aligner treatment takes a modern approach to teeth straightening and is virtually invisible.
+      p
+        | Dr. Hawa is an expert Invisalign provider. He believes Invisalign gives people a clear, removable and comfortable alternative to braces. They are comfortable to wear and easy to live with. You will visit our Sterling, Virginia office every month or two to check your progression and get new aligners. Average treatment time is about a year. Because the aligners are removable, you can continue to eat your favorite foods. And you can brush and floss normally to keep your teeth and gums healthy.
+      img.mb(src='/assets/images/nova-invisalign-results-you-can-see.jpg', alt='Results you can see')
+      p.header.margin Invisalign can:
+      ul.coloured-dots.purple
+        li
+          span Straighten your teeth invisibly
+        li
+          span Straighten your teeth without fear of carrying your meal in your braces
+        li
+          span Allow you to you eat the foods you like during the adjustment
+        li
+          span Make cleaning and brushing easy
+        li
+          span Correct an over-bite or under-bite
+        li
+          span Correct a distracting gap
+        li
+          span Correct overlap/crowding issues
+      p.header How does it work?
+      p
+        | Invisalign
+        sup ®
+        |  clear aligners take a modern approach to straightening teeth, using a custom-made series of aligners created for you and only you. These aligners are made of smooth, comfortable and virtually invisible plastic that you simply wear over your teeth. Wearing the aligners will gradually and gently shift your teeth into place, based on the exact movements your dentist or orthodontist plans out for you.
+      .photos-adjacent.margin-bottom
+        img(alt='Invisalign Adult', src='/assets/images/nova-invisalign-adult.jpg')
+        img(alt='Invisalign Retainer', src='/assets/images/invisalign-retainer.jpg')
+      p
+        | There are no metal brackets to attach and no wires to tighten. You simply pop in a new set of aligners approximately every two weeks, until your treatment is complete and you achieve the confident smile that you’ve always wanted. The best part about the whole process is that most people won’t even know you’re straightening your teeth.
+      p
+        | Get the beautiful smile you’ve always wanted, without braces! With Invisalign, there’s no reason to step back from your professional or social life and every reason to lean in. The nearly invisible aligners allow you to go about your life with confidence and give you a clear path to a beautiful smile.
+      p
+        strong Ask Dr. Hawa today how Invisalign clear aligners can work for you.
+
+    .col-7.span_2_of_7.sidebar
+      .sidebar-header
+        h2 Make appointment
+        p
+          | For an appointment, oral cancer screening or FREE smile consultation, 
+          a(href='/appointment.html') click here today
+          | .
+      .sidebar-header.blue
+        h2 Emergencies Welcome
+        p And usually seen the same day.
+        p Call us at: 703-444-5108.
+      .sidebar-header.finance
+        h2 Financial Options
+        p
+          | Our office participates with many dental insurance plans. To find out about all of our financial options, 
+          a(href='/financial-options.html') click here
+          | .
+      #contact-form-short
+        h3 Get in touch
+        p Simply fill out the form below
+        form#ContactFormSidebar.cmxform(method='post', action='', novalidate='novalidate')
+          label(for='cname') Name
+          input#cname(name='fullname', minlength='2', type='text', required='', aria-required='true')
+          label(for='cemail') Email
+          input#cemail(type='email', name='email', required='', aria-required='true')
+          label(for='message') Message
+          textarea#message(name='comment', required='', aria-required='true')
+          input(type='submit', value='SEND MESSAGE')
+
+  .standardcontainer.quote
+        .maincontent.centre
+          img(src='/assets/images/quote-open.png', alt='Quote')
+          p
+            | I love your office! Pat and Karen are amazing and both have made me 100% more comfortable with going to the dentist. I hadn't been in several years due to childhood memories and fear of the dentist. Dr. Ellington is very nice and takes the time to answer all your questions and make sure you understand everything.
+          p
+            | I couldn't be happier and love going to the dentist now!
+          div(style='margin: auto 0;')
+            p.from — Happy Customer: SA —
+          img(src='/assets/images/quote-close.png', alt='Quote')
+  include ../partials/footer.pug
+  script(src='/assets/js/jquery-1.11.0.min.js')
+  script(src='/assets/js/jquery.validate.min.js')
+  script(src='/assets/js/drop-down-menu.js')
+  script(src='/assets/js/validate-short-form.js')
