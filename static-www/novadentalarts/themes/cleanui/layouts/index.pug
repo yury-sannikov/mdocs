@@ -224,71 +224,8 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
               |  our magazine today.
             img#magazine-arrow(src='/assets/images/magazine-arrow.jpg', alt='Magazine')
       // InstanceEndEditable
-      .standardcontainer.quote
-        .maincontent.centre
-          img(src='/assets/images/quote-open.png', alt='Quote')
-          // InstanceBeginEditable name="Quote"
-          p
-            | Entire staff was on point. Highly engaging and friendly. Staff works well together - great synergy. High level of genuine interest in the patient. Didn't feel like I was being processed. I think our society has lost a great deal of the personal attention from our healthcare professionals. I will certainly recommend this dental practice to my work associates and friends.
-          div(style='margin: auto 0;')
-            p.from — Happy Customer: TF —
-          // InstanceEndEditable
-          img(src='/assets/images/quote-close.png', alt='Quote')
-      .standardcontainer.footer
-        .maincontent
-          .col-4.span_1_of_4
-            h4 Quick links
-            ul
-              li
-                a(href='/our-doctor.html') Dr. Hawa
-              li
-                a(href='/our-team.html') The Team
-              li
-                a(href='/dental-services/') Dental Services
-              li
-                a(href='/invisalign.html') Invisalign
-              li
-                a(href='/invisalign-teen.html') Invisalign Teen
-              li
-                a(href='/gorgeous-smile.html') Gorgeous Smile
-              li
-                a(href='/overall-health.html') Overall Health
-              li
-                a(href='/testimonials.html') Testimonials
-              li
-                a(href='/videos.html') Videos
-              li
-                a(href='/contact-and-location.html') Contact
-              li
-                a(href='/dental-services/dental-emergencies.html') Dental Emergencies
-              li
-                a(href='/financial-options.html') Financial Options
-              li
-                a(href='/new-patient-forms.html') New Patient Forms
-          .col-4.span_1_of_4
-            h4 Emergencies
-            p Emergencies welcome and usually seen the same day.
-            p
-              | Please call our main line:
-              br
-              |           703-444-5108
-          .col-4.span_1_of_4
-            h4 Hours
-            p
-              | We are open Monday to Saturday, including evenings for your convenience. Please contact us today to schedule an appointment.
-          .col-4.span_1_of_4
-            h4 Get in Touch
-            p
-              strong Location
-              br
-              |           46175 Westlake Drive, Suite 130
-              br
-              |           Sterling, VA 20165
-            p
-              strong Telephone
-              br
-              |           703-444-5108
-            p#copyright © 2015 Northern Virginia Dental Arts
+    include ../partials/quote.pug
+    include ../partials/footer.pug
     script(src='/assets/js/jquery-1.11.0.min.js')
     script(src='/assets/js/jquery.validate.min.js')
     script(src='/assets/js/drop-down-menu.js')
