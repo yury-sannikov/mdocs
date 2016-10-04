@@ -12,42 +12,38 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
           .col-7.span_5_of_7
             != data.htmlContent
           .col-7.span_2_of_7.sidebar
-            .sidebar-header
-              h2 Make appointment
-              p
-                | For an appointment, oral cancer screening or FREE smile consultation, 
-                a(href='/appointment.html') click here today
-                | .
-            .sidebar-header.blue
-              h2 Emergencies Welcome
-              p And usually seen the same day.
-              p Call us at: 703-444-5108.
-            .sidebar-header.finance
-              h2 Financial Options
-              p
-                | Our office participates with many dental insurance plans. To find out about all of our financial options, 
-                a(href='/financial-options.html') click here
-                | .
-            #contact-form-short
-              h3 Get in touch
-              p Simply fill out the form below
-              form#ContactFormSidebar.cmxform(method='post', action='', novalidate='novalidate')
-                label(for='cname') Name
-                input#cname(name='fullname', minlength='2', type='text', required='', aria-required='true')
-                label(for='cemail') Email
-                input#cemail(type='email', name='email', required='', aria-required='true')
-                label(for='message') Message
-                textarea#message(name='comment', required='', aria-required='true')
-                input(type='submit', value='SEND MESSAGE')
+            if data.office_welcome == true
+              include ../partials/make_appointment_welcome.pug
+            else 
+              include ../partials/make_appointment.pug
+            include ../partials/emergencies_welcome.pug
+            include ../partials/financial_options.pug
+            include ../partials/get_in_touch.pug
 
-  .standardcontainer.quote
-    .maincontent.centre
-      img(src='/assets/images/quote-open.png', alt='Quote')
-      p
-        | The hygienist was great, the doctor was great, and the staff was great!
-      div(style='margin: auto 0;')
-        p.from — Happy Customer: DC —
-      img(src='/assets/images/quote-close.png', alt='Quote')
+  case data.quote_v
+    when 1
+      include ../partials/quote_v1.pug
+    when 2
+      include ../partials/quote_v2.pug
+    when 3
+      include ../partials/quote_v3.pug
+    when 4
+      include ../partials/quote_v4.pug
+    when 5
+      include ../partials/quote_v5.pug
+    when 6
+      include ../partials/quote_v6.pug
+    when 7
+      include ../partials/quote_v7.pug
+    when 8
+      include ../partials/quote_v8.pug
+    when 9
+      include ../partials/quote_v9.pug
+    when 10
+      include ../partials/quote_v10.pug
+    when 11
+      include ../partials/quote_v11.pug
+
   include ../partials/footer.pug
   script(src='/assets/js/jquery-1.11.0.min.js')
   script(src='/assets/js/jquery.validate.min.js')
