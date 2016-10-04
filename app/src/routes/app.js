@@ -80,14 +80,6 @@ router.get('/subscription', checkAuthenticated, hasSubscription, function* () {
   }), true);
 });
 
-router.post('/delete-subscription', checkAuthenticated, function* () {
-  yield cancelSubscriptions(this.currentUser.id);
-  yield updateSessionSubscriptionInfo(this, this.currentUser.id);
-  this.flash = 'Your subscribtion has been canceled';
-  yield notifySubscriptionCancel(this.currentUser.id);
-  this.redirect('/app');
-});
-
 // Show Dashboard
 router.get('dashboard', '/', checkAuthenticated, function*() {
   this.redirect('app/welcome', this.jadeLocals, true);

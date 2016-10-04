@@ -19,16 +19,16 @@ block content
   .content.bg-gray-lighter
     .row.items-push
       .col-sm-7
-        h1.page-heading Subscription  
+        h1.page-heading Subscription
         small View and change your subscription plan.
       .col-sm-5.text-right.hidden-xs
         ol.breadcrumb.push-10-t
-          li 
+          li
             a.link-effect(href='/app/dashboard') Dashboard
           li
             a.link-effect(href='/app/subscription') Subscription
-          
-  
+
+
   .content.bg-white
     .row
       .col-md-12
@@ -44,7 +44,7 @@ block content
           tr
             td.col-md-3
               strong Billing Cycle Interval
-            td.col-md-9 
+            td.col-md-9
               span(style='text-transform:capitalize;') #{currentInvoiceLine.plan.interval}
     br
     .row
@@ -147,32 +147,32 @@ block content
     br
     br
     br
-    .row
-      .col-md-12
-        h3 Danger zone
-        br
-      .col-md-12
-        .well.danger-well
-          p You will not be able to send and view Patient Reviews without an active subscription.
-          button.btn.btn-danger.unsubscribe(type='button') Cancel Subscription
+    //- .row
+    //-   .col-md-12
+    //-     h3 Danger zone
+    //-     br
+    //-   .col-md-12
+    //-     .well.danger-well
+    //-       p You will not be able to send and view Patient Reviews without an active subscription.
+    //-       button.btn.btn-danger.unsubscribe(type='button') Cancel Subscription
 
-  .modal.fade.unsubscribe-modal(tabindex='-1', role='dialog', aria-hidden='true')
-    .modal-dialog.modal-sm
-      .modal-content
-        .modal-header
-          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-          h4.modal-title Unsubscribe confirmation
-        .modal-body
-          h4 Are you sure?
-          br
-          form(action='delete-subscription', method='POST')
-            .form-group
-              label Type YES to unsubscribe
-              input.form-control(type='text')
-            input.form-control(type='hidden', name='_csrf', value=_csrf)
-        .modal-footer
-          button.btn.btn-default(type='button', data-dismiss='modal') Cancel
-          button.btn.btn-primary(type='button') Unsubscribe
+  //- .modal.fade.unsubscribe-modal(tabindex='-1', role='dialog', aria-hidden='true')
+  //-   .modal-dialog.modal-sm
+  //-     .modal-content
+  //-       .modal-header
+  //-         button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+  //-         h4.modal-title Unsubscribe confirmation
+  //-       .modal-body
+  //-         h4 Are you sure?
+  //-         br
+  //-         form(action='delete-subscription', method='POST')
+  //-           .form-group
+  //-             label Type YES to unsubscribe
+  //-             input.form-control(type='text')
+  //-           input.form-control(type='hidden', name='_csrf', value=_csrf)
+  //-       .modal-footer
+  //-         button.btn.btn-default(type='button', data-dismiss='modal') Cancel
+  //-         button.btn.btn-primary(type='button') Unsubscribe
 block scripts
   script.
     (function(init) {
