@@ -16,14 +16,7 @@ const SURVEY_STATUS_SUBMITTED = 2;
 
 const MINIMUM_OKAY_SURVEY_VALUE = 3; // 5 stars is eq to 4.
 
-const surveyUrls = {
-  'yelp': 'https://www.yelp.com/biz/{{id}}',
-  'yellowpages': 'http://www.yellowpages.com/contribute/businesses/{{id}}/review?star_rate=5',
-  'vitals': 'http://www.vitals.com/review/{{id}}',
-  'google': 'https://plus.google.com/{{id}}',
-  'healthgrades': 'http://www.healthgrades.com/physician/{{id}}',
-  'ratemds': 'https://www.ratemds.com/doctor-ratings/{{id}}'
-};
+import { KNOWN_SITES } from './index'
 
 function makeErrorMessage(msg) {
   return {
@@ -65,7 +58,7 @@ router.get('/:idkey', function*() {
   }
   const survey = data[0][0];
 
-  // Check survey status (0 - new, 1 - accessed, 2 - submitted)
+  //Check survey status (0 - new, 1 - accessed, 2 - submitted)
   if (survey.status > SURVEY_STATUS_ACCESSED) {
 
     this.render('reviews/landing', Object.assign({}, this.jadeLocals, {
@@ -80,6 +73,18 @@ router.get('/:idkey', function*() {
   this.render('reviews/landing', Object.assign({}, this.jadeLocals, { survey: survey }), true);
 });
 
+router.get('forwarder','/forward/:idkey', function*() {
+
+  const data = yield db.surveyById(this.params.idkey);
+  if (data && data[0] && data[0].length != 0) {
+    const survey = data[0][0];
+    yield db.updateSurveyStats(survey.id, this.request.query.k);
+  }
+
+  this.redirect(this.request.query.to)
+})
+
+
 router.post('/submit', function*() {
 
   // Get survey by id
@@ -91,13 +96,6 @@ router.post('/submit', function*() {
     return;
   }
   const survey = data[0][0];
-
-  if (survey.status >= SURVEY_STATUS_SUBMITTED) {
-    this.render('reviews/landing', Object.assign({}, this.jadeLocals, {
-      messages: makeErrorMessage('Survey has been already submitted.')
-    }), true);
-    return;
-  }
 
   const ansvers = JSON.parse(this.request.body.survey);
 
@@ -112,24 +110,22 @@ router.post('/submit', function*() {
     this.render('reviews/negative', Object.assign({}, this.jadeLocals, { survey: survey }), true);
   } else {
     const profile = yield db.profileById(survey.reviewFor.id);
+    const profileItem = profile[0][0]
+    const sitesList = profileItem.review_sites_onsurvey || [survey.reviewSite]
 
-    const siteId = profile[0][0].review_sites[survey.reviewSite];
-
-    if (!siteId) {
-      throw Error(`Review Site '${survey.reviewSite}' wasn't registered.`);
-    }
-
-    const surveyUrl = surveyUrls[survey.reviewSite];
-
-    if (!surveyUrl) {
-      throw Error(`Unknow URL for review site '${survey.reviewSite}'`);
-    }
-
-    const reviewLink = surveyUrl.replace('{{id}}', siteId);
+    let sites = _.compact(_.map(profileItem.review_sites, (v, k) => {
+      if (!sitesList[k]) return null;
+      return {
+        key: k,
+        url: encodeURIComponent(v),
+        meta: KNOWN_SITES[k]
+      }
+    }))
 
     this.render('reviews/positive', Object.assign({}, this.jadeLocals, {
       survey: survey,
-      reviewLink: siteId//reviewLink
+      sites: sites,
+      forwardUrl: router.url('forwarder', {idkey: this.request.body.id})
     }), true);
   }
 });

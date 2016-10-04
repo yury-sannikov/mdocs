@@ -9,6 +9,8 @@ import { render as dashboardRender } from '../apps/dashboard/server';
 import { render as appointmentsRender } from '../apps/appointments/server';
 import { render as campaignsRender } from '../apps/campaigns/server';
 
+import prModule from './pr'
+
 /*
 app:
   - login
@@ -33,11 +35,12 @@ const router = new Router({
   prefix: '/app'
 });
 
+
 router.use(require('./hooks').routes());
 router.use(require('./appointmentApi').routes());
 router.use(require('./subscribe').routes());
 router.use(require('./pr/survey').routes());
-router.use(require('./pr').routes());
+router.use(prModule.routes());
 router.use(require('./sitebuilder').routes());
 
 router.get('/login', function() {

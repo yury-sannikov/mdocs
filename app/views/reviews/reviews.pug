@@ -9,11 +9,11 @@ block content
   .content.bg-gray-lighter
     .row.items-push
       .col-sm-8
-        h1.page-heading Patient Reviews  
+        h1.page-heading Patient Reviews
         small Your online reputation portal.
       .col-sm-4.text-right.hidden-xs
         ol.breadcrumb.push-10-t
-          li 
+          li
             a.link-effect(href='/app/dashboard') Dashboard
           li
             a.link-effect(href='/app/pr/phi/patient-reviews') Patient Reviews
@@ -21,7 +21,7 @@ block content
   .content.bg-white
     .row
       .col-md-12
-        a.linknewrequest.btn.btn-success.pull-center(href="#") 
+        a.linknewrequest.btn.btn-success.pull-center(href="#")
           i.fa.fa-paper-plane-o
           |   Send Review Invite
 
@@ -138,25 +138,6 @@ block content
                           li
                             a.form-control(href="#", data-id=profile.id, data-type=profile.type) #{profile.name}
                 h6#profileDropdownWarningLabel(style='color:#d26a5c; font-style:italic; margin-top:-5px') Please select a profile, or create one first if none exist
-                .form-group
-                  #reviewSiteDropdown.dropdown
-                    input.form-control(type='hidden', name='reviewSite', id='reviewSite')
-                    button#reviewSiteDropdownButton.form-control.btn.btn-default.dropdown-toggle(type="button", name="reviewSiteDropdown", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Select a Review Site
-                      span.caret.pull-right
-                    ul.form-control.dropdown-menu(aria-labelledby="reviewSiteDropdownButton")
-                      li#yelp
-                        a.form-control(href="#", data-site='yelp') Yelp
-                      li#google
-                        a.form-control(href="#", data-site='google') Google Plus
-                      li#healthgrades
-                        a.form-control(href="#", data-site='healthgrades') HealthGrades.com
-                      li#vitals
-                        a.form-control(href="#", data-site='vitals') Vitals.com
-                      li#ratemds
-                        a.form-control(href="#", data-site='ratemds') RateMDs.com
-                      li#yellowpages
-                        a.form-control(href="#", data-site='yellowpages') YellowPages
-                h6#reviewSiteDropdownWarningLabel(style='color:#d26a5c; font-style:italic; margin-top:-5px') Please select a review site
 
         .modal-footer
           button.btn.btn-default(type='button', data-dismiss='modal') Cancel
@@ -193,15 +174,12 @@ block scripts
 
         // Initially hide warning labels and the review site dropdown
         $('#profileDropdownWarningLabel').hide();
-        $('#reviewSiteDropdownWarningLabel').hide();
-        $('#reviewSiteDropdown').hide();
 
         // New request link click
         $('.linknewrequest').on('click', newRequest);
 
         // Diplay change in dropdown selection
         $("#profileDropdown").on('click', 'li a', updateProfileDropdownValue);
-        $("#reviewSiteDropdown").on('click', 'li a', updateReviewSiteDropdownValue);
 
         // Default visit date to current date
         var local = new Date();
@@ -215,7 +193,6 @@ block scripts
     // Diplay change in profile dropdown selection
     function updateProfileDropdownValue(event) {
       var $profileDropdownButton = $('#profileDropdownButton');
-      var $reviewSiteDropdown = $('#reviewSiteDropdown');
       var $profileDropdownWarningLabel = $('#profileDropdownWarningLabel');
       const selectedProfileId = $(this).data('id');
 
@@ -225,10 +202,7 @@ block scripts
       // Update hidden input values
       $('#selectedProfile').val($(this).data('id'));
       $('#selectedProfileType').val($(this).data('type'));
-      // Show review site dropdown
-      if(!$reviewSiteDropdown.is(':visible')) {
-        $reviewSiteDropdown.show();
-      }
+
       // Update available review site options
       const selectedProfile = profiles.filter(function(p) {
         return p.id === selectedProfileId;
@@ -243,23 +217,6 @@ block scripts
       if($profileDropdownWarningLabel.is(':visible')) {
         $profileDropdownWarningLabel.hide();
         $profileDropdownButton.css('border', '1px solid #e6e6e6');
-      }
-    }
-
-    // Diplay change in review site dropdown selection
-    function updateReviewSiteDropdownValue(event) {
-      var $reviewSiteDropdownButton = $('#reviewSiteDropdownButton');
-      var $reviewSiteDropdownWarningLabel = $('#reviewSiteDropdownWarningLabel');
-
-      // Update button
-      $reviewSiteDropdownButton.html($(this).text() + ' <span class="caret pull-right"></span>');
-      $reviewSiteDropdownButton.val($(this).data('site'));
-      // Update hidden input values
-      $('#reviewSite').val($(this).data('site'));
-      // Remove warning label
-      if($reviewSiteDropdownWarningLabel.is(':visible')) {
-        $reviewSiteDropdownWarningLabel.hide();
-        $reviewSiteDropdownButton.css('border', '1px solid #e6e6e6');
       }
     }
 
@@ -356,16 +313,10 @@ block scripts
       event.preventDefault();
 
       const $profileDropdownButton = $('#profileDropdownButton');
-      const $reviewSiteDropdownButton = $('#reviewSiteDropdownButton');
 
       if($profileDropdownButton.val() == null || $profileDropdownButton.val() === '') {
         $('#profileDropdownWarningLabel').show();
         $profileDropdownButton.css('border', '1px solid #d26a5c');
-        $('#requestform').valid();
-      }
-      else if($reviewSiteDropdownButton.val() == null || $reviewSiteDropdownButton.val() === '') {
-        $('#reviewSiteDropdownWarningLabel').show();
-        $reviewSiteDropdownButton.css('border', '1px solid #d26a5c');
         $('#requestform').valid();
       }
       else if($('#requestform').valid) {

@@ -91,9 +91,8 @@ router.post('/resend-survey', hasSubscription, function*() {
 router.post('/new-request', hasSubscription, function*() {
   const selectedProfile = this.request.body.selectedProfile;
   const selectedProfileType = this.request.body.selectedProfileType;
-  const reviewSite = this.request.body.reviewSite;
 
-  if (!selectedProfile || !selectedProfileType || !reviewSite) {
+  if (!selectedProfile || !selectedProfileType) {
     // Client JS should avoid this path
     throw Error('Form is not filled properly.');
   }
@@ -102,8 +101,7 @@ router.post('/new-request', hasSubscription, function*() {
     reviewFor: {
       id: selectedProfile,
       reviewType: selectedProfileType
-    },
-    reviewSite: reviewSite
+    }
   });
 
   const profile = yield db.profileById(survey.reviewFor.id);

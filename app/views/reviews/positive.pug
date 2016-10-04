@@ -2,11 +2,19 @@ extends ../layouts/landingLayout
 
 block head
   title Edit profile for #{user.displayName}
+block styles
+  style.
+    @media all and (max-width: 544px) {
+      .row-xs-center {
+        width: 128px;
+        margin: auto;
+      }
+    }
 
 block content
   .container
     .row
-      .col-sm-6.col-sm-offset-3
+      .col-sm-8.col-sm-offset-2
         br
         br
         form(method='POST')
@@ -14,44 +22,14 @@ block content
           legend
             h2 Review Details
             p.small Thank you for your review. We would love to get your help and spread the word. Please use the link below to post your review.
-          .row
-            case survey.reviewSite
-              when "yelp"
-                .col-sm-12(style='background: #c41200; border-radius:4px')
-                  .form-group
-                    a.btn.btn-block.btn-social.btn-lg(style='color:white;margin:4%;border:4px', href=reviewLink)
-                      i.fa.fa-fw.fa-yelp(style='font-size:200%')
-                      span(style='font-size:150%') &nbsp;Review us on Yelp
-              when "google"
-                .col-sm-12
-                  .form-group
-                    g:page(href=reviewLink)
-              when "healthgrades"
-                .col-sm-12(style='border-radius:4px')
-                  .form-group
-                    a.btn.btn-block.btn-lg(style='color:black;margin:4%;border:4px;display:block;', href=reviewLink)
-                      p(style='font-size:150%') &nbsp;Review us on HealthGrades
-                      br
-                      img(src='/app/img/logos/healthgrades.png', alt='Healthgrades Logo')
-              when "vitals"
-                .col-sm-12(style='border-radius:4px')
-                  .form-group
-                    a.btn.btn-block.btn-lg(style='color:black;margin:4%;border:4px;display:block;', href=reviewLink)
-                      p(style='font-size:150%') &nbsp;Review us on vitals.com
-                      img(src='/app/img/logos/vitals.png', alt='Vitals Logo')
-              when "yellowpages"
-                .col-sm-12(style='border-radius:4px')
-                  .form-group
-                    a.btn.btn-block.btn-lg(style='color:black;margin:4%;border:4px;display:block;', href=reviewLink)
-                      p(style='font-size:150%') &nbsp;Review us on Yellowpages
-                      img(style='width: 50%', src='/app/img/logos/yellowpages.png', alt='YP Logo')
-              when "ratemds"
-                .col-sm-12(style='border-radius:4px')
-                  .form-group
-                    a.btn.btn-block.btn-lg(style='color:black;margin:4%;border:4px;display:block;', href=reviewLink)
-                      p(style='font-size:150%') &nbsp;Review us on RateMDs.com
-                      img(src='/app/img/logos/ratemds.png', alt='Rate MDs Logo')
-
+    .row
+      .col-sm-8.col-sm-offset-2.col-xs-12
+        .row.row-xs-center
+          each site in sites
+            a(href=forwardUrl+'?to='+site.url+'&k='+site.key target="_blank" rel="noopener noreferrer")
+              img(src=site.meta.icon128 srcset=site.meta.icon128x2+' 2x' alt=site.meta.name)
+    .row
+      .col-sm-8.col-sm-offset-2.col-xs-12
         hr
         p.text-muted <em>#{application}
           a(href='/app/terms')  Terms of Use

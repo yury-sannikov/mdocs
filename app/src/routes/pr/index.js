@@ -8,27 +8,41 @@ const communicator = require('../../comm');
 import { checkAuthenticated, hasSubscription } from '../../belt';
 import { getFutureInvoice, updateSubscription } from '../../stripe';
 
-const KNOWN_SITES = {
+export const KNOWN_SITES = {
   yelp: {
-    name: 'Yelp'
+    name: 'Yelp',
+    icon128: '/app/img/psl/yelp.png',
+    icon128x2: '/app/img/psl/yelp@2x.png'
   },
   google: {
-    name: 'Google Plus'
+    name: 'Google Plus',
+    icon128: '/app/img/psl/yelp.png',
+    icon128x2: '/app/img/psl/yelp@2x.png'
   },
   healthgrades: {
-    name: 'HealthGrades.com'
+    name: 'HealthGrades.com',
+    icon128: '/app/img/psl/hg.png',
+    icon128x2: '/app/img/psl/hg@2x.png'
   },
   vitals: {
-    name: 'Vitals.com'
+    name: 'Vitals.com',
+    icon128: '/app/img/psl/vitals.png',
+    icon128x2: '/app/img/psl/vitals@2x.png'
   },
   ratemds: {
-    name: 'RateMDs.com'
+    name: 'RateMDs.com',
+    icon128: '/app/img/psl/yelp.png',
+    icon128x2: '/app/img/psl/yelp@2x.png'
   },
   yellowpages: {
-    name: 'YellowPages'
+    name: 'YellowPages',
+    icon128: '/app/img/psl/yelp.png',
+    icon128x2: '/app/img/psl/yelp@2x.png'
   },
   fb: {
-    name: 'Facebook'
+    name: 'Facebook',
+    icon128: '/app/img/psl/fb.png',
+    icon128x2: '/app/img/psl/fb@2x.png'
   }
 }
 
@@ -141,4 +155,4 @@ router.post('/delete-profile', hasSubscription, function*() {
   this.redirect(router.url('profiles'));
 });
 
-module.exports = router;
+export default router;

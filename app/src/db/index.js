@@ -86,6 +86,21 @@ exports.updateSurveyStatus = function* (id, status, answers) {
   });
 };
 
+exports.updateSurveyStats = function* (id, key) {
+  const chain = DynamoDB
+    .table('survey_review')
+    .where('id').eq(id);
+
+  const updateAsync = Promise.promisify(chain.update, {context: chain});
+
+  return yield updateAsync({
+    stats: {
+      reviewSite: key,
+      date: +(new Date())
+    }
+  });
+};
+
 exports.updateSurveyDetails = function* (id, details) {
   const chain = DynamoDB
     .table('survey_review')
