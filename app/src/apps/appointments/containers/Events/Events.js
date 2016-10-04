@@ -19,12 +19,12 @@ export default class Main extends Component {
           </div>
         </div>
         */}
-        <div className="row">
-          <div className="col-sm-5 col-lg-3">
+        <div className='row'>
+          <div className='col-sm-5 col-lg-3'>
             <EventsSidebar />
             {sidebar}
           </div>
-          <div className="col-sm-7 col-lg-9">
+          <div className='col-sm-7 col-lg-9'>
             {content}
           </div>
         </div>

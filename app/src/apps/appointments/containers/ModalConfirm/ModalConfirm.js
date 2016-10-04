@@ -18,31 +18,31 @@ class ModalConfirm extends Component {
     return (
       <div>
         <Modal
-          className="Modal__Bootstrap modal-dialog modal-dialog-popout"
+          className='Modal__Bootstrap modal-dialog modal-dialog-popout'
           closeTimeoutMS={150}
           style={customStyles}
           isOpen={this.props.isOpen}
           onRequestClose={onHide}
         >
-          <div className="modal-content">
-            <div className="block block-themed block-transparent remove-margin-b">
-              <div className="block-header bg-primary-dark">
-                <ul className="block-options">
+          <div className='modal-content'>
+            <div className='block block-themed block-transparent remove-margin-b'>
+              <div className='block-header bg-primary-dark'>
+                <ul className='block-options'>
                   <li>
-                    <button type="button" onClick={onHide}>
-                      <i className="si si-close" />
+                    <button type='button' onClick={onHide}>
+                      <i className='si si-close' />
                     </button>
                   </li>
                 </ul>
-                <h4 className="block-title">{this.props.title}</h4>
+                <h4 className='block-title'>{this.props.title}</h4>
               </div>
-              <div className="block-content">
+              <div className='block-content'>
                 {this.props.children}
               </div>
             </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-default" onClick={onHide}>Close</button>
-              <button type="button" className="btn btn-primary" onClick={onConfirm}>{this.props.confirmCaption}</button>
+            <div className='modal-footer'>
+              <button type='button' className='btn btn-default' onClick={onHide}>Close</button>
+              <button type='button' className='btn btn-primary' onClick={onConfirm}>{this.props.confirmCaption}</button>
             </div>
           </div>
         </Modal>

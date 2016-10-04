@@ -7,7 +7,7 @@ import CampaignDetailsAssets from './CampaignDetails/Assets'
 class CampaignDetails extends Component {
   render () {
     return (
-      <div className="content content-boxed">
+      <div className='content content-boxed'>
         <CampaignDetailsHeader params={this.props.params} />
         <CampaignDetailsEditor params={this.props.params} />
         <CampaignDetailsAssets params={this.props.params} />

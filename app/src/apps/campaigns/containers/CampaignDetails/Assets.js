@@ -7,15 +7,15 @@ class CampaignDetailsAssets extends Component {
   render () {
     // const { campaign } = this.props
     return (
-      <div className="block">
-        <div className="block-header bg-gray-lighter">
-          <h3 className="block-title">Images</h3>
+      <div className='block'>
+        <div className='block-header bg-gray-lighter'>
+          <h3 className='block-title'>Images</h3>
         </div>
-        <div className="block-content block-content-full">
-          <div className="row">
-            <div className="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
-              <form className="dropzone push-30-t push-30 dz-clickable" action="base_pages_ecom_product_edit.html">
-                <div className="dz-default text-center dz-message">
+        <div className='block-content block-content-full'>
+          <div className='row'>
+            <div className='col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3'>
+              <form className='dropzone push-30-t push-30 dz-clickable' action='base_pages_ecom_product_edit.html'>
+                <div className='dz-default text-center dz-message'>
                   <span>Drop files here to upload</span>
                 </div>
               </form>

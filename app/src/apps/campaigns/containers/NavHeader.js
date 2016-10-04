@@ -49,13 +49,13 @@ class NavHeader extends Component {
     const { route: { routes, params, route: { pathToNavHeaderMapping } } } = this.props
     const { crumbs, title } = buildBreadcrumbsTitle(routes, params, pathToNavHeaderMapping)
     return (
-      <div className="content bg-gray-lighter">
-        <div className="row items-push">
-          <div className="col-sm-7">
-            <h1 className="page-heading">{title}</h1>
+      <div className='content bg-gray-lighter'>
+        <div className='row items-push'>
+          <div className='col-sm-7'>
+            <h1 className='page-heading'>{title}</h1>
           </div>
-          <div className="col-sm-5 text-right hidden-xs">
-            <ol className="breadcrumb push-10-t">
+          <div className='col-sm-5 text-right hidden-xs'>
+            <ol className='breadcrumb push-10-t'>
               {crumbs.map(item => this.renderCrumb(item))}
             </ol>
           </div>
