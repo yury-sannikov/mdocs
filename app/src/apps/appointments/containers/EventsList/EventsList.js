@@ -20,17 +20,17 @@ class EventsList extends Component {
     const { events } = this.props
     return (
       <div className="block-header bg-gray-lighter">
-          {this.props.loading ? (
-            <div className="block-title text-normal">
-              <i className="fa fa-sun-o fa-spin"></i>
-            </div>
-          ) : (
-            <div className="block-title text-normal">
-              <strong>{`${events.length} — ${events.length}`}</strong>
-              <span className="font-w400">&nbsp;{'from'}&nbsp;</span>
-              <strong>{'1'}</strong>
-            </div>
-          )}
+        {this.props.loading ? (
+          <div className="block-title text-normal">
+            <i className="fa fa-sun-o fa-spin" />
+          </div>
+        ) : (
+          <div className="block-title text-normal">
+            <strong>{`${events.length} — ${events.length}`}</strong>
+            <span className="font-w400">&nbsp;{'from'}&nbsp;</span>
+            <strong>{'1'}</strong>
+          </div>
+        )}
       </div>
     )
   }

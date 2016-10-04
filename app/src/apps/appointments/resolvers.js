@@ -1,6 +1,6 @@
 import { FETCH_SERVICE_NAME } from './redux/helpers'
 import 'whatwg-fetch'
-/*global fetch*/
+/* global fetch */
 
 const requestHeaders = (identity = null) => {
   const authorizationHeader = identity ? {authorization: identity.auth_token} : {}

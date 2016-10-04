@@ -17,6 +17,7 @@
     "test": "NODE_ENV=test mocha --reporter spec",
     "lubricate": "npm cache clean && npm install && bower cache clean && bower install && gulp clean && gulp build && npm run build",
     "lint": "eslint --ignore-pattern server.js ./src/apps/dashboard/",
+    "lint-fix": "eslint --ignore-pattern server.js --fix ./src/apps/*",
     "validate": "npm ls",
     "postinstall": "cd ./shared_modules && ./install && cd ..",
     "mounts3": "s3fs mdocs-sitebuilder ${HOME}/s3/ -ouse_cache=${HOME}/s3cache -omax_stat_cache_size=50000 -oparallel_count=10"

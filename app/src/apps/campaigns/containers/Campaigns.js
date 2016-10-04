@@ -10,7 +10,7 @@ class Campaigns extends Component {
       <div className="block">
         <div className="block-content block-content-full text-right">
           <button className="btn btn-success push-5-r push-20-t" type="button">
-            <i className="fa fa-plus"></i>
+            <i className="fa fa-plus" />
             &nbsp;&nbsp;{'Add New Campaign'}
           </button>
         </div>

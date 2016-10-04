@@ -24,7 +24,7 @@ export default class Main extends Component {
                   <td>
                     <a className="font-w600" data-toggle="modal" data-target="#modal-ticket" href="#">
                       <strong>{'John Anderson'}</strong>&nbsp;
-                      {"Appointment with Dr. Hui Lee"}
+                      {'Appointment with Dr. Hui Lee'}
                     </a>
                     <div className="text-muted">
                       <em>{'(202) 233-0034'}</em>
@@ -41,7 +41,7 @@ export default class Main extends Component {
                   <td>
                     <a className="font-w600" data-toggle="modal" data-target="#modal-ticket" href="#">
                       <strong>{'Rebecca Gray'}</strong>&nbsp;
-                      {"Appointment with Dr. Sarah Smith"}
+                      {'Appointment with Dr. Sarah Smith'}
                     </a>
                     <div className="text-muted">
                       <em>{'(202) 823-5564'}</em>
