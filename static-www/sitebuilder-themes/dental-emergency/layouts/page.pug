@@ -1,0 +1,55 @@
+doctype html
+html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths
+  head
+    include ../partials/header.pug
+  body(style='')
+    #wrapper
+      include ../partials/topnavbar.pug
+      include ../partials/headnavbar.pug
+      include ../partials/menu.pug
+      .standardcontainer
+        .maincontent.subpage
+          .col-7.span_5_of_7
+            != data.htmlContent
+          .col-7.span_2_of_7.sidebar
+            .sidebar-header
+              h2 Make appointment
+              p
+                | For an appointment, oral cancer screening or FREE smile consultation, 
+                a(href='/appointment.html') click here today
+                | .
+            .sidebar-header.blue
+              h2 Emergencies Welcome
+              p And usually seen the same day.
+              p Call us at: 703-444-5108.
+            .sidebar-header.finance
+              h2 Financial Options
+              p
+                | Our office participates with many dental insurance plans. To find out about all of our financial options, 
+                a(href='/financial-options.html') click here
+                | .
+            #contact-form-short
+              h3 Get in touch
+              p Simply fill out the form below
+              form#ContactFormSidebar.cmxform(method='post', action='', novalidate='novalidate')
+                label(for='cname') Name
+                input#cname(name='fullname', minlength='2', type='text', required='', aria-required='true')
+                label(for='cemail') Email
+                input#cemail(type='email', name='email', required='', aria-required='true')
+                label(for='message') Message
+                textarea#message(name='comment', required='', aria-required='true')
+                input(type='submit', value='SEND MESSAGE')
+
+  .standardcontainer.quote
+    .maincontent.centre
+      img(src='/assets/images/quote-open.png', alt='Quote')
+      p
+        | The hygienist was great, the doctor was great, and the staff was great!
+      div(style='margin: auto 0;')
+        p.from — Happy Customer: DC —
+      img(src='/assets/images/quote-close.png', alt='Quote')
+  include ../partials/footer.pug
+  script(src='/assets/js/jquery-1.11.0.min.js')
+  script(src='/assets/js/jquery.validate.min.js')
+  script(src='/assets/js/drop-down-menu.js')
+  script(src='/assets/js/validate-short-form.js')
