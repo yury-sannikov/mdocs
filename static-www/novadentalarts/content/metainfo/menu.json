@@ -1,8 +1,7 @@
 [
   {
     "caption": "Dr. Hawa",
-    "href": "/our-doctor",
-    "red":false
+    "href": "/our-doctor"
   },
   {
     "caption": "The team",
@@ -88,7 +87,6 @@
   },
   {
     "caption": "Emergencies",
-    "href": "/content/emergencies",
-    "red":true
+    "href": "/content/emergencies"
   }
 ]
