@@ -35,6 +35,14 @@
     .push-generate(150px);
 }
 
+.push-200 {
+    .push-generate(200px);
+}
+
+.push-300 {
+    .push-generate(300px);
+}
+
 .pulldown {
     position: relative;
     top: 50px;
@@ -118,11 +126,6 @@
     font-weight: 300;
     line-height: 60px;
 
-    .si:before {
-        position: relative;
-        top: 1px;
-    }
-
     a& {
         &:hover,
         &:focus {
@@ -135,7 +138,7 @@
     }
 
     &&-rounded {
-        border-radius: 3px;
+        border-radius: 4px;
     }
 
     &&-rounded-big {
@@ -144,17 +147,22 @@
         &.item-2x {
             border-radius: 35px;
         }
+
+        &.item-3x {
+            border-radius: 50px;
+        }
     }
 
     &.item-2x {
         width: 100px;
         height: 100px;
         line-height: 100px;
+    }
 
-        .si:before {
-            position: relative;
-            top: 3px;
-        }
+    &.item-3x {
+        width: 150px;
+        height: 150px;
+        line-height: 150px;
     }
 }
 

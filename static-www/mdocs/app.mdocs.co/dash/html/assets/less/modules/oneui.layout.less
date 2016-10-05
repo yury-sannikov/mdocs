@@ -396,7 +396,7 @@
     max-width: @space-width-boxed;
 }
 
-// Layout Backgrounds
+// Layout Image and Video Backgrounds
 .bg-image {
     background-color: @gray-lighter;
     background-position: 0 50%;
@@ -416,4 +416,11 @@
             background-attachment: fixed;
         }
     }
+}
+
+.bg-video {
+    width: 100%;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    transform: translateZ(0);
 }

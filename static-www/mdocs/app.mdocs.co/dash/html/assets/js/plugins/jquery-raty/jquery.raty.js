@@ -5,7 +5,7 @@
  *
  * @author  : Washington Botelho
  * @doc     : http://wbotelhos.com/raty
- * @version : 2.7.0
+ * @version : 2.7.1
  *
  */
 
@@ -59,7 +59,7 @@
     },
 
     _adjustCallback: function() {
-      var options = ['number', 'readOnly', 'score', 'scoreName', 'target'];
+      var options = ['number', 'readOnly', 'score', 'scoreName', 'target', 'path'];
 
       for (var i = 0; i < options.length; i++) {
         if (typeof this.opt[options[i]] === 'function') {
@@ -669,7 +669,7 @@
 
         if (self.data('readonly') !== readonly) {
           if (readonly) {
-            self.off('.raty').children('img').off('.raty');
+            self.off('.raty').children(this.opt.starType).off('.raty');
 
             methods._lock.call(this);
           } else {

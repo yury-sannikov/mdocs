@@ -1,16 +1,11 @@
-# mdocs-survey
+# PracticeWin Setup Instructions
 
 To set up the environment, follow the steps below:
 
 ```
-cd src
-npm install
-bower install
-gulp build
-```
-
-To deploy the website, use
-
-```
-gulp
+Create .env file inside /app and verify all keys exist
+./s3-prepare.sh
+cd app
+npm run lubricate
+npm run start
 ```

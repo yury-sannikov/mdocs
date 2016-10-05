@@ -6,7 +6,7 @@
 
 var BaseCompMaps = function() {
     // Gmaps.js, for more examples you can check out https://hpneo.github.io/gmaps/
-    
+
     // Init Search Map
     var initMapSearch = function(){
         // Init Map

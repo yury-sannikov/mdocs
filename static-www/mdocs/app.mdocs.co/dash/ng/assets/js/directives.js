@@ -99,9 +99,11 @@ App.directive('form', function () {
                 var input  = jQuery(this);
                 var parent = input.parent('.form-material');
 
-                if (input.val()) {
-                    parent.addClass('open');
-                }
+                setTimeout(function() {
+                    if (input.val()) {
+                        parent.addClass('open');
+                    }
+                }, 150);
 
                 input.on('change', function(){
                     if (input.val()) {
@@ -178,11 +180,13 @@ App.directive('jsYearCopy', function () {
 App.directive('jsScrollTo', function () {
     return {
         link: function (scope, element, attrs) {
-            var options = (typeof scope.$eval(attrs.jsScrollTo) !== 'undefined') ? scope.$eval(attrs.jsScrollTo) : new Object();
+            var options       = (typeof scope.$eval(attrs.jsScrollTo) !== 'undefined') ? scope.$eval(attrs.jsScrollTo) : new Object();
+            var header        = jQuery('#header-navbar');
+            var headerHeight  = (header.length && scope.oneui.settings.headerFixed) ? header.outerHeight() : 0;
 
             jQuery(element).on('click', function () {
                 jQuery('html, body').animate({
-                    scrollTop: jQuery(options.target).offset().top
+                    scrollTop: jQuery(options.target).offset().top - headerHeight
                 }, options.speed ? options.speed : 1000);
             });
         }
@@ -347,6 +351,8 @@ App.directive('jsCountTo', function () {
                     onComplete: function() {
                         if(options.after) {
                             el.html(el.html() + options.after);
+                        } else if (options.before) {
+                            el.html(options.before + el.html());
                         }
                     }
                 });
@@ -500,10 +506,16 @@ App.directive('jsTagsInput', function () {
 
 // Select2, for more examples you can check out https://github.com/select2/select2
 // By adding the attribute 'data-js-select2'
-App.directive('jsSelect2', function () {
+App.directive('jsSelect2', function ($timeout) {
     return {
-        link: function (scope, element) {
+        link: function (scope, element, attrs) {
             jQuery(element).select2();
+
+            scope.$watch(attrs.ngModel, function(){
+                $timeout(function(){
+                    element.trigger('change.select2');
+                },100);
+            });
         }
     };
 });

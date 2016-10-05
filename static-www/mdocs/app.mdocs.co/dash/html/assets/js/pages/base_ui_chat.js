@@ -20,6 +20,9 @@ var BaseUIChat = function() {
         $cPeople    = jQuery('.js-chat-people');
         $cform      = jQuery('.js-chat-form');
 
+        // Add word wraping to chat content
+        $cTalk.css('word-wrap', 'break-word');
+
         // Chat layout mode
         switch ($cContainer.data('chat-mode')) {
             case 'full':
@@ -61,7 +64,7 @@ var BaseUIChat = function() {
         }
 
         // Enable scroll lock to chat talk window
-        $cTalk.scrollLock();
+        $cTalk.scrollLock('enable');
 
         // Init form submission
         $cform.on('submit', function(e){

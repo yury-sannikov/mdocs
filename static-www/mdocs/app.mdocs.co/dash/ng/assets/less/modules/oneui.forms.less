@@ -8,12 +8,22 @@
     margin: 10px 0 10px;
 
     // Labels
-    > label {
+    > label,
+    &.floating > .form-control:focus + label,
+    &.floating.open > label {
         position: absolute;
         top: 6px;
         left: 0;
         font-size: 13px;
         font-weight: 600;
+        .translateY(-24px);
+    }
+
+    // Use it separately because it causes issues with non webkit browsers when it is used along with the other selectors
+    &.floating > .form-control:-webkit-autofill + label {
+        font-size: 13px;
+        font-weight: 600;
+        cursor: default;
         .translateY(-24px);
     }
 
@@ -53,14 +63,6 @@
                 .box-shadow(0 2px 0 @text-color);
             }
         }
-    }
-
-    & > .form-control:focus + label,
-    &.floating.open > label {
-        font-size: 13px;
-        font-weight: 600;
-        cursor: default;
-        .translateY(-24px);
     }
 
     .form-control[disabled],

@@ -12,148 +12,49 @@ App.controller('DashboardCtrl', ['$scope', '$localStorage', '$window',
          * Init Chart.js Chart, for more examples you can check out http://www.chartjs.org/docs
          */
 
-        var initProgressBarChart = function () {
-            // Get Chart Containers
-            var chartBarsCon   = jQuery('#chart-progress-bar')[0].getContext('2d');
+        // Get Chart Container
+        var dashChartLinesCon  = jQuery('.js-dash-chartjs-lines')[0].getContext('2d');
 
-            // Set Chart and Chart Data variables
-            var chartBars;
+        // Set Chart and Chart Data variables
+        var dashChartLines, dashChartLinesData;
 
-            // Set global chart options
-            var options = {
-              title: {
-                display: false,
-              },
-              legend: {
-                display: true,
-                position: 'bottom'
-              },
-              scales: {
-                xAxes: [{
-                  gridLines: {
-                    display: false
-                  },
-                  stacked: true,
-                  ticks: {
-                    beginAtZero:true
-                  }
-                }],
-                yAxes: [{
-                  display: false,
-                  gridLines: {
-                    display: false
-                  },
-                  stacked: true
-                }]
-              }
-            };
-
-            // Lines/Bar/Radar Chart Data
-            var data = {
-                labels: ["Invites"],
-                datasets: [
-                    {
-                        label: "Sent",
-                        backgroundColor: "rgba(0,163,200,1)",
-                        borderColor: "rgba(0,163,200,1)",
-                        borderWidth: 1,
-                        hoverBackgroundColor: "rgba(0,163,200,0.8)",
-                        hoverBorderColor: "rgba(0,163,200,1)",
-                        data: [25],
-                    },
-                    {
-                        label: "Remaining",
-                        backgroundColor: "rgba(0,163,200,0)",
-                        borderColor: "rgba(0,163,200,1)",
-                        borderWidth: 1,
-                        hoverBackgroundColor: "rgba(0,0,0,0.1)",
-                        hoverBorderColor: "rgba(0,163,200,1)",
-                        data: [5],
-                    }
-                ]
-            };
-
-            // Init Charts
-            // chartBars  = new Chart(chartBarsCon).Bar(chartLinesBarsRadarData, globalOptions);
-
-            chartBars = new Chart(chartBarsCon, {
-              type: 'horizontalBar',
-              data: data,
-              options: options
-            });
+        // Lines Chart Data
+        var dashChartLinesData = {
+            labels: ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'],
+            datasets: [
+                {
+                    label: 'This Week',
+                    fillColor: 'rgba(44, 52, 63, .07)',
+                    strokeColor: 'rgba(44, 52, 63, .25)',
+                    pointColor: 'rgba(44, 52, 63, .25)',
+                    pointStrokeColor: '#fff',
+                    pointHighlightFill: '#fff',
+                    pointHighlightStroke: 'rgba(44, 52, 63, 1)',
+                    data: [34, 42, 40, 65, 48, 56, 80]
+                },
+                {
+                    label: 'Last Week',
+                    fillColor: 'rgba(44, 52, 63, .1)',
+                    strokeColor: 'rgba(44, 52, 63, .55)',
+                    pointColor: 'rgba(44, 52, 63, .55)',
+                    pointStrokeColor: '#fff',
+                    pointHighlightFill: '#fff',
+                    pointHighlightStroke: 'rgba(44, 52, 63, 1)',
+                    data: [18, 19, 20, 35, 23, 28, 50]
+                }
+            ]
         };
 
-        var initReviewsByMonthBarChart = function () {
-            // Get Chart Containers
-            var chartBarsCon   = jQuery('#chart-reviews-by-month')[0].getContext('2d');
-
-            // Set Chart and Chart Data variables
-            var chartBars;
-
-            // Set global chart options
-            var options = {
-              title: {
-                display: false,
-              },
-              legend: {
-                display: false,
-                position: 'bottom'
-              },
-              scales: {
-                xAxes: [{
-                  min: 0,
-                  gridLines: {
-                    display: false
-                  },
-                  stacked: false,
-                  ticks: {
-                    display: true,
-                    beginAtZero:true
-                  }
-                }],
-                yAxes: [{
-                  min: 0,
-                  gridLines: {
-                    display: true,
-                    beginAtZero: true
-                  },
-                  stacked: false,
-                  ticks: {
-                    display: true,
-                    beginAtZero:true
-                  }
-                }]
-              }
-            };
-
-            // Lines/Bar/Radar Chart Data
-            var data = {
-                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-                datasets: [
-                  {
-                    label: "Reviews",
-                    backgroundColor: "rgba(0,163,200,1)",
-                    borderColor: "rgba(0,163,200,1)",
-                    borderWidth: 1,
-                    hoverBackgroundColor: "rgba(0,163,200,0.8)",
-                    hoverBorderColor: "rgba(0,163,200,1)",
-                    data: [25, 35, 42, 54, 62, 70]
-                  }
-                ]
-            };
-
-            // Init Charts
-            // chartBars  = new Chart(chartBarsCon).Bar(chartLinesBarsRadarData, globalOptions);
-
-            chartBars = new Chart(chartBarsCon, {
-              type: 'bar',
-              data: data,
-              options: options
-            });
-        };
-
-        initProgressBarChart();
-        initReviewsByMonthBarChart();
+        // Init Lines Chart
+        dashChartLines = new Chart(dashChartLinesCon).Line(dashChartLinesData, {
+            scaleFontFamily: "'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+            scaleFontColor: '#999',
+            scaleFontStyle: '600',
+            tooltipTitleFontFamily: "'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+            tooltipCornerRadius: 3,
+            maintainAspectRatio: false,
+            responsive: true
+        });
     }
 ]);
 
@@ -248,6 +149,9 @@ App.controller('UiChatCtrl', ['$scope', '$localStorage', '$window',
             cPeople    = jQuery('.js-chat-people');
             cform      = jQuery('.js-chat-form');
 
+            // Add word wraping to chat content
+            cTalk.css('word-wrap', 'break-word');
+
             // Chat layout mode
             switch (cContainer.data('chat-mode')) {
                 case 'full':
@@ -289,7 +193,7 @@ App.controller('UiChatCtrl', ['$scope', '$localStorage', '$window',
             }
 
             // Enable scroll lock to chat talk window
-            cTalk.scrollLock();
+            cTalk.scrollLock('enable');
 
             // Init form submission
             cform.on('submit', function(e){
@@ -1100,7 +1004,7 @@ App.controller('FormsWizardCtrl', ['$scope', '$localStorage', '$window',
 App.controller('CompChartsCtrl', ['$scope', '$localStorage', '$window',
     function ($scope, $localStorage, $window) {
         // Chart.js Charts, for more examples you can check out http://www.chartjs.org/docs
-        var initProgressBarChart = function () {
+        var initChartsChartJS = function () {
             // Get Chart Containers
             var chartLinesCon  = jQuery('.js-chartjs-lines')[0].getContext('2d');
             var chartBarsCon   = jQuery('.js-chartjs-bars')[0].getContext('2d');
@@ -1568,7 +1472,7 @@ App.controller('CompChartsCtrl', ['$scope', '$localStorage', '$window',
         };
 
         // Init all charts
-        initProgressBarChart();
+        initChartsChartJS();
         initChartsSparkline();
         initChartsFlot();
 
@@ -2355,99 +2259,5 @@ App.controller('CompMapsVectorCtrl', ['$scope', '$localStorage', '$window',
             jQuery(window).resize(mapFrance.onResize);
             jQuery(window).resize(mapGermany.onResize);
         });
-    }
-]);
-
-// Website Settings Controller
-App.controller('WebsiteSettingsCtrl', ['$scope', '$localStorage', '$window',
-    function ($scope, $localStorage, $window) {
-        // Template Settings
-        $scope.websiteEditor = {
-            version: '2.2', // Template version
-            localStorage: true, // Enable/Disable local storage
-            settings: {
-                practiceName: 'Liberty Laser Eye',
-                practiceDescription: 'Laser Eye Surgery Center',
-                practicePhone: '571-234-4567',
-                practiceEmail: 'info@livertylasereye.com',
-                sidebarMini: false,
-                sideOverlayOpen: false,
-                sideOverlayHover: false,
-                sideScroll: true,
-                headerFixed: true
-            }
-        };
-
-        // If local storage setting is enabled
-        if ($scope.websiteEditor.localStorage) {
-            // Save/Restore local storage settings
-            if ($scope.websiteEditor.localStorage) {
-                if (angular.isDefined($localStorage.websiteEditorSettings)) {
-                    $scope.websiteEditor.settings = $localStorage.websiteEditorSettings;
-                } else {
-                    $localStorage.websiteEditorSettings = $scope.websiteEditor.settings;
-                }
-            }
-
-            // Watch for settings changes
-            $scope.$watch('websiteEditor.settings', function () {
-                // If settings are changed then save them to localstorage
-                $localStorage.websiteEditorSettings = $scope.websiteEditor.settings;
-            }, true);
-        }
-    }
-]);
-
-// Website Content Controller
-App.controller('WebsiteContentCtrl', ['$scope', '$localStorage', '$window',
-    function ($scope, $localStorage, $window) {
-        // Template Settings
-        $scope.websiteContent = {
-          pages: [{
-            'id': 0,
-            'name': 'Page Zero',
-            'content': 'What\'s up cowboy?'
-          },{
-            'id': 1,
-            'name': 'Page One',
-            'content': 'What\'s up cowgirl?'
-          }],
-            version: '2.2', // Template version
-            localStorage: true, // Enable/Disable local storage
-            settings: {
-                practiceName: 'Liberty Laser Eye',
-                practiceDescription: 'Laser Eye Surgery Center',
-                practicePhone: '571-234-4567',
-                practiceEmail: 'info@livertylasereye.com',
-                sidebarMini: false,
-                sideOverlayOpen: false,
-                sideOverlayHover: false,
-                sideScroll: true,
-                headerFixed: true
-            }
-        };
-
-        $scope.deletePage = function(pageId) {
-          console.log('Deleted page ' + pageId);
-          $scope.websiteContent.pages.pop();
-        };
-
-        // If local storage setting is enabled
-        if ($scope.websiteContent.localStorage) {
-            // Save/Restore local storage settings
-            if ($scope.websiteContent.localStorage) {
-                if (angular.isDefined($localStorage.websiteContent)) {
-                    $scope.websiteContent = $localStorage.websiteContent;
-                } else {
-                    $localStorage.websiteContent = $scope.websiteContent;
-                }
-            }
-
-            // Watch for settings changes
-            $scope.$watch('websiteContent', function () {
-                // If settings are changed then save them to localstorage
-                $localStorage.websiteContent = $scope.websiteContent;
-            }, true);
-        }
     }
 ]);

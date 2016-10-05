@@ -178,8 +178,8 @@ var App = function() {
                 }
             } else {
                 // Turn scroll lock on (sidebar and side overlay)
-                jQuery($lSidebar).scrollLock();
-                jQuery($lSideOverlay).scrollLock();
+                jQuery($lSidebar).scrollLock('enable');
+                jQuery($lSideOverlay).scrollLock('enable');
 
                 // If sidebar scrolling exists destroy it..
                 if ($lSidebarScroll.length && $lSidebarScroll.parent('.slimScrollDiv').length) {
@@ -379,7 +379,7 @@ var App = function() {
 
                         // Enable/disable scroll lock to block
                         if ($elBlock.hasClass('block-opt-fullscreen')) {
-                            jQuery($elBlock).scrollLock();
+                            jQuery($elBlock).scrollLock('enable');
                         } else {
                             jQuery($elBlock).scrollLock('disable');
                         }
@@ -401,7 +401,7 @@ var App = function() {
                         $elBlock.addClass('block-opt-fullscreen');
 
                         // Enable scroll lock to block
-                        jQuery($elBlock).scrollLock();
+                        jQuery($elBlock).scrollLock('enable');
 
                         // Update block option icon
                         if ($btnFullscreen.length) {
@@ -494,9 +494,11 @@ var App = function() {
             var $input  = jQuery(this);
             var $parent = $input.parent('.form-material');
 
-            if ($input.val()) {
-                $parent.addClass('open');
-            }
+            setTimeout(function() {
+                if ($input.val() ) {
+                    $parent.addClass('open');
+                }
+            }, 150);
 
             $input.on('change', function(){
                 if ($input.val()) {
@@ -581,12 +583,13 @@ var App = function() {
     // Scroll to element animation helper
     var uiScrollTo = function() {
         jQuery('[data-toggle="scroll-to"]').on('click', function(){
-            var $this   = jQuery(this);
-            var $target = $this.data('target');
-            var $speed  = $this.data('speed') ? $this.data('speed') : 1000;
+            var $this           = jQuery(this);
+            var $target         = $this.data('target');
+            var $speed          = $this.data('speed') ? $this.data('speed') : 1000;
+            var $headerHeight  = ($lHeader.length && $lPage.hasClass('header-navbar-fixed')) ? $lHeader.outerHeight() : 0;
 
             jQuery('html, body').animate({
-                scrollTop: jQuery($target).offset().top
+                scrollTop: jQuery($target).offset().top - $headerHeight
             }, $speed);
         });
     };
@@ -785,6 +788,7 @@ var App = function() {
         jQuery('[data-toggle="countTo"]').each(function(){
             var $this       = jQuery(this);
             var $after      = $this.data('after');
+            var $before     = $this.data('before');
             var $speed      = $this.data('speed') ? $this.data('speed') : 1500;
             var $interval   = $this.data('interval') ? $this.data('interval') : 15;
 
@@ -795,6 +799,8 @@ var App = function() {
                     onComplete: function() {
                         if($after) {
                             $this.html($this.html() + $after);
+                        } else if ($before) {
+                            $this.html($before + $this.html());
                         }
                     }
                 });
