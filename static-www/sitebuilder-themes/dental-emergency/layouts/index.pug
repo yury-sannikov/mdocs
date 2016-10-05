@@ -14,11 +14,7 @@ html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.p
     include ../partials/commitments.pug  
     include ../partials/quote_v1.pug  
     include ../partials/footer.pug
-    script(src='/assets/js/jquery-1.11.0.min.js')
-    script(src='/assets/js/jquery.validate.min.js')
-    script(src='/assets/js/drop-down-menu.js')
-    script(src='/assets/js/validate-short-form.js')
-    script(src='/assets/js/jquery.bxslider.min.js')
+    include ../partials/jslibraries.pug
     script.
       $(document).ready(function(){
         $('ul.bxslider').bxSlider({
