@@ -12,7 +12,6 @@ import { findAccountById } from '../db'
 import { sendSMS } from '../comm/sms'
 import { sendAppointmentEmail } from '../comm/email'
 // import { sendStripeCallbackToSlack } from '../comm';
-// import { needShowCreateProfileAlert } from '../belt';
 
 const TIME_SLOT_MINUTES=30
 
@@ -98,7 +97,7 @@ router.post('/', function*() {
 
 router.get('/dashboard', function*() {
 
-  const allItems = (yield appointmentsForAccount(this.currentUserAccount.account_id))
+  const allItems = (yield appointmentsForAccount(this.currentUser.account_id))
     .map( i => {
       i.patient_dob = i.patient_dob ? moment.unix(i.patient_dob) : undefined
       i.visit_date = i.visit_date ? moment.unix(i.visit_date) : undefined

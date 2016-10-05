@@ -1,20 +1,19 @@
 #flash
-  if (user && !_.isEmpty(user) && bareHeader !== true)
-    if !hasSubscription
-      .alert.alert-warning.alert-dismissable
-        button.close(type='button', aria-hidden='true')
-          i.fa.fa-times-circle-o
-        | You haven't activated your subscription. Please&nbsp;
-        a(href='/app/subscribe') activate
-        |  now.
-
-  if showCreateProfileAlert
-    .alert.alert-danger.alert-dismissable
-      button.close(type='button', aria-hidden='true')
+  - var shitHappends = !hasStripeId || accountRights._empty
+  if shitHappends
+    .alert.alert-info.alert-dismissable
+      button.close(type='button', data-dismiss='alert', aria-hidden='true')
         i.fa.fa-times-circle-o
-      | Please create your first&nbsp;
-      a(href='/app/pr/profiles') Profile
-      | .
+      if accountRights._empty
+        p.flashmsg
+          strong
+            i.fa.fa-lg.fa-info-circle
+          | &nbsp;&nbsp; No account information created for you. Please call support.
+      if !hasStripeId
+        p.flashmsg
+          strong
+            i.fa.fa-lg.fa-info-circle
+          | &nbsp;&nbsp; Stripe ID is not associated with your account. Please call support.
   if messages.error
     .alert.alert-danger.alert-dismissable
       button.close(type='button', data-dismiss='alert', aria-hidden='true')

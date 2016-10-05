@@ -26,7 +26,7 @@ block content
     .row.items-push
       .col-sm-7
         h1.page-heading
-          - if (_.isEmpty(profile))
+          - if (isNewProfile)
             | New Profile
           - else
             | Edit Profile
@@ -39,7 +39,7 @@ block content
             a.link-effect(href='/app/pr/phi/patient-reviews') Patient Reviews
           li
             a.link-effect(href='/app/pr/profiles') Profiles
-          - if (_.isEmpty(profile))
+          - if (isNewProfile)
             li
               a.link-effect(href='/app/pr/new-profile') New Profile
           - else
@@ -149,40 +149,9 @@ block content
               a.btn.btn-success.btn-lg.next-check-sites.pull-right(href="#") Continue >
             #profileCreate.tab-pane.fade
               .well
-                - if (_.isEmpty(profile))
+                - if (isNewProfile)
+                  | You are going to create new profile
                   br
-                  p By creating a new Profile/Location, your plan and pricing will be automatically updated as follows:
-                  br
-                  - var upcomingSub = currentSubscription.customer.subscriptions.data[0]
-                  .row
-                    .col-md-12
-                      table.table
-                        tr
-                          td.col-md-3
-                            strong Current Upcoming Cycle Payment
-                          td.col-md-9
-                            strong #{formatCents(upcomingSub.plan.amount)}
-                            | &nbsp;per&nbsp;
-                            strong #{upcomingSub.plan.interval}
-                            | &nbsp;for&nbsp;
-                            strong #{upcomingSub.quantity}
-                            | &nbsp;subscriptions. Total&nbsp;
-                            strong #{formatCents(upcomingSub.plan.amount * upcomingSub.quantity)}
-                            | &nbsp;at&nbsp;
-                            strong #{moment(futureInvoice.date * 1000).format('MMMM Do YYYY')}
-                        tr
-                          td.col-md-3
-                            strong Updated Upcoming Cycle Payment
-                          td.col-md-9
-                            strong #{formatCents(upcomingSub.plan.amount)}
-                            | &nbsp;per&nbsp;
-                            strong #{upcomingSub.plan.interval}
-                            | &nbsp;for&nbsp;
-                            strong #{upcomingSub.quantity + 1}
-                            | &nbsp;subscriptions. Total&nbsp;
-                            strong #{formatCents(upcomingSub.plan.amount * (upcomingSub.quantity + 1))}
-                            | &nbsp;at&nbsp;
-                            strong #{moment(futureInvoice.date * 1000).format('MMMM Do YYYY')}
                 - else
                   | You've made changes to
                   strong #{profile.name}.

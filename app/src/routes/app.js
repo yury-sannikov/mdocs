@@ -1,7 +1,7 @@
 
 'use strict';
 const Router = require('koa-router');
-import { checkAuthenticated, hasSubscription } from '../belt';
+import { checkAuthenticated } from '../belt';
 import { sendEmailTrackingToSlack, notifySubscriptionCancel } from '../comm';
 import stream from 'koa-stream';
 import { getFutureInvoice, cancelSubscriptions } from '../stripe';
@@ -61,7 +61,14 @@ router.get('/profile', checkAuthenticated, function* () {
   this.render('app/profile', this.jadeLocals, true);
 });
 
-router.get('/subscription', checkAuthenticated, hasSubscription, function* () {
+router.get('/subscription', checkAuthenticated, function* () {
+  const { stripeId } = this.currentUser  || {}
+
+  if (!stripeId || stripeId.length === 0) {
+    this.flash = 'Stripe ID is not set. Subscription information is not available'
+    this.redirect(router.url('dashboard'))
+    return
+  }
   const {currentInvoice, upcomingInvoice, currentSubscription} = yield getFutureInvoice(this.currentUser.id);
   const currentInvoiceData = currentInvoice.data[0] || {}
   const currentInvoiceLine = currentInvoiceData.lines.data[0] || {}

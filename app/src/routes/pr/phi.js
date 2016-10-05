@@ -5,7 +5,7 @@ const debug = require('debug')('app:routes:patient-review');
 const _ = require('lodash');
 const db = require('../../db');
 const communicator = require('../../comm');
-import { checkAuthenticated, hasSubscription } from '../../belt';
+import { checkAuthenticated, hasPatientReviews } from '../../belt';
 
 
 const DEFAULT_QUESTIONS = {
@@ -41,25 +41,6 @@ router.get('patient-reviews', '/patient-reviews', function*() {
   this.render('reviews/reviews', Object.assign({}, this.jadeLocals, {reviews: reviews, profiles: profiles[0]}), true);
 });
 
-router.get('/customize', function*() {
-  const user = yield db.findUserById(this.currentUser.id);
-  let questions;
-  if (user.questions == null) {
-    questions = Object.assign({}, DEFAULT_QUESTIONS);
-  }
-  else {
-    questions = user.questions;
-  }
-  this.render('reviews/customize', Object.assign({}, this.jadeLocals, { questions: questions }), true);
-});
-
-router.post('/update-survey-questions', hasSubscription, function*() {
-  const updatedQuestions = JSON.parse(this.request.body.updatedQuestions);
-  this.flash = 'Review questions customized successfully.';
-  yield db.updateDefaultSurveyQuestions(this.currentUser.id, updatedQuestions);
-  this.redirect('patient-reviews');
-});
-
 function* conductSurvey(id) {
 
   const result = yield communicator.conductSurvey(id);
@@ -79,7 +60,7 @@ function* conductSurvey(id) {
   }
 }
 
-router.post('/resend-survey', hasSubscription, function*() {
+router.post('/resend-survey', hasPatientReviews, function*() {
   const data = yield db.surveyById(this.request.body.id);
   if (!hasDynamoData(data)) {
     this.redirect(router.url('patient-reviews'));
@@ -90,7 +71,7 @@ router.post('/resend-survey', hasSubscription, function*() {
   this.redirect(router.url('patient-reviews'));
 });
 
-router.post('/new-request', hasSubscription, function*() {
+router.post('/new-request', hasPatientReviews, function*() {
   const selectedProfile = this.request.body.selectedProfile;
   const selectedProfileType = this.request.body.selectedProfileType;
 
@@ -142,7 +123,7 @@ router.get('/review/:id', function*() {
   this.render('reviews/detail', Object.assign({}, this.jadeLocals, { survey: data[0][0] }), true);
 });
 
-router.post('/delete-survey', hasSubscription, function*() {
+router.post('/delete-survey', hasPatientReviews, function*() {
   yield db.deleteSurvey(this.request.body.id);
   this.flash = 'Review deleted successfully.';
   this.redirect(router.url('patient-reviews'));

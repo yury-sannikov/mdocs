@@ -1,13 +1,4 @@
 #flash
-  if (user && !_.isEmpty(user) && bareHeader !== true)
-    if !hasSubscription
-      .alert.alert-warning.alert-dismissable
-        button.close(type='button', aria-hidden='true')
-          i.fa.fa-times-circle-o
-        | You haven't activated your subscription. Please&nbsp;
-        a(href='/app/subscribe') activate
-        |  now.
-
   if messages.error
     .alert.alert-danger.alert-dismissable
       button.close(type='button', data-dismiss='alert', aria-hidden='true')

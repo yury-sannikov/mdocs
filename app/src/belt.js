@@ -183,22 +183,8 @@ export function redirectToLogin(ctx) {
   ctx.redirect(`/app/login?r=${encodeURIComponent(ctx.request.url)}`);
 }
 
-export function* hasSubscription(next) {
-  if (this.currentUser) {
-    const { subInfo : { subscriptions = [] } = {} } = this.currentUser;
-    if (subscriptions.length > 0) {
-      return yield next;
-    }
-  }
-  this.redirect('/app/subscribe');
+export function* hasPatientReviews(next) {
+  // TODO: Check Patient reviews enabled
+  yield next;
 }
 
-export function needShowCreateProfileAlert(subInfo) {
-  const { profiles = 0, subscriptions = [] } = subInfo;
-  if (subscriptions.length === 0) {
-    return false;
-  }
-  const mainSubscription = subscriptions[0] || {};
-  const totalEntities = profiles;
-  return totalEntities < _.get(mainSubscription, 'qty', 0);
-}

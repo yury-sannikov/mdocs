@@ -7,48 +7,59 @@ block content
   .content.bg-gray-lighter
     .row.items-push
       .col-sm-8
-        h1.page-heading Customize Reviews Questions  
+        h1.page-heading Customize Reviews Questions
         small Set your own questions for the reviews.
       .col-sm-4.text-right.hidden-xs
         ol.breadcrumb.push-10-t
-          li 
+          li
             a.link-effect(href='/app/dashboard') Dashboard
           li
             a.link-effect(href='/app/pr/phi/patient-reviews') Patient Reviews
           li
-            a.link-effect(href='/app/pr/phi/customize') Customize Reviews
+            a.link-effect(href='/app/pr/customize') Customize Reviews
 
   .content.bg-white
     .row
-      .col-sm-4
-        each question, id in questions
-          .row
-            .col-md-12
-              form#questionsForm(method='POST' action='update-survey-questions')
-                input(type='hidden', name='_csrf', value=_csrf)
-                input#questionsFormData(type='hidden', name='updatedQuestions')
-              br
-              h3 Question #{parseInt(id) + 1}
-              input.form-control(name=id, id=id, value=question)
-        hr
+      .col-sm-8.col-sm-offset-2
+        form.form-horizontal.push-10-t(id='questionsForm' method='POST' action='customize')
+          input(type='hidden', name='_csrf', value=_csrf)
+          input#questionsFormData(type='hidden', name='updatedQuestions')
+          .form-group
+            label(for="profileSelector") Profile For Editing
+            .dropdown.js-profile-selector
+              button.form-control.btn.btn-default.dropdown-toggle(id="profileSelector" type="button", name="profileDropdownButton", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Select a Profile
+              ul.form-control.dropdown-menu(aria-labelledby="profileDropdownButton" style="padding: 0px; border-width: 0px;")
+                - if (profiles.length === 0)
+                  span &nbsp;&nbsp;No profiles found in the database.&nbsp;&nbsp;
+                - else
+                  each profile, i in profiles
+                    li
+                      a.form-control(href="#", data-id=profile.id, data-type=profile.type) #{profile.name}
+          .form-group
+
+          each question, id in questions
+            .form-group
+              .form-material.open
+                input.form-control(name=id, id=id, value=question)
+                label(for=id) Question #{parseInt(id) + 1}
         a.btn.btn-success#update-questions(href='#')
           i.fa.fa-check
           | &nbsp;Update Questions
 
-        hr
-        p.text-muted <em>#{application}
-          a(href='/app/terms')  Terms of Use
-          |  and
-          a(href='/app/privacy')  Privacy Policy.</em>
+    hr
+    p.text-muted <em>#{application}
+      a(href='/app/terms')  Terms of Use
+      |  and
+      a(href='/app/privacy')  Privacy Policy.</em>
 
 block scripts
   script.
     // Current default questions
     const questions = !{JSON.stringify(questions)};
-    
+
     // DOM Ready =============================================================
     $(document).ready(function() {
-      
+
       $.ajax({
         type: 'GET',
         url: '/app/lib/bootstrap/js/modal.js',
@@ -56,11 +67,19 @@ block scripts
         cache: true
       });
 
-      // Update questions 
+      // Update questions
       $('#update-questions').on('click', updateQuestions);
+      $(".js-profile-selector").on('click', 'li a', updateSelectedProfile);
+
     });
 
     // Functions =============================================================
+    function updateSelectedProfile(event) {
+      event.preventDefault()
+      var $profileDropdownButton = $('.js-profile-selector button');
+      $profileDropdownButton.html($(this).text())
+    }
+
     function updateQuestions(event) {
       // Question 1
       var item0, item1, item2;
@@ -91,7 +110,7 @@ block scripts
         '1': item1,
         '2': item2
       };
-      
+
       $('#questionsFormData').val(JSON.stringify(items));
       $('#questionsForm').submit();
     }

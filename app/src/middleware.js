@@ -11,7 +11,7 @@ const csrf = require('koa-csrf');
 const config = require('./config');
 const comm = require('./comm');
 import jwt from 'jsonwebtoken';
-import { redirectToLogin, needShowCreateProfileAlert } from './belt';
+import { redirectToLogin } from './belt';
 import { findAccountById } from './db'
 
 exports.checkJWTExpiration = function() {
@@ -36,12 +36,7 @@ exports.wrapCurrUser = function() {
     if (!this.session || !this.session.passport) return yield next;
 
     if (this.session.passport.user) {
-      const { account_id } = this.currentUser = this.session.passport.user;
-      this.currentUserAccount = {rights: {}}
-      if (account_id) {
-        this.currentUserAccount = yield findAccountById(account_id)
-        this.currentUserAccount.rights = this.currentUserAccount.rights[this.currentUser.id]
-      }
+      this.currentUser = this.session.passport.user;
     }
     yield* next;
   };
@@ -52,13 +47,9 @@ exports.wrapCurrUser = function() {
 exports.wrapJadeLocals = function() {
   return function *(next) {
     const currentUser = this.currentUser || {};
-    const { subInfo = {} } = currentUser;
-    const showCreateProfileAlert = needShowCreateProfileAlert(subInfo);
-    const { subscriptions = [] } = subInfo;
-    const hasSubscription = subscriptions.length > 0;
 
-    const { rights: accountRights = {} } = this.currentUserAccount || {};
-    const { sitebuilder: accountSitebuilder = {} } = this.currentUserAccount || {};
+    const { rights: accountRights = {} } = currentUser.account || {};
+    const { sitebuilder: accountSitebuilder = {} } = currentUser.account || {};
 
     const sitebuilderSites = accountRights.sitebuilder &&
       accountSitebuilder.enabled &&
@@ -73,10 +64,9 @@ exports.wrapJadeLocals = function() {
       error: {},
       flash: this.flash,
       config: config,
-      hasSubscription,
-      showCreateProfileAlert,
       sitebuilderSites,
-      accountRights
+      accountRights,
+      hasStripeId: !!currentUser.stripeId
     };
 
     yield* next;

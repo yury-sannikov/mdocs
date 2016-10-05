@@ -5,8 +5,7 @@ const debug = require('debug')('app:routes:index');
 const _ = require('lodash');
 const db = require('../../db');
 const communicator = require('../../comm');
-import { checkAuthenticated, hasSubscription } from '../../belt';
-import { getFutureInvoice } from '../../stripe';
+import { checkAuthenticated, hasPatientReviews } from '../../belt';
 
 export const KNOWN_SITES = {
   yelp: {
@@ -81,17 +80,14 @@ router.get('/profile/:id', function*() {
   this.render('settings/profileDetail', Object.assign({}, this.jadeLocals, { profile: data[0][0] }), true);
 });
 
-router.get('/new-profile', checkAuthenticated, hasSubscription, function*() {
-  const {currentInvoice, upcomingInvoice, currentSubscription} = yield getFutureInvoice(this.currentUser.id);
+router.get('/new-profile', checkAuthenticated, hasPatientReviews, function*() {
 
   this.render('settings/createEditProfile', Object.assign({}, this.jadeLocals, {
     isNewProfile: true,
     profile: {
       knownSites: KNOWN_SITES,
       review_sites: {}
-    },
-    futureInvoice: upcomingInvoice,
-    currentSubscription
+    }
   }), true);
 });
 
@@ -109,11 +105,8 @@ router.get('/update-profile/:id', function*() {
   this.render('settings/createEditProfile', Object.assign({}, this.jadeLocals, { profile }), true);
 });
 
-router.post('/new-profile', hasSubscription, function*() {
-  const {currentInvoice, upcomingInvoice, currentSubscription} = yield getFutureInvoice(this.currentUser.id);
+router.post('/new-profile', hasPatientReviews, function*() {
   const data = {
-    futureInvoice: upcomingInvoice,
-    currentSubscription,
     message: 'added a new profile',
     action: 'create'
   };
@@ -125,7 +118,7 @@ router.post('/new-profile', hasSubscription, function*() {
   this.redirect(router.url('profiles'));
 });
 
-router.post('/update-profile', hasSubscription, function*() {
+router.post('/update-profile', hasPatientReviews, function*() {
   const profile = Object.assign({}, this.request.body);
 
   console.dir(profile)
@@ -135,18 +128,37 @@ router.post('/update-profile', hasSubscription, function*() {
   this.redirect(router.url('profiles'));
 });
 
-router.post('/delete-profile', hasSubscription, function*() {
-  const {currentInvoice, upcomingInvoice, currentSubscription} = yield getFutureInvoice(this.currentUser.id);
-  const data = {
-    futureInvoice: upcomingInvoice,
-    currentSubscription,
-    message: 'deleted a profile',
-    action: 'delete'
-  };
-
+router.post('/delete-profile', hasPatientReviews, function*() {
   yield db.deleteProfile(this.request.body.id);
   this.flash = 'Profile deleted successfully.';
   this.redirect(router.url('profiles'));
 });
+
+router.get('/customize', function*() {
+
+  const data = yield db.profilesForAdmin(this.currentUser.id);
+  const profiles = data[0] || [];
+  console.dir(profiles)
+  const user = yield db.findUserById(this.currentUser.id);
+  let questions;
+  if (user.questions == null) {
+    questions = Object.assign({}, DEFAULT_QUESTIONS);
+  }
+  else {
+    questions = user.questions;
+  }
+  this.render('reviews/customize', Object.assign({}, this.jadeLocals, {
+    profiles: profiles,
+    questions: questions
+  }), true);
+});
+
+router.post('/customize', hasPatientReviews, function*() {
+  const updatedQuestions = JSON.parse(this.request.body.updatedQuestions);
+  this.flash = 'Review questions customized successfully.';
+  yield db.updateDefaultSurveyQuestions(this.currentUser.id, updatedQuestions);
+  this.redirect('patient-reviews');
+});
+
 
 export default router;
