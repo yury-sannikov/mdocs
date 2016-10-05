@@ -150,7 +150,7 @@
       }))
       .pipe($.csscomb())                      // Coding style formatter for CSS
       .pipe($.csslint('.csslintrc'))          // Lint CSS
-      .pipe($.csslint.reporter())             // Report issues
+      .pipe($.csslint.formatter())             // Report issues
       .pipe($.rename({ suffix: '.min' }))     // Add .min suffix
       .pipe($.csso())                         // Minify CSS
       // .pipe($.header(banner, { pkg : pkg }))  // Add banner
