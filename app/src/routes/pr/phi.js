@@ -6,13 +6,8 @@ const _ = require('lodash');
 const db = require('../../db');
 const communicator = require('../../comm');
 import { checkAuthenticated, hasPatientReviews } from '../../belt';
+import { getQuestionsForUser } from './index'
 
-
-const DEFAULT_QUESTIONS = {
-  '0': 'Overall Satisfaction',
-  '1': 'Staff',
-  '2': 'Personal Doctor'
-};
 
 function hasDynamoData(data) {
   if (_.isEmpty(data) || !_.isArray(data)) {
@@ -87,6 +82,7 @@ router.post('/new-request', hasPatientReviews, function*() {
     }
   });
 
+
   const profile = yield db.profileById(survey.reviewFor.id);
 
   if (!hasDynamoData(profile)) {
@@ -98,14 +94,9 @@ router.post('/new-request', hasPatientReviews, function*() {
 
   const title = profile[0][0].name;
 
-  const user = yield db.findUserById(this.currentUser.id);
-  let questions;
-  if (user.questions == null) {
-    questions = Object.assign({}, DEFAULT_QUESTIONS, { '2': title });
-  }
-  else {
-    questions = user.questions;
-  }
+  const questionsArray = getQuestionsForUser(profile[0])
+  const questions = questionsArray[0].questions
+
   debug(this.currentUser.id, survey, questions, title);
   const id = yield db.createNewSurvey()(this.currentUser.id, survey, questions, title);
 

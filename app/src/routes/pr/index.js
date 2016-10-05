@@ -6,7 +6,6 @@ const _ = require('lodash');
 const db = require('../../db');
 const communicator = require('../../comm');
 import { checkAuthenticated, hasPatientReviews } from '../../belt';
-
 export const KNOWN_SITES = {
   yelp: {
     name: 'Yelp',
@@ -44,6 +43,22 @@ export const KNOWN_SITES = {
     icon128x2: '/app/img/psl/fb@2x.png'
   }
 }
+
+export function getQuestionsForUser(profiles) {
+  const questions = profiles.map(p => {
+    return {
+      questions:p.questions || DEFAULT_QUESTIONS,
+      id: p.id
+    }
+  })
+  return questions
+}
+
+const DEFAULT_QUESTIONS = {
+  '0': 'Overall Satisfaction',
+  '1': 'Staff',
+  '2': 'Doctor'
+};
 
 function hasDynamoData(data) {
   if (_.isEmpty(data) || !_.isArray(data)) {
@@ -134,30 +149,29 @@ router.post('/delete-profile', hasPatientReviews, function*() {
   this.redirect(router.url('profiles'));
 });
 
-router.get('/customize', function*() {
 
+router.get('customize', '/customize', function*() {
   const data = yield db.profilesForAdmin(this.currentUser.id);
   const profiles = data[0] || [];
-  console.dir(profiles)
-  const user = yield db.findUserById(this.currentUser.id);
-  let questions;
-  if (user.questions == null) {
-    questions = Object.assign({}, DEFAULT_QUESTIONS);
-  }
-  else {
-    questions = user.questions;
-  }
+
+  const questions = getQuestionsForUser(profiles)
+  const objectToIdQuestion = (el) => _.map(el, (v, k) => ({id: k, question: v}))
+  const mappedQuestions = questions.reduce(
+    (o,q) => { return Object.assign(o, { [q.id]:objectToIdQuestion(q.questions) });  },
+    {})
   this.render('reviews/customize', Object.assign({}, this.jadeLocals, {
     profiles: profiles,
-    questions: questions
+    questions: mappedQuestions
   }), true);
 });
 
 router.post('/customize', hasPatientReviews, function*() {
-  const updatedQuestions = JSON.parse(this.request.body.updatedQuestions);
-  this.flash = 'Review questions customized successfully.';
-  yield db.updateDefaultSurveyQuestions(this.currentUser.id, updatedQuestions);
-  this.redirect('patient-reviews');
+  const questionsObject = this.request.body.questions.reduce((o, v, i) => {
+    return Object.assign(o, { [i]: v} )
+  }, {})
+  yield db.updateProfileSurveyQuestions(this.request.body.id, questionsObject);
+  this.flash = 'Review questions saved successfully.';
+  this.redirect('customize');
 });
 
 

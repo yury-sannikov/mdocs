@@ -2,7 +2,14 @@ extends ../layouts/layout.pug
 
 block head
   title #{application} &middot; Customize a Review
-
+block styles
+  style.
+    em.text-hint {
+      color: red;
+      margin-bottom: 60px;
+      display: block;
+      text-align: center;
+    }
 block content
   .content.bg-gray-lighter
     .row.items-push
@@ -23,7 +30,7 @@ block content
       .col-sm-8.col-sm-offset-2
         form.form-horizontal.push-10-t(id='questionsForm' method='POST' action='customize')
           input(type='hidden', name='_csrf', value=_csrf)
-          input#questionsFormData(type='hidden', name='updatedQuestions')
+          input(type='hidden', name='id')
           .form-group
             label(for="profileSelector") Profile For Editing
             .dropdown.js-profile-selector
@@ -36,13 +43,9 @@ block content
                     li
                       a.form-control(href="#", data-id=profile.id, data-type=profile.type) #{profile.name}
           .form-group
+          .js-editor-content
 
-          each question, id in questions
-            .form-group
-              .form-material.open
-                input.form-control(name=id, id=id, value=question)
-                label(for=id) Question #{parseInt(id) + 1}
-        a.btn.btn-success#update-questions(href='#')
+        a.btn.btn-success#update-questions(href='#' disabled)
           i.fa.fa-check
           | &nbsp;Update Questions
 
@@ -52,13 +55,24 @@ block content
       |  and
       a(href='/app/privacy')  Privacy Policy.</em>
 
+  template.js-editor-template
+    <div>{{#unless questions}}<em class="text-hint">Please select profile for editing above</em>{{/unless}}{{#each questions}}<div class="form-group">
+    <div class="form-material open">
+    <input class="form-control" name="questions.{{id}}" id="q_{{id}}" value="{{question}}"/>
+    <label for="q_{{id}}">Question</label>
+    </div>
+    </div>{{/each}}</div>
+
 block scripts
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js')
   script.
     // Current default questions
-    const questions = !{JSON.stringify(questions)};
-
+    var g_questions = !{JSON.stringify(questions)};
+    var g_editorTemplate;
     // DOM Ready =============================================================
     $(document).ready(function() {
+
+      g_editorTemplate = Handlebars.compile($(".js-editor-template").html());
 
       $.ajax({
         type: 'GET',
@@ -70,7 +84,8 @@ block scripts
       // Update questions
       $('#update-questions').on('click', updateQuestions);
       $(".js-profile-selector").on('click', 'li a', updateSelectedProfile);
-
+      $('.js-editor-content').html(g_editorTemplate({}));
+      $('#update-questions').prop('disabled', true)
     });
 
     // Functions =============================================================
@@ -78,39 +93,25 @@ block scripts
       event.preventDefault()
       var $profileDropdownButton = $('.js-profile-selector button');
       $profileDropdownButton.html($(this).text())
+
+      $('#update-questions').prop('disabled', false)
+      $('#update-questions').removeAttr('disabled')
+
+      var profileId = $(this).data('id')
+
+      $('#questionsForm input[name="id"]').val(profileId)
+
+      var questions = g_questions[profileId]
+
+      $('.js-editor-content').html(g_editorTemplate({
+        questions: questions
+      }));
     }
 
     function updateQuestions(event) {
-      // Question 1
-      var item0, item1, item2;
-      if($('#0').val().trim() === '') {
-        item0 = questions[0];
+      event.preventDefault()
+      if ($(this).prop('disabled')) {
+        return
       }
-      else {
-        item0 = $('#0').val().trim();
-      }
-      // Question 2
-      if($('#1').val().trim() === '') {
-        item1 = questions[1];
-      }
-      else {
-        item1 = $('#1').val().trim();
-      }
-      // Question 1
-      if($('#2').val().trim() === '') {
-        item2 = questions[2];
-      }
-      else {
-        item2 = $('#2').val().trim();
-      }
-
-      // Submit updated questions
-      const items = {
-        '0': item0,
-        '1': item1,
-        '2': item2
-      };
-
-      $('#questionsFormData').val(JSON.stringify(items));
       $('#questionsForm').submit();
     }

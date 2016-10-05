@@ -133,18 +133,18 @@ exports.insertOrUpdateUser = function* (id, user) {
   return yield upsertAsync(Object.assign({}, thisUser, user));
 };
 
-exports.updateDefaultSurveyQuestions = function* (id, data) {
+exports.updateProfileSurveyQuestions = function* (id, data) {
   const chain = DynamoDB
-    .table('survey_users')
+    .table('profiles')
     .where('id').eq(id);
 
   const updateAsync = Promise.promisify(chain.update, {context: chain});
 
-  var updatedUser = {
+  var newProfile = {
     questions: data
-  };
+  }
 
-  return yield updateAsync(updatedUser);
+  return yield updateAsync(newProfile);
 };
 
 exports.deleteUserSubscriptionsInfo = function* (id) {
