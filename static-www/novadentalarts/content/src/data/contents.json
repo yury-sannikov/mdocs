@@ -32,6 +32,70 @@
     "quote_v":4,
     "office_welcome":false,
     "htmlContent": "<h1>Implant Dentistry</h1><p>A dental implant is used to support a false tooth. It is a titanium screw placed in the jawbone to replace the root of a tooth. Implants are a well-established treatment, and Dr. Hawa will walk you through the procedure and the aftercare to ensure you understand everything involved.</p><p>Your safety and wellbeing strictly protected in our Sterling, Virginia office. Whether you’re in for a yearly checkup, or getting a dental implant, our top priority is your comfort and health. Dr. Hawa and our hygienists work together to ensure your visit is practically pain-free. <strong>Remember, you are in control at all times in our office.</strong></p><div class='photos-adjacent'><img alt='Implant Dentistry' src='/assets/images/nova-implant-dentistry-1.jpg'><img alt='Implant Dentistry' src='/assets/images/nova-implant-dentistry-2.jpg'></div>"  
-  }
+  },
+  {
+    "title": "Dental Hygiene",
+    "layout": "page.pug",
+    "quote_v":4,
+    "office_welcome":false,
+    "htmlContent": "<h1>Dental Hygiene</h1><p>Routine maintenance will ensure your teeth stay bright and healthy. Let us know how you are feeling any time before, during, and after treatment. Our hygienists are known for their gentle care, and they do everything they can to erase the discomfort and anxiety some people experience when going to the dentist.  Let us know at anytime if you’d like to stop the treatment or take a short break.</p><p>You may be surprised how effective routine dental hygiene can be in making your mouth feel fresh and clean. <strong>We’re committed to keeping your teeth healthy and pretty for your entire life.</strong></p><div class='photos-adjacent'><img alt='Dental Hygiene' src='/assets/images/nova-dental-hygiene-1.jpg'><img alt='Dental Hygiene' src='/assets/images/nova-dental-hygiene-2.jpg'></div>"  
+  },
+  {
+    "title": "Root Canal Treatment",
+    "layout": "page.pug",
+    "quote_v":4,
+    "office_welcome":false,
+    "htmlContent": "<h1>Root Canal Treatment</h1><p>Dr. Hawa and his caring, expert staff use the miracles of modern dentistry to make root canal treatment painless and simple. Modern root canal treatment is no longer a procedure to be feared as in the past. Dr. Hawa performs root canals in one visit, and with his skill and advanced technology, this procedure is as simple and painless as a filling.</p><div class='photos-adjacent'><img alt='Root Canal Treatment' src='/assets/images/nova-root-canal-treatment-1.jpg'><img alt='Root Canal Treatment' src='/assets/images/nova-root-canal-treatment-2.jpg'></div>          "  
+  },
+  {
+    "title": "Night Guards and Sports Guards",
+    "layout": "page.pug",
+    "quote_v":4,
+    "office_welcome":false,
+    "htmlContent": "<h1>Night Guards and Sports Guards</h1><p class='header'>Night Guards</p><p>Some people grind their teeth, creating loose or worn teeth. Those who grind their teeth at night often wake up with a headache or a painful jaw –&nbsp;without knowing the cause. A well-fitting night guard or mouth guard is the first step in preventing any further damage to your teeth. We will take an impression of your mouth and have a custom guard created for you in a professional dental lab. This ensures you have a product that is comfortable and effective.</p><div class='photos-adjacent margin-bottom'><img alt='Night Guards' src='/assets/images/nova-night-guards-1.jpg'><img alt='Night Guards' src='/assets/images/nova-night-guards-2.jpg'></div><p class='header'>Sports Mouth Guards</p><p>Dr. Hawa creates mouth guards for sports players of all ages. Wearing a custom mouth guard will protect your teeth and gums during high-impact physical contact. They are comfortable and easy to wear. Don't gamble with your oral health – contact us today for more information about mouth guards.</p><div class='photos-adjacent'><img alt='Sports Mouth Guards' src='/assets/images/nova-night-guards-3.jpg'><img alt='Sports Mouth Guards' src='/assets/images/nova-night-guards-4.jpg'></div>"  
+  },
+  {
+    "title": "Advanced Technology",
+    "layout": "page.pug",
+    "quote_v":4,
+    "office_welcome":false,
+    "htmlContent": "<h1>Advanced Technology</h1><p>We believe in taking advanced courses to keep up with the most state-of-the-art dental technologies, materials and procedures.</p><p>“It is important to me that a dentist stays up-to-date with the best technologies and techniques – and Dr. Hawa does. He has worked with me to create a beautiful smile that I always get compliments on.” – JM, long-time patient</p><p>Hawa Dental uses digital X-Rays for your safety, as well as for more accurate diagnosis. Digital X-Rays emit far less radiation and allow the doctor and patient to see small details in your teeth and gums.</p><p>Dr. Hawa is Certified with Invisalign – the invisible way to straighten teeth.</p><div class='photos-adjacent margin-bottom'><img src='/assets/images/northern-virginia-dental-advanced-technology-1.jpg' alt='Advanced Technology'><img src='/assets/images/northern-virginia-dental-advanced-technology-2.jpg' alt='Advanced Technology /'></div><p>Dr. Hawa uses laser treatment for many procedures. The dental laser is painless, and requires no drilling and no injections. You won’t even know the procedure is being done!</p><p>We partner with the very best laboratories, using only the finest materials and most exacting standards, to produce the highest quality results for you.</p><div class='photos-adjacent'><img src='/assets/images/northern-virginia-dental-advanced-technology-3.jpg' alt='Advanced Technology'><img src='/assets/images/northern-virginia-dental-advanced-technology-4.jpg' alt='Advanced Technology /'></div>"  
+  },
+  {
+    "title": "Veneers, Crowns and Bridges",
+    "layout": "page.pug",
+    "quote_v":4,
+    "office_welcome":false,
+    "htmlContent": "<h1>Veneers, Crowns &amp; Bridges</h1><p>Dr. Hawa believes that every patient needs to understand the options available. He and his staff take the time to clearly explain dental problems and the best solutions available.</p><p>To restore broken or decayed teeth, a crown may be fitted over the remaining part of the tooth making it strong again and giving the appearance of a real tooth. There are a number of different crowns available, and Dr. Hawa will walk you through the best crown for your teeth and your budget.</p><p>Bridges are best for people are missing one or two teeth and do not want a denture.  There are different techniques for applying bridges, and these will all be discussed in your consultation with Dr. Hawa.</p><p>Dental crowns and bridges are not purely cosmetic. They can help repair and strengthen damaged teeth, restoring your ability to chew or speak properly. They may help maintain the structure of your mouth and face, and prevent other teeth from moving out of place.</p><p>A veneer is a thin layer placed over a tooth, either to protect it or to improve its appearance. Our expert team is happy to discuss this option as part of your treatment plan. Your veneers will feel comfortable and look fantastic.</p><p><strong>Whether you need a crown, bridge or a veneer, we are confident we can give you that healthy, beautiful smile you’re looking for.</strong></p><div class='photos-adjacent clear-both'><img src='/assets/images/nova-veneers-crowns-bridges-1.jpg' alt='Veneers, Crowns &amp; Bridges'><img src='/assets/images/nova-veneers-crowns-bridges-2.jpg' alt='Veneers, Crowns &amp; Bridges'></div>"  
+  },
+  {
+    "title": "Periodontal Therapy",
+    "layout": "page.pug",
+    "quote_v":4,
+    "office_welcome":false,
+    "htmlContent": "<h1>Periodontal Therapy</h1><p>Some form of periodontal (gum) disease is not uncommon among adults, and treating this disease is an important part of our dentistry. Gum disease can range from gum inflammation to a major condition affecting soft tissue and bone that supports the teeth. If left untreated, it can harm your overall health, not just your mouth.</p><p>Regular checkups and teeth cleaning are the foundation of a healthy mouth and can help prevent gum disease or catch it early on. You can maintain your beautiful smile and improve your overall health by coming to Northern Virginia Dental Arts for regular cleanings. No matter how well you care for your teeth at home, professional dental techniques remove more plaque than brushing/flossing, and therefore improve gum health.</p><div class='photos-adjacent clear-both'><img src='/assets/images/nova-periodontal-therapy-1.jpg' alt='Periodontal Therapy'><img src='/assets/images/nova-periodontal-therapy-2.jpg' alt='Periodontal Therapy'></div>"  
+  },
+  {
+    "title": "Dental Emergencies",
+    "layout": "page.pug",
+    "quote_v":4,
+    "office_welcome":false,
+    "htmlContent": "<h1>Dental Emergencies</h1><p>We understand emergencies can happy to anyone, at any time. If you have a dental emergency, we will work to help you resolve the situation within the same day.  Please give us a call at <strong>703-444-5108</strong> or schedule an appointment right here on our website.</p><p><strong>We will work hard to care for your dental needs as soon as possible.</strong></p><div class='photos-adjacent'><img src='/assets/images/Cross-Creek-Same-Day-Emerg-1.jpg' alt='Same Day Emergency Care'><img src='/assets/images/Cross-Creek-Same-Day-Emerg-2.jpg' alt='Same Day Emergency Care'></div>"  
+  },
+  {
+    "title": "Fillings and Restorative Procedures",
+    "layout": "page.pug",
+    "quote_v":4,
+    "office_welcome":false,
+    "htmlContent": "<h1>Fillings and Restorative Procedures</h1><p>In your consultation with Dr. Hawa, he will use several methods to determine if you need a dental filling. If you do need one, there are a variety materials available for the filling itself. You don’t have to give up your gorgeous smile! Our staff will explain the options available to you and work with you to find the best solution for you mouth and budget. With each visit to our Sterling, Virginia office, you are in capable and caring hands.</p><div class='photos-adjacent clear-both'><img src='/assets/images/nova-fillings-restorative-1.jpg' alt='Fillings and Restorative Procedures'><img src='/assets/images/nova-fillings-restorative-2.jpg' alt='Fillings and Restorative Procedures'></div>"
+  },
+  {
+    "title": "Teeth Whitening",
+    "layout": "page.pug",
+    "quote_v":4,
+    "office_welcome":false,
+    "htmlContent": "<h1>Teeth Whitening</h1><p>Dr. Hawa uses KöR , widely recognized as the world’s most effective whitening system. It produces exceptional results and is available exclusively through trusted dental professionals, such as Dr. Hawa. Stains from coffee, tea, wine and cigarettes ruin the look of your teeth. With these advanced whitening techniques, we can correct stained or yellow teeth. Your bright, gorgeous smile and oral health is our number one priority.</p><img src='/assets/images/kor.png' alt='KOR'><div class='photos-adjacent margin-bottom'><img src='/assets/images/northern-virginia-dental-gorgeous-smile-1.jpg' alt='Gorgeous Smile 1'><img src='/assets/images/northern-virginia-dental-gorgeous-smile-2.jpg' alt='Gorgeous Smile 1'></div><div class='hawa-quote'><img src='/assets/images/smile-makeover-tooth.gif' alt='Smile Makeover'><p>“Producing a beautiful smile is an art and a science – as unique and individual as a person’s features.”</p><p class='by'>– Dr. Hawa</p></div>"  }
 ]
+
+
 
