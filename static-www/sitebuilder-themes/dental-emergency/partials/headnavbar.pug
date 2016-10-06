@@ -6,8 +6,10 @@
       img(src='/assets/images/northern-virginia-dental-denter-logo.gif', alt='Northern Virginia Dental Arts', border='0')
     #big-contact
       // <p class="apt"><a href="/appointment.html">Make appointment</a></p>
-      //- #calendar
-      //-   a#zocdoc_schedule(style='display:block;', href='http://www.zocdoc.com/practice/nova-dental-arts-47181') Nova Dental Arts
-      //-   script(type='text/javascript', src='http://offsiteSchedule.zocdoc.com/remote/Schedule2.js.aspx?providerid=47181&prefix=zocdoc_&bookBtn=http://offsiteSchedule.zocdoc.com/assets/images/remote/book-on-light-small.png&locationId=')
+      if practice.widgets.bookonline
+        #calendar
+          a.js-appointment-widget-button(style="display:block;" href="#")
+            img(src="/assets/images/bookonline.png" style="border:0;")
+          script(type='text/javascript' src='/assets/widgets/bookonline/index.js' data-accountId=practice.mdocsAccount)
       p.phone= practice.phone
-      p.address #{practice.address}, #{practice.city}, #{practice.state} #{practice.zip}  
+      p.address #{practice.address}, #{practice.city}, #{practice.state} #{practice.zip}
