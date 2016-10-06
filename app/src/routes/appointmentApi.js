@@ -11,6 +11,7 @@ import { createNewAppointment,
 import { findAccountById } from '../db'
 import { sendSMS } from '../comm/sms'
 import { sendAppointmentEmail } from '../comm/email'
+import { formatPhone } from '../belt'
 // import { sendStripeCallbackToSlack } from '../comm';
 
 const TIME_SLOT_MINUTES=30
@@ -68,30 +69,57 @@ function* notifyPatient(accountId, phoneNo, email, text) {
   }
 }
 
+function massageRequestObject(requestObject) {
+  let obj = {
+    firstname: requestObject.firstname || requestObject.form_name,
+    lastname: requestObject.lastname || '',
+    fullname: requestObject.fullname || '',
+    isnew: requestObject.isnew || (requestObject.form_name_new === 'yes'),
+    email: requestObject.email,
+    phone: requestObject.phone || requestObject.form_phone,
+    zip: requestObject.zip || '',
+    comment: requestObject.comment || '',
+    description: requestObject.description || requestObject.form_reason,
+    systype: requestObject.systype || 'appointment',
+    dob: requestObject.dob || requestObject.form_dob,
+    visitdate: requestObject.visitdate || requestObject.form_date
+  }
+  obj.dob = moment(obj.dob || '', 'MM/DD/YYYY')
+  obj.dob = obj.dob.isValid() ? obj.dob.utc().unix() : 0
+
+  obj.visitDate = moment(obj.visitDate || '', 'MM/DD/YYYY hh:m a')
+  obj.visitDate = obj.visitDate.isValid() ? obj.visitDate.utc().unix() : 0
+
+  if (!obj.fullname) {
+    obj.fullname = obj.firstname;
+    if (obj.lastname) {
+      if (obj.fullname) { obj.fullname = obj.fullname + ' ' }
+      obj.fullname = obj.fullname + obj.lastname
+    }
+  }
+
+  return obj
+}
+
 router.post('/', function*() {
-  const requestObject = _.fromPairs(_.map(this.request.body, o => ([o.name, o.value])))
+  const requestObject = _.isArray(this.request.body) ?
+    _.fromPairs(_.map(this.request.body, o => ([o.name, o.value]))) :
+    this.request.body;
+
 
   if (!requestObject.account_id) {
     throw new Error('Unknown account ID')
   }
 
-  const dob = moment(requestObject.form_dob || '', 'MM/DD/YYYY')
-  const visitDate = moment(requestObject.form_date || '', 'MM/DD/YYYY hh:m a')
 
-  const dbObject = {
-    patient_name: requestObject.form_name,
-    patient_email: requestObject.email,
-    patient_phone: requestObject.form_phone,
-    patient_new: requestObject.form_name_new === 'yes',
-    patient_reason: requestObject.form_reason,
-    patient_dob: dob.isValid() ? dob.utc().unix() : 0
-  }
+  let obj = massageRequestObject(requestObject)
+  const { visitDate } = obj
+  delete obj.visitDate;
+  const id = yield createNewAppointment(requestObject.account_id, visitDate, obj)
 
-  const id = yield createNewAppointment(requestObject.account_id,
-    visitDate.isValid() ? visitDate : 0, dbObject)
-
-  yield notifyPracticeAdmins(requestObject.account_id, `New appointment for ${requestObject.form_name}, ${requestObject.form_phone}`)
-  yield notifyPatient(requestObject.account_id, requestObject.form_phone, requestObject.patient_email, 'Your appointment has been accepted for review. We will contact you shortly.')
+  yield notifyPracticeAdmins(requestObject.account_id,
+    `New appointment for ${obj.fullname}, ${formatPhone(obj.phone)}`)
+  yield notifyPatient(requestObject.account_id, obj.phone, obj.email, 'Your appointment has been accepted for review. We will contact you shortly.')
   this.body = { ok: 1, id: id};
 });
 
