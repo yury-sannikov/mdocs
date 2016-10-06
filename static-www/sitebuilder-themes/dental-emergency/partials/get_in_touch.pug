@@ -1,11 +1,13 @@
 #contact-form-short
     h3 Get in touch
     p Simply fill out the form below
-    form#ContactFormSidebar.cmxform(method='post', action='', novalidate='novalidate')
+    form#ContactFormSidebar.cmxform.js-bookonline-form(method='post', action='', novalidate='novalidate')
       label(for='cname') Name
       input#cname(name='fullname', minlength='2', type='text', required='', aria-required='true')
       label(for='cemail') Email
       input#cemail(type='email', name='email', required='', aria-required='true')
       label(for='message') Message
       textarea#message(name='comment', required='', aria-required='true')
-      input(type='submit', value='SEND MESSAGE')
+      input(type='hidden' name='description' value='Get In Touch')
+      input(type='hidden' name='systype' value='subscribe')
+      input.js-bookonline-submit(type='submit', value='SEND MESSAGE')

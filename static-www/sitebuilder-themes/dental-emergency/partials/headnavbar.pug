@@ -8,8 +8,7 @@
       // <p class="apt"><a href="/appointment.html">Make appointment</a></p>
       if practice.widgets.bookonline
         #calendar
-          a.js-appointment-widget-button(style="display:block;" href="#")
+          a.js-appointment-widget-button(style="display:block;" href="/appointment#contact-form-short")
             img(src="/assets/images/bookonline.png" style="border:0;")
-          script(type='text/javascript' src='/assets/widgets/bookonline/index.js' data-accountId=practice.mdocsAccount)
       p.phone= practice.phone
       p.address #{practice.address}, #{practice.city}, #{practice.state} #{practice.zip}
