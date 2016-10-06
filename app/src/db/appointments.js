@@ -78,8 +78,11 @@ exports.createNewAppointment = function* (account_id, visit_date, appointment) {
   }
   appointment.id = uuid.v4();
   appointment.account_id = account_id;
-  appointment.visit_date = moment(visit_date).utc().unix()
+  appointment.visit_date = visit_date
   appointment.status = 'new';
+
+  console.dir(appointment)
+
   yield insertAsync(appointment);
 
   return appointment.id;

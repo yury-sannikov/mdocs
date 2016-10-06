@@ -1,0 +1,25 @@
+doctype html
+html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths
+  head
+    include ../partials/header.pug
+  body(style='')
+    #wrapper
+      include ../partials/topnavbar.pug
+      include ../partials/headnavbar.pug
+      include ../partials/menu.pug
+      .standardcontainer
+        .maincontent.subpage
+          .col-7.span_5_of_7
+            != contents
+          .col-7.span_2_of_7.sidebar
+            include ../partials/make_appointment.pug
+            include ../partials/emergencies_welcome.pug
+            include ../partials/financial_options.pug
+            include ../partials/get_in_touch.pug
+
+  include ../partials/quote_v12.pug
+
+  include ../partials/footer.pug
+  include ../partials/jslibraries.pug
+  if practice.widgets.bookonline
+    script(type='text/javascript' src='/assets/widgets/bookonline/index.js' data-accountid=practice.mdocsAccount)
