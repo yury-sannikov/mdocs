@@ -1,16 +1,16 @@
 [
   {
     "caption": "Dr. Hawa",
-    "href": "/our-doctor",
+    "href": "/content/our-doctor",
     "red":false
   },
   {
     "caption": "The team",
-    "href": "/the-team"
+    "href": "/content/the-team"
   },
   {
     "caption": "Dental Services",
-    "href": "/dental-services",
+    "href": "/content/dental-services",
     "submenu": [
       {
         "caption": "Cosmetic and Aesthetic Dentistry",
