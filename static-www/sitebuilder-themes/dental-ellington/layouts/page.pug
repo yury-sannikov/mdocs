@@ -1,0 +1,50 @@
+doctype html
+html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths
+  head
+    include ../partials/header.pug
+  body(style='')
+    #wrapper
+      include ../partials/topnavbar.pug
+      include ../partials/headnavbar.pug
+      include ../partials/menu.pug
+      .standardcontainer
+        .maincontent.subpage
+          .col-7.span_5_of_7
+            != data.htmlContent
+          .col-7.span_2_of_7.sidebar
+            if data.office_welcome == true
+              include ../partials/make_appointment_welcome.pug
+            else 
+              include ../partials/make_appointment.pug
+            include ../partials/emergencies_welcome.pug
+            include ../partials/financial_options.pug
+            include ../partials/get_in_touch.pug
+
+  case data.quote_v
+    when 1
+      include ../partials/quote_v1.pug
+    when 2
+      include ../partials/quote_v2.pug
+    when 3
+      include ../partials/quote_v3.pug
+    when 4
+      include ../partials/quote_v4.pug
+    when 5
+      include ../partials/quote_v5.pug
+    when 6
+      include ../partials/quote_v6.pug
+    when 7
+      include ../partials/quote_v7.pug
+    when 8
+      include ../partials/quote_v8.pug
+    when 9
+      include ../partials/quote_v9.pug
+    when 10
+      include ../partials/quote_v10.pug
+    when 11
+      include ../partials/quote_v11.pug
+    when 12
+      include ../partials/quote_v12.pug
+
+  include ../partials/footer.pug
+  include ../partials/jslibraries.pug

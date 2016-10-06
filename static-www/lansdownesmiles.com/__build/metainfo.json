@@ -1,0 +1,183 @@
+{
+  "contents": {
+    "indexPath": "content",
+    "permalinks": [
+      "content/our-doctor"
+    ],
+    "metainfo": {
+      "menuCaption": "Contents",
+      "menuIconClass": "si si-frame",
+      "titleRef": "title",
+      "listProps": [
+        {
+          "title": "Title",
+          "ref": "title",
+          "css": ""
+        },
+        {
+          "title": "Header",
+          "ref": "header",
+          "css": "hidden-xs"
+        },
+        {
+          "title": "Description",
+          "ref": "description",
+          "css": "hidden-xs"
+        }
+      ],
+      "schema": {
+        "type": "object",
+        "title": "",
+        "properties": {
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "header": {
+            "title": "Page Header",
+            "type": "string"
+          },
+          "layout": {
+            "title": "Page Layout",
+            "type": "string",
+            "enum": [
+              "content.pug",
+              "legal.pug"
+            ]
+          },
+          "description": {
+            "title": "Page Description",
+            "type": "string"
+          },
+          "htmlContent": {
+            "title": "Page Content",
+            "input_height": "200px",
+            "type": "string",
+            "format": "html",
+            "options": {
+              "wysiwyg": true
+            }
+          }
+        }
+      },
+      "defaults": {
+        "title": "New Title",
+        "layout": "content.pug",
+        "header": "Content Header",
+        "description": "Content Description",
+        "htmlContent": "<p>HTML Content Goes Here.</p>"
+      }
+    }
+  },
+  "plainHtml": [
+    {
+      "title": "Content",
+      "path": "content"
+    },
+    {
+      "title": "VGUCC",
+      "path": ""
+    }
+  ],
+  "menu": {
+    "indexPath": "",
+    "permalinks": [],
+    "metainfo": [
+      {
+        "caption": "Dr. Hawa",
+        "href": "/our-doctor"
+      },
+      {
+        "caption": "The team",
+        "href": "/the-team"
+      },
+      {
+        "caption": "Dental Services",
+        "href": "/dental-services",
+        "submenu": [
+          {
+            "caption": "Cosmetic and Aesthetic Dentistry",
+            "href": "/content/cosmetic-and-aesthetic-dentistry"
+          },
+          {
+            "caption": "Veneers, Crowns & Bridges",
+            "href": "/content/veneers-crowns-and-bridges"
+          },
+          {
+            "caption": "Implant Dentistry",
+            "href": "/content/implant-dentistry"
+          },
+          {
+            "caption": "Periodontal Therapy",
+            "href": "/content/periodontal-therapy"
+          },
+          {
+            "caption": "Dental Hygiene",
+            "href": "/content/dental-hygiene"
+          },
+          {
+            "caption": "Dental Emergencies",
+            "href": "/content/dental-emergencies"
+          },
+          {
+            "caption": "Root Canal Treatment",
+            "href": "/content/root-canal-treatment"
+          },
+          {
+            "caption": "Fillings and Restorative Procedures",
+            "href": "/content/fillings-and-restorative-procedures"
+          },
+          {
+            "caption": "Night Guards and Sports Guards",
+            "href": "/content/night-guards-and-sports-guards"
+          },
+          {
+            "caption": "Teeth Whitening",
+            "href": "/content/teeth-whitening"
+          },
+          {
+            "caption": "Advanced Technology",
+            "href": "/content/advanced-technology"
+          }
+        ]
+      },
+      {
+        "caption": "Invisalign",
+        "href": "/content/invisalign"
+      },
+      {
+        "caption": "Invisalign Teen",
+        "href": "/content/invisalign-teen"
+      },
+      {
+        "caption": "Gorgeous Smile",
+        "href": "/content/gorgeous-smile"
+      },
+      {
+        "caption": "Overall Health",
+        "href": "/content/overall-health"
+      },
+      {
+        "caption": "Testimonials",
+        "href": "/content/testimonials"
+      },
+      {
+        "caption": "Videos",
+        "href": "/content/videos"
+      },
+      {
+        "caption": "Contact",
+        "href": "/content/contact"
+      },
+      {
+        "caption": "Emergencies",
+        "href": "/content/emergencies"
+      }
+    ]
+  },
+  "practice": {
+    "indexPath": "",
+    "permalinks": [],
+    "metainfo": {}
+  }
+}

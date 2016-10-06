@@ -1,0 +1,29 @@
+doctype html
+html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths
+  head
+    include ../partials/header.pug
+  body(style='')
+    #wrapper
+      include ../partials/topnavbar.pug
+      include ../partials/headnavbar.pug
+      include ../partials/menu.pug
+      include ../partials/slider.pug
+      .maincontent.centre
+        include ../partials/portrait&intro.pug
+        include ../partials/fourcols.pug 
+    include ../partials/commitments.pug  
+    include ../partials/quote_v1.pug  
+    include ../partials/footer.pug
+    include ../partials/jslibraries.pug
+    script.
+      $(document).ready(function(){
+        $('ul.bxslider').bxSlider({
+          mode: 'fade',
+          captions: true,
+          controls: false,
+          speed: 1500,
+          pause: 6000,
+          auto: true
+        });
+      });
+

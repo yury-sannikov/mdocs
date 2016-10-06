@@ -1,0 +1,9 @@
+[
+  {
+    "title": "Our doctor",
+    "layout": "page.pug",
+    "quote_v": 3,
+    "office_welcome": false,
+    "htmlContent": "<h1>Welcome</h1>"
+  }
+]

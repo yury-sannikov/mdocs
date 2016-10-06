@@ -1,0 +1,71 @@
+.standardcontainer
+  #menu.maincontent
+    .drop-down-container
+      a.toggleMenu(href='#', style='display: none;') Menu
+      ul.nav
+        each menuitem in menu
+          li
+            if menuitem.red == true
+              a.ec(href=menuitem.href) #{menuitem.caption}
+            else
+              if menuitem.submenu
+                ul
+                  each sub_menuitem, index in menuitem
+                    if index == 1
+                      li.no-top-border.left
+                        a(href=sub_menuitem.href) #{sub_menuitem.caption}
+
+
+                    //- if index % 2 != 0
+                    //-   li.left
+
+                //- a.off(href=menuitem.href) #{menuitem.caption}
+              else
+                a.off(href=menuitem.href) #{menuitem.caption}
+
+        //- li
+        //-   a.off(href='/content/our-doctor') Dr. Hawa
+        //- li
+        //-   a.off(href='/content/the-team') The Team
+        //- li
+        //-   a.off.parent(href='/content/dental-services/') Dental Services
+          //- ul
+          //-   li.no-top-border.left
+          //-     a(href='/content/cosmetic-and-aesthetic-dentistry') Cosmetic and Aesthetic Dentistry
+          //-   li.no-top-border
+          //-     a(href='/content/veneers-crowns-and-bridges') Veneers, Crowns & Bridges
+          //-   li.left
+          //-     a(href='/content/implant-dentistry') Implant Dentistry
+          //-   li
+          //-     a(href='/content/periodontal-therapy') Periodontal Therapy
+          //-   li.left
+          //-     a(href='/content/dental-hygiene') Dental Hygiene
+          //-   li
+          //-     a(href='/content/dental-emergencies') Dental Emergencies
+          //-   li.left
+          //-     a(href='/content/root-canal-treatment') Root Canal Treatment
+          //-   li
+          //-     a(href='/content/fillings-and-restorative-procedures') Fillings and Restorative Procedures
+          //-   li.left
+          //-     a(href='/content/night-guards-and-sports-guards') Night Guards and Sports Guards
+          //-   li
+          //-     a(href='/content/teeth-whitening') Teeth Whitening
+          //-   li.left
+          //-     a(href='/content/advanced-technology') Advanced Technology
+          //-   li.last  
+        //- li
+        //-   a.off(href='/content/invisalign') Invisalign
+        //- li
+        //-   a.off(href='/content/invisalign-teen') Invisalign Teen
+        //- li
+        //-   a.off(href='/content/gorgeous-smile') Gorgeous Smile
+        //- li
+        //-   a.off(href='/content/overall-health') Overall Health
+        //- li
+        //-   a.off(href='/content/testimonials') Testimonials
+        //- li
+        //-   a.off(href='/content/videos') Videos
+        //- li
+        //-   a.off(href='/content/contact') Contact
+        //- li
+        //-   a.ec(href='/content/dental-emergencies') Emergencies
