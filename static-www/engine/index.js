@@ -90,6 +90,15 @@ function metalsmithFactory(workDir, buildDir, options) {
         }])
       )
     )
+    .use(
+      msIf(options._generate,
+        templateAssets([
+        {
+          src: path.join(options.themeDir, '../widgets'),
+          dest: 'assets/widgets'
+        }])
+      )
+    )
 
     // Dependency tracking for metalsmith-include. Set ctime for all dependent files to the latest value of the group
     .use(dep())
