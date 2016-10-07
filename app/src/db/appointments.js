@@ -17,7 +17,7 @@ function hasDynamoData(data) {
 }
 const APPOINTMENTS_TABLE = 'mdocsapps_appointments'
 
-const ACCOUNT_VISIT_INDEX = 'account_id-visit_date-index'
+const ACCOUNT_VISIT_INDEX = 'profile_id-visit_date-index'
 
 exports.appointmentById = function* (id) {
   const chain = DynamoDB
@@ -37,25 +37,25 @@ exports.updateAppointment = function* (id, newAppointment) {
   return yield updateAsync(newAppointment);
 };
 
-exports.appointmentsForAccount = function*(account_id) {
+exports.appointmentsForAccount = function*(profile_id) {
 
   var params = {
       TableName: APPOINTMENTS_TABLE,
       IndexName: ACCOUNT_VISIT_INDEX,
-      KeyConditionExpression: "#account_id = :account_id and #visit_date >= :visit_date",
+      KeyConditionExpression: "#profile_id = :profile_id and #visit_date >= :visit_date",
       ExpressionAttributeNames: {
-       '#account_id': 'account_id',
+       '#profile_id': 'profile_id',
        '#visit_date': 'visit_date'
       },
       ExpressionAttributeValues: {
-          ':account_id': { S: account_id },
+          ':profile_id': { S: profile_id },
           ':visit_date': { N: '0' }
       }
   };
   return fuckThoseFuckingDynamoDbDevelopers(yield VanillaDynamoDB.queryAsync(params))
 }
 
-exports.createNewAppointment = function* (account_id, visit_date, appointment) {
+exports.createNewAppointment = function* (profileId, visit_date, appointment) {
   const chain = DynamoDB
     .table(APPOINTMENTS_TABLE);
   const insertAsync = Promise.promisify(chain.insert, {context: chain});
@@ -64,11 +64,9 @@ exports.createNewAppointment = function* (account_id, visit_date, appointment) {
     if (appointment[key] === '') delete appointment[key]
   }
   appointment.id = uuid.v4();
-  appointment.account_id = account_id;
+  appointment.profile_id = profileId;
   appointment.visit_date = visit_date
   appointment.status = 'new';
-
-  console.dir(appointment)
 
   yield insertAsync(appointment);
 

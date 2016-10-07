@@ -122,9 +122,9 @@ exports.sendAppointmentEmail = function* (to, data) {
   var html = pug.renderFile(`${APPOINTMENT_ROOT_PATH}/index.pug`, data);
 
   var message = {
-    from: 'Appointments by MDOCS <info@app.mdocs.co>',
+    from: 'Appointments by PracticeWin <info@app.mdocs.co>',
     to: to,
-    subject: `MDOCS Appointment`,
+    subject: `PracticeWin Appointment`,
     html: html,
     inline: [logoPng]
   };

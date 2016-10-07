@@ -22,12 +22,12 @@
       }
     })
 
-    var accountId = $('script[data-accountid]').data('accountid') || window.MDOCS_ACCOUNT_ID;
-    if (!accountId) {
+    var profileId = $('script[data-profileid]').data('profileid');
+    if (!profileId) {
       invokeFormCallback(form, 'Unable to find account information.')
       return;
     }
-    data.account_id = accountId;
+    data.profileId = profileId;
 
     $.ajax({
       url:'https://app.mdocs.co/app/api/appointment',

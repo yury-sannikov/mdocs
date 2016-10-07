@@ -8,7 +8,7 @@ import { createNewAppointment,
   appointmentsForAccount,
   appointmentById,
   updateAppointment } from '../db/appointments';
-import { findAccountById } from '../db'
+import { profileById } from '../db'
 import { sendSMS } from '../comm/sms'
 import { sendAppointmentEmail } from '../comm/email'
 import { formatPhone } from '../belt'
@@ -29,33 +29,42 @@ router.use(corsMiddleware)
 router.options('/',  function*() {} )
 router.options('/*',  function*() {} )
 
-function* notifyPracticeAdmins(accountId, text) {
-  debug(`Notifying Office Administrators of account ${accountId}: ${text}`)
+function* notifyPracticeAdmins(profileId, text) {
+  debug(`Notifying Office Administrators of profile ${profileId}: ${text}`)
 
-  const account = yield findAccountById(accountId)
+  let profile = yield profileById(profileId)
+  profile = _.get(profile, '[0][0]', {})
 
-  yield sendSMS(account.practiceAdmin.phone, text)
+  if (profile.phone) {
+    yield sendSMS(profile.phone, text)
+  } else {
+    debug(`Profile ${profileId} has no phone associated`)
+  }
 
   const emailData = {
-    title: 'MDOCS Appointments',
+    title: 'PacticeWin Appointments',
     message: text,
     adminUrl: 'https://app.mdocs.co/app/appointments'
   }
   try {
-    yield sendAppointmentEmail(account.practiceAdmin.email, emailData)
+    if (profile.email) {
+      yield sendAppointmentEmail(profile.email, emailData)
+    } else {
+      debug(`Profile ${profileId} has no email associated`)
+    }
   }
   catch(e) {
     debug(e)
   }
 }
 
-function* notifyPatient(accountId, phoneNo, email, text) {
-  debug(`Notifying Patient of ${accountId} via ${phoneNo}: ${text}`)
+function* notifyPatient(profileId, phoneNo, email, text) {
+  debug(`Notifying Patient of ${profileId} via ${phoneNo}: ${text}`)
 
   yield sendSMS(phoneNo, text)
 
   const emailData = {
-    title: 'MDOCS Appointments',
+    title: 'PracticeWin Appointment',
     message: text,
     adminUrl: undefined
   }
@@ -107,19 +116,19 @@ router.post('/', function*() {
     this.request.body;
 
 
-  if (!requestObject.account_id) {
-    throw new Error('Unknown account ID')
+  if (!requestObject.profileId) {
+    throw new Error('Unknown profile ID')
   }
 
 
   let obj = massageRequestObject(requestObject)
   const { visitDate } = obj
   delete obj.visitDate;
-  const id = yield createNewAppointment(requestObject.account_id, visitDate, obj)
+  const id = yield createNewAppointment(requestObject.profileId, visitDate, obj)
 
-  yield notifyPracticeAdmins(requestObject.account_id,
+  yield notifyPracticeAdmins(requestObject.profileId,
     `New appointment for ${obj.fullname}, ${formatPhone(obj.phone)}`)
-  yield notifyPatient(requestObject.account_id, obj.phone, obj.email, 'Your appointment has been accepted for review. We will contact you shortly.')
+  yield notifyPatient(requestObject.profileId, obj.phone, obj.email, 'Your appointment has been accepted for review. We will contact you shortly.')
   this.body = { ok: 1, id: id};
 });
 
