@@ -10,7 +10,23 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
         include ../partials/topnavbar.pug
         #header
           img#ctl00_HdrMain(src='/assets/images/mheader_1103681.jpg')
-        include ../partials/banner_v1.pug
+        case (Math.floor((Math.random() * 8) + 1))
+          when 1
+            include ../partials/banner_v1.pug
+          when 2
+            include ../partials/banner_v2.pug
+          when 3
+            include ../partials/banner_v3.pug
+          when 4
+            include ../partials/banner_v4.pug
+          when 5
+            include ../partials/banner_v5.pug
+          when 6
+            include ../partials/banner_v6.pug
+          when 7
+            include ../partials/banner_v7.pug
+          when 8
+            include ../partials/banner_v8.pug
         include ../partials/phone.pug
         != data.htmlContent
       include ../partials/page_footer.pug

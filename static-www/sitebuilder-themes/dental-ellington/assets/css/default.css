@@ -62,7 +62,7 @@
 	#flash  	 { width: 526px; height: 228px; position: absolute; margin: 0px auto;  z-index: 0!important; left:6px; top:0px;}
 	#banner		 { width: 980px; height: 179px; position: relative; margin: 0px auto;}
 	#phone		 { width: 374px; height: 34px; margin: 0px; padding: 0px; position: absolute; top: -44px; right: 300px; z-index: 0!important;}
-	#content	 { height: 100%; margin: 0px 0 7px 0; padding: 0px 50px 30px 50px; overflow: hidden; text-align: left; min-height: 400px; background: url(../images/content-bg.jpg) bottom center no-repeat; }
+	#content	 { margin: 0px 0 7px 0; padding: 0px 50px 30px 50px; overflow: hidden; text-align: left; min-height: 400px; background: url(../images/content-bg.jpg) bottom center no-repeat; }
 	#footer      { width: 900px; height: auto; text-align: justify!important; color: #fff; }
 	
 	/* Phone Control*/

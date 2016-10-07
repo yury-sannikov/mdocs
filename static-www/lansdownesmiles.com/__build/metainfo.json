@@ -2,7 +2,9 @@
   "contents": {
     "indexPath": "content",
     "permalinks": [
-      "content/our-doctor"
+      "content/our-doctor",
+      "content/meet-our-team",
+      "content/our-practice"
     ],
     "metainfo": {
       "menuCaption": "Contents",
