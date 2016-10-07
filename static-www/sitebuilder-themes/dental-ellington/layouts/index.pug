@@ -1,29 +1,239 @@
-doctype html
-html.js.no-flexbox.flexbox-legacy.canvas.canvastext.webgl.no-touch.geolocation.postmessage.websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths
-  head
+html(itemscope='', itemtype='http://schema.org/LocalBusiness')
+  head#ctl00_Head1
     include ../partials/header.pug
-  body(style='')
-    #wrapper
-      include ../partials/topnavbar.pug
-      include ../partials/headnavbar.pug
-      include ../partials/menu.pug
-      include ../partials/slider.pug
-      .maincontent.centre
-        include ../partials/portrait&intro.pug
-        include ../partials/fourcols.pug 
-    include ../partials/commitments.pug  
-    include ../partials/quote_v1.pug  
-    include ../partials/footer.pug
-    include ../partials/jslibraries.pug
+  body
+    #header_bg
+      img(src='/assets/images/header-top.png')
+    #container_bg
+      #container
+        include ../partials/drawmenu.pug
+        include ../partials/topnavbar.pug
+        #header
+          img#ctl00_HdrMain(src='/assets/images/mheader_1103681.jpg')
+        #panels_bg
+          #slides
+            .slides_container(style='overflow: hidden; position: relative; display: block;')
+              .slides_control(style='position: relative; width: 2940px; height: 290px; left: -980px;')
+                div(style='position: absolute; top: 0px; left: 980px; z-index: 0;')
+                  img(src='/assets/images/panel1.png', alt='Smile Care', width='980', height='228')
+                div(style='position: absolute; top: 0px; left: 980px; z-index: 0; display: none;')
+                  img(src='/assets/images/panel2.png', alt='Feel Better Today', width='980', height='228')
+                div(style='position: absolute; top: 0px; left: 980px; z-index: 0; display: none;')
+                  img(src='/assets/images/panel3.png', alt='Comprehensive Dental Care', width='980', height='228')
+          .panels_flower
+        include ../partials/phone.pug
+        #content
+          #StylizedImage
+            img#ctl00_ImageFlareStylized1_ImageFlareStylized1(src='/assets/images/s_Welcome711035189.jpg')
+          script(type='text/javascript').
+            function Submit_ctl00_ContentPlaceHolder1_QuickContact1_ContactInfoDiv($sendbtn) { return true; }
+            $(function () {
+            var formClass = $("#ctl00_ContentPlaceHolder1_QuickContact1_ContactForm").attr("class");
+            if (formClass != "m-form") {
+            $("#ctl00_ContentPlaceHolder1_QuickContact1_cf").attr("class", "qcform");
+            }
+            });
+          #ctl00_ContentPlaceHolder1_QuickContact1_cf
+            #ctl00_ContentPlaceHolder1_QuickContact1_ContactForm.m-form
+              #ctl00_ContentPlaceHolder1_QuickContact1_formdiv.formDiv
+                #ctl00_ContentPlaceHolder1_QuickContact1_PnlTopHeading
+                  div(style='float: right;')
+                    img#ctl00_ContentPlaceHolder1_QuickContact1_ImagIntroTitle(src='/assets/images/miniform-mouse.jpg')
+                  h2
+                    | Contact Us!
+                div(style='clear: both')
+                input#ctl00_ContentPlaceHolder1_QuickContact1_SendTo(type='hidden', name='ctl00$ContentPlaceHolder1$QuickContact1$SendTo', value='210,7,211,97,57,124,148,219,125,238,231,100,106,186,149,143,234,122,78,51,124,13,53,125,174,72,105,63,240,36,187,216')
+                #ctl00_ContentPlaceHolder1_QuickContact1_HeaderInfoDiv
+                  br
+                  br
+                #ctl00_ContentPlaceHolder1_QuickContact1_ContactInfoDiv.ContactInfo
+                  span#ctl00_ContentPlaceHolder1_QuickContact1_TxtNameValidator(style='color:Red;display:none;') Name Required
+                  input#ctl00_ContentPlaceHolder1_QuickContact1_TxtName.qcformcolor(name='ctl00$ContentPlaceHolder1$QuickContact1$TxtName', type='text', placeholder='Name:')
+                  input#ctl00_ContentPlaceHolder1_QuickContact1_TextPhone.qcformcolor(name='ctl00$ContentPlaceHolder1$QuickContact1$TextPhone', type='text', placeholder='Phone:')
+                  span#ctl00_ContentPlaceHolder1_QuickContact1_regEmail(style='color:Red;display:none;') Email is not in correct format
+                  input#ctl00_ContentPlaceHolder1_QuickContact1_TextEmail.qcformcolor(name='ctl00$ContentPlaceHolder1$QuickContact1$TextEmail', type='text', placeholder='Email:')
+                  span#ctl00_ContentPlaceHolder1_QuickContact1_PhoneEmailValidator(style='color:Red;display:none;') Phone or Email Required
+                  #ctl00_ContentPlaceHolder1_QuickContact1_CommentInfoDiv.Comments
+                    textarea#ctl00_ContentPlaceHolder1_QuickContact1_txtComment.qcformcolor(name='ctl00$ContentPlaceHolder1$QuickContact1$txtComment', rows='5', cols='20', placeholder='Type your message here: (Messages sent using this form are not considered private.  Avoid sending confidential information via email.)')
+                  span(style='display: none;')
+                    input#ctl00_ContentPlaceHolder1_QuickContact1_EmailText.qcformemailcheck(name='ctl00$ContentPlaceHolder1$QuickContact1$EmailText', type='text')
+                #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaPanel(style='border-style:None;')
+                  #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaDiv.Captcha
+                    script.
+                      $(function () {
+                      $(".imageClass, .imgCorrectCode, .imgWrongCode").width("100%");
+                      });
+                    #captchCtrl
+                      #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_captchaPanel(style='display:none;')
+                        img(src='/assets/images/sb_icon.png')
+                        div
+                          #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha1.RadCaptcha.RadCaptcha_Default(disabled='disabled')
+                            span#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha1_ctl00(style='color:Red;visibility:hidden;') The code you entered is not valid.
+                            #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha1_SpamProtectorPanel
+                              //- img#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha1_CaptchaImage.imageClass(alt='', src='Telerik.Web.UI.WebResource.axd?type=rca&isc=true&guid=6e10266d-828b-46ba-8448-458eeb9cb2ec', style='height: 50px; width: 100%; display: block;')
+                            input#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha1_ClientState(name='ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha1_ClientState', type='hidden', autocomplete='off')
+                          input#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_ValCap(type='hidden', name='ctl00$ContentPlaceHolder1$QuickContact1$CaptchaBaseControl1$ValCap', value='Hod62mcRc5BD3Qu44ABM/Q==')
+                        div
+                        div
+                          span#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_lbl
+                      #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_captchaPanel2
+                        #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha2.RadCaptcha.RadCaptcha_Default
+                          span#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha2_ctl00(style='color:Red;visibility:hidden;') You must be a bot.
+                          #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha2_SpamProtectorPanel
+                            label#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha2_HiddenLabel(for='ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha2_InvisibleTextBox', style='display:none;') Do not fill this textbox.
+                            input#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha2_InvisibleTextBox(name='ctl00$ContentPlaceHolder1$QuickContact1$CaptchaBaseControl1$RadCaptcha2$InvisibleTextBox', type='text', style='display:none;')
+                          input#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha2_ClientState(name='ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha2_ClientState', type='hidden', autocomplete='off')
+                        #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha3.RadCaptcha.RadCaptcha_Default
+                          span#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha3_ctl00(style='color:Red;visibility:hidden;') Unable to submit - Please Try Again
+                          #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha3_SpamProtectorPanel
+                          input#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha3_ClientState(name='ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha3_ClientState', type='hidden', autocomplete='off')
+                      #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_errorMessageDiv(style='text-align: left; display: none')
+                        span
+                          span#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_errorLabel
+                      #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_SendButtonDiv
+                        input#btnSend.Button(type='submit', name='ctl00$ContentPlaceHolder1$QuickContact1$CaptchaBaseControl1$btnSend', value='Send', onclick='if(!Submit_ctl00_ContentPlaceHolder1_QuickContact1_ContactInfoDiv($(this))) return false;return true;return true;WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$ContentPlaceHolder1$QuickContact1$CaptchaBaseControl1$btnSend", "", true, "ctl00_ContentPlaceHolder1_QuickContact1_TxtName", "", false, false))')
+                #ctl00_ContentPlaceHolder1_QuickContact1_OfficeNotesPanel(style='border-style:None;')
+                  // Facebook Badge START
+                  div(align='center')
+                    strong
+                  div(align='center')
+                    a(href='http://www.facebook.com/pages/Lansdowne-Family-Cosmetic-Dentistry/116508018386621', title='Lansdowne Family & Cosmetic Dentistry', target='_TOP')
+                    br
+              #ctl00_ContentPlaceHolder1_QuickContact1_pnlQCThankYou(style='display: none')
+                div(style='float: right;')
+                  img#ctl00_ContentPlaceHolder1_QuickContact1_ImageThankyou(src='/assets/images/miniform-mouse.jpg')
+                h2 Thank You!
+                div(style='clear: both; text-align: center; font-style: italic;')
+                  | Your message has been sent. We will contact you shortly if your message requires a response.
+          h1(style='text-align: left;')
+            span(style='font-size: 18px;')
+              | Lansdowne 
+              span Dentist 
+              | - Dr. Paul Ellington - Family & Senior Dental Care
+          p(style='text-align: center;')
+            span(style='font-size: 14px;')
+              strong Lansdowne Family & Cosmetic Dentistry - Celebrating 28 Years!
+          hr
+          // Place this render call where appropriate
+          strong
+            script#facebook-jssdk(src='//connect.facebook.net/en_US/all.js#xfbml=1')
+          br
+          | Welcome to the home of Lansdowne Family & Cosmetic Dentistry – your place for friendly dental care in Lansdowne, VA. We happily treat patients of all ages, from children to seniors, and protect the health and beauty of their smiles.  
+          a(href='http://www.lansdownesmiles.com/our-doctor/', target='_self') Dr. Paul Ellington
+          | , our experienced and gentle dentist, treats every patient with the personalized attention they need for successful oral health care.  
+          h1(style='text-align: left;')
+            span(style='font-size: 14px;')
+              img(alt='', style='border-width: 3px; border-style: solid; width: 250px; height: 313px; margin-top: 10px; margin-bottom: 10px; margin-left: 10px; float: right;', src='/assets/images/Image00005.jpg')
+              | Cosmetic and Restorative Dentistry in Lansdowne, VA
+          p
+            | Your Lansdowne dental practice specialize in cosmetic dentistry and dental restorations for new and improved smiles. Cosmetic dental treatments help our adult patients get smiles that look healthy and vibrant, while restorations allow teeth to remain strong and promote healthy oral function.  Our most popular cosmetic and restorative therapies include:
+          p(style='margin-left: 40px;')
+            | • 
+            a(href='http://www.lansdownesmiles.com/cosmetic-dentistry/porcelain-veneers/', target='_self') Porcelain veneers
+            br
+            | • 
+            a(href='http://www.lansdownesmiles.com/cosmetic-dentistry/porcelain-crowns-caps/', target='_self') Dental crowns
+            br
+            | • 
+            a(href='http://www.lansdownesmiles.com/cosmetic-dentistry/teeth-whitening/', target='_self') Teeth whitening
+            br
+            | • 
+            a(href='http://www.lansdownesmiles.com/cosmetic-dentistry/porcelain-fixed-bridges', target='_self') Fixed bridges
+            br
+            | • 
+            a(href='http://www.lansdownesmiles.com/cosmetic-dentistry/composite-fillings/', target='_self') Composite dental fillings
+          p
+            | Dr. Ellington also helps patients achieve and maintain excellent oral health with routine preventive care and maintenance, such as 
+            strong twice yearly teeth cleanings
+            |  and even periodontal care to protect the health of your gums.  Our team assists patients in 
+            strong preventing the negative effects of gum disease and dental caries 
+            | that cause damage to teeth and surrounding tissue.
+          h2
+            span(style='font-size: 14px;') Preventing Dental Problems and Promoting Improved Wellness
+          p
+            | Our whole team is committed to helping patients achieve improved wellness. 
+            strong We teach healthy brushing and flossing habits to young patients
+            |  to promote good dental habits from early on.  Our Lansdowne dental office also caters to 
+            strong
+            strong
+            strong
+            strong senior dental patients
+            | , helping them keep their natural teeth and enjoy a solid foundation of oral health and function. We provide tips, advice, and treatments that are specifically geared to help senior patients enjoy beautiful smiles.
+            br
+            br
+            | We have roots in our valued 
+            a(href='HealthFairsEvents.aspx') community
+            | . As many of you know, our doctors also practice in Potomac Falls, where every year for the last 6 years they have participated, along with their staff, in "Give Kids a Smile Day". This year they saw 13 deserving patients and donated over $10,000 of dental services. Well done, everyone!
+          h2
+            span(style='font-size: 14px;') Contact a Lansdowne Dentist Today – Call Dr. Ellington!
+          p
+            | For more information on how Dr. Ellington and his team can help you, and members of your family, achieve excellent oral health 
+            a(href='http://www.lansdownesmiles.com/contact/', target='_self') call our office
+            |  for your consultation. 
+            br
+          hr
+          table(style='width: 726px; height: 200px;')
+            tbody
+              tr
+                td
+                  strong
+                    | Lansdowne Family & Cosmetic Dentistry
+                    br
+                    | 44115 Woodridge Parkway Suite 280
+                    br
+                    | Lansdowne, VA 20176
+                    br
+                    | Phone: 703-858-2380
+                    br
+                    | Fax: 703-858-7001
+                    br
+                    a(href='mailto:admin@lansdownesmiles.co') admin@lansdownesmiles.co
+                td
+                  p
+                    span
+                      strong Please call one of our friendly staff during these hours:
+                    br
+                  p
+                    strong
+                      span
+                        | Monday: 7:00am-5:00pm
+                        br
+                        | Tuesday: 9:00am-5:00pm
+                        br
+                        | Wednesday: 7:00am-3:00pm
+                        br
+                        | Thursday: 8:00am-5:00pm
+                        br
+                        | Friday: 9:00am-1:00pm
+          p(style='font-weight: normal;')
+          br(clear='all')
+      include ../partials/footer.pug
+    script(type='text/javascript').
+      var pkBaseURL = (("https:" == document.location.protocol) ? "http://webstats.prosites.com/piwik" : "http://webstats.prosites.com/piwik");
+      document.write(unescape("%3Cscript src='" + pkBaseURL + "/piwik.js' type='text/javascript'%3E%3C/script%3E"));
+      //document.write(unescape("%3Cscript async src='" + pkBaseURL + "/piwik.js' type='text/javascript'%3E%3C/script%3E"));
+    script(src='http://webstats.prosites.com/piwik/piwik.js', type='text/javascript')
+    script(type='text/javascript').
+      try {
+      var tracker = Piwik.getTracker(pkBaseURL + "/piwik.php", "4397");
+      tracker.setCookieDomain(".%2A");
+      tracker.enableLinkTracking();
+      tracker.trackPageView();
+      }
+      catch (er) {
+      console.log(er);
+      }
+    script(src='/assets/js/jquery.slides.1.1.9.js')
     script.
-      $(document).ready(function(){
-        $('ul.bxslider').bxSlider({
-          mode: 'fade',
-          captions: true,
-          controls: false,
-          speed: 1500,
-          pause: 6000,
-          auto: true
-        });
+      $(function(){
+      $('#slides').slides({
+      preload: false,
+      pagination: !1,
+      generatePagination: !1,
+      prependPagination: !1,
+      play: 5000,
+      pause: 2500,
+      hoverPause: false
+      });
       });
 

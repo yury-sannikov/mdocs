@@ -1,0 +1,198 @@
+﻿	
+	/*-------------------------------------------
+	*  Filename:            default.css 
+	*  Description          default css
+	*  Version              1.0.0 [2012-01-06]
+	*  Style ID             2000
+	*  Author:              ProSites
+	---------------------------------------------*/
+	
+	
+	
+	/* RESETS */
+	
+	#w_all, #container, #header, #nav_bg, #flash, #banner, #phone, #footer, #container_bg, #footer_bg { margin: 0 auto; padding: 0px; }
+	body, #w_all, #container_bg, #nav_bg, #phone_bg, #footer_bg, #container, #header                  { text-align: center; }
+
+	
+	/*** GENERAL FORMAT *************************************************************************************/
+	
+	body                                { background: #accba2 url(../images/bg.jpg) top center repeat-x;}
+	body #interior                      { }	
+	body, legend                        { color: #91b287;}
+	
+	a:link, a:visited, a:active         { color: #5f8ca2;}
+	a:hover                             { color: #9dd08d;}
+	
+	fieldset, img                     	{ border-color: #b3c9aa; }
+	hr  				    			{ background-color: #b3c9aa; color: #b3c9aa; }
+	fieldset 							{ padding: 8px;}
+	
+	.ButtonHover			    		{ color: #fff; background: #91b6c7; border: solid 1px #5d8ca2; }
+	.Button			            		{ color: #fff; background: #accba2; border: solid 1px #91b287; }
+	
+	
+	/* PARENT WRAPPERS ***** NOTE** indicate wrapper children in ID/class name ******************************/
+	
+	#w_all          { /*width: 100%; min-width: 1000px; background: url(../images/container_bg.png) top center repeat-y;*/ } 
+	#w_footer		{ width: 1000px; margin: 0px auto; font-size: 11px; background: url(../images/footer-bg.png) top center repeat-y; z-index: -1; } 
+
+	
+	/* 100% or FIXED BG ELEMENTS ****************************************************************************/
+	
+	#container_bg{ width: 100%; min-width: 1000px; }
+	#header_bg	 { } 
+	#panels_bg		 { width: 980px; height: 289px; background: url(../images/panel_bg.jpg) top center no-repeat; margin: 0 auto; position: relative;}
+	.panels_flower { width: 230px; height: 200px; background: url(../images/le_flower.png) top center no-repeat; position: absolute; z-index: 50; bottom: 0px; left:5px; }
+	#phone_bg	 { width: 980px; height: 0px; margin: 0px auto; padding: 0px; text-align: center; position: relative; z-index: 20;}
+	#content_bg	 { /*- No Div -*/ }
+	#footer_bg   { width: 1000px; margin: 0px auto; font-size: 11px; background: url(../images/footer-bg-image.png) bottom center no-repeat; z-index: -1; text-align: left; }
+	
+	
+	/* CONTAINER DIV - OPTIONAL ** use this to contain all the core elements within one wrapper *************/
+	
+	#container	 { width: 1000px; margin: 0px auto; padding: 0px; overflow: hidden; text-align: center; background: url(../images/container-bg.png) top center repeat-y; z-index: -10!important; }
+	
+	
+	/* CORE INNER ELEMENTS ****************/
+	
+	#header 	 { width: 966px; margin: 0px auto; padding: 0px; text-align: center; border-top: solid 7px #fff; border-bottom: solid 7px #fff;}
+	#nav		 { width: 966px; height: auto; text-align: center; margin: 0px auto; padding: 0px; background: url(../images/nav-bg.jpg) top center repeat;}
+	#slides 	 { position:relative; z-index: 10;}
+	#flash  	 { width: 526px; height: 228px; position: absolute; margin: 0px auto;  z-index: 0!important; left:6px; top:0px;}
+	#banner		 { width: 980px; height: 179px; position: relative; margin: 0px auto;}
+	#phone		 { width: 374px; height: 34px; margin: 0px; padding: 0px; position: absolute; top: -44px; right: 300px; z-index: 0!important;}
+	#content	 { height: 100%; margin: 0px 0 7px 0; padding: 0px 50px 30px 50px; overflow: hidden; text-align: left; min-height: 400px; background: url(../images/content-bg.jpg) bottom center no-repeat; }
+	#footer      { width: 900px; height: auto; text-align: justify!important; color: #fff; }
+	
+	/* Phone Control*/
+	.phoneBox 							{ font-family: 'Crimson Text', serif; font-size: 28px; text-transform: uppercase; margin: -3px 0 0 0; }
+	.phoneBox a     					{ text-decoration: none; color: #91b287;}
+	.phoneBox .span1					{ color: #80ACBF;}
+
+
+	/*** CUSTOM DIVS if any custom CORE INNER ELEMENTS is needed please add in the section below*************/
+	
+	#slides 	 { position:relative; z-index: 10;}
+	.slides_container {	width: 980px;  display:none;  }
+	.slides_container div {  width: 980px;  height:290px; display:block; position: relative; z-index: 100;}
+	
+	/***CUSTOM FORMAT specific to CORE INNER ELEMENTS***/
+	
+	/************************************************
+	*												*
+	*	NOTE global.css has additional formatting	*
+	*	that may effect any custom code added		*
+	* 	below. 										*
+	*												*
+	************************************************/
+	
+	
+	 
+	
+	/*** #header ***********/
+	#header p 	 { }
+	#header a  	 { }
+	#header-top                   { width: 1000px; height: 26px; margin: 0px auto; padding: 0px; text-align: center; }
+	
+	/*** #nav **************/
+	#nav img     {  margin: 0px; padding: 0px; }
+	
+	
+	/*** #content **********/
+	#content p   { }
+	#content a   { }
+	#StylizedImage  { padding-top: 10px;}
+	
+	/*** #footer ***********/
+	#footer .footer_nav          { margin: 0px; padding: 15px 70px 3px 0px;  }
+	#footer p 				     { margin: 0px; padding: 0px 66px 0 0; }
+	#footer .devby               { margin: 0px; padding: 3px 0px 50px 0px; }
+	#footer br 				     { display: none!important; } /* hide coded breaks*/
+	
+	#footer_bg_image                    { width: 1000px; margin: 0px auto; font-size: 11px; background: url(../images/footer-bg.png) top center repeat-y; z-index: -1; }
+	#footer a:link, #footer a:visited, #footer a:active     { color: #defed4; text-decoration: none; font-weight: bold; }
+	#footer a:hover                                         { color: #fff; text-decoration: none; font-weight: bold; }
+	#footer-btm                                             { height: 30px;  position: relative; display: block; } 
+	
+	
+	/*** #col1 *************/
+	#col1 p      { }
+	#col1 a      { }
+
+
+
+
+	/************************************************
+	*												*
+	*	NOTE: Section below is for the default 		*
+	*	pages in the engine. Only color,			*
+	*	background color and border should be 		*
+	*	changed. There is an exception for custom	*
+	*	websites.									*
+	*												*
+	************************************************/
+
+
+	/*  BORDER COLORS FOR DEFAULT PAGES *********************************************************************/
+	
+	.PageService_Line_Group_Name,        
+	.PageService_Line_Item_Name,        
+	.PageInternetLink_Category_Container,	
+	.PageFAQ_Answer,			    
+	.PageTestimonial_Intro,              
+	.PageTestimonial_Container,          
+	.PageContact_Office_Photo,           
+	.PageContact_Contact_Photo,          
+	.PageContact_Contact_Seperator	   
+	 { border-color: #b3c9aa; }
+
+
+
+	/*  INTERIOR DEFAULT FORMS ******************************************************************************/
+
+	
+	/* MAIN CONTACT PAGE FORM **********/
+	
+	.qcform              { background: #f9fbf9; border-color: #c6d7c0; } /*container form*/
+	.qcformcolor         { background-color: #fff!important; border-color: #accba2; color: #91b287; } /*input field*/
+ 	hr.qcform            { background-color: #b3c9aa; color: #b3c9aa; }
+
+
+	/* MINI FORM PLUGIN ****************/
+
+	.m-form, 
+	.m-form-low, 
+	.m-form-services,
+	.m-form-inner-services					
+	{ background: #f9fbf9!important; border-color: #c6d7c0; color: #91b287; }/*container form*/
+	
+	.m-formcolor, 
+	.m-form-innercolor	
+	{ background: #fff; border-color: #accba2; color: #91b287; }/*input field*/
+
+	.m-form h1,
+	.m-form-low h1, 
+	.m-form-services h1, 
+	.m-form-inner-services h1
+	{ font-family:arial; /*NEED TO DECLARE FONT HERE*/ }
+
+	
+	/* MINI FORM POSITION **************/
+	/*NEED TO ADJUST TOP MARGIN FOR EACH*/ 
+	
+	.m-form
+	{ margin: 92px 0px 7px 20px }
+	.m-form-low
+	{ margin: 92px 0px 7px 20px; }
+	.m-form-services
+	{ margin: 92px 0px 7px 20px; }
+	.m-form-inner-services
+	{ margin: 113px 0px 7px 20px; }  
+	
+	
+	/* Webkit - Browsers have an offset of 1px horizontally - due to odd nuber in pixel resolution vieport */
+	
+	@media screen and (-webkit-min-device-pixel-ratio:0) { html { overflow-x: scroll; margin-left: -1px; } }
+
+
