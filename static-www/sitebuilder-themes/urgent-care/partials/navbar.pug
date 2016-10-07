@@ -44,19 +44,32 @@ header#header.header
   .header-middle.p-0.bg-lightest.xs-text-center
     .container.pt-0.pb-0
       .row
-        .col-xs-12.col-sm-4.col-md-5
+        .col-xs-12.col-sm-4.col-md-4
           .widget.no-border.m-0
             a.menuzord-brand.pull-left.flip.xs-pull-center.mb-15(href='javascript:void(0)')
               img(src='/assets/images/logo-wide@2x.png', alt= practice.name)
-        .col-xs-12.col-sm-4.col-md-4
+        .col-xs-12.col-sm-3.col-md-3
           .widget.no-border.pull-right.sm-pull-none.sm-text-center.mt-10.mb-10.m-0
             ul.list-inline
               li
-                i.icon_mobile.text-theme-colored.font-32.mt-5.sm-display-block
+                i.icon_house.text-theme-colored.font-36.mt-5.sm-display-block
               li
-                a.font-12.text-gray.text-uppercase(href='#') Call us today!
-                h5.font-14.m-0= practice.phone
-        .col-xs-12.col-sm-4.col-md-3
+                h5.font-13.text-black.m-0= practice.address
+                  br
+                  span= practice.city 
+                  |, 
+                  span= practice.state
+                  |  
+                  span= practice.zip
+        .col-xs-12.col-sm-2.col-md-2
+          .widget.no-border.pull-right.sm-pull-none.sm-text-center.mt-10.mb-10.m-0
+            ul.list-inline
+              li
+                i.icon_star.text-theme-colored.font-36.mt-5.sm-display-block
+              li
+                h5.font-13.text-black.m-0 Read Our 
+                h5.font-13.text-black.m-0 Reviews
+        .col-xs-12.col-sm-3.col-md-3
           .widget.no-border.pull-right.sm-pull-none.sm-text-center.mt-10.mb-10.m-0
             ul.list-inline
               li

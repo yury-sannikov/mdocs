@@ -34,14 +34,14 @@ h6,
 }
 
 .mc-image {
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
-  opacity: 0.20;
-  -moz-opacity: 20%;
-  -webkit-opacity: 20%;
+  // -webkit-filter: blur(5px);
+  // -moz-filter: blur(5px);
+  // -o-filter: blur(5px);
+  // -ms-filter: blur(5px);
+  // filter: blur(5px);
+  // opacity: 0.20;
+  // -moz-opacity: 20%;
+  // -webkit-opacity: 20%;
 }
 
 .menuzord-menu > li > a {
