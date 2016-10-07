@@ -18,6 +18,7 @@ function hasDynamoData(data) {
 }
 
 export function* getProfiles(profileIds) {
+  profileIds = profileIds || []
   let profiles = yield profileIds.map( (v) => profileById(v) )
   profiles = _.chain(profiles)
     .map(p => hasDynamoData(p) ? p[0][0] : null)
