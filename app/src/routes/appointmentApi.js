@@ -9,6 +9,7 @@ import { createNewAppointment,
   appointmentById,
   updateAppointment } from '../db/appointments';
 import { profileById } from '../db'
+import { getProfiles } from '../db/profiles'
 import { sendSMS } from '../comm/sms'
 import { sendAppointmentEmail } from '../comm/email'
 import { formatPhone } from '../belt'
@@ -133,11 +134,14 @@ router.post('/', function*() {
 });
 
 router.get('/dashboard', function*() {
+  const allProfiles = yield getProfiles(this.currentUser.account.profiles)
 
-  const allItems = (yield appointmentsForAccount(this.currentUser.account_id))
-    .map( i => {
-      i.patient_dob = i.patient_dob ? moment.unix(i.patient_dob) : undefined
+  const allAppointments = _.flatten(yield this.currentUser.account.profiles.map(p => appointmentsForAccount(p)))
+
+  const allItems = allAppointments.map( i => {
+      i.dob = i.dob ? moment.unix(i.dob) : undefined
       i.visit_date = i.visit_date ? moment.unix(i.visit_date) : undefined
+      i.profile = allProfiles.find(p=>p.id == i.profile_id) || {}
       return i
     })
 
@@ -154,6 +158,7 @@ router.get('/dashboard', function*() {
       },
       data: overviewEvents
     },
+    profiles: allProfiles,
     data: allItems
   }
 });

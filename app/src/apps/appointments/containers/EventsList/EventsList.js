@@ -123,17 +123,17 @@ class EventsList extends Component {
         </td>
         <td>
           <a className='font-w600' data-toggle='modal' data-target='#modal-ticket' href='#'>
-            {`Appointment with ${item.patient_name}`}
+            {`Appointment with ${item.fullname}`}
           </a>
           <div className='text-muted'>
-            <span className={(item.patient_new ? 'label label-success ' : 'label label-warning ') + styles.labelClass}>
-              {item.patient_new ? 'New' : 'Returning'}
+            <span className={(item.isnew ? 'label label-success ' : 'label label-warning ') + styles.labelClass}>
+              {item.isnew ? 'New' : 'Returning'}
             </span>
-            <em>{`${this.formatPhone(item.patient_phone)}`}</em>{`, ${item.patient_reason || '-no reason specified-'}`}
+            <em>{`${this.formatPhone(item.phone)}`}</em>{`, ${item.description || item.comment || '-no reason specified-'}`}
           </div>
         </td>
         <td className='hidden-xs hidden-sm hidden-md text-muted' style={{'width': '120px'}}>
-          <em>{'Dr. Sarah Smith'}</em>
+          <em>{item.profile.name}</em>
         </td>
         {/*
         <td className="hidden-xs hidden-sm hidden-md text-center" style={{'width': '60px'}}>
