@@ -1,0 +1,15 @@
+extends ../layouts/layout
+
+block head
+  title PracticeWin &middot; Analytics
+
+block content
+  iframe#analyticsframe(src="http://www.local-marketing-reports.com/location-dashboard/ca9f39ba815377ca58226abe0b2e68f6c5f477f4/view" style="border: 0; width: 100%; height: 100%" onLoad="autoResize();")
+block scripts
+  script.
+    jQuery(document).ready(function () {
+      $(window).on('resize', autoResize);
+    })
+    function autoResize(){
+      $('#analyticsframe').height($('#analyticsframe').parent().height());
+    }

@@ -104,6 +104,9 @@ router.get('appointments', '/campaigns*', checkAuthenticated, function*() {
   yield campaignsRender(this, this.jadeLocals);
 });
 
+router.get('dashboardNew', '/analytics', checkAuthenticated, function*() {
+  this.render('analytics/main', this.jadeLocals, true);
+});
 
 // Show Help
 router.get('/help', function*() {
