@@ -6,7 +6,7 @@ block styles
   style.
     @media all and (max-width: 544px) {
       .row-xs-center {
-        width: 128px;
+        width: auto;
         margin: auto;
       }
     }
@@ -14,7 +14,7 @@ block styles
 block content
   .container
     .row
-      .col-sm-8.col-sm-offset-2
+      .col-md-10.col-sm-10
         br
         br
         form(method='POST')
@@ -22,16 +22,15 @@ block content
           legend
             h2 Review Details
             p.small Thank you for your review. We would love to get your help and spread the word. Please use the link below to post your review.
+    .row.row-xs-center
+      .col-sm-12.col-xs-12
+        each site in sites
+          a(href=forwardUrl+'?to='+site.url+'&k='+site.key target="_blank" rel="noopener noreferrer")
+            img(src=site.meta.icon128 srcset=site.meta.icon128x2+' 2x' alt=site.meta.name)
     .row
-      .col-sm-8.col-sm-offset-2.col-xs-12
-        .row.row-xs-center
-          each site in sites
-            a(href=forwardUrl+'?to='+site.url+'&k='+site.key target="_blank" rel="noopener noreferrer")
-              img(src=site.meta.icon128 srcset=site.meta.icon128x2+' 2x' alt=site.meta.name)
-    .row
-      .col-sm-8.col-sm-offset-2.col-xs-12
+      .col-sm-12.col-xs-12
         hr
-        p.text-muted <em>#{application}
+        p.text-muted <em>PracticeWin
           a(href='/app/terms')  Terms of Use
           |  and
           a(href='/app/privacy')  Privacy Policy.</em>

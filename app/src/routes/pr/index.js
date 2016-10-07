@@ -15,8 +15,8 @@ export const KNOWN_SITES = {
   },
   google: {
     name: 'Google Plus',
-    icon128: '/app/img/psl/yelp.png',
-    icon128x2: '/app/img/psl/yelp@2x.png'
+    icon128: '/app/img/psl/google.png',
+    icon128x2: '/app/img/psl/google@2x.png'
   },
   healthgrades: {
     name: 'HealthGrades.com',
@@ -30,13 +30,13 @@ export const KNOWN_SITES = {
   },
   ratemds: {
     name: 'RateMDs.com',
-    icon128: '/app/img/psl/yelp.png',
-    icon128x2: '/app/img/psl/yelp@2x.png'
+    icon128: '/app/img/psl/ratemds.png',
+    icon128x2: '/app/img/psl/ratemds@2x.png'
   },
   yellowpages: {
     name: 'YellowPages',
-    icon128: '/app/img/psl/yelp.png',
-    icon128x2: '/app/img/psl/yelp@2x.png'
+    icon128: '/app/img/psl/yp.png',
+    icon128x2: '/app/img/psl/yp@2x.png'
   },
   fb: {
     name: 'Facebook',
