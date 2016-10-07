@@ -4,6 +4,7 @@ const Router = require('koa-router');
 const debug = require('debug')('app:routes:patient-review');
 const _ = require('lodash');
 const db = require('../../db');
+import { getProfiles } from '../../db/profiles'
 const communicator = require('../../comm');
 import { checkAuthenticated, hasPatientReviews } from '../../belt';
 import { getQuestionsForUser } from './index'
@@ -32,8 +33,8 @@ router.get('patient-reviews', '/patient-reviews', function*() {
     const avg = _.chain(item.answers).values().sum().value() / _.values(item.answers).length;
     return Object.assign({}, item, {averageRating: avg });
   });
-  const profiles = yield db.profilesForAdmin(this.currentUser.id);
-  this.render('reviews/reviews', Object.assign({}, this.jadeLocals, {reviews: reviews, profiles: profiles[0]}), true);
+  const profiles = yield getProfiles(this.currentUser.account.profiles)
+  this.render('reviews/reviews', Object.assign({}, this.jadeLocals, {reviews: reviews, profiles: profiles}), true);
 });
 
 function* conductSurvey(id) {

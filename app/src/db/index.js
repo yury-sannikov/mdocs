@@ -200,45 +200,12 @@ export function* updateUserStripeCustomerToken(id, customer, token) {
 }
 
 // PROFILES
-exports.profilesForAdmin = function(adminId) {
-  const chain = DynamoDB
-    .table('profiles')
-    .where('admin_id').eq(adminId)
-    .order_by('admin_id-index');
-  return Promise.promisify(chain.query, {context: chain});
-}
 
 exports.profileById = function (id) {
   const chain = DynamoDB
     .table('profiles')
     .where('id').eq(id);
   return Promise.promisify(chain.query, {context: chain});
-};
-
-exports.createProfile = function() {
-  return function* (adminId, data) {
-    const chain = DynamoDB
-      .table('profiles');
-    const insertAsync = Promise.promisify(chain.insert, {context: chain});
-    const id = uuid.v4();
-
-    var newProfile = {
-      id: id,
-      admin_id: adminId,
-      name: data.name,
-      email: data.email,
-      phone: data.phoneMobile,
-      type: data.profileType,
-      review_sites: data.review_sites,
-      review_sites_onsurvey: data.review_sites_onsurvey
-    };
-    if(!_.isEmpty(data.address)) {
-      newProfile.address = data.address;
-    }
-
-    yield insertAsync(newProfile);
-    return id;
-  };
 };
 
 exports.updateProfile = function* (id, data) {
@@ -263,17 +230,7 @@ exports.updateProfile = function* (id, data) {
   return yield updateAsync(newProfile);
 };
 
-exports.deleteProfile = function* (id) {
-  const chain = DynamoDB
-    .table('profiles')
-    .where('id').eq(id);
-
-  const deleteAsync = Promise.promisify(chain.delete, {context: chain});
-
-  return yield deleteAsync();
-};
-
-exports.findAccountById = function* (accountId) {
+export function* findAccountById(accountId) {
   const chain = DynamoDB
     .table('mdocsapps_account')
     .where('account_id').eq(accountId);
@@ -284,4 +241,28 @@ exports.findAccountById = function* (accountId) {
 
   return hasDynamoData(account) ? account[0] : null;
 };
+
+export function* updateAccountById(accountId, data) {
+  const chain = DynamoDB
+    .table('mdocsapps_account')
+    .where('account_id').eq(accountId);
+
+  const updateAsync = Promise.promisify(chain.update, {context: chain});
+  delete data.account_id
+  return yield updateAsync(data);
+};
+
+
+export function fuckThoseFuckingDynamoDbDevelopers(crap) {
+  if (!_.isArray(crap.Items)) {
+    return []
+  }
+  return crap.Items.map( item => {
+    for (let key in item) {
+      const v = item[key]
+      item[key] = v.S || v.BOOL || (+v.N)
+    }
+    return item
+  })
+}
 

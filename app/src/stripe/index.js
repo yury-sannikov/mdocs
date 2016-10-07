@@ -6,7 +6,7 @@ import _ from 'lodash';
 import {
   updateUserStripeCustomerToken,
   findUserById,
-  profilesForAdmin,
+  getProfiles,
   deleteUserSubscriptionsInfo } from '../db';
 const debug = require('debug')('app:stripe');
 
@@ -18,12 +18,12 @@ const subscriptionsAsync = Promise.promisifyAll(stripeApi.subscriptions, { conte
 const invoicesAsync = Promise.promisifyAll(stripeApi.invoices, { context: stripeApi.invoices });
 
 function* getSubscription(userId) {
-  const profiles = yield profilesForAdmin(userId);
+  const profiles = yield getProfiles(this.currentUser.account.profiles)
   const user = yield findUserById(userId);
   const stripeId = _.get(user, 'stripeId', _.get(user, 'stripeCustomer.id'))
 
   let result = {
-    profiles: profiles[0].length,
+    profiles: profiles.length,
     customer: {}
   };
 

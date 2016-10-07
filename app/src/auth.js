@@ -39,13 +39,17 @@ passport.serializeUser(function(user, done) {
     const dbuser = yield findUserById(user.id);
     const stripeId = _.get(dbuser, 'stripeId', _.get(dbuser, 'stripeCustomer.id'))
 
-    const emptyRights = {_empty: true}
-    let account = {rights: emptyRights}
+    const emptySet = {_empty: true}
+    let account = {
+      rights: emptySet,
+      profiles: emptySet
+    }
     if (dbuser.account_id) {
       const dbaccount = yield findAccountById(dbuser.account_id)
       if (dbaccount) {
         account = Object.assign({}, dbaccount, {
-          rights: dbaccount.rights[user.id] || emptyRights
+          rights: _.get(dbaccount, `rights.${user.id}`, emptySet),
+          profiles: _.get(dbaccount, `profiles.${user.id}`, emptySet)
         })
       }
     }

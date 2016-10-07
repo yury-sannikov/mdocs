@@ -6,6 +6,7 @@ const _ = require('lodash');
 const db = require('../../db');
 const communicator = require('../../comm');
 import { checkAuthenticated, hasPatientReviews } from '../../belt';
+import { getProfiles, createProfile, deleteProfile } from '../../db/profiles'
 export const KNOWN_SITES = {
   yelp: {
     name: 'Yelp',
@@ -82,8 +83,8 @@ router.get('/', function*() {
 
 // Show profiles
 router.get('profiles', '/profiles', function*() {
-  const data = yield db.profilesForAdmin(this.currentUser.id);
-  this.render('settings/profiles', Object.assign({}, this.jadeLocals, { profiles: data[0] }), true);
+  const profiles = yield getProfiles(this.currentUser.account.profiles)
+  this.render('settings/profiles', Object.assign({}, this.jadeLocals, { profiles: profiles }), true);
 });
 
 router.get('/profile/:id', function*() {
@@ -127,7 +128,7 @@ router.post('/new-profile', hasPatientReviews, function*() {
   };
 
   const profile = Object.assign({}, this.request.body);
-  const id = yield db.createProfile()(this.currentUser.id, profile);
+  const id = yield createProfile(this, profile);
   this.flash = 'Profile added successfully.';
 
   this.redirect(router.url('profiles'));
@@ -144,15 +145,14 @@ router.post('/update-profile', hasPatientReviews, function*() {
 });
 
 router.post('/delete-profile', hasPatientReviews, function*() {
-  yield db.deleteProfile(this.request.body.id);
+  yield deleteProfile(this, this.request.body.id);
   this.flash = 'Profile deleted successfully.';
   this.redirect(router.url('profiles'));
 });
 
 
 router.get('customize', '/customize', function*() {
-  const data = yield db.profilesForAdmin(this.currentUser.id);
-  const profiles = data[0] || [];
+  const profiles = yield getProfiles(this.currentUser.account.profiles)
 
   const questions = getQuestionsForUser(profiles)
   const objectToIdQuestion = (el) => _.map(el, (v, k) => ({id: k, question: v}))

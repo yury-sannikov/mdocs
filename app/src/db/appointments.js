@@ -7,7 +7,7 @@ const VanillaDynamoDB = Promise.promisifyAll($db);
 const uuid = require('node-uuid');
 const moment = require('moment');
 const _ = require('lodash');
-
+import { fuckThoseFuckingDynamoDbDevelopers } from './index'
 
 function hasDynamoData(data) {
   if (_.isEmpty(data) || !_.isArray(data)) {
@@ -36,19 +36,6 @@ exports.updateAppointment = function* (id, newAppointment) {
   delete newAppointment.id
   return yield updateAsync(newAppointment);
 };
-
-function fuckThoseFuckingDynamoDbDevelopers(crap) {
-  if (!_.isArray(crap.Items)) {
-    return []
-  }
-  return crap.Items.map( item => {
-    for (let key in item) {
-      const v = item[key]
-      item[key] = v.S || v.BOOL || (+v.N)
-    }
-    return item
-  })
-}
 
 exports.appointmentsForAccount = function*(account_id) {
 

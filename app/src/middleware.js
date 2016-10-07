@@ -48,7 +48,8 @@ exports.wrapJadeLocals = function() {
   return function *(next) {
     const currentUser = this.currentUser || {};
 
-    const { rights: accountRights = {} } = currentUser.account || {};
+    const { rights: accountRights = {},
+            profiles: accountProfiles = {} } = currentUser.account || {};
     const { sitebuilder: accountSitebuilder = {} } = currentUser.account || {};
 
     const sitebuilderSites = accountRights.sitebuilder &&
@@ -66,6 +67,7 @@ exports.wrapJadeLocals = function() {
       config: config,
       sitebuilderSites,
       accountRights,
+      accountProfiles,
       hasStripeId: !!currentUser.stripeId
     };
 

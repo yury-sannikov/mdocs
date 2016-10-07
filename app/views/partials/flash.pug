@@ -1,5 +1,5 @@
 #flash
-  - var shitHappends = !hasStripeId || accountRights._empty
+  - var shitHappends = !hasStripeId || accountRights._empty || accountProfiles._empty
   if shitHappends
     .alert.alert-info.alert-dismissable
       button.close(type='button', data-dismiss='alert', aria-hidden='true')
@@ -14,6 +14,11 @@
           strong
             i.fa.fa-lg.fa-info-circle
           | &nbsp;&nbsp; Stripe ID is not associated with your account. Please call support.
+      if accountProfiles._empty
+        p.flashmsg
+          strong
+            i.fa.fa-lg.fa-info-circle
+          | &nbsp;&nbsp; Your account has no account profiles set up. Please call support.
   if messages.error
     .alert.alert-danger.alert-dismissable
       button.close(type='button', data-dismiss='alert', aria-hidden='true')
