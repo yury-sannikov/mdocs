@@ -42,14 +42,14 @@ passport.serializeUser(function(user, done) {
     const emptySet = {_empty: true}
     let account = {
       rights: emptySet,
-      profiles: emptySet
+      profiles: []
     }
     if (dbuser.account_id) {
       const dbaccount = yield findAccountById(dbuser.account_id)
       if (dbaccount) {
         account = Object.assign({}, dbaccount, {
           rights: _.get(dbaccount, `rights.${user.id}`, emptySet),
-          profiles: _.get(dbaccount, `profiles.${user.id}`, emptySet)
+          profiles: _.get(dbaccount, `profiles.${user.id}`, [])
         })
       }
     }
