@@ -69,7 +69,7 @@ router.get('/subscription', checkAuthenticated, function* () {
     this.redirect(router.url('dashboard'))
     return
   }
-  const {currentInvoice, upcomingInvoice, currentSubscription} = yield getFutureInvoice(this.currentUser.id);
+  const {currentInvoice, upcomingInvoice, currentSubscription} = yield getFutureInvoice(this.currentUser.id, this.currentUser.account.profiles);
   const currentInvoiceData = currentInvoice.data[0] || {}
   const currentInvoiceLine = currentInvoiceData.lines.data[0] || {}
 
