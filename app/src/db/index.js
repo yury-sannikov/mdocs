@@ -227,7 +227,7 @@ exports.updateProfile = function* (id, data) {
       newProfile.address = data.address;
     }
     if (!_.isEmpty(data.analytics)) {
-      const empty = _.every(data.analytics, (k, c) => _.isEmpty(c[k]))
+      const empty = _.every(data.analytics, (a) => _.isEmpty(a))
       newProfile.analytics = empty ? DynamoDB.del() : data.analytics;
     }
 
