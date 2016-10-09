@@ -1,7 +1,6 @@
 const path = require('path')
 const SiteBuilderEngine = require('../engine')
 
-
 const THEME = 'cleanui'
 const WORK_DIR = path.join(__dirname, 'content')
 const BUILD_DIR = path.join(__dirname, '__build')

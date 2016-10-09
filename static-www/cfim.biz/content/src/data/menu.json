@@ -1,76 +1,84 @@
 [
   {
-    "caption": "About Practice",
-    "href": "/#meet",
-    "content": [
-      {
-        "caption": "Quick Information",
-        "href": "/#quick"
-      },
-      {
-        "caption": "Current Specials",
-        "href": "/#specials"
-      }
-    ]
+    "caption": "About Us",
+    "href": "/#meet"
   },
   {
-    "caption": "Information",
-    "href": "/content/information",
-    "content": [
-      {
-        "caption": "FAQ",
-        "href": "/content/faq"
-      }
-    ]
-  },
-  {
-    "caption": "Providers",
-    "href": "/providers",
-    "content": [
-      {
-        "caption": "Dr. Deborah Tabb, DDS",
-        "href": "/providers/dr-deborah-tabb-d-d-s-p-c/"
-      }
-    ]
-  },
-  {
-    "caption": "Services",
+    "caption": "Conditions Treated",
     "href": "/services",
     "content": [
       {
-        "caption": "Implants",
-        "href": "/services/implants"
+        "caption": "Varicose Veins",
+        "href": "/services/varicose-veins"
       },
       {
-        "caption": "Bonding",
-        "href": "/services/bonding"
+        "caption": "Arterial Disease",
+        "href": "/services/arterial-disease"
       },
       {
-        "caption": "Crowns and Bridges",
-        "href": "/services/crowns-and-bridges"
+        "caption": "Uterine Fibroids",
+        "href": "/services/uterine-fibroids"
       },
       {
-        "caption": "Teeth Whitening",
-        "href": "/services/teeth-whitening"
+        "caption": "Dialysis Access",
+        "href": "/services/dialysis-access"
       },
       {
-        "caption": "Invisalign®",
-        "href": "/services/invisalign"
+        "caption": "Back Pain",
+        "href": "/services/back-pain"
       }
     ]
   },
   {
-    "caption": "Testimonials",
-    "href": "/testimonials",
+    "caption": "Additional Services",
+    "href": "/services",
     "content": [
       {
-        "caption": "Patient Reviews",
-        "href": "/reviews"
+        "caption": "Oncology",
+        "href": "/services/oncology"
+      },
+      {
+        "caption": "Gastrointestinal",
+        "href": "/services/gastrointestinal"
+      },
+      {
+        "caption": "Urology",
+        "href": "/services/urology"
+      },
+      {
+        "caption": "Biopsies",
+        "href": "/services/biopsies"
       }
     ]
   },
   {
-    "caption": "Contact",
-    "href": "/contact"
+    "caption": "Contact us",
+    "href": "/contact",
+    "content": [
+      {
+        "caption": "Locations",
+        "href": "/contact/locations"
+      },
+      {
+        "caption": "Schedule Free Screening",
+        "href": "/contact/schedule-free-screening"
+      },
+      {
+        "caption": "Patients",
+        "href": "/contact/patients"
+      },
+      {
+        "caption": "Physicians",
+        "href": "/contact/physicians"
+      },
+      {
+        "caption": "Download Materials",
+        "href": "/contact/download-materials"
+      },
+      {
+        "caption": "Additional services",
+        "href": "/contact/additional-services"
+      }
+    ]
   }
 ]
