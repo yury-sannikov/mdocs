@@ -6,8 +6,8 @@ import _ from 'lodash';
 import {
   updateUserStripeCustomerToken,
   findUserById,
-  getProfiles,
   deleteUserSubscriptionsInfo } from '../db';
+import { getProfiles } from '../db/profiles';
 const debug = require('debug')('app:stripe');
 
 const stripeApi = stripe(config.STRIPE_SEC_KEY);
@@ -17,8 +17,8 @@ const customersAsync = Promise.promisifyAll(stripeApi.customers, { context: stri
 const subscriptionsAsync = Promise.promisifyAll(stripeApi.subscriptions, { context: stripeApi.subscriptions });
 const invoicesAsync = Promise.promisifyAll(stripeApi.invoices, { context: stripeApi.invoices });
 
-function* getSubscription(userId) {
-  const profiles = yield getProfiles(this.currentUser.account.profiles)
+function* getSubscription(userId, profileIds) {
+  const profiles = yield getProfiles(profileIds)
   const user = yield findUserById(userId);
   const stripeId = _.get(user, 'stripeId', _.get(user, 'stripeCustomer.id'))
 
@@ -40,8 +40,8 @@ function* getSubscription(userId) {
   return result;
 }
 
-export function* getSubscriptionInfo(userId) {
-  const subscription = yield getSubscription(userId);
+export function* getSubscriptionInfo(userId, profileIds) {
+  const subscription = yield getSubscription(userId, profileIds);
   let result = Object.assign({}, {
     profiles: subscription.profiles,
     subscriptions: []
@@ -59,9 +59,9 @@ export function* getSubscriptionInfo(userId) {
   return result;
 }
 
-export function* getFutureInvoice(userId) {
+export function* getFutureInvoice(userId, profileIds) {
   const currentInvoice = yield invoicesAsync.listAsync({limit: 1});
-  const currentSubscription = yield getSubscription(userId);
+  const currentSubscription = yield getSubscription(userId, profileIds);
   const user = yield findUserById(userId);
   const stripeId = _.get(user, 'stripeCustomer.id');
   const upcomingInvoice = yield invoicesAsync.retrieveUpcomingAsync(stripeId);

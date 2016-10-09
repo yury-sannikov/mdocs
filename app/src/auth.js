@@ -4,7 +4,6 @@ const config = require('./config');
 const debug = require('debug')('app:auth');
 var co = require('co');
 var Auth0Profile = require('passport-auth0/lib/Profile');
-import { getSubscriptionInfo } from './stripe';
 import { findUserById, findAccountById } from './db'
 import { getProfiles } from './db/profiles'
 import _ from 'lodash';
