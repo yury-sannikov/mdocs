@@ -8,17 +8,17 @@
         p.flashmsg
           strong
             i.fa.fa-lg.fa-info-circle
-          | &nbsp;&nbsp; No account information created for you. Please call support.
+          | &nbsp;&nbsp; Account information not found. To get help, please contact support@practicewin.com.
       if !hasStripeId
         p.flashmsg
           strong
             i.fa.fa-lg.fa-info-circle
-          | &nbsp;&nbsp; Stripe ID is not associated with your account. Please call support.
+          | &nbsp;&nbsp; Payment ID not found. To get help, please contact support@practicewin.com.
       if accountProfiles.length == 0
         p.flashmsg
           strong
             i.fa.fa-lg.fa-info-circle
-          | &nbsp;&nbsp; Your account has no profiles assigned.
+          | &nbsp;&nbsp; No profiles assigned to this account. To get help, please contact support@practicewin.com.
   if messages.error
     .alert.alert-danger.alert-dismissable
       button.close(type='button', data-dismiss='alert', aria-hidden='true')
