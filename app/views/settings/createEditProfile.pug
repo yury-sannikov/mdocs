@@ -261,14 +261,14 @@ block scripts
             phoneMobile: {
               required: true
             },
-            analyticsUrl: {
+            'analytics.dashboardUrl': {
               required: {
                 depends: function (element) {
                   return $('#analyticsCaption').val();
                 }
               }
             },
-            analyticsCaption: {
+            'analytics.name': {
               required: {
                 depends: function (element) {
                   return $('#analyticsUrl').val();
@@ -288,10 +288,10 @@ block scripts
             phoneMobile: {
               required: "Please provide a phone to contact"
             },
-            analyticsUrl: {
+            'analytics.dashboardUrl': {
               required: "Please provide URL or remove caption below"
             },
-            analyticsCaption: {
+            'analytics.name': {
               required: "Please provide caption or remove URL above"
             }
           }
