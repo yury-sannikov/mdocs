@@ -32,12 +32,14 @@
               i.si.si-feed
               span.sidebar-mini-hide Campaigns
 
-        li.nav-main-heading
-          span.sidebar-mini-hide Analytics
-        li
-          a.menuitem-ellipsis(href='/app/analytics')
-            i.si.si-globe
-            span.sidebar-mini-hide Nader Hawa DMD
+        if (analytics.length > 0)
+          li.nav-main-heading
+            span.sidebar-mini-hide Analytics
+          each el in analytics
+            li
+              a.menuitem-ellipsis(href='/app/analytics/' + accountProfiles[el.id])
+                i.si.si-globe
+                span.sidebar-mini-hide #{el.name}
 
 
         li.nav-main-heading

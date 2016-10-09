@@ -8,9 +8,9 @@ import { getFutureInvoice, cancelSubscriptions } from '../stripe';
 import { render as dashboardRender } from '../apps/dashboard/server';
 import { render as appointmentsRender } from '../apps/appointments/server';
 import { render as campaignsRender } from '../apps/campaigns/server';
-
 import prModule from './pr'
-
+import { profileById } from '../db'
+import _ from 'lodash'
 /*
 app:
   - login
@@ -104,8 +104,11 @@ router.get('appointments', '/campaigns*', checkAuthenticated, function*() {
   yield campaignsRender(this, this.jadeLocals);
 });
 
-router.get('dashboardNew', '/analytics', checkAuthenticated, function*() {
-  this.render('analytics/main', this.jadeLocals, true);
+router.get('analytics', '/analytics/:id', checkAuthenticated, function*() {
+  const profile = yield profileById(this.params.id)
+  const dashboardUrl = _.get(profile, '[0][0].analytics.dashboardUrl', null)
+  this.render('analytics/main',
+    Object.assign({}, this.jadeLocals, { dashboardUrl }), true);
 });
 
 // Show Help

@@ -6,6 +6,7 @@ var co = require('co');
 var Auth0Profile = require('passport-auth0/lib/Profile');
 import { getSubscriptionInfo } from './stripe';
 import { findUserById, findAccountById } from './db'
+import { getProfiles } from './db/profiles'
 import _ from 'lodash';
 
 var strategy = new Auth0Strategy({
@@ -34,31 +35,50 @@ function massageUser(user) {
   return sessionUser;
 }
 
+export function* formSessionInfoForUser(userId) {
+  const dbuser = yield findUserById(userId);
+  const stripeId = _.get(dbuser, 'stripeId', _.get(dbuser, 'stripeCustomer.id'))
+  const emptySet = {_empty: true}
+  let account = {
+    rights: emptySet,
+    profiles: []
+  }
+
+  if (dbuser.account_id) {
+    const dbaccount = yield findAccountById(dbuser.account_id)
+    if (dbaccount) {
+      account = Object.assign({}, dbaccount, {
+        rights: _.get(dbaccount, `rights.${userId}`, emptySet),
+        profiles: _.get(dbaccount, `profiles.${userId}`, [])
+      })
+    }
+  }
+
+  const profiles = yield getProfiles(account.profiles)
+  const analytics = _.compact(account.profiles.map((id, i) => {
+    const profile = _.find(profiles, { id })
+    const name = _.get(profile, 'analytics.name', null)
+    if (!name) {
+      return null
+    }
+    return {
+      id: i,
+      name
+    }
+  }))
+
+  return {
+    account_id: dbuser.account_id,
+    stripeId: stripeId,
+    account,
+    analytics
+  }
+}
+
 passport.serializeUser(function(user, done) {
   co(function* () {
-    const dbuser = yield findUserById(user.id);
-    const stripeId = _.get(dbuser, 'stripeId', _.get(dbuser, 'stripeCustomer.id'))
-
-    const emptySet = {_empty: true}
-    let account = {
-      rights: emptySet,
-      profiles: []
-    }
-    if (dbuser.account_id) {
-      const dbaccount = yield findAccountById(dbuser.account_id)
-      if (dbaccount) {
-        account = Object.assign({}, dbaccount, {
-          rights: _.get(dbaccount, `rights.${user.id}`, emptySet),
-          profiles: _.get(dbaccount, `profiles.${user.id}`, [])
-        })
-      }
-    }
-
-    return massageUser(Object.assign({}, user, {
-      account_id: dbuser.account_id,
-      stripeId: stripeId,
-      account: account
-    } ));
+    const entries = yield formSessionInfoForUser(user.id);
+    return massageUser(Object.assign({}, user, entries));
   }).then(function (data) {
     done(null, data);
   }, function (err) {

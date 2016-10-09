@@ -9,6 +9,7 @@ const uuid = require('node-uuid');
 
 const debug = require('debug')('app:db:profiles');
 import { profileById, findAccountById, updateAccountById } from './index'
+import { formSessionInfoForUser } from '../auth'
 
 function hasDynamoData(data) {
   if (_.isEmpty(data) || !_.isArray(data)) {
@@ -49,9 +50,11 @@ export function* createProfile(self, data) {
 
   yield insertAsync(newProfile);
 
-  const profiles = self.currentUser.account.profiles = [...self.currentUser.account.profiles, id]
-
+  const profiles = [...self.currentUser.account.profiles, id]
   yield setAccountProfilesForUser(self.currentUser.account_id, self.currentUser.id, profiles)
+
+  const newUserParts = yield formSessionInfoForUser(self.currentUser.id)
+  self.currentUser = Object.assign({}, self.currentUser, newUserParts)
 
   debug(`Profile ${id} has been created. Profiles: ${profiles}`)
 
@@ -66,9 +69,12 @@ export function* deleteProfile(self, id) {
   const deleteAsync = Promise.promisify(chain.delete, {context: chain});
 
   yield deleteAsync();
-  const profiles = self.currentUser.account.profiles = self.currentUser.account.profiles.filter(p => p != id)
+  const profiles = self.currentUser.account.profiles.filter(p => p != id)
 
   yield setAccountProfilesForUser(self.currentUser.account_id, self.currentUser.id, profiles)
+
+  const newUserParts = yield formSessionInfoForUser(self.currentUser.id)
+  self.currentUser = Object.assign({}, self.currentUser, newUserParts)
 
   debug(`Profile ${id} has been deleted. Profiles: ${profiles}`)
 };
