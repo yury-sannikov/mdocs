@@ -1,6 +1,7 @@
 'use strict';
 const Metalsmith = require('metalsmith');
 const changed = require('metalsmith-changed');
+//const livereload = require('metalsmith-livereload');
 const nodeStatic = require('node-static');
 const watch = require('glob-watcher');
 const open = require('open');
@@ -72,9 +73,9 @@ function metalsmithFactory(workDir, buildDir, options) {
     .use(
       // If clean build, copy over assets from public folder
       msIf(options._generate,
-        asset([
+        templateAssets([
         {
-          src: 'assets',
+          src: path.join(workDir, 'assets'),
           dest: 'assets'
         }])
       )
@@ -86,6 +87,15 @@ function metalsmithFactory(workDir, buildDir, options) {
         {
           src: path.join(options.themeDir, 'assets'),
           dest: 'assets'
+        }])
+      )
+    )
+    .use(
+      msIf(options._generate,
+        templateAssets([
+        {
+          src: path.join(options.themeDir, '../widgets'),
+          dest: 'assets/widgets'
         }])
       )
     )
@@ -226,59 +236,50 @@ class SiteBuilderEngine {
     })
   }
 
-  cliDev(port, buildResult) {
-    const livereload = require('metalsmith-livereload');
-    const me = this
-    const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
-      _clean: true,
-      _generate: true,
-      _force: false
-    }))
+  // cliDev(port, buildResult) {
+  //   const me = this
+  //   const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
+  //     _clean: true,
+  //     _generate: true,
+  //     _force: true
+  //   }))
 
-    ms
-      .use(livereload({ debug: true }))
-      .build((err, files) => {
-        if (err) {
-          buildResult(err, files)
-          return
-        }
-        buildResult(err, files)
+  //   ms
+  //     .use(livereload({ debug: true }))
+  //     .build((err, files) => {
+  //       if (err) {
+  //         buildResult(err, files)
+  //         return
+  //       }
+  //       buildResult(err, files)
 
-        var serve = new nodeStatic.Server(this.buildDir);
-        require('http').createServer((req, res) => {
-          req.addListener('end', () => serve.serve(req, res));
-          req.resume();
-        }).listen(port);
+  //       var serve = new nodeStatic.Server(this.buildDir);
+  //       require('http').createServer((req, res) => {
+  //         req.addListener('end', () => serve.serve(req, res));
+  //         req.resume();
+  //       }).listen(port);
 
-        console.log(`Serving HTTP on port ${port}`)
+  //       console.log(`Serving HTTP on port ${port}`)
 
-        const build = function build(force) {
-          return (done) => {
-            console.log(`Rebuild. Force = ${force}`)
-
-            metalsmithFactory(me.workDir, me.buildDir, Object.assign({}, me.options, {
-              _clean: false,
-              _generate: true,
-              _force: force
-            }))
-            .use(livereload({ debug: true }))
-            .build((err, files) => {
-              buildResult(err, files)
-              done()
-            })
-          }
-        }
-        const themeDir = path.normalize(this.options.themeDir)
-        // Quick build if src changed
-        watch(path.join(this.workDir, this.options.source, '**/*'), { ignoreInitial: true }, build(false));
-        // Full Rebuild if layout changed
-        watch(path.join(this.workDir, this.options.partials, '**/*'), { ignoreInitial: true }, build(true));
-        watch(path.join(themeDir, 'layouts/**/*'), { ignoreInitial: true }, build(true));
-        watch(path.join(themeDir, 'partials/**/*'), { ignoreInitial: true }, build(true));
-        watch(path.join(themeDir, 'assets/**/*'), { ignoreInitial: true }, build(true));
-        watch(path.join(themeDir, 'inplacePartials/**/*'), { ignoreInitial: true }, build(true));
-      })
-  }
+  //       const build = function build() {
+  //         return (done) => {
+  //           console.log(`Rebuild.`)
+  //           ms.build((err, files) => {
+  //             console.log('Rebuild done.')
+  //             buildResult(err, files)
+  //             done()
+  //           })
+  //         }
+  //       }
+  //       const themeDir = path.normalize(this.options.themeDir)
+  //       // Quick build if src changed
+  //       watch(path.join(this.workDir, '**/*'), { ignoreInitial: true }, build());
+  //       watch(path.join(themeDir, 'layouts/**/*'), { ignoreInitial: true }, build());
+  //       watch(path.join(themeDir, 'partials/**/*'), { ignoreInitial: true }, build());
+  //       watch(path.join(themeDir, 'assets/**/*'), { ignoreInitial: true }, build());
+  //       watch(path.join(themeDir, 'inplacePartials/**/*'), { ignoreInitial: true }, build());
+  //     })
+  // }
 
 
 }
