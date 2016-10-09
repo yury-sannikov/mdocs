@@ -108,6 +108,17 @@ block content
                   br
                   label.sr-only(for='phoneMobile') Phone
                   input.form-control(type='tel', name='phoneMobile', id='phoneMobile', placeholder='Phone number e.g. (703) 123-4567', pattern='/(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/', title='Phone Number: +1 (999) 999-9999')
+              .well
+                .form-group
+                  h4 Analytics Dashboard URL
+                  br
+                  label.sr-only(for='analyticsUrl') Name
+                  input.form-control(type='text', name='analytics.dashboardUrl', id='analyticsUrl', placeholder='Analytics dashboard URL address')
+                .form-group
+                  h4 Analytics Menu Caption
+                  br
+                  label.sr-only(for='analyticsCaption') Name
+                  input.form-control(type='text', name='analytics.name', id='analyticsCaption', placeholder='Analytics Menu Caption')
               a.btn.btn-info.btn-lg.prev(href="#") < Back
               a.btn.btn-success.btn-lg.next-validate.pull-right(href="#") Continue >
             #profileSites.tab-pane.fade
@@ -221,6 +232,11 @@ block scripts
           $('#name').val(profile.name);
           $('#email').val(profile.email);
           $('#phoneMobile').val(profile.phone);
+
+          if (profile.analytics) {
+            $('#analyticsUrl').val(profile.analytics.dashboardUrl);
+            $('#analyticsCaption').val(profile.analytics.name);
+          }
         }
 
         // Set up dropdown options and initialize Chosen.js
@@ -244,7 +260,21 @@ block scripts
             },
             phoneMobile: {
               required: true
-            }
+            },
+            analyticsUrl: {
+              required: {
+                depends: function (element) {
+                  return $('#analyticsCaption').val();
+                }
+              }
+            },
+            analyticsCaption: {
+              required: {
+                depends: function (element) {
+                  return $('#analyticsUrl').val();
+                }
+              }
+              }
           },
           messages: {
             name: "Please provide the full name",
@@ -257,6 +287,12 @@ block scripts
             },
             phoneMobile: {
               required: "Please provide a phone to contact"
+            },
+            analyticsUrl: {
+              required: "Please provide URL or remove caption below"
+            },
+            analyticsCaption: {
+              required: "Please provide caption or remove URL above"
             }
           }
         });
@@ -414,7 +450,6 @@ block scripts
           event.preventDefault();
           if($('#profileform').valid()) {
             // Allow only if form validated
-            console.log('a');
             $('[href="#profileSites"]').tab('show');
           }
         }

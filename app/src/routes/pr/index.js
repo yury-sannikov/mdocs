@@ -7,6 +7,7 @@ const db = require('../../db');
 const communicator = require('../../comm');
 import { checkAuthenticated, hasPatientReviews } from '../../belt';
 import { getProfiles, createProfile, deleteProfile } from '../../db/profiles'
+import { formSessionInfoForUser } from '../../auth'
 export const KNOWN_SITES = {
   yelp: {
     name: 'Yelp',
@@ -136,11 +137,9 @@ router.post('/new-profile', hasPatientReviews, function*() {
 
 router.post('/update-profile', hasPatientReviews, function*() {
   const profile = Object.assign({}, this.request.body);
-
-  console.dir(profile)
-
-
   const id = yield db.updateProfile(this.request.body.editID, profile);
+  const newUserParts = yield formSessionInfoForUser(this.currentUser.id)
+  Object.assign(this.session.passport.user, newUserParts)
   this.redirect(router.url('profiles'));
 });
 

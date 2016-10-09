@@ -54,7 +54,7 @@ export function* createProfile(self, data) {
   yield setAccountProfilesForUser(self.currentUser.account_id, self.currentUser.id, profiles)
 
   const newUserParts = yield formSessionInfoForUser(self.currentUser.id)
-  self.currentUser = Object.assign({}, self.currentUser, newUserParts)
+  Object.assign(self.session.passport.user, newUserParts)
 
   debug(`Profile ${id} has been created. Profiles: ${profiles}`)
 
@@ -74,7 +74,7 @@ export function* deleteProfile(self, id) {
   yield setAccountProfilesForUser(self.currentUser.account_id, self.currentUser.id, profiles)
 
   const newUserParts = yield formSessionInfoForUser(self.currentUser.id)
-  self.currentUser = Object.assign({}, self.currentUser, newUserParts)
+  Object.assign(self.session.passport.user, newUserParts)
 
   debug(`Profile ${id} has been deleted. Profiles: ${profiles}`)
 };

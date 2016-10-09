@@ -226,6 +226,9 @@ exports.updateProfile = function* (id, data) {
     if(!_.isEmpty(data.address)) {
       newProfile.address = data.address;
     }
+    if (!_.isEmpty(data.analytics)) {
+      newProfile.analytics = data.analytics;
+    }
 
   return yield updateAsync(newProfile);
 };
