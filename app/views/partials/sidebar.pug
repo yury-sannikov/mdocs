@@ -13,58 +13,32 @@
     // Side Content
     .side-content
       ul.nav-main
-        li
-          a(href='/app/welcome')
-            i.si.si-rocket
-            span.sidebar-mini-hide Welcome
-        li
-          a(href='/app/dashboard')
-            i.si.si-speedometer
-            span.sidebar-mini-hide Dashboard
-        if accountRights.appointments
-          li
-            a(href='/app/appointments')
-              i.si.si-calendar
-              span.sidebar-mini-hide Appointments
-        if accountRights.campaigns
-          li
-            a(href='/app/campaigns')
-              i.si.si-feed
-              span.sidebar-mini-hide Campaigns
+        include sidebar_common.pug
 
-        if (analytics.length > 0)
+        if accountRights.patientreview
           li.nav-main-heading
-            span.sidebar-mini-hide Analytics
-          each el in analytics
-            li
-              a.menuitem-ellipsis(href='/app/analytics/' + accountProfiles[el.id])
-                i.si.si-globe
-                span.sidebar-mini-hide #{el.name}
-
-
-        li.nav-main-heading
-          span.sidebar-mini-hide Patient Reviews
-        li
-          a(href='/app/dashboard')
-            i.si.si-speedometer
-            span.sidebar-mini-hide Overview
-        li
-          a(href='/app/pr/phi/patient-reviews')
-            i.si.si-star
-            span.sidebar-mini-hide Reviews
-        li
-          a.nav-submenu(href='#profilesSubMenu', data-toggle="collapse")
-            i.si.si-user
-            span.sidebar-mini-hide Profiles
-          #profilesSubMenu.collapse
-            a(href='/app/pr/profiles')
-              i
-              i.si.si-users
-              span.sidebar-mini-hide View Profiles
-            a(href='/app/pr/new-profile')
-              i
+            span.sidebar-mini-hide Patient Reviews
+          li
+            a(href='/app/dashboard')
+              i.si.si-speedometer
+              span.sidebar-mini-hide Overview
+          li
+            a(href='/app/pr/phi/patient-reviews')
+              i.si.si-star
+              span.sidebar-mini-hide Reviews
+          li
+            a.nav-submenu(href='#profilesSubMenu', data-toggle="collapse")
               i.si.si-user
-              span.sidebar-mini-hide New Profile
+              span.sidebar-mini-hide Profiles
+            #profilesSubMenu.collapse
+              a(href='/app/pr/profiles')
+                i
+                i.si.si-users
+                span.sidebar-mini-hide View Profiles
+              a(href='/app/pr/new-profile')
+                i
+                i.si.si-user
+                span.sidebar-mini-hide New Profile
         if sitebuilderSites && sitebuilderSites.length > 0
           li.nav-main-heading
             span.sidebar-mini-hide Website
@@ -93,28 +67,4 @@
               i.fa.fa-newspaper-o
               span.sidebar-mini-hide Subscription
 
-        //- li
-        //-   a
-        //-     i.fa.fa-code
-        //-     span.sidebar-mini-hide Website Widget
-        li.nav-main-heading
-          span.sidebar-mini-hide Help
-        li
-          a(href='/app/help')
-            i.si.si-question
-            span.sidebar-mini-hide Help
-        li
-          a(href='/app/privacy')
-            i.si.si-lock
-            span.sidebar-mini-hide Privacy
-        li
-          a(href='/app/agreement')
-            i.si.si-info
-            span.sidebar-mini-hide Agreement
-        li
-          a(href='/app/terms')
-            i.si.si-bell
-            span.sidebar-mini-hide Terms of Use
-    // END Side Content
-  // Sidebar Content
-// END Sidebar Scroll Container
+        include sidebar_misc.pug

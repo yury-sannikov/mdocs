@@ -1,0 +1,30 @@
+section
+  li
+    a(href='/app/welcome')
+      i.si.si-rocket
+      span.sidebar-mini-hide Welcome
+  if accountRights.dashboard
+    li
+      a(href='/app/dashboard')
+        i.si.si-speedometer
+        span.sidebar-mini-hide Dashboard
+  if accountRights.appointments
+    li
+      a(href='/app/appointments')
+        i.si.si-calendar
+        span.sidebar-mini-hide Appointments
+  if accountRights.campaigns
+    li
+      a(href='/app/campaigns')
+        i.si.si-feed
+        span.sidebar-mini-hide Campaigns
+
+  if accountRights.campaigns
+    if (analytics.length > 0)
+      li.nav-main-heading
+        span.sidebar-mini-hide Analytics
+      each el in analytics
+        li
+          a.menuitem-ellipsis(href='/app/analytics/' + accountProfiles[el.id])
+            i.si.si-globe
+            span.sidebar-mini-hide #{el.name}
