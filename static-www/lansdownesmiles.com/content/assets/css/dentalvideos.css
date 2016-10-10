@@ -1,0 +1,543 @@
+﻿
+    /** {
+        font-family: Arial;
+        font-size: 10px;
+        border: 0;
+        padding: 0;
+        margin: 0;
+    }*/
+    
+
+    #videoplayertable {
+        background-color:white;
+        margin:auto;
+        border: 1px solid black;
+        color: black;
+        padding: 0;
+        width: 560px;
+         border-radius: 7px;
+        /*height: 621px;*/
+        /*background: transparent url('http://content.prosites.com/images/mediamed/MM_BGPLayer.png') no-repeat left top;*/
+    }
+
+    #videoplayertable ul li{
+        margin:0;
+        padding:0;
+        list-style:none;
+    }
+
+    #videoplayertd {
+        border: 0;
+        height: 100%;
+        vertical-align: top;
+        position:relative;
+        margin-top:20px;
+        padding-bottom:20px;
+        /*margin-bottom:5px;*/
+        
+    }
+    video{
+        border: 1px #BFBFBF solid;
+    }
+
+    #toolstd div{
+
+    }
+
+    #toolstd {
+        border: 0;
+        height: 30px;
+        line-height:28px;
+        padding-left: 14px;
+        padding-right: 10px;
+        border-top:1px solid black;
+        font-size:12px;
+           font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-weight:bold;
+        border-bottom:1px solid black;
+            background-color:#F5F5F5;
+    }
+
+    #toolstd select{
+        background-color:#F5F5F5;
+        color:#309ACF;
+    }
+
+    .iframevid{
+        margin-left:15px; margin-right:15px;
+      display: none; z-index: 1; background: transparent;
+    }
+
+    #outerdiv {
+        display: block;
+        text-align: -webkit-center;
+        margin: 0 auto 0 auto;
+    }
+    /*--@-moz-document url-prefix() {
+     #toolstd{height:46px;padding-top:24px;padding-left:14px;padding-right:10px;}
+}*/
+
+    .reflinka{
+         padding-left: 60px;
+    }
+
+    #Categories {
+        vertical-align: top;
+        border-right: 1px solid black;
+        width: 150px;
+     list-style:none;
+         height: 100%;
+         padding:0;
+         margin:0;
+                 background-color:#F5F5F5;
+        /*padding-left: 18px;
+        padding-top: 7px;*/
+        float:left;
+    }
+
+    #Categories :first-child
+    {
+        margin-top:5px;
+    }
+
+        #Categories :last-child
+    {
+        margin-bottom:5px;
+    }
+
+    #videos {
+        vertical-align: top;
+        height: 275px;
+        background-color:#656668;
+    }
+
+    .category {
+        width: 150px;
+        height: 25px;
+        /*border-top: .5px solid gray;*/
+        /*border-bottom: .5px solid gray;*/
+        /*background: transparent url("http://content.prosites.com/images/mediamed/MM_Buttons.jpg") no-repeat;*/
+        text-align: left;
+        vertical-align: middle;
+
+    }
+
+    .category :hover{
+/*padding-left: 6px;*/
+
+ 
+}
+
+.hilight{
+background-color:#FAFAFA;
+border-right:3px #309ACF solid;
+}
+
+.selected{
+background-color:#FAFAFA;
+border-right:3px #309ACF solid;
+}
+
+.hilight a{
+text-decoration:none;
+color:#309ACF;
+}
+
+.category a{
+    cursor: pointer;
+font-size:12px;
+   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+   font-weight:bold;
+text-decoration:none;
+padding-left: 4px;
+line-height:20px;
+
+}
+
+
+#overlay{
+    display:none;
+    position:absolute;
+    width:100%;
+    min-height:120px;
+    background-color: rgba(0, 0, 0, 0.78);
+    top:30%;
+    padding-top:15px;
+}
+
+.overlaycontainer{
+    
+    font-weight:bold;
+    padding-left:50px;
+    padding-right:50px;
+    text-decoration:none;
+}
+
+
+.ocol a {
+    color:white;
+    text-decoration:none;
+}
+
+.ocol a:hover{
+    text-decoration:none;
+}
+
+.ocol i {
+
+      font-size: 65px;
+}
+
+.ocol{
+    float:left; width:33%;
+        color:white;
+    font-size:15px;
+    text-align:center;
+}
+
+
+#bottomwrap{
+    height:275px;
+}
+
+
+.mediamed{
+    padding-left: 20px;
+    border-top:1px solid black;
+}
+
+#vidhtml5thumbs{
+height:255px;
+
+padding-left:20px;
+overflow:hidden;
+}
+.vid {text-align:center;float:left;width:143px;padding-top:15px;padding-left:5px;cursor:pointer;
+      margin-right:20px;    
+}
+
+.vid img{
+    border:2px white solid;
+-webkit-box-shadow: 0px 10px 50px -19px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 10px 50px -19px rgba(0,0,0,0.75);
+box-shadow: 0px 10px 50px -19px rgba(0,0,0,0.75);
+}
+
+.vid img:hover{
+    border:2px #309ACF solid;
+}
+
+.vid div.label{
+    font-size:14px;
+    line-height:16px;
+    color:white;
+}
+
+.vid:hover div.label{
+ color:#309ACF;
+}
+
+.fa{
+    display:block;
+}
+
+
+.playerform,.emuform{
+    display:flex;
+        margin: 0 21px 0 21px;
+    min-height: 280px;
+    background-color:#E9E9E9;
+        padding-right: 15px;
+            border: 1px #BFBFBF solid;
+}
+
+#inneremuform{
+    display:flex;
+}
+
+.emuform{
+    display:block;
+    padding-bottom:15px;
+}
+#emuform{
+    padding-top:0px;
+}
+#emuform,h5{
+    color:black;
+}
+#emuform2{
+    width:45%;
+}
+
+#emuformmsg{
+        text-align: left;
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+#pform{
+    width:225px;
+}
+
+#pform input,textarea{
+    width:100%;
+    margin-bottom:5px;
+    padding-left:5px;
+    background-color:#666666;
+    border:1px solid black;
+    color:white;
+}
+
+#emuform input{
+    width:100%;
+    margin-bottom:5px;
+    padding-left:5px;
+    background-color:#666666;
+    border:1px solid black;
+    color:white;
+}
+
+.emuform h3{
+    margin-top:5px;
+}
+
+#emuform2 input,textarea{
+    width:100%;
+    margin-bottom:5px;
+    padding-left:5px;
+    background-color:#666666;
+    border:1px solid black;
+    color:white;
+        
+}
+
+#emuform2 textarea{
+    min-height: 125px;
+}
+
+#btnSend,#embtnSend{
+float:right;
+width:20%!important;
+}
+
+#emuform{
+    text-align:left;
+   flex:1;
+   font-size:14px;
+   padding:0px 15px 15px 15px;
+}
+#innerthx{
+margin:auto;
+}
+
+#pformmsg{
+    flex:1;
+    text-align:left;
+    font-size:14px;
+    padding:20px 15px 0 15px;
+}
+ #pform textarea{
+     height:auto;
+     min-height:60px;
+     resize:vertical;
+ }
+
+
+ #emuform input::-webkit-input-placeholder,textarea::-webkit-input-placeholder {
+   color: white;
+}
+
+#emuform input:-moz-placeholder,textarea::-webkit-input-placeholder { /* Firefox 18- */
+   color: white;  
+}
+
+#emuform input::-moz-placeholder,textarea::-webkit-input-placeholder {  /* Firefox 19+ */
+   color: white;  
+}
+
+#emuform input:-ms-input-placeholder,textarea::-webkit-input-placeholder {  
+   color: white;  
+}
+
+
+
+#pform input::-webkit-input-placeholder,textarea::-webkit-input-placeholder {
+   color: white;
+}
+
+#pform input:-moz-placeholder,textarea::-webkit-input-placeholder { /* Firefox 18- */
+   color: white;  
+}
+
+#pform input::-moz-placeholder,textarea::-webkit-input-placeholder {  /* Firefox 19+ */
+   color: white;  
+}
+
+#pform input:-ms-input-placeholder,textarea::-webkit-input-placeholder {  
+   color: white;  
+}
+
+
+.vid a, .vid a:visited {color:#FFF;text-decoration:none;font-weight:bold}
+#paging{width:100px;float:right;height:16px}
+#paging:hover{cursor:pointer;}
+#pager {float:right;color:white;font-weight:bold;text-decoration:none;padding-right:5px;padding-bottom:5px}
+
+.reflinka{color:#0167cc;text-decoration:none;font-weight:bold}
+a.reflinka{ color: black; font-size:10px; font-weight:normal;}
+    .backbtn{
+        position:absolute;
+        left:5%;
+        bottom:8%;
+    }
+
+    .backbtn a {
+        font-size:14px;
+        font-weight:bold;
+    }
+
+        .hide {
+    display:none!important;
+}  
+    
+          .thankyou {
+
+
+            display:flex;
+        margin: 0 21px 0 21px;
+    min-height: 280px;
+    background-color:#E9E9E9;
+        padding-right: 15px;
+            border: 1px #BFBFBF solid;
+    }
+
+@media (max-width: 650px){
+    #videoplayertable{
+        max-width:100%;
+        border:none;
+    }
+    #videoplayertd {
+        padding-bottom:0px;
+ 
+    }
+    #Categories,video, .category{
+        width:100%;
+        border:none;
+    }
+    #bottomwrap,#videos{
+        height:100%;
+    }
+
+    .reflinka{
+        padding-left:0px;
+    }
+
+    .ocol i {
+        
+      font-size: 45px;
+}
+    #vidhtml5thumbs{
+        width:100%;
+        overflow:hidden;
+
+    }
+    #vids{
+    width: 100%;
+    height: 100%;
+        overflow-y: scroll;
+    padding-right: 10px;
+    }
+
+
+    #emuform{
+        padding:0;
+    }
+
+    #emuform2{
+        width:100%;
+    }
+    #inneremuform{
+        display:block;
+    }
+    .iframevid {
+    margin: 0 0 0 0;
+    }
+    #emuformmsg{
+        padding:0 0 10px 0;
+    }
+
+    .playerform {
+        margin: 0 0 25px 0;
+        padding:0; 
+        border:none;
+        background-color:initial;
+    }
+
+    .emuform{
+                margin: 0 0 25px 0;
+        padding:0; 
+        border:none;
+        background-color:initial;
+    }
+
+    .thankyou{
+                        margin: 0 0 25px 0;
+        padding:0; 
+        border:none;
+        background-color:initial;
+    }
+
+    #pform,#emuform{
+        width:100%;
+    }
+}
+
+    @media (max-width: 450px) {
+
+        #overlay{
+            top:25%;
+            min-height:100px;
+        }
+            .ocol i {
+
+      font-size: 50px;
+}
+            .ocol{
+                font-size:13px;
+            }
+
+
+    }
+
+
+
+    
+    @media (max-width: 400px) {
+
+        #overlay{
+            top:15%;
+            min-height:80px;
+        }
+            .ocol i {
+
+      font-size: 35px;
+}
+            .ocol{
+                font-size:11px;
+            }
+
+
+    }
+
+
+@media only screen and (max-width:650px){
+        #vidhtml5thumbs{
+            
+        /*overflow:scroll;*/
+    }
+
+        .playerform{
+            display:block;
+        }
+
+}

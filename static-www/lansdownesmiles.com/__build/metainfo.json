@@ -4,7 +4,16 @@
     "permalinks": [
       "content/our-doctor",
       "content/meet-our-team",
-      "content/our-practice"
+      "content/our-practice",
+      "content/health-fairs-events",
+      "content/patient-reviews",
+      "content/dental-videos",
+      "content/smile-gallery",
+      "content/crowns-caps",
+      "content/dentures-partial-dentures",
+      "content/other-procedures",
+      "content/porcelain-crowns-caps",
+      "content/dental-implants"
     ],
     "metainfo": {
       "menuCaption": "Contents",
