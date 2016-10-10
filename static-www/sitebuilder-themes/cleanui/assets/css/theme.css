@@ -1017,7 +1017,7 @@ html[xmlns] .slides {
 
 .btn-book-online, .btn-leave-review {
     padding: 0;
-    width: 224px;
+    width: 200px;
     height: 46px;
     color: #fff;
     font-size: 15px;
@@ -1042,7 +1042,8 @@ html[xmlns] .slides {
     -webkit-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
     -moz-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
     -ms-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15)
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+    margin-top: 5px;
 }
 
 .btn-book-online:hover {
@@ -1547,7 +1548,8 @@ span.mm-phone-number {
 }
 
 ul.booking-options {
-    display: inline-block
+  display: inline-block;
+  padding: 0 20px;
 }
 
 ul.booking-options:before,ul.booking-options:after {
@@ -1577,11 +1579,13 @@ ul.booking-options:before,ul.booking-options:after {
 
 ul.booking-options li {
     display: block;
-    float: left
+    // float: left
+    width: 120px;
 }
 
 ul.booking-options li + li {
-    margin-left: 15px
+  // margin-right: 15px
+  width: 120px;
 }
 
 @media only screen and (max-width : 1025px) {

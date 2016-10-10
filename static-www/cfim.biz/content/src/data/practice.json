@@ -2,8 +2,15 @@
   "themeId": "dental-0",
   "name": "Center for Interventional Medicine",
   "description": "Vein Treatment Experts in Virginia and Maryland",
+  "address": "6551 Loisdale Court, #165",
+  "city": "Springfield",
+  "state": "VA",
+  "zip": "22150",
+  "phone": "703-746-8596",
+  "email": "contact@cfim.biz",
   "offices": [
     {
+      "location": "Northern Virginia",
       "address": "6551 Loisdale Court, #165",
       "city": "Springfield",
       "state": "VA",
@@ -22,11 +29,12 @@
       }
     },
     {
-      "address": "6551 Loisdale Court, #165",
-      "city": "Springfield",
-      "state": "VA",
-      "zip": "22150",
-      "phone": "703-746-8596",
+      "location": "Southern Maryland",
+      "address": "4255 Altamont Place, #101",
+      "city": "White Plains",
+      "state": "MD",
+      "zip": "20695",
+      "phone": "240-412-0051",
       "email": "contact@cfim.biz",
       "mdocsProfile": "",
       "hours": {

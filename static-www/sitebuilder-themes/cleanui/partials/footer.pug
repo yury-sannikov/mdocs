@@ -22,19 +22,20 @@ footer
           span= practice.state  
         |  Phone: 
         span.tel.mm-phone-number.phoneupdated(itemprop='telephone', content= practice.phone)= practice.phone
-        span.divider |
-        |  Fax:  
-        span.tel.mm-phone-number.phoneupdated(itemprop='telephone', content= practice.fax)= practice.fax
+        if practice.fax
+          span.divider |
+          |  Fax:  
+          span.tel.mm-phone-number.phoneupdated(itemprop='telephone', content= practice.fax)= practice.fax
         .adr
           | Address: 
-          span.street-address(itemprop='streetAddress')= practice.address
-          span.locality(itemprop='addressLocality')= practice.city
-          | , 
-          span.region(itemprop='addressRegion')= practice.state
-          span(itemprop='postalCode')= practice.zip
-    .span12
-      p
-        a(href='https://www.mdocs.co', target='_blank') Powered by MDOCS
+          span.street-address(itemprop='streetAddress')= practice.address  
+          span.locality(itemprop='addressLocality')= practice.city  
+          |  ,  
+          span.region(itemprop='addressRegion')= practice.state   
+          span(itemprop='postalCode')= practice.zip  
+    //- .span12
+    //-   p
+    //-     a(href='https://www.mdocs.co', target='_blank') Powered by MDOCS
 
 
 

@@ -75,7 +75,7 @@ function metalsmithFactory(workDir, buildDir, options) {
       msIf(options._generate,
         templateAssets([
         {
-          src: path.join(workDir, 'assets'),
+          src: path.join(options.themeDir, 'assets'),
           dest: 'assets'
         }])
       )
@@ -85,7 +85,7 @@ function metalsmithFactory(workDir, buildDir, options) {
       msIf(options._generate,
         templateAssets([
         {
-          src: path.join(options.themeDir, 'assets'),
+          src: path.join(workDir, 'assets'),
           dest: 'assets'
         }])
       )

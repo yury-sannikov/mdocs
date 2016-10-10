@@ -17,9 +17,9 @@ section.contact.pinstripe
         |  Phone: 
         span.mm-phone-number.phoneupdated(property='telephone')= practice.phone
         br
-        span(about='0', typeof='{"type":"MODULE", "secondary_type": "CONTACT", "type_id": 1, "fieldname": "fax"}')
-          span(property='fieldtext') Fax: 
-        span(property='fax')= practice.fax
+        if practice.fax
+          |  Fax:
+          span(property='fax')= practice.fax
         br
         a(href='https://www.google.com/maps?z=15&t=m&hl=en-US&gl=US&mapclient=embed&q=' + practice.address + ',' + practice.city + ',' + practice.state + ' ' + practice.zip, target='_blank', style='color:#337ab7') Driving Directions
     .span4.middle
