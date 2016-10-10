@@ -13,7 +13,21 @@
       "content/dentures-partial-dentures",
       "content/other-procedures",
       "content/porcelain-crowns-caps",
-      "content/dental-implants"
+      "content/dental-implants",
+      "content/procedures",
+      "content/cleanings-prevention",
+      "content/periodontal-disease",
+      "content/restorations",
+      "content/dental-exams-cleanings",
+      "content/dental-x-rays",
+      "content/home-care",
+      "content/how-to-properly-brush-floss",
+      "content/what-is-periodontal-gum-disease",
+      "content/diagnosis",
+      "content/treatment",
+      "content/maintenance",
+      "content/composite-fillings",
+      "content/fixed-bridges"
     ],
     "metainfo": {
       "menuCaption": "Contents",
