@@ -99,6 +99,7 @@ function massageRequestObject(requestObject) {
 
   obj.visitDate = moment(obj.visitDate || '', 'MM/DD/YYYY hh:m a')
   obj.visitDate = obj.visitDate.isValid() ? obj.visitDate.utc().unix() : 0
+  obj.createdDate = moment().utc().unix()
 
   if (!obj.fullname) {
     obj.fullname = obj.firstname;

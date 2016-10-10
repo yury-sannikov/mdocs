@@ -1,0 +1,19 @@
+#!/bin/bash
+go get -u github.com/gursesl/mdocs-survey/tools/go-cloudfront-deploy
+go install github.com/gursesl/mdocs-survey/tools/go-cloudfront-deploy
+
+node develop.js publish
+
+AWS_ACCESS_KEY_ID=AKIAIPKZH7X4NJKN3DVQ \
+AWS_SECRET_ACCESS_KEY=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 \
+go-cloudfront-deploy clean s3 \
+-b novadentalarts.com \
+-r us-west-1 \
+-p ./__build
+
+# AWS_ACCESS_KEY_ID=AKIAIPKZH7X4NJKN3DVQ \
+# AWS_SECRET_ACCESS_KEY=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 \
+# go-cloudfront-deploy cloudfront \
+# -b novadentalarts.com \
+# -r us-west-1 \
+# -p ./__build

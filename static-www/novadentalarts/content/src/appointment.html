@@ -8,6 +8,9 @@ sb_plainHtml: true
   <p>You can make an appointment with us by calling 703-444-5108, or by filling in the form below. We will contact you as soon as possible to schedule an appointment.</p>
   <div id='contact-form-short'>
     <form id='makeappointmentform' class='js-bookonline-form' method='post' action='' novalidate='novalidate' data-callback='makeappointmentform_submit'>
+      <input name='isnew' type='hidden' value="true" />
+      <input name='systype' type='hidden' value="appointment" />
+
       <label for='cfirstname'>First Name*</label>
       <input id='cfirstname' name='firstname' minlength='2' type='text' required aria-required=true>
       <label for='clastname'>Last Name*</label>

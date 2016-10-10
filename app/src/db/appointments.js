@@ -18,6 +18,7 @@ function hasDynamoData(data) {
 const APPOINTMENTS_TABLE = 'mdocsapps_appointments'
 
 const ACCOUNT_VISIT_INDEX = 'profile_id-visit_date-index'
+const PROFILE_CREATED_INDEX = 'profile_id-createdDate-index'
 
 exports.appointmentById = function* (id) {
   const chain = DynamoDB
@@ -41,15 +42,16 @@ exports.appointmentsForAccount = function*(profile_id) {
 
   var params = {
       TableName: APPOINTMENTS_TABLE,
-      IndexName: ACCOUNT_VISIT_INDEX,
-      KeyConditionExpression: "#profile_id = :profile_id and #visit_date >= :visit_date",
+      IndexName: PROFILE_CREATED_INDEX,
+      ScanIndexForward: false,
+      KeyConditionExpression: "#profile_id = :profile_id and #createdDate >= :createdDate",
       ExpressionAttributeNames: {
        '#profile_id': 'profile_id',
-       '#visit_date': 'visit_date'
+       '#createdDate': 'createdDate'
       },
       ExpressionAttributeValues: {
           ':profile_id': { S: profile_id },
-          ':visit_date': { N: '0' }
+          ':createdDate': { N: '0' }
       }
   };
   return fuckThoseFuckingDynamoDbDevelopers(yield VanillaDynamoDB.queryAsync(params))

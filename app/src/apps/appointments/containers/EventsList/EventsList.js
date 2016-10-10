@@ -109,6 +109,9 @@ class EventsList extends Component {
           <a href={`#/reschedule/${item.id}`}>
             {this.renderVisitDate(item.visit_date)}
           </a>
+          <div className='text-muted'>
+            <em style={{'font-size': 'x-small'}}>{moment.utc(+item.createdDate, 'X').local().format('MM/DD/YY h:mma')}</em>
+          </div>
         </td>
         <td className='hidden-xs hidden-sm hidden-md text-center' style={{width: '100px'}}>
           {item.visit_date ? (
