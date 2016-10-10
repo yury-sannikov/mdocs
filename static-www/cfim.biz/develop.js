@@ -15,6 +15,19 @@ const options = {
 }
 let engine = new SiteBuilderEngine(WORK_DIR, BUILD_DIR, options)
 
+const isPublish = () => {
+  return (process.argv.length >= 3) && process.argv[2] === 'publish'
+}
+
+if (isPublish()) {
+
+  engine.publish({}, () => {
+    console.log('Done')
+  })
+
+  return
+}
+
 engine.cliDev(8080, (err, files) => {
       if (err) {
         console.log(err);
