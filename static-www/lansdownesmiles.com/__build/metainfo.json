@@ -31,7 +31,15 @@
       "content/root-canal-therapy",
       "content/family-dentistry",
       "content/oral-health-for-seniors",
-      "content/cosmetic-dentistry"
+      "content/cosmetic-dentistry",
+      "content/porcelain-crowns-or-caps",
+      "content/porcelain-fixed-bridges",
+      "content/teeth-whitening",
+      "content/porcelain-veneers",
+      "content/patient-forms",
+      "content/new-patient-referral-program",
+      "content/contact",
+      "content/appointment-request"
     ],
     "metainfo": {
       "menuCaption": "Contents",
