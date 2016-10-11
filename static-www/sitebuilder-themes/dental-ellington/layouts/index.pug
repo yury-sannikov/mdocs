@@ -25,86 +25,7 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
         #content
           #StylizedImage
             img#ctl00_ImageFlareStylized1_ImageFlareStylized1(src='/assets/images/s_Welcome711035189.jpg')
-          script(type='text/javascript').
-            function Submit_ctl00_ContentPlaceHolder1_QuickContact1_ContactInfoDiv($sendbtn) { return true; }
-            $(function () {
-            var formClass = $("#ctl00_ContentPlaceHolder1_QuickContact1_ContactForm").attr("class");
-            if (formClass != "m-form") {
-            $("#ctl00_ContentPlaceHolder1_QuickContact1_cf").attr("class", "qcform");
-            }
-            });
-          #ctl00_ContentPlaceHolder1_QuickContact1_cf
-            #ctl00_ContentPlaceHolder1_QuickContact1_ContactForm.m-form
-              #ctl00_ContentPlaceHolder1_QuickContact1_formdiv.formDiv
-                #ctl00_ContentPlaceHolder1_QuickContact1_PnlTopHeading
-                  div(style='float: right;')
-                    img#ctl00_ContentPlaceHolder1_QuickContact1_ImagIntroTitle(src='/assets/images/miniform-mouse.jpg')
-                  h2
-                    | Contact Us!
-                div(style='clear: both')
-                input#ctl00_ContentPlaceHolder1_QuickContact1_SendTo(type='hidden', name='ctl00$ContentPlaceHolder1$QuickContact1$SendTo', value='210,7,211,97,57,124,148,219,125,238,231,100,106,186,149,143,234,122,78,51,124,13,53,125,174,72,105,63,240,36,187,216')
-                #ctl00_ContentPlaceHolder1_QuickContact1_HeaderInfoDiv
-                  br
-                  br
-                #ctl00_ContentPlaceHolder1_QuickContact1_ContactInfoDiv.ContactInfo
-                  span#ctl00_ContentPlaceHolder1_QuickContact1_TxtNameValidator(style='color:Red;display:none;') Name Required
-                  input#ctl00_ContentPlaceHolder1_QuickContact1_TxtName.qcformcolor(name='ctl00$ContentPlaceHolder1$QuickContact1$TxtName', type='text', placeholder='Name:')
-                  input#ctl00_ContentPlaceHolder1_QuickContact1_TextPhone.qcformcolor(name='ctl00$ContentPlaceHolder1$QuickContact1$TextPhone', type='text', placeholder='Phone:')
-                  span#ctl00_ContentPlaceHolder1_QuickContact1_regEmail(style='color:Red;display:none;') Email is not in correct format
-                  input#ctl00_ContentPlaceHolder1_QuickContact1_TextEmail.qcformcolor(name='ctl00$ContentPlaceHolder1$QuickContact1$TextEmail', type='text', placeholder='Email:')
-                  span#ctl00_ContentPlaceHolder1_QuickContact1_PhoneEmailValidator(style='color:Red;display:none;') Phone or Email Required
-                  #ctl00_ContentPlaceHolder1_QuickContact1_CommentInfoDiv.Comments
-                    textarea#ctl00_ContentPlaceHolder1_QuickContact1_txtComment.qcformcolor(name='ctl00$ContentPlaceHolder1$QuickContact1$txtComment', rows='5', cols='20', placeholder='Type your message here: (Messages sent using this form are not considered private.  Avoid sending confidential information via email.)')
-                  span(style='display: none;')
-                    input#ctl00_ContentPlaceHolder1_QuickContact1_EmailText.qcformemailcheck(name='ctl00$ContentPlaceHolder1$QuickContact1$EmailText', type='text')
-                #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaPanel(style='border-style:None;')
-                  #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaDiv.Captcha
-                    script.
-                      $(function () {
-                      $(".imageClass, .imgCorrectCode, .imgWrongCode").width("100%");
-                      });
-                    #captchCtrl
-                      #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_captchaPanel(style='display:none;')
-                        img(src='/assets/images/sb_icon.png')
-                        div
-                          #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha1.RadCaptcha.RadCaptcha_Default(disabled='disabled')
-                            span#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha1_ctl00(style='color:Red;visibility:hidden;') The code you entered is not valid.
-                            #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha1_SpamProtectorPanel
-                              //- img#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha1_CaptchaImage.imageClass(alt='', src='Telerik.Web.UI.WebResource.axd?type=rca&isc=true&guid=6e10266d-828b-46ba-8448-458eeb9cb2ec', style='height: 50px; width: 100%; display: block;')
-                            input#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha1_ClientState(name='ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha1_ClientState', type='hidden', autocomplete='off')
-                          input#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_ValCap(type='hidden', name='ctl00$ContentPlaceHolder1$QuickContact1$CaptchaBaseControl1$ValCap', value='Hod62mcRc5BD3Qu44ABM/Q==')
-                        div
-                        div
-                          span#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_lbl
-                      #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_captchaPanel2
-                        #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha2.RadCaptcha.RadCaptcha_Default
-                          span#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha2_ctl00(style='color:Red;visibility:hidden;') You must be a bot.
-                          #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha2_SpamProtectorPanel
-                            label#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha2_HiddenLabel(for='ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha2_InvisibleTextBox', style='display:none;') Do not fill this textbox.
-                            input#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha2_InvisibleTextBox(name='ctl00$ContentPlaceHolder1$QuickContact1$CaptchaBaseControl1$RadCaptcha2$InvisibleTextBox', type='text', style='display:none;')
-                          input#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha2_ClientState(name='ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha2_ClientState', type='hidden', autocomplete='off')
-                        #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha3.RadCaptcha.RadCaptcha_Default
-                          span#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha3_ctl00(style='color:Red;visibility:hidden;') Unable to submit - Please Try Again
-                          #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha3_SpamProtectorPanel
-                          input#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha3_ClientState(name='ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_RadCaptcha3_ClientState', type='hidden', autocomplete='off')
-                      #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_errorMessageDiv(style='text-align: left; display: none')
-                        span
-                          span#ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_errorLabel
-                      #ctl00_ContentPlaceHolder1_QuickContact1_CaptchaBaseControl1_SendButtonDiv
-                        input#btnSend.Button(type='submit', name='ctl00$ContentPlaceHolder1$QuickContact1$CaptchaBaseControl1$btnSend', value='Send', onclick='if(!Submit_ctl00_ContentPlaceHolder1_QuickContact1_ContactInfoDiv($(this))) return false;return true;return true;WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$ContentPlaceHolder1$QuickContact1$CaptchaBaseControl1$btnSend", "", true, "ctl00_ContentPlaceHolder1_QuickContact1_TxtName", "", false, false))')
-                #ctl00_ContentPlaceHolder1_QuickContact1_OfficeNotesPanel(style='border-style:None;')
-                  // Facebook Badge START
-                  div(align='center')
-                    strong
-                  div(align='center')
-                    a(href='http://www.facebook.com/pages/Lansdowne-Family-Cosmetic-Dentistry/116508018386621', title='Lansdowne Family & Cosmetic Dentistry', target='_TOP')
-                    br
-              #ctl00_ContentPlaceHolder1_QuickContact1_pnlQCThankYou(style='display: none')
-                div(style='float: right;')
-                  img#ctl00_ContentPlaceHolder1_QuickContact1_ImageThankyou(src='/assets/images/miniform-mouse.jpg')
-                h2 Thank You!
-                div(style='clear: both; text-align: center; font-style: italic;')
-                  | Your message has been sent. We will contact you shortly if your message requires a response.
+          include ../partials/contact.pug
           h1(style='text-align: left;')
             span(style='font-size: 18px;')
               | Lansdowne 
@@ -237,3 +158,5 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
       });
       });
 
+    //- if practice.widgets.bookonline
+      //- script(type='text/javascript' src='/assets/widgets/bookonline/index.js' data-profileid=practice.mdocsProfile)
