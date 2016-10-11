@@ -27,7 +27,11 @@
       "content/treatment",
       "content/maintenance",
       "content/composite-fillings",
-      "content/fixed-bridges"
+      "content/fixed-bridges",
+      "content/root-canal-therapy",
+      "content/family-dentistry",
+      "content/oral-health-for-seniors",
+      "content/cosmetic-dentistry"
     ],
     "metainfo": {
       "menuCaption": "Contents",
