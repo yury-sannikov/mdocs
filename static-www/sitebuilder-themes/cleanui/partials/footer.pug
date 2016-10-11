@@ -4,7 +4,8 @@ footer
       ul
         li
           .copy
-            p Copyright &copy; 2016 MDOCS
+            p Copyright &copy; 2017  
+              span= practice.name
         li
           a(href='/content/privacy-policy/') Privacy Policy
         li
@@ -16,23 +17,23 @@ footer
         .fn.org(itemprop='name')= practice.name  
           span  - 
           span= practice.description  
-          span  located in  
-          span= practice.city  
-          span ,  
-          span= practice.state  
-        |  Phone: 
-        span.tel.mm-phone-number.phoneupdated(itemprop='telephone', content= practice.phone)= practice.phone
-        if practice.fax
-          span.divider |
-          |  Fax:  
-          span.tel.mm-phone-number.phoneupdated(itemprop='telephone', content= practice.fax)= practice.fax
-        .adr
-          | Address: 
-          span.street-address(itemprop='streetAddress')= practice.address  
-          span.locality(itemprop='addressLocality')= practice.city  
-          |  ,  
-          span.region(itemprop='addressRegion')= practice.state   
-          span(itemprop='postalCode')= practice.zip  
+        //-   span  located in  
+        //-   span= practice.city  
+        //-   span ,  
+        //-   span= practice.state  
+        //- |  Phone: 
+        //- span.tel.mm-phone-number.phoneupdated(itemprop='telephone', content= practice.phone)= practice.phone
+        //- if practice.fax
+        //-   span.divider |
+        //-   |  Fax:  
+        //-   span.tel.mm-phone-number.phoneupdated(itemprop='telephone', content= practice.fax)= practice.fax
+        //- .adr
+        //-   | Address: 
+        //-   span.street-address(itemprop='streetAddress')= practice.address  
+        //-   span.locality(itemprop='addressLocality')= practice.city  
+        //-   |  ,  
+        //-   span.region(itemprop='addressRegion')= practice.state   
+        //-   span(itemprop='postalCode')= practice.zip  
     //- .span12
     //-   p
     //-     a(href='https://www.mdocs.co', target='_blank') Powered by MDOCS

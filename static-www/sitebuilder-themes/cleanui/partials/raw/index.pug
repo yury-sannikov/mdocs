@@ -6,7 +6,8 @@ section.practice.PARALLAX
     .span12
       .logo-wrapper
         .logo
-          img(src=practice.logo.big, alt=practice.name, height='100')
+          img(src=practice.logo.big, alt=practice.name, height='140')
+    if !practice.hideHeaderInfo
       h1= practice.name
       h2= practice.description
     if practice.multiOffice
@@ -27,4 +28,4 @@ section.practice.PARALLAX
                 span.mm-phone-number.phoneupdated= office.phone
             li
               button.btn-book-online(type='button', dat-toggle='modal', dat-target='#book-online', data-practiceid='1', data-locationid='1')
-                | Book Online
+                span= practice.ctaLabel

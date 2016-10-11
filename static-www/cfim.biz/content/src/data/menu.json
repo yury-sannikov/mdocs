@@ -1,6 +1,6 @@
 [
   {
-    "caption": "About Us",
+    "caption": "About",
     "href": "/#meet",
     "content": [
       {
@@ -10,55 +10,35 @@
     ]
   },
   {
-    "caption": "Conditions Treated",
-    "href": "/services",
+    "caption": "Vascular Center",
+    "href": "/services/vascular-center",
     "content": [
       {
-        "caption": "Varicose Veins",
-        "href": "/services/varicose-veins"
+        "caption": "Vein Disease",
+        "href": "/services/vein-disease"
       },
       {
         "caption": "Arterial Disease",
         "href": "/services/arterial-disease"
-      },
+      }
+    ]
+  },
+  {
+    "caption": "Fibroid Center",
+    "href": "/services/fibroid-center",
+    "content": [
       {
         "caption": "Uterine Fibroids",
         "href": "/services/uterine-fibroids"
-      },
-      {
-        "caption": "Dialysis Access",
-        "href": "/services/dialysis-access"
-      },
-      {
-        "caption": "Back Pain",
-        "href": "/services/back-pain"
       }
     ]
   },
   {
     "caption": "Additional Services",
-    "href": "/services",
-    "content": [
-      {
-        "caption": "Oncology",
-        "href": "/services/oncology"
-      },
-      {
-        "caption": "Gastrointestinal",
-        "href": "/services/gastrointestinal"
-      },
-      {
-        "caption": "Urology",
-        "href": "/services/urology"
-      },
-      {
-        "caption": "Biopsies",
-        "href": "/services/biopsies"
-      }
-    ]
+    "href": "/services/additional-services"
   },
   {
-    "caption": "Contact us",
+    "caption": "Contact",
     "href": "/contact",
     "content": [
       {
@@ -66,24 +46,12 @@
         "href": "/contact/locations"
       },
       {
-        "caption": "Schedule Free Screening",
-        "href": "/contact/schedule-free-screening"
+        "caption": "Free Screening",
+        "href": "/contact/free-screening"
       },
       {
-        "caption": "Patients",
+        "caption": "Patient Forms",
         "href": "/contact/patients"
-      },
-      {
-        "caption": "Physicians",
-        "href": "/contact/physicians"
-      },
-      {
-        "caption": "Download Materials",
-        "href": "/contact/download-materials"
-      },
-      {
-        "caption": "Additional services",
-        "href": "/contact/additional-services"
       }
     ]
   }
