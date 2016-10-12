@@ -154,20 +154,7 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                                   td(style='font-family: Helvetica, arial, sans-serif; font-size: 13px; color: #333333; text-align:left;line-height: 24px;')
                                     | #{message}
                                 tr
-                                  td(width='100%', height='5')
-                                tr
-                                  td(style='font-family: Helvetica, arial, sans-serif; font-size: 13px; color: #333333; text-align:left;line-height: 24px;')
-                                    | Appointment created at: #{createdDate}
-                                if (visitDate)
-                                  tr
-                                    td(style='font-family: Helvetica, arial, sans-serif; font-size: 13px; color: #333333; text-align:left;line-height: 24px;')
-                                      | Visit date: #{visitDate}
-                                if (data.description && data.description.length > 0)
-                                  tr
-                                    td(width='100%', height='5')
-                                  tr
-                                    td(style='font-family: Helvetica, arial, sans-serif; font-size: 13px; color: #333333; text-align:left;line-height: 24px;font-weight: 300;font-style: italic;')
-                                      | #{data.description}
+                                  td(width='100%', height='25')
                                 // End of content
                                 // Spacing
                                 tr

@@ -1,94 +1,214 @@
 [
   {
-    "caption": "Dr. Hawa",
-    "href": "/our-doctor",
-    "red":false
-  },
-  {
-    "caption": "The team",
-    "href": "/the-team"
-  },
-  {
-    "caption": "Dental Services",
-    "href": "/dental-services",
+    "caption": "Welcome",
+    "href": "/",
     "submenu": [
       {
-        "caption": "Cosmetic and Aesthetic Dentistry",
-        "href": "/content/cosmetic-and-aesthetic-dentistry"
-      },
-      {
-        "caption": "Veneers, Crowns & Bridges",
-        "href": "/content/veneers-crowns-and-bridges"
-      },
-      {
-        "caption": "Implant Dentistry",
-        "href": "/content/implant-dentistry"
-      },
-      {
-        "caption": "Periodontal Therapy",
-        "href": "/content/periodontal-therapy"
-      },
-      {
-        "caption": "Dental Hygiene",
-        "href": "/content/dental-hygiene"
-      },
-      {
-        "caption": "Dental Emergencies",
-        "href": "/content/dental-emergencies"
-      },
-      {
-        "caption": "Root Canal Treatment",
-        "href": "/content/root-canal-treatment"
-      },
-      {
-        "caption": "Fillings and Restorative Procedures",
-        "href": "/content/fillings-and-restorative-procedures"
-      },
-      {
-        "caption": "Night Guards and Sports Guards",
-        "href": "/content/night-guards-and-sports-guards"
-      },
-      {
-        "caption": "Teeth Whitening",
-        "href": "/content/teeth-whitening"
-      },
-      {
-        "caption": "Advanced Technology",
-        "href": "/content/advanced-technology"
+        "caption": "Blog",
+        "href": "/content/blog",
+        "submenu": [
+          {
+            "caption": "Articles",
+            "href": "/content/articles"
+          }
+        ]
       }
     ]
   },
   {
-    "caption": "Invisalign",
-    "href": "/content/invisalign"
+    "caption": "Our Doctor",
+    "href": "/our-doctor",
+    "submenu": [
+      {
+        "caption": "Meet Our Team",
+        "href": "/content/our-team"
+      },
+      {
+        "caption": "Our Practice",
+        "href": "/content/our-team",
+        "submentu": [
+          {
+            "caption": "Health Faires & Events",
+            "href": "/content/health-faires-events"
+          },
+          {
+            "caption": "Patient Reviews",
+            "href": "/content/patient-reviews"
+          }
+        ]
+      }
+    ]
   },
   {
-    "caption": "Invisalign Teen",
-    "href": "/content/invisalign-teen"
+    "caption": "Dental Videos",
+    "href": "/content/dental-videos"
   },
   {
-    "caption": "Gorgeous Smile",
-    "href": "/content/gorgeous-smile"
+    "caption": "Smile Gallery",
+    "href": "/content/smile-gallery",
+    "submenu": [
+      {
+        "caption": "Restorations",
+        "href": "/content/restorations",
+        "submenu":
+        [
+          {
+            "caption": "Crowns (Caps)",
+            "href": "/content/crowns-caps"
+          },
+          {
+            "caption": "Dentures & Partial Dentures",
+            "href": "/content/dentures-partial-dentures/"
+          }
+        ]
+      },
+      {
+        "caption": "Other Procedures",
+        "href": "/content/other-procedures",
+        "submenu":
+        [
+          {
+            "caption": "Porcelain Crowns (Caps)",
+            "href": "/content/porcelain-crowns-caps"
+          },
+          {
+            "caption": "Dental Implants",
+            "href": "/content/dental-implants/"
+          }
+        ]
+      }
+    ]
   },
   {
-    "caption": "Overall Health",
-    "href": "/content/overall-health"
+    "caption": "Procedures",
+    "href": "/content/procedures/",
+    "submenu": [
+      {
+        "caption": "Cleanings & Prevention",
+        "href": "/content/cleanings-prevention",
+        "submenu": [
+          {
+            "caption": "Dental Exams & Cleanings",
+            "href": "/content/dental-exams-cleanings"
+          },
+          {
+            "caption": "Dental X-Rays",
+            "href": "/content/dental-x-rays"
+          },
+          {
+            "caption": "Home Care",
+            "href": "/content/home-care"
+          },
+          {
+            "caption": "How to Properly Brush & Floss",
+            "href": "/content/how-to-properly-brush-floss"
+          }
+        ]
+      },
+      {
+        "caption": "Periodontal Disease",
+        "href": "/content/periodontal-disease",
+        "submenu": [
+          {
+            "caption": "What is Periodontal (Gum) Disease?",
+            "href": "/content/what-is-periodontal-gum-disease/"
+          },
+          {
+            "caption": "Diagnosis",
+            "href": "/content/diagnosis/"
+          },
+          {
+            "caption": "Treatment",
+            "href": "/content/treatment/"
+          },
+          {
+            "caption": "Maintenance",
+            "href": "/content/maintenance/"
+          }
+        ]
+      },
+      {
+        "caption": "Restorations",
+        "href": "/content/restorations",
+        "submenu": [
+          {
+            "caption": "Composite Fillings",
+            "href": "/content/composite-fillings"
+          },
+          {
+            "caption": "Crowns (Caps)",
+            "href": "/content/crowns-caps"
+          },
+          {
+            "caption": "Dentures & Partial Dentures",
+            "href": "/content/dentures-partial-dentures/"
+          },
+          {
+            "caption": "Fixed Bridges",
+            "href": "/content/fixed-bridges/"
+          },
+          {
+            "caption": "Root Canal Therapy",
+            "href": "/content/root-canal-therapy/"
+          }
+        ]
+      }
+    ]
   },
   {
-    "caption": "Testimonials",
-    "href": "/content/testimonials"
+    "caption": "Family Dentistry",
+    "href": "/content/gorgeous-smile",
+    "submenu":[
+      {
+        "caption": "Oral Health for Seniors",
+        "href": "/content/oral-health-for-seniors/"
+      }
+    ]
   },
   {
-    "caption": "Videos",
-    "href": "/content/videos"
+    "caption": "Cosmetic Dentistry",
+    "href": "/content/cosmetic-dentistry",
+    "submenu":[
+      {
+        "caption": "Composite Fillings",
+        "href": "/content/composite-fillings"
+      },
+      {
+        "caption": "Porcelain Crowns (Caps)",
+        "href": "/content/porcelain-crowns-caps"
+      },
+      {
+        "caption": "Porcelain Fixed Bridges",
+        "href": "/content/porcelain-fixed-bridges/"
+      },
+      {
+        "caption": "Teeth Whitening",
+        "href": "/content/teeth-whitening/"
+      },
+      {
+        "caption": "Porcelain Veneers",
+        "href": "/content/porcelain-veneers/"
+      }
+    ]
+  },
+  {
+    "caption": "Patient Forms",
+    "href": "/content/patient-forms",
+    "submenu":[
+      {
+        "caption": "New Patient Referral Program",
+        "href": "/content/new-patient-referral-program/"
+      }
+    ]
   },
   {
     "caption": "Contact",
-    "href": "/content/contact"
-  },
-  {
-    "caption": "Emergencies",
-    "href": "/content/emergencies",
-    "red":true
+    "href": "/content/contact",
+    "submenu":[
+      {
+        "caption": "Appointment Request",
+        "href": "/content/appointment-request/"
+      }
+    ]
   }
 ]
