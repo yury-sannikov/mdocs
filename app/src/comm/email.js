@@ -12,6 +12,7 @@ const ROOT_PATH = './resources/reviewRequest';
 const LOCATION_ROOT_PATH = './resources/reviewRequestLocation';
 const NEGATIVE_REVIEW_ROOT_PATH = './resources/negativeReview';
 const APPOINTMENT_ROOT_PATH = './resources/appointmentNotification';
+const APPOINTMENT_PATIENT_ROOT_PATH = './resources/appointmentNotificationPatient';
 
 exports.sendReviewRequest = function* (to, data) {
   var logoPng = `${ROOT_PATH}/logo.png`;
@@ -22,7 +23,7 @@ exports.sendReviewRequest = function* (to, data) {
   var message = {
     from: 'PracticeWin <survey@app.mdocs.co>',
     to: to,
-    subject: `PracticeWin Invite`,
+    subject: `Patient Survey - ${data.title}`,
     html: html,
     inline: [logoPng, starsPng]
   };
@@ -40,7 +41,7 @@ exports.sendLocationReviewRequest = function* (to, data) {
   var message = {
     from: 'PracticeWin <survey@app.mdocs.co>',
     to: to,
-    subject: `PracticeWin Invite`,
+    subject: `Patient Survey - ${data.title}`,
     html: html,
     inline: [logoPng, starsPng]
   };
@@ -122,9 +123,9 @@ exports.sendAppointmentEmail = function* (to, data) {
   var html = pug.renderFile(`${APPOINTMENT_ROOT_PATH}/index.pug`, data);
 
   var message = {
-    from: 'Appointments by PracticeWin <info@app.mdocs.co>',
+    from: 'PracticeWin <info@app.mdocs.co>',
     to: to,
-    subject: `PracticeWin Appointment`,
+    subject: `New Appointment Request`,
     html: html,
     inline: [logoPng]
   };
@@ -133,3 +134,19 @@ exports.sendAppointmentEmail = function* (to, data) {
   return yield sendAsync(message);
 };
 
+exports.sendAppointmentEmailPatient = function* (to, data) {
+  var logoPng = `${APPOINTMENT_PATIENT_ROOT_PATH}/logo.png`;
+
+  var html = pug.renderFile(`${APPOINTMENT_PATIENT_ROOT_PATH}/index.pug`, data);
+
+  var message = {
+    from: 'PracticeWin <info@app.mdocs.co>',
+    to: to,
+    subject: `New Appointment Request`,
+    html: html,
+    inline: [logoPng]
+  };
+  const messages = mailgun.messages();
+  const sendAsync =  Promise.promisify(messages.send, {context: messages});
+  return yield sendAsync(message);
+};

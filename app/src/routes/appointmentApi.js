@@ -11,7 +11,7 @@ import { createNewAppointment,
 import { profileById } from '../db'
 import { getProfiles } from '../db/profiles'
 import { sendSMS } from '../comm/sms'
-import { sendAppointmentEmail } from '../comm/email'
+import { sendAppointmentEmail, sendAppointmentEmailPatient } from '../comm/email'
 import { formatPhone } from '../belt'
 // import { sendStripeCallbackToSlack } from '../comm';
 
@@ -30,7 +30,9 @@ router.use(corsMiddleware)
 router.options('/',  function*() {} )
 router.options('/*',  function*() {} )
 
-function* notifyPracticeAdmins(profileId, text) {
+function* notifyPracticeAdmins(profileId, obj) {
+  const text = `New appointment for ${obj.fullname}, ${formatPhone(obj.phone)}`
+
   debug(`Notifying Office Administrators of profile ${profileId}: ${text}`)
 
   let profile = yield profileById(profileId)
@@ -43,8 +45,11 @@ function* notifyPracticeAdmins(profileId, text) {
   }
 
   const emailData = {
-    title: 'PacticeWin Appointments',
+    title: 'PacticeWin Appointment',
     message: text,
+    data: obj,
+    createdDate: moment.utc(+obj.createdDate, 'X').local().format('MM/DD/YY h:mm a'),
+    visitDate: obj.visit_date ? moment.utc(+obj.visit_date, 'X').local().format('MM/DD/YY h:mm a') : null,
     adminUrl: 'https://app.mdocs.co/app/appointments'
   }
   try {
@@ -71,7 +76,7 @@ function* notifyPatient(profileId, phoneNo, email, text) {
   }
   try {
     if (email) {
-      yield sendAppointmentEmail(email, emailData)
+      yield sendAppointmentEmailPatient(email, emailData)
     }
   }
   catch(e) {
@@ -128,8 +133,7 @@ router.post('/', function*() {
   delete obj.visitDate;
   const id = yield createNewAppointment(requestObject.profileId, visitDate, obj)
 
-  yield notifyPracticeAdmins(requestObject.profileId,
-    `New appointment for ${obj.fullname}, ${formatPhone(obj.phone)}`)
+  yield notifyPracticeAdmins(requestObject.profileId, obj)
   yield notifyPatient(requestObject.profileId, obj.phone, obj.email, 'Your appointment has been accepted for review. We will contact you shortly.')
   this.body = { ok: 1, id: id};
 });
