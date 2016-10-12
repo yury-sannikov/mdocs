@@ -1,0 +1,82 @@
+html(itemscope='', itemtype='http://schema.org/LocalBusiness')
+  head#ctl00_Head1
+    include ../partials/header.pug
+  body
+    #header_bg
+      img(src='/assets/images/header-top.png')
+    #container_bg
+      #container
+        include ../partials/drawmenu.pug
+        include ../partials/topnavbar.pug
+        #header
+          img#ctl00_HdrMain(src='/assets/images/mheader_1103681.jpg')
+        case (Math.floor((Math.random() * 8) + 1))
+          when 1
+            include ../partials/banner_v1.pug
+          when 2
+            include ../partials/banner_v2.pug
+          when 3
+            include ../partials/banner_v3.pug
+          when 4
+            include ../partials/banner_v4.pug
+          when 5
+            include ../partials/banner_v5.pug
+          when 6
+            include ../partials/banner_v6.pug
+          when 7
+            include ../partials/banner_v7.pug
+          when 8
+            include ../partials/banner_v8.pug
+        include ../partials/phone.pug        
+
+        #content
+          form.js-bookonline-form(action='', data-callback='makeappointmentform_submit', method='post')
+            #ctl00_ContentPlaceHolder1_pnlForm
+              #IntroDiv.PageContact_Intro
+                h1
+                  span(style='font-size: 20px;') Schedule a Dentist Appointment in Lansdowne, VA
+                p  
+                p
+                  | The first step towards a beautiful, healthy smile is to schedule an appointment. Please contact our office by phone or complete the appointment request form below. Our scheduling coordinator will contact you to confirm your appointment. 
+                  br
+                  strong
+                    br
+                  em Please do not use this form to cancel or change an existing appointment.
+                br
+              #AppointmentRequestForm(style='padding-top: 20px')
+                | Items in 
+                strong bold
+                |  are required.
+                table(cellspacing='0', cellpadding='0', border='0')
+                  tbody
+                    tr
+                      td
+                        table(cellspacing='0', cellpadding='0', border='0')
+                          tbody
+                            tr
+                              td(style='font-weight: bold; vertical-align: middle; width: 110px; padding-top: 4px; text-align: left')
+                                | Name:
+                              td(style='padding-top: 4px')
+                                input#ctl00_ContentPlaceHolder1_txtName.qcformcolor(name='fullname', type='text', style='width:128px;')
+                                span#ctl00_ContentPlaceHolder1_rfvName(style='color:Red;visibility:hidden;') Name Required
+                            tr
+                              td(style='font-weight: bold; vertical-align: middle; padding-top: 4px; text-align: left')
+                                | Phone:
+                              td(style='padding-top: 4px')
+                                input#ctl00_ContentPlaceHolder1_txtPhone.qcformcolor(name='phone', type='text', style='width:128px;')
+                            tr
+                              td(style='vertical-align: middle; padding-top: 4px; text-align: left')
+                                | Email:
+                              td(style='padding-top: 4px')
+                                input#ctl00_ContentPlaceHolder1_txtEmail.qcformcolor(name='email', type='text', style='width:128px;')
+                      td(style='padding-left: 5px; vertical-align: top; height: 100%')
+                span#ctl00_ContentPlaceHolder1_lblMessage.qc-err
+              #ctl00_ContentPlaceHolder1_pnlCaptcha(style='width:180px;')
+                #captchCtrl
+                  #ctl00_ContentPlaceHolder1_CaptchaBaseControl1_SendButtonDiv(style='text-align:left;')
+                    input.Button.js-bookonline-submit(type='submit', value='Send')
+            br(clear='all')
+          script(type='text/javascript', src='/assets/widgets/bookonline/index.js', data-profileid=practice.mdocsProfile)
+          br(clear='all')
+
+      include ../partials/page_footer.pug

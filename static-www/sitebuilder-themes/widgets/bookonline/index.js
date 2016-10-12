@@ -3,6 +3,7 @@
 }(function($, window, document) {
 
   function submitForm(event) {
+
     event.preventDefault();
 
     var form = $(this).closest('form');

@@ -1,4 +1,18 @@
 {
+  "plainHtml": [
+    {
+      "title": "VGUCC",
+      "path": "appointment"
+    },
+    {
+      "title": "Content",
+      "path": "content"
+    },
+    {
+      "title": "VGUCC",
+      "path": ""
+    }
+  ],
   "contents": {
     "indexPath": "content",
     "permalinks": [
@@ -107,16 +121,6 @@
       }
     }
   },
-  "plainHtml": [
-    {
-      "title": "Content",
-      "path": "content"
-    },
-    {
-      "title": "VGUCC",
-      "path": ""
-    }
-  ],
   "menu": {
     "indexPath": "",
     "permalinks": [],
