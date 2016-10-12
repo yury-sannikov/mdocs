@@ -4,8 +4,7 @@ footer
       ul
         li
           .copy
-            p Copyright &copy; 2017  
-              span= practice.name
+            p Copyright &copy; 2017 Center for Interventional Medicine - Experts with Minimally Invasive Treatments
         li
           a(href='/content/privacy-policy/') Privacy Policy
         li
@@ -145,10 +144,10 @@ footer
                 .label Date of Birth
                 input.txt-input(placeholder='MM/DD/YYYY', maxlength='10', name='form_dob', type='text', value='')
                 
-              .left
-                .label Select date
-                input#datetimepicker(type="text", style="visibility: hidden; height:1px", name="form_date")
-                #calendar-block.visible
+              //- .left
+              //-   .label Select date
+              //-   input#datetimepicker(type="text", style="visibility: hidden; height:1px", name="form_date")
+              //-   #calendar-block.visible
                   
                     
             .modal-footer
@@ -161,89 +160,89 @@ footer
           button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
           h4#bookedAppointmentLabel.modal-title Appointment Requested
         .additional-questions
-          form#patient-additional-info-form(method='POST', action='', accept-charset='UTF-8', data-toggle='validator', role='form')
-            .modal-body
-              p.type-wrapper
-                | Thank you for your appointment request. We will contact you shortly to confirm your request.
-                br
-                | Please call our office 
-                span.apt-conf-phone at 
-                |  if you have any questions.
-              span.apt-conf-formlinks.apt-conf-formlinks1
-              h4 Additional Information
-              input(name='id', type='hidden', value='')
-              .left
-                #name-section-2(style='display: none;')
-                  #name-label.label Name
-                  input.txt-input.inline-input(placeholder='First', name='firstname', type='text', value='', disabled='')
-                  input.txt-input.inline-input(placeholder='Last', name='lastname', type='text', value='', disabled='')
-                #email-section-2(style='display: none;')
-                  #email-label.label Email address
-                  input.txt-input(name='email', type='email', value='', disabled='')
-                #phone-section-2(style='display: none;')
-                  #phone-label.label Mobile Phone Number
-                  input#appointment-phone.txt-input(name='phone', type='tel', value='', disabled='')
-                #reason-section-2(style='display: none;')
-                  .label.reason-label Reason
-                  input.txt-input(placeholder='e.g. annual checkup, follow-up, ...', maxlength='150', name='reason', type='text', value='', disabled='')
-                  select.txt-input(name='reason', disabled='')
-                #date_of_birth-section-2(style='display: none;')
-                  #date_of_birth-label.label Date of Birth
-                  input.txt-input(placeholder='mm/dd/yyyy', maxlength='10', name='date_of_birth', type='text', value='', disabled='')
-                #sex-section-2(style='display: none;')
-                  #sex-label.label Gender
-                  select.txt-input(name='sex')
-                    option(value='', selected='selected') - Select One -
-                    option(value='undisclosed') Do not wish to disclose
-                    option(value='male') Male
-                    option(value='female') Female
-                    option(value='other') Other
-                #insurance_provider_id-section-2
-                  #insurance_provider_id-label.label.add-insurance-dropdown Insurance
-                  select.txt-input.add-info-insurance-select-dropdown(name='insurance_provider_id', style='display: none;')
-                    option(value='', selected='selected') - Select One -
-                    option(value='700') No Insurance
-                    option(value='701') Other Insurance
-                    option(value='3') AARP
-                    option(value='12') Aetna
-                    option(value='64') Blue Cross Blue Shield
-                    option(value='135') Cigna
-                    option(value='203') First Choice Health
-                    option(value='243') Health Net
-                    option(value='294') LifeWise
-                    option(value='345') Multiplan PHCS
-                    option(value='635') Multiplan, Inc.
-                    option(value='396') Premera Blue Cross
-                    option(value='404') Providence Health Plans
-                    option(value='533') Regence Blue Cross Blue Shield
-                    option(value='469') Tricare
-                    option(value='482') UnitedHealthcare
-                  .chosen-container.chosen-container-single(style='width: 250px;', title='')
-                    a.chosen-single(tabindex='-1')
-                      span - Select One -
-                      div
-                        b
-                    .chosen-drop
-                      .chosen-search
-                        input(type='text', autocomplete='off')
-                      ul.chosen-results
-                #insurance_id_number-section-2
-                  #insurance_id_number-label.label.hide.insurance-selected Insurance ID #
-                  input#appointment-insurance-id-number.txt-input.hide.insurance-selected(name='insurance_id_number', type='text', value='')
-                #insurance_group_number-section-2
-                  #insurance_group_number-label.label.hide.insurance-selected Insurance Group #
-                  input#appointment-insurance-group-number.txt-input.hide.insurance-selected(name='insurance_group_number', type='text', value='')
-                #insurance_phone-section-2
-                  #insurance_phone-label.label.hide.insurance-selected Insurance Phone #
-                  input#appointment-insurance-phone-number.txt-input.hide.insurance-selected(name='insurance_phone', type='text', value='')
-              .right
-                #comment-section-2
-                  #comment-label.label Comment
-                  textarea.txtarea-input(placeholder='Is there anything you would like us to know before your appointment?', maxlength='250', rows='4', name='comment', cols='50')
-              .clear-both
-            .modal-footer
-              button.btn-skip(type='button', data-dismiss='modal') Skip
-              button.btn-book-additional-submit(type='button') Submit
+          //- form#patient-additional-info-form(method='POST', action='', accept-charset='UTF-8', data-toggle='validator', role='form')
+          //-   .modal-body
+          //-     p.type-wrapper
+          //-       | Thank you for your appointment request. We will contact you shortly to confirm your request.
+          //-       br
+          //-       | Please call our office 
+          //-       span.apt-conf-phone at 
+          //-       |  if you have any questions.
+          //-     span.apt-conf-formlinks.apt-conf-formlinks1
+          //-     h4 Additional Information
+          //-     input(name='id', type='hidden', value='')
+          //-     .left
+          //-       #name-section-2(style='display: none;')
+          //-         #name-label.label Name
+          //-         input.txt-input.inline-input(placeholder='First', name='firstname', type='text', value='', disabled='')
+          //-         input.txt-input.inline-input(placeholder='Last', name='lastname', type='text', value='', disabled='')
+          //-       #email-section-2(style='display: none;')
+          //-         #email-label.label Email address
+          //-         input.txt-input(name='email', type='email', value='', disabled='')
+          //-       #phone-section-2(style='display: none;')
+          //-         #phone-label.label Mobile Phone Number
+          //-         input#appointment-phone.txt-input(name='phone', type='tel', value='', disabled='')
+          //-       #reason-section-2(style='display: none;')
+          //-         .label.reason-label Reason
+          //-         input.txt-input(placeholder='e.g. annual checkup, follow-up, ...', maxlength='150', name='reason', type='text', value='', disabled='')
+          //-         select.txt-input(name='reason', disabled='')
+          //-       #date_of_birth-section-2(style='display: none;')
+          //-         #date_of_birth-label.label Date of Birth
+          //-         input.txt-input(placeholder='mm/dd/yyyy', maxlength='10', name='date_of_birth', type='text', value='', disabled='')
+          //-       #sex-section-2(style='display: none;')
+          //-         #sex-label.label Gender
+          //-         select.txt-input(name='sex')
+          //-           option(value='', selected='selected') - Select One -
+          //-           option(value='undisclosed') Do not wish to disclose
+          //-           option(value='male') Male
+          //-           option(value='female') Female
+          //-           option(value='other') Other
+          //-       #insurance_provider_id-section-2
+          //-         #insurance_provider_id-label.label.add-insurance-dropdown Insurance
+          //-         select.txt-input.add-info-insurance-select-dropdown(name='insurance_provider_id', style='display: none;')
+          //-           option(value='', selected='selected') - Select One -
+          //-           option(value='700') No Insurance
+          //-           option(value='701') Other Insurance
+          //-           option(value='3') AARP
+          //-           option(value='12') Aetna
+          //-           option(value='64') Blue Cross Blue Shield
+          //-           option(value='135') Cigna
+          //-           option(value='203') First Choice Health
+          //-           option(value='243') Health Net
+          //-           option(value='294') LifeWise
+          //-           option(value='345') Multiplan PHCS
+          //-           option(value='635') Multiplan, Inc.
+          //-           option(value='396') Premera Blue Cross
+          //-           option(value='404') Providence Health Plans
+          //-           option(value='533') Regence Blue Cross Blue Shield
+          //-           option(value='469') Tricare
+          //-           option(value='482') UnitedHealthcare
+          //-         .chosen-container.chosen-container-single(style='width: 250px;', title='')
+          //-           a.chosen-single(tabindex='-1')
+          //-             span - Select One -
+          //-             div
+          //-               b
+          //-           .chosen-drop
+          //-             .chosen-search
+          //-               input(type='text', autocomplete='off')
+          //-             ul.chosen-results
+          //-       #insurance_id_number-section-2
+          //-         #insurance_id_number-label.label.hide.insurance-selected Insurance ID #
+          //-         input#appointment-insurance-id-number.txt-input.hide.insurance-selected(name='insurance_id_number', type='text', value='')
+          //-       #insurance_group_number-section-2
+          //-         #insurance_group_number-label.label.hide.insurance-selected Insurance Group #
+          //-         input#appointment-insurance-group-number.txt-input.hide.insurance-selected(name='insurance_group_number', type='text', value='')
+          //-       #insurance_phone-section-2
+          //-         #insurance_phone-label.label.hide.insurance-selected Insurance Phone #
+          //-         input#appointment-insurance-phone-number.txt-input.hide.insurance-selected(name='insurance_phone', type='text', value='')
+          //-     .right
+          //-       #comment-section-2
+          //-         #comment-label.label Comment
+          //-         textarea.txtarea-input(placeholder='Is there anything you would like us to know before your appointment?', maxlength='250', rows='4', name='comment', cols='50')
+          //-     .clear-both
+          //-   .modal-footer
+          //-     button.btn-skip(type='button', data-dismiss='modal') Skip
+          //-     button.btn-book-additional-submit(type='button') Submit
   #booked-online.modal(tabindex='-1', role='dialog', aria-hidden='true', aria-labelledby='appointmentRequestLabel')
     .modal-backdrop.in(style='height: 100%;')
     .modal-dialog

@@ -34,9 +34,9 @@ html(lang="en")
             != data.htmlContent
             != contents
           button.btn-book-online.small(type='button', data-practiceid='1')
-            | Book Online
+            span= practice.ctaLabel
 
     include ../partials/reviewsSmallFlexSlider.pug
     include ../partials/contact.pug
-    include ../partials/map.pug
+    //- include ../partials/map.pug
     include ../partials/footer.pug

@@ -2215,7 +2215,7 @@ body.SOLID section.doctor .row .span12.no-hero,body.SOLID section.practice .row 
 }
 
 #book-online .modal-dialog {
-  width: 1036px
+  // width: 1036px
 }
 
 #leave-review .modal-dialog {
@@ -6542,7 +6542,7 @@ section.slider .slide-content ol li.rating span {
     display: block;
     height: 21px;
     width: 21px;
-    background: #f9a62e;
+    background: #bf2f1b;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
@@ -7533,9 +7533,9 @@ input.btn-book-online:hover, input.btn-leave-review:hover, button.btn-book-onlin
     border : 1px solid #19b5fe;
 }
 
-section.slider .slide-content ol li.rating span {
-    background : #4183d7;
-}
+// section.slider .slide-content ol li.rating span {
+//   background : #4183d7;
+// }
 
 section.services .service-block .service a .service-border {
     border-color : #19b5fe;
