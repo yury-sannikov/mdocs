@@ -20,7 +20,7 @@ const invoicesAsync = Promise.promisifyAll(stripeApi.invoices, { context: stripe
 function* getSubscription(userId, profileIds) {
   const profiles = yield getProfiles(profileIds)
   const user = yield findUserById(userId);
-  const stripeId = _.get(user, 'stripeId', _.get(user, 'stripeCustomer.id'))
+  const stripeId = _.get(user, 'stripeId', _.get(user, 'stripeId'))
 
   let result = {
     profiles: profiles.length,
@@ -63,7 +63,7 @@ export function* getFutureInvoice(userId, profileIds) {
   const currentInvoice = yield invoicesAsync.listAsync({limit: 1});
   const currentSubscription = yield getSubscription(userId, profileIds);
   const user = yield findUserById(userId);
-  const stripeId = _.get(user, 'stripeCustomer.id');
+  const stripeId = _.get(user, 'stripeId');
   const upcomingInvoice = yield invoicesAsync.retrieveUpcomingAsync(stripeId);
   return {currentInvoice, upcomingInvoice, currentSubscription}
 }
