@@ -7,36 +7,25 @@ html(lang="en")
     //- include ../partials/raw/service-header.pug
     //- include ../partials/reviewsSmallFlexSlider.pug
 
+    .main-content
+      section.service.pinstripe(style='background-color: rgb(245, 249, 249);')
+        .container.pb-0
+          #social-crumb.row
+            .span6
+              .breadcrumb(itemprop='breadcrumb')
+                a(href='/')= practice.name
+                i.fa.fa-angle-right
+                span= data.title
+          .row
+            .span12
+              h4= data.title
+              .details
+                != data.htmlContent
+                != contents
+              button.btn-book-online.small(type='button', data-practiceid='1')
+                | Book Online
 
-    section.service.pinstripe(style='background-color: rgb(245, 249, 249);')
-      #social-crumb.row
-        .span6
-          .breadcrumb(itemprop='breadcrumb')
-            a(href='/')= practice.name
-            i.fa.fa-angle-right
-            span= data.title
-      //-   .span6
-      //-     ul.social-share
-      //-       li
-      //-         span.PIN_1468972523201_button_pin(data-pin-log='button_pinit_bookmarklet', data-pin-href='https://www.pinterest.com/pin/create/button/')
-      //-       li
-      //-         iframe#twitter-widget-0.twitter-share-button.twitter-share-button-rendered.twitter-tweet-button(scrolling='no', frameborder='0', allowtransparency='true', title='Twitter Tweet Button', src='http://platform.twitter.com/widgets/tweet_button.b41e99df00581dc95d7fdd63f3283511.en.html#dnt=false&id=twitter-widget-0&lang=en&original_referer=http%3A%2F%2Fwww.beverlyoakssurgery.com%2Fservices%2Fpain-management&size=m&text=Pain%20Management%20Specialist%20-%20Sherman%20Oaks%2C%20CA%3A%20Beverly%20Oaks%20Surgery%3A%20Cosmetic%20%26%20General%20Surgery%20Center&time=1468972523152&type=share&url=http%3A%2F%2Fwww.beverlyoakssurgery.com%2Fservices%2Fpain-management', style='position: static; visibility: visible; width: 61px; height: 20px;', data-url='http://www.beverlyoakssurgery.com/services/pain-management')
-      //-         script.
-      //-           !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-      //-       li
-      //-         .g-plusone(data-size='medium')
-      //-       li
-      //-         iframe(src='//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.beverlyoakssurgery.com%2Fservices%2Fpain-management&width=140&layout=button_count&action=like&show_faces=false&share=true&height=21&appId=189402354556900', scrolling='no', frameborder='0', style='border:none; overflow:hidden; width:140px; height:21px;', allowtransparency='true')
-      .row
-        .span12
-          h4= data.title
-          .details
-            != data.htmlContent
-            != contents
-          button.btn-book-online.small(type='button', data-practiceid='1')
-            | Book Online
-
-    include ../partials/reviewsSmallFlexSlider.pug
-    include ../partials/contact.pug
-    include ../partials/map.pug
-    include ../partials/footer.pug
+      include ../partials/reviewsSmallFlexSlider.pug
+      include ../partials/contact.pug
+      include ../partials/map.pug
+      include ../partials/footer.pug
