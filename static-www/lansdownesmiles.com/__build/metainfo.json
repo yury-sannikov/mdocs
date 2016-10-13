@@ -16,6 +16,8 @@
   "contents": {
     "indexPath": "content",
     "permalinks": [
+      "content/blog",
+      "content/articles",
       "content/our-doctor",
       "content/meet-our-team",
       "content/our-practice",
