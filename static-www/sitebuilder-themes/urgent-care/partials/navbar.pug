@@ -83,68 +83,17 @@ header#header.header
       .container
         nav#menuzord.menuzord.blue.bg-light
           ul.menuzord-menu
-            li
-              a(href='/') Home
-            li
-              a(href='/content/about') About
-            li
-              a(href='/content/services') Services
-            li
-              a(href='/content/employment') Employment
-            li
-              a(href='#home') Patient Education
-              ul.dropdown
-                li
-                  a(href='/content/asthma') Asthma
-                li
-                  a(href='/content/diabetes') Diabetes
-                li
-                  a(href='/content/flu') Flu
-                li
-                  a(href='/content/glaucoma') Glaucoma
-                li
-                  a(href='/content/hepatitis-b-immunization') Hepatitis B Immunization
-                li
-                  a(href='/content/homocysteine') Homocysteine
-                li
-                  a(href='/content/hypertension') Hypertension
-                li
-                  a(href='/content/impotence') Impotence
-                li
-                  a(href='/content/lasik-eye-surgery') Lasik Eye Surgery
-                li
-                  a(href='/content/prostate-cancer') Prostate Cancer
-                li
-                  a(href='/content/thyroid-disorder') Thyroid Disorder
-                li
-                  a(href='/content/sleep-apnea') Sleep Apnea
-            li
-              a(href='') Forms
-              ul.dropdown
-                li
-                  a(href='/content/faa-forms') FAA Flight Physical Form
-                li
-                  a(href='/content/immigration-services') Immigration Forms
-                li
-                  a(href='/content/medical-records-release-form') Medical Records Release Form
-                li
-                  a(href='/content/motor-vehicle-accident-form') Motor Vehicle Accident Form
-                li
-                  a(href='/content/notice-of-privacy-proctices') Notice of Privacy Practices
-                li
-                  a(href='/content/registration-packet') Registration Packet
-                li
-                  a(href='/content/school-entrance-physical') School Entrance Physical
-                li
-                  a(href='/content/sports-physical') Sports Physical
-                li
-                  a(href='/content/workers-comp-forms') Workers Comp Forms
-            li
-              a(href='/contact') Feedback
-            li
-              a(href='/contact') Contact
-                
-           
+            each menuitem in menu
+              li
+                if menuitem.submenu
+                  a(href='') #{menuitem.caption}
+                  ul.dropdown
+                    each submenuitem in menuitem.submenu
+                      li
+                        a(href=submenuitem.href) #{submenuitem.caption}
+                else 
+                  a(href=menuitem.href) #{menuitem.caption}
+
           ul.pull-right.flip.hidden-sm.hidden-xs
             .widget.no-border.m-0
               // Modal: Appointment Starts
