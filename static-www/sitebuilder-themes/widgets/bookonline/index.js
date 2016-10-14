@@ -3,13 +3,13 @@
 }(function($, window, document) {
 
   function submitForm(event) {
-
     event.preventDefault();
 
     var form = $(this).closest('form');
 
     // If we have jquery.validate installed, check for form validity
     if (form.valid && !form.valid()){
+      console.log('is not valid!');
       return;
     }
 
@@ -29,6 +29,7 @@
       return;
     }
     data.profileId = profileId;
+    console.log(data);
 
     $.ajax({
       url:'https://app.mdocs.co/app/api/appointment',
