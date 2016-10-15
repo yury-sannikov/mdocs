@@ -5,5 +5,8 @@ html(lang="en")
   body.PARALLAX
     include ../partials/navbar.pug
     .main-content(style='margin:10px;')
-      != data.htmlContent
+      .container
+        section(style="padding-bottom: 60px")
+          != data.htmlContent
+
     include ../partials/footer.pug
