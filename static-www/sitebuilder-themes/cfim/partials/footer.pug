@@ -13,26 +13,26 @@ footer
           a(href='/contact') Contact Us
     .span12
       .nap.vcard(itemscope='', itemtype='http://schema.org/Organization')
-        .fn.org(itemprop='name')= practice.name  
-          span  - 
-          span= practice.description  
-        //-   span  located in  
-        //-   span= practice.city  
-        //-   span ,  
-        //-   span= practice.state  
-        //- |  Phone: 
+        .fn.org(itemprop='name')= practice.name
+          span  -
+          span= practice.description
+        //-   span  located in
+        //-   span= practice.city
+        //-   span ,
+        //-   span= practice.state
+        //- |  Phone:
         //- span.tel.mm-phone-number.phoneupdated(itemprop='telephone', content= practice.phone)= practice.phone
         //- if practice.fax
         //-   span.divider |
-        //-   |  Fax:  
+        //-   |  Fax:
         //-   span.tel.mm-phone-number.phoneupdated(itemprop='telephone', content= practice.fax)= practice.fax
         //- .adr
-        //-   | Address: 
-        //-   span.street-address(itemprop='streetAddress')= practice.address  
-        //-   span.locality(itemprop='addressLocality')= practice.city  
-        //-   |  ,  
-        //-   span.region(itemprop='addressRegion')= practice.state   
-        //-   span(itemprop='postalCode')= practice.zip  
+        //-   | Address:
+        //-   span.street-address(itemprop='streetAddress')= practice.address
+        //-   span.locality(itemprop='addressLocality')= practice.city
+        //-   |  ,
+        //-   span.region(itemprop='addressRegion')= practice.state
+        //-   span(itemprop='postalCode')= practice.zip
     //- .span12
     //-   p
     //-     a(href='https://www.mdocs.co', target='_blank') Powered by MDOCS
@@ -51,18 +51,18 @@ footer
 //-       span= practice.address
 //-       br
 //-       span= practice.city
-//-       |,  
+//-       |,
 //-       span= practice.state
-//-       |  
+//-       |
 //-       span= practice.zip
 //-       br
-//-       |  Phone:  
+//-       |  Phone:
 //-       span= practice.phone
 //-       br
-//-       |  Fax:  
+//-       |  Fax:
 //-       span= practice.fax
 //-       br
-//-       |  Email:  
+//-       |  Email:
 //-       span= practice.email
 //-   .col-sm-4
 //-     h3.h5.font-w600.text-uppercase.push-20 Company
@@ -90,19 +90,19 @@ footer
 //-         a.font-w600(href='javascript:void(0)') Privacy Policy
 //-       li
 //-         a.font-w600(href='javascript:void(0)') Terms & Conditions
-  
+
 //- // END Footer Navigation
 //- // Copyright Info
 //- .font-s12.push-20.clearfix
 //-   hr.remove-margin-t
 //-   .pull-right
-//-     | Crafted with 
+//-     | Crafted with
 //-     i.fa.fa-heart.text-city
-//-     |  by 
+//-     |  by
 //-     a.font-w600(href='http://mdocs.co', target='_blank') MDOCS
 //-   .pull-left
 //-     a.font-w600(href='http://mdocs.co', target='_blank') MDOCS v.2.1
-//-     |  © 
+//-     |  ©
 //-     span.js-year-copy
 //- // END Copyright Info
 
@@ -116,43 +116,50 @@ footer
         .modal-header
           button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
           h4#bookAppointmentLabel.modal-title
-            | Request Now 
+            | Request Now
             span.subtitle= practice.name
-        
+
         .caldetails(style='display: block;')
-          form.contact_form
-            .modal-body
+          form.contact_form.js-bookonline-form(data-callback="contactSubmitCallback" data-callback-beforesubmit="contactBeforeSubmitCallback")
+            .modal-body(style="display: inline-block; height: 100%")
               .left
+                .label Office Location
+                select.txt-input(required='true' name='profileId')
+                  option(value="") -- Select Practice -
+                  each office in practice.offices
+                    option(value=office.mdocsProfile) #{office.location}
                 .label Full name
-                input.txt-input(placeholder='Full name', name='form_name', type='text', value='', required='true')
+                input.txt-input(placeholder='Full name', name='fullname', type='text', value='', required='true')
                 .label Email address
                 input.txt-input(placeholder='Email address', name='email', type='email', value='', required='true')
                 .label Phone number
-                input.txt-input(placeholder='Phone number', name='form_phone', type='tel', value='', required='true')
-              
+                input.txt-input(placeholder='Phone number', name='phone', type='tel', value='', required='true')
+
               .left
                 .label New Patient?
                 ul
                   li
-                    input#new-patient-yes(name='form_name_new', type='radio', value='yes', checked='checked', required='true')
+                    input#new-patient-yes(name='isnewrad', type='radio', value='yes', checked='checked', required='true')
                     label(for='new-patient-yes') Yes
                   li
-                    input#new-patient-no(name='form_name_new', type='radio', value='no', required='true')
+                    input#new-patient-no(name='isnewrad', type='radio', value='', required='true')
                     label(for='new-patient-no') No
                 .label Reason
-                input.txt-input(placeholder='E.g. initial consultation, follow-up, ...', maxlength='150', name='form_reason', type='text', value='', form_name)
+                input.txt-input(placeholder='E.g. initial consultation, follow-up, ...', maxlength='150', name='description', type='text', value='', form_name)
                 .label Date of Birth
-                input.txt-input(placeholder='MM/DD/YYYY', maxlength='10', name='form_dob', type='text', value='')
-                
+                input.txt-input(placeholder='MM/DD/YYYY', maxlength='10', name='dob', type='text', value='')
+
               //- .left
               //-   .label Select date
               //-   input#datetimepicker(type="text", style="visibility: hidden; height:1px", name="form_date")
               //-   #calendar-block.visible
-                  
-                    
+              input(name="systype" type="hidden" value="appointment")
+              input.js-bookonline(name="isnew" type="hidden" value='yes')
+
             .modal-footer
               button.btn-cancel(type='button', data-dismiss='modal') Cancel
-              button.btn-book-now(type='submit', value='Request Now', data-loading-msg='Submitting...', data-success-msg='Success!', data-error-msg='Error! Try again.', data-form-type='book') Request Now
+              button.btn-book-now.js-bookonline-submit(type='submit', value='Request Now', data-loading-msg='Submitting...', data-success-msg='Success!', data-error-msg='Error! Try again.', data-form-type='book') Request Now
+
   #booked-additional-info.modal(tabindex='-1', role='dialog', aria-hidden='true', aria-labelledby='bookAppointmentLabel')
     .modal-dialog
       .modal-content
@@ -165,8 +172,8 @@ footer
           //-     p.type-wrapper
           //-       | Thank you for your appointment request. We will contact you shortly to confirm your request.
           //-       br
-          //-       | Please call our office 
-          //-       span.apt-conf-phone at 
+          //-       | Please call our office
+          //-       span.apt-conf-phone at
           //-       |  if you have any questions.
           //-     span.apt-conf-formlinks.apt-conf-formlinks1
           //-     h4 Additional Information
@@ -252,8 +259,8 @@ footer
           h4#appointmentRequestLabel.modal-title Thank You
         .modal-body
           p.type-wrapper
-            | Thank you for your appointment request. We will contact you shortly to confirm your request. Please call our office 
-            span.apt-conf-phone at 
+            | Thank you for your appointment request. We will contact you shortly to confirm your request. Please call our office
+            span.apt-conf-phone at
             |  if you have any questions.
           span.apt-conf-formlinks.apt-conf-formlinks2
   #booking-screened.modal(tabindex='-1', role='dialog', aria-hidden='true', aria-labelledby='appointmentRequestLabel')
@@ -264,10 +271,10 @@ footer
           h4#appointmentRequestLabel.modal-title Please call our office
         .modal-body
           p
-            | We unfortunately can't schedule this type of appointment online. Please call our office 
-            span.apt-conf-phone at 
+            | We unfortunately can't schedule this type of appointment online. Please call our office
+            span.apt-conf-phone at
             |  to make your appointment.
-  
+
   //- Leave review
   #leave-review.modal(tabindex='-1', role='dialog', aria-hidden='true', aria-labelledby='bookAppointmentLabel')
     .modal-backdrop.in(style='height: 100%;')
@@ -276,9 +283,9 @@ footer
         .modal-header
           button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
           h4#bookAppointmentLabel.modal-title
-            | Leave Review  
-            span.subtitle= practice.name  
-        
+            | Leave Review
+            span.subtitle= practice.name
+
         .caldetails(style='display: block;')
           form.review_form
             .modal-body
@@ -289,14 +296,14 @@ footer
                 input.txt-input(placeholder='Email address', name='email', type='email', value='', required='true')
                 .label Phone number
                 input.txt-input(placeholder='Phone number', name='form_phone', type='tel', value='', required='true')
-              
+
               .left
                 .label Rating
                 #review-rate(style="float:left")
                 .counter(style="float:left;background-color:#333;font-size:1.6em;color:#fff;border-radius:6px;float:left;margin 0 10px;padding:10px;height:36px;width:48px;text-align:center")
                 .label Your comments
                 textarea.txt-input(placeholder='Your comments', name='form_review', type='text', value='', style='width:240px;height:120px')
-                    
+
             .modal-footer
               input(name='form_rating', id='form_rating', type='hidden', value='0')
               button.btn-cancel(type='button', data-dismiss='modal') Cancel
@@ -311,9 +318,9 @@ footer
           h4#appointmentRequestLabel.modal-title Thank You
         .modal-body
           p(style="line-height: 180%")
-            | Thank you for your review. We will review your comments and get in touch to answer your questions. Please call our office 
-            span.apt-conf-phone at 
-            span= practice.phone  
+            | Thank you for your review. We will review your comments and get in touch to answer your questions. Please call our office
+            span.apt-conf-phone at
+            span= practice.phone
             |  if you have any questions.
           span.apt-conf-formlinks.apt-conf-formlinks2
           #positive-section(style="visibility:hidden")
@@ -326,6 +333,8 @@ footer
                 img(src='/assets/img/facebook-logo.png', style='width:140px;height:140px;border-radius:50%;margin:20px')
               a(href= practice.social.googleplus, target='_blank')
                 img(src='/assets/img/google_plus_logo.png', style='width:140px;height:140px;border-radius:50%;margin:20px')
-            
+
 script(src='/assets/js/widget.js')
 script(src='/assets/js/app.js')
+script(type='text/javascript' src='/assets/widgets/bookonline/index.js')
+
