@@ -287,27 +287,30 @@ footer
             span.subtitle= practice.name
 
         .caldetails(style='display: block;')
-          form.review_form
+          form.review_form.js-bookonline-form(data-callback="reviewSubmitCallback")
             .modal-body
               .left
                 .label Full name
-                input.txt-input(placeholder='Full name', name='form_name', type='text', value='', required='true')
+                input.txt-input(placeholder='Full name', name='fullname', type='text', value='', required='true')
                 .label Email address
                 input.txt-input(placeholder='Email address', name='email', type='email', value='', required='true')
                 .label Phone number
-                input.txt-input(placeholder='Phone number', name='form_phone', type='tel', value='', required='true')
+                input.txt-input(placeholder='Phone number', name='phone', type='tel', value='', required='true')
+                input(name="systype" type="hidden" value="message")
+                input(name="profileId" type="hidden" value=practice.mdocsProfile)
+
 
               .left
                 .label Rating
                 #review-rate(style="float:left")
                 .counter(style="float:left;background-color:#333;font-size:1.6em;color:#fff;border-radius:6px;float:left;margin 0 10px;padding:10px;height:36px;width:48px;text-align:center")
                 .label Your comments
-                textarea.txt-input(placeholder='Your comments', name='form_review', type='text', value='', style='width:240px;height:120px')
+                textarea.txt-input(placeholder='Your comments', name='description', type='text', value='', style='width:240px;height:120px')
 
             .modal-footer
-              input(name='form_rating', id='form_rating', type='hidden', value='0')
+              input(name='comment', id='form_rating', type='hidden', value='0')
               button.btn-cancel(type='button', data-dismiss='modal') Cancel
-              button.btn-book-now(type='submit', value='Submit Review', data-loading-msg='Submitting...', data-success-msg='Success!', data-error-msg='Error! Try again.', data-form-type='review') Submit Review
+              button.btn-book-now.js-bookonline-submit(type='submit', value='Submit Review', data-loading-msg='Submitting...', data-success-msg='Success!', data-error-msg='Error! Try again.', data-form-type='review') Submit Review
 
   #leave-review-ty.modal(tabindex='-1', role='dialog', aria-hidden='true', aria-labelledby='appointmentRequestLabel')
     .modal-backdrop.in(style='height: 100%;')

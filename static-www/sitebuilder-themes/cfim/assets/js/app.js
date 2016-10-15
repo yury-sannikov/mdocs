@@ -1306,3 +1306,13 @@ function contactSubmitCallback(maybeError) {
 
     }
 }
+
+function reviewSubmitCallback() {
+    var form = $(this);
+    form[0].reset();
+    hideReviewModal()
+    showReviewThankYouModal()
+    setTimeout(function() {
+        hideReviewThankYouModal()
+    }, 2000);
+}
