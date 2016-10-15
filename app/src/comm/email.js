@@ -23,9 +23,9 @@ exports.sendReviewRequest = function* (to, data) {
   var message = {
     from: 'PracticeWin <survey@app.mdocs.co>',
     to: to,
-    subject: `Patient Survey - ${data.title}`,
+    subject: `Patient Review Request - ${data.title}`,
     html: html,
-    inline: [logoPng, starsPng]
+    inline: [logoPng]
   };
   const messages = mailgun.messages();
   const sendAsync =  Promise.promisify(messages.send, {context: messages});
@@ -41,9 +41,9 @@ exports.sendLocationReviewRequest = function* (to, data) {
   var message = {
     from: 'PracticeWin <survey@app.mdocs.co>',
     to: to,
-    subject: `Patient Survey - ${data.title}`,
+    subject: `Patient Review Request - ${data.title}`,
     html: html,
-    inline: [logoPng, starsPng]
+    inline: [logoPng]
   };
   const messages = mailgun.messages();
   const sendAsync =  Promise.promisify(messages.send, {context: messages});
