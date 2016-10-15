@@ -10,6 +10,7 @@ section.practice.PARALLAX
     if !practice.hideHeaderInfo
       h1= practice.name
       h2= practice.description
+  .row(style="padding-top: 100px")
     if practice.multiOffice
       each office in practice.offices
         .span6.left(style="background-color: rgba(0,0,0,0.5); padding: 20px")

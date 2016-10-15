@@ -1321,12 +1321,23 @@ div.span4 {
     float: left
 }
 
-div.span6 {
+@media only screen and (min-width : 1025px) {
+  div.span6 {
     width: 50%;
     padding: 0;
     display: block;
-    float: left
+    float: left;
+  }
 }
+
+@media only screen and (max-width : 479px) {
+  div.span6 {
+    padding: 20px;
+    display: block;
+  }
+}
+
+
 
 div.span8 {
     width: 66%;
@@ -4920,7 +4931,7 @@ section.practice .row {
 }
 
 section.practice .row .span12 {
-    margin: 55px 0 70px
+  // margin: 55px 0 70px
 }
 
 @media only screen and (max-width : 1025px) {
