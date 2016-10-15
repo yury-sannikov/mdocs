@@ -38,10 +38,15 @@ function* notifyPracticeAdmins(profileId, obj) {
   let profile = yield profileById(profileId)
   profile = _.get(profile, '[0][0]', {})
 
-  if (profile.phone) {
-    yield sendSMS(profile.phone, text)
-  } else {
-    debug(`Profile ${profileId} has no phone associated`)
+  try {
+    if (profile.phone) {
+      yield sendSMS(profile.phone, text)
+    } else {
+      debug(`Profile ${profileId} has no phone associated`)
+    }
+  }
+  catch(e) {
+    debug('Error while sending SMS: ' + e)
   }
 
   const emailData = {
@@ -67,7 +72,12 @@ function* notifyPracticeAdmins(profileId, obj) {
 function* notifyPatient(profileId, phoneNo, email, text) {
   debug(`Notifying Patient of ${profileId} via ${phoneNo}: ${text}`)
 
-  yield sendSMS(phoneNo, text)
+  try {
+    yield sendSMS(phoneNo, text)
+  }
+  catch(e) {
+    debug('Error while sending SMS: ' + e)
+  }
 
   const emailData = {
     title: 'PracticeWin Appointment',
