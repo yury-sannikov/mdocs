@@ -125,7 +125,7 @@ exports.sendAppointmentEmail = function* (to, data) {
   var message = {
     from: 'PracticeWin <info@app.mdocs.co>',
     to: to,
-    subject: `New Appointment Request`,
+    subject: data.subject,
     html: html,
     inline: [logoPng]
   };

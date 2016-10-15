@@ -16,6 +16,24 @@ import { formatPhone } from '../belt'
 // import { sendStripeCallbackToSlack } from '../comm';
 
 const TIME_SLOT_MINUTES=30
+const SYSTYPE_APPOINTMENT = 'appointment'
+const SYSTYPE_MESSAGE = 'message'
+const SYSTYPE_SUBSCRIBE = 'subscribe'
+
+const SYSTYPE_DATA = {
+  [SYSTYPE_APPOINTMENT]: {
+    text: 'appointment',
+    capText: 'Appointment'
+  },
+  [SYSTYPE_MESSAGE]: {
+    text: 'message',
+    capText: 'Message'
+  },
+  [SYSTYPE_SUBSCRIBE]: {
+    text: 'subscription',
+    capText: 'Subscription'
+  },
+}
 
 const router = new Router({
   prefix: '/api/appointment'
@@ -31,7 +49,9 @@ router.options('/',  function*() {} )
 router.options('/*',  function*() {} )
 
 function* notifyPracticeAdmins(profileId, obj) {
-  const text = `New appointment for ${obj.fullname}, ${formatPhone(obj.phone)}`
+  const systypeData = SYSTYPE_DATA[obj.systype]
+
+  const text = `New ${systypeData.text} for ${obj.fullname}, ${formatPhone(obj.phone)}`
 
   debug(`Notifying Office Administrators of profile ${profileId}: ${text}`)
 
@@ -50,7 +70,9 @@ function* notifyPracticeAdmins(profileId, obj) {
   }
 
   const emailData = {
-    title: 'PacticeWin Appointment',
+    title: `PacticeWin ${systypeData.capText}`,
+    subject: `New ${systypeData.capText} Request`,
+    systypeData: systypeData,
     message: text,
     data: obj,
     createdDate: moment.utc(+obj.createdDate, 'X').local().format('MM/DD/YY h:mm a'),
@@ -105,7 +127,7 @@ function massageRequestObject(requestObject) {
     zip: requestObject.zip || '',
     comment: requestObject.comment || '',
     description: requestObject.description || requestObject.form_reason,
-    systype: requestObject.systype || 'appointment',
+    systype: requestObject.systype || SYSTYPE_APPOINTMENT,
     dob: requestObject.dob || requestObject.form_dob,
     visitdate: requestObject.visitdate || requestObject.form_date
   }
@@ -141,11 +163,14 @@ router.post('/', function*() {
   let obj = massageRequestObject(requestObject)
   const { visitDate } = obj
   delete obj.visitDate;
-  const id = yield createNewAppointment(requestObject.profileId, visitDate, obj)
+
+  if (obj.systype === SYSTYPE_APPOINTMENT) {
+    yield createNewAppointment(requestObject.profileId, visitDate, obj)
+    yield notifyPatient(requestObject.profileId, obj.phone, obj.email, 'Your appointment has been accepted for review. We will contact you shortly.')
+  }
 
   yield notifyPracticeAdmins(requestObject.profileId, obj)
-  yield notifyPatient(requestObject.profileId, obj.phone, obj.email, 'Your appointment has been accepted for review. We will contact you shortly.')
-  this.body = { ok: 1, id: id};
+  this.body = { ok: 1 };
 });
 
 router.get('/dashboard', function*() {
