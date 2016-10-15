@@ -1017,7 +1017,7 @@ html[xmlns] .slides {
 
 .btn-book-online, .btn-leave-review {
     padding: 0;
-    width: 200px;
+    width: 224px;
     height: 46px;
     color: #fff;
     font-size: 15px;
@@ -1042,8 +1042,7 @@ html[xmlns] .slides {
     -webkit-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
     -moz-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
     -ms-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-    margin-top: 5px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15)
 }
 
 .btn-book-online:hover {
@@ -1548,8 +1547,7 @@ span.mm-phone-number {
 }
 
 ul.booking-options {
-  display: inline-block;
-  padding: 0 20px;
+    display: inline-block
 }
 
 ul.booking-options:before,ul.booking-options:after {
@@ -1579,13 +1577,11 @@ ul.booking-options:before,ul.booking-options:after {
 
 ul.booking-options li {
     display: block;
-    // float: left
-    width: 120px;
+    float: left
 }
 
 ul.booking-options li + li {
-  // margin-right: 15px
-  width: 120px;
+    margin-left: 15px
 }
 
 @media only screen and (max-width : 1025px) {
@@ -2215,7 +2211,7 @@ body.SOLID section.doctor .row .span12.no-hero,body.SOLID section.practice .row 
 }
 
 #book-online .modal-dialog {
-  // width: 1036px
+  width: 1036px
 }
 
 #leave-review .modal-dialog {
@@ -6542,7 +6538,7 @@ section.slider .slide-content ol li.rating span {
     display: block;
     height: 21px;
     width: 21px;
-    background: #bf2f1b;
+    background: #f9a62e;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
@@ -7533,9 +7529,9 @@ input.btn-book-online:hover, input.btn-leave-review:hover, button.btn-book-onlin
     border : 1px solid #19b5fe;
 }
 
-// section.slider .slide-content ol li.rating span {
-//   background : #4183d7;
-// }
+section.slider .slide-content ol li.rating span {
+    background : #4183d7;
+}
 
 section.services .service-block .service a .service-border {
     border-color : #19b5fe;
@@ -7692,10 +7688,10 @@ section.providers-landing .provider-list-block:hover .provider-pic {
 }
 
 section.not-found .logo img, section.practice .logo img, section.practice-service figure img, section.practice-testimonials-landing figure img {
-  // border: 4px solid #fff;
-  // border-radius: 8px;
-  // border-width: 4px;
-  // background: #fff;
+    border: 4px solid #fff;
+    border-radius: 8px;
+    border-width: 4px;
+    background: #fff;
 }
 
 header nav ul li.pic a {

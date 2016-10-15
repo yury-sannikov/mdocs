@@ -1,0 +1,31 @@
+section.practice-service
+  .photo-layout.hero-media(style='display: block; background: url("/assets/img/1395837.jpg") 50% 0px / cover no-repeat;')
+    .cloak
+  include ../socialIcons.pug
+  .row
+    .left
+      figure
+        img(src=practice.logo.big, alt=practice.name, style="background: #fff; padding: 2px 10px; border-radius: 6px;")
+      h2= practice.name
+      h3= practice.description 
+      if !practice.multiOffice
+        |  located in  
+        span= practice.city
+        |, 
+        span= practice.state
+      .rating-summary
+        .star-rating.rating-xs.rating-disabled
+          .rating-container.rating-fa(data-content='★★★★★')
+            .rating-stars(data-content='★★★★★', style='width: 100%;')
+        .rating-total-reviews= reviews.length  
+          |  total reviews
+    .right
+      h1 Patient Reviews
+      .service-description=practice.name  
+        |  always appreciates feedback from our valued patients. To date, we’re thrilled to have collected dozens of positive reviews with an average rating of 4.5+ out of 5 stars. Please read what others are saying about us below, and as always, we would love to get your feedback.
+
+      ul.booking-options
+        li
+          button.btn-leave-review(type='button', data-practiceid='1', data-locationid='1')
+            | Leave Review
+    .clear-40

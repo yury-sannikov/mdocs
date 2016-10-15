@@ -1,0 +1,24 @@
+doctype html
+html(lang="en")
+  head
+    include ../partials/header.pug
+  body.PARALLAX
+    include ../partials/navbar.pug
+    include ../partials/raw/provider-header.pug
+    include ../partials/reviewsSmallFlexSlider.pug
+
+    section.meet.pinstripe(style='background-color: rgb(255, 255, 255);')
+      #social-crumb.row
+        .breadcrumb(itemprop='breadcrumb')
+          a(href='/')= practice.name
+          i.fa.fa-angle-right
+          a(href='/providers') Providers
+          i.fa.fa-angle-right
+          span= data.name
+      .row.type-short
+        != data.htmlContent
+        != contents
+
+    include ../partials/contact.pug
+    //- include ../partials/map.pug
+    include ../partials/footer.pug

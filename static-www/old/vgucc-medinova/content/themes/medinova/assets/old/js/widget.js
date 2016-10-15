@@ -132,7 +132,7 @@ $(document).ready(function() {
     showCalModal();
   });
 
-  $(".ppop_bookonline_action").click(function() {
+  $(".mdocs-book-appointment").click(function() {
     showCalModal();
   });
 
@@ -9705,7 +9705,7 @@ $(document).ready(function() {
 //             observe: function(method) {
 //                 if (method == null )
 //                     method = 'on';
-//                 MDOCS.$(".ppop_bookonline_action").on("click", MDOCS.ob.startBookOnline);
+//                 MDOCS.$(".mdocs-book-appointment").on("click", MDOCS.ob.startBookOnline);
 //                 MDOCS.$('#pp_booking #book-online').on('show.bs.modal', MDOCS.ob.resetSlider);
 //                 MDOCS.$("#pp_booking .modal-body input[name='newpatient']").on("change", MDOCS.ob.changedNewPatient);
 //                 MDOCS.$('#pp_booking #reason-section-1 select').on("change", MDOCS.ob.selectedReason);

@@ -1,0 +1,47 @@
+section.practice-service
+  .photo-layout.hero-media(style='display: block; background: url("/assets/img/1395837.jpg") 50% 0px / cover no-repeat;')
+    .cloak
+  include ../socialIcons.pug
+  .row
+    .left
+      figure
+        img(src=practice.logo.big, width='200', alt=practice.name, style="background: #fff; padding: 2px 10px; border-radius: 6px;")
+      h2= practice.name
+      h3= practice.description 
+      if !practice.multiOffice
+        |  located in  
+        span= practice.city
+        |, 
+        span= practice.state
+    .right
+      h1= data.header
+      .service-description= data.description
+      
+      //- if practice.multiOffice
+      //-   each office in practice.offices
+      //-     .span6
+      //-       h2= office.location
+      //-       h3= office.address
+      //-         br
+      //-         span= office.city
+      //-         |,  
+      //-         span= office.state
+      //-         |  
+      //-         span= office.zip
+      //-       ul.booking-options
+      //-         li
+      //-           a.btn-call(href= 'tel:' + office.phone)
+      //-             i.fa.fa-phone
+      //-             span.mm-phone-number.phoneupdated= office.phone
+      //-         li
+      //-           button.btn-book-online(type='button', dat-toggle='modal', dat-target='#book-online', data-practiceid='1', data-locationid='1')
+      //-             span= practice.ctaLabel
+    //-   ul.booking-options
+    //-     li
+    //-       a.btn-call(href= 'tel:' + practice.phone)
+    //-         i.fa.fa-phone
+    //-         span.mm-phone-number.phoneupdated= practice.phone
+    //-     li
+    //-       button.btn-book-online(type='button', data-practiceid='1', data-locationid='1')
+    //-         | Book Online
+    //- .clear-40

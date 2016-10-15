@@ -1,0 +1,52 @@
+<section class="contact pinstripe">
+  {{#if practice.multiOffice}}
+    {{#each practice.offices}}
+      <div class="row">
+        <div class="span4 left">
+          <div about="0" typeof="{&quot;type&quot;:&quot;MODULE&quot;, &quot;secondary_type&quot;: &quot;CONTACT&quot;, &quot;type_id&quot;: 9938, &quot;fieldname&quot;: &quot;location&quot;}">
+            <div property="fieldtext" class="contact-header">{{location}}</div>
+          </div>
+          <a href='https://www.google.com/maps?z=15&t=m&hl=en-US&gl=US&mapclient=embed&q={{address}}, {{city}}, {{state}} {{zip}}' target='_blank' style='color:#337ab7'>
+            <address>
+              <span property="streetAddress">{{address}}</span><br>
+              <span property="addressLocality">{{city}}, {{state}} {{zip}}</span><br>Phone: <span property="telephone" class="mm-phone-number phoneupdated">{{phone}}</span><br>
+            {{#if fax}}
+              <span property="fieldtext">Fax: </span></span><span property="fax">{{fax}}</span><br>
+            {{/if}}
+            Email: <span>{{email}}</span>
+            </address>
+          </a>
+          <br>
+          <a href="tel:{{phone}}" class="btn-call"><i class="fa fa-phone"></i><span class="mm-phone-number phoneupdated">{{phone}}</span></a>
+          <br>
+          <button type="button" data-locationid="1" class="btn-book-online small">{{../practice.ctaLabel}}</button>
+          
+        </div>
+        <div class="span4 middle">
+          <div about="0" typeof="{&quot;type&quot;:&quot;MODULE&quot;, &quot;secondary_type&quot;: &quot;CONTACT&quot;, &quot;type_id&quot;: 9938, &quot;fieldname&quot;: &quot;office-hours&quot;}">
+            <div property="fieldtext" class="contact-header">Office Hours</div>
+          </div>
+          <p>
+            <label>Monday<span>{{hours.mon}}</span></label>
+            <label>Tuesday<span>{{hours.tue}}</span></label>
+            <label>Wednesday<span>{{hours.wed}}</span></label>
+            <label>Thursday<span>{{hours.thu}}</span></label>
+            <label>Friday<span>{{hours.fri}}</span></label>
+            <label>Saturday<span>{{hours.sat}}</span></label>
+            <label>Sunday<span>{{hours.sun}}</span></label>
+          </p>
+          <br>
+          <span class="small" style="color: red">
+            For your convenience, select Saturday and evening hours available.
+          </span>
+        </div>
+        <div class="span4 right">
+          <div property="fieldtext" class="contact-header">Map</div>
+          <section class="map" style="height: 260px;">
+            <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB0lCrXUDO06oSqUynUXFhcmLvZfDS-E9c&amp;q={{address}}" allowfullscreen=""></iframe>
+          </section>
+        </div>
+      </div>
+    {{/each}}
+  {{/if}}
+</section>

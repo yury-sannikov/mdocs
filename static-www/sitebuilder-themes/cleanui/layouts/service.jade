@@ -8,7 +8,7 @@ html(lang="en")
     include ../partials/reviewsSmallFlexSlider.pug
 
 
-    section.service.pinstripe.content-page-content(style='background-color: rgb(245, 249, 249);')
+    section.service.pinstripe(style='background-color: rgb(245, 249, 249);')
       #social-crumb.row
         .span6
           .breadcrumb(itemprop='breadcrumb')
@@ -32,50 +32,15 @@ html(lang="en")
       .row
         .span12
           h4= data.name
-          .content-body(style="padding-top: 20px")
-            //- h3(style="color: #000; text-transform: uppercase") Diagnostic Vascular Ultrasound Lab
-            //- ul.part-of-content-page(style="padding: 0 0 0 60px")
-            //-   li Arterial and Venous, Upper and Lower Extremity
-            //-   li Upper Extremity Vein mapping
-            //-   li AAA, Carotid, Mesenteric Artery, Renal Artery
-            //-   li Dialysis Graft and Fistula Flow Velocity Surveillance
-            //- hr
-
-            //- h3(style="color: #000; text-transform: uppercase") Additional Procedures Offered
-            //- ul.part-of-content-page(style="padding: 0 0 0 60px")
-            //-   li 
-            //-     strong(style="color: #000") Back Pain:  
-            //-     |  Vertebroplasty, Kyphoplasty, and Epidural Injections
-            //-   li 
-            //-     strong(style="color: #000") Dialysis Access: 
-            //-     |  Dialysis Access Surveillance, Fistulagram, Declotting, Angioplasty, Stent Placement, Hemodialysis Tunnel Catheter Placement and Exchange, Peritoneal Dialysis Catheter Placement and Maintenance
-            //-   li 
-            //-     strong(style="color: #000") Gastrointestinal: 
-            //-     |  Gastrostomy and Gastro-Jejunostomy Tube Placements, Percutaneous Transhepatic Cholangiogram (PTC), Cholangioplasty and Stenting, Live Biopsies, Biliary Stone Removal, Cholecystostomy Catheter Placement
-            //-   li 
-            //-     strong(style="color: #000") Oncology: 
-            //-     | Chest Port Placement, Bone Marrow Aspiration and Biopsy
-            //-   li 
-            //-     strong(style="color: #000") Urology: 
-            //-     |  Nephrostomy Tube Placement and Exchange, Renal Biopsy, Varicocele Embolization
-            //-   li 
-            //-     strong(style="color: #000") Ultrasound Guided Biopsies: 
-            //-     |  Breast, thyroid, liver, kidneys, lymph nodes
-            //-   li 
-            //-     strong(style="color: #000") PICC Lines and Other Central Venous Access
-            
-            //- hr
-
-            //- p At CFIM, our physicians are among the most experienced in the entire region at performing these procedure. Call us today to schedule a free screening for this and other conditions at a CFIM office in northern Virginia (convenient to Springfield, Fairfax, Alexandria, Arlington, Woodbridge) or Maryland (convenient to  Waldorf, La Plata, Clinton). 
-            
-
+          //- a.author-tag(href='https://plus.google.com/102320204994320909014/about', target='_blank') Beverly Oaks Surgery
+          .details
             != data.htmlContent
             != contents
           button.btn-book-online.small(type='button', data-practiceid='1')
-            span= practice.ctaLabel
+            | Book Online
 
     //- include ../partials/insurance.pug
     include ../partials/reviewsBigFlexSlider.pug
     include ../partials/contact.pug
-    //- include ../partials/map.pug
+    include ../partials/map.pug
     include ../partials/footer.pug
