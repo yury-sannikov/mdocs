@@ -2,6 +2,8 @@
   init(window.jQuery, window, document);
 }(function($, window, document) {
 
+  var isLocalhost = window.location.hostname === 'localhost';
+  var apiUrl = isLocalhost ? 'http://localhost:3030/app/api/appointment' : 'https://app.mdocs.co/app/api/appointment'
   function submitForm(event) {
     event.preventDefault();
 
@@ -13,7 +15,7 @@
       return;
     }
 
-    var inputs = ['firstname', 'lastname', 'fullname', 'isnew',
+    var inputs = ['firstname', 'lastname', 'fullname', 'isnew', 'profileId',
       'email', 'phone', 'zip', 'comment', 'description', 'systype', 'dob', 'visitdate'];
     var data = {}
     $.each(inputs, function(i, v) {
@@ -24,15 +26,16 @@
     })
 
     var profileId = $('script[data-profileid]').data('profileid');
+    profileId = data.profileId || profileId
     if (!profileId) {
       invokeFormCallback(form, 'Unable to find account information.')
       return;
     }
     data.profileId = profileId;
-    console.log(data);
+   invokeFormCallback(form, data, '-beforesubmit')
 
     $.ajax({
-      url:'https://app.mdocs.co/app/api/appointment',
+      url: apiUrl,
       type: 'POST',
       data: JSON.stringify(data),
       crossDomain: true,
@@ -47,10 +50,11 @@
     });
   }
 
-  function invokeFormCallback(form, data) {
-    var callbackName = form.data('callback');
+  function invokeFormCallback(form, data, postfix) {
+    postfix = postfix || ''
+    var callbackName = form.data('callback'+postfix);
     if (callbackName && window[callbackName]) {
-      window[callbackName].call(data, data)
+      window[callbackName].call(form, data)
     }
   }
 
