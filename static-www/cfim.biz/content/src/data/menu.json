@@ -19,7 +19,7 @@
   },
   {
     "caption": "Fibroid Center",
-    "href": "#",
+    "href": "/services/uterine-fibroids",
     "content": [
       {
         "caption": "Uterine Fibroids",
@@ -37,11 +37,11 @@
     "content": [
       {
         "caption": "Locations",
-        "href": "/contact/locations"
+        "href": "/contact"
       },
       {
         "caption": "Free Screening",
-        "href": "/contact/free-screening"
+        "href": "/contact"
       },
       {
         "caption": "Patient Reviews",
@@ -49,7 +49,7 @@
       },
       {
         "caption": "Patient Forms",
-        "href": "/contact/patients"
+        "href": "/content/patient-forms"
       }
     ]
   }

@@ -28,7 +28,7 @@
         {
           "site": "Yelp",
           "title": "Ellington Paul D DDS",
-          "url": "https://www.yelp.com/biz/lansdowne-family-and-cosmetic-dentistry-lansdowne"
+          "url": "http://www.yelp.com/biz/ellington-paul-d-dds-sterling"
         },
         {
           "site": "YellowPages",
@@ -61,6 +61,118 @@
       "providerName": "Paul Ellington, DDS",
       "reviews": [],
       "address2": ""
+    },
+    {
+      "name": "Deborah Tabb, DDS",
+      "type": "Dentist",
+      "bias": 0,
+      "phone": "(301) 493-4204",
+      "address": "10215 FERNWOOD RD",
+      "zip": "20817-1106",
+      "sites": [
+        {
+          "site": "Google",
+          "title": "Bethesda Family Dentistry: Tabb Deborah K DDS",
+          "place_id": "ChIJlbMUI3fMt4kRdWS8SzQmdv4",
+          "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJlbMUI3fMt4kRdWS8SzQmdv4"
+        },
+        {
+          "site": "Vitals",
+          "title": "Dr. Deborah Tabb DDS, PC",
+          "url": "http://www.vitals.com/dentists/Dr_Deborah_Tabb"
+        },
+        {
+          "site": "RateMDs",
+          "title": "Dr. Deborah Tabb",
+          "url": "https://www.ratemds.com/doctor-ratings/162876/Dr-Deborah-Tabb-BETHESDA-MD.html"
+        },
+        {
+          "site": "Yelp",
+          "title": "Deborah Tabb, DDS",
+          "url": "http://www.yelp.com/biz/deborah-tabb-dds-bethesda"
+        },
+        {
+          "site": "MerchantCircle",
+          "title": "Tabb Deborah K DDS",
+          "url": "http://www.merchantcircle.com/tabb-deborah-k-dds1-bethesda-md"
+        },
+        {
+          "site": "Yahoo",
+          "title": "Deborah Tabb, DDS",
+          "url": "https://local.yahoo.com/info-12480847-deborah-tabb-dds-bethesda?stx=Deborah%20Tabb,%20DDS&csz=20817-1106&fr=lsrp"
+        },
+        {
+          "site": "YellowPages",
+          "title": "Tabb, Deborah K, DDS",
+          "url": "http://www.yellowpages.com/bethesda-md/mip/tabb-deborah-k-dds-496671103?lid=496671103"
+        }
+      ],
+      "yelpcategory": "dentists",
+      "city": "BETHESDA",
+      "state": "MD",
+      "country": "US",
+      "uuid": "8a47f9d5-59f1-48a1-bee5-f17bb4557315",
+      "key": "8a47f9d5-59f1-48a1-bee5-f17bb4557315-deborah-tabb",
+      "reportDate": "10/13/2016",
+      "providerName": "Deborah Tabb, DDS",
+      "reviews": [],
+      "address2": ""
+    },
+    {
+      "name": "Ivelisse Cuevas, DDS",
+      "type": "Dentist",
+      "bias": 0,
+      "phone": "(301) 493-4204",
+      "address": "10215 FERNWOOD RD",
+      "zip": "20817-1106",
+      "sites": [
+        {
+          "site": "Google",
+          "title": "Bethesda Family Dentistry: Cuevas Ivelisse C DDS",
+          "place_id": "ChIJlbMUI3fMt4kRmSoDOVA3ewc",
+          "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJlbMUI3fMt4kRmSoDOVA3ewc"
+        },
+        {
+          "site": "Vitals",
+          "title": "Dr. Ivelisse Cuevas DDS",
+          "url": "http://www.vitals.com/dentists/Dr_Ivelisse_Cuevas"
+        },
+        {
+          "site": "Yelp",
+          "title": "Cuevas Ivelisse, DDS",
+          "url": "http://www.yelp.com/biz/cuevas-ivelisse-dds-bethesda"
+        },
+        {
+          "site": "RateMDs",
+          "title": "Dr. Ivelisse Cuevas",
+          "url": "https://www.ratemds.com/doctor-ratings/3073236/Dr-IVELISSE-CUEVAS-Bethesda-MD.html"
+        },
+        {
+          "site": "YellowPages",
+          "title": "Ivelisse Cuevas",
+          "url": "http://www.yellowpages.com/rockville-md/mip/ivelisse-cuevas-514028986?lid=514028986"
+        },
+        {
+          "site": "MerchantCircle",
+          "title": "Cuevas Ivelsse DDS",
+          "url": "http://www.merchantcircle.com/cuevas-ivelsse-dds-bethesda-md"
+        },
+        {
+          "site": "Yahoo",
+          "title": "Cuevas Ivelisse, DDS",
+          "url": "https://local.yahoo.com/info-197638233-cuevas-ivelisse-dds-bethesda?stx=Ivelisse%20Cuevas,%20DDS&csz=20817-1106&fr=lsrp"
+        }
+      ],
+      "yelpcategory": "dentists",
+      "city": "BETHESDA",
+      "state": "MD",
+      "country": "US",
+      "providerName": "Ivelisse Cuevas, DDS",
+      "reviews": [],
+      "address2": "",
+      "uuid": "37797713-65ff-444e-b395-35b746d03f27",
+      "key": "37797713-65ff-444e-b395-35b746d03f27-ivelisse-cuevas",
+      "reportDate": "10/13/2016"
     }
   ]
 }

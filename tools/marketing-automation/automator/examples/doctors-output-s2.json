@@ -2,7 +2,7 @@
   {
     "name": "Paul Ellington, DDS",
     "type": "Dentist",
-    "bias": 3,
+    "bias": 0,
     "phone": "703-858-2380",
     "address": "44115 WOODRIDGE PKWY STE 280",
     "zip": "20176-5199",
@@ -55,7 +55,7 @@
     "country": "US",
     "uuid": "c9502a63-6943-41da-b45c-718cc54c2c6a",
     "key": "c9502a63-6943-41da-b45c-718cc54c2c6a-paul-ellington",
-    "reportDate": "09/25/2016",
+    "reportDate": "10/13/2016",
     "providerName": "Paul Ellington, DDS",
     "reviews": [
       {
@@ -63,8 +63,8 @@
         "siteName": "HEALTH GRADES",
         "siteUrl": "https://www.healthgrades.com/dentist/dr-paul-ellington-3bxfp",
         "addressAccurate": true,
-        "reviewCount": 2,
-        "rating": 5
+        "reviewCount": 0,
+        "rating": 0
       },
       {
         "siteId": "Vitals",
@@ -77,7 +77,7 @@
       {
         "siteId": "Yelp",
         "siteName": "YELP.COM",
-        "siteUrl": "https://www.yelp.com/biz/lansdowne-family-and-cosmetic-dentistry-lansdowne",
+        "siteUrl": "http://www.yelp.com/biz/ellington-paul-d-dds-sterling",
         "addressAccurate": true,
         "reviewCount": 0,
         "rating": 0
@@ -87,8 +87,8 @@
         "siteName": "RATEMDS.COM",
         "siteUrl": "https://www.ratemds.com/doctor-ratings/947153/Dr-Paul+D.-Rains-ELLINGTON-MO.html",
         "addressAccurate": true,
-        "reviewCount": 0,
-        "rating": 0
+        "reviewCount": 1,
+        "rating": 2.75
       },
       {
         "siteId": "YellowPages",
@@ -133,5 +133,342 @@
     ],
     "address2": "",
     "providerAddress": "44115 WOODRIDGE PKWY STE 280<br>LEESBURG, VA 20176-5199<br>703-858-2380"
+  },
+  {
+    "name": "Deborah Tabb, DDS",
+    "type": "Dentist",
+    "bias": 0,
+    "phone": "(301) 493-4204",
+    "address": "10215 FERNWOOD RD",
+    "zip": "20817-1106",
+    "sites": [
+      {
+        "site": "Google",
+        "title": "Bethesda Family Dentistry: Tabb Deborah K DDS",
+        "place_id": "ChIJlbMUI3fMt4kRdWS8SzQmdv4",
+        "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJlbMUI3fMt4kRdWS8SzQmdv4"
+      },
+      {
+        "site": "Vitals",
+        "title": "Dr. Deborah Tabb DDS, PC",
+        "url": "http://www.vitals.com/dentists/Dr_Deborah_Tabb"
+      },
+      {
+        "site": "RateMDs",
+        "title": "Dr. Deborah Tabb",
+        "url": "https://www.ratemds.com/doctor-ratings/162876/Dr-Deborah-Tabb-BETHESDA-MD.html"
+      },
+      {
+        "site": "Yelp",
+        "title": "Deborah Tabb, DDS",
+        "url": "http://www.yelp.com/biz/deborah-tabb-dds-bethesda"
+      },
+      {
+        "site": "MerchantCircle",
+        "title": "Tabb Deborah K DDS",
+        "url": "http://www.merchantcircle.com/tabb-deborah-k-dds1-bethesda-md"
+      },
+      {
+        "site": "Yahoo",
+        "title": "Deborah Tabb, DDS",
+        "url": "https://local.yahoo.com/info-12480847-deborah-tabb-dds-bethesda?stx=Deborah%20Tabb,%20DDS&csz=20817-1106&fr=lsrp"
+      },
+      {
+        "site": "YellowPages",
+        "title": "Tabb, Deborah K, DDS",
+        "url": "http://www.yellowpages.com/bethesda-md/mip/tabb-deborah-k-dds-496671103?lid=496671103"
+      }
+    ],
+    "yelpcategory": "dentists",
+    "city": "BETHESDA",
+    "state": "MD",
+    "country": "US",
+    "uuid": "8a47f9d5-59f1-48a1-bee5-f17bb4557315",
+    "key": "8a47f9d5-59f1-48a1-bee5-f17bb4557315-deborah-tabb",
+    "reportDate": "10/13/2016",
+    "providerName": "Deborah Tabb, DDS",
+    "reviews": [
+      {
+        "siteId": "Vitals",
+        "siteName": "VITALS.COM",
+        "siteUrl": "http://www.vitals.com/dentists/Dr_Deborah_Tabb",
+        "addressAccurate": true,
+        "reviewCount": 33,
+        "rating": 4
+      },
+      {
+        "siteId": "Yelp",
+        "siteName": "YELP.COM",
+        "siteUrl": "http://www.yelp.com/biz/deborah-tabb-dds-bethesda",
+        "addressAccurate": true,
+        "reviewCount": 8,
+        "rating": 2
+      },
+      {
+        "siteId": "RateMDs",
+        "siteName": "RATEMDS.COM",
+        "siteUrl": "https://www.ratemds.com/doctor-ratings/162876/Dr-Deborah-Tabb-BETHESDA-MD.html",
+        "addressAccurate": true,
+        "reviewCount": 26,
+        "rating": 4.43
+      },
+      {
+        "siteId": "YellowPages",
+        "siteName": "YELLOWPAGES.COM",
+        "siteUrl": "http://www.yellowpages.com/bethesda-md/mip/tabb-deborah-k-dds-496671103?lid=496671103",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "MerchantCircle",
+        "siteName": "MERCHANTCIRCLE.COM",
+        "siteUrl": "http://www.merchantcircle.com/tabb-deborah-k-dds1-bethesda-md",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "Yahoo",
+        "siteName": "LOCAL.YAHOO.COM",
+        "siteUrl": "https://local.yahoo.com/info-12480847-deborah-tabb-dds-bethesda?stx=Deborah%20Tabb,%20DDS&csz=20817-1106&fr=lsrp",
+        "addressAccurate": true,
+        "reviewCount": 8,
+        "rating": 2
+      },
+      {
+        "siteId": "Google",
+        "siteName": "GOOGLE.COM",
+        "siteUrl": "https://maps.google.com/?cid=18335884938936345717",
+        "addressAccurate": true,
+        "reviewCount": 5,
+        "rating": 4,
+        "reviews": [
+          {
+            "aspects": [
+              {
+                "rating": 0,
+                "type": "overall"
+              }
+            ],
+            "author_name": "Trushar Dungarani",
+            "author_url": "https://plus.google.com/102245395585044019969",
+            "language": "en",
+            "rating": 1,
+            "text": "Dr. Tabb did unnecessary dental work on my wife. Dr. Tabb claimed my wife had numerous cavities, unhealthy gums and a need for further procedures. After Dr. Tabb messed up an Onlay procedure, we went to get a second opinion. After seeing a dentist from the University of Maryland, we found out my wife never had any cavities in the first place, and didn't need any extra procedures besides a basic cleaning. She also did extra procedures on my wife that are only done on kids in rare situations. We paid a lot of money out of pocket. Dr. Tabb also didn't inform us about the extent of the procedures that needed to happen until she numbed her mouth up with lidocaine. The onlay procedure Dr. Tabb did for a tooth that was healthy is now a major problem for my wife and she has constant tooth pain even after trying to get it fixed with another dentist. An onlay is an outdated procedure that no one does any more. Dr. Tabb's office did refund some of our money only after filing a complaint with the Maryland Dental Board but my wife may have to live with the pain in her tooth unless she gets a more extensive procedure. Dr. Tabb seemed nice in person but  we were deceived by her initial demeanor. Dr. Tabb is getting away with unethical practices and malpractice.  As a physician, I would be terrified if anyone gets dental work done from her in the future.",
+            "time": 1459357559
+          },
+          {
+            "aspects": [
+              {
+                "rating": 3,
+                "type": "overall"
+              }
+            ],
+            "author_name": "Kathleen Fitzpatrick",
+            "author_url": "https://plus.google.com/107801733031875422512",
+            "language": "en",
+            "rating": 5,
+            "text": "My husband has a terrible phobia about going to the dentist. Dr. Tabb and all her staff are wonderfully understanding about this. They try to make his experience as pleasant as possible, and allow me to come in with him to hold his hand. We actually enjoy going here. I recommend Bethesda Family Dentistry without hesitation.",
+            "time": 1385864474
+          },
+          {
+            "aspects": [
+              {
+                "rating": 3,
+                "type": "overall"
+              }
+            ],
+            "author_name": "Bill James",
+            "author_url": "https://plus.google.com/108989507814303948346",
+            "language": "en",
+            "profile_photo_url": "//lh3.googleusercontent.com/-Rt0oe2RXVwE/AAAAAAAAAAI/AAAAAAAAATY/5K_eTe3g2CM/photo.jpg",
+            "rating": 5,
+            "text": "I've been in dental care of Dr. Tabb for almost two years, and have been well and extensively served by her. She has \"good hands\", sure judgement, a highly cooperative staff and a laser focus when performing oral procedures.  She provides clear advice about the benefits of doing and risks of not doing any treatments she recommends.  She has shown clear attention as to which procedures I would prefer to have her perform, and in what time frame. Some of what is on offer are entirely optional. As to those I have chosen to decline (Invisalign to straighten my teeth, night guard), I've been met with no resistance, only slight persistence on her part. She wholeheartedly serves in her vocation, which is apparently to remove sick tissue (cavities or teeth), while avoiding inflicting any pain. She's so good at it! Each person needs to draw the line at some level of service, but not everyone aspires to perfection. It is appropriate for any dentist to offer a full range of services, so long as those are apparently appropriate for an individual. She does everything very well. ",
+            "time": 1411671343
+          },
+          {
+            "aspects": [
+              {
+                "rating": 2,
+                "type": "overall"
+              }
+            ],
+            "author_name": "Reuel Smith",
+            "author_url": "https://plus.google.com/102275094439660641582",
+            "language": "en",
+            "profile_photo_url": "//lh6.googleusercontent.com/-bStoIZhqNJw/AAAAAAAAAAI/AAAAAAAAAVo/gqsFnsJll-Q/photo.jpg",
+            "rating": 4,
+            "text": "I've been going to Dr. Tabb for many years now and overall it has been a positive experience!  She has a friendly and helpful staff once you know them them long enough and they try to make your experience a positive one.",
+            "time": 1442859949
+          },
+          {
+            "aspects": [
+              {
+                "rating": 3,
+                "type": "overall"
+              }
+            ],
+            "author_name": "Billy Moore",
+            "author_url": "https://plus.google.com/100857959634053641897",
+            "language": "en",
+            "rating": 5,
+            "text": "Deborah Tabb has been my dentist for six years following decades of dental neglect.  She gave me a plan for repairing my teeth and has treated me with care and respect.  She deals effectively with my fears and is careful to avoid pain.  On top of that, her services are affordable.  You can depend on Dr. Tabb.",
+            "time": 1347629571
+          }
+        ],
+        "locationDetails": {
+          "lat": 39.0240563,
+          "lng": -77.1348008
+        },
+        "website": "http://www.bethesdafamilydentistry.com/",
+        "phone": [
+          "(301) 493-4204",
+          "+1 301-493-4204"
+        ]
+      }
+    ],
+    "address2": "",
+    "providerAddress": "10215 FERNWOOD RD<br>BETHESDA, MD 20817-1106<br>(301) 493-4204"
+  },
+  {
+    "name": "Ivelisse Cuevas, DDS",
+    "type": "Dentist",
+    "bias": 0,
+    "phone": "(301) 493-4204",
+    "address": "10215 FERNWOOD RD",
+    "zip": "20817-1106",
+    "sites": [
+      {
+        "site": "Google",
+        "title": "Bethesda Family Dentistry: Cuevas Ivelisse C DDS",
+        "place_id": "ChIJlbMUI3fMt4kRmSoDOVA3ewc",
+        "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJlbMUI3fMt4kRmSoDOVA3ewc"
+      },
+      {
+        "site": "Vitals",
+        "title": "Dr. Ivelisse Cuevas DDS",
+        "url": "http://www.vitals.com/dentists/Dr_Ivelisse_Cuevas"
+      },
+      {
+        "site": "Yelp",
+        "title": "Cuevas Ivelisse, DDS",
+        "url": "http://www.yelp.com/biz/cuevas-ivelisse-dds-bethesda"
+      },
+      {
+        "site": "RateMDs",
+        "title": "Dr. Ivelisse Cuevas",
+        "url": "https://www.ratemds.com/doctor-ratings/3073236/Dr-IVELISSE-CUEVAS-Bethesda-MD.html"
+      },
+      {
+        "site": "YellowPages",
+        "title": "Ivelisse Cuevas",
+        "url": "http://www.yellowpages.com/rockville-md/mip/ivelisse-cuevas-514028986?lid=514028986"
+      },
+      {
+        "site": "MerchantCircle",
+        "title": "Cuevas Ivelsse DDS",
+        "url": "http://www.merchantcircle.com/cuevas-ivelsse-dds-bethesda-md"
+      },
+      {
+        "site": "Yahoo",
+        "title": "Cuevas Ivelisse, DDS",
+        "url": "https://local.yahoo.com/info-197638233-cuevas-ivelisse-dds-bethesda?stx=Ivelisse%20Cuevas,%20DDS&csz=20817-1106&fr=lsrp"
+      }
+    ],
+    "yelpcategory": "dentists",
+    "city": "BETHESDA",
+    "state": "MD",
+    "country": "US",
+    "providerName": "Ivelisse Cuevas, DDS",
+    "reviews": [
+      {
+        "siteId": "Vitals",
+        "siteName": "VITALS.COM",
+        "siteUrl": "http://www.vitals.com/dentists/Dr_Ivelisse_Cuevas",
+        "addressAccurate": true,
+        "reviewCount": 2,
+        "rating": 3
+      },
+      {
+        "siteId": "Yelp",
+        "siteName": "YELP.COM",
+        "siteUrl": "http://www.yelp.com/biz/cuevas-ivelisse-dds-bethesda",
+        "addressAccurate": true,
+        "reviewCount": 1,
+        "rating": 5
+      },
+      {
+        "siteId": "RateMDs",
+        "siteName": "RATEMDS.COM",
+        "siteUrl": "https://www.ratemds.com/doctor-ratings/3073236/Dr-IVELISSE-CUEVAS-Bethesda-MD.html",
+        "addressAccurate": true,
+        "reviewCount": 4,
+        "rating": 4.13
+      },
+      {
+        "siteId": "YellowPages",
+        "siteName": "YELLOWPAGES.COM",
+        "siteUrl": "http://www.yellowpages.com/rockville-md/mip/ivelisse-cuevas-514028986?lid=514028986",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "MerchantCircle",
+        "siteName": "MERCHANTCIRCLE.COM",
+        "siteUrl": "http://www.merchantcircle.com/cuevas-ivelsse-dds-bethesda-md",
+        "addressAccurate": true,
+        "reviewCount": 0,
+        "rating": 0
+      },
+      {
+        "siteId": "Yahoo",
+        "siteName": "LOCAL.YAHOO.COM",
+        "siteUrl": "https://local.yahoo.com/info-197638233-cuevas-ivelisse-dds-bethesda?stx=Ivelisse%20Cuevas,%20DDS&csz=20817-1106&fr=lsrp",
+        "addressAccurate": true,
+        "reviewCount": 1,
+        "rating": 5
+      },
+      {
+        "siteId": "Google",
+        "siteName": "GOOGLE.COM",
+        "siteUrl": "https://maps.google.com/?cid=539085398094326425",
+        "addressAccurate": true,
+        "reviewCount": 1,
+        "rating": 5,
+        "reviews": [
+          {
+            "aspects": [
+              {
+                "rating": 3,
+                "type": "overall"
+              }
+            ],
+            "author_name": "Deidre Jackson",
+            "author_url": "https://plus.google.com/105900956040333225553",
+            "language": "en",
+            "profile_photo_url": "//lh4.googleusercontent.com/-x-cCdjxIlDs/AAAAAAAAAAI/AAAAAAAAADY/IKHgp6e-BqE/photo.jpg",
+            "rating": 5,
+            "text": "Here's the deal about Dr. Cuevas.  Six (6) years ago I came to DC and she became my dentist.  The first thing she did was to take a full set of x-rays and a head scan to get a complete picture of all of the \"stuff\" happening in my mouth.  We discussed the results and then we entered into a long term partnership to correct/fix/improve each piece of \"stuff\" one step at a time.  First the silver fillings were replaced with white porcelain once, than the cavities were filled, than came the root canal, and lastly, the tooth replacement.  Dr. Cuevas worked with me to ensure the timing of each action wouldn't place a financial burden on me (great...right??). So today I have a healthy, attractive month, which has increased my confidence.  All of this happened because six years ago Dr. Cuevas said Hello ... I'm here to help you. ",
+            "time": 1430101189
+          }
+        ],
+        "locationDetails": {
+          "lat": 39.04790599999999,
+          "lng": -77.12060269999999
+        },
+        "website": "http://www.bethesdafamilydentistry.com/",
+        "phone": [
+          "(240) 221-3602",
+          "+1 240-221-3602"
+        ]
+      }
+    ],
+    "address2": "",
+    "uuid": "37797713-65ff-444e-b395-35b746d03f27",
+    "key": "37797713-65ff-444e-b395-35b746d03f27-ivelisse-cuevas",
+    "reportDate": "10/13/2016",
+    "providerAddress": "10215 FERNWOOD RD<br>BETHESDA, MD 20817-1106<br>(301) 493-4204"
   }
 ]

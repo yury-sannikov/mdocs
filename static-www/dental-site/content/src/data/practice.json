@@ -10,6 +10,9 @@
   "fax": "301-493-4204",
   "email": "info@bethesdafamilydentistry.com",
   "mdocsAccount": "auth0|5730859648acddc43e8caee3",
+  "multiOffice": false,
+  "hideHeaderInfo": false,
+  "ctaLabel": "Book Now",
   "logo": {
     "small": "/assets/img/logo_small.png",
     "big": "/assets/img/logo_big.png"

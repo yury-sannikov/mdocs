@@ -1,5 +1,5 @@
 section.practice.PARALLAX
-  .photo-layout.hero-media(style='display: block; background: url("/assets/img/1395837.png") 50% 0px / cover no-repeat;')
+  .photo-layout.hero-media(style='display: block; background: url("/assets/img/1395837.jpg") 50% 0px / cover no-repeat;')
     //- .cloak
   include ../socialIcons.pug
   .row
@@ -12,7 +12,7 @@ section.practice.PARALLAX
       h2= practice.description
     if practice.multiOffice
       each office in practice.offices
-        .span6.left(style="background-color: rgba(128,128,128,0.7); padding: 20px")
+        .span6.left(style="background-color: rgba(0,0,0,0.5); padding: 20px")
           h1= office.location
           h2= office.address
             br
