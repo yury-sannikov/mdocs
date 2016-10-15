@@ -1,3 +1,9 @@
+/*
+systype - system message type
+empty or 'appointment' - appointment. Goes to appointment list
+subscribe - subscription request from web site
+message - patient message from web site
+*/
 (function(init) {
   init(window.jQuery, window, document);
 }(function($, window, document) {
