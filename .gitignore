@@ -44,3 +44,5 @@ app/src/.env_backup
 app/src/__sitebuilder
 tmp/
 
+static-www/sitebuilder-themes/urgent-care/layouts/test.pug
+vgucc/content/src/test.html
