@@ -12,37 +12,14 @@ html(lang="en")
               .the_list_wrap
                 .the_list_item_heads
                 #gform_wrapper_2.gf_browser_safari.gform_wrapper
-                  form#gform_2.ng-pristine.ng-valid.js-bookonline-form(action='', data-callback='makeappointmentform_submit', method='post')
-                    .gform_heading
-                      h3.gform_title Contact Us
-                      span.gform_description
-                    .gform_body
-                      ul#gform_fields_2.gform_fields.top_label.form_sublabel_below.description_below
-                        li#field_2_1.gfield.gfield_contains_required.field_sublabel_below.field_description_below
-                          label.gfield_label(for='input_2_1')
-                            | Name
-                            span.gfield_required *
-                          .ginput_container.ginput_container_text
-                            input#input_2_1.medium(name='fullname', type='text', value='', tabindex='2')
-                        li#field_2_2.gfield.gfield_contains_required.field_sublabel_below.field_description_below
-                          label.gfield_label(for='input_2_2')
-                            | Phone Number
-                            span.gfield_required *
-                          .ginput_container.ginput_container_text
-                            input#input_2_2.medium(name='phone', type='text', value='', tabindex='3')
-                        li#field_2_6.gfield.gfield_contains_required.field_sublabel_below.field_description_below
-                          label.gfield_label(for='input_2_6')
-                            | Email
-                            span.gfield_required *
-                          .ginput_container.ginput_container_email
-                            input#input_2_6.medium(name='email', type='text', value='', tabindex='4')
-                        li#field_2_4.gfield.gfield_contains_required.field_sublabel_below.field_description_below
-                          label.gfield_label(for='input_2_4')
-                            | Message
-                            span.gfield_required *
-                          .ginput_container.ginput_container_textarea
-                            textarea#input_2_4.textarea.medium(name='message', tabindex='5', rows='10', cols='50')
-                      input.js-bookonline-submit(type='submit', value='Submit', tabindex='6')
+                  form.js-bookonline-form(action='', data-callback='makeappointmentform_submit', method='post')
+                    input(name='fullname', type='text')
+                    br 
+                    input(name='phone', type='text')
+                    br
+                    input(name='email', type='text')
+                    br
+                    input.js-bookonline-submit(type='submit', value='Submit')
 
         .section.w232
           .list_block.type_article.a1.column_amt_3.landscape_4_3.small.xsmall.not_well
@@ -50,5 +27,5 @@ html(lang="en")
               .the_list_wrap
                 .the_list_item_heads
                   h3.the_list_item_headline.hds_color Fax: 703-754-1211
-    script(type='text/javascript', src='/assets/widgets/bookonline/index.js', data-profileid=practice.mdocsProfile)
+    script(type='text/javascript', src='/assets/widgets/bookonline/index.js', data-profileid=practice.mdocsAccount)
     include ../partials/footer.pug

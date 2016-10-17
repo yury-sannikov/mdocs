@@ -38,7 +38,8 @@ message - patient message from web site
       return;
     }
     data.profileId = profileId;
-   invokeFormCallback(form, data, '-beforesubmit')
+    console.log(data);
+    invokeFormCallback(form, data, '-beforesubmit')
 
     $.ajax({
       url: apiUrl,
