@@ -20,55 +20,55 @@
     "submenu": [
       {
         "caption": "Asthma",
-        "href": "/content/asthma"
+        "href": "/patient-education/asthma"
       },
       {
         "caption": "Diabetes",
-        "href": "/content/diabetes"
+        "href": "/patient-education/diabetes"
       },
       {
         "caption": "Flu",
-        "href": "/content/flu"
+        "href": "/patient-education/flu"
       },
       {
         "caption": "Glaucoma",
-        "href": "/content/Glaucoma"
+        "href": "/patient-education/Glaucoma"
       },
       {
         "caption": "Hepatitis B Immunization",
-        "href": "/content/hepatitis-b-immunization"
+        "href": "/patient-education/hepatitis-b-immunization"
       },
       {
         "caption": "Homocysteine",
-        "href": "/content/homocysteine"
+        "href": "/patient-education/homocysteine"
       },
       {
         "caption": "Hypertension",
-        "href": "/content/hypertension"
+        "href": "/patient-education/hypertension"
       },
       {
         "caption": "Impotence",
-        "href": "/content/impotence"
+        "href": "/patient-education/impotence"
       },
       {
         "caption": "Lasik Eye Surgery",
-        "href": "/content/lasik-eye-surgery"
+        "href": "/patient-education/lasik-eye-surgery"
       },
       {
         "caption": "Obesity",
-        "href": "/content/obesity"
+        "href": "/patient-education/obesity"
       },
       {
         "caption": "Prostate Cancer",
-        "href": "/content/prostate-cancer"
+        "href": "/patient-education/prostate-cancer"
       },
       {
         "caption": "Thyroid Disorder",
-        "href": "/content/thyroid-disorder"
+        "href": "/patient-education/thyroid-disorder"
       },
       {
         "caption": "Sleep Apnea",
-        "href": "/content/sleep-apnea"
+        "href": "/patient-education/sleep-apnea"
       }
     ]
   },
