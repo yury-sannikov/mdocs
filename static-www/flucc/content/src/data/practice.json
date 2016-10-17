@@ -1,0 +1,36 @@
+{
+  "themeId": "uc-0",
+  "name": "Fair Lakes Urgent Care Center",
+  "description": "COME TO FAIR LAKES URGENT CARE OF FAIRFAX TODAY",
+  "address": "12713 Shoppes Lane",
+  "city": "Fairfax",
+  "state": "VA",
+  "zip": "22033",
+  "latlon": "38.795186, -77.610519",
+  "phone": "703-222-3555",
+  "fax": "703-222-8430",
+  "email": "info@flucc.com",
+  "mdocsAccount": "ed731362-8bcb-4a50-9486-c594df7c1237",
+  "logo": {
+    "small": "/assets/images/logo.png",
+    "big": "/assets/images/logo.png"
+  },
+  "hours": {
+    "mon": "9:00am - 5:00pm",
+    "tue": "9:00am - 5:00pm",
+    "wed": "9:00am - 5:00pm",
+    "thu": "9:00am - 5:00pm",
+    "fri": "9:00am - 5:00pm",
+    "sat": "Closed",
+    "sun": "Closed"
+  },
+  "social": {
+    "twitter": "",
+    "facebook": "",
+    "googleplus": "",
+    "yelp": ""
+  },
+   "widgets": {
+    "bookonline": true
+  }
+}

@@ -1,0 +1,234 @@
+//- Start main-content
+.main-content
+  
+  //- Section: home
+  section#home.divider.fullscreen(data-bg-img='http://placehold.it/1920x1280')
+    .maximage-slider
+      #maximage
+        img(src='/assets/images/slider1.jpg', alt= practice.name)
+        img(src='/assets/images/slider2.jpg', alt= practice.name)
+        img(src='/assets/images/slider3.jpg', alt= practice.name)
+        img(src='/assets/images/slider4.jpg', alt= practice.name)
+        img(src='/assets/images/slider5.jpg', alt= practice.name)
+        img(src='/assets/images/slider6.jpg', alt= practice.name)
+      .fullscreen-controls
+        a.img-prev
+          i.pe-7s-angle-left
+        a.img-next
+          i.pe-7s-angle-right
+    .display-table
+      .display-table-cell
+        .container.pb-0
+          .row.equal-height-inner
+            .col-md-4.mb-sm-60
+              .feature-icon-box.bg-theme-colored
+                .p-30
+                  .feature-icon.bg-theme-colored
+                    i.fa.fa-heartbeat.text-white.font-30
+                  h6.text-uppercase.text-white Get the Medical Care You Need Right Away!
+                  h4.text-uppercase.text-white Services
+                  p.text-white
+                    | Whether you have a scheduled screening or a medical emergency, you’ll receive exceptional care from our medical staff. We provide prompt assistance for both appointments and walk-ins, so you can rest easy knowing you’ll be taken care of right away.
+                  a.btn.p-0.text-white.mt-15(href='#')
+                    | Contact Us
+                    i.fa.fa-angle-double-right.ml-5
+
+            .col-md-8
+              .text-center
+                h3.text-uppercase.text-white.bg-dark-transparent-light.font-30.inline-block.pl-30.pr-30.mb-5.pt-5.pb-5 Get the Medical Care You Need
+                h1.text-uppercase.text-white.mt-0.inline-block.bg-theme-colored-transparent.pl-40.pr-40.pt-5.pb-5.font-42 Right Away
+
+  section#intro
+    .container.pb-0
+      .row
+        .col-md-8
+          h4.sub-title Visit Virginia Gateway Urgent Care Center for assistance
+          h2.title Get the Medical Care You Need Right Away!
+
+          p Dealing with a minor wound or injury? Want to screen for any potential health issues? In need of a physical before starting a brand new job? Get the medical attention you need at 
+            a.text-theme-colored(href="../about/") Virginia Gateway Urgent Care Center in Gainesville
+            | . Since 2011, our knowledgeable staff and doctors have been the top choice for many individuals in need of comprehensive medical care. We offer a  
+            a.text-theme-colored(href="../services/") range of general health care services as well as medical emergency assistance
+            | . Get the care you need immediately – 
+            a.text-theme-colored(href="../contact/") come to Virginia Gateway Urgent Care Center 
+            |  for treatment as soon as possible.
+                  
+          h3 Quick assistance for walk-ins and appointments
+          p Whether you have a scheduled screening or a medical emergency, you’ll receive exceptional care from our medical staff. We provide prompt assistance for both appointments and walk-ins, so you can rest easy knowing you’ll be taken care of right away.
+            a.text-theme-colored(href="../contact/") Schedule an appointment with our specialists 
+            |  for screenings, physicals, x-rays, etc. by calling 703-754-9111, or come by our facility anytime for urgent medical care in Gainesville.
+
+          h3 Come to Virginia Gateway for high-quality services
+          p At 
+            a.text-theme-colored(href="../about/") Virginia Gateway Urgent Care
+            | , we have outstanding equipment and other available resources at our facility. You will receive great care from our specialists that exceeds your expectations of quality health care services. We provide a handful of the following services for those in need:
+
+          .row
+            .col-md-12.col-md-offset-1
+              ul.list.theme-colored.check
+                li Urgent care
+                li Pre-employment physical exams
+                li On-site X-rays
+                li Drug screening &amp; testing
+                li Physicals
+                li Immigration
+                li Aviation
+                li DOT Physicals
+
+          p Don’t compromise on care – get the absolute best from the team at Virginia Gateway Urgency Care. You can use this website to get an overview of our general services. Then contact or come by right away for exceptional medical care at our urgent care in Gainesville.
+        .col-md-4
+          .text-center
+            h2.font-playfair.text-uppercase.mt-0.mb-10 Find Us
+            img.mb-10(src='/assets/images/title-icon.png', alt='')
+          .map-canvas.autoload-map(data-address= practice.address, data-popupstring-id='#popupstring1', data-mapstyle='style2', data-height='420', data-latlng= practice.latlon, data-title='Practice Address', data-zoom='12', data-marker='/assets/images/map-marker.png')
+            #popupstring1.map-popupstring.hidden
+              .text-center
+                h4= practice.name
+                p= practice.address
+                  br
+                  span= practice.city 
+                  |, 
+                  span= practice.state
+                  |  
+                  span= practice.zip
+                  br
+                  | Phone:  
+                  span= practice.phone
+                  br
+                  | Fax: 
+                  span= practice.fax
+                  br
+                  | Email: 
+                  span= practice.email
+            script(src='http://maps.google.com/maps/api/js?key=AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4')
+            script(src='/assets/js/google-map-init.js')
+          br
+          br
+          h4.text-theme-colored.line-bottom.mt-0.mb-30.mt-sm-20 GET IN TOUCH
+          p
+            | Please use the form below to get in touch with us. One of our staff members will contact you shortly.
+          //- Contact Form
+          form#contact_form(name='contact_form', action='includes/sendmail.php', method='post')
+            .row
+              .col-sm-6
+                .form-group.mb-30
+                  input#form_name.form-control(name='form_name', type='text', placeholder='Enter Name', required='')
+              .col-sm-6
+                .form-group.mb-30
+                  input#form_email.form-control.required.email(name='form_email', type='email', placeholder='Enter Email')
+            .row
+              .col-sm-6
+                .form-group.mb-30
+                  input#form_subject.form-control.required(name='form_subject', type='text', placeholder='Enter Subject')
+              .col-sm-6
+                .form-group.mb-30
+                  input#form_phone.form-control(name='form_phone', type='text', placeholder='Enter Phone')
+            .form-group.mb-30
+              textarea#form_message.form-control.required(name='form_message', rows='5', placeholder='Enter Message')
+            .form-group.mb-30
+              input#form_botcheck.form-control(name='form_botcheck', type='hidden', value='')
+              button.btn.btn-dark.btn-theme-colored.btn-flat(type='submit', data-loading-text='Please wait...') Submit
+
+  //- Section: Services
+  section#services.text-center
+    .container.pb-50
+      .section-title.icon-bg
+        .row
+          .col-md-6.col-md-offset-3.text-center
+            h2.font-playfair.text-uppercase.mt-0.mb-10 Services
+            img.mb-10(src='/assets/images/title-icon.png', alt='')
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi molestiae autem fugit illo ipsa numquam, quod iusto enim.
+      .section-content
+        .row.features-style1
+          .col-sm-4
+            .icon-box.p-30.mb-30.border-3px
+              a(href='#')
+                i.icon-ambulance14.text-theme-colored
+              .features-details
+                h5 Urgent Care
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum consectetur sit ullam perspiciatis, deserunt.
+              a.font-opensans.mt-30.inline-block.text-theme-colored(href='#')  Read More
+          .col-sm-4
+            .icon-box.p-30.mb-30.border-3px
+              a(href='#')
+                i.icon-illness.text-theme-colored
+              .features-details
+                h5 Physical Exams
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum consectetur sit ullam perspiciatis, deserunt.
+              a.font-opensans.mt-30.inline-block.text-theme-colored(href='#')  Read More
+          .col-sm-4
+            .icon-box.p-30.mb-30.border-3px
+              a(href='#')
+                i.icon-hurted.text-theme-colored
+              .features-details
+                h5 Wound care
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum consectetur sit ullam perspiciatis, deserunt.
+              a.font-opensans.mt-30.inline-block.text-theme-colored(href='#')  Read More
+          .col-sm-4
+            .icon-box.p-30.mb-30.border-3px
+              a(href='#')
+                i.icon-xray2.text-theme-colored
+              .features-details
+                h5 On-site X-Rays
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum consectetur sit ullam perspiciatis, deserunt.
+              a.font-opensans.mt-30.inline-block.text-theme-colored(href='#')  Read More
+          .col-sm-4
+            .icon-box.p-30.mb-30.border-3px
+              a(href='#')
+                i.icon-hospital35.text-theme-colored
+              .features-details
+                h5 Drug Screenings
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum consectetur sit ullam perspiciatis, deserunt.
+              a.font-opensans.mt-30.inline-block.text-theme-colored(href='#')  Read More
+          .col-sm-4
+            .icon-box.p-30.mb-30.border-3px
+              a(href='#')
+                i.icon-medical48.text-theme-colored
+              .features-details
+                h5 Audiometry
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum consectetur sit ullam perspiciatis, deserunt.
+              a.font-opensans.mt-30.inline-block.text-theme-colored(href='#')  Read More
+  
+  //- Section: Testimonials
+  section.divider.parallax.layer-overlay.overlay-light(data-stellar-background-ratio='0.5', data-bg-img='/assets/images/happy-patients.jpg')
+    .container
+      .row
+        .col-md-8.col-md-offset-2
+          .testimonial.testimonial-carousel1
+            .item
+              .testimonial-wrapper.text-center
+                .thumb
+                  img.img-circle(alt='', src='/assets/images/amy.jpg')
+                .content.pt-10
+                  p.lead
+                    | This was one of the best experiences that I had in a medical facility. All doctors were professional and the staff was friendly.
+                  i.fa.fa-quote-right.font-36.mt-10.text-gray-lightgray
+                  h5.author.text-theme-colored.mb-0 Melanie J.
+                  h6.title.text-gray.mt-0.mb-15 Gainesville, VA
+            .item
+              .testimonial-wrapper.text-center
+                .thumb
+                  img.img-circle(alt='', src='/assets/images/michelle.jpg')
+                .content.pt-10
+                  p.lead
+                    | I am just over joyed the wonderful service I received the Doctor was very knowledgeable and made sure I was throughly better. The lady working the Front desk love her the nurse taking my vitals genuine. I definitely will return. No doubt. 
+                  i.fa.fa-quote-right.font-36.mt-10.text-gray-lightgray
+                  h5.author.text-theme-colored.mb-0 Darnette P.
+                  h6.title.text-gray.mt-0.mb-15 Fayeteville, VA
+            .item
+              .testimonial-wrapper.text-center
+                .thumb
+                  img.img-circle(alt='', src='/assets/images/sam.jpg')
+                .content.pt-10
+                  p.lead
+                    | Fast and knowledgeable in regards to USCIS green card medical procedures. My wife was missing one vaccine from her fiance visa back home. They were very helpful in getting the paperwork completed and the missing vaccine applied for a low price. Other places wanted to redo the entire paperwork and charge tons of money.
+                  i.fa.fa-quote-right.font-36.mt-10.text-gray-lightgray
+                  h5.author.text-theme-colored.mb-0 Sam S.
+                  h6.title.text-gray.mt-0.mb-15 Purvelleville, VA

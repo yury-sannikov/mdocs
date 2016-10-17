@@ -1,0 +1,60 @@
+{
+  "menuCaption": "Providers",
+  "menuIconClass": "si si-user-female",
+  "titleRef": "name",
+  "listProps": [
+    {
+      "title": "Provider",
+      "ref": "name",
+      "css": ""
+    },
+    {
+      "title": "Header",
+      "ref": "header",
+      "css": "hidden-xs"
+    },
+    {
+      "title": "Description",
+      "ref": "description",
+      "css": "hidden-xs"
+    }
+  ],
+  "schema": {
+    "type": "object",
+    "title": "",
+    "properties": {
+      "name": {
+        "title": "Provider Name",
+        "type": "string"
+      },
+      "header": {
+        "title": "Provider Page Header",
+        "type": "string"
+      },
+      "thumbnail": {
+        "title": "Provider Thumbnail",
+        "type": "string"
+      },
+      "description": {
+        "title": "Provider Page Description",
+        "type": "string"
+      },
+      "htmlContent": {
+        "title": "Provider Page Content",
+        "input_height":"200px",
+        "type": "string",
+        "format": "html",
+        "options": {
+          "wysiwyg": true
+        }
+      }
+    }
+  },
+  "defaults": {
+    "name": "John Smith",
+    "header": "An Awesome Doctor",
+    "thumbnail": "",
+    "description": "Provider Description",
+    "htmlContent": "<p>HTML Content Goes Here.</p>"
+  }
+}
