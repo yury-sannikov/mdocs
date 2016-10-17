@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+  head
+    include ../partials/header.pug
+  body.PARALLAX
+    include ../partials/navbar.pug
+    .main-content(style='margin:10px;')
+      .container
+        section.pb-60
+          .section-content
+            img.item_image(style='width: 50%;margin: 25px;', alt='#{data.title}', data-src=' border=', src='/assets/images/'+ data.img).pull-right
+            != data.htmlContent
+            .call-to-action.pt-10.pb-30.mt-60.border-1px.bg-lighter.text-center
+              h3 Contact Our Urgent Care Clinic Today!
+              a.btn.btn-gray.btn-theme-colored.btn-lg(href='/contact') Contact Us
+
+    include ../partials/footer.pug

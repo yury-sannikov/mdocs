@@ -47,7 +47,7 @@ This file contains the common styles of this theme.
 		* Job.less
 		* Shop.less
 		* Blog.less
-		* Shortcode.less 
+		* Shortcode.less
 			* Alerts.less
 			* Buttons.less
 			* Blockquote.less
@@ -1466,8 +1466,8 @@ section > .container-fluid {
     min-height: auto !important;
   }
 }
-/*  
- * Extra.less 
+/*
+ * Extra.less
  * -----------------------------------------------
 */
 /* -------- Heading Style ---------- */
@@ -7142,4 +7142,8 @@ blockquote p {
   border: medium none;
   height: 42px;
   margin-right: 10px;
+}
+.list-numeric {
+  list-style-type: decimal;
+  margin-left: 20px;
 }
