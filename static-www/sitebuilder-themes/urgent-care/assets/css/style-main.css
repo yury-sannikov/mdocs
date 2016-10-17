@@ -7145,5 +7145,8 @@ blockquote p {
 }
 .list-numeric {
   list-style-type: decimal;
-  margin-left: 20px;
+  margin: 15px 0;
+}
+.list-numeric li {
+  margin-left: 40px;
 }
