@@ -48,8 +48,8 @@ function metalsmithFactory(workDir, buildDir, options) {
       practice: 'data/practice.json',
       menu: 'data/menu.json',
       contents: 'data/contents.json',
-      reviews: 'data/reviews.json',
-      testimonials: 'data/testimonials.json'
+      reviews: 'data/reviews.json'
+      // testimonials: 'data/testimonials.json'
     }))
     .use(
       // If clean build, copy over assets from public folder

@@ -30,42 +30,26 @@
     "properties": {
       "date": {
         "title": "Review Date",
-        "type": "string",
-        "format": "date"
-      },
-      "site": {
-        "title": "Review Site",
-        "type": "string",
-        "enum": [
-          "Yelp",
-          "Google+"
-        ]
-      },
-      "link": {
-        "title": "Link to Revie Page",
-        "type": "string",
-        "format": "url"
+        "type": "string"
       },
       "user": {
         "title": "Review User Name",
         "type": "string"
       },
-      "reviewShort": {
-        "title": "Review Short Text",
+      "text": {
+        "title": "Long Review Text",
         "type": "string"
       },
-      "reviewLong": {
-        "title": "Review Long Text",
-        "type": "string"
+      "rate": {
+        "title": "Long Review Text",
+        "type": "int"
       }
     }
   },
   "defaults": {
-    "date": "1/1/2016",
-    "site": "Yelp",
-    "link": "",
-    "user": "",
-    "reviewShort": "Short Review Text",
-    "reviewLong": "Full Review Text"
+    "date": "Jan 1, 2016",
+    "user": "Jhon Doe",
+    "text": "Long Review Text",
+    "rate": 1
   }
 }
