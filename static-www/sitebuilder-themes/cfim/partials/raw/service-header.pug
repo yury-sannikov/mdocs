@@ -3,11 +3,11 @@ section.practice-service
     .cloak
   include ../socialIcons.pug
   .row
-    .left
-      figure
-        img(src=practice.logo.big, width='200', alt=practice.name, style="background: #fff; padding: 2px 10px; border-radius: 6px;")
-      h2= practice.name
-      h3= practice.description 
+    .left(style='padding-left: 0px')
+      figure(style='width:300px;')
+        img(src=practice.logo.big, alt=practice.name, style='width:300px;filter: brightness(1000%) contrast(1000%) grayscale(100%) drop-shadow(2px 2px 2px #333)')
+      //- h2= practice.name
+      //- h3= practice.description 
       if !practice.multiOffice
         |  located in  
         span= practice.city
