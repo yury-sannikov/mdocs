@@ -77,39 +77,39 @@
     "submenu": [
       {
         "caption": "FAA Flight Physical Form",
-        "href": "/content/faa-forms"
+        "href": "/forms-links/faa-forms"
       },
       {
         "caption": "Immigration Forms",
-        "href": "/content/immigration-services"
+        "href": "/forms-links/immigration-services"
       },
       {
         "caption": "Medical Records Release Form",
-        "href": "/content/medical-records-release-forms"
+        "href": "/forms-links/medical-records-release-forms"
       },
       {
         "caption": "Motor Vehicle Accident Form",
-        "href": "/content/motor-vehicle-accident-forms"
+        "href": "/forms-links/motor-vehicle-accident-forms"
       },
       {
         "caption": "Notice of Privacy Practices",
-        "href": "/content/notice-of-privacy-proctices"
+        "href": "/forms-links/notice-of-privacy-practices"
       },
       {
         "caption": "Registration Packet",
-        "href": "/content/registration-packet"
+        "href": "/forms-links/registration-packet"
       },
       {
         "caption": "School Entrance Physical",
-        "href": "/content/school-entrance-physical"
+        "href": "/forms-links/school-entrance-physical"
       },
       {
         "caption": "Sports Physical",
-        "href": "/content/sports-physical"
+        "href": "/forms-links/sports-physical"
       },
       {
         "caption": "Workers Comp Forms",
-        "href": "/content/workers-comp-forms"
+        "href": "/forms-links/workers-comp-forms"
       }
     ]
   },

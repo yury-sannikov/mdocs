@@ -7150,3 +7150,9 @@ blockquote p {
 .list-numeric li {
   margin-left: 40px;
 }
+.form-link-item {
+  display: inline-block;
+  padding: 0 40px;
+  width: 30%;
+  vertical-align: top;
+}
