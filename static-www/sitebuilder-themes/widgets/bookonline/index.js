@@ -9,7 +9,8 @@ message - patient message from web site
 }(function($, window, document) {
 
   var isLocalhost = window.location.hostname === 'localhost';
-  var apiUrl = isLocalhost ? 'http://localhost:3030/app/api/appointment' : 'https://app.mdocs.co/app/api/appointment'
+  // var apiUrl = isLocalhost ? 'http://localhost:3030/app/api/appointment' : 'https://app.mdocs.co/app/api/appointment'
+  var apiUrl = 'https://app.mdocs.co/app/api/appointment';
   function submitForm(event) {
     event.preventDefault();
 
