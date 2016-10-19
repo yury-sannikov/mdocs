@@ -1,0 +1,21 @@
+button.btn-leave-review.btn.btn-colored.btn-flat.btn-theme-colored.mt-15(type='button', data-toggle='modal', data-target='#sendreview') Make an Appointment
+
+#sendreview.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+	.modal-dialog(role='document')
+		.modal-content
+			.modal-header
+				button.close(type='button', data-dismiss='modal', aria-label='Close')
+					span(aria-hidden='true') ×
+				h4#myModalLabel.modal-title Make an appointment
+			.modal-body
+				form.js-bookonline-form(action='', data-callback='appointment_proceed', data-callback-beforesubmit="appointment_before_submit", method='post')
+					input.form-control(name='fullname', required, type='text', placeholder='Your fullname')
+					br
+					input.form-control(name='phone', required, type='tel', placeholder='Your phone')
+					br
+					input.form-control(name='email', required, type='email', placeholder='Your email')
+					br
+					input.js-bookonline-submit.btn.btn-colored.btn-flat.btn-theme-colored.mt-15(type='submit', value='Submit')
+
+script(type='text/javascript', src='/assets/widgets/bookonline/index.js', data-profileid=practice.mdocsAccount)
+

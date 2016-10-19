@@ -9,9 +9,9 @@ message - patient message from web site
 }(function($, window, document) {
 
   var isLocalhost = window.location.hostname === 'localhost';
-  // var apiUrl = isLocalhost ? 'http://localhost:3030/app/api/appointment' : 'https://app.mdocs.co/app/api/appointment'
-  var apiUrl = 'https://app.mdocs.co/app/api/appointment';
+  var apiUrl = isLocalhost ? 'http://localhost:3030/app/api/appointment' : 'https://app.mdocs.co/app/api/appointment'
   function submitForm(event) {
+
     event.preventDefault();
 
     var form = $(this).closest('form');
@@ -24,22 +24,21 @@ message - patient message from web site
 
     var inputs = ['firstname', 'lastname', 'fullname', 'isnew', 'profileId',
       'email', 'phone', 'zip', 'comment', 'description', 'systype', 'dob', 'visitdate'];
-    var data = {}
+    var data = {};
     $.each(inputs, function(i, v) {
       var inp = $('[name="' + v + '"]', form)
       if (inp.length === 1) {
         data[v] = inp.val()
       }
-    })
+    });
 
     var profileId = $('script[data-profileid]').data('profileid');
     profileId = data.profileId || profileId
     if (!profileId) {
-      invokeFormCallback(form, 'Unable to find account information.')
+      invokeFormCallback(form, 'Unable to find account information.');
       return;
     }
     data.profileId = profileId;
-    console.log(data);
     invokeFormCallback(form, data, '-beforesubmit')
 
     $.ajax({
@@ -50,10 +49,15 @@ message - patient message from web site
       contentType: 'application/json',
       dataType: 'json',
       success: function(d) {
-        invokeFormCallback(form, null)
+        $('input.js-bookonline-submit').attr('value','This request successfully sent!');
+        $('input.js-bookonline-submit').attr('disabled',true);
+        invokeFormCallback(form, null);
       },
       error: function(d) {
-        invokeFormCallback(form, d)
+        $('input.js-bookonline-submit').attr('value','Some error occured...');
+        $('input.js-bookonline-submit').attr('disabled',true);
+        invokeFormCallback(form, d);
+
       }
     });
   }
