@@ -14,15 +14,15 @@
     "links": [
       {
         "text": "TB Skin Test Form",
-        "href": "http://vgucc2011.com/files/2016/05/VGUCC-TB-Skin-Test-Form-NEW.pdf"
+        "href": "/assets/uploads/VGUCC-TB-Skin-Test-Form-NEW.pdf"
       },
       {
         "text": "Immunization Consent",
-        "href": "http://vgucc2011.com/files/2016/05/VGUCC-Immunization-Consent-NEW.pdf"
+        "href": "/assets/uploads/VGUCC-Immunization-Consent-NEW.pdf"
       },
       {
         "text": "INS Questionnaire",
-        "href": "http://vgucc2011.com/files/2016/05/INS-Questionnaire-vgucc.pdf"
+        "href": "/assets/uploads/INS-Questionnaire-vgucc.pdf"
       }
     ],
     "htmlContent": "<h1>Immigration Services</h1>"
@@ -32,7 +32,7 @@
     "links": [
       {
         "text":"Release of Medical Records",
-        "href": "http://newvagatewayurgentcarecenter.townsquareinteractive.com/files/2016/04/VGUCC_Release_of_Medical_Records_Form1.docx"
+        "href": "/assets/uploads/VGUCC_Release_of_Medical_Records_Form1.docx"
       }
     ],
     "htmlContent": "<h1>Medical Records Release Forms</h1>"
@@ -42,7 +42,7 @@
     "links": [
       {
         "text":"Motor Vehicle Accident Form",
-        "href": "VGUCC_MVA_Info_Sheet1.docx"
+        "href": "#"
       }
     ],
     "htmlContent": "<h1>Motor Vehicle Accident Forms</h1>"
@@ -52,7 +52,7 @@
     "links": [
        {
         "text":"Notice of Privacy Practices",
-        "href": "http://newvagatewayurgentcarecenter.townsquareinteractive.com/files/2016/04/VGUCC_Notice_of_Privacy_Practices1.docx"
+        "href": "/assets/uploads/VGUCC_Notice_of_Privacy_Practices1.docx"
       }
     ],
     "htmlContent": "<h1>Notice of Privacy Practices</h1>"
@@ -62,23 +62,23 @@
     "links": [
       {
         "text":"Financial Acknowledgement and Office Policies",
-        "href": "http://newvagatewayurgentcarecenter.townsquareinteractive.com/files/2016/04/VGUCC_Financial_Acknowledgement_and_Office_Policies1.docx"
+        "href": "/assets/uploads/VGUCC_Financial_Acknowledgement_and_Office_Policies1.docx"
       },
       {
         "text":"HIPAA Release",
-        "href": "http://newvagatewayurgentcarecenter.townsquareinteractive.com/files/2016/04/VGUCC_HIPAA_Release1.docx"
+        "href": "/assets/uploads/VGUCC_HIPAA_Release1.docx"
       },
       {
         "text":"Medical History",
-        "href": "http://newvagatewayurgentcarecenter.townsquareinteractive.com/files/2016/04/VGUCC_Medical_History_Pg51.xlsx"
+        "href": "/assets/uploads/VGUCC_Medical_History_Pg51.xlsx"
       },
       {
         "text":"Patient Consent for Use and Disclosure",
-        "href": "VGUCC_Patient_Consent_for_Use_and_Disclosure_2014[1]"
+        "href": "#"
       },
       {
         "text":"Registration Form",
-        "href": "http://newvagatewayurgentcarecenter.townsquareinteractive.com/files/2016/04/VGUCC_Registration_Form1.xlsx"
+        "href": "/assets/uploads/VGUCC_Registration_Form1.xlsx"
       }
     ],
     "htmlContent": "<h1>Registration Packet</h1>"
@@ -88,7 +88,7 @@
     "links": [
       {
         "text":"School Entrance Form",
-        "href": "http://newvagatewayurgentcarecenter.townsquareinteractive.com/files/2016/04/School_entrance_physical_form_20141.pdf"
+        "href": "/assets/uploads/School_entrance_physical_form_20141.pdf"
       }
     ],
     "htmlContent": "<h1>School Entrance Physical</h1>"
@@ -98,7 +98,7 @@
     "links": [
       {
         "text": "Sports Physical Form",
-        "href": "http://newvagatewayurgentcarecenter.townsquareinteractive.com/files/2016/04/Sports_Physical_form_-_VA1.pdf"
+        "href": "/assets/uploads/Sports_Physical_form_-_VA1.pdf"
       }
     ],
     "htmlContent": "<h1>Sports Physical</h1>"
@@ -108,15 +108,15 @@
     "links": [
       {
         "text": "Workers Comp Acknowledgement Form",
-        "href": "http://newvagatewayurgentcarecenter.townsquareinteractive.com/files/2016/04/VGUCC_WC_Acknowledgement_Form1.doc"
+        "href": "/assets/uploads/VGUCC_WC_Acknowledgement_Form1.doc"
       },
       {
         "text": "Workers Comp ITR",
-        "href": "http://newvagatewayurgentcarecenter.townsquareinteractive.com/files/2016/04/VGUCC_Workers_Comp_ITR1.doc"
+        "href": "/assets/uploads/VGUCC_Workers_Comp_ITR1.doc"
       },
       {
         "text": "Workers Comp Information Sheet",
-        "href": "http://newvagatewayurgentcarecenter.townsquareinteractive.com/files/2016/04/VGUCC_Workers_Comp_Info_Sheet_with_LH1.docx"
+        "href": "/assets/uploads/VGUCC_Workers_Comp_Info_Sheet_with_LH1.docx"
       }
     ],
     "htmlContent": "<h1>Workers Comp</h1>"
