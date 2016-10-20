@@ -81,7 +81,9 @@ exports.SITEBUILDER_CC_USER = process.env.SITEBUILDER_CC_USER
 exports.SITEBUILDER_PREIVEW_URL = process.env.SITEBUILDER_PREIVEW_URL || 'https://sitebuilder.mdocs.co'
 exports.SITEBUILDER_JWT_SECRET = process.env.SITEBUILDER_JWT_SECRET
 exports.SITEBUILDER_CORS_ORIGIN = process.env.SITEBUILDER_CORS_ORIGIN || 'http://localhost:3030'
+exports.DEV_MODE = exports.NODE_ENV === 'development'
 ////////////////////////////////////////////////////////////
+
 
 mkdirp.sync(path.resolve(path.join(exports.SITEBUILDER_BUILD_DIR, 'uploads')))
 

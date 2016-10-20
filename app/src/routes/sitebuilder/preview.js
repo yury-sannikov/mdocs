@@ -9,10 +9,9 @@ import config from '../../config'
 const debug = require('debug')('app:routes:sitebuilder:preview');
 const JWT_ISSUER = 'sitebuilder'
 const SHORT_JWT_EXPIRATION_SEC = 15
-const PREVIEW_ROUTE_PATH = '/sitebuilderpreview'
+const PREVIEW_ROUTE_PATH = config.DEV_MODE ? null : '/sitebuilderpreview'
 const DEPLOY_SLUG = '/__deploy'
 const PREDEPLOY_POSTFIX = '-predeploy'
-
 const router = new Router({
   prefix: PREVIEW_ROUTE_PATH
 })

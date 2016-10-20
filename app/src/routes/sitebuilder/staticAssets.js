@@ -10,18 +10,16 @@ const _ = require('lodash');
 
 module.exports = serve;
 
-
 function serve(opts) {
   opts = Object.assign({},
   {
-    prefix: '/sitebuilderpreview'
+    prefix: config.DEV_MODE ? null : '/sitebuilderpreview'
   }, opts)
 
   assert(opts.sessionKey, 'session key should be specified');
   if (opts.index !== false) opts.index = opts.index || 'index.html';
 
   return function *serve(next){
-
     if (this.method !== 'HEAD' && this.method !== 'GET') {
       yield* next
       return
@@ -40,10 +38,10 @@ function serve(opts) {
       this.body = 'No Session'
       return
     }
-
+    const nullPrefix = opts.prefix === null
     const assetsIndex = this.path.indexOf(opts.prefix)
-    if (assetsIndex >= 0) {
-      const urlPath = this.path.slice(assetsIndex + opts.prefix.length)
+    if (assetsIndex >= 0 || nullPrefix) {
+      const urlPath = nullPrefix ? this.path : this.path.slice(assetsIndex + opts.prefix.length)
 
       const sendOpts = Object.assign({}, opts, {
         root: path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, `${siteId}${postfixKey}`))

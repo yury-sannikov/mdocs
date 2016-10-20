@@ -15,8 +15,7 @@ const belt = require('./belt');
 const cancan = require('./cancan');
 const csrf = require('koa-csrf');
 
-
-const CSRF_SKIP_PREFIXES = ['/app/hooks', '/sitebuilderpreview', '/app/api'];
+const CSRF_SKIP_PREFIXES = ['/app/hooks', config.DEV_MODE ? '/' : '/sitebuilderpreview', '/app/api'];
 
 ////////////////////////////////////////////////////////////
 
