@@ -1,0 +1,52 @@
+doctype html
+html(lang="en")
+  head
+    include ../partials/header.pug
+  body.PARALLAX
+    include ../partials/navbar.pug
+    .main-content(style='margin:10px 10px 0 10px;')
+      .divider
+        .container.pt-30
+          h1.mt-0.mb-30 Feedback
+          .row                    
+            .col-md-8              
+              // Contact Form
+              form.js-bookonline-form(action='', data-callback='makeappointmentform_submit', method='post')
+                .row
+                  .col-sm-6
+                    .form-group
+                      label(for='firstname')
+                        | First Name
+                        small *                     
+                      input#firstname.form-control(name='firstname', type='text', placeholder='Enter First Name' required='')
+                  .col-sm-6
+                    .form-group
+                      label(for='lastname')
+                        | Last Name
+                        small *                     
+                      input#lastname.form-control(name='lastname', type='text', placeholder='Enter Last Name' required='')
+                .row  
+                  .col-sm-6
+                    .form-group
+                      label(for='email')
+                        | Email
+                        small *
+                      input#email.form-control.required.email(name='email', type='email', placeholder='Enter Email', required='')                                 
+                  .col-sm-6
+                    .form-group
+                      label(for='phone') 
+                        | Phone
+                        small * 
+                      input#phone.form-control(name='phone', type='text', placeholder='Enter Phone', required='')
+                .row                  
+                  .col-sm-12
+                    .form-group
+                      label(for='comment') 
+                        | Comment                         
+                      textarea#comment.form-control(name='comment', placeholder='Enter Comment', rows='4')
+                .form-group                 
+                  button.mb-20.js-bookonline-submit.btn.btn-dark.btn-theme-colored.btn-flat.mr-5(type='submit', data-loading-text='Please wait...') Send your message 
+            
+
+    script(type='text/javascript', src='/assets/widgets/bookonline/index.js', data-profileid=practice.mdocsAccount)
+    include ../partials/footer.pug

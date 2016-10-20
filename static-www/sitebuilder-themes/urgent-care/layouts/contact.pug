@@ -58,17 +58,23 @@ html(lang="en")
                 .row
                   .col-sm-6
                     .form-group
-                      label(for='form_name')
-                        | Name
+                      label(for='firstname')
+                        | First Name
                         small *                     
-                      input#form_name.form-control(name='fullname', type='text', placeholder='Enter Name' required='')
+                      input#firstname.form-control(name='firstname', type='text', placeholder='Enter First Name' required='')
+                  .col-sm-6
+                    .form-group
+                      label(for='lastname')
+                        | Last Name
+                        small *                     
+                      input#lastname.form-control(name='lastname', type='text', placeholder='Enter Last Name' required='')
+                .row  
                   .col-sm-6
                     .form-group
                       label(for='email')
                         | Email
                         small *
-                      input#email.form-control.required.email(name='email', type='email', placeholder='Enter Email', required='')
-                .row                  
+                      input#email.form-control.required.email(name='email', type='email', placeholder='Enter Email', required='')                                 
                   .col-sm-6
                     .form-group
                       label(for='phone') 
