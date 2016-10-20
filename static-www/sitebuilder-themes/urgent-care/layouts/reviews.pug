@@ -27,10 +27,23 @@ html(lang="en")
                           .modal-body
                             form.js-bookonline-form(action='', data-callback='makeappointmentform_submit', method='post')
                               input.form-control(name='fullname', type='text', placeholder='Your fullname')
-                              br 
+                              br
                               input.form-control(name='phone', type='text', placeholder='Your phone')
                               br
                               input.form-control(name='email', type='text', placeholder='Your email')
+                              br
+                              p Rating:
+                              span.rating
+                                input#rate-5.rating-input(type='radio', name='rate', value="5")
+                                label.rating-star(for='rate-5')
+                                input#rate-4.rating-input(type='radio', name='rate', value="4")
+                                label.rating-star(for='rate-4')
+                                input#rate-3.rating-input(type='radio', name='rate', value="3")
+                                label.rating-star(for='rate-3')
+                                input#rate-2.rating-input(type='radio', name='rate', value="2")
+                                label.rating-star(for='rate-2')
+                                input#rate-1.rating-input(type='radio', name='rate', value="1")
+                                label.rating-star(for='rate-1')
                               br
                               input.js-bookonline-submit.btn.btn-colored.btn-flat.btn-theme-colored.mt-15(type='submit', value='Submit')
               .clear-40
@@ -62,5 +75,10 @@ html(lang="en")
                               |  – #{review.date}:
                         p= review.text
 
-    include ../partials/footer.pug
+script.
+  $('span.rating input').on('change', function() {
+    var rate = $(this).val();
+  });
+
+include ../partials/footer.pug
 

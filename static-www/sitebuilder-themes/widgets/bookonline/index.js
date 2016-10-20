@@ -17,18 +17,25 @@ message - patient message from web site
     var form = $(this).closest('form');
 
     // If we have jquery.validate installed, check for form validity
-    if (form.valid && !form.valid()){
+    if (form.valid && !form.valid()) {
       console.log('is not valid!');
       return;
     }
 
     var inputs = ['firstname', 'lastname', 'fullname', 'isnew', 'profileId',
-      'email', 'phone', 'zip', 'comment', 'description', 'systype', 'dob', 'visitdate'];
+      'email', 'phone', 'zip', 'comment', 'description', 'systype', 'dob', 'visitdate', 'rate'];
     var data = {};
     $.each(inputs, function(i, v) {
-      var inp = $('[name="' + v + '"]', form)
-      if (inp.length === 1) {
-        data[v] = inp.val()
+      if (v === 'rate') {
+        var inp = $('span.rating input[name=rate]:checked');
+        if (inp.length === 1) {
+          data[v] = inp.val();
+        }
+      } else {
+        var inp = $('[name="' + v + '"]', form);
+        if (inp.length === 1) {
+          data[v] = inp.val();
+        }
       }
     });
 
@@ -39,6 +46,7 @@ message - patient message from web site
       return;
     }
     data.profileId = profileId;
+    console.log(data);
     invokeFormCallback(form, data, '-beforesubmit')
 
     $.ajax({
@@ -57,7 +65,6 @@ message - patient message from web site
         $('input.js-bookonline-submit').attr('value','Some error occured...');
         $('input.js-bookonline-submit').attr('disabled',true);
         invokeFormCallback(form, d);
-
       }
     });
   }
