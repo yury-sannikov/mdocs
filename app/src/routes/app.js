@@ -69,7 +69,23 @@ router.get('/subscription', checkAuthenticated, function* () {
     this.redirect(router.url('dashboard'))
     return
   }
-  const {currentInvoice, upcomingInvoice, currentSubscription} = yield getFutureInvoice(this.currentUser.id, this.currentUser.account.profiles);
+  const ERROR_MESSAGES = {
+    StripeInvalidRequestError: 'Unable to get subscription information.',
+    default: 'No invoice information.'
+  }
+  let futureInvoice
+  try {
+    futureInvoice = yield getFutureInvoice(this.currentUser.id, this.currentUser.account.profiles);
+  }
+  catch(e) {
+    console.dir(e)
+    this.render('app/empty', Object.assign({}, this.jadeLocals, {
+      flash: ERROR_MESSAGES[e.type] || ERROR_MESSAGES.default
+    }), true);
+    return
+  }
+  const { currentInvoice, upcomingInvoice, currentSubscription } = futureInvoice
+
   const currentInvoiceData = currentInvoice.data[0] || {}
   const currentInvoiceLine = currentInvoiceData.lines.data[0] || {}
 
