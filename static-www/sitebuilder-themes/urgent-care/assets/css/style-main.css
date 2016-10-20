@@ -7156,3 +7156,7 @@ blockquote p {
   width: 30%;
   vertical-align: top;
 }
+.contact-media-body {
+  font-size: 13px;
+  color: #777777;
+} 
