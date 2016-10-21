@@ -68,8 +68,9 @@ header#header.header
               li
                 i.fa.fa-clock-o.text-theme-colored.font-36.mt-5.sm-display-block
               li
-                h5.font-13.text-black.m-0  Mon-Fri 9am-8pm
-                h5.font-13.text-black.m-0  Sat-Sun 10am-6pm
+                h5.font-13.text-black.m-0 Mon-Fri #{practice.hours.mon}
+                h5.font-13.text-black.m-0 Sat #{practice.hours.sat}
+                h5.font-13.text-black.m-0 Sun #{practice.hours.sun}
   .header-nav
     .header-nav-wrapper.navbar-scrolltofixed.bg-light
       .container
