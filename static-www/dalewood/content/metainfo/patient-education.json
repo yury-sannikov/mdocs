@@ -1,0 +1,52 @@
+{
+  "menuCaption": "Contents",
+  "menuIconClass": "si si-frame",
+  "titleRef": "title",
+  "listProps": [
+    {
+      "title": "Title",
+      "ref": "title",
+      "css": ""
+    },
+    {
+      "title": "Header",
+      "ref": "header",
+      "css": "hidden-xs"
+    },
+    {
+      "title": "Description",
+      "ref": "description",
+      "css": "hidden-xs"
+    }
+  ],
+  "schema": {
+    "type": "object",
+    "title": "",
+    "properties": {
+      "title": {
+        "title": "Title",
+        "type": "string"
+      },
+      "img": {
+        "title": "Image",
+        "type": "string"
+      },
+      "htmlContent": {
+        "title": "Page Content",
+        "input_height":"200px",
+        "type": "string",
+        "format": "html",
+        "options": {
+          "wysiwyg": true
+        }
+      }
+    }
+  },
+  "defaults": {
+    "title": "New Title",
+    "layout": "patient-education.pug",
+    "header": "Content Header",
+    "description": "Content Description",
+    "htmlContent": "<p>HTML Content Goes Here.</p>"
+  }
+}

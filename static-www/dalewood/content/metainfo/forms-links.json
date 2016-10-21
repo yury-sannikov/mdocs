@@ -1,0 +1,43 @@
+{
+  "menuCaption": "Forms Links",
+  "menuIconClass": "si si-frame",
+  "titleRef": "title",
+  "listProps": [
+    {
+      "title": "Title",
+      "ref": "title",
+      "css": ""
+    },
+    {
+      "title": "Header",
+      "ref": "header",
+      "css": "hidden-xs"
+    },
+    {
+      "title": "Description",
+      "ref": "description",
+      "css": "hidden-xs"
+    }
+  ],
+  "schema": {
+    "type": "object",
+    "title": "",
+    "properties": {
+      "title": {
+        "title": "Title",
+        "type": "string"
+      },
+      "links": {
+        "title": "Links",
+        "type": "object"
+      }
+    }
+  },
+  "defaults": {
+    "title": "New Title",
+    "layout": "forms-links.pug",
+    "header": "Content Header",
+    "description": "Content Description",
+    "htmlContent": "<p>HTML Content Goes Here.</p>"
+  }
+}

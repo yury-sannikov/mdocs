@@ -1,0 +1,36 @@
+{
+  "themeId": "uc-0",
+  "name": "Virginia Gateway Urgent Care Center",
+  "description": "COME TO VIRGINIA GATEWAY URGENT CARE OF GAINESVILLE TODAY",
+  "address": "7516 Iron Bar Lane",
+  "city": "Gainesville",
+  "state": "VA",
+  "zip": "20155",
+  "latlon": "38.795186, -77.610519",
+  "phone": "703-754-9111",
+  "fax": "703-754-1211",
+  "email": "info@vgucc.com",
+  "mdocsAccount": "ed731362-8bcb-4a50-9486-c594df7c1237",
+  "logo": {
+    "small": "/assets/img/logo_small.png",
+    "big": "/assets/img/logo_big.png"
+  },
+  "hours": {
+    "mon": "9:00am - 8:00pm",
+    "tue": "9:00am - 8:00pm",
+    "wed": "9:00am - 8:00pm",
+    "thu": "9:00am - 8:00pm",
+    "fri": "9:00am - 8:00pm",
+    "sat": "10:00am - 6:00pm",
+    "sun": "10:00am - 6:00pm"
+  },
+  "social": {
+    "twitter": "https://twitter.com/libertylasereye",
+    "facebook": "https://www.facebook.com/LibertyLaserEye",
+    "googleplus": "https://plus.google.com/111129373947656600476",
+    "yelp": "http://www.yelp.com/biz/liberty-laser-eye-center-vienna"
+  },
+   "widgets": {
+    "bookonline": true
+  }
+}
