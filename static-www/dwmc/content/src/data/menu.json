@@ -70,44 +70,7 @@
   },
   {
     "caption": "Forms",
-    "submenu": [
-      {
-        "caption": "FAA Flight Physical Form",
-        "href": "/forms-links/faa-forms"
-      },
-      {
-        "caption": "Immigration Forms",
-        "href": "/forms-links/immigration-services"
-      },
-      {
-        "caption": "Medical Records Release Form",
-        "href": "/forms-links/medical-records-release-forms"
-      },
-      {
-        "caption": "Motor Vehicle Accident Form",
-        "href": "/forms-links/motor-vehicle-accident-forms"
-      },
-      {
-        "caption": "Notice of Privacy Practices",
-        "href": "/forms-links/notice-of-privacy-practices"
-      },
-      {
-        "caption": "Registration Packet",
-        "href": "/forms-links/registration-packet"
-      },
-      {
-        "caption": "School Entrance Physical",
-        "href": "/forms-links/school-entrance-physical"
-      },
-      {
-        "caption": "Sports Physical",
-        "href": "/forms-links/sports-physical"
-      },
-      {
-        "caption": "Workers Comp Forms",
-        "href": "/forms-links/workers-comp-forms"
-      }
-    ]
+    "href": "/forms-links/forms"
   },
   {
     "caption": "Feedback",

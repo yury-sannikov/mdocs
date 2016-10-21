@@ -1,124 +1,32 @@
 [
   {
-    "title":  "FAA Forms",
+    "title": "Forms",
     "links": [
       {
-        "text": "FAA MedXpress",
-        "href":" https://medxpress.faa.gov/medxpress/"
-      }
-    ],
-    "htmlContent": "<h1>FAA Forms</h1>"
-  },
-  {
-    "title": "Immigration Services",
-    "links": [
-      {
-        "text": "TB Skin Test Form",
-        "href": "/assets/uploads/VGUCC-TB-Skin-Test-Form-NEW.pdf"
+        "text": "Financial Acknowledgement and Office Policies",
+        "href": "/assets/uploads/Dalewood-Financial-Acknowledgement-and-Office-Policies.pdf"
       },
       {
-        "text": "Immunization Consent",
-        "href": "/assets/uploads/VGUCC-Immunization-Consent-NEW.pdf"
+        "text": "HIPPA Release",
+        "href": "/assets/uploads/Dalewood-HIPPA-Release.pdf"
       },
       {
-        "text": "INS Questionnaire",
-        "href": "/assets/uploads/INS-Questionnaire-vgucc.pdf"
-      }
-    ],
-    "htmlContent": "<h1>Immigration Services</h1>"
-  },
-  {
-    "title": "Medical Records Release Forms",
-    "links": [
-      {
-        "text":"Release of Medical Records",
-        "href": "/assets/uploads/VGUCC_Release_of_Medical_Records_Form1.docx"
-      }
-    ],
-    "htmlContent": "<h1>Medical Records Release Forms</h1>"
-  },
-  {
-    "title": "Motor Vehicle Accident Forms",
-    "links": [
-      {
-        "text":"Motor Vehicle Accident Form",
-        "href": "#"
-      }
-    ],
-    "htmlContent": "<h1>Motor Vehicle Accident Forms</h1>"
-  },
-  {
-    "title": "Notice of Privacy Practices",
-    "links": [
-       {
-        "text":"Notice of Privacy Practices",
-        "href": "/assets/uploads/VGUCC_Notice_of_Privacy_Practices1.docx"
-      }
-    ],
-    "htmlContent": "<h1>Notice of Privacy Practices</h1>"
-  },
-  {
-    "title": "Registration Packet",
-    "links": [
-      {
-        "text":"Financial Acknowledgement and Office Policies",
-        "href": "/assets/uploads/VGUCC_Financial_Acknowledgement_and_Office_Policies1.docx"
+        "text": "Medical History",
+        "href": "/assets/uploads/Dalewood-Medical-History.pdf"
       },
       {
-        "text":"HIPAA Release",
-        "href": "/assets/uploads/VGUCC_HIPAA_Release1.docx"
+        "text": "MVA Information Sheet",
+        "href": "/assets/uploads/Dalewood-MVA-info-sheet.pdf"
       },
       {
-        "text":"Medical History",
-        "href": "/assets/uploads/VGUCC_Medical_History_Pg51.xlsx"
+        "text": "Patient Consent for Use and Discolsure",
+        "href": "/assets/uploads/Dalewood-Patient-Consent-for-Use-and-Disclosure-2014.pdf"
       },
       {
-        "text":"Patient Consent for Use and Disclosure",
-        "href": "#"
-      },
-      {
-        "text":"Registration Form",
-        "href": "/assets/uploads/VGUCC_Registration_Form1.xlsx"
+        "text": "Registration Form",
+        "href": "/assets/uploads/Dalewood-Registration-Form.pdf"
       }
     ],
-    "htmlContent": "<h1>Registration Packet</h1>"
-  },
-  {
-    "title": "School Entrance Physical",
-    "links": [
-      {
-        "text":"School Entrance Form",
-        "href": "/assets/uploads/School_entrance_physical_form_20141.pdf"
-      }
-    ],
-    "htmlContent": "<h1>School Entrance Physical</h1>"
-  },
-  {
-    "title": "Sports Physical",
-    "links": [
-      {
-        "text": "Sports Physical Form",
-        "href": "/assets/uploads/Sports_Physical_form_-_VA1.pdf"
-      }
-    ],
-    "htmlContent": "<h1>Sports Physical</h1>"
-  },
-  {
-    "title": "Workers Comp Forms",
-    "links": [
-      {
-        "text": "Workers Comp Acknowledgement Form",
-        "href": "/assets/uploads/VGUCC_WC_Acknowledgement_Form1.doc"
-      },
-      {
-        "text": "Workers Comp ITR",
-        "href": "/assets/uploads/VGUCC_Workers_Comp_ITR1.doc"
-      },
-      {
-        "text": "Workers Comp Information Sheet",
-        "href": "/assets/uploads/VGUCC_Workers_Comp_Info_Sheet_with_LH1.docx"
-      }
-    ],
-    "htmlContent": "<h1>Workers Comp</h1>"
+    "htmlContent": "<h1>Forms</h1>"
   }
 ]
