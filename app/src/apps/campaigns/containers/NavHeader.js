@@ -29,7 +29,7 @@ class NavHeader extends Component {
     const absolute = crumb.url[0] === '~'
     return absolute ? (
       <a href={crumb.url.slice(1)}>{crumb.title}</a>) : (
-      <Link to={crumb.url}>{crumb.title}</Link>)
+        <Link to={crumb.url}>{crumb.title}</Link>)
   }
   renderCrumb (crumb) {
     return (

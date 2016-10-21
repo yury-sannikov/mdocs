@@ -119,9 +119,9 @@ class EventsList extends Component {
               <i className='fa fa-check' />{' Confirm'}
             </button>
             ) : (
-            <button onClick={showDeleteModal(item)} className={'btn btn-xs btn-danger push-5-r push-10 ' + styles.actionButtonClass} type='button'>
-              <i className='fa fa-times' />{' Delete'}
-            </button>
+              <button onClick={showDeleteModal(item)} className={'btn btn-xs btn-danger push-5-r push-10 ' + styles.actionButtonClass} type='button'>
+                <i className='fa fa-times' />{' Delete'}
+              </button>
             )}
         </td>
         <td>
