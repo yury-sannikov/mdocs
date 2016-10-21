@@ -32,12 +32,8 @@
       },
       {
         "caption": "Glaucoma",
-        "href": "/patient-education/Glaucoma"
-      },
-      {
-        "caption": "Hepatitis B Immunization",
-        "href": "/patient-education/hepatitis-b-immunization"
-      },
+        "href": "/patient-education/glaucoma"
+      },      
       {
         "caption": "Homocysteine",
         "href": "/patient-education/homocysteine"
@@ -49,11 +45,7 @@
       {
         "caption": "Impotence",
         "href": "/patient-education/impotence"
-      },
-      {
-        "caption": "Lasik Eye Surgery",
-        "href": "/patient-education/lasik-eye-surgery"
-      },
+      },      
       {
         "caption": "Obesity",
         "href": "/patient-education/obesity"
@@ -69,7 +61,11 @@
       {
         "caption": "Sleep Apnea",
         "href": "/patient-education/sleep-apnea"
-      }
+      },
+      {
+        "caption": "Venous-Thromboembolic Disease",
+        "href": "/patient-education/venous-thromboembolic-disease"
+      }      
     ]
   },
   {
