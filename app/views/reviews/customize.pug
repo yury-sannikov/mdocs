@@ -27,7 +27,36 @@ block content
 
   .content.bg-white
     .row
-      .col-sm-8.col-sm-offset-2
+      .col-lg-6
+        // Bootstrap Login
+        .block.block-themed
+          .block-header.bg-primary
+            h3.block-title Customize Review Questions
+          .block-content
+            form.form-horizontal.push-5-t(id='questionsForm' method='POST' action='customize')
+              input(type='hidden', name='_csrf', value=_csrf)
+              input(type='hidden', name='id')
+              .form-group
+                label.col-xs-12(for='login1-username') Profile
+                .col-xs-12
+                  .dropdown.js-profile-selector
+                    button.form-control.btn.btn-default.dropdown-toggle(id="profileSelector" type="button", name="profileDropdownButton", data-toggle="dropdown", aria-haspopup="true", aria-expanded="true") Select a Profile
+                    ul.form-control.dropdown-menu(aria-labelledby="profileDropdownButton" style="padding: 0px; border-width: 0px;")
+                      - if (profiles.length === 0)
+                        span &nbsp;&nbsp;No profiles found in the database.&nbsp;&nbsp;
+                      - else
+                        each profile, i in profiles
+                          li
+                            a.form-control(href="#", data-id=profile.id, data-type=profile.type) #{profile.name}
+              .js-editor-content
+              .form-group
+                .col-xs-12
+                  button.btn.btn-sm.btn-primary(type='submit')
+                    i.fa.fa-check.push-5-r
+                    |  Update Questions
+        // END Bootstrap Login
+
+      //- .col-sm-6
         form.form-horizontal.push-10-t(id='questionsForm' method='POST' action='customize')
           input(type='hidden', name='_csrf', value=_csrf)
           input(type='hidden', name='id')
@@ -49,19 +78,16 @@ block content
           i.fa.fa-check
           | &nbsp;Update Questions
 
-    hr
-    p.text-muted <em>#{application}
-      a(href='/app/terms')  Terms of Use
-      |  and
-      a(href='/app/privacy')  Privacy Policy.</em>
 
   template.js-editor-template
-    <div>{{#unless questions}}<em class="text-hint">Please select profile for editing above</em>{{/unless}}{{#each questions}}<div class="form-group">
-    <div class="form-material open">
-    <input class="form-control" name="questions.{{id}}" id="q_{{id}}" value="{{question}}"/>
-    <label for="q_{{id}}">Question</label>
-    </div>
-    </div>{{/each}}</div>
+    <div>{{#unless questions}}<em class="text-hint">Please select profile for editing above</em>{{/unless}}{{#each questions}}
+      <div class='form-group'>
+        <label class="col-xs-12" for="q_{{id}}">Question</label>
+        <div class="col-xs-12">
+          <input class="form-control" name="questions.{{id}}" id="q_{{id}}" value="{{question}}"/>
+        </div>
+      </div>
+    </div>{{/each}}
 
 block scripts
   script(src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js')

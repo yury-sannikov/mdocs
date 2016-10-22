@@ -39,6 +39,10 @@
                 i
                 i.si.si-user
                 span.sidebar-mini-hide New Profile
+          li
+            a(href='/app/pr/customize')
+              i.si.si-question
+              span.sidebar-mini-hide Customize Reviews
         if sitebuilderSites && sitebuilderSites.length > 0
           li.nav-main-heading
             span.sidebar-mini-hide Website
@@ -49,10 +53,6 @@
                 span.sidebar-mini-hide #{site.name}
         li.nav-main-heading
           span.sidebar-mini-hide Settings
-        li
-          a(href='/app/pr/customize')
-            i.si.si-question
-            span.sidebar-mini-hide Customize Reviews
         li
           a.nav-submenu(href='#accountSubMenu', data-toggle="collapse")
             i.si.si-pin
