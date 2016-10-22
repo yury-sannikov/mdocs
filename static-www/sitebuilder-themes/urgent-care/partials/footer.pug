@@ -9,7 +9,17 @@ footer#footer.footer.pb-0.bg-black-111
           h5.widget-title.line-bottom Links
           ul
             li 
+              a(href='/') Home
+            li 
+              a(href='/content/about') About
+            li 
               a(href='/content/services') Services
+            li 
+              a(href='/content/employment') Employment
+            li 
+              a(href='/feedback') Feedback
+            li 
+              a(href='/contact') Contact
       .col-sm-6.col-md-3
         .widget.dark
           h5.widget-title.line-bottom Forms
@@ -38,9 +48,9 @@ footer#footer.footer.pb-0.bg-black-111
           h5.widget-title.line-bottom Quick Contact
           ul.list.list-border
             li
-              a(href='#')= practice.phone
+              a(href='tel:'+practice.phone)= practice.phone
             li
-              a(href='#')= practice.email
+              a(href='mail:'+practice.email)= practice.email
             li
               a.lineheight-20(href='#')= practice.address  
               br
@@ -54,9 +64,11 @@ footer#footer.footer.pb-0.bg-black-111
       .col-md-12
         case practice.city
           when 'Gainesville'
-            p.text-white.font-11.m-0 Copyright © 2015 VGUCC. All Rights Reserved.
+            p.text-white.font-11.m-0 Copyright © 2016 {{practice.name}}. All Rights Reserved.
           when 'Fairfax'
-            p.text-white.font-11.m-0 Copyright © 2015 FLUCC. All Rights Reserved.
+            p.text-white.font-11.m-0 Copyright © 2016 {{practice.name}}. All Rights Reserved.
+          when 'Woodbridge'
+            p.text-white.font-11.m-0 Copyright © 2016 {{practice.name}}. All Rights Reserved.
 a.scrollToTop(href='#')
   i.fa.fa-angle-up
             

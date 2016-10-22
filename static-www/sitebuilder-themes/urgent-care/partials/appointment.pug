@@ -9,6 +9,7 @@ button.btn-leave-review.btn.btn-colored.btn-flat.btn-theme-colored.mt-15(type='b
 				h4#myModalLabel.modal-title Make an appointment
 			.modal-body
 				form.js-bookonline-form(action='', data-callback='appointment_proceed', data-callback-beforesubmit="appointment_before_submit", method='post')
+					input(style='display:none;', name='systype', value='appointment')
 					input.form-control(name='fullname', required, type='text', placeholder='Your fullname')
 					br
 					input.form-control(name='phone', required, type='tel', placeholder='Your phone')

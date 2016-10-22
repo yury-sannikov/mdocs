@@ -2,36 +2,39 @@ header#header.header
   .header-top.bg-theme-colored.sm-text-center
     .container
       .row
-        .col-md-6
+        .col-md-8
           .widget.no-border.m-0
-            ul.list-inline.sm-text-center.mt-5
-              li.m-0.pl-10.pr-10
-                i.fa.fa-phone.text-white
-                |  
-                a.text-white(href='#')= practice.phone
-              li.text-white.m-0.pl-10.pr-10
-                i.fa.fa-clock-o.text-white
-                |  Mon-Fri 9am-8pm
-              li.text-white.m-0.pl-10.pr-10
-                i.fa.fa-clock-o.text-white
-                |  Sat-Sun 10am-6pm
-        .col-md-6
+            a(href='/contact')
+              ul.list-inline.sm-text-center.mt-5
+                li.m-0.pl-10.pr-10
+                  i.fa.fa-phone.text-white
+                  a.text-white(href='tel:'+practice.phone)= practice.phone
+                li.text-white.m-0.pl-10
+                  i.fa.fa-clock-o.text-white
+                  |  Mon-Fri #{practice.hours.mon}
+                li.text-white.m-0.pl-10
+                  i.fa.fa-clock-o.text-white
+                  |  Sat #{practice.hours.sat}
+                li.text-white.m-0.pl-10
+                  i.fa.fa-clock-o.text-white
+                  |  Sun #{practice.hours.sun}
+        .col-md-4
           .widget.no-border.m-0
             ul.social-icons.icon-dark.icon-circled.icon-theme-colored.icon-sm.pull-right.flip.sm-pull-none.sm-text-center.mt-sm-15
               li
-                a(href='#')
+                a(href=practice.social.facebook)
                   i.fa.fa-facebook.text-white
               li
-                a(href='#')
+                a(href=practice.social.twitter)
                   i.fa.fa-twitter.text-white
               li
-                a(href='#')
+                a(href=practice.social.googleplus)
                   i.fa.fa-google-plus.text-white
               li
-                a(href='#')
+                a(href=practice.social.instagram)
                   i.fa.fa-instagram.text-white
               li
-                a(href='#')
+                a(href=practice.social.linkedin)
                   i.fa.fa-linkedin.text-white
   .header-middle.p-0.bg-lightest.xs-text-center
     .container.pt-0.pb-0
@@ -64,13 +67,14 @@ header#header.header
                   h5.font-13.text-black.m-0 Reviews
         .col-xs-12.col-sm-3.col-md-3
           .widget.no-border.pull-right.sm-pull-none.sm-text-center.mt-10.mb-10.m-0
-            ul.list-inline
-              li
-                i.fa.fa-clock-o.text-theme-colored.font-36.mt-5.sm-display-block
-              li
-                h5.font-13.text-black.m-0 Mon-Fri #{practice.hours.mon}
-                h5.font-13.text-black.m-0 Sat #{practice.hours.sat}
-                h5.font-13.text-black.m-0 Sun #{practice.hours.sun}
+            a(href='/contact')
+              ul.list-inline
+                li
+                  i.fa.fa-clock-o.text-theme-colored.font-36.mt-5.sm-display-block
+                li
+                  h5.font-13.text-black.m-0 Mon-Fri #{practice.hours.mon}
+                  h5.font-13.text-black.m-0 Sat #{practice.hours.sat}
+                  h5.font-13.text-black.m-0 Sun #{practice.hours.sun}
   .header-nav
     .header-nav-wrapper.navbar-scrolltofixed.bg-light
       .container

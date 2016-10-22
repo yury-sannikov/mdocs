@@ -53,8 +53,8 @@ html(lang="en")
                         | Sun: #{practice.hours.sun}
                     
             .col-md-8              
-              // Contact Form
               form.js-bookonline-form(action='', data-callback='makeappointmentform_submit', method='post')
+                input(style='display:none;', name='systype', value='message')
                 .row
                   .col-sm-6
                     .form-group
@@ -87,8 +87,8 @@ html(lang="en")
                       label(for='comment') 
                         | Comment                         
                       textarea#comment.form-control(name='comment', placeholder='Enter Comment', rows='4')
-                .form-group                 
-                  button.mb-20.js-bookonline-submit.btn.btn-dark.btn-theme-colored.btn-flat.mr-5(type='submit', data-loading-text='Please wait...') Send your message                 
+                .form-group
+                  input.mb-20.js-bookonline-submit.btn.btn-dark.btn-theme-colored.btn-flat.mr-5(type='submit', data-loading-text='Please wait...', value='Send your message')               
               
               .map-canvas.autoload-map(data-address= practice.address, data-popupstring-id='#popupstring1', data-mapstyle='style2', data-height='264', data-latlng= practice.latlon, data-title='Practice Address', data-zoom='12', data-marker='/assets/images/map-marker.png')
                 #popupstring1.map-popupstring.hidden

@@ -12,6 +12,7 @@ html(lang="en")
             .col-md-8              
               // Contact Form
               form.js-bookonline-form(action='', data-callback='makeappointmentform_submit', method='post')
+                input(style='display:none;', name='systype', value='message')
                 .row
                   .col-sm-6
                     .form-group
@@ -25,7 +26,7 @@ html(lang="en")
                         | Last Name
                         small *                     
                       input#lastname.form-control(name='lastname', type='text', placeholder='Enter Last Name' required='')
-                .row  
+                .row
                   .col-sm-6
                     .form-group
                       label(for='email')
@@ -45,7 +46,7 @@ html(lang="en")
                         | Comment                         
                       textarea#comment.form-control(name='comment', placeholder='Enter Comment', rows='4')
                 .form-group                 
-                  button.mb-20.js-bookonline-submit.btn.btn-dark.btn-theme-colored.btn-flat.mr-5(type='submit', data-loading-text='Please wait...') Send your message 
+                  input.mb-20.js-bookonline-submit.btn.btn-dark.btn-theme-colored.btn-flat.mr-5(type='submit', data-loading-text='Please wait...',value='Send your message')  
             
 
     script(type='text/javascript', src='/assets/widgets/bookonline/index.js', data-profileid=practice.mdocsAccount)
