@@ -80,5 +80,12 @@ script.
     var rate = $(this).val();
   });
 
+  $(function(){
+      $("button.btn-leave-review").click(function() {
+      $('input.js-bookonline-submit').attr('value','Send');
+      $('input.js-bookonline-submit').attr('disabled',false);
+    });
+  });
+
 include ../partials/footer.pug
 
