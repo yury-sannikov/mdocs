@@ -7159,4 +7159,7 @@ blockquote p {
 .contact-media-body {
   font-size: 13px;
   color: #777777;
-} 
+}
+.contact-icon-box {
+  font-family: 'Open Sans', sans-serif;
+}
