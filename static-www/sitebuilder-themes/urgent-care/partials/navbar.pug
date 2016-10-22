@@ -3,19 +3,21 @@ header#header.header
     .container
       .row
         .col-md-8
-          .widget.no-border.m-0
-            a(href='/contact')
-              ul.list-inline.sm-text-center.mt-5
-                li.m-0.pl-10.pr-10
-                  i.fa.fa-phone.text-white
-                  a.text-white(href='tel:'+practice.phone)= practice.phone
-                li.text-white.m-0.pl-10
+          .widget.no-border.m-0            
+            ul.list-inline.sm-text-center.mt-5
+              li.m-0.pl-10.pr-10
+                i.fa.fa-phone.text-white
+                a.text-white(href='tel:'+practice.phone)= practice.phone
+              li.text-white.m-0.pl-10
+                a(href="/contact")
                   i.fa.fa-clock-o.text-white
                   |  Mon-Fri #{practice.hours.mon}
-                li.text-white.m-0.pl-10
+              li.text-white.m-0.pl-10
+                a(href="/contact")
                   i.fa.fa-clock-o.text-white
                   |  Sat #{practice.hours.sat}
-                li.text-white.m-0.pl-10
+              li.text-white.m-0.pl-10
+                a(href="/contact")
                   i.fa.fa-clock-o.text-white
                   |  Sun #{practice.hours.sun}
         .col-md-4

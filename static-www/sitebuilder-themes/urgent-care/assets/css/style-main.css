@@ -7163,3 +7163,6 @@ blockquote p {
 .contact-icon-box {
   font-family: 'Open Sans', sans-serif;
 }
+.text-white a {
+  color: #fff;
+}
