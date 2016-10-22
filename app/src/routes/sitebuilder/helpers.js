@@ -9,7 +9,7 @@ const debug = require('debug')('app:routes:sitebuilder:helper');
 
 const SITEBUILDER_AUTH_FLAG_COOKIE_NAME = 'hassbauth'
 const SITEBUILDER_AUTH_PATH = '/auth'
-const SHORT_JWT_EXPIRATION_SEC = 5
+const SHORT_JWT_EXPIRATION_SEC = 25
 const JWT_ISSUER = 'mdocs'
 const SB_ISSUER = 'sitebuilder'
 const STATIC_HTML_KEY = 'plainHtml'
