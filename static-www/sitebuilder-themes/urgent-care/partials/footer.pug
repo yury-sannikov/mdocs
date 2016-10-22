@@ -16,33 +16,44 @@ footer#footer.footer.pb-0.bg-black-111
               a(href='/content/services') Services
             li 
               a(href='/content/employment') Employment
-            li 
+            li
               a(href='/feedback') Feedback
             li 
               a(href='/contact') Contact
-      .col-sm-6.col-md-3
-        .widget.dark
-          h5.widget-title.line-bottom Forms
-          .latest-posts
-            article.post.media-post.clearfix.pb-0.mb-10
-              h5.post-title.mt-0.mb-5
-                a(href='/content/faa-forms') FAA Flight Physical Form
-              h5.post-title.mt-0.mb-5
-                a(href='/content/immigration-services/') Immigration Forms
-              h5.post-title.mt-0.mb-5
-                a(href='#') Medical Records Release Form
-              h5.post-title.mt-0.mb-5
-                a(href='#') Motor Vehicle Accident Form
-              h5.post-title.mt-0.mb-5
-                a(href='#') Notice of Privacy Practices
-              h5.post-title.mt-0.mb-5
-                a(href='#') Registration Packet
-              h5.post-title.mt-0.mb-5
-                a(href='#') School Entrance Physical
-              h5.post-title.mt-0.mb-5
-                a(href='#') Sports Physical
-              h5.post-title.mt-0.mb-5
-                a(href='#') Workers Comp Forms
+
+      if practice.city != 'Woodbridge'
+        .col-sm-6.col-md-3
+          .widget.dark
+            h5.widget-title.line-bottom Forms
+            .latest-posts
+              article.post.media-post.clearfix.pb-0.mb-10
+                h5.post-title.mt-0.mb-5
+                  a(href='/forms-links/faa-forms') FAA Flight Physical Form
+                h5.post-title.mt-0.mb-5
+                  a(href='/forms-links/immigration-services/') Immigration Forms
+                h5.post-title.mt-0.mb-5
+                  a(href='/forms-links/medical-records-release-form') Medical Records Release Form
+                h5.post-title.mt-0.mb-5
+                  a(href='/forms-links/motor-vehicle-accident-form') Motor Vehicle Accident Form
+                h5.post-title.mt-0.mb-5
+                  a(href='/forms-links/notice-of-privacy-practices') Notice of Privacy Practices
+                h5.post-title.mt-0.mb-5
+                  a(href='/forms-links/registration-packet') Registration Packet
+                h5.post-title.mt-0.mb-5
+                  a(href='/forms-links/school-entrance-physical') School Entrance Physical
+                h5.post-title.mt-0.mb-5
+                  a(href='/forms-links/sports-physical') Sports Physical
+                h5.post-title.mt-0.mb-5
+                  a(href='/forms-links/workers-comp-forms') Workers Comp Forms
+      else 
+        .col-sm-6.col-md-3
+          .widget.dark
+            h5.widget-title.line-bottom Forms
+            .latest-posts
+              article.post.media-post.clearfix.pb-0.mb-10
+                h5.post-title.mt-0.mb-5
+                  a(href='/forms-links/forms') All Forms
+
       .col-sm-6.col-md-2
         .widget.dark
           h5.widget-title.line-bottom Quick Contact
@@ -52,13 +63,14 @@ footer#footer.footer.pb-0.bg-black-111
             li
               a(href='mail:'+practice.email)= practice.email
             li
-              a.lineheight-20(href='#')= practice.address  
+              a.lineheight-20(href='/contact')= practice.address  
               br
-              a.lineheight-20(href='#')= practice.city
+              a.lineheight-20(href='/contact')= practice.city
               |, 
-              a.lineheight-20(href='#')= practice.state
+              a.lineheight-20(href='/contact')= practice.state
               |  
-              a.lineheight-20(href='#')= practice.zip
+              a.lineheight-20(href='/contact')= practice.zip
+              
   .footer-nav.bg-black-222.p-20
     .row.text-center
       .col-md-12

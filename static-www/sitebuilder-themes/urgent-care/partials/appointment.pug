@@ -8,7 +8,7 @@ button.btn-leave-review.btn.btn-colored.btn-flat.btn-theme-colored.mt-15(type='b
 					span(aria-hidden='true') ×
 				h4#myModalLabel.modal-title Make an appointment
 			.modal-body
-				form.js-bookonline-form(action='', data-callback='appointment_proceed', data-callback-beforesubmit="appointment_before_submit", method='post')
+				form.js-bookonline-form(action='', method='post')
 					input(style='display:none;', name='systype', value='appointment')
 					input.form-control(name='fullname', required, type='text', placeholder='Your fullname')
 					br
@@ -18,5 +18,12 @@ button.btn-leave-review.btn.btn-colored.btn-flat.btn-theme-colored.mt-15(type='b
 					br
 					input.js-bookonline-submit.btn.btn-colored.btn-flat.btn-theme-colored.mt-15(type='submit', value='Submit')
 
-script(type='text/javascript', src='/assets/widgets/bookonline/index.js', data-profileid=practice.mdocsAccount)
+script.
+	$(function(){
+	    $("button.btn-leave-review").click(function() {
+			$('input.js-bookonline-submit').attr('value','Send');
+			$('input.js-bookonline-submit').attr('disabled',false);
+		});
+	});
 
+script(type='text/javascript', src='/assets/widgets/bookonline/index.js', data-profileid=practice.mdocsAccount)
