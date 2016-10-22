@@ -7166,3 +7166,40 @@ blockquote p {
 .text-white a {
   color: #fff;
 }
+.rating {
+    overflow: hidden;
+    display: inline-block;
+    font-size: 0;
+    position: relative;
+}
+
+.rating-input {
+    float: right;
+    display: none;
+    padding: 0;   
+    opacity: 0;
+}
+.rating-star,
+.rating:hover .rating-star {
+    position: relative;
+    float: right;
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
+}
+.rating-star:before {
+  font-size: 24px;
+  content: "\f006";
+  color: #a9a9a9;
+}
+.rating:hover .rating-star:hover:before,
+.rating:hover .rating-star:hover ~ .rating-star:before,
+.rating-input:checked ~ .rating-star:before {
+  font-size: 24px;
+  content: "\f005";
+  color: #00a3c8;
+}
+.star-rating span::before {
+  content: "\f005\f005\f005\f005\f005";
+}
