@@ -10,13 +10,31 @@ button.btn-leave-review.btn.btn-colored.btn-flat.btn-theme-colored.mt-15(type='b
 			.modal-body
 				form.js-bookonline-form(action='', method='post')
 					input(style='display:none;', name='systype', value='appointment')
-					input.form-control(name='fullname', required, type='text', placeholder='Your fullname')
-					br
-					input.form-control(name='phone', required, type='tel', placeholder='Your phone')
-					br
-					input.form-control(name='email', required, type='email', placeholder='Your email')
-					br
-					input.js-bookonline-submit.btn.btn-colored.btn-flat.btn-theme-colored.mt-15(type='submit', value='Submit')
+					.row
+						.col-xs-6
+							label(for="fullname") FULL NAME
+							input#fullname.form-control(name='fullname', type='text', placeholder='Full name', required="")
+							br
+							label(for="email") EMAIL ADDRESS
+							input#email.form-control(name='email', type='email', placeholder='Email address', required="")
+							br
+							label(for="phone") PHONE NUMBER
+							input.form-control(name='phone', type='tel', placeholder='Phone number', required="")
+						.col-xs-6
+							label NEW PATIENT
+							br
+							input#isnewyes.mr-5(type="radio", name="isnew", value="1", required="")
+							label(for="isnewyes", style="margin: 9px 15px 35px 0") Yes
+							input#isnewno.mr-5(type="radio", name="isnew", value="0", required="")
+							label(for="isnewno") No
+							br
+							label(for="description") REASON
+							input#description.form-control(name="description", type="text", placeholder="E.g. initial consultation, follow-up, ...", required="")
+							br
+							label(for="dob") DATE OF BIRTH
+							input#dob.form-control(name="dob", type="text", placeholder="MM/DD/YYYY", maxlength="10", required="")
+					.text-center
+						input.js-bookonline-submit.btn.btn-colored.btn-flat.btn-theme-colored.mt-15(type='submit', value='Submit')
 
 script.
 	$(function(){
