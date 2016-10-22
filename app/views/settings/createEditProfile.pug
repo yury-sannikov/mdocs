@@ -29,7 +29,9 @@ block content
           - if (isNewProfile)
             | New Profile
           - else
-            | Edit Profile
+            | Edit Profile (
+            span= profile.name
+            | )
         small Add or edit a provider or office location.
       .col-sm-5.text-right.hidden-xs
         ol.breadcrumb.push-10-t
@@ -164,11 +166,12 @@ block content
                   | You are going to create new profile
                   br
                 - else
-                  | You've made changes to
-                  strong #{profile.name}.
+                  | You've made changes to  
+                  strong  #{profile.name}.
                 br
                 br
-                p To persist your changes, click 'Save Profile'.
+                p To save your changes, click  
+                  strong 'Save Profile'.
               a.btn.btn-info.btn-lg.prev(href="#") < Back
               a#saveprofilebutton.btn.btn-success.btn-lg.create.pull-right(href="#") Save Profile
 
