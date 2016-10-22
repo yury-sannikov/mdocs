@@ -25,7 +25,7 @@ html(lang="en")
                               span(aria-hidden='true') ×
                             h4#myModalLabel.modal-title Leave Review
                           .modal-body
-                            form.js-bookonline-form(action='', data-callback='makeappointmentform_submit', method='post')
+                            form.js-bookonline-form(action='', data-callback='reviewform_submit', data-callback-beforesubmit="reviewform_before_submit", method='post')
                               input.form-control(name='fullname', type='text', placeholder='Your fullname', required='')
                               br
                               input.form-control(name='phone', type='text', placeholder='Your phone', required='')
@@ -45,7 +45,11 @@ html(lang="en")
                                 input#rate-1.rating-input(type='radio', name='rate', value="1", required='')
                                 label.fa.rating-star(for='rate-1')
                               br
-                              input.js-bookonline-submit.btn.btn-colored.btn-flat.btn-theme-colored.mt-15(type='submit', value='Submit')
+                              input.js-rating-field(name="rate" type="hidden" value="0")
+                              input(name="systype" type="hidden" value="reviews")
+                              input(name="profileId" type="hidden" value=practice.mdocsProfile)
+
+                              input.js-bookonline-submit.btn.btn-colored.btn-flat.btn-theme-colored.mt-15(type='submit', value='Submit', data-loading-msg='Submitting...', data-success-msg='Success!', data-error-msg='Error! Try again.')
               .clear-40
             .row
               ol.commentlist
@@ -78,7 +82,16 @@ html(lang="en")
 script.
   $('span.rating input').on('change', function() {
     var rate = $(this).val();
+    $('.js-rating-field').val(rate);
   });
+
+  window.reviewform_submit = function(maybeError) {
+    //$('.js-bookonline-submit', this)
+  }
+
+  window.reviewform_before_submit = function() {
+
+  }
 
   $(function(){
       $("button.btn-leave-review").click(function() {

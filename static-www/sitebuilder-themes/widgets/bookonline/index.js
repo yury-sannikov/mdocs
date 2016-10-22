@@ -3,6 +3,7 @@ systype - system message type
 empty or 'appointment' - appointment. Goes to appointment list
 subscribe - subscription request from web site
 message - patient message from web site
+reviews - web site reviews
 */
 (function(init) {
   init(window.jQuery, window, document);
@@ -26,16 +27,9 @@ message - patient message from web site
       'email', 'phone', 'zip', 'comment', 'description', 'systype', 'dob', 'visitdate', 'rate'];
     var data = {};
     $.each(inputs, function(i, v) {
-      if (v === 'rate') {
-        var inp = $('span.rating input[name=rate]:checked');
-        if (inp.length === 1) {
-          data[v] = inp.val();
-        }
-      } else {
-        var inp = $('[name="' + v + '"]', form);
-        if (inp.length === 1) {
-          data[v] = inp.val();
-        }
+      var inp = $('[name="' + v + '"]', form);
+      if (inp.length === 1) {
+        data[v] = inp.val();
       }
     });
 
