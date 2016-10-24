@@ -12,8 +12,8 @@
   "email": "info@flucc.com",
   "mdocsAccount": "ed731362-8bcb-4a50-9486-c594df7c1237",
   "logo": {
-    "small": "/assets/images/logo.png",
-    "big": "/assets/images/logo.png"
+    "small": "/assets/images/logo-wide.png",
+    "big": "/assets/images/logo-square.png"
   },
   "hours": {
     "mon": "9:00am - 5:00pm",

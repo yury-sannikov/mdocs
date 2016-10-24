@@ -12,8 +12,8 @@
   "email": "info@vgucc.com",
   "mdocsAccount": "ed731362-8bcb-4a50-9486-c594df7c1237",
   "logo": {
-    "small": "/assets/img/logo_small.png",
-    "big": "/assets/img/logo_big.png"
+    "small": "/assets/images/logo-wide.png",
+    "big": "/assets/images/logo-square.png"
   },
   "hours": {
     "mon": "9:00am - 8:00pm",
