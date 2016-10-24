@@ -45,6 +45,48 @@ html(xmlns='http://www.w3.org/1999/xhtml')
       table[class="emhide"]{display: none!important;}
       img[class="logo"]{width:440px!important;height:110px!important;}
       }
+
+      .surveyButton {
+        -moz-box-shadow:inset 1px -1px 7px 0px #8a2a21;
+        -webkit-box-shadow:inset 1px -1px 7px 0px #8a2a21;
+        box-shadow:inset 1px -1px 7px 0px #8a2a21;
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24437));
+        background:-moz-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+        background:-webkit-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+        background:-o-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+        background:-ms-linear-gradient(top, #c62d1f 5%, #f24437 100%);
+        background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24437',GradientType=0);
+        background-color:#c62d1f;
+        -moz-border-radius:42px;
+        -webkit-border-radius:42px;
+        border-radius:42px;
+        border:1px solid #d02718;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Verdana;
+        font-size:28px;
+        font-weight:bold;
+        padding:31px 76px;
+        text-decoration:none;
+        text-shadow:1px 4px 3px #810e05;
+      }
+      .surveyButton:hover {
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f24437), color-stop(1, #c62d1f));
+        background:-moz-linear-gradient(top, #f24437 5%, #c62d1f 100%);
+        background:-webkit-linear-gradient(top, #f24437 5%, #c62d1f 100%);
+        background:-o-linear-gradient(top, #f24437 5%, #c62d1f 100%);
+        background:-ms-linear-gradient(top, #f24437 5%, #c62d1f 100%);
+        background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f24437', endColorstr='#c62d1f',GradientType=0);
+        background-color:#f24437;
+      }
+      .surveyButton:active {
+        position:relative;
+        top:1px;
+      }
+
       /*IPHONE STYLES*/
       @media only screen and (max-width: 480px) {
       a[href^="tel"], a[href^="sms"] {
@@ -139,33 +181,17 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                           td
                             table.devicewidthinner(width='560', align='center', cellpadding='0', cellspacing='0', border='0')
                               tbody
-                                // Title
                                 tr
                                   td(style='font-family: Helvetica, arial, sans-serif; font-size: 14px; font-weight:bold; color: #333333; text-align:left;line-height: 24px;')
-                                    | Please participate in this short survey.
-                                // End of Title
-                                // spacing
+                                    | Please participate in our short survey.
                                 tr
                                   td(height='5')
-                                // End of spacing
-                                // content
                                 tr
                                   td(style='font-family: Helvetica, arial, sans-serif; font-size: 13px; color: #333333; text-align:left;line-height: 24px;')
-                                    | #{title} office would like to hear about your recent appointment experience. Please click the following link for a short customer survey.
-                                // End of content
-                                // Spacing
+                                    | #{title}'s office would like to hear about your recent  appointment experience. Please click the following link for a short customer survey.
                                 tr
                                   td(width='100%', height='5')
-                                // Spacing
-                                // button
-                                tr
-                                  td(style='font-family: Helvetica, arial, sans-serif; font-size: 14px; font-weight:bold; color: #333333; text-align:center;line-height: 24px;')
-                                    a(href=surveyUrl, style='color:#FF196F;text-decoration:none;font-weight:bold;') Patient Survey and Review
-                                // /button
-                                // Spacing
-                                tr
-                                  td(width='100%', height='20')
-                                // Spacing
+                                
     // end of textbox-with-title
     // Start of 2-columns
     table#backgroundTable(width='100%', bgcolor='#fff', cellpadding='0', cellspacing='0', border='0')
@@ -194,21 +220,10 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                                         // image
                                         tr
                                           td(align='center')
-                                            a(href=surveyUrl, style='color:#FF196F;text-decoration:none;font-weight:bold;')
-                                              img(src='cid:stars.png', alt='', border='0', width='100%', style='display:block; border:none; outline:none; text-decoration:none;')
+                                            a.surveyButton(href=surveyUrl) View Survey
                                         // Spacing
                                         tr
-                                          td(width='100%', height='10')
-                                        // /Spacing
-                                        // title
-                                        // end of content
-                                        // button
-                                        tr
-                                          td(style='font-family: Helvetica, arial, sans-serif; font-size: 14px; font-weight:bold; color: #333333; text-align:center;line-height: 24px;')
-                                            a(href=surveyUrl, style='color:#FF196F;text-decoration:none;font-weight:bold;') Submit Review
-                                        // /button
-                                // end of text content table
-                                // Spacing
+                                          td(width='100%', height='100')
                                 tr
                                   td(width='100%', height='10')
                                 // Spacing
@@ -230,9 +245,8 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                           td(width='100%', height='20')
                         // Spacing
                         tr
-                          td(align='center', valign='middle', style='font-family: Helvetica, arial, sans-serif; font-size: 13px;color: #ffffff')
-                            | You have recevied this email because you visited #{title} and our office is conducting a patient survey. If you no longer wish to recive emails please  
-                            a(href=unsubscribeUrl, style='text-decoration: none; color: #FF196F') unsubscribe 
+                          td(align='center', valign='middle', style='font-family: Helvetica, arial, sans-serif; font-size: 13px;color: #ffffff;line-height: 18px;')
+                            | You have recevied this email because you are a patient of #{title}'s and our office is conducting a patient survey. 
                         // Spacing
                         tr
                           td(width='100%', height='20')
