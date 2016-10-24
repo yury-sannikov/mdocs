@@ -23,6 +23,9 @@ sb_plainHtml: true
       <input id='czip' name='zip' minlength='2' type='text' aria-required='true'>
       <label for='othername'>If you are making an appointment for another member of your family, please list their name below.</label>
       <textarea id='othername' name='description'></textarea>
+      <input name="systype" type="hidden" value="appointment" />
+      <input name="profileId" type="hidden" value="{{practice.mdocsProfile}}" />
+
       <input type='submit' class='js-bookonline-submit' value='REQUEST APPOINTMENT'>
     </form>
   </div>
