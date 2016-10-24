@@ -1,13 +1,26 @@
 #contact-form-short
     h3 Get in touch
     p Simply fill out the form below
-    form#ContactFormSidebar.cmxform.js-bookonline-form(method='post', action='', novalidate='novalidate')
+    form#ContactFormSidebar.cmxform.js-bookonline-form(method='post', action='', novalidate='novalidate' data-callback='contactform_submit')
       label(for='cname') Name
       input#cname(name='fullname', minlength='2', type='text', required='', aria-required='true')
       label(for='cemail') Email
       input#cemail(type='email', name='email', required='', aria-required='true')
       label(for='message') Message
-      textarea#message(name='comment', required='', aria-required='true')
-      input(type='hidden' name='description' value='Get In Touch')
+      textarea#message(name='description', required='', aria-required='true')
+      input(type='hidden' name='comment' value='Get In Touch')
       input(type='hidden' name='systype' value='subscribe')
+      input(name='profileId' type='hidden' value=practice.mdocsProfile)
+
       input.js-bookonline-submit(type='submit', value='SEND MESSAGE')
+
+script(type='text/javascript' src='/assets/widgets/bookonline/index.js' data-profileid=practice.mdocsProfile)
+script(type="text/javascript").
+  function contactform_submit(maybeErrorMessage) {
+    if (maybeErrorMessage) {
+      alert('Unable to sent message.');
+    } else {
+      $(this).clear();
+      alert('You message has been received successfully.');
+    }
+  }
