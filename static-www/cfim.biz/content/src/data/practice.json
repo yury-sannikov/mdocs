@@ -7,6 +7,7 @@
   "state": "VA",
   "zip": "22150",
   "phone": "703-746-8596",
+  "fax": "206-964-2163",
   "email": "contact@cfim.biz",
   "offices": [
     {
@@ -16,6 +17,7 @@
       "state": "VA",
       "zip": "22150",
       "phone": "703-746-8596",
+      "fax": "206-964-2163",
       "email": "contact@cfim.biz",
       "mdocsProfile": "4aea835f-c71a-4b4a-a8ee-f7ab58ea5980",
       "hours": {
@@ -24,7 +26,7 @@
         "wed": "8:00am - 5:00pm",
         "thu": "8:00am - 5:00pm",
         "fri": "8:00am - 5:00pm",
-        "sat": "Closed",
+        "sat": "Select hours",
         "sun": "Closed"
       }
     },
@@ -35,6 +37,7 @@
       "state": "MD",
       "zip": "20695",
       "phone": "240-412-0051",
+      "fax": "206-964-2163",
       "email": "contact@cfim.biz",
       "mdocsProfile": "62869a92-c0a1-4694-bede-6812f38de3d9",
       "hours": {
@@ -43,7 +46,7 @@
         "wed": "8:00am - 5:00pm",
         "thu": "8:00am - 5:00pm",
         "fri": "8:00am - 5:00pm",
-        "sat": "Closed",
+        "sat": "Select hours",
         "sun": "Closed"
       }
     }
@@ -55,7 +58,8 @@
   "ctaLabel": "Free Screening",
   "logo": {
     "small": "/assets/img/logo_small.png",
-    "big": "/assets/img/logo_big.png"
+    "big": "/assets/img/logo_big.png",
+    "white": "/assets/img/logo_big_white.png"
   },
   "hours": {
     "mon": "9:00am - 5:00pm",
@@ -63,7 +67,7 @@
     "wed": "9:00am - 5:00pm",
     "thu": "9:00am - 5:00pm",
     "fri": "9:00am - 5:00pm",
-    "sat": "Closed",
+    "sat": "Select hours",
     "sun": "Closed"
   },
   "social": {
