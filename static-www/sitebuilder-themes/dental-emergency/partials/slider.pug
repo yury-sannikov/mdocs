@@ -1,57 +1,56 @@
-.bx-wrapper(style='max-width: 100%;')
-  .bx-viewport(style='width: 100%; overflow: hidden; position: relative; height: 439px;')
-    ul.bxslider(style='width: auto; position: relative;')
-      li(style='float: none; list-style: none; position: absolute; display: none; width: 1280px; z-index: 0;')
-        img(src='/assets/images/slide-1.jpg', alt='Welcome to Northern Virginia Dental Arts ')
-        .bx-caption
-          span
-            p.header Welcome to Northern Virginia Dental Arts
-            p
-              | Why are we here?
-              br
-              | To improve 
-              u
-                i your
-              |  very quality of life!
-      li(style='float: none; list-style: none; position: absolute; width: 1280px; display: list-item; z-index: 50;')
-        img(src='/assets/images/slide-0.jpg', alt='Ideal Surroundings')
-        .bx-caption
-          span
-            p.header Ideal Surroundings
-            p Relax in our beautiful office set on a scenic pond
-      li(style='float: none; list-style: none; position: absolute; width: 1280px; display: none; z-index: 0;')
-        img(src='/assets/images/slide-3.jpg', alt='Gorgeous Smile')
-        .bx-caption
-          span
-            p.header Sterling, Virginia
-            p
-              | Our highly-skilled dental team proudly serves
-              br
-              | Sterling, Ashburn, Great Falls and Northern Virginia
-      li(style='float: none; list-style: none; position: absolute; width: 1280px; display: none; z-index: 0;')
-        img(src='/assets/images/slide-4.jpg', alt='Family Dentist')
-        .bx-caption
-          span
-            p.header Family Dentist
-            p We offer complete and cosmetic dentistry for all ages
-      li(style='float: none; list-style: none; position: absolute; width: 1280px; display: none; z-index: 0;')
-        img(src='/assets/images/slide-5.jpg', alt='Fayetteville, North Carolina')
-        .bx-caption
-          span
-            p.header Gorgeous Smile
-            p
-              | A gorgeous smile is the best beauty secret around.
-              br
-              | Contact us today for a FREE smile consultation!
-  .bx-controls.bx-has-pager
-    .bx-pager.bx-default-pager
-      .bx-pager-item
-        a.bx-pager-link(href='', data-slide-index='0') 1
-      .bx-pager-item
-        a.bx-pager-link.active(href='', data-slide-index='1') 2
-      .bx-pager-item
-        a.bx-pager-link(href='', data-slide-index='2') 3
-      .bx-pager-item
-        a.bx-pager-link(href='', data-slide-index='3') 4
-      .bx-pager-item
-        a.bx-pager-link(href='', data-slide-index='4') 5
+ul.bxslider-new(style="margin: 0; padding: 0")
+  li
+    img(src='/assets/images/slide-1.jpg', alt='Welcome to Northern Virginia Dental Arts ')
+    .bx-caption
+      span
+        p.header Welcome to Northern Virginia Dental Arts
+        p
+          | Why are we here?
+          br
+          | To improve 
+          u
+            i your
+          |  very quality of life!
+  li
+    img(src='/assets/images/slide-0.jpg', alt='Ideal Surroundings')
+    .bx-caption
+      span
+        p.header Ideal Surroundings
+        p Relax in our beautiful office set on a scenic pond
+  li
+    img(src='/assets/images/slide-3.jpg', alt='Gorgeous Smile')
+    .bx-caption
+      span
+        p.header Sterling, Virginia
+        p
+          | Our highly-skilled dental team proudly serves
+          br
+          | Sterling, Ashburn, Great Falls and Northern Virginia
+  li
+    img(src='/assets/images/slide-4.jpg', alt='Family Dentist')
+    .bx-caption
+      span
+        p.header Family Dentist
+        p We offer complete and cosmetic dentistry for all ages
+  li
+    img(src='/assets/images/slide-5.jpg', alt='Fayetteville, North Carolina')
+    .bx-caption
+      span
+        p.header Gorgeous Smile
+        p
+          | A gorgeous smile is the best beauty secret around.
+          br
+          | Contact us today for a FREE smile consultation!
+
+
+script.
+  $(document).ready(function(){
+    $('ul.bxslider-new').bxSlider({
+      mode: 'fade',
+      captions: true,
+      controls: false,
+      speed: 1500,
+      pause: 6000,
+      auto: true
+    });
+  });
