@@ -2,9 +2,6 @@ import cors from 'koa-cors'
 import Router from 'koa-router';
 import config from '../../config';
 import { Repo } from '../../sitebuilder';
-// import { sitebuilderLocalsMiddleware } from './helpers';
-// import _ from 'lodash';
-
 
 const debug = require('debug')('app:routes:sitebuilder:preview:assets');
 

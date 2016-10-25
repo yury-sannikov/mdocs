@@ -12,7 +12,7 @@ const rimraf = bluebird.promisify(require('rimraf'));
 const debug = require('debug')('app:sitebuilder:repo');
 
 const ENGINE_VERSION = '0.2'
-const SiteBuilderEngine = require('../../shared_modules/sb_engine_'+ENGINE_VERSION)
+const SiteBuilderEngine = require('../../shared_modules/sb_engine_' + ENGINE_VERSION)
 
 const fs = bluebird.promisifyAll(require('fs'))
 
@@ -42,8 +42,7 @@ const metalsmithOptionsForTheme = (theme) => {
 }
 
 const ASSETS_UPLOADS = 'assets/uploads'
-const ASSETS_IMAGES = `${ASSETS_UPLOADS}/images`
-
+const ASSETS_IMAGES = 'assets/img'
 
 function massageUserId(userId) {
   if (userId.indexOf('|') !== -1) {
@@ -85,7 +84,13 @@ export function uploadFile(userId, siteId, sourceTmpPath, fileName, type) {
   const assetUrl = `${uploadSlug}/${fileName}`
   return new Promise(function(resolve, reject) {
     let counter = 0
-    function wfinish() { if (++counter == 2) { resolve(assetUrl) } }
+    function wfinish() { 
+      counter = counter + 1
+      if (counter === 2) { 
+        console.log('RESOLVED')
+        resolve(assetUrl) 
+      } 
+    }
     const rs = fs.createReadStream(sourceTmpPath)
     const ws1 = fs.createWriteStream(buildDirDest)
     const ws2 = fs.createWriteStream(sourceDirDest)
@@ -111,7 +116,6 @@ export function* prepare(userId, siteId) {
   let engine = new SiteBuilderEngine(workDir, buildDir, metalsmithOptionsForTheme(themeId))
   engine = bluebird.promisifyAll(engine, {context: engine})
   yield engine.prepareAsync()
-
 }
 
 export function* metainfo(userId, siteId) {

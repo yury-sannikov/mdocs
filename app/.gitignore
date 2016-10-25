@@ -6,3 +6,4 @@ public/app
 webpack-assets.json
 webpack-stats.json
 npm-debug.log
+__sitebuilder/
