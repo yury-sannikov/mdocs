@@ -53,7 +53,6 @@ function metalsmithFactory(workDir, buildDir, options) {
 
   const sourceDir = path.join(workDir, options.source)
   const themeDir = path.normalize(options.themeDir)
-  console.log('workDir ',workDir);
   return Metalsmith(workDir)
     // Folder with source data
     .source(sourceDir)

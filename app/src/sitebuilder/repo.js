@@ -61,9 +61,16 @@ export function* listImages(userId, siteId) {
   })
 }
 
-export function* deleteAsset(userId, siteId, url) {
-  const idx = url.indexOf(ASSETS_UPLOADS)
-  if (idx === -1) {
+export function* deleteAsset(userId, siteId, rawurl) {
+  let idx
+  const url = rawurl.replace(/%20/g,' ');
+  const uploads_idx = url.indexOf(ASSETS_UPLOADS)
+  const images_idx = url.indexOf(ASSETS_IMAGES)
+  if (uploads_idx !== -1) {
+    idx = uploads_idx
+  } else if (images_idx !== -1) {
+    idx = images_idx
+  } else {
     throw new Error('Wrong URL')
   }
   const pathPart = url.slice(idx - 1)
@@ -84,10 +91,9 @@ export function uploadFile(userId, siteId, sourceTmpPath, fileName, type) {
   const assetUrl = `${uploadSlug}/${fileName}`
   return new Promise(function(resolve, reject) {
     let counter = 0
-    function wfinish() { 
+    function wfinish() {
       counter = counter + 1
       if (counter === 2) { 
-        console.log('RESOLVED')
         resolve(assetUrl) 
       } 
     }

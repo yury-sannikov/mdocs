@@ -233,7 +233,6 @@ function ncp (source, dest, options, callback) {
   }
 
   function onError(err) {
-    console.log('ERROR!!!!!!!')
     if (options.stopOnError) {
       return cback(err);
     }
