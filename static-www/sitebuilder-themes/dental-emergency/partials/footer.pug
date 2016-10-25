@@ -35,7 +35,7 @@
       p
         | Please call our main line:
         br
-        |           703-444-5108
+        = practice.phone
     .col-4.span_1_of_4
       h4 Hours
       p
@@ -45,14 +45,18 @@
       p
         strong Location
         br
-        |           46175 Westlake Drive, Suite 130
+        = practice.address
         br
-        |           Sterling, VA 20165
+        = practice.city
+        |, 
+        = practice.state
+        |  
+        = practice.zip
       p
         strong Telephone
         br
-        |           703-444-5108
-      p#copyright © 2015 Northern Virginia Dental Arts
+        = practice.phone
+      p#copyright © 2017 Northern Virginia Dental Arts
 script.
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
