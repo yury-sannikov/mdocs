@@ -197,9 +197,9 @@ class SiteBuilderEngine {
   metainfo(done) {
     this.cleanRequireCache()
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
-      _clean: true,
+      _clean: false,
       _force: true,
-      _generate: true
+      _generate: false
     }))
     ms.build(done)
   }
@@ -210,7 +210,7 @@ class SiteBuilderEngine {
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
       _clean: true,
       _generate: true,
-      _force: true
+      _force: force
     }))
     ms.build(done)
   }

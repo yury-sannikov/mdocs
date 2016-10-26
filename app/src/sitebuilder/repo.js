@@ -42,7 +42,7 @@ const metalsmithOptionsForTheme = (theme) => {
 }
 
 const ASSETS_UPLOADS = 'assets/uploads'
-const ASSETS_IMAGES = 'assets/img'
+const ASSETS_IMAGES = `${ASSETS_UPLOADS}/images`
 
 function massageUserId(userId) {
   if (userId.indexOf('|') !== -1) {
@@ -63,7 +63,7 @@ export function* listImages(userId, siteId) {
 
 export function* deleteAsset(userId, siteId, rawurl) {
   let idx
-  const url = rawurl.replace(/%20/g,' ');
+  const url = decodeURIComponent(rawurl)
   const uploads_idx = url.indexOf(ASSETS_UPLOADS)
   const images_idx = url.indexOf(ASSETS_IMAGES)
   if (uploads_idx !== -1) {
@@ -83,12 +83,41 @@ export function* deleteAsset(userId, siteId, rawurl) {
   ]
 }
 
-export function uploadFile(userId, siteId, sourceTmpPath, fileName, type) {
+export function uploadFile(userId, siteId, sourceTmpPath, rawfilename, type) {
+  const filename = decodeURIComponent(rawfilename)
   const uploadSlug = type === 'image' ? ASSETS_IMAGES : ASSETS_UPLOADS
-  const sourceDirDest = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId, uploadSlug, fileName))
-  const buildDirDest = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId, uploadSlug, fileName))
-  debug(`Upload file ${fileName} to ${buildDirDest} and ${sourceDirDest}`)
-  const assetUrl = `${uploadSlug}/${fileName}`
+  const buildDirDest = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId, uploadSlug, filename))
+  const sourceDirDest = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId, uploadSlug, filename))
+
+  const uploadSourceDirDest = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId, ASSETS_UPLOADS))
+  const imagesSourceDirDest = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId, ASSETS_IMAGES))
+  const uploadBuildDirDest = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId, ASSETS_UPLOADS))
+  const imagesBuildDirDest = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId, ASSETS_IMAGES))
+
+  debug(`Upload file ${filename} to ${buildDirDest} and ${sourceDirDest}`)
+  const assetUrl = `${uploadSlug}/${filename}`
+
+  try {
+    fs.openSync(uploadSourceDirDest, 'r')
+  } catch (a) {
+    fs.mkdirSync(uploadSourceDirDest)
+  } 
+  try {
+    fs.openSync(imagesSourceDirDest, 'r')
+  } catch (b) {
+    fs.mkdirSync(imagesSourceDirDest)
+  }
+  try {
+    fs.openSync(uploadBuildDirDest, 'r')
+  } catch (c) {
+    fs.mkdirSync(uploadBuildDirDest)
+  }
+  try {
+    fs.openSync(imagesBuildDirDest, 'r')
+  } catch (d) {
+    fs.mkdirSync(imagesBuildDirDest)
+  }
+
   return new Promise(function(resolve, reject) {
     let counter = 0
     function wfinish() {
