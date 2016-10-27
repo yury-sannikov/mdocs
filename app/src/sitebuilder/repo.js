@@ -12,7 +12,7 @@ const rimraf = bluebird.promisify(require('rimraf'));
 const debug = require('debug')('app:sitebuilder:repo');
 
 const ENGINE_VERSION = '0.2'
-const SiteBuilderEngine = require('../../shared_modules/sb_engine_'+ENGINE_VERSION)
+const SiteBuilderEngine = require('../../shared_modules/sb_engine_' + ENGINE_VERSION)
 
 const fs = bluebird.promisifyAll(require('fs'))
 
@@ -44,7 +44,6 @@ const metalsmithOptionsForTheme = (theme) => {
 const ASSETS_UPLOADS = 'assets/uploads'
 const ASSETS_IMAGES = `${ASSETS_UPLOADS}/images`
 
-
 function massageUserId(userId) {
   if (userId.indexOf('|') !== -1) {
     userId = userId.split('|')[1]
@@ -62,7 +61,8 @@ export function* listImages(userId, siteId) {
   })
 }
 
-export function* deleteAsset(userId, siteId, url) {
+export function* deleteAsset(userId, siteId, rawurl) {
+  const url = decodeURIComponent(rawurl)
   const idx = url.indexOf(ASSETS_UPLOADS)
   if (idx === -1) {
     throw new Error('Wrong URL')
@@ -77,15 +77,26 @@ export function* deleteAsset(userId, siteId, url) {
   ]
 }
 
-export function uploadFile(userId, siteId, sourceTmpPath, fileName, type) {
+export function* uploadFile(userId, siteId, sourceTmpPath, rawfilename, type) {
+  const filename = decodeURIComponent(rawfilename)
   const uploadSlug = type === 'image' ? ASSETS_IMAGES : ASSETS_UPLOADS
-  const sourceDirDest = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId, uploadSlug, fileName))
-  const buildDirDest = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId, uploadSlug, fileName))
-  debug(`Upload file ${fileName} to ${buildDirDest} and ${sourceDirDest}`)
-  const assetUrl = `${uploadSlug}/${fileName}`
+  const buildDir = path.resolve(path.join(config.SITEBUILDER_BUILD_DIR, userId, siteId, uploadSlug))
+  const sourceDir = path.resolve(path.join(config.SITEBUILDER_SOURCE_DIR, siteId, uploadSlug))
+  const buildDirDest = path.join(buildDir, filename)
+  const sourceDirDest = path.join(sourceDir, filename)
+  yield mkdirp(buildDir)
+  yield mkdirp(sourceDir)
+  debug(`Upload file ${filename} to ${buildDirDest} and ${sourceDirDest}`)
+  const assetUrl = `${uploadSlug}/${filename}`
+
   return new Promise(function(resolve, reject) {
     let counter = 0
-    function wfinish() { if (++counter == 2) { resolve(assetUrl) } }
+    function wfinish() {
+      counter = counter + 1
+      if (counter === 2) { 
+        resolve(assetUrl) 
+      } 
+    }
     const rs = fs.createReadStream(sourceTmpPath)
     const ws1 = fs.createWriteStream(buildDirDest)
     const ws2 = fs.createWriteStream(sourceDirDest)
@@ -111,7 +122,6 @@ export function* prepare(userId, siteId) {
   let engine = new SiteBuilderEngine(workDir, buildDir, metalsmithOptionsForTheme(themeId))
   engine = bluebird.promisifyAll(engine, {context: engine})
   yield engine.prepareAsync()
-
 }
 
 export function* metainfo(userId, siteId) {

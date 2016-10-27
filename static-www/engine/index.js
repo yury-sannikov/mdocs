@@ -50,7 +50,6 @@ function pluginWrapper(plugin, opts) {
 }
 
 function metalsmithFactory(workDir, buildDir, options) {
-    // console.log(workDir, buildDir, options)
 
   const sourceDir = path.join(workDir, options.source)
   const themeDir = path.normalize(options.themeDir)
@@ -190,7 +189,7 @@ class SiteBuilderEngine {
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
       _clean: true,
       _force: true,
-      _generate: false
+      _generate: true
     }))
     ms.build(done)
   }
@@ -209,7 +208,7 @@ class SiteBuilderEngine {
     console.log(`Generate. Force = ${force}`)
     this.cleanRequireCache()
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
-      _clean: false,
+      _clean: true,
       _generate: true,
       _force: force
     }))
@@ -236,6 +235,7 @@ class SiteBuilderEngine {
   }
 
   cliDev(port, buildResult) {
+
     const me = this
     const ms = metalsmithFactory(this.workDir, this.buildDir, Object.assign({}, this.options, {
       _clean: true,
