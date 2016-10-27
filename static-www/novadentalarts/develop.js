@@ -2,7 +2,7 @@
 const path = require('path')
 const SiteBuilderEngine = require('../engine')
 
-const THEME = 'dental-emergency'
+const THEME = 'novadentalarts'
 const WORK_DIR = path.join(__dirname, 'content')
 const BUILD_DIR = path.join(__dirname, '__build')
 const THEME_DIR = path.join(__dirname, '../sitebuilder-themes', THEME)

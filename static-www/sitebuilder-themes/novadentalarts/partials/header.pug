@@ -1,12 +1,14 @@
 meta(charset='utf-8')
-// Always force latest IE rendering engine (even in intranet) & Chrome Frame
 meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-// InstanceBeginEditable name="doctitle"
-title= practice.name
-// InstanceEndEditable
-meta(name='description', content="If you're looking for a gentle but highly-skilled dentist in Northern Virginia, Dr. Hawa and his staff at Northern Virginia Dental Arts are the answer. Call us today!")
+- var contentData = data || {}
+title= (title || contentData.seoTitle || contentData.title)
+  |  |  
+  = practice.name
+meta(name='description', content= (description || contentData.seoDescription || practice.seo.description))
+meta(name='keywords', content= (keywords || contentData.seoKeywords || practice.seo.keywords))
 meta(http-equiv='cleartype', content='on')
 link(rel='shortcut icon', href='/favicon.ico')
+
 // Responsive and mobile friendly stuff
 meta(name='HandheldFriendly', content='True')
 meta(name='MobileOptimized', content='320')
@@ -37,19 +39,7 @@ link(rel='stylesheet', media='only screen and (max-width: 360px)', href='/assets
 script(src='/assets/js/modernizr-2.5.3-min.js')
 // InstanceBeginEditable name="head"
 link(rel='stylesheet', media='only screen and (max-width: 3000px) and (min-width: 1920px)', href='/assets/css/1920.css')
-// InstanceEndEditable
-// InstanceParam name="videos" type="text" value="off"
-// InstanceParam name="mDoctor" type="text" value="off"
-// InstanceParam name="mTeam" type="text" value="off"
-// InstanceParam name="mDentalServices" type="text" value="off"
-// InstanceParam name="mGentleCare" type="text" value="off"
-// InstanceParam name="mSmile" type="text" value="off"
-// InstanceParam name="invisalign" type="text" value="off"
-// InstanceParam name="invisTeen" type="text" value="off"
-// InstanceParam name="overallHealth" type="text" value="off"
-// InstanceParam name="mTestimonials" type="text" value="off"
-// InstanceParam name="mContact" type="text" value="off"
-// InstanceParam name="mEmergency" type="text" value="off"
+
 style.
   .pkt_added {text-decoration:none !important;}
 script.

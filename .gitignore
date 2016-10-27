@@ -40,8 +40,8 @@ node_modules
 
 .idea
 app/mdocs-sitebuilder-s3
-app/src/.env_backup
-app/src/__sitebuilder
+app/.env_backup
+app/__sitebuilder
 tmp/
 
 static-www/sitebuilder-themes/urgent-care/layouts/test.pug
