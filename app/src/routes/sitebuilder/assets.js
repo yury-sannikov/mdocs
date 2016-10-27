@@ -28,7 +28,6 @@ router.options('/*',  function*() {} )
 router.get('/imglist', function*() {
   const { uid, siteId } = this.session.sbSession
   const urlPrefix = config.SITEBUILDER_PREIVEW_URL
-  console.log('urlPrefix: ', urlPrefix)
   this.body = (yield Repo.listImages(uid, siteId)).map((f) => { return {url: `${urlPrefix}/${f.url}`} })
 })
 
