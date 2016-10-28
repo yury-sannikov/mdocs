@@ -12,8 +12,7 @@
           }
           var imageRx = new RegExp('/assets/img', 'g')
           var uploadsImageRx = new RegExp('/assets/uploads/images', 'g')
-          var newVal = $(self.input).val().replace(uploadsImageRx, JSONEditor.defaults.editors.froala.options.SITEBUILDER_PREIVEW_URL + '/assets/uploads/images')
-          newVal = $(self.input).val().replace(imageRx, JSONEditor.defaults.editors.froala.options.SITEBUILDER_PREIVEW_URL + '/assets/img')
+          newVal = $(self.input).val().replace(imageRx, JSONEditor.defaults.editors.froala.options.SITEBUILDER_PREIVEW_URL + '/assets/img').replace(uploadsImageRx, JSONEditor.defaults.editors.froala.options.SITEBUILDER_PREIVEW_URL + '/assets/uploads/images')
           $(self.input).val(newVal)
           $(self.input).froalaEditor(options)
           .on('froalaEditor.blur', function (e, editor) {
