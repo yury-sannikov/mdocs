@@ -10,8 +10,8 @@
             toolbarInline: false,
             iframe: true
           }
-          var imageRx = new RegExp('/assets/uploads/images', 'g')
-          var newVal = $(self.input).val().replace(imageRx, JSONEditor.defaults.editors.froala.options.SITEBUILDER_PREIVEW_URL + '/assets/uploads/images')
+          var imagerx = /(\/assets\/img|\/assets\/uploads\/images)/g;
+          var newVal = $(self.input).val().replace(imagerx, JSONEditor.defaults.editors.froala.options.SITEBUILDER_PREIVEW_URL + '$1');
           $(self.input).val(newVal)
           $(self.input).froalaEditor(options)
           .on('froalaEditor.blur', function (e, editor) {
@@ -34,8 +34,6 @@
               method: 'DELETE',
               url: img.attr('src')
             })
-            console.log(error);
-            alert(error.message);
           });
         } else {
           this._super();
