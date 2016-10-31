@@ -1,0 +1,26 @@
+nav.nav-wrp.nav-1.light(data-glass='y', data-sticky='y')
+  .container.pd-0.bdr-b.min-px-h100.flex-cc(data-rgen-sm='pd-lr-20 h-reset')
+    .flex-row.gt0.middle-md
+      .flex-col-md-3
+        .nav-header
+          a.navbar-brand(href='#')
+            img(src='/assets/images/logo1.png', alt='Brand logo')
+          a.nav-handle(data-nav='.nav', data-navopen='pe-7s-more', data-navclose='pe-7s-close')
+            i.pe-7s-more
+      .flex-col-md-9.align-r
+        .nav
+          ul.nav-links.sf-menu
+            each item in menu
+              li
+                a(href=item.href) #{item.caption}
+          .nav-social.mr-lr-10(data-rgen-md='hide')
+            a(href='#')
+              i.fa.fa-facebook
+            a(href='#')
+              i.fa.fa-twitter
+            a(href='#')
+              i.fa.fa-google-plus
+          .nav-other
+            a.btn.btn-default.light.mini.set-popup(href='#popup-content')
+              i.fa.fa-envelope-o.mr-r-5
+              |  CONTACT US
