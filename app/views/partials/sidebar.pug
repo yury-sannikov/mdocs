@@ -7,7 +7,7 @@
     .side-header.side-content.bg-white-op
       button#closeMiniSubmenu.btn.btn-link.text-gray.pull-right.hidden-md.hidden-lg(type='button')
         i.fa.fa-times
-      a.h5.text-white(href='/app/dashboard')
+      a.h5.text-white(href='/app/welcome')
         img(src='/app/oneui/assets/img/practicewin-logo-small.png', style='height:32px;float:left;')
     // END Side Header
     // Side Content
@@ -18,10 +18,10 @@
         if accountRights.patientreview
           li.nav-main-heading
             span.sidebar-mini-hide Patient Reviews
-          li
-            a(href='/app/dashboard')
-              i.si.si-speedometer
-              span.sidebar-mini-hide Overview
+          //- li
+          //-   a(href='/app/dashboard')
+          //-     i.si.si-speedometer
+          //-     span.sidebar-mini-hide Overview
           li
             a(href='/app/pr/phi/patient-reviews')
               i.si.si-star
