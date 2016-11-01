@@ -24,12 +24,13 @@
           input.js-bookonline-submit(type='submit', value='Submit', style='border:0px; background:transparent;')
 
   script.
-    $(function(){
+    $(document).ready(function() {
       $("a.set-popup").click(function() {
         $('input.js-bookonline-submit').attr('value','Submit');
         $('input.js-bookonline-submit').attr('disabled',false);
       });
-    }); 
+      $('.js-bookonline-form').validate();
+    });
 
     function form_before_submit() {
         $('input.js-bookonline-submit').attr('value','Sending...');
