@@ -18,6 +18,7 @@
     "metalsmith": "^2.1.0",
     "metalsmith-changed": "^2.0.0",
     "metalsmith-collections": "^0.7.0",
+    "metalsmith-html-minifier": "^2.2.0",
     "metalsmith-if": "^0.1.1",
     "metalsmith-in-place": "^1.4.4",
     "metalsmith-include": "0.0.2",

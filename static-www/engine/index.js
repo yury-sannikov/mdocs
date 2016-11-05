@@ -21,6 +21,7 @@ const inplace = require('metalsmith-in-place');
 const evalLayout = require('./metalsmith-eval-layout');
 const metainfo = require('./metalsmith-metainfo');
 const templateAssets = require('./metalsmith-template-assets');
+const htmlMinifier = require('metalsmith-html-minifier');
 
 const path = require('path');
 const rimraf = require('rimraf')
@@ -160,6 +161,7 @@ function metalsmithFactory(workDir, buildDir, options) {
         overrideMetalsmithPath: options.partialsPath
       }))
     )
+    .use(msIf(options._minify === true, htmlMinifier()))
 }
 
 class SiteBuilderEngine {
@@ -221,7 +223,8 @@ class SiteBuilderEngine {
       _clean: true,
       _generate: true,
       _force: true,
-      _deploy: deployOptions
+      _deploy: deployOptions,
+      _minify: true
     }))
     ms.build((err, files) => {
       if (err) {
