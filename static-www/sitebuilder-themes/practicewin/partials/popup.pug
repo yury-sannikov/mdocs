@@ -5,9 +5,8 @@
     h2.title.mr-0(data-rgen-sm='small') SCHEDULE A DEMO
   .pop-body(data-rgen-sm='pd-20')
     .form-block
-      form.form-widget.js-bookonline-form(action='', method='post', data-callback='form_submit', data-callback-beforesubmit="form_before_submit")
-        input(name="systype" type="hidden" value="message")
-        input(name="profileId" type="hidden" value=practice.mdocsProfile)
+      form.form-widget.js-bookonline-form(action='https://axc0hldmja.execute-api.us-east-1.amazonaws.com/prod/mdocsappointment', method='post')
+        input(name="form_source" type="hidden" value="PracticeWin Portal Schedule A Demo Form")
         .field-wrp
           .form-group
             input.form-control(data-label='Name', required='', data-msg='Please enter name.', type='text', name='fullname', placeholder='Enter your name')
@@ -19,6 +18,6 @@
             input.form-control(data-label='Subject', required='', data-msg='Please enter subject.', type='text', name='comment', placeholder='Enter subject')
           .form-group
             textarea.form-control(data-label='Message', required='', data-msg='Please enter your message.', name='description', placeholder='Add your message', cols='30', rows='10')
-        button.btn.btn-default.block.js-bookonline-submit(type='button')
+        button.btn.solid.btn-default.block(type='button')
           i.fa.fa-envelope-o
-          input.js-bookonline-submit(type='submit', value='Submit', style='border:0px; background:transparent;')
+          input(type='submit', value='Submit', style='border:0px; background:transparent;')

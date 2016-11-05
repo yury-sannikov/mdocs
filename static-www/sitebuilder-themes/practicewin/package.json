@@ -43,6 +43,7 @@
   },
   "main": "node_modules/.bin/docpad-server",
   "scripts": {
-    "generate": "rm -rf ./assets && PRODUCTION=1 webpack --optimize-minimize"
+    "generate": "rm -rf ./assets && PRODUCTION=1 webpack --optimize-minimize",
+    "watch": "webpack --progress --colors --watch"
   }
 }
