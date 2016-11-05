@@ -43,15 +43,3 @@ section#contact.pos-rel.pd-tb-small(data-rgen-sm='pd-tb-small align-c')
               i.fa.fa-envelope-o
               input.js-bookonline-submit(type='submit', value='Submit', style='border:0px; background:transparent;')
 
-  script.
-    $(document).ready(function() {
-      $('.js-bookonline-form').validate();
-    });
-
-    function form_before_submit() {
-        $('input.js-bookonline-submit').attr('value','Sending...');
-        $('input.js-bookonline-submit').attr('disabled',true);
-    }
-
-  script(type='text/javascript', src='/assets/widgets/bookonline/index.js', data-profileid=practice.mdocsAccount)
-

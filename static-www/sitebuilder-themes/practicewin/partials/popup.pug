@@ -22,19 +22,3 @@
         button.btn.btn-default.block.js-bookonline-submit(type='button')
           i.fa.fa-envelope-o
           input.js-bookonline-submit(type='submit', value='Submit', style='border:0px; background:transparent;')
-
-  script.
-    $(document).ready(function() {
-      $("a.set-popup").click(function() {
-        $('input.js-bookonline-submit').attr('value','Submit');
-        $('input.js-bookonline-submit').attr('disabled',false);
-      });
-      $('.js-bookonline-form').validate();
-    });
-
-    function form_before_submit() {
-        $('input.js-bookonline-submit').attr('value','Sending...');
-        $('input.js-bookonline-submit').attr('disabled',true);
-    }
-
-script(type='text/javascript', src='/assets/widgets/bookonline/index.js', data-profileid=practice.mdocsAccount)
