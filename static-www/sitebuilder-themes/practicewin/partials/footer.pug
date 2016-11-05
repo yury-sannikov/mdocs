@@ -49,11 +49,12 @@ footer.pos-rel.pd-tb-small.bg-dark1(data-rgen-sm='pd-tb-small')
         p.op-07 Subscribe for our monthly newsletter to stay updated
         // form-block
         .form-block
-          form.form-widget(action='form-data/notify-me.php', data-formtype='newsletter')
+          form(action="//movel.us2.list-manage.com/subscribe/post?u=842c728654c54e18f82908d9e&amp;id=d041c8318c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate)
             .flex-row.gt10
               .flex-col-md-9
                 .form-group
-                  input.form-control.bdr-white.light.w100(data-label='Email', data-msg='Please enter email.', type='email', name='email', placeholder='Enter your email')
+                  input.form-control.bdr-white.light.w100(data-label='Email', data-msg='Please enter email.', type='email', name='EMAIL', placeholder='Enter your email')
+                input#mce-FULLNAME.form-control.bdr-color3.bdr-2.rd-4.bdr-op-5.w100(required='', data-msg='Please enter name.', type='hidden', value='Bottom Fomr', name='FULLNAME', placeholder='Enter your name')
               .flex-col-md-3
                 button.btn.solid.btn-default.light.block.fs26.btn-reset(type='submit', data-loading-text='Pleae wait..', style='height: 44px;')
                   i.fa.fa-envelope-o

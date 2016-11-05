@@ -1546,7 +1546,7 @@ Copyright 2015-2016 R.Genesis.Art
       ********************************************/
       if ($o.gmapwidget) {
         var social_script_arr = [
-          "https://maps.googleapis.com/maps/api/js?sensor=false",
+          "https://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyB0lCrXUDO06oSqUynUXFhcmLvZfDS-E9c",
           "assets/lib/jquery.mapit.min.js"
         ];
 
