@@ -62,7 +62,7 @@ var config = {
         test: /\.(jpe?g|png|gif)$/i,
         loaders: [
           'file?hash=sha512&digest=hex&name=[name].[ext]',
-          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+          'image-webpack'
         ]
       },
       { test: /\.woff($|\?)/,   loader: 'url-loader?prefix=font/&limit=5000&mimetype=application/font-woff' },
@@ -71,6 +71,25 @@ var config = {
       { test: /\.eot($|\?)/,    loader: "file-loader?prefix=font/" },
       { test: /\.svg($|\?)/,    loader: "file-loader" },
     ])
+  },
+  imageWebpackLoader: {
+    mozjpeg: {
+      quality: 55
+    },
+    pngquant:{
+      quality: "65-90",
+      speed: 4
+    },
+    svgo:{
+      plugins: [
+        {
+          removeViewBox: false
+        },
+        {
+          removeEmptyAttrs: false
+        }
+      ]
+    }
   },
   resolve: {
     root: [
