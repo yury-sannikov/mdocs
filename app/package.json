@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "concurrently \"npm run build\" \"npm run start-dev\"",
+    "startc9": "concurrently \"npm run build\" \"better-npm-run start-dev-c9\"",
     "apps-dev": "concurrently --kill-others \"npm run watch-client\" \"npm run start-dev\"",
     "build": "better-npm-run build",
     "start-dev": "better-npm-run start-dev",
@@ -39,6 +40,15 @@
         "NODE_ENV": "development",
         "DEBUG": "app:*",
         "PORT": 3030
+      }
+    },
+    "start-dev-c9": {
+      "command": "node ./server.js",
+      "env": {
+        "NODE_PATH": "./src",
+        "NODE_ENV": "development",
+        "DEBUG": "app:*",
+        "PORT": 8080
       }
     },
     "watch-client": {
