@@ -1,0 +1,70 @@
+
+  .QcHeading                                  { padding: 0px 0px 10px 0px; }
+  .submenulink                              { white-space: nowrap;}
+
+  /* MAIN CONTACT PAGE FORM **********/
+  .m-form .Header                             { padding: 10px 0px 10px 0px; }
+  .m-form .ContactInfo                        { padding: 10px 0px 10px 0px; }
+  .m-form .ContactInfo .Comments .qcformcolor { height: 182px; }
+  .m-form .Captcha                            { padding: 10px 0px 10px 0px; }
+  .m-form input                               { width: 150px; }                                /*input field*/
+  .m-form input.Button                        { width: auto; }                                /*input field*/
+  .m-form input.ButtonHover                   { width: auto; }                                /*input field*/
+  .qcform                                     { padding: 2px 15px 10px 15px; margin: 0px 0px 0px 0px; zoom:1; float:none }   /*container form*/
+  .qcformcolor                                { width: 100%; margin-bottom: 6px; }                                /*input field*/
+  .qcform .qcformcolor                        { width: 100%; margin-bottom: 6px; }                                /*input field*/
+  .qcform .ContactInfo input                  { width: 239px; }                                /*input field*/
+  .qcform .ContactInfo textarea               { width: 239px; }                                /*input field*/
+  .qcform .Captcha input                      { width: 239px; }                                /*input field*/
+  .qcform .Captcha input.Button               { width: auto;margin-right: 6px; }                                /*input field*/
+  .qcform .Captcha input.ButtonHover       { width: auto;margin-right: 6px; }                                /*input field*/
+   hr.qcform                                  { width: 100%; }
+     .qcformemailcheck                          { display: none; }
+   #header img, #header-content img,
+   #phone a img,
+   #phone-interior a img,  #phoneInt a img,  #ph a img   { border: none;}
+
+  /* MINI FORM PLUGIN ****************/
+  .m-form,
+  .m-form-low,
+  .m-form-services,
+  .m-form-inner-services                      { padding-right: 18px; }                                            /*container form*/
+
+  .m-formcolor,
+  .m-form-innercolor                          { width: 100%;}                                                      /*input field*/
+
+  .m-form h2,
+  .m-form-low h2,
+  .m-form-services h2,
+  .m-form-inner-services h2                   { font-family: Arial, Helvetica, sans-serif;
+                          font-size:19px; font-weight:bold; padding:0px; margin:0px; margin-bottom:2px; font-family:arial; }
+
+
+  /* MINI FORM POSITION *************/
+  .m-form                                     { margin: 15px 0px 7px 20px; }
+  .m-form-low                                 { margin: 32px 0px 7px 20px; }
+  .m-form-services                            { margin: 15px 0px 7px 20px; }
+  .m-form-inner-services                      { margin: 39px 0px 7px 20px; }
+
+  .PageService_Line_Item_Name                 { height: 20px;}
+  .PageService_Group                          { margin-top: 20px;}
+  .PageContact_Contact_Photo                  { border-style: solid; border-width: 1px !important;float: left; }
+  .Profile_ContactInfo                        { padding: 10px 0px 0px 0px; margin-right: 10px; }
+  .PageTestimonial_Intro                      { border-bottom-style: none;}
+
+  .ContactThankyou                            { font-size: 14px;font-style: italic;font-weight: bold;padding-bottom: 50px;padding-top: 50px;text-align: center;}
+  .ClearFloat                                 {clear: both;}
+  .faqawr p                                   { margin-bottom: 10px; margin-top:10px}
+
+  /* MeetTheTeam */
+  .MeetTheTeam-mobile-Contact-Name            { font-size:1.1em !important;font-weight:bold !important;margin-bottom:3px;  }
+  .MeetTheTeam-mobile-Contact-Title           { font-size:1.0em !important;font-weight:normal !important;margin-top:2px; }
+  .MeetTheTeam-mobile-Contact-Photo           { margin:0px 15px 0px 0px; }
+  .MeetTheTeam-desktop-Contact-Name           { margin: 0px 0px 0px 0px; }
+  .MeetTheTeam-desktop-Contact-Title          { margin: 0px 0px 0px 0px; }
+  .MeetTheTeam-Right-Margin                   { margin-right: 25px; }
+  .MeetTheTeam-Contact-Spacer                 { margin-top:25px; margin-bottom:25px; }
+  .MeetTheTeam-desktop-Contact-Photo          { border-style: solid; border-width: 1px !important;float: left; margin-bottom:15px; margin-right: 25px; }
+
+    /*captcha image size to fit within the div*/
+    .LBD_CaptchaImageDiv img {width:100%}

@@ -6,7 +6,6 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
       img(src='/assets/images/header-top.png')
     #container_bg
       #container
-        include ../partials/drawmenu.pug
         include ../partials/topnavbar.pug
         #header
           img#ctl00_HdrMain(src='/assets/images/mheader_1103681.jpg')
@@ -28,8 +27,8 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
           include ../partials/contact.pug
           h1(style='text-align: left;')
             span(style='font-size: 18px;')
-              | Lansdowne 
-              span Dentist 
+              | Lansdowne
+              span Dentist
               | - Dr. Paul Ellington - Family & Senior Dental Care
           p(style='text-align: center;')
             span(style='font-size: 14px;')
@@ -39,9 +38,9 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
           strong
             script#facebook-jssdk(src='//connect.facebook.net/en_US/all.js#xfbml=1')
           br
-          | Welcome to the home of Lansdowne Family & Cosmetic Dentistry – your place for friendly dental care in Lansdowne, VA. We happily treat patients of all ages, from children to seniors, and protect the health and beauty of their smiles.  
+          | Welcome to the home of Lansdowne Family & Cosmetic Dentistry – your place for friendly dental care in Lansdowne, VA. We happily treat patients of all ages, from children to seniors, and protect the health and beauty of their smiles. 
           a(href='http://www.lansdownesmiles.com/our-doctor/', target='_self') Dr. Paul Ellington
-          | , our experienced and gentle dentist, treats every patient with the personalized attention they need for successful oral health care.  
+          | , our experienced and gentle dentist, treats every patient with the personalized attention they need for successful oral health care. 
           h1(style='text-align: left;')
             span(style='font-size: 14px;')
               img(alt='', style='border-width: 3px; border-style: solid; width: 250px; height: 313px; margin-top: 10px; margin-bottom: 10px; margin-left: 10px; float: right;', src='/assets/images/Image00005.jpg')
@@ -64,17 +63,17 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
             | • 
             a(href='http://www.lansdownesmiles.com/cosmetic-dentistry/composite-fillings/', target='_self') Composite dental fillings
           p
-            | Dr. Ellington also helps patients achieve and maintain excellent oral health with routine preventive care and maintenance, such as 
+            | Dr. Ellington also helps patients achieve and maintain excellent oral health with routine preventive care and maintenance, such as
             strong twice yearly teeth cleanings
-            |  and even periodontal care to protect the health of your gums.  Our team assists patients in 
-            strong preventing the negative effects of gum disease and dental caries 
+            |  and even periodontal care to protect the health of your gums.  Our team assists patients in
+            strong preventing the negative effects of gum disease and dental caries
             | that cause damage to teeth and surrounding tissue.
           h2
             span(style='font-size: 14px;') Preventing Dental Problems and Promoting Improved Wellness
           p
-            | Our whole team is committed to helping patients achieve improved wellness. 
+            | Our whole team is committed to helping patients achieve improved wellness.
             strong We teach healthy brushing and flossing habits to young patients
-            |  to promote good dental habits from early on.  Our Lansdowne dental office also caters to 
+            |  to promote good dental habits from early on.  Our Lansdowne dental office also caters to
             strong
             strong
             strong
@@ -82,15 +81,15 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
             | , helping them keep their natural teeth and enjoy a solid foundation of oral health and function. We provide tips, advice, and treatments that are specifically geared to help senior patients enjoy beautiful smiles.
             br
             br
-            | We have roots in our valued 
+            | We have roots in our valued
             a(href='HealthFairsEvents.aspx') community
             | . As many of you know, our doctors also practice in Potomac Falls, where every year for the last 6 years they have participated, along with their staff, in "Give Kids a Smile Day". This year they saw 13 deserving patients and donated over $10,000 of dental services. Well done, everyone!
           h2
             span(style='font-size: 14px;') Contact a Lansdowne Dentist Today – Call Dr. Ellington!
           p
-            | For more information on how Dr. Ellington and his team can help you, and members of your family, achieve excellent oral health 
+            | For more information on how Dr. Ellington and his team can help you, and members of your family, achieve excellent oral health
             a(href='http://www.lansdownesmiles.com/contact/', target='_self') call our office
-            |  for your consultation. 
+            |  for your consultation.
             br
           hr
           table(style='width: 726px; height: 200px;')
@@ -130,20 +129,6 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
           br(clear='all')
       include ../partials/footer.pug
     script(type='text/javascript').
-      var pkBaseURL = (("https:" == document.location.protocol) ? "http://webstats.prosites.com/piwik" : "http://webstats.prosites.com/piwik");
-      document.write(unescape("%3Cscript src='" + pkBaseURL + "/piwik.js' type='text/javascript'%3E%3C/script%3E"));
-      //document.write(unescape("%3Cscript async src='" + pkBaseURL + "/piwik.js' type='text/javascript'%3E%3C/script%3E"));
-    script(src='http://webstats.prosites.com/piwik/piwik.js', type='text/javascript')
-    script(type='text/javascript').
-      try {
-      var tracker = Piwik.getTracker(pkBaseURL + "/piwik.php", "4397");
-      tracker.setCookieDomain(".%2A");
-      tracker.enableLinkTracking();
-      tracker.trackPageView();
-      }
-      catch (er) {
-      console.log(er);
-      }
     script(src='/assets/js/jquery.slides.1.1.9.js')
     script.
       $(function(){
@@ -157,6 +142,3 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
       hoverPause: false
       });
       });
-
-    //- if practice.widgets.bookonline
-      //- script(type='text/javascript' src='/assets/widgets/bookonline/index.js' data-profileid=practice.mdocsProfile)

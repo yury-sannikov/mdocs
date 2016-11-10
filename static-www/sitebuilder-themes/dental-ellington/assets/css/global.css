@@ -1,18 +1,3 @@
-
-
-
-
-/*-------------------------------------------
-	*  Filename:            global.css 
-	*  Description          global css
-	*  Version              1.0.1 [2012-01-27]
-	*  Style ID             ALL
-	*  Author:              ProSites
-	---------------------------------------------*/
-	
-	
-	
-/* RESETS */	
 body,  hr,  .m-form h1,  .m-form-low h1,  .m-form-services h1,  .m-form-inner-services h1,  .PageContact_Contact_Name,  #footer p,  .PageInternetLink_Category_Name,  .PageContact_Office li,  #_ctl2_pnlForm li,  .PageInternetLink_Category,  .PageInternetLink_Link_Description,  .PageInternetLink_Link,  hr.qcform {
 	margin: 0px;
 	padding: 0px;
@@ -70,7 +55,7 @@ a:link, a:visited, a:active, a:hover {
 	clear: both;
 }
 fieldset {
-	border: solid 1px; 
+	border: solid 1px;
 	padding: 8px;
 }
 .qc-err, .m-error {
@@ -79,7 +64,7 @@ fieldset {
 
 
 
-/* CONTENT----------------------------------*/	
+/* CONTENT----------------------------------*/
 	#container {
 
 }
@@ -105,7 +90,7 @@ fieldset {
 }
 #footer br {
 	display: none!important; /* nuke coded breaks*/
-} 
+}
 #footer a:link, #footer a:visited, #footer a:active {
 	text-decoration: none;
 	font-weight: bold;
@@ -350,10 +335,10 @@ hr.qcform {
 }
 
 /*shift to the left 1px*/
-.qcform .Button { 
+.qcform .Button {
 	margin-right: 1px;
 }
-.qcform .ButtonHover { 
+.qcform .ButtonHover {
 	margin-right: 1px;
 }
 
@@ -399,7 +384,7 @@ hr.qcform {
 .return {
 	margin: 0 0 8px;
 	display: block;
-} 
+}
 
 /* edit margin for address spacing*/
 
@@ -410,8 +395,8 @@ hr.qcform {
 }
 
 /* AppointmentRequestForm - padding above comment field */
-#CommentText { 
-	padding-top: 0px!important; 
+#CommentText {
+	padding-top: 0px!important;
 }
 
 
@@ -499,4 +484,4 @@ body {
 	padding-top:15px!important;
 }
 
-} 
+}

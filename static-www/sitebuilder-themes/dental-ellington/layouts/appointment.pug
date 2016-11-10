@@ -6,7 +6,6 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
       img(src='/assets/images/header-top.png')
     #container_bg
       #container
-        include ../partials/drawmenu.pug
         include ../partials/topnavbar.pug
         #header
           img#ctl00_HdrMain(src='/assets/images/mheader_1103681.jpg')
@@ -27,7 +26,7 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
             include ../partials/banner_v7.pug
           when 8
             include ../partials/banner_v8.pug
-        include ../partials/phone.pug        
+        include ../partials/phone.pug
 
         #content
           form.js-bookonline-form(action='', data-callback='makeappointmentform_submit', method='post')
@@ -35,7 +34,7 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
               #IntroDiv.PageContact_Intro
                 h1
                   span(style='font-size: 20px;') Schedule a Dentist Appointment in Lansdowne, VA
-                p 
+                p
                 p
                   | The first step towards a beautiful, healthy smile is to schedule an appointment. Please contact our office by phone or complete the appointment request form below. Our scheduling coordinator will contact you to confirm your appointment. 
                   br
@@ -44,7 +43,7 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
                   em Please do not use this form to cancel or change an existing appointment.
                 br
               #AppointmentRequestForm(style='padding-top: 20px')
-                | Items in 
+                | Items in
                 strong bold
                 |  are required.
                 table(cellspacing='0', cellpadding='0', border='0')
