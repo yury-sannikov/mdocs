@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 import moment from 'moment'
 import ModalConfirm from '../ModalConfirm/ModalConfirm'
-import { deleteAppointment, confirmAppointment } from '../../redux/modules/dashboard'
+import {deleteAppointment, confirmAppointment} from '../../redux/modules/dashboard'
 
 class EventsList extends Component {
   constructor(props) {
@@ -16,8 +16,8 @@ class EventsList extends Component {
     }
   }
 
-  renderTableHeader () {
-    const { events } = this.props
+  renderTableHeader() {
+    const {events} = this.props
     return (
       <div className='block-header bg-gray-lighter'>
         {this.props.loading ? (
@@ -25,22 +25,27 @@ class EventsList extends Component {
             <i className='fa fa-sun-o fa-spin' />
           </div>
         ) : (
-          <div className='block-title text-normal'>
-            <strong>{`${events.length} — ${events.length}`}</strong>
-            <span className='font-w400'>&nbsp;{'from'}&nbsp;</span>
-            <strong>{'1'}</strong>
-          </div>
+        <div className='block-title text-normal'>
+          <strong>{`${events.length} — ${events.length}`}</strong>
+          <span className='font-w400'>&nbsp;{'from'}&nbsp;</span>
+          <strong>{'1'}</strong>
+        </div>
         )}
       </div>
     )
   }
-  render () {
-    const hideDeleteModal = () => { this.setState({isDeleting: false}) }
+
+  render() {
+    const hideDeleteModal = () => {
+      this.setState({isDeleting: false})
+    }
     const confirmDelete = () => {
       hideDeleteModal()
       this.props.deleteAppointment(this.state.deleteItem.id)
     }
-    const hideConfirmModal = () => { this.setState({isConfirming: false}) }
+    const hideConfirmModal = () => {
+      this.setState({isConfirming: false})
+    }
     const confirmConfirm = () => {
       hideConfirmModal()
       this.props.confirmAppointment(this.state.confirmItem.id)
@@ -63,7 +68,8 @@ class EventsList extends Component {
           title={'Confirm Appointment'}
           confirmCaption={'Confirm'}>
           <h4>Are you sure?</h4>
-          <p>Are you sure to appointment with {this.state.confirmItem.patient_name} on {this.renderVisitDate(this.state.confirmItem.visit_date)}</p>
+          <p>Are you sure to appointment with {this.state.confirmItem.patient_name}
+            on {this.renderVisitDate(this.state.confirmItem.visit_date)}</p>
         </ModalConfirm>
         {this.renderTableHeader()}
         {this.props.loaded ? this.renderTable() : <span />}
@@ -71,8 +77,8 @@ class EventsList extends Component {
     )
   }
 
-  renderTable () {
-    const { events } = this.props
+  renderTable() {
+    const {events} = this.props
     return (
       <div className='block-content animated fadeIn'>
         <div className='pull-r-l'>
@@ -99,10 +105,14 @@ class EventsList extends Component {
     return (!m) ? null : `(${m[1]}) ${m[2]}-${m[3]}`
   }
 
-  renderTableRow (item) {
+  renderTableRow(item) {
     const styles = require('./EventList.scss')
-    const showDeleteModal = (deleteItem) => () => { this.setState({isDeleting: true, deleteItem}) }
-    const showConfirmModal = (confirmItem) => () => { this.setState({isConfirming: true, confirmItem}) }
+    const showDeleteModal = (deleteItem) => () => {
+      this.setState({isDeleting: true, deleteItem})
+    }
+    const showConfirmModal = (confirmItem) => () => {
+      this.setState({isConfirming: true, confirmItem})
+    }
     return (
       <tr key={item.id}>
         <td className='font-w600 text-center' style={{'width': '120px'}}>
@@ -110,19 +120,22 @@ class EventsList extends Component {
             {this.renderVisitDate(item.visit_date)}
           </a>
           <div className='text-muted'>
-            <em style={{'font-size': 'x-small'}}>{moment.utc(+item.createdDate, 'X').local().format('MM/DD/YY h:mma')}</em>
+            <em
+              style={{'font-size': 'x-small'}}>{moment.utc(+item.createdDate, 'X').local().format('MM/DD/YY h:mma')}</em>
           </div>
         </td>
         <td className='hidden-xs hidden-sm hidden-md text-center' style={{width: '100px'}}>
           {item.visit_date ? (
-            <button onClick={showConfirmModal(item)} className={'btn btn-xs btn-info push-5-r push-10 ' + styles.actionButtonClass} type='button'>
+            <button onClick={showConfirmModal(item)}
+              className={'btn btn-xs btn-info push-5-r push-10 ' + styles.actionButtonClass} type='button'>
               <i className='fa fa-check' />{' Confirm'}
             </button>
-            ) : (
-              <button onClick={showDeleteModal(item)} className={'btn btn-xs btn-danger push-5-r push-10 ' + styles.actionButtonClass} type='button'>
-                <i className='fa fa-times' />{' Delete'}
-              </button>
-            )}
+          ) : (
+          <button onClick={showDeleteModal(item)}
+            className={'btn btn-xs btn-danger push-5-r push-10 ' + styles.actionButtonClass} type='button'>
+            <i className='fa fa-times' />{' Delete'}
+          </button>
+          )}
         </td>
         <td>
           <a className='font-w600' data-toggle='modal' data-target='#modal-ticket' href='#'>
@@ -139,12 +152,12 @@ class EventsList extends Component {
           <em>{item.profile.name}</em>
         </td>
         {/*
-        <td className="hidden-xs hidden-sm hidden-md text-center" style={{'width': '60px'}}>
-          <span className="badge badge-primary">
-            <i className="fa fa-comments-o" />{'5'}
-          </span>
-        </td>
-        */}
+         <td className="hidden-xs hidden-sm hidden-md text-center" style={{'width': '60px'}}>
+         <span className="badge badge-primary">
+         <i className="fa fa-comments-o" />{'5'}
+         </span>
+         </td>
+         */}
       </tr>
     )
   }
@@ -165,15 +178,15 @@ const PATH_TO_STATE = {
   all: 'all'
 }
 export default connect((state, {route}) => {
-  const { path } = route
+  const {path} = route
   const status = PATH_TO_STATE[path]
 
-  const { loaded, loading, data = { data: [] } } = state.dashboard
+  const {loaded, loading, data = {data: []}} = state.dashboard
   const overviewEvents = data.data.filter(item => status === 'all' || item.status === status)
   return {
     events: overviewEvents || [],
     loaded,
     loading
   }
-}, dispatch => bindActionCreators({ deleteAppointment, confirmAppointment }, dispatch))(EventsList)
+}, dispatch => bindActionCreators({deleteAppointment, confirmAppointment}, dispatch))(EventsList)
 
