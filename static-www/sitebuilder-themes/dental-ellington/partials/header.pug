@@ -1,5 +1,5 @@
 title
-	| Family Dentist in Lansdowne | Dr. Paul Ellington | Senior Dental Care
+  | Family Dentist in Lansdowne | Dr. Paul Ellington | Senior Dental Care
 meta(http-equiv='Content-Language', content='en')
 meta(http-equiv='Content-Type', content='text/html', charset='UTF-8')
 meta(name='description', content='Paul Ellington, DDS is your local Lansdowne dentist providing cosmetic & restorative dental care services for children, adults & seniors. We also serve the communities of Ashburn & Sterling.')
@@ -19,4 +19,79 @@ link(href='/assets/css/LiteSiteOverrides.css', type='text/css', rel='stylesheet'
 link(rel='canonical', href='http://www.lansdownesmiles.com/')
 style(type='text/css', media='screen').
 style.
-	.pkt_added {text-decoration:none !important;}
+  .pkt_added {text-decoration:none !important;}
+
+  #nav {
+    font-size: 1.05em;
+  }
+
+  #nav span {
+    display: inline-block;
+  }
+
+  #nav ul {
+    background: white;
+    float: left;
+    -webkit-transition: .5s;
+    transition: .5s;
+    margin: 0;
+    padding: 0;
+  }
+
+  #nav li {
+    float: left;
+    position: relative;
+    list-style: none;
+    -webkit-transition: .5s;
+    transition: .5s;
+    margin: 0;
+    padding: 0;
+  }
+
+  #nav > ul > li > a, h1 {
+    text-transform: uppercase;
+  }
+
+  #nav a {
+    display: block;
+    text-decoration: none;
+    padding: 0;
+    color: #000;
+  }
+
+  #nav ul ul {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    visibility: hidden;
+    opacity: 0;
+  }
+  #nav ul ul li {
+    padding: 5px 15px;
+    width: 150px;
+    text-align: left;
+  }
+
+  #nav ul ul ul {
+    left: 100%;
+    top: 0;
+  }
+
+  #nav li:hover, #nav li:hover li {
+    background: #ddd;
+  }
+
+  #nav li li:hover, #nav li li:hover li {
+    background: #bbb;
+  }
+
+  #nav li li li:hover {
+    background: #999;
+  }
+
+  #nav li:hover > ul {
+    visibility: visible;
+    opacity: 1;
+  }
+//if lt IE 9
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js')
