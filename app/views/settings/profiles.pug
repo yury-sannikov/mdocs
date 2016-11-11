@@ -9,11 +9,11 @@ block content
   .content.bg-gray-lighter
     .row.items-push
       .col-sm-8
-        h1.page-heading Profiles  
+        h1.page-heading Profiles
         small Your collection of provider and office profiles.
       .col-sm-4.text-right.hidden-xs
         ol.breadcrumb.push-10-t
-          li 
+          li
             a.link-effect(href='/app/dashboard') Dashboard
           li
             a.link-effect(href='/app/pr/phi/patient-reviews') Patient Reviews
@@ -22,10 +22,10 @@ block content
   .content.bg-white
     .row
       .col-md-12
-        a.btn.btn-success.pull-center(href="new-profile") 
+        a.btn.btn-success.pull-center(href="new-profile")
           i.fa.fa-user
           |   New Profile
-  
+
 
         //- USER LIST
         #userList
@@ -34,9 +34,9 @@ block content
               th Name
               th.hidden-xs Address
               th Email
-              th Phone
+              th(style="min-width: 130px;") Phone
               th.hidden-xs Type
-              th Actions
+              th(style="min-width: 100px;") Actions
             tbody
               each profile, i in profiles
                 tr
