@@ -1,15 +1,15 @@
 {
-  "themeId": "uc-0",
-  "name": "Virginia Gateway Urgent Care Center",
-  "description": "COME TO VIRGINIA GATEWAY URGENT CARE OF GAINESVILLE TODAY",
-  "address": "7516 Iron Bar Lane",
-  "city": "Gainesville",
-  "state": "VA",
-  "zip": "20155",
-  "latlon": "38.795186, -77.610519",
-  "phone": "703-754-9111",
-  "fax": "703-754-1211",
-  "email": "info@vgucc.com",
+  "themeId": "dental-ellington",
+  "name": "",
+  "description": "",
+  "address": "",
+  "city": "",
+  "state": "",
+  "zip": "",
+  "latlon": "",
+  "phone": "",
+  "fax": "",
+  "email": "",
   "mdocsProfile": "ed731362-8bcb-4a50-9486-c594df7c1237",
   "logo": {
     "small": "/assets/img/logo_small.png",
@@ -25,7 +25,7 @@
     "sun": "Closed"
   },
   "social": {
-    "facebook": "https://www.facebook.com/Northern-Virginia-Dental-Arts-1182931241733885/"
+    "facebook": ""
   },
   "widgets": {
     "bookonline": true

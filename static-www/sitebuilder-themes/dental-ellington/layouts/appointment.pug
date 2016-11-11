@@ -5,8 +5,9 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
     #header_bg
       img(src='/assets/images/header-top.png')
     #container_bg
-      #container
+      #nav_container
         include ../partials/topnavbar.pug
+      #container
         #header
           img#ctl00_HdrMain(src='/assets/images/mheader_1103681.jpg')
         case (Math.floor((Math.random() * 8) + 1))
@@ -29,7 +30,7 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
         include ../partials/phone.pug
 
         #content
-          form.js-bookonline-form(action='', data-callback='makeappointmentform_submit', method='post')
+          form.js-bookonline-form(action='', data-callback="sendMessageSubmitCallback")
             #ctl00_ContentPlaceHolder1_pnlForm
               #IntroDiv.PageContact_Intro
                 h1
@@ -43,9 +44,8 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
                   em Please do not use this form to cancel or change an existing appointment.
                 br
               #AppointmentRequestForm(style='padding-top: 20px')
-                | Items in
-                strong bold
-                |  are required.
+                | All Items are required.
+                br
                 table(cellspacing='0', cellpadding='0', border='0')
                   tbody
                     tr
@@ -53,29 +53,46 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
                         table(cellspacing='0', cellpadding='0', border='0')
                           tbody
                             tr
-                              td(style='font-weight: bold; vertical-align: middle; width: 110px; padding-top: 4px; text-align: left')
+                              td(style='vertical-align: middle; width: 110px; padding-top: 4px; text-align: left')
                                 | Name:
                               td(style='padding-top: 4px')
-                                input#ctl00_ContentPlaceHolder1_txtName.qcformcolor(name='fullname', type='text', style='width:128px;')
-                                span#ctl00_ContentPlaceHolder1_rfvName(style='color:Red;visibility:hidden;') Name Required
+                                input(name='fullname', type='text', style='width:128px;', required)
                             tr
-                              td(style='font-weight: bold; vertical-align: middle; padding-top: 4px; text-align: left')
+                              td(style='vertical-align: middle; padding-top: 4px; text-align: left')
                                 | Phone:
                               td(style='padding-top: 4px')
-                                input#ctl00_ContentPlaceHolder1_txtPhone.qcformcolor(name='phone', type='text', style='width:128px;')
+                                input(name='phone', type='text', style='width:128px;', required)
                             tr
                               td(style='vertical-align: middle; padding-top: 4px; text-align: left')
                                 | Email:
                               td(style='padding-top: 4px')
-                                input#ctl00_ContentPlaceHolder1_txtEmail.qcformcolor(name='email', type='text', style='width:128px;')
+                                input(name='email', type='text', style='width:128px;', required)
                       td(style='padding-left: 5px; vertical-align: top; height: 100%')
+                div(style="padding-top: 20px")
+                  | Please describe the nature of your appointment (e.g., consultation, check-up, etc.):
+                div(style="padding-bottom: 10px; padding-top: 10px")
+                textarea(name="description" rows="5" cols="20" class="qcformcolor" style="width: 550px; margin-top: 0px; margin-bottom: 6px; height: 109px;")
+                input(name="systype" type="hidden" value="appointment")
+                input(name="profileId" type="hidden" value=practice.mdocsProfile)
+
                 span#ctl00_ContentPlaceHolder1_lblMessage.qc-err
               #ctl00_ContentPlaceHolder1_pnlCaptcha(style='width:180px;')
                 #captchCtrl
                   #ctl00_ContentPlaceHolder1_CaptchaBaseControl1_SendButtonDiv(style='text-align:left;')
                     input.Button.js-bookonline-submit(type='submit', value='Send')
             br(clear='all')
-          script(type='text/javascript', src='/assets/widgets/bookonline/index.js', data-profileid= practice.mdocsProfile)
           br(clear='all')
 
       include ../partials/page_footer.pug
+      script(type='text/javascript' src='/assets/widgets/bookonline/index.js')
+      script.
+        function sendMessageSubmitCallback(maybeErr) {
+          if (maybeErr) {
+            alert('Error while sending appointment request');
+          } else {
+            alert('Appointment request successfully sent.');
+            window.location = '/';
+          }
+        }
+
+
