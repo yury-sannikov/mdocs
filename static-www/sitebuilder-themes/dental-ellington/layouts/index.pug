@@ -12,20 +12,19 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
           img#ctl00_HdrMain(src='/assets/images/mheader_1103681.jpg')
         #panels_bg
           #slides
-            .slides_container(style='overflow: hidden; position: relative; display: block;')
-              .slides_control(style='position: relative; width: 2940px; height: 290px; left: -980px;')
-                div(style='position: absolute; top: 0px; left: 980px; z-index: 0;')
-                  img(src='/assets/images/panel1.png', alt='Smile Care', width='980', height='228')
-                div(style='position: absolute; top: 0px; left: 980px; z-index: 0; display: none;')
-                  img(src='/assets/images/panel2.png', alt='Feel Better Today', width='980', height='228')
-                div(style='position: absolute; top: 0px; left: 980px; z-index: 0; display: none;')
-                  img(src='/assets/images/panel3.png', alt='Comprehensive Dental Care', width='980', height='228')
+            .slides_container
+              div
+                img(src='/assets/images/panel1.png', alt='Smile Care', width='980', height='228')
+              div
+                img(src='/assets/images/panel2.png', alt='Feel Better Today', width='980', height='228')
+              div
+                img(src='/assets/images/panel3.png', alt='Comprehensive Dental Care', width='980', height='228')
           .panels_flower
         include ../partials/phone.pug
         #content
           #StylizedImage
             img#ctl00_ImageFlareStylized1_ImageFlareStylized1(src='/assets/images/s_Welcome711035189.jpg')
-          include ../partials/contact.pug
+          //- include ../partials/contact.pug
           h1(style='text-align: left;')
             span(style='font-size: 18px;')
               | Lansdowne
@@ -35,9 +34,6 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
             span(style='font-size: 14px;')
               strong Lansdowne Family & Cosmetic Dentistry - Celebrating 28 Years!
           hr
-          // Place this render call where appropriate
-          strong
-            script#facebook-jssdk(src='//connect.facebook.net/en_US/all.js#xfbml=1')
           br
           | Welcome to the home of Lansdowne Family & Cosmetic Dentistry – your place for friendly dental care in Lansdowne, VA. We happily treat patients of all ages, from children to seniors, and protect the health and beauty of their smiles. 
           a(href='/content/our-doctor/', target='_self') Dr. Paul Ellington
@@ -82,13 +78,13 @@ html(itemscope='', itemtype='http://schema.org/LocalBusiness')
             | , helping them keep their natural teeth and enjoy a solid foundation of oral health and function. We provide tips, advice, and treatments that are specifically geared to help senior patients enjoy beautiful smiles.
             br
             br
-            | We have roots in our valued
+            | We have roots in our valued&nbsp;
             a(href='HealthFairsEvents.aspx') community
             | . As many of you know, our doctors also practice in Potomac Falls, where every year for the last 6 years they have participated, along with their staff, in "Give Kids a Smile Day". This year they saw 13 deserving patients and donated over $10,000 of dental services. Well done, everyone!
           h2
             span(style='font-size: 14px;') Contact a Lansdowne Dentist Today – Call Dr. Ellington!
           p
-            | For more information on how Dr. Ellington and his team can help you, and members of your family, achieve excellent oral health
+            | For more information on how Dr. Ellington and his team can help you, and members of your family, achieve excellent oral health&nbsp;
             a(href='/content/contact/', target='_self') call our office
             |  for your consultation.
             br
