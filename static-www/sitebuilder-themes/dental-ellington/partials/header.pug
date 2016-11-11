@@ -21,6 +21,15 @@ style(type='text/css', media='screen').
 style.
   .pkt_added {text-decoration:none !important;}
 
+  #nav_container {
+    width: 1000px;
+    margin: 0px auto;
+    padding: 0px;
+    text-align: center;
+    background: url(/assets/images/container-bg.png) top center repeat-y;
+    z-index: -10!important;
+  }
+
   #nav {
     font-size: 1.05em;
   }
@@ -64,7 +73,7 @@ style.
     position: absolute;
     left: 0;
     top: 100%;
-    visibility: hidden;
+    display: none;
     opacity: 0;
   }
   #nav ul ul li {
@@ -72,6 +81,7 @@ style.
     min-width: 150px;
     width: 100%;
     text-align: left;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.15);
   }
 
   #nav ul ul ul {
@@ -92,7 +102,7 @@ style.
   }
 
   #nav li:hover > ul {
-    visibility: visible;
+    display: block;
     opacity: 1;
   }
 //if lt IE 9
