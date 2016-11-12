@@ -6,6 +6,7 @@ var CleanPlugin = require('clean-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var strip = require('strip-loader');
 var autoprefixer = require('autoprefixer');
+var postcssSmartImport = require('postcss-smart-import');
 
 var projectRootPath = path.resolve(__dirname, '../');
 var assetsPath = path.resolve(projectRootPath, './public/app/dist');
@@ -52,9 +53,10 @@ module.exports = {
       { test: webpackIsomorphicToolsPlugin.regular_expression('images'), loader: 'url-loader?limit=10240' }
     ]
   },
-  postcss: function () {
-    return [autoprefixer({ browsers: ['last 2 versions'] })];
-  },
+  postcss: [
+    postcssSmartImport(),
+    autoprefixer({ browsers: ['last 2 versions'] })
+  ],
   progress: true,
   resolve: {
     modulesDirectories: [
