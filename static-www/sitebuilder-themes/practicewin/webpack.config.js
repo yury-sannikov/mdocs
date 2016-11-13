@@ -77,7 +77,7 @@ var config = {
       quality: 55
     },
     pngquant:{
-      quality: "65-90",
+      quality: "25-60",
       speed: 4
     },
     svgo:{
