@@ -70,8 +70,40 @@ router.get('/:idkey', function*() {
 
   yield db.updateSurveyStatus(survey.id, SURVEY_STATUS_ACCESSED);
 
-  this.render('reviews/landing', Object.assign({}, this.jadeLocals, { survey: survey }), true);
+  if (survey.onestep) {
+    return yield renderOneStep(this, survey, survey.reviewFor.id, idKey[0])
+  } else {
+    this.render('reviews/landing', Object.assign({}, this.jadeLocals, { survey: survey }), true);
+  }
 });
+
+function* renderOneStep(ctx, survey, profileId, idKey) {
+  const profile = yield db.profileById(profileId);
+
+  if (!profile || !profile[0] || profile[0].length == 0) {
+    ctx.render('reviews/landing', Object.assign({}, ctx.jadeLocals, {
+      messages: makeErrorMessage('Thank you for participating in our survey. Your survey has been deleted by an administrator.')
+    }), true);
+    return;
+  }
+
+  const profileItem = profile[0][0]
+  const sitesList = profileItem.review_sites_onsurvey || [survey.reviewSite]
+  let sites = _.compact(_.map(profileItem.review_sites, (v, k) => {
+    if (!sitesList[k]) return null;
+    return {
+      key: k,
+      url: encodeURIComponent(v),
+      meta: KNOWN_SITES[k]
+    }
+  }))
+
+  ctx.render('reviews/positive', Object.assign({}, ctx.jadeLocals, {
+    survey: survey,
+    sites: sites,
+    forwardUrl: router.url('forwarder', { idkey: idKey })
+  }), true);
+}
 
 router.get('forwarder','/forward/:idkey', function*() {
 

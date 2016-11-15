@@ -137,6 +137,11 @@ block content
                         each profile, i in profiles
                           li
                             a.form-control(href="#", data-id=profile.id, data-type=profile.type) #{profile.name}
+                .form-group
+                  label(for="one-step-review")
+                    input(type="checkbox" id="one-step-review" name="onestep" checked)
+                  | &nbsp;1-Step Review
+
                 h6#profileDropdownWarningLabel(style='color:#d26a5c; font-style:italic; margin-top:-5px') Please select a profile, or create one first if none exist
 
         .modal-footer

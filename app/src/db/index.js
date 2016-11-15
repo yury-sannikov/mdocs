@@ -49,7 +49,8 @@ exports.createNewSurvey = function() {
       },
       title: title,
       reviewFor: survey.reviewFor,
-      reviewSite: survey.reviewSite
+      reviewSite: survey.reviewSite,
+      onestep: survey.onestep
     };
 
     if(!_.isEmpty(survey.phoneMobile)) {

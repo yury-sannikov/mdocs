@@ -77,6 +77,7 @@ router.post('/new-request', hasPatientReviews, function*() {
   }
 
   const survey = Object.assign({}, this.request.body, {
+    onestep: this.request.body.onestep === 'on',
     reviewFor: {
       id: selectedProfile,
       reviewType: selectedProfileType
