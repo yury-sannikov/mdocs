@@ -8,8 +8,8 @@ html(lang="en")
       .divider
         .container.pt-30
           h1.mt-0.mb-30 Feedback
-          .row                    
-            .col-md-8              
+          .row
+            .col-md-8
               // Contact Form
               form.js-bookonline-form(action='', data-callback='makeappointmentform_submit', method='post')
                 input(style='display:none;', name='systype', value='message')
@@ -18,13 +18,13 @@ html(lang="en")
                     .form-group
                       label(for='firstname')
                         | First Name
-                        small *                     
+                        small *
                       input#firstname.form-control(name='firstname', type='text', placeholder='Enter First Name' required='')
                   .col-sm-6
                     .form-group
                       label(for='lastname')
                         | Last Name
-                        small *                     
+                        small *
                       input#lastname.form-control(name='lastname', type='text', placeholder='Enter Last Name' required='')
                 .row
                   .col-sm-6
@@ -32,22 +32,23 @@ html(lang="en")
                       label(for='email')
                         | Email
                         small *
-                      input#email.form-control.required.email(name='email', type='email', placeholder='Enter Email', required='')                                 
+                      input#email.form-control.required.email(name='email', type='email', placeholder='Enter Email', required='')
                   .col-sm-6
                     .form-group
-                      label(for='phone') 
+                      label(for='phone')
                         | Phone
-                        small * 
+                        small *
                       input#phone.form-control(name='phone', type='text', placeholder='Enter Phone', required='')
-                .row                  
+                .row
                   .col-sm-12
                     .form-group
-                      label(for='comment') 
-                        | Comment                         
+                      label(for='comment')
+                        | Comment
                       textarea#comment.form-control(name='comment', placeholder='Enter Comment', rows='4')
-                .form-group                 
-                  input.mb-20.js-bookonline-submit.btn.btn-dark.btn-theme-colored.btn-flat.mr-5(type='submit', data-loading-text='Please wait...',value='Send your message')  
-            
+                .form-group
+                  input.mb-20.js-bookonline-submit.btn.btn-dark.btn-theme-colored.btn-flat.mr-5(type='submit', data-loading-text='Please wait...',value='Send your message')
+                input(name="systype" type="hidden" value="message")
+
 
     script(type='text/javascript', src='/assets/widgets/bookonline/index.js', data-profileid=practice.mdocsAccount)
     include ../partials/footer.pug

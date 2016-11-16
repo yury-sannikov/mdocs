@@ -1,53 +1,53 @@
 button.btn-leave-review.btn.btn-colored.btn-flat.btn-theme-colored.mt-15(type='button', data-toggle='modal', data-target='#makeappointment') Make an Appointment
 
 #makeappointment.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
-	.modal-dialog(role='document')
-		.modal-content
-			.modal-header
-				button.close(type='button', data-dismiss='modal', aria-label='Close')
-					span(aria-hidden='true') ×
-				h4#myModalLabel.modal-title Make an appointment
-			.modal-body
-				form.js-bookonline-form(action='', method='post', data-callback='appointment_form_submit', data-callback-beforesubmit="appointment_form_before_submit")
-					input(style='display:none;', name='systype', value='appointment')
-					.row
-						.col-xs-6
-							label(for="fullname") FULL NAME
-							input#fullname.form-control(name='fullname', type='text', placeholder='Full name', required="")
-							br
-							label(for="email") EMAIL ADDRESS
-							input#email.form-control(name='email', type='email', placeholder='Email address', required="")
-							br
-							label(for="phone") PHONE NUMBER
-							input.form-control(name='phone', type='tel', placeholder='Phone number', required="")
-						.col-xs-6
-							label NEW PATIENT
-							br
-							input#isnewyes.mr-5(type="radio", name="isnew_radio", value="1", required="")
-							label(for="isnewyes", style="margin: 9px 15px 35px 0") Yes
-							input#isnewno.mr-5(type="radio", name="isnew_radio", value="0", required="")
-							label(for="isnewno") No
-							br
-							label(for="description") REASON
-							input#description.form-control(name="description", type="text", placeholder="E.g. initial consultation, follow-up, ...", required="")
-							br
-							label(for="dob") DATE OF BIRTH
-							input#dob.form-control(name="dob", type="text", placeholder="MM/DD/YYYY", maxlength="10", required="")
-					input.js-patient-field(name="isnew" type="hidden" value="0")
-					.text-center
-						input.js-bookonline-submit.btn.btn-colored.btn-flat.btn-theme-colored.mt-15(type='submit', value='Submit', data-loading-msg='Submitting...', data-success-msg='Success!', data-error-msg='Error! Try again.')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+        h4#myModalLabel.modal-title Make an appointment
+      .modal-body
+        form.js-bookonline-form(action='', method='post', data-callback='appointment_form_submit', data-callback-beforesubmit="appointment_form_before_submit")
+          input(style='display:none;', name='systype', value='appointment')
+          .row
+            .col-xs-6
+              label(for="fullname") FULL NAME
+              input#fullname.form-control(name='fullname', type='text', placeholder='Full name', required="")
+              br
+              label(for="email") EMAIL ADDRESS
+              input#email.form-control(name='email', type='email', placeholder='Email address', required="")
+              br
+              label(for="phone") PHONE NUMBER
+              input.form-control(name='phone', type='tel', placeholder='Phone number', required="")
+            .col-xs-6
+              label NEW PATIENT
+              br
+              input#isnewyes.mr-5(type="radio", name="isnew_radio", value="1", required="")
+              label(for="isnewyes", style="margin: 9px 15px 35px 0") Yes
+              input#isnewno.mr-5(type="radio", name="isnew_radio", value="0", required="")
+              label(for="isnewno") No
+              br
+              label(for="description") REASON
+              input#description.form-control(name="description", type="text", placeholder="E.g. initial consultation, follow-up, ...", required="")
+              br
+              label(for="dob") DATE OF BIRTH
+              input#dob.form-control(name="dob", type="text", placeholder="MM/DD/YYYY", maxlength="10", required="")
+          input.js-patient-field(name="isnew" type="hidden" value="0")
+          input(name="systype" type="hidden" value="appointment")
+          .text-center
+            input.js-bookonline-submit.btn.btn-colored.btn-flat.btn-theme-colored.mt-15(type='submit', value='Submit', data-loading-msg='Submitting...', data-success-msg='Success!', data-error-msg='Error! Try again.')
 
 script.
-	$('input[name="isnew_radio"]').on('change', function() {
-		var isnew = $(this).val();
-		$('.js-patient-field').val(isnew);
-	});
+  $('input[name="isnew_radio"]').on('change', function() {
+    var isnew = $(this).val();
+    $('.js-patient-field').val(isnew);
+  });
 
-	$(function(){
-		$("button.btn-leave-review").click(function() {
-			$('input.js-bookonline-submit').attr('value','Send');
-			$('input.js-bookonline-submit').attr('disabled',false);
-		});
-	});
-
+  $(function(){
+    $("button.btn-leave-review").click(function() {
+      $('input.js-bookonline-submit').attr('value','Send');
+      $('input.js-bookonline-submit').attr('disabled',false);
+    });
+  });
 script(type='text/javascript', src='/assets/widgets/bookonline/index.js', data-profileid=practice.mdocsAccount)
