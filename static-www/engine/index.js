@@ -161,7 +161,7 @@ function metalsmithFactory(workDir, buildDir, options) {
         overrideMetalsmithPath: options.partialsPath
       }))
     )
-    .use(msIf(options._minify === true, htmlMinifier()))
+    // .use(msIf(options._minify === true, htmlMinifier()))
 }
 
 class SiteBuilderEngine {
@@ -228,6 +228,7 @@ class SiteBuilderEngine {
     }))
     ms.build((err, files) => {
       if (err) {
+        console.log(err);
         done(err, files)
         return
       }
