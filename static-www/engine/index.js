@@ -193,7 +193,7 @@ function metalsmithFactory(workDir, buildDir, options) {
       }))
     )
     .use(timeLogger('minify files'))
-    // .use(msIf(options._minify === true, htmlMinifier()))
+    .use(msIf(options._minify === true, htmlMinifier()))
 }
 
 class SiteBuilderEngine {
