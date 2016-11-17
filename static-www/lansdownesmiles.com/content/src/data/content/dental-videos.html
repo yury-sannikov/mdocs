@@ -1,0 +1,107 @@
+<div id="content"><span>
+    <h1><span style="font-size: 16px;">Dental Videos and Education for Lansdowne, VA Dentistry</span></h1>
+    <h2><span style="font-size: 14px;">Lansdowne Family & Cosmetic Dentistry
+        <hr/></span></h2>
+    <p> </p>
+    <p>Because we are committed to improving the oral healthcare knowledge of our patients, we are providing the following selection of dental videos which we hope you will find interesting and informative.  We have grouped the videos into various categories to provide quick access to the topics of greatest interest to you.</p>
+    <p>Please <a href="/contact/">contact us</a> if you have any questions or would like to <a href="/appointment/" target="_blank">schedule an appointment</a>.</p>
+    <p> </p></span>
+  <p>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous"/>
+    <link href="/assets/css/dentalvideos.css" rel="stylesheet"/>
+  </p>
+  <div id="outerdiv" class="row">
+    <div id="videoplayertable">
+      <div id="videoplayertd">
+        <div id="contactus" class="playerform hide">
+          <div id="pformmsg">We encourage you to contact us with any questions or comments you may have.<br/>Please call our office or use this contact form.</div>
+          <div id="pform">
+            <h2>Contact Us</h2>
+            <input id="cu_name" type="text" placeholder="Name:"/>
+            <input id="cu_phone" type="text" placeholder="Phone:"/>
+            <input name="ctl00$ContentPlaceHolder1$DentalVideoControl$cu_email" type="text" placeholder="Email:" class="cu_email"/><span style="visibility:hidden;"></span>
+            <textarea id="cu_msg" cols="10" placeholder="Type your message here: (Messages sent using this form are not considered private. Avoid sending confidential information via email.)"></textarea>
+            <input id="btnSend" type="button" onclick="submitForm()" value="Send"/>
+          </div>
+          <div class="backbtn"><a onclick="contactUs()" href="#">Back to Video</a></div>
+        </div>
+        <div id="emailus" class="emuform hide">
+          <div id="emuformmsg">
+            <h3>Tell a Friend!</h3>To Email a friend a link to this video, please complete the fields below and then click the Send button.
+          </div>
+          <div id="inneremuform">
+            <div id="emuform">
+              <h5>To:</h5>
+              <input id="em_fname" type="text" placeholder="Friends Name:"/>
+              <input id="em_femail" type="text" placeholder="Friends Email:"/>
+              <h5>From: </h5>
+              <input id="em_name" type="text" placeholder="Your Name:"/>
+              <input id="em_email" type="text" placeholder="Your Email:"/>
+            </div>
+            <div id="emuform2">
+              <h5>Message: </h5>
+              <textarea id="em_msg" cols="10" placeholder="Type your message here: (Messages sent using this form are not considered private. Avoid sending confidential information via email.)"></textarea>
+              <input id="embtnSend" type="button" onclick="shareVideo()" value="Send"/>
+            </div>
+          </div>
+          <div class="backbtn"><a onclick="emailFriend()" href="#">Back to Video</a></div>
+        </div>
+        <div id="thankyou" class="thankyou hide">
+          <div id="innerthx">
+            <h3> Thank You!</h3>Your message has been sent.
+            <div class="backbtn"><a onclick="thxToggle()" href="#">Back to Video</a></div>
+          </div>
+        </div>
+        <div id="vidwrap">
+          <video id="vidplay" autoplay="" poster="/assets/images/1103681_VideoPreview.jpg" style="display: block;" class="iframevid">
+            <source id="vidsrc" src="[vidstart]" type="video/mp4"/><img id="previewbg" src="[previewimage]"/>
+          </video>
+        </div>
+        <div id="overlay">
+          <div class="overlaycontainer">
+            <div class="ocol"><a id="playbtn" href="#" onclick="pausevid(" olay=""><i aria-hidden="true" class="fa fa-pause"></i><span id="playtxt">Pause</span></a></div>
+            <div class="ocol"><a id="contusbtn" onclick="contactUs()" href="#"><i aria-hidden="true" class="fa fa-users"></i>Contact Us</a></div>
+            <div class="ocol"><a id="emailbtn" onclick="emailFriend()" href="#"><i aria-hidden="true" class="fa fa-share-alt"></i>Email A Friend</a></div>
+          </div>
+        </div>
+      </div>
+      <div id="toolstd">
+        <div style="float: left"><span>Choose Category:</span></div>
+        <div style="float: right; padding-right: 10px"><span>LANGUAGE: </span>
+          <select id="lngsel" name="LangSelect">
+            <option value="ENGLISH" selected="">English</option>
+            <option value="FRENCH">French</option>
+            <option value="SPANISH">Spanish</option>
+          </select>
+        </div>
+      </div>
+      <div id="bottomwrap">
+        <ul id="Categories">
+          <li onmouseover="this.setAttribute(" hilight="" onmouseout="this.setAttribute(" onclick="showCatVidsDiv(" exams="" hygiene="" class="category"><a onclick="showCatVids(this)">Exams/Hygiene</a></li>
+          <li onmouseover="this.setAttribute(" hilight="" onmouseout="this.setAttribute(" onclick="showCatVidsDiv(" cosmetic="" class="category"><a onclick="showCatVids(this)">Cosmetic</a></li>
+          <li onmouseover="this.setAttribute(" hilight="" onmouseout="this.setAttribute(" onclick="showCatVidsDiv(" periodontics="" class="category"><a onclick="showCatVids(this)">Periodontics</a></li>
+          <li onmouseover="this.setAttribute(" hilight="" onmouseout="this.setAttribute(" onclick="showCatVidsDiv(" dental="" implants="" class="category"><a onclick="showCatVids(this)">Dental Implants</a></li>
+          <li onmouseover="this.setAttribute(" hilight="" onmouseout="this.setAttribute(" onclick="showCatVidsDiv(" pediatric="" class="category"><a onclick="showCatVids(this)">Pediatric</a></li>
+          <li onmouseover="this.setAttribute(" hilight="" onmouseout="this.setAttribute(" onclick="showCatVidsDiv(" endodontics="" class="category"><a onclick="showCatVids(this)">Endodontics</a></li>
+          <li onmouseover="this.setAttribute(" hilight="" onmouseout="this.setAttribute(" onclick="showCatVidsDiv(" oral="" surgery="" class="category"><a onclick="showCatVids(this)">Oral Surgery</a></li>
+          <li onmouseover="this.setAttribute(" hilight="" onmouseout="this.setAttribute(" onclick="showCatVidsDiv(" crown="" &amp;="" bridge="" class="category"><a onclick="showCatVids(this)">Crown & Bridge</a></li>
+          <li onmouseover="this.setAttribute(" hilight="" onmouseout="this.setAttribute(" onclick="showCatVidsDiv(" dentures="" class="category"><a onclick="showCatVids(this)">Dentures</a></li>
+          <li onmouseover="this.setAttribute(" hilight="" onmouseout="this.setAttribute(" onclick="showCatVidsDiv(" other="" class="category"><a onclick="showCatVids(this)">Other</a></li>
+        </ul>
+        <div id="videos">
+          <div id="vidhtml5thumbs">
+            <div id="vids">
+              <div class="vid"><a onclick="playVideo(" afv.mp4=""><img src="/assets/images/AFV.png" class="vidthumb"/>
+                  <div class="label">New Patient Exam</div></a></div>
+              <div class="vid"><a onclick="playVideo(" pedo.mp4=""><img src="/assets/images/PEDO.png" class="vidthumb"/>
+                  <div class="label">Pediatric First Visit</div></a></div>
+              <div class="vid"><a onclick="playVideo(" ohi.mp4=""><img src="/assets/images/OHI.png" class="vidthumb"/>
+                  <div class="label">Brushing & Flossing</div></a></div>
+            </div>
+          </div>
+          <div id="paging"><a id="pager" style="display: none;">MORE></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
