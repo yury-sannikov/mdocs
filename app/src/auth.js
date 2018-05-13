@@ -9,9 +9,9 @@ import { getProfiles } from './db/profiles'
 import _ from 'lodash';
 
 var strategy = new Auth0Strategy({
-  domain:       'movelmobile.auth0.com',
-  clientID:     'SdMQqjyMjjWAM2NbxfY8BJXK28JgQ2iB',
-  clientSecret: 'Att9Ez3cxbebglWBaL4hLTPWsWJEn8ml0dg4IvGPi8MF5eoewj-D74VsL5r0QM_7',
+  domain:       'movelmobile1.auth0.com',
+  clientID:     '31MXsjwadcnBdrqhvhD4EMhHkZ4uQs0Y',
+  clientSecret: 'ZRpj63Dys0x6U_MpJsLuRJ2Qm4_NQiE5tndV2Z_JA3xfd4miS1eFITwbU_EYgO4l',
   callbackURL:  config.AUTH_CALLBACK_URL
 }, function(accessToken, refreshToken, extraParams, profile, done) {
   // accessToken is the token to call Auth0 API (not needed in the most cases)

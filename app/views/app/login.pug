@@ -11,13 +11,23 @@ block content
     i.fa.fa-lg.fa-spinner
 
 block scripts
-  script(src='https://cdn.auth0.com/js/lock-9.1.min.js')
+  script(src='https://cdn.auth0.com/js/lock/11.6.1/lock.min.js')
   script.
     var loc = window.location;
-    var lock = new Auth0Lock('#{config.AUTH_CLIENT_ID}', '#{config.AUTH_CLIENT_NAMESPACE}');
+    var options = {
+      allowAutocomplete: true,
+      rememberLastLogin: true,
+      allowedConnections: ['Username-Password-Authentication'],
+      container: 'root',
+      auth: {
+        redirectUrl: '#{config.AUTH_CALLBACK_URL}',
+        responseType: 'code'
+      }      
+    };
+    var lock = new Auth0Lock('#{config.AUTH_CLIENT_ID}', '#{config.AUTH_CLIENT_NAMESPACE}', options);
     lock.show({
     container: 'root'
-    , callbackURL: '#{config.AUTH_CALLBACK_URL}'
+    , callbackURL: 'http://mdocs.loc:3030/app/hooks/login'
     , responseType: 'code'
     , signupLink: 'http://www.practicewin.com#product'
     , authParams: {
