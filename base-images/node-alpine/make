@@ -6,7 +6,7 @@ set -e
 
 CMDS='build tag push'
 VARIATIONS='base onbuild'
-AWS_ECR='067216503767.dkr.ecr.us-east-1.amazonaws.com/'
+AWS_ECR='217509956792.dkr.ecr.us-east-1.amazonaws.com/'
 
 main() {
   local cmds=$1 variations=${2:-$VARIATIONS}
@@ -53,13 +53,13 @@ tag() { # img variation
   local tag name; while read tag; do
     name=$(image_name "$img" "$tag" "$variation")
     q docker rmi "$name"
-    n docker tag -f "$img:$variation-build" "$name"
+    n docker tag "$img:$variation-build" "$name"
   done < .tags
 }
 
 aws_login() {
   echo Performing Docker Login to AWS
-  local DOCKER_LOGIN=`aws ecr get-login`
+  local DOCKER_LOGIN=`aws ecr get-login --no-include-email --region us-east-1`
   eval $DOCKER_LOGIN
 }
 
