@@ -20,7 +20,11 @@ var strategy = new Auth0Strategy({
   // console.log(`Auth0Strategy cb: ${accessToken}`);
   // console.log(` extra: ${JSON.stringify(extraParams, null, 2) }`);
   // console.log(` profile: ${JSON.stringify(profile, null, 2)}`);
-  return done(null, Object.assign({}, profile, {jwtToken: extraParams.id_token}));
+  return done(null, Object.assign({}, profile, {
+    jwtToken: extraParams.id_token,
+    __testtest: 123,
+    id: profile.id || profile._json.sub.split('|')[1]
+  }));
 });
 
 debug(`Create Auth0 strategy with callbackURL: ${config.AUTH_CALLBACK_URL}`);

@@ -47,7 +47,6 @@ exports.wrapCurrUser = function() {
 exports.wrapJadeLocals = function() {
   return function *(next) {
     const currentUser = this.currentUser || {};
-
     const { rights: accountRights = {},
             profiles: accountProfiles = {} } = currentUser.account || {};
     const { sitebuilder: accountSitebuilder = {} } = currentUser.account || {};

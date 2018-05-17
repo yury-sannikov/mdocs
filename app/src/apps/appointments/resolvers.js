@@ -11,8 +11,8 @@ const requestHeaders = (identity = null) => {
 }
 
 const API_CALL_TIMEOUT = 15000
-const isDev = process.env.NODE_ENV !== 'production'
-const API_URL = isDev ? 'http://localhost:3030/app/api' : 'https://app.mdocs.co/app/api'
+const isDev = true; //process.env.NODE_ENV !== 'production'
+const API_URL = isDev ? 'http://mdocs.loc:3030/app/api' : 'https://app.mdocs.co/app/api'
 
 const parseJSON = (response) => response.json()
 

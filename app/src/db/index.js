@@ -231,7 +231,6 @@ exports.updateProfile = function* (id, data) {
       const empty = _.every(data.analytics, (a) => _.isEmpty(a))
       newProfile.analytics = empty ? DynamoDB.del() : data.analytics;
     }
-
   return yield updateAsync(newProfile);
 };
 

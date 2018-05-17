@@ -30,7 +30,6 @@ function* loginCallbackHandler() {
   ctx.session.redirectOnLogin = null;
   yield passport.authenticate('auth0', function*(err, user, info) {
     if (err) throw err;
-
     if (user === false) {
       ctx.redirect('/');
     } else {
